@@ -1,632 +1,632 @@
 [submodule "llvm/llvm-project"]
 	path = llvm/llvm-project
-	url = git@github.com:llvm/llvm-project.git
+	url = https://github.com/llvm/llvm-project.git
 	branch = main
 [submodule "bench/zlib/zlib"]
 	path = bench/zlib/zlib
-	url = git@github.com:madler/zlib.git
+	url = https://github.com/madler/zlib.git
 [submodule "bench/zstd/zstd"]
 	path = bench/zstd/zstd
-	url = git@github.com:facebook/zstd.git
+	url = https://github.com/facebook/zstd.git
 [submodule "bench/brotli/brotli"]
 	path = bench/brotli/brotli
-	url = git@github.com:google/brotli.git
+	url = https://github.com/google/brotli.git
 [submodule "bench/lz4/lz4"]
 	path = bench/lz4/lz4
-	url = git@github.com:lz4/lz4.git
+	url = https://github.com/lz4/lz4.git
 [submodule "bench/snappy/snappy"]
 	path = bench/snappy/snappy
-	url = git@github.com:google/snappy.git
+	url = https://github.com/google/snappy.git
 [submodule "bench/readerwriterqueue/readerwriterqueue"]
 	path = bench/readerwriterqueue/readerwriterqueue
-	url = git@github.com:cameron314/readerwriterqueue.git
+	url = https://github.com/cameron314/readerwriterqueue.git
 [submodule "bench/mimalloc/mimalloc"]
 	path = bench/mimalloc/mimalloc
-	url = git@github.com:microsoft/mimalloc.git
+	url = https://github.com/microsoft/mimalloc.git
 [submodule "bench/spdlog/spdlog"]
 	path = bench/spdlog/spdlog
-	url = git@github.com:gabime/spdlog.git
+	url = https://github.com/gabime/spdlog.git
 [submodule "bench/imgui/imgui"]
 	path = bench/imgui/imgui
-	url = git@github.com:ocornut/imgui.git
+	url = https://github.com/ocornut/imgui.git
 [submodule "bench/nlohmann_json/json"]
 	path = bench/nlohmann_json/json
-	url = git@github.com:nlohmann/json.git
+	url = https://github.com/nlohmann/json.git
 [submodule "bench/taskflow/taskflow"]
 	path = bench/taskflow/taskflow
-	url = git@github.com:taskflow/taskflow.git
+	url = https://github.com/taskflow/taskflow.git
 [submodule "bench/assimp/assimp"]
 	path = bench/assimp/assimp
-	url = git@github.com:assimp/assimp.git
+	url = https://github.com/assimp/assimp.git
 [submodule "bench/meshoptimizer/meshoptimizer"]
 	path = bench/meshoptimizer/meshoptimizer
-	url = git@github.com:zeux/meshoptimizer.git
+	url = https://github.com/zeux/meshoptimizer.git
 [submodule "bench/ocio/OpenColorIO"]
 	path = bench/ocio/OpenColorIO
-	url = git@github.com:AcademySoftwareFoundation/OpenColorIO.git
+	url = https://github.com/AcademySoftwareFoundation/OpenColorIO.git
 [submodule "bench/coremark/coremark"]
 	path = bench/coremark/coremark
-	url = git@github.com:eembc/coremark.git
+	url = https://github.com/eembc/coremark.git
 [submodule "bench/duckdb/duckdb"]
 	path = bench/duckdb/duckdb
-	url = git@github.com:duckdb/duckdb.git
+	url = https://github.com/duckdb/duckdb.git
 [submodule "bench/cxxopts/cxxopts"]
 	path = bench/cxxopts/cxxopts
-	url = git@github.com:jarro2783/cxxopts.git
+	url = https://github.com/jarro2783/cxxopts.git
 [submodule "bench/yaml-cpp/yaml-cpp"]
 	path = bench/yaml-cpp/yaml-cpp
-	url = git@github.com:jbeder/yaml-cpp.git
+	url = https://github.com/jbeder/yaml-cpp.git
 [submodule "bench/nuklear/Nuklear"]
 	path = bench/nuklear/Nuklear
-	url = git@github.com:Immediate-Mode-UI/Nuklear.git
+	url = https://github.com/Immediate-Mode-UI/Nuklear.git
 [submodule "bench/stb/stb"]
 	path = bench/stb/stb
-	url = git@github.com:nothings/stb.git
+	url = https://github.com/nothings/stb.git
 [submodule "bench/yyjson/yyjson"]
 	path = bench/yyjson/yyjson
-	url = git@github.com:ibireme/yyjson.git
+	url = https://github.com/ibireme/yyjson.git
 [submodule "bench/tomlplusplus/tomlplusplus"]
 	path = bench/tomlplusplus/tomlplusplus
-	url = git@github.com:marzer/tomlplusplus.git
+	url = https://github.com/marzer/tomlplusplus.git
 [submodule "bench/fmt/fmt"]
 	path = bench/fmt/fmt
-	url = git@github.com:fmtlib/fmt.git
+	url = https://github.com/fmtlib/fmt.git
 [submodule "bench/simdjson/simdjson"]
 	path = bench/simdjson/simdjson
-	url = git@github.com:simdjson/simdjson.git
+	url = https://github.com/simdjson/simdjson.git
 [submodule "bench/entt/entt"]
 	path = bench/entt/entt
-	url = git@github.com:skypjack/entt.git
+	url = https://github.com/skypjack/entt.git
 [submodule "bench/velox/velox"]
 	path = bench/velox/velox
-	url = git@github.com:facebookincubator/velox.git
+	url = https://github.com/facebookincubator/velox.git
 [submodule "bench/yalantinglibs/yalantinglibs"]
 	path = bench/yalantinglibs/yalantinglibs
-	url = git@github.com:alibaba/yalantinglibs.git
+	url = https://github.com/alibaba/yalantinglibs.git
 [submodule "bench/miniaudio/miniaudio"]
 	path = bench/miniaudio/miniaudio
-	url = git@github.com:mackron/miniaudio.git
+	url = https://github.com/mackron/miniaudio.git
 [submodule "bench/libuv/libuv"]
 	path = bench/libuv/libuv
-	url = git@github.com:libuv/libuv.git
+	url = https://github.com/libuv/libuv.git
 [submodule "bench/libevent/libevent"]
 	path = bench/libevent/libevent
-	url = git@github.com:libevent/libevent.git
+	url = https://github.com/libevent/libevent.git
 [submodule "bench/pcg-cpp/pcg-cpp"]
 	path = bench/pcg-cpp/pcg-cpp
-	url = git@github.com:imneme/pcg-cpp.git
+	url = https://github.com/imneme/pcg-cpp.git
 [submodule "bench/pbrt-v4/pbrt-v4"]
 	path = bench/pbrt-v4/pbrt-v4
-	url = git@github.com:mmp/pbrt-v4.git
+	url = https://github.com/mmp/pbrt-v4.git
 [submodule "bench/double_conversion/double-conversion"]
 	path = bench/double_conversion/double-conversion
-	url = git@github.com:google/double-conversion.git
+	url = https://github.com/google/double-conversion.git
 [submodule "bench/box2d/box2d"]
 	path = bench/box2d/box2d
-	url = git@github.com:erincatto/box2d.git
+	url = https://github.com/erincatto/box2d.git
 [submodule "bench/bullet3/bullet3"]
 	path = bench/bullet3/bullet3
-	url = git@github.com:bulletphysics/bullet3.git
+	url = https://github.com/bulletphysics/bullet3.git
 [submodule "bench/cvc5/cvc5"]
 	path = bench/cvc5/cvc5
-	url = git@github.com:cvc5/cvc5.git
+	url = https://github.com/cvc5/cvc5.git
 [submodule "bench/z3/z3"]
 	path = bench/z3/z3
-	url = git@github.com:Z3Prover/z3.git
+	url = https://github.com/Z3Prover/z3.git
 [submodule "bench/llama.cpp/llama.cpp"]
 	path = bench/llama.cpp/llama.cpp
-	url = git@github.com:ggerganov/llama.cpp.git
+	url = https://github.com/ggerganov/llama.cpp.git
 [submodule "bench/protobuf/protobuf"]
 	path = bench/protobuf/protobuf
-	url = git@github.com:protocolbuffers/protobuf.git
+	url = https://github.com/protocolbuffers/protobuf.git
 [submodule "bench/redis/redis"]
 	path = bench/redis/redis
-	url = git@github.com:redis/redis.git
+	url = https://github.com/redis/redis.git
 [submodule "bench/icu/icu"]
 	path = bench/icu/icu
-	url = git@github.com:unicode-org/icu.git
+	url = https://github.com/unicode-org/icu.git
 [submodule "bench/cppfront/cppfront"]
 	path = bench/cppfront/cppfront
-	url = git@github.com:hsutter/cppfront.git
+	url = https://github.com/hsutter/cppfront.git
 [submodule "bench/re2/re2"]
 	path = bench/re2/re2
-	url = git@github.com:google/re2.git
+	url = https://github.com/google/re2.git
 [submodule "bench/arrow/arrow"]
 	path = bench/arrow/arrow
-	url = git@github.com:apache/arrow.git
+	url = https://github.com/apache/arrow.git
 [submodule "bench/memcached/memcached"]
 	path = bench/memcached/memcached
-	url = git@github.com:memcached/memcached.git
+	url = https://github.com/memcached/memcached.git
 [submodule "bench/grpc/grpc"]
 	path = bench/grpc/grpc
-	url = git@github.com:grpc/grpc.git
+	url = https://github.com/grpc/grpc.git
 [submodule "bench/libdeflate/libdeflate"]
 	path = bench/libdeflate/libdeflate
-	url = git@github.com:ebiggers/libdeflate.git
+	url = https://github.com/ebiggers/libdeflate.git
 [submodule "bench/lodepng/lodepng"]
 	path = bench/lodepng/lodepng
-	url = git@github.com:lvandeve/lodepng.git
+	url = https://github.com/lvandeve/lodepng.git
 [submodule "bench/openexr/openexr"]
 	path = bench/openexr/openexr
-	url = git@github.com:AcademySoftwareFoundation/openexr.git
+	url = https://github.com/AcademySoftwareFoundation/openexr.git
 [submodule "bench/oiio/OpenImageIO"]
 	path = bench/oiio/OpenImageIO
-	url = git@github.com:AcademySoftwareFoundation/OpenImageIO.git
+	url = https://github.com/AcademySoftwareFoundation/OpenImageIO.git
 [submodule "bench/openvdb/openvdb"]
 	path = bench/openvdb/openvdb
-	url = git@github.com:AcademySoftwareFoundation/openvdb.git
+	url = https://github.com/AcademySoftwareFoundation/openvdb.git
 [submodule "bench/jemalloc/jemalloc"]
 	path = bench/jemalloc/jemalloc
-	url = git@github.com:jemalloc/jemalloc.git
+	url = https://github.com/jemalloc/jemalloc.git
 [submodule "bench/qemu/qemu"]
 	path = bench/qemu/qemu
 	url = https://gitlab.com/qemu-project/qemu.git
 [submodule "bench/pugixml/pugixml"]
 	path = bench/pugixml/pugixml
-	url = git@github.com:zeux/pugixml.git
+	url = https://github.com/zeux/pugixml.git
 [submodule "bench/tinyobjloader/tinyobjloader"]
 	path = bench/tinyobjloader/tinyobjloader
-	url = git@github.com:tinyobjloader/tinyobjloader.git
+	url = https://github.com/tinyobjloader/tinyobjloader.git
 [submodule "bench/eastl/EASTL"]
 	path = bench/eastl/EASTL
-	url = git@github.com:electronicarts/EASTL.git
+	url = https://github.com/electronicarts/EASTL.git
 [submodule "bench/abseil-cpp/abseil-cpp"]
 	path = bench/abseil-cpp/abseil-cpp
-	url = git@github.com:abseil/abseil-cpp.git
+	url = https://github.com/abseil/abseil-cpp.git
 [submodule "bench/folly/folly"]
 	path = bench/folly/folly
-	url = git@github.com:facebook/folly.git
+	url = https://github.com/facebook/folly.git
 [submodule "bench/ms-gsl/GSL"]
 	path = bench/ms-gsl/GSL
-	url = git@github.com:microsoft/GSL.git
+	url = https://github.com/microsoft/GSL.git
 [submodule "bench/rocksdb/rocksdb"]
 	path = bench/rocksdb/rocksdb
-	url = git@github.com:facebook/rocksdb.git
+	url = https://github.com/facebook/rocksdb.git
 [submodule "bench/yoga/yoga"]
 	path = bench/yoga/yoga
-	url = git@github.com:facebook/yoga.git
+	url = https://github.com/facebook/yoga.git
 [submodule "bench/hermes/hermes"]
 	path = bench/hermes/hermes
-	url = git@github.com:facebook/hermes.git
+	url = https://github.com/facebook/hermes.git
 [submodule "bench/proxygen/proxygen"]
 	path = bench/proxygen/proxygen
-	url = git@github.com:facebook/proxygen.git
+	url = https://github.com/facebook/proxygen.git
 [submodule "bench/flatbuffers/flatbuffers"]
 	path = bench/flatbuffers/flatbuffers
-	url = git@github.com:google/flatbuffers.git
+	url = https://github.com/google/flatbuffers.git
 [submodule "bench/openssl/openssl"]
 	path = bench/openssl/openssl
-	url = git@github.com:openssl/openssl.git
+	url = https://github.com/openssl/openssl.git
 [submodule "bench/flac/flac"]
 	path = bench/flac/flac
-	url = git@github.com:xiph/flac.git
+	url = https://github.com/xiph/flac.git
 [submodule "bench/node/node"]
 	path = bench/node/node
-	url = git@github.com:nodejs/node.git
+	url = https://github.com/nodejs/node.git
 [submodule "bench/cpp-httplib/cpp-httplib"]
 	path = bench/cpp-httplib/cpp-httplib
-	url = git@github.com:yhirose/cpp-httplib.git
+	url = https://github.com/yhirose/cpp-httplib.git
 [submodule "bench/cpython/cpython"]
 	path = bench/cpython/cpython
-	url = git@github.com:python/cpython.git
+	url = https://github.com/python/cpython.git
 [submodule "bench/lua/lua"]
 	path = bench/lua/lua
-	url = git@github.com:lua/lua.git
+	url = https://github.com/lua/lua.git
 [submodule "bench/luajit/LuaJIT"]
 	path = bench/luajit/LuaJIT
-	url = git@github.com:LuaJIT/LuaJIT.git
+	url = https://github.com/LuaJIT/LuaJIT.git
 [submodule "bench/chibicc/chibicc"]
 	path = bench/chibicc/chibicc
-	url = git@github.com:rui314/chibicc.git
+	url = https://github.com/rui314/chibicc.git
 [submodule "bench/mold/mold"]
 	path = bench/mold/mold
-	url = git@github.com:rui314/mold.git
+	url = https://github.com/rui314/mold.git
 [submodule "bench/syn/syn"]
 	path = bench/syn/syn
-	url = git@github.com:dtolnay/syn.git
+	url = https://github.com/dtolnay/syn.git
 [submodule "bench/regex-rs/regex"]
 	path = bench/regex-rs/regex
-	url = git@github.com:rust-lang/regex.git
+	url = https://github.com/rust-lang/regex.git
 [submodule "bench/harfbuzz/harfbuzz"]
 	path = bench/harfbuzz/harfbuzz
-	url = git@github.com:harfbuzz/harfbuzz.git
+	url = https://github.com/harfbuzz/harfbuzz.git
 [submodule "bench/git/git"]
 	path = bench/git/git
-	url = git@github.com:git/git.git
+	url = https://github.com/git/git.git
 [submodule "bench/msdfgen/msdfgen"]
 	path = bench/msdfgen/msdfgen
-	url = git@github.com:Chlumsky/msdfgen.git
+	url = https://github.com/Chlumsky/msdfgen.git
 [submodule "bench/serde-rs/serde"]
 	path = bench/serde-rs/serde
-	url = git@github.com:serde-rs/serde.git
+	url = https://github.com/serde-rs/serde.git
 [submodule "bench/serde-rs-json/json"]
 	path = bench/serde-rs-json/json
-	url = git@github.com:serde-rs/json.git
+	url = https://github.com/serde-rs/json.git
 [submodule "bench/kcp/kcp"]
 	path = bench/kcp/kcp
-	url = git@github.com:skywind3000/kcp.git
+	url = https://github.com/skywind3000/kcp.git
 [submodule "bench/libquic/libquic"]
 	path = bench/libquic/libquic
-	url = git@github.com:devsisters/libquic.git
+	url = https://github.com/devsisters/libquic.git
 [submodule "bench/nghttp2/nghttp2"]
 	path = bench/nghttp2/nghttp2
-	url = git@github.com:nghttp2/nghttp2.git
+	url = https://github.com/nghttp2/nghttp2.git
 [submodule "bench/libzmq/libzmq"]
 	path = bench/libzmq/libzmq
-	url = git@github.com:zeromq/libzmq.git
+	url = https://github.com/zeromq/libzmq.git
 [submodule "bench/wolfssl/wolfssl"]
 	path = bench/wolfssl/wolfssl
-	url = git@github.com:wolfSSL/wolfssl.git
+	url = https://github.com/wolfSSL/wolfssl.git
 [submodule "bench/curl/curl"]
 	path = bench/curl/curl
-	url = git@github.com:curl/curl.git
+	url = https://github.com/curl/curl.git
 [submodule "bench/libsodium/libsodium"]
 	path = bench/libsodium/libsodium
-	url = git@github.com:jedisct1/libsodium.git
+	url = https://github.com/jedisct1/libsodium.git
 [submodule "bench/hyperscan/hyperscan"]
 	path = bench/hyperscan/hyperscan
-	url = git@github.com:intel/hyperscan.git
+	url = https://github.com/intel/hyperscan.git
 [submodule "bench/linux/linux"]
 	path = bench/linux/linux
-	url = git@github.com:torvalds/linux.git
+	url = https://github.com/torvalds/linux.git
 [submodule "bench/php/php-src"]
 	path = bench/php/php-src
-	url = git@github.com:php/php-src.git
+	url = https://github.com/php/php-src.git
 [submodule "bench/quickjs/quickjs"]
 	path = bench/quickjs/quickjs
-	url = git@github.com:bellard/quickjs.git
+	url = https://github.com/bellard/quickjs.git
 [submodule "bench/sqlite/sqlite"]
 	path = bench/sqlite/sqlite
-	url = git@github.com:sqlite/sqlite.git
+	url = https://github.com/sqlite/sqlite.git
 [submodule "bench/glog/glog"]
 	path = bench/glog/glog
-	url = git@github.com:google/glog.git
+	url = https://github.com/google/glog.git
 [submodule "bench/csmith/csmith"]
 	path = bench/csmith/csmith
-	url = git@github.com:csmith-project/csmith.git
+	url = https://github.com/csmith-project/csmith.git
 [submodule "bench/libphonenumber/libphonenumber"]
 	path = bench/libphonenumber/libphonenumber
-	url = git@github.com:google/libphonenumber.git
+	url = https://github.com/google/libphonenumber.git
 [submodule "bench/ruby/ruby"]
 	path = bench/ruby/ruby
-	url = git@github.com:ruby/ruby.git
+	url = https://github.com/ruby/ruby.git
 [submodule "bench/postgres/postgres"]
 	path = bench/postgres/postgres
-	url = git@github.com:postgres/postgres.git
+	url = https://github.com/postgres/postgres.git
 [submodule "bench/recastnavigation/recastnavigation"]
 	path = bench/recastnavigation/recastnavigation
-	url = git@github.com:recastnavigation/recastnavigation.git
+	url = https://github.com/recastnavigation/recastnavigation.git
 [submodule "bench/stockfish/Stockfish"]
 	path = bench/stockfish/Stockfish
-	url = git@github.com:official-stockfish/Stockfish.git
+	url = https://github.com/official-stockfish/Stockfish.git
 [submodule "bench/hwloc/hwloc"]
 	path = bench/hwloc/hwloc
-	url = git@github.com:open-mpi/hwloc.git
+	url = https://github.com/open-mpi/hwloc.git
 [submodule "bench/openmpi/ompi"]
 	path = bench/openmpi/ompi
-	url = git@github.com:open-mpi/ompi.git
+	url = https://github.com/open-mpi/ompi.git
 [submodule "bench/nuttx/nuttx"]
 	path = bench/nuttx/nuttx
-	url = git@github.com:apache/nuttx.git
+	url = https://github.com/apache/nuttx.git
 [submodule "bench/rand-rs/rand"]
 	path = bench/rand-rs/rand
-	url = git@github.com:rust-random/rand.git
+	url = https://github.com/rust-random/rand.git
 [submodule "bench/log-rs/log"]
 	path = bench/log-rs/log
-	url = git@github.com:rust-lang/log.git
+	url = https://github.com/rust-lang/log.git
 [submodule "bench/clap-rs/clap"]
 	path = bench/clap-rs/clap
-	url = git@github.com:clap-rs/clap.git
+	url = https://github.com/clap-rs/clap.git
 [submodule "bench/mio-rs/mio"]
 	path = bench/mio-rs/mio
-	url = git@github.com:tokio-rs/mio.git
+	url = https://github.com/tokio-rs/mio.git
 [submodule "bench/tokio-rs/tokio"]
 	path = bench/tokio-rs/tokio
-	url = git@github.com:tokio-rs/tokio.git
+	url = https://github.com/tokio-rs/tokio.git
 [submodule "bench/rayon-rs/rayon"]
 	path = bench/rayon-rs/rayon
-	url = git@github.com:rayon-rs/rayon.git
+	url = https://github.com/rayon-rs/rayon.git
 [submodule "bench/unicode-normalization-rs/unicode-normalization"]
 	path = bench/unicode-normalization-rs/unicode-normalization
-	url = git@github.com:unicode-rs/unicode-normalization.git
+	url = https://github.com/unicode-rs/unicode-normalization.git
 [submodule "bench/image-rs/image"]
 	path = bench/image-rs/image
-	url = git@github.com:image-rs/image.git
+	url = https://github.com/image-rs/image.git
 [submodule "bench/hyper-rs/hyper"]
 	path = bench/hyper-rs/hyper
-	url = git@github.com:hyperium/hyper.git
+	url = https://github.com/hyperium/hyper.git
 [submodule "bench/html5ever-rs/html5ever"]
 	path = bench/html5ever-rs/html5ever
-	url = git@github.com:servo/html5ever.git
+	url = https://github.com/servo/html5ever.git
 [submodule "bench/diesel-rs/diesel"]
 	path = bench/diesel-rs/diesel
-	url = git@github.com:diesel-rs/diesel.git
+	url = https://github.com/diesel-rs/diesel.git
 [submodule "bench/ring-rs/ring"]
 	path = bench/ring-rs/ring
-	url = git@github.com:briansmith/ring.git
+	url = https://github.com/briansmith/ring.git
 [submodule "bench/influxdb-rs/influxdb"]
 	path = bench/influxdb-rs/influxdb
-	url = git@github.com:influxdata/influxdb.git
+	url = https://github.com/influxdata/influxdb.git
 [submodule "bench/abc/abc"]
 	path = bench/abc/abc
-	url = git@github.com:berkeley-abc/abc.git
+	url = https://github.com/berkeley-abc/abc.git
 [submodule "bench/spike/riscv-isa-sim"]
 	path = bench/spike/riscv-isa-sim
-	url = git@github.com:riscv-software-src/riscv-isa-sim.git
+	url = https://github.com/riscv-software-src/riscv-isa-sim.git
 [submodule "bench/raylib/raylib"]
 	path = bench/raylib/raylib
-	url = git@github.com:raysan5/raylib.git
+	url = https://github.com/raysan5/raylib.git
 [submodule "bench/nix/nix"]
 	path = bench/nix/nix
-	url = git@github.com:NixOS/nix.git
+	url = https://github.com/NixOS/nix.git
 [submodule "bench/vcpkg/vcpkg-tool"]
 	path = bench/vcpkg/vcpkg-tool
-	url = git@github.com:microsoft/vcpkg-tool.git
+	url = https://github.com/microsoft/vcpkg-tool.git
 [submodule "bench/ninja/ninja"]
 	path = bench/ninja/ninja
-	url = git@github.com:ninja-build/ninja.git
+	url = https://github.com/ninja-build/ninja.git
 [submodule "bench/ceres/ceres-solver"]
 	path = bench/ceres/ceres-solver
-	url = git@github.com:ceres-solver/ceres-solver.git
+	url = https://github.com/ceres-solver/ceres-solver.git
 [submodule "bench/casadi/casadi"]
 	path = bench/casadi/casadi
-	url = git@github.com:casadi/casadi.git
+	url = https://github.com/casadi/casadi.git
 [submodule "bench/jq/jq"]
 	path = bench/jq/jq
-	url = git@github.com:jqlang/jq.git
+	url = https://github.com/jqlang/jq.git
 [submodule "bench/faiss/faiss"]
 	path = bench/faiss/faiss
-	url = git@github.com:facebookresearch/faiss.git
+	url = https://github.com/facebookresearch/faiss.git
 [submodule "bench/minetest/minetest"]
 	path = bench/minetest/minetest
-	url = git@github.com:minetest/minetest.git
+	url = https://github.com/minetest/minetest.git
 [submodule "bench/nori/nori"]
 	path = bench/nori/nori
-	url = git@github.com:wjakob/nori.git
+	url = https://github.com/wjakob/nori.git
 [submodule "bench/draco/draco"]
 	path = bench/draco/draco
-	url = git@github.com:google/draco.git
+	url = https://github.com/google/draco.git
 [submodule "bench/wireshark/wireshark"]
 	path = bench/wireshark/wireshark
-	url = git@github.com:wireshark/wireshark.git
+	url = https://github.com/wireshark/wireshark.git
 [submodule "bench/lief/LIEF"]
 	path = bench/lief/LIEF
-	url = git@github.com:lief-project/LIEF.git
+	url = https://github.com/lief-project/LIEF.git
 [submodule "bench/cjson/cJSON"]
 	path = bench/cjson/cJSON
-	url = git@github.com:DaveGamble/cJSON.git
+	url = https://github.com/DaveGamble/cJSON.git
 [submodule "bench/meshlab/meshlab"]
 	path = bench/meshlab/meshlab
-	url = git@github.com:cnr-isti-vclab/meshlab.git
+	url = https://github.com/cnr-isti-vclab/meshlab.git
 [submodule "bench/bdwgc/bdwgc"]
 	path = bench/bdwgc/bdwgc
-	url = git@github.com:ivmai/bdwgc.git
+	url = https://github.com/ivmai/bdwgc.git
 [submodule "bench/cmake/CMake"]
 	path = bench/cmake/CMake
-	url = git@github.com:Kitware/CMake.git
+	url = https://github.com/Kitware/CMake.git
 [submodule "bench/graphviz/graphviz"]
 	path = bench/graphviz/graphviz
 	url = https://gitlab.com/graphviz/graphviz.git
 [submodule "bench/tev/tev"]
 	path = bench/tev/tev
-	url = git@github.com:Tom94/tev.git
+	url = https://github.com/Tom94/tev.git
 [submodule "bench/ipopt/Ipopt"]
 	path = bench/ipopt/Ipopt
-	url = git@github.com:coin-or/Ipopt.git
+	url = https://github.com/coin-or/Ipopt.git
 [submodule "bench/mini-lsm-rs/mini-lsm"]
 	path = bench/mini-lsm-rs/mini-lsm
-	url = git@github.com:skyzh/mini-lsm.git
+	url = https://github.com/skyzh/mini-lsm.git
 [submodule "bench/smol-rs/smol"]
 	path = bench/smol-rs/smol
-	url = git@github.com:smol-rs/smol.git
+	url = https://github.com/smol-rs/smol.git
 [submodule "bench/tree-sitter-rs/tree-sitter"]
 	path = bench/tree-sitter-rs/tree-sitter
-	url = git@github.com:tree-sitter/tree-sitter.git
+	url = https://github.com/tree-sitter/tree-sitter.git
 [submodule "bench/base64-rs/rust-base64"]
 	path = bench/base64-rs/rust-base64
-	url = git@github.com:marshallpierce/rust-base64.git
+	url = https://github.com/marshallpierce/rust-base64.git
 [submodule "bench/tls-rs/rustls"]
 	path = bench/tls-rs/rustls
-	url = git@github.com:rustls/rustls.git
+	url = https://github.com/rustls/rustls.git
 [submodule "bench/nanobind/nanobind"]
 	path = bench/nanobind/nanobind
-	url = git@github.com:wjakob/nanobind.git
+	url = https://github.com/wjakob/nanobind.git
 [submodule "bench/pybind11/pybind11"]
 	path = bench/pybind11/pybind11
-	url = git@github.com:pybind/pybind11.git
+	url = https://github.com/pybind/pybind11.git
 [submodule "bench/oniguruma/oniguruma"]
 	path = bench/oniguruma/oniguruma
-	url = git@github.com:kkos/oniguruma.git
+	url = https://github.com/kkos/oniguruma.git
 [submodule "bench/rustfmt-rs/rustfmt"]
 	path = bench/rustfmt-rs/rustfmt
-	url = git@github.com:rust-lang/rustfmt.git
+	url = https://github.com/rust-lang/rustfmt.git
 [submodule "bench/qoi/qoi"]
 	path = bench/qoi/qoi
-	url = git@github.com:phoboslab/qoi.git
+	url = https://github.com/phoboslab/qoi.git
 [submodule "bench/zfp/zfp"]
 	path = bench/zfp/zfp
-	url = git@github.com:LLNL/zfp.git
+	url = https://github.com/LLNL/zfp.git
 [submodule "bench/slurm/slurm"]
 	path = bench/slurm/slurm
-	url = git@github.com:SchedMD/slurm.git
+	url = https://github.com/SchedMD/slurm.git
 [submodule "bench/nanosvg/nanosvg"]
 	path = bench/nanosvg/nanosvg
-	url = git@github.com:memononen/nanosvg.git
+	url = https://github.com/memononen/nanosvg.git
 [submodule "bench/openblas/OpenBLAS"]
 	path = bench/openblas/OpenBLAS
-	url = git@github.com:OpenMathLib/OpenBLAS.git
+	url = https://github.com/OpenMathLib/OpenBLAS.git
 [submodule "bench/yosys/yosys"]
 	path = bench/yosys/yosys
-	url = git@github.com:YosysHQ/yosys.git
+	url = https://github.com/YosysHQ/yosys.git
 [submodule "bench/sundials/sundials"]
 	path = bench/sundials/sundials
-	url = git@github.com:LLNL/sundials.git
+	url = https://github.com/LLNL/sundials.git
 [submodule "bench/typst-rs/typst"]
 	path = bench/typst-rs/typst
-	url = git@github.com:typst/typst.git
+	url = https://github.com/typst/typst.git
 [submodule "bench/ripgrep-rs/ripgrep"]
 	path = bench/ripgrep-rs/ripgrep
-	url = git@github.com:BurntSushi/ripgrep.git
+	url = https://github.com/BurntSushi/ripgrep.git
 [submodule "bench/qdrant-rs/qdrant"]
 	path = bench/qdrant-rs/qdrant
-	url = git@github.com:qdrant/qdrant.git
+	url = https://github.com/qdrant/qdrant.git
 [submodule "bench/verilator/verilator"]
 	path = bench/verilator/verilator
-	url = git@github.com:verilator/verilator.git
+	url = https://github.com/verilator/verilator.git
 [submodule "bench/mitsuba3/mitsuba3"]
 	path = bench/mitsuba3/mitsuba3
-	url = git@github.com:mitsuba-renderer/mitsuba3.git
+	url = https://github.com/mitsuba-renderer/mitsuba3.git
 [submodule "bench/darktable/darktable"]
 	path = bench/darktable/darktable
-	url = git@github.com:darktable-org/darktable.git
+	url = https://github.com/darktable-org/darktable.git
 [submodule "bench/mixbox/mixbox"]
 	path = bench/mixbox/mixbox
-	url = git@github.com:scrtwpns/mixbox.git
+	url = https://github.com/scrtwpns/mixbox.git
 [submodule "bench/c3c/c3c"]
 	path = bench/c3c/c3c
-	url = git@github.com:c3lang/c3c.git
+	url = https://github.com/c3lang/c3c.git
 [submodule "bench/coreutils-rs/coreutils"]
 	path = bench/coreutils-rs/coreutils
-	url = git@github.com:uutils/coreutils.git
+	url = https://github.com/uutils/coreutils.git
 [submodule "bench/rust-analyzer-rs/rust-analyzer"]
 	path = bench/rust-analyzer-rs/rust-analyzer
-	url = git@github.com:rust-lang/rust-analyzer.git
+	url = https://github.com/rust-lang/rust-analyzer.git
 [submodule "bench/just-rs/just"]
 	path = bench/just-rs/just
-	url = git@github.com:casey/just.git
+	url = https://github.com/casey/just.git
 [submodule "bench/wasmtime-rs/wasmtime"]
 	path = bench/wasmtime-rs/wasmtime
-	url = git@github.com:bytecodealliance/wasmtime.git
+	url = https://github.com/bytecodealliance/wasmtime.git
 [submodule "bench/ockam-rs/ockam"]
 	path = bench/ockam-rs/ockam
-	url = git@github.com:build-trust/ockam.git
+	url = https://github.com/build-trust/ockam.git
 [submodule "bench/delta-rs/delta-rs"]
 	path = bench/delta-rs/delta-rs
-	url = git@github.com:delta-io/delta-rs.git
+	url = https://github.com/delta-io/delta-rs.git
 [submodule "bench/proj/PROJ"]
 	path = bench/proj/PROJ
-	url = git@github.com:OSGeo/PROJ.git
+	url = https://github.com/OSGeo/PROJ.git
 [submodule "bench/jsonnet/jsonnet"]
 	path = bench/jsonnet/jsonnet
-	url = git@github.com:google/jsonnet.git
+	url = https://github.com/google/jsonnet.git
 [submodule "bench/tinygltf/tinygltf"]
 	path = bench/tinygltf/tinygltf
-	url = git@github.com:syoyo/tinygltf.git
+	url = https://github.com/syoyo/tinygltf.git
 [submodule "bench/osqp/osqp"]
 	path = bench/osqp/osqp
-	url = git@github.com:osqp/osqp.git
+	url = https://github.com/osqp/osqp.git
 [submodule "bench/crow/Crow"]
 	path = bench/crow/Crow
-	url = git@github.com:CrowCpp/Crow.git
+	url = https://github.com/CrowCpp/Crow.git
 [submodule "bench/tinyrenderer/tinyrenderer"]
 	path = bench/tinyrenderer/tinyrenderer
-	url = git@github.com:ssloy/tinyrenderer.git
+	url = https://github.com/ssloy/tinyrenderer.git
 [submodule "bench/opencc/OpenCC"]
 	path = bench/opencc/OpenCC
-	url = git@github.com:BYVoid/OpenCC.git
+	url = https://github.com/BYVoid/OpenCC.git
 [submodule "bench/gromacs/gromacs"]
 	path = bench/gromacs/gromacs
-	url = git@github.com:gromacs/gromacs.git
+	url = https://github.com/gromacs/gromacs.git
 [submodule "bench/quest/QuEST"]
 	path = bench/quest/QuEST
-	url = git@github.com:QuEST-Kit/QuEST.git
+	url = https://github.com/QuEST-Kit/QuEST.git
 [submodule "bench/clamav/clamav"]
 	path = bench/clamav/clamav
-	url = git@github.com:Cisco-Talos/clamav.git
+	url = https://github.com/Cisco-Talos/clamav.git
 [submodule "bench/actix-rs/actix-web"]
 	path = bench/actix-rs/actix-web
-	url = git@github.com:actix/actix-web.git
+	url = https://github.com/actix/actix-web.git
 [submodule "bench/nom-rs/nom"]
 	path = bench/nom-rs/nom
-	url = git@github.com:rust-bakery/nom.git
+	url = https://github.com/rust-bakery/nom.git
 [submodule "bench/ozz-animation/ozz-animation"]
 	path = bench/ozz-animation/ozz-animation
-	url = git@github.com:guillaumeblanc/ozz-animation.git
+	url = https://github.com/guillaumeblanc/ozz-animation.git
 [submodule "bench/zxing/zxing-cpp"]
 	path = bench/zxing/zxing-cpp
-	url = git@github.com:zxing-cpp/zxing-cpp.git
+	url = https://github.com/zxing-cpp/zxing-cpp.git
 [submodule "bench/softposit-rs/softposit-rs"]
 	path = bench/softposit-rs/softposit-rs
 	url = https://gitlab.com/burrbull/softposit-rs.git
 [submodule "bench/tokenizers-rs/tokenizers"]
 	path = bench/tokenizers-rs/tokenizers
-	url = git@github.com:huggingface/tokenizers.git
+	url = https://github.com/huggingface/tokenizers.git
 [submodule "bench/tinympc/TinyMPC"]
 	path = bench/tinympc/TinyMPC
-	url = git@github.com:TinyMPC/TinyMPC.git
+	url = https://github.com/TinyMPC/TinyMPC.git
 [submodule "bench/annoy/annoy"]
 	path = bench/annoy/annoy
-	url = git@github.com:spotify/annoy.git
+	url = https://github.com/spotify/annoy.git
 [submodule "bench/proxy/proxy"]
 	path = bench/proxy/proxy
-	url = git@github.com:microsoft/proxy.git
+	url = https://github.com/microsoft/proxy.git
 [submodule "bench/hdf5/hdf5"]
 	path = bench/hdf5/hdf5
-	url = git@github.com:HDFGroup/hdf5.git
+	url = https://github.com/HDFGroup/hdf5.git
 [submodule "bench/sentencepiece/sentencepiece"]
 	path = bench/sentencepiece/sentencepiece
-	url = git@github.com:google/sentencepiece.git
+	url = https://github.com/google/sentencepiece.git
 [submodule "bench/msgpack/msgpack-c"]
 	path = bench/msgpack/msgpack-c
-	url = git@github.com:msgpack/msgpack-c.git
+	url = https://github.com/msgpack/msgpack-c.git
 	branch = cpp_master
 [submodule "bench/soc-simulator/soc-simulator"]
 	path = bench/soc-simulator/soc-simulator
-	url = git@github.com:cyyself/soc-simulator.git
+	url = https://github.com/cyyself/soc-simulator.git
 [submodule "bench/ropey-rs/ropey"]
 	path = bench/ropey-rs/ropey
-	url = git@github.com:cessen/ropey.git
+	url = https://github.com/cessen/ropey.git
 [submodule "bench/pyo3-rs/pyo3"]
 	path = bench/pyo3-rs/pyo3
-	url = git@github.com:PyO3/pyo3.git
+	url = https://github.com/PyO3/pyo3.git
 [submodule "bench/meilisearch-rs/meilisearch"]
 	path = bench/meilisearch-rs/meilisearch
-	url = git@github.com:meilisearch/meilisearch.git
+	url = https://github.com/meilisearch/meilisearch.git
 [submodule "bench/anki-rs/anki"]
 	path = bench/anki-rs/anki
-	url = git@github.com:ankitects/anki.git
+	url = https://github.com/ankitects/anki.git
 [submodule "bench/stat-rs/statrs"]
 	path = bench/stat-rs/statrs
-	url = git@github.com:statrs-dev/statrs.git
+	url = https://github.com/statrs-dev/statrs.git
 [submodule "bench/logos-rs/logos"]
 	path = bench/logos-rs/logos
-	url = git@github.com:maciejhirsz/logos.git
+	url = https://github.com/maciejhirsz/logos.git
 [submodule "bench/freetype/freetype"]
 	path = bench/freetype/freetype
-	url = git@github.com:freetype/freetype.git
+	url = https://github.com/freetype/freetype.git
 [submodule "bench/libwebp/libwebp"]
 	path = bench/libwebp/libwebp
-	url = git@github.com:webmproject/libwebp.git
+	url = https://github.com/webmproject/libwebp.git
 [submodule "bench/luau/luau"]
 	path = bench/luau/luau
-	url = git@github.com:luau-lang/luau.git
+	url = https://github.com/luau-lang/luau.git
 [submodule "bench/glslang/glslang"]
 	path = bench/glslang/glslang
-	url = git@github.com:KhronosGroup/glslang.git
+	url = https://github.com/KhronosGroup/glslang.git
 [submodule "bench/pocketpy/pocketpy"]
 	path = bench/pocketpy/pocketpy
-	url = git@github.com:pocketpy/pocketpy.git
+	url = https://github.com/pocketpy/pocketpy.git
 [submodule "bench/opencv/opencv"]
 	path = bench/opencv/opencv
-	url = git@github.com:opencv/opencv.git
+	url = https://github.com/opencv/opencv.git
 [submodule "bench/opencv/contrib/opencv_contrib"]
 	path = bench/opencv/contrib/opencv_contrib
-	url = git@github.com:opencv/opencv_contrib.git
+	url = https://github.com/opencv/opencv_contrib.git
 [submodule "bench/openjdk/jdk"]
 	path = bench/openjdk/jdk
-	url = git@github.com:openjdk/jdk.git
+	url = https://github.com/openjdk/jdk.git
 [submodule "bench/wasmedge/WasmEdge"]
 	path = bench/wasmedge/WasmEdge
-	url = git@github.com:WasmEdge/WasmEdge.git
+	url = https://github.com/WasmEdge/WasmEdge.git
 [submodule "bench/lightgbm/LightGBM"]
 	path = bench/lightgbm/LightGBM
-	url = git@github.com:microsoft/LightGBM.git
+	url = https://github.com/microsoft/LightGBM.git
 [submodule "bench/xgboost/xgboost"]
 	path = bench/xgboost/xgboost
-	url = git@github.com:dmlc/xgboost.git
+	url = https://github.com/dmlc/xgboost.git
 [submodule "bench/libpng/libpng"]
 	path = bench/libpng/libpng
-	url = git@github.com:pnggroup/libpng.git
+	url = https://github.com/pnggroup/libpng.git
 [submodule "bench/libjpeg-turbo/libjpeg-turbo"]
 	path = bench/libjpeg-turbo/libjpeg-turbo
-	url = git@github.com:libjpeg-turbo/libjpeg-turbo.git
+	url = https://github.com/libjpeg-turbo/libjpeg-turbo.git
