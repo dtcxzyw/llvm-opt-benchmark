@@ -4741,7 +4741,7 @@ coreutils-rs/h56aibhqef681ic.ll 1584365459
 coreutils-rs/hcv58uksyflhix1.ll 192441096
 coreutils-rs/hr90ivqlmc892hm.ll 663376881
 coreutils-rs/hucxd5i0u03lqhl.ll 1118432893
-coreutils-rs/i4vyp7f6b3p4kgy.ll 40888618
+coreutils-rs/i4vyp7f6b3p4kgy.ll 40929509
 coreutils-rs/icw7irkz6mu05a9.ll 1818940795
 coreutils-rs/id607a0yy0p55o3.ll 69303933
 coreutils-rs/idffu4feng672gf.ll 56488052
@@ -27995,7 +27995,7 @@ protobuf/field_mask.pb.cc.ll 211944994
 protobuf/field_mask_util.cc.ll 2976579991
 protobuf/file.cc.ll 13559447686
 protobuf/generated_enum_util.cc.ll 556152959
-protobuf/generated_message_bases.cc.ll 95452658
+protobuf/generated_message_bases.cc.ll 95548161
 protobuf/generated_message_reflection.cc.ll 8346510701
 protobuf/generated_message_tctable_gen.cc.ll 2731292064
 protobuf/generated_message_tctable_lite.cc.ll 8787787748
