@@ -20812,7 +20812,7 @@ openjdk/LinuxSocketOptions.ll 82999359
 openjdk/LinuxSysInfo.ll 165992520
 openjdk/LinuxWatchService.ll 60333406
 openjdk/Log.ll 109311554
-openjdk/MappedMemoryUtils.ll 49220424
+openjdk/MappedMemoryUtils.ll 49269684
 openjdk/MaskBlit.ll 77444745
 openjdk/MaskFill.ll 985847717
 openjdk/MemoryImpl.ll 38023512
@@ -20921,7 +20921,7 @@ openjdk/UnixFileDispatcherImpl.ll 91362322
 openjdk/UnixFileSystem.ll 61934218
 openjdk/UnixFileSystem_md.ll 160181718
 openjdk/UnixFileUtils.ll 92469005
-openjdk/UnixNativeDispatcher.ll 380323513
+openjdk/UnixNativeDispatcher.ll 380703909
 openjdk/UnixOperatingSystem.ll 115691612
 openjdk/UnixSysInfo.ll 86171340
 openjdk/Ushort4444Argb.ll 112989488
