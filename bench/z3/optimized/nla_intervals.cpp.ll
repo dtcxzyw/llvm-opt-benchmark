@@ -7710,8 +7710,14 @@ for.body.lr.ph:                                   ; preds = %_ZNK3nla7nex_mul3en
   %m_imanager.i.i = getelementptr inbounds i8, ptr %this, i64 752
   br label %for.body
 
-for.body:                                         ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55, %for.body.lr.ph
-  %__begin2.060 = phi ptr [ %8, %for.body.lr.ph ], [ %incdec.ptr, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55 ]
+for.cond:                                         ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.060, i64 16
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
+  br i1 %cmp.not, label %return, label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %retval.161 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.2, %for.cond ]
+  %__begin2.060 = phi ptr [ %8, %for.body.lr.ph ], [ %incdec.ptr, %for.cond ]
   store ptr %this, ptr %b, align 8
   store i32 0, ptr %m_interval.i15, align 8
   %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
@@ -7812,6 +7818,7 @@ terminate.lpad.i:                                 ; preds = %.noexc2.i, %.noexc1
   unreachable
 
 cleanup:                                          ; preds = %.noexc2.i, %invoke.cont10
+  %retval.2 = phi i1 [ false, %invoke.cont10 ], [ %retval.161, %.noexc2.i ]
   %19 = load ptr, ptr %b, align 8
   %m_c.i.i.i.i47 = getelementptr inbounds i8, ptr %19, i64 760
   %20 = load ptr, ptr %m_c.i.i.i.i47, align 8
@@ -7839,10 +7846,7 @@ terminate.lpad.i48:                               ; preds = %.noexc2.i53, %.noex
   unreachable
 
 _ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55: ; preds = %.noexc2.i53
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.060, i64 16
-  %cmp.not = icmp ne ptr %incdec.ptr, %add.ptr.i.i
-  %or.cond.not = select i1 %call11, i1 %cmp.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return
+  br i1 %call11, label %for.cond, label %return
 
 lpad17:                                           ; preds = %invoke.cont24, %invoke.cont15
   %24 = landingpad { ptr, i32 }
@@ -7855,8 +7859,8 @@ ehcleanup:                                        ; preds = %lpad17, %lpad
   call void @_ZN16_scoped_intervalI13dep_intervalsED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %b) #19
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55, %if.end, %_ZNK3nla7nex_mul3endEv.exit, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %_ZNK3nla7nex_mul3endEv.exit ], [ true, %if.end ], [ %call11, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55 ]
+return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55, %for.cond, %if.end, %_ZNK3nla7nex_mul3endEv.exit, %if.then
+  %retval.0 = phi i1 [ true, %if.then ], [ true, %_ZNK3nla7nex_mul3endEv.exit ], [ true, %if.end ], [ %retval.2, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55 ], [ true, %for.cond ]
   ret i1 %retval.0
 }
 
@@ -8110,6 +8114,7 @@ for.cond:                                         ; preds = %_ZN16_scoped_interv
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 1, %invoke.cont.lr.ph ], [ %indvars.iv.next, %for.cond ]
+  %retval.154 = phi i1 [ undef, %invoke.cont.lr.ph ], [ %retval.2, %for.cond ]
   store ptr %this, ptr %b, align 8
   store i32 0, ptr %m_interval.i, align 8
   %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
@@ -8210,6 +8215,7 @@ terminate.lpad.i:                                 ; preds = %.noexc2.i, %.noexc1
   unreachable
 
 cleanup:                                          ; preds = %.noexc2.i, %invoke.cont9
+  %retval.2 = phi i1 [ false, %invoke.cont9 ], [ %retval.154, %.noexc2.i ]
   %13 = load ptr, ptr %b, align 8
   %m_c.i.i.i.i42 = getelementptr inbounds i8, ptr %13, i64 760
   %14 = load ptr, ptr %m_c.i.i.i.i42, align 8
@@ -8251,7 +8257,7 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit50, %for.cond, %for.cond.preheader, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ %call10, %for.cond ], [ %call10, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit50 ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ %retval.2, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit50 ], [ true, %for.cond ]
   ret i1 %retval.0
 }
 
@@ -10504,6 +10510,7 @@ for.cond:                                         ; preds = %_ZN16_scoped_interv
 
 invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 1, %invoke.cont.lr.ph ], [ %indvars.iv.next, %for.cond ]
+  %retval.165 = phi i1 [ undef, %invoke.cont.lr.ph ], [ %retval.2, %for.cond ]
   store ptr %this, ptr %b, align 8
   store i32 0, ptr %m_interval.i, align 8
   %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
@@ -10703,6 +10710,7 @@ terminate.lpad.i:                                 ; preds = %.noexc2.i, %.noexc1
   unreachable
 
 cleanup:                                          ; preds = %.noexc2.i, %invoke.cont9
+  %retval.2 = phi i1 [ false, %invoke.cont9 ], [ %retval.165, %.noexc2.i ]
   %25 = load ptr, ptr %b, align 8
   %m_c.i.i.i.i46 = getelementptr inbounds i8, ptr %25, i64 760
   %26 = load ptr, ptr %m_c.i.i.i.i46, align 8
@@ -10744,7 +10752,7 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit54, %for.cond, %for.cond.preheader, %if.end, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ %call10, %for.cond ], [ %call10, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit54 ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ %retval.2, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit54 ], [ true, %for.cond ]
   ret i1 %retval.0
 }
 
@@ -14431,8 +14439,14 @@ for.body.lr.ph:                                   ; preds = %_ZNK3nla7nex_mul3en
   %m_upper_dep3.i = getelementptr inbounds i8, ptr %a, i64 88
   br label %for.body
 
-for.body:                                         ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64, %for.body.lr.ph
-  %__begin2.069 = phi ptr [ %12, %for.body.lr.ph ], [ %incdec.ptr, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64 ]
+for.cond:                                         ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.069, i64 16
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
+  br i1 %cmp.not, label %return, label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %retval.170 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.2, %for.cond ]
+  %__begin2.069 = phi ptr [ %12, %for.body.lr.ph ], [ %incdec.ptr, %for.cond ]
   store ptr %this, ptr %b, align 8
   store i32 0, ptr %m_interval.i17, align 8
   %bf.load.i.i.i.i = load i8, ptr %m_kind.i.i.i.i, align 4
@@ -14573,6 +14587,7 @@ terminate.lpad.i:                                 ; preds = %.noexc2.i, %.noexc1
   unreachable
 
 cleanup:                                          ; preds = %.noexc2.i, %invoke.cont
+  %retval.2 = phi i1 [ false, %invoke.cont ], [ %retval.170, %.noexc2.i ]
   %29 = load ptr, ptr %b, align 8
   %m_c.i.i.i.i56 = getelementptr inbounds i8, ptr %29, i64 760
   %30 = load ptr, ptr %m_c.i.i.i.i56, align 8
@@ -14600,10 +14615,7 @@ terminate.lpad.i57:                               ; preds = %.noexc2.i62, %.noex
   unreachable
 
 _ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64: ; preds = %.noexc2.i62
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.069, i64 16
-  %cmp.not = icmp ne ptr %incdec.ptr, %add.ptr.i.i
-  %or.cond.not = select i1 %call11, i1 %cmp.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return
+  br i1 %call11, label %for.cond, label %return
 
 lpad20:                                           ; preds = %invoke.cont21, %cond.false5.i.i.i, %cond.false.i.i.i, %.noexc, %invoke.cont15
   %34 = landingpad { ptr, i32 }
@@ -14616,8 +14628,8 @@ ehcleanup:                                        ; preds = %lpad20, %lpad
   call void @_ZN16_scoped_intervalI13dep_intervalsED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %b) #19
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64, %if.end, %_ZNK3nla7nex_mul3endEv.exit, %_ZN3nla9intervals31set_zero_interval_deps_for_multERN13dep_intervals9im_config8intervalE.exit
-  %retval.0 = phi i1 [ true, %_ZN3nla9intervals31set_zero_interval_deps_for_multERN13dep_intervals9im_config8intervalE.exit ], [ true, %_ZNK3nla7nex_mul3endEv.exit ], [ true, %if.end ], [ %call11, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64 ]
+return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64, %for.cond, %if.end, %_ZNK3nla7nex_mul3endEv.exit, %_ZN3nla9intervals31set_zero_interval_deps_for_multERN13dep_intervals9im_config8intervalE.exit
+  %retval.0 = phi i1 [ true, %_ZN3nla9intervals31set_zero_interval_deps_for_multERN13dep_intervals9im_config8intervalE.exit ], [ true, %_ZNK3nla7nex_mul3endEv.exit ], [ true, %if.end ], [ %retval.2, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64 ], [ true, %for.cond ]
   ret i1 %retval.0
 }
 

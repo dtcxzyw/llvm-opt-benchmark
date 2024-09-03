@@ -1542,29 +1542,30 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18tryToPu
   %10 = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
-  %13 = icmp eq ptr %11, %12
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %11, %12
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %14 = icmp eq i32 %4, 0
-  %15 = icmp eq i32 %5, 0
+  %13 = icmp eq i32 %4, 0
+  %14 = icmp eq i32 %5, 0
   br label %24
 
-16:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit37
-  %17 = add nuw i64 %.02762, 1
-  %18 = load ptr, ptr %10, align 8
-  %19 = load ptr, ptr %9, align 8
+15:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit37
+  %16 = add nuw i64 %.02760, 1
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %9, align 8
+  %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  %23 = ashr exact i64 %22, 3
-  %.not = icmp ult i64 %17, %23
-  br i1 %.not, label %24, label %._crit_edge, !llvm.loop !19
+  %21 = sub i64 %19, %20
+  %22 = ashr exact i64 %21, 3
+  %23 = icmp ult i64 %16, %22
+  br i1 %23, label %24, label %._crit_edge, !llvm.loop !19
 
-24:                                               ; preds = %.lr.ph, %16
-  %25 = phi ptr [ %12, %.lr.ph ], [ %19, %16 ]
-  %.02762 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %26 = getelementptr inbounds %"class.zxing::Ref.21", ptr %25, i64 %.02762
+24:                                               ; preds = %.lr.ph, %15
+  %25 = phi ptr [ %12, %.lr.ph ], [ %18, %15 ]
+  %.02760 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
+  %.02859 = phi i1 [ undef, %.lr.ph ], [ %.1, %15 ]
+  %26 = getelementptr inbounds %"class.zxing::Ref.21", ptr %25, i64 %.02760
   %27 = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit, label %28
@@ -1589,7 +1590,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit: ; preds = %28, %24
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds %"class.zxing::Ref.21", ptr %36, i64 %.02762
+  %37 = getelementptr inbounds %"class.zxing::Ref.21", ptr %36, i64 %.02760
   %38 = load ptr, ptr %7, align 8
   %.not.i.i32 = icmp eq ptr %38, null
   br i1 %.not.i.i32, label %43, label %39
@@ -1646,9 +1647,9 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit: ; preds = %43, %45, %50
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit, %55, %60
   %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr inbounds %"class.zxing::Ref.21", ptr %64, i64 %.02762
+  %65 = getelementptr inbounds %"class.zxing::Ref.21", ptr %64, i64 %.02760
   %66 = load ptr, ptr %65, align 8
-  br i1 %14, label %67, label %70
+  br i1 %13, label %67, label %70
 
 67:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit
   %68 = getelementptr inbounds i8, ptr %27, i64 32
@@ -1662,9 +1663,9 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds %"class.zxing::Ref.21", ptr %73, i64 %.02762
+  %74 = getelementptr inbounds %"class.zxing::Ref.21", ptr %73, i64 %.02760
   %75 = load ptr, ptr %74, align 8
-  br i1 %15, label %76, label %79
+  br i1 %14, label %76, label %79
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds i8, ptr %27, i64 36
@@ -1698,6 +1699,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit35
 
 92:                                               ; preds = %79, %33
+  %.1 = phi i1 [ false, %79 ], [ %.02859, %33 ]
   %93 = getelementptr inbounds i8, ptr %27, i64 8
   %94 = load i32, ptr %93, align 8
   %95 = add i32 %94, -1
@@ -1714,9 +1716,9 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit37
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit37: ; preds = %92, %97
-  br i1 %32, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit43, label %16
+  br i1 %32, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit43, label %15
 
-._crit_edge:                                      ; preds = %16, %6
+._crit_edge:                                      ; preds = %15, %6
   %101 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   invoke void @_ZN5zxing6qrcode13FinderPatternC1Efff(ptr noundef nonnull align 8 dereferenceable(40) %101, float noundef %2, float noundef %1, float noundef %3)
           to label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit unwind label %135
@@ -1829,8 +1831,8 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE9push_backERKS4_.e
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit35
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit43: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit37, %131, %125, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE9push_backERKS4_.exit
-  %149 = phi i1 [ true, %131 ], [ true, %125 ], [ true, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE9push_backERKS4_.exit ], [ false, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit37 ]
-  ret i1 %149
+  %.2 = phi i1 [ true, %_ZNSt6vectorIN5zxing3RefINS0_6qrcode13FinderPatternEEESaIS4_EE9push_backERKS4_.exit ], [ true, %125 ], [ true, %131 ], [ %.1, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit37 ]
+  ret i1 %.2
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit35: ; preds = %145, %140, %137, %88, %83, %81, %135
   %.pn = phi { ptr, i32 } [ %136, %135 ], [ %82, %81 ], [ %82, %83 ], [ %82, %88 ], [ %138, %137 ], [ %138, %140 ], [ %138, %145 ]

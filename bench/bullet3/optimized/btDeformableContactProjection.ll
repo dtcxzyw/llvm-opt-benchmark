@@ -6330,6 +6330,14 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc231
   %indvars.iv373 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next374, %for.inc231 ]
   %2 = phi ptr [ %0, %for.body.lr.ph ], [ %92, %for.inc231 ]
+  %lm104.sroa.17.0358 = phi float [ undef, %for.body.lr.ph ], [ %lm104.sroa.17.1, %for.inc231 ]
+  %lm104.sroa.16.0357 = phi float [ undef, %for.body.lr.ph ], [ %lm104.sroa.16.1, %for.inc231 ]
+  %lm104.sroa.15.0356 = phi float [ undef, %for.body.lr.ph ], [ %lm104.sroa.15.1, %for.inc231 ]
+  %lm104.sroa.14.0355 = phi float [ undef, %for.body.lr.ph ], [ %lm104.sroa.14.1, %for.inc231 ]
+  %lm104.sroa.13.0354 = phi float [ undef, %for.body.lr.ph ], [ %lm104.sroa.13.1, %for.inc231 ]
+  %lm104.sroa.12.0353 = phi float [ undef, %for.body.lr.ph ], [ %lm104.sroa.12.1, %for.inc231 ]
+  %lm104.sroa.11.0352 = phi float [ undef, %for.body.lr.ph ], [ %lm104.sroa.11.1, %for.inc231 ]
+  %lm104.sroa.10.0351 = phi float [ undef, %for.body.lr.ph ], [ %lm104.sroa.10.1, %for.inc231 ]
   %m_data.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv373
@@ -6586,6 +6594,14 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit139: ; preds
   br i1 %cmp39, label %for.body40, label %for.cond83.preheader, !llvm.loop !67
 
 for.cond146.preheader:                            ; preds = %for.inc142, %for.cond83.preheader
+  %lm104.sroa.10.2.lcssa = phi float [ %lm104.sroa.10.0351, %for.cond83.preheader ], [ %lm104.sroa.10.3, %for.inc142 ]
+  %lm104.sroa.11.2.lcssa = phi float [ %lm104.sroa.11.0352, %for.cond83.preheader ], [ %lm104.sroa.11.3, %for.inc142 ]
+  %lm104.sroa.12.2.lcssa = phi float [ %lm104.sroa.12.0353, %for.cond83.preheader ], [ %lm104.sroa.12.3, %for.inc142 ]
+  %lm104.sroa.13.2.lcssa = phi float [ %lm104.sroa.13.0354, %for.cond83.preheader ], [ %lm104.sroa.13.3, %for.inc142 ]
+  %lm104.sroa.14.2.lcssa = phi float [ %lm104.sroa.14.0355, %for.cond83.preheader ], [ %lm104.sroa.14.3, %for.inc142 ]
+  %lm104.sroa.15.2.lcssa = phi float [ %lm104.sroa.15.0356, %for.cond83.preheader ], [ %lm104.sroa.15.3, %for.inc142 ]
+  %lm104.sroa.16.2.lcssa = phi float [ %lm104.sroa.16.0357, %for.cond83.preheader ], [ %lm104.sroa.16.3, %for.inc142 ]
+  %lm104.sroa.17.2.lcssa = phi float [ %lm104.sroa.17.0358, %for.cond83.preheader ], [ %lm104.sroa.17.3, %for.inc142 ]
   %45 = load ptr, ptr %m_data.i225, align 8
   %m_size.i228345 = getelementptr inbounds %class.btAlignedObjectArray.160, ptr %45, i64 %indvars.iv373, i32 2
   %46 = load i32, ptr %m_size.i228345, align 4
@@ -6595,6 +6611,14 @@ for.cond146.preheader:                            ; preds = %for.inc142, %for.co
 for.body87:                                       ; preds = %for.cond83.preheader, %for.inc142
   %47 = phi ptr [ %64, %for.inc142 ], [ %26, %for.cond83.preheader ]
   %indvars.iv364 = phi i64 [ %indvars.iv.next365, %for.inc142 ], [ 0, %for.cond83.preheader ]
+  %lm104.sroa.17.2333 = phi float [ %lm104.sroa.17.3, %for.inc142 ], [ %lm104.sroa.17.0358, %for.cond83.preheader ]
+  %lm104.sroa.16.2332 = phi float [ %lm104.sroa.16.3, %for.inc142 ], [ %lm104.sroa.16.0357, %for.cond83.preheader ]
+  %lm104.sroa.15.2331 = phi float [ %lm104.sroa.15.3, %for.inc142 ], [ %lm104.sroa.15.0356, %for.cond83.preheader ]
+  %lm104.sroa.14.2330 = phi float [ %lm104.sroa.14.3, %for.inc142 ], [ %lm104.sroa.14.0355, %for.cond83.preheader ]
+  %lm104.sroa.13.2329 = phi float [ %lm104.sroa.13.3, %for.inc142 ], [ %lm104.sroa.13.0354, %for.cond83.preheader ]
+  %lm104.sroa.12.2328 = phi float [ %lm104.sroa.12.3, %for.inc142 ], [ %lm104.sroa.12.0353, %for.cond83.preheader ]
+  %lm104.sroa.11.2327 = phi float [ %lm104.sroa.11.3, %for.inc142 ], [ %lm104.sroa.11.0352, %for.cond83.preheader ]
+  %lm104.sroa.10.2326 = phi float [ %lm104.sroa.10.3, %for.inc142 ], [ %lm104.sroa.10.0351, %for.cond83.preheader ]
   %m_data.i147 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %47, i64 %indvars.iv373, i32 5
   %48 = load ptr, ptr %m_data.i147, align 8
   %arrayidx.i149 = getelementptr inbounds %class.btDeformableNodeRigidContactConstraint, ptr %48, i64 %indvars.iv364
@@ -6636,6 +6660,14 @@ if.end140:                                        ; preds = %if.end92, %if.else
   %lm104.sroa.7.0 = phi float [ %lm104.sroa.7.20.copyload, %if.else ], [ 0.000000e+00, %if.end92 ]
   %lm104.sroa.8.0 = phi float [ %lm104.sroa.8.20.copyload, %if.else ], [ 0.000000e+00, %if.end92 ]
   %lm104.sroa.9.0 = phi float [ %lm104.sroa.9.20.copyload, %if.else ], [ 0.000000e+00, %if.end92 ]
+  %lm104.sroa.10.4 = phi float [ %lm104.sroa.10.2326, %if.else ], [ 0.000000e+00, %if.end92 ]
+  %lm104.sroa.11.4 = phi float [ %lm104.sroa.11.2327, %if.else ], [ 1.000000e+00, %if.end92 ]
+  %lm104.sroa.12.4 = phi float [ %lm104.sroa.12.2328, %if.else ], [ 0.000000e+00, %if.end92 ]
+  %lm104.sroa.13.4 = phi float [ %lm104.sroa.13.2329, %if.else ], [ 0.000000e+00, %if.end92 ]
+  %lm104.sroa.14.4 = phi float [ %lm104.sroa.14.2330, %if.else ], [ 0.000000e+00, %if.end92 ]
+  %lm104.sroa.15.4 = phi float [ %lm104.sroa.15.2331, %if.else ], [ 0.000000e+00, %if.end92 ]
+  %lm104.sroa.16.4 = phi float [ %lm104.sroa.16.2332, %if.else ], [ 1.000000e+00, %if.end92 ]
+  %lm104.sroa.17.4 = phi float [ %lm104.sroa.17.2333, %if.else ], [ 0.000000e+00, %if.end92 ]
   %55 = load i32, ptr %m_size.i.i, align 4
   %56 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i185 = icmp eq i32 %55, %56
@@ -6719,15 +6751,21 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224: ; preds
   %lm104.sroa.9.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 32
   store float %lm104.sroa.9.0, ptr %lm104.sroa.9.0.arrayidx.i188.sroa_idx, align 4
   %lm104.sroa.10.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 36
-  store float 0.000000e+00, ptr %lm104.sroa.10.0.arrayidx.i188.sroa_idx, align 4
+  store float %lm104.sroa.10.4, ptr %lm104.sroa.10.0.arrayidx.i188.sroa_idx, align 4
   %lm104.sroa.11.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 40
-  store float 1.000000e+00, ptr %lm104.sroa.11.0.arrayidx.i188.sroa_idx, align 4
+  store float %lm104.sroa.11.4, ptr %lm104.sroa.11.0.arrayidx.i188.sroa_idx, align 4
   %lm104.sroa.12.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 44
+  store float %lm104.sroa.12.4, ptr %lm104.sroa.12.0.arrayidx.i188.sroa_idx, align 4
+  %lm104.sroa.13.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 48
+  store float %lm104.sroa.13.4, ptr %lm104.sroa.13.0.arrayidx.i188.sroa_idx, align 4
+  %lm104.sroa.14.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 52
+  store float %lm104.sroa.14.4, ptr %lm104.sroa.14.0.arrayidx.i188.sroa_idx, align 4
+  %lm104.sroa.15.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 56
+  store float %lm104.sroa.15.4, ptr %lm104.sroa.15.0.arrayidx.i188.sroa_idx, align 4
   %lm104.sroa.16.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 60
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %lm104.sroa.12.0.arrayidx.i188.sroa_idx, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %lm104.sroa.16.0.arrayidx.i188.sroa_idx, align 4
+  store float %lm104.sroa.16.4, ptr %lm104.sroa.16.0.arrayidx.i188.sroa_idx, align 4
   %lm104.sroa.17.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 64
-  store float 0.000000e+00, ptr %lm104.sroa.17.0.arrayidx.i188.sroa_idx, align 4
+  store float %lm104.sroa.17.4, ptr %lm104.sroa.17.0.arrayidx.i188.sroa_idx, align 4
   %lm104.sroa.18.0.arrayidx.i188.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i188, i64 68
   store i32 %51, ptr %lm104.sroa.18.0.arrayidx.i188.sroa_idx, align 4
   %63 = load i32, ptr %m_size.i.i, align 4
@@ -6738,6 +6776,14 @@ _ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224: ; preds
 
 for.inc142:                                       ; preds = %for.body87, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224
   %64 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %47, %for.body87 ]
+  %lm104.sroa.10.3 = phi float [ %lm104.sroa.10.4, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %lm104.sroa.10.2326, %for.body87 ]
+  %lm104.sroa.11.3 = phi float [ %lm104.sroa.11.4, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %lm104.sroa.11.2327, %for.body87 ]
+  %lm104.sroa.12.3 = phi float [ %lm104.sroa.12.4, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %lm104.sroa.12.2328, %for.body87 ]
+  %lm104.sroa.13.3 = phi float [ %lm104.sroa.13.4, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %lm104.sroa.13.2329, %for.body87 ]
+  %lm104.sroa.14.3 = phi float [ %lm104.sroa.14.4, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %lm104.sroa.14.2330, %for.body87 ]
+  %lm104.sroa.15.3 = phi float [ %lm104.sroa.15.4, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %lm104.sroa.15.2331, %for.body87 ]
+  %lm104.sroa.16.3 = phi float [ %lm104.sroa.16.4, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %lm104.sroa.16.2332, %for.body87 ]
+  %lm104.sroa.17.3 = phi float [ %lm104.sroa.17.4, %_ZN20btAlignedObjectArrayI18LagrangeMultiplierE9push_backERKS0_.exit224 ], [ %lm104.sroa.17.2333, %for.body87 ]
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %m_size.i143 = getelementptr inbounds %class.btAlignedObjectArray.152, ptr %64, i64 %indvars.iv373, i32 2
   %65 = load i32, ptr %m_size.i143, align 4
@@ -6900,6 +6946,14 @@ for.inc228:                                       ; preds = %for.body150, %_ZN20
   br i1 %cmp149, label %for.body150, label %for.inc231, !llvm.loop !70
 
 for.inc231:                                       ; preds = %for.inc228, %for.cond146.preheader, %for.body, %for.body, %for.body
+  %lm104.sroa.10.1 = phi float [ %lm104.sroa.10.0351, %for.body ], [ %lm104.sroa.10.0351, %for.body ], [ %lm104.sroa.10.0351, %for.body ], [ %lm104.sroa.10.2.lcssa, %for.cond146.preheader ], [ %lm104.sroa.10.2.lcssa, %for.inc228 ]
+  %lm104.sroa.11.1 = phi float [ %lm104.sroa.11.0352, %for.body ], [ %lm104.sroa.11.0352, %for.body ], [ %lm104.sroa.11.0352, %for.body ], [ %lm104.sroa.11.2.lcssa, %for.cond146.preheader ], [ %lm104.sroa.11.2.lcssa, %for.inc228 ]
+  %lm104.sroa.12.1 = phi float [ %lm104.sroa.12.0353, %for.body ], [ %lm104.sroa.12.0353, %for.body ], [ %lm104.sroa.12.0353, %for.body ], [ %lm104.sroa.12.2.lcssa, %for.cond146.preheader ], [ %lm104.sroa.12.2.lcssa, %for.inc228 ]
+  %lm104.sroa.13.1 = phi float [ %lm104.sroa.13.0354, %for.body ], [ %lm104.sroa.13.0354, %for.body ], [ %lm104.sroa.13.0354, %for.body ], [ %lm104.sroa.13.2.lcssa, %for.cond146.preheader ], [ %lm104.sroa.13.2.lcssa, %for.inc228 ]
+  %lm104.sroa.14.1 = phi float [ %lm104.sroa.14.0355, %for.body ], [ %lm104.sroa.14.0355, %for.body ], [ %lm104.sroa.14.0355, %for.body ], [ %lm104.sroa.14.2.lcssa, %for.cond146.preheader ], [ %lm104.sroa.14.2.lcssa, %for.inc228 ]
+  %lm104.sroa.15.1 = phi float [ %lm104.sroa.15.0356, %for.body ], [ %lm104.sroa.15.0356, %for.body ], [ %lm104.sroa.15.0356, %for.body ], [ %lm104.sroa.15.2.lcssa, %for.cond146.preheader ], [ %lm104.sroa.15.2.lcssa, %for.inc228 ]
+  %lm104.sroa.16.1 = phi float [ %lm104.sroa.16.0357, %for.body ], [ %lm104.sroa.16.0357, %for.body ], [ %lm104.sroa.16.0357, %for.body ], [ %lm104.sroa.16.2.lcssa, %for.cond146.preheader ], [ %lm104.sroa.16.2.lcssa, %for.inc228 ]
+  %lm104.sroa.17.1 = phi float [ %lm104.sroa.17.0358, %for.body ], [ %lm104.sroa.17.0358, %for.body ], [ %lm104.sroa.17.0358, %for.body ], [ %lm104.sroa.17.2.lcssa, %for.cond146.preheader ], [ %lm104.sroa.17.2.lcssa, %for.inc228 ]
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %92 = load ptr, ptr %m_softBodies, align 8
   %m_size.i = getelementptr inbounds i8, ptr %92, i64 4

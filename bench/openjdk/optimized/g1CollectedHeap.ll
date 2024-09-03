@@ -4597,6 +4597,7 @@ define hidden noundef zeroext i1 @_ZN15G1CollectedHeap24try_collect_concurrently
   %.039 = phi i32 [ %3, %4 ], [ %.140, %409 ]
   %.038 = phi i32 [ 1, %4 ], [ %410, %409 ]
   %.034 = phi i32 [ %2, %4 ], [ %139, %409 ]
+  %.0 = phi i1 [ undef, %4 ], [ %.1, %409 ]
   %42 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not206 = icmp eq ptr %42, null
   br i1 %.not206, label %_ZN12ResourceMarkD2Ev.exit, label %43
@@ -5188,6 +5189,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC
   br label %_ZN12ResourceMarkD2Ev.exit83
 
 _ZN12ResourceMarkD2Ev.exit83:                     ; preds = %321, %319, %._crit_edge, %297
+  %.3 = phi i1 [ true, %297 ], [ %.0, %._crit_edge ], [ true, %319 ], [ true, %321 ]
   br i1 %.not.i.i79, label %_ZN13MonitorLockerD2Ev.exit, label %322
 
 322:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit83
@@ -5198,6 +5200,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN12ResourceMarkD2
   br i1 %.not47, label %323, label %.loopexit
 
 323:                                              ; preds = %_ZN13MonitorLockerD2Ev.exit, %262
+  %.2 = phi i1 [ %.3, %_ZN13MonitorLockerD2Ev.exit ], [ %.0, %262 ]
   %324 = load i8, ptr %30, align 2
   %325 = trunc i8 %324 to i1
   br i1 %325, label %326, label %351
@@ -5337,6 +5340,7 @@ _ZN13MonitorLocker4waitEl.exit95:                 ; preds = %_ZN13MonitorLockerC
 
 _ZN12ResourceMarkD2Ev.exit66:                     ; preds = %195, %193, %202, %171, %170, %351
   %.241 = phi i32 [ %.039, %170 ], [ %.039, %351 ], [ %138, %171 ], [ %.039, %202 ], [ %138, %193 ], [ %138, %195 ]
+  %.4 = phi i1 [ %.0, %170 ], [ %.2, %351 ], [ %.0, %171 ], [ %.0, %202 ], [ %.0, %193 ], [ %.0, %195 ]
   %385 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not214 = icmp eq ptr %385, null
   br i1 %.not214, label %409, label %386
@@ -5390,12 +5394,13 @@ _ZN12ResourceMarkD2Ev.exit66:                     ; preds = %195, %193, %202, %1
 
 409:                                              ; preds = %326, %_ZN12ResourceMarkD2Ev.exit66, %348, %350, %383, %384, %406, %408
   %.140 = phi i32 [ %.039, %326 ], [ %.241, %_ZN12ResourceMarkD2Ev.exit66 ], [ %.039, %348 ], [ %.039, %350 ], [ %.039, %383 ], [ %.039, %384 ], [ %.241, %406 ], [ %.241, %408 ]
+  %.1 = phi i1 [ %.2, %326 ], [ %.4, %_ZN12ResourceMarkD2Ev.exit66 ], [ %.2, %348 ], [ %.2, %350 ], [ %.2, %383 ], [ %.2, %384 ], [ %.4, %406 ], [ %.4, %408 ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #23
   %410 = add i32 %.038, 1
   br label %41, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZN13MonitorLockerD2Ev.exit, %_ZN12ResourceMarkD2Ev.exit53, %101, %143, %205, %235, %125, %127, %167, %169, %229, %231, %259, %261
-  %.1.ph = phi i1 [ true, %261 ], [ true, %259 ], [ true, %231 ], [ true, %229 ], [ true, %169 ], [ true, %167 ], [ false, %127 ], [ false, %125 ], [ true, %235 ], [ true, %205 ], [ true, %143 ], [ false, %101 ], [ %97, %_ZN12ResourceMarkD2Ev.exit53 ], [ true, %_ZN13MonitorLockerD2Ev.exit ]
+  %.1.ph = phi i1 [ true, %261 ], [ true, %259 ], [ true, %231 ], [ true, %229 ], [ true, %169 ], [ true, %167 ], [ false, %127 ], [ false, %125 ], [ true, %235 ], [ true, %205 ], [ true, %143 ], [ false, %101 ], [ %97, %_ZN12ResourceMarkD2Ev.exit53 ], [ %.3, %_ZN13MonitorLockerD2Ev.exit ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #23
   ret i1 %.1.ph
 }

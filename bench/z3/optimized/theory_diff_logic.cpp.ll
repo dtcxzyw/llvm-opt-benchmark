@@ -12000,6 +12000,7 @@ entry:
 
 for.cond:                                         ; preds = %for.inc85, %entry
   %i.0 = phi i32 [ 0, %entry ], [ %inc86, %for.inc85 ]
+  %retval.0 = phi i1 [ undef, %entry ], [ %retval.3, %for.inc85 ]
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -12011,8 +12012,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
+  %cmp = icmp ult i32 %i.0, %retval.0.i.i
+  br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i = zext i32 %i.0 to i64
@@ -12090,8 +12091,8 @@ invoke.cont10:                                    ; preds = %if.then.i3.i, %_ZN1
   store i8 %frombool, ptr %sign, align 1
   %m_num_args.i = getelementptr inbounds i8, ptr %2, i64 24
   %18 = load i32, ptr %m_num_args.i, align 8
-  %cmp17236 = icmp ugt i32 %18, 1
-  br i1 %cmp17236, label %for.body18, label %for.end
+  %cmp17231 = icmp ugt i32 %18, 1
+  br i1 %cmp17231, label %for.body18, label %for.end
 
 for.body18:                                       ; preds = %invoke.cont10, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %invoke.cont10 ]
@@ -12340,6 +12341,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 cleanup:                                          ; preds = %for.body18, %for.end
   %cmp17230 = phi i1 [ false, %for.end ], [ true, %for.body18 ]
   %i.1 = phi i32 [ %dec, %for.end ], [ %i.0, %for.body18 ]
+  %retval.2 = phi i1 [ %retval.0, %for.end ], [ false, %for.body18 ]
   %42 = load ptr, ptr %_n, align 8
   %tobool.not.i.i67 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i67, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i
@@ -12528,9 +12530,9 @@ _ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163: ; preds = %_ZN11
   br label %for.inc85.sink.split
 
 for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94
-  %.sink252 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
+  %.sink237 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
   %arrayidx.i96.sink = phi ptr [ %arrayidx.i96, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %arrayidx.i122, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %arrayidx.i165, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
-  %82 = and i8 %.sink252, 1
+  %82 = and i8 %.sink237, 1
   %frombool48 = xor i8 %82, 1
   store i8 %frombool48, ptr %arrayidx.i96.sink, align 1
   %dec49 = add i32 %i.0, -1
@@ -12538,11 +12540,13 @@ for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3ap
 
 for.inc85:                                        ; preds = %for.inc85.sink.split, %land.rhs.i.i, %for.body, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i, %land.lhs.true.i137, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %land.lhs.true72, %land.lhs.true51, %if.else
   %i.2 = phi i32 [ %i.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %i.0, %land.lhs.true51 ], [ %i.0, %if.else ], [ %i.0, %land.lhs.true72 ], [ %i.0, %land.lhs.true.i137 ], [ %i.0, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i ], [ %i.0, %for.body ], [ %i.0, %land.rhs.i.i ], [ %dec49, %for.inc85.sink.split ]
+  %retval.3 = phi i1 [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %retval.0, %land.lhs.true51 ], [ %retval.0, %if.else ], [ %retval.0, %land.lhs.true72 ], [ %retval.0, %land.lhs.true.i137 ], [ %retval.0, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i ], [ %retval.0, %for.body ], [ %retval.0, %land.rhs.i.i ], [ %retval.0, %for.inc85.sink.split ]
   %inc86 = add i32 %i.2, 1
   br label %for.cond, !llvm.loop !61
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then
-  ret i1 %cmp.not.not.not.not.not
+  %retval.1 = phi i1 [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %if.then ], [ true, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  ret i1 %retval.1
 }
 
 declare noundef i32 @_ZN3smt7context11mk_bool_varEP4expr(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef) local_unnamed_addr #0
@@ -33894,6 +33898,7 @@ entry:
 
 for.cond:                                         ; preds = %for.inc85, %entry
   %i.0 = phi i32 [ 0, %entry ], [ %inc86, %for.inc85 ]
+  %retval.0 = phi i1 [ undef, %entry ], [ %retval.3, %for.inc85 ]
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -33905,8 +33910,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
+  %cmp = icmp ult i32 %i.0, %retval.0.i.i
+  br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i = zext i32 %i.0 to i64
@@ -33984,8 +33989,8 @@ invoke.cont10:                                    ; preds = %if.then.i3.i, %_ZN1
   store i8 %frombool, ptr %sign, align 1
   %m_num_args.i = getelementptr inbounds i8, ptr %2, i64 24
   %18 = load i32, ptr %m_num_args.i, align 8
-  %cmp17236 = icmp ugt i32 %18, 1
-  br i1 %cmp17236, label %for.body18, label %for.end
+  %cmp17231 = icmp ugt i32 %18, 1
+  br i1 %cmp17231, label %for.body18, label %for.end
 
 for.body18:                                       ; preds = %invoke.cont10, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %invoke.cont10 ]
@@ -34234,6 +34239,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 cleanup:                                          ; preds = %for.body18, %for.end
   %cmp17230 = phi i1 [ false, %for.end ], [ true, %for.body18 ]
   %i.1 = phi i32 [ %dec, %for.end ], [ %i.0, %for.body18 ]
+  %retval.2 = phi i1 [ %retval.0, %for.end ], [ false, %for.body18 ]
   %42 = load ptr, ptr %_n, align 8
   %tobool.not.i.i67 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i67, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i
@@ -34422,9 +34428,9 @@ _ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163: ; preds = %_ZN11
   br label %for.inc85.sink.split
 
 for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94
-  %.sink252 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
+  %.sink237 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
   %arrayidx.i96.sink = phi ptr [ %arrayidx.i96, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %arrayidx.i122, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %arrayidx.i165, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
-  %82 = and i8 %.sink252, 1
+  %82 = and i8 %.sink237, 1
   %frombool48 = xor i8 %82, 1
   store i8 %frombool48, ptr %arrayidx.i96.sink, align 1
   %dec49 = add i32 %i.0, -1
@@ -34432,11 +34438,13 @@ for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3ap
 
 for.inc85:                                        ; preds = %for.inc85.sink.split, %land.rhs.i.i, %for.body, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i, %land.lhs.true.i137, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %land.lhs.true72, %land.lhs.true51, %if.else
   %i.2 = phi i32 [ %i.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %i.0, %land.lhs.true51 ], [ %i.0, %if.else ], [ %i.0, %land.lhs.true72 ], [ %i.0, %land.lhs.true.i137 ], [ %i.0, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i ], [ %i.0, %for.body ], [ %i.0, %land.rhs.i.i ], [ %dec49, %for.inc85.sink.split ]
+  %retval.3 = phi i1 [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %retval.0, %land.lhs.true51 ], [ %retval.0, %if.else ], [ %retval.0, %land.lhs.true72 ], [ %retval.0, %land.lhs.true.i137 ], [ %retval.0, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i ], [ %retval.0, %for.body ], [ %retval.0, %land.rhs.i.i ], [ %retval.0, %for.inc85.sink.split ]
   %inc86 = add i32 %i.2, 1
   br label %for.cond, !llvm.loop !160
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then
-  ret i1 %cmp.not.not.not.not.not
+  %retval.1 = phi i1 [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %if.then ], [ true, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  ret i1 %retval.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -52969,6 +52977,7 @@ entry:
 
 for.cond:                                         ; preds = %for.inc85, %entry
   %i.0 = phi i32 [ 0, %entry ], [ %inc86, %for.inc85 ]
+  %retval.0 = phi i1 [ undef, %entry ], [ %retval.3, %for.inc85 ]
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -52980,8 +52989,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
+  %cmp = icmp ult i32 %i.0, %retval.0.i.i
+  br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i = zext i32 %i.0 to i64
@@ -53059,8 +53068,8 @@ invoke.cont10:                                    ; preds = %if.then.i3.i, %_ZN1
   store i8 %frombool, ptr %sign, align 1
   %m_num_args.i = getelementptr inbounds i8, ptr %2, i64 24
   %18 = load i32, ptr %m_num_args.i, align 8
-  %cmp17236 = icmp ugt i32 %18, 1
-  br i1 %cmp17236, label %for.body18, label %for.end
+  %cmp17231 = icmp ugt i32 %18, 1
+  br i1 %cmp17231, label %for.body18, label %for.end
 
 for.body18:                                       ; preds = %invoke.cont10, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %invoke.cont10 ]
@@ -53309,6 +53318,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 cleanup:                                          ; preds = %for.body18, %for.end
   %cmp17230 = phi i1 [ false, %for.end ], [ true, %for.body18 ]
   %i.1 = phi i32 [ %dec, %for.end ], [ %i.0, %for.body18 ]
+  %retval.2 = phi i1 [ %retval.0, %for.end ], [ false, %for.body18 ]
   %42 = load ptr, ptr %_n, align 8
   %tobool.not.i.i67 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i67, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i
@@ -53497,9 +53507,9 @@ _ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163: ; preds = %_ZN11
   br label %for.inc85.sink.split
 
 for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94
-  %.sink252 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
+  %.sink237 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
   %arrayidx.i96.sink = phi ptr [ %arrayidx.i96, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %arrayidx.i122, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %arrayidx.i165, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
-  %82 = and i8 %.sink252, 1
+  %82 = and i8 %.sink237, 1
   %frombool48 = xor i8 %82, 1
   store i8 %frombool48, ptr %arrayidx.i96.sink, align 1
   %dec49 = add i32 %i.0, -1
@@ -53507,11 +53517,13 @@ for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3ap
 
 for.inc85:                                        ; preds = %for.inc85.sink.split, %land.rhs.i.i, %for.body, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i, %land.lhs.true.i137, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %land.lhs.true72, %land.lhs.true51, %if.else
   %i.2 = phi i32 [ %i.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %i.0, %land.lhs.true51 ], [ %i.0, %if.else ], [ %i.0, %land.lhs.true72 ], [ %i.0, %land.lhs.true.i137 ], [ %i.0, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i ], [ %i.0, %for.body ], [ %i.0, %land.rhs.i.i ], [ %dec49, %for.inc85.sink.split ]
+  %retval.3 = phi i1 [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %retval.0, %land.lhs.true51 ], [ %retval.0, %if.else ], [ %retval.0, %land.lhs.true72 ], [ %retval.0, %land.lhs.true.i137 ], [ %retval.0, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i ], [ %retval.0, %for.body ], [ %retval.0, %land.rhs.i.i ], [ %retval.0, %for.inc85.sink.split ]
   %inc86 = add i32 %i.2, 1
   br label %for.cond, !llvm.loop !264
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then
-  ret i1 %cmp.not.not.not.not.not
+  %retval.1 = phi i1 [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %if.then ], [ true, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  ret i1 %retval.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -73593,6 +73605,7 @@ entry:
 
 for.cond:                                         ; preds = %for.inc85, %entry
   %i.0 = phi i32 [ 0, %entry ], [ %inc86, %for.inc85 ]
+  %retval.0 = phi i1 [ undef, %entry ], [ %retval.3, %for.inc85 ]
   %0 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -73604,8 +73617,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
+  %cmp = icmp ult i32 %i.0, %retval.0.i.i
+  br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i = zext i32 %i.0 to i64
@@ -73683,8 +73696,8 @@ invoke.cont10:                                    ; preds = %if.then.i3.i, %_ZN1
   store i8 %frombool, ptr %sign, align 1
   %m_num_args.i = getelementptr inbounds i8, ptr %2, i64 24
   %18 = load i32, ptr %m_num_args.i, align 8
-  %cmp17236 = icmp ugt i32 %18, 1
-  br i1 %cmp17236, label %for.body18, label %for.end
+  %cmp17231 = icmp ugt i32 %18, 1
+  br i1 %cmp17231, label %for.body18, label %for.end
 
 for.body18:                                       ; preds = %invoke.cont10, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %invoke.cont10 ]
@@ -73933,6 +73946,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 cleanup:                                          ; preds = %for.body18, %for.end
   %cmp17230 = phi i1 [ false, %for.end ], [ true, %for.body18 ]
   %i.1 = phi i32 [ %dec, %for.end ], [ %i.0, %for.body18 ]
+  %retval.2 = phi i1 [ %retval.0, %for.end ], [ false, %for.body18 ]
   %42 = load ptr, ptr %_n, align 8
   %tobool.not.i.i67 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i67, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i
@@ -74121,9 +74135,9 @@ _ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163: ; preds = %_ZN11
   br label %for.inc85.sink.split
 
 for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94
-  %.sink252 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
+  %.sink237 = phi i8 [ %61, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %70, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %81, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
   %arrayidx.i96.sink = phi ptr [ %arrayidx.i96, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit94 ], [ %arrayidx.i122, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit120 ], [ %arrayidx.i165, %_ZN10ref_vectorI3app11ast_managerE11element_refaSEPS0_.exit163 ]
-  %82 = and i8 %.sink252, 1
+  %82 = and i8 %.sink237, 1
   %frombool48 = xor i8 %82, 1
   store i8 %frombool48, ptr %arrayidx.i96.sink, align 1
   %dec49 = add i32 %i.0, -1
@@ -74131,11 +74145,13 @@ for.inc85.sink.split:                             ; preds = %_ZN10ref_vectorI3ap
 
 for.inc85:                                        ; preds = %for.inc85.sink.split, %land.rhs.i.i, %for.body, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i, %land.lhs.true.i137, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %land.lhs.true72, %land.lhs.true51, %if.else
   %i.2 = phi i32 [ %i.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %i.0, %land.lhs.true51 ], [ %i.0, %if.else ], [ %i.0, %land.lhs.true72 ], [ %i.0, %land.lhs.true.i137 ], [ %i.0, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i ], [ %i.0, %for.body ], [ %i.0, %land.rhs.i.i ], [ %dec49, %for.inc85.sink.split ]
+  %retval.3 = phi i1 [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %retval.0, %land.lhs.true51 ], [ %retval.0, %if.else ], [ %retval.0, %land.lhs.true72 ], [ %retval.0, %land.lhs.true.i137 ], [ %retval.0, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.i ], [ %retval.0, %for.body ], [ %retval.0, %land.rhs.i.i ], [ %retval.0, %for.inc85.sink.split ]
   %inc86 = add i32 %i.2, 1
   br label %for.cond, !llvm.loop !386
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then
-  ret i1 %cmp.not.not.not.not.not
+  %retval.1 = phi i1 [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %if.then ], [ true, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  ret i1 %retval.1
 }
 
 ; Function Attrs: mustprogress uwtable

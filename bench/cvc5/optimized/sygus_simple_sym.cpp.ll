@@ -517,14 +517,14 @@ if.end:                                           ; preds = %_ZN4cvc58internal8T
   %call33 = call noundef i64 @_ZNK4cvc58internal16DTypeConstructor10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(264) %call32)
   %27 = and i64 %call33, 4294967295
   %cmp351991.not = icmp eq i64 %27, 0
-  br i1 %cmp351991.not, label %return, label %cleanup.preheader
+  br i1 %cmp351991.not, label %return, label %invoke.cont40.preheader
 
-cleanup.preheader:                                ; preds = %if.end
+invoke.cont40.preheader:                          ; preds = %if.end
   %wide.trip.count = and i64 %call33, 4294967295
-  br label %cleanup
+  br label %invoke.cont40
 
-cleanup:                                          ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit379, %cleanup.preheader
-  %indvars.iv = phi i64 [ 0, %cleanup.preheader ], [ %indvars.iv.next, %_ZN4cvc58internal8TypeNodeD2Ev.exit379 ]
+invoke.cont40:                                    ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit379, %invoke.cont40.preheader
+  %indvars.iv = phi i64 [ 0, %invoke.cont40.preheader ], [ %indvars.iv.next, %_ZN4cvc58internal8TypeNodeD2Ev.exit379 ]
   %call37 = call noundef nonnull align 8 dereferenceable(264) ptr @_ZNK4cvc58internal5DTypeixEm(ptr noundef nonnull align 8 dereferenceable(448) %call2, i64 noundef %conv31)
   call void @_ZNK4cvc58internal16DTypeConstructor10getArgTypeEm(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %type, ptr noundef nonnull align 8 dereferenceable(264) %call37, i64 noundef %indvars.iv)
   %28 = load ptr, ptr %type, align 8
@@ -535,7 +535,7 @@ cleanup:                                          ; preds = %_ZN4cvc58internal8T
   %cmp.not.i.i370 = icmp eq i64 %30, 1152920405095219200
   br i1 %cmp.not.i.i370, label %_ZN4cvc58internal8TypeNodeD2Ev.exit379, label %if.then.i.i371
 
-if.then.i.i371:                                   ; preds = %cleanup
+if.then.i.i371:                                   ; preds = %invoke.cont40
   %bf.value.i.i372 = add i64 %bf.load.i.i369, 1152920405095219200
   %bf.shl.i.i373 = and i64 %bf.value.i.i372, 1152920405095219200
   %bf.clear7.i.i374 = and i64 %bf.load.i.i369, -1152920405095219201
@@ -555,11 +555,11 @@ terminate.lpad.i378:                              ; preds = %if.then13.i.i377
   call void @__clang_call_terminate(ptr %32) #16
   unreachable
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit379:           ; preds = %cleanup, %if.then.i.i371, %if.then13.i.i377
+_ZN4cvc58internal8TypeNodeD2Ev.exit379:           ; preds = %invoke.cont40, %if.then.i.i371, %if.then13.i.i377
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond2004 = select i1 %cmp.i.i368.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond2004, label %return, label %cleanup, !llvm.loop !6
+  br i1 %or.cond2004, label %return, label %invoke.cont40, !llvm.loop !6
 
 if.end61:                                         ; preds = %land.lhs.true, %cond.end
   call void @_ZN4cvc58internal6theory9datatypes7ReqTrieC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %rt)

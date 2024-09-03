@@ -1773,54 +1773,54 @@ define internal fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK2
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr null, ptr %4, align 8
-  %.not105113 = icmp eq ptr %2, null
-  br i1 %.not105113, label %.loopexit99, label %.lr.ph
+  %.not106114 = icmp eq ptr %2, null
+  br i1 %.not106114, label %.loopexit100, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.outer
-  %.065.ph117 = phi ptr [ %64, %.outer ], [ %0, %3 ]
-  %.068.ph116 = phi ptr [ %68, %.outer ], [ %2, %3 ]
-  %.070.ph115 = phi i8 [ %66, %.outer ], [ 0, %3 ]
-  %.073.ph114 = phi i64 [ %63, %.outer ], [ %1, %3 ]
+  %.065.ph118 = phi ptr [ %64, %.outer ], [ %0, %3 ]
+  %.068.ph117 = phi ptr [ %68, %.outer ], [ %2, %3 ]
+  %.070.ph116 = phi i8 [ %66, %.outer ], [ 0, %3 ]
+  %.073.ph115 = phi i64 [ %63, %.outer ], [ %1, %3 ]
   br label %6
 
 6:                                                ; preds = %.lr.ph, %9
-  %.068106 = phi ptr [ %.068.ph116, %.lr.ph ], [ %11, %9 ]
-  %7 = getelementptr inbounds i8, ptr %.068106, i64 16
+  %.068107 = phi ptr [ %.068.ph117, %.lr.ph ], [ %11, %9 ]
+  %7 = getelementptr inbounds i8, ptr %.068107, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not83 = icmp eq ptr %8, null
   br i1 %.not83, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %.068106, i64 48
+  %10 = getelementptr inbounds i8, ptr %.068107, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.loopexit99, label %6, !llvm.loop !19
+  br i1 %.not, label %.loopexit100, label %6, !llvm.loop !19
 
 12:                                               ; preds = %6
-  %.not84 = icmp eq ptr %.068106, %2
+  %.not84 = icmp eq ptr %.068107, %2
   br i1 %.not84, label %22, label %13
 
 13:                                               ; preds = %12
-  %.not85 = icmp eq i8 %.070.ph115, 0
+  %.not85 = icmp eq i8 %.070.ph116, 0
   %14 = select i1 %.not85, ptr @.str.16, ptr @.str.15
-  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.065.ph117, i64 noundef %.073.ph114, ptr noundef nonnull %14) #25
+  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.065.ph118, i64 noundef %.073.ph115, ptr noundef nonnull %14) #25
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %.loopexit99, label %17
+  br i1 %16, label %.loopexit100, label %17
 
 17:                                               ; preds = %13
   %18 = zext nneg i32 %15 to i64
-  %.not86 = icmp ugt i64 %.073.ph114, %18
-  br i1 %.not86, label %19, label %.loopexit99
+  %.not86 = icmp ugt i64 %.073.ph115, %18
+  br i1 %.not86, label %19, label %.loopexit100
 
 19:                                               ; preds = %17
-  %20 = sub nuw i64 %.073.ph114, %18
-  %21 = getelementptr inbounds i8, ptr %.065.ph117, i64 %18
+  %20 = sub nuw i64 %.073.ph115, %18
+  %21 = getelementptr inbounds i8, ptr %.065.ph118, i64 %18
   br label %22
 
 22:                                               ; preds = %19, %12
-  %.174 = phi i64 [ %20, %19 ], [ %.073.ph114, %12 ]
-  %.166 = phi ptr [ %21, %19 ], [ %.065.ph117, %12 ]
-  %23 = call i32 @mbedtls_oid_get_attr_short_name(ptr noundef nonnull %.068106, ptr noundef nonnull %4)
+  %.174 = phi i64 [ %20, %19 ], [ %.073.ph115, %12 ]
+  %.166 = phi ptr [ %21, %19 ], [ %.065.ph118, %12 ]
+  %23 = call i32 @mbedtls_oid_get_attr_short_name(ptr noundef nonnull %.068107, ptr noundef nonnull %4)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %28
 
@@ -1836,12 +1836,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK2
 30:                                               ; preds = %25, %28
   %.064 = phi i32 [ %27, %25 ], [ %29, %28 ]
   %31 = icmp slt i32 %.064, 0
-  br i1 %31, label %.loopexit99, label %32
+  br i1 %31, label %.loopexit100, label %32
 
 32:                                               ; preds = %30
   %33 = zext nneg i32 %.064 to i64
   %.not87 = icmp ugt i64 %.174, %33
-  br i1 %.not87, label %34, label %.loopexit99
+  br i1 %.not87, label %34, label %.loopexit100
 
 34:                                               ; preds = %32
   %35 = sub nuw i64 %.174, %33
@@ -1851,13 +1851,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK2
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.068106, i64 32
+  %37 = getelementptr inbounds i8, ptr %.068107, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %._crit_edge111, label %.lr.ph110
+  br i1 %39, label %._crit_edge112, label %.lr.ph111
 
-.lr.ph110:                                        ; preds = %.preheader
-  %40 = getelementptr inbounds i8, ptr %.068106, i64 40
+.lr.ph111:                                        ; preds = %.preheader
+  %40 = getelementptr inbounds i8, ptr %.068107, i64 40
   br label %42
 
 .loopexit:                                        ; preds = %50, %53
@@ -1875,10 +1875,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   resume { ptr, i32 } %lpad.phi
 
-42:                                               ; preds = %.lr.ph110, %.thread
-  %.072108 = phi i64 [ 0, %.lr.ph110 ], [ %54, %.thread ]
+42:                                               ; preds = %.lr.ph111, %.thread
+  %.072109 = phi i64 [ 0, %.lr.ph111 ], [ %54, %.thread ]
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 %.072108
+  %44 = getelementptr inbounds i8, ptr %43, i64 %.072109
   %45 = load i8, ptr %44, align 1
   %.not88 = icmp eq i8 %45, 0
   br i1 %.not88, label %.thread, label %46
@@ -1890,8 +1890,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK2
   br i1 %.not89, label %51, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp ugt i64 %.072108, 253
-  br i1 %49, label %._crit_edge111, label %50
+  %49 = icmp ugt i64 %.072109, 253
+  br i1 %49, label %._crit_edge112, label %50
 
 50:                                               ; preds = %48
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext 92)
@@ -1907,40 +1907,40 @@ define internal fastcc void @_ZN12_GLOBAL__N_125lief_mbedtls_x509_dn_getsEPcmPK2
           to label %.thread unwind label %.loopexit
 
 .thread:                                          ; preds = %42, %53, %51
-  %54 = add nuw nsw i64 %.072108, 1
+  %54 = add nuw nsw i64 %.072109, 1
   %55 = load i64, ptr %37, align 8
   %56 = icmp uge i64 %54, %55
-  %57 = icmp ugt i64 %.072108, 253
+  %57 = icmp ugt i64 %.072109, 253
   %or.cond4 = or i1 %57, %56
-  br i1 %or.cond4, label %._crit_edge111, label %42, !llvm.loop !20
+  br i1 %or.cond4, label %._crit_edge112, label %42, !llvm.loop !20
 
-._crit_edge111:                                   ; preds = %.thread, %48, %.preheader
+._crit_edge112:                                   ; preds = %.thread, %48, %.preheader
   %58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %36, i64 noundef %35, ptr noundef nonnull @.str.20, ptr noundef %58) #25
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %.thread92, label %61
 
-61:                                               ; preds = %._crit_edge111
+61:                                               ; preds = %._crit_edge112
   %62 = zext nneg i32 %59 to i64
   %.not90 = icmp ugt i64 %35, %62
   br i1 %.not90, label %.outer, label %.thread92
 
-.thread92:                                        ; preds = %61, %._crit_edge111
+.thread92:                                        ; preds = %61, %._crit_edge112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  br label %.loopexit99
+  br label %.loopexit100
 
 .outer:                                           ; preds = %61
   %63 = sub nuw i64 %35, %62
   %64 = getelementptr inbounds i8, ptr %36, i64 %62
-  %65 = getelementptr inbounds i8, ptr %.068106, i64 56
+  %65 = getelementptr inbounds i8, ptr %.068107, i64 56
   %66 = load i8, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %.068106, i64 48
+  %67 = getelementptr inbounds i8, ptr %.068107, i64 48
   %68 = load ptr, ptr %67, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  %.not105 = icmp eq ptr %68, null
-  br i1 %.not105, label %.loopexit99, label %.lr.ph
+  %.not106 = icmp eq ptr %68, null
+  br i1 %.not106, label %.loopexit100, label %.lr.ph
 
-.loopexit99:                                      ; preds = %30, %32, %13, %17, %.outer, %9, %3, %.thread92
+.loopexit100:                                     ; preds = %30, %32, %13, %17, %.outer, %9, %3, %.thread92
   ret void
 }
 

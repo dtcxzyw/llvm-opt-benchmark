@@ -3539,19 +3539,20 @@ entry:
 _ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit:        ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i, align 4
-  %cmp24.not29 = icmp eq i32 %2, 0
-  br i1 %cmp24.not29, label %return, label %for.body.lr.ph
+  %cmp24.not30 = icmp eq i32 %2, 0
+  br i1 %cmp24.not30, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit
   %m = getelementptr inbounds i8, ptr %this, i64 160
   %m_nodes.i.i = getelementptr inbounds i8, ptr %asms, i64 8
   %3 = add i32 %2, -1
-  %wide.trip.count34 = zext i32 %2 to i64
+  %wide.trip.count35 = zext i32 %2 to i64
   %wide.trip.count = zext i32 %3 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc30
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc30 ]
+  %retval.028 = phi i32 [ undef, %for.body.lr.ph ], [ %retval.1, %for.inc30 ]
   %4 = load ptr, ptr %m_soft, align 8
   %5 = load ptr, ptr %4, align 8
   %arrayidx.i11 = getelementptr inbounds %"struct.opt::soft", ptr %5, i64 %indvars.iv
@@ -3660,15 +3661,15 @@ sw.bb15:                                          ; preds = %invoke.cont9
           to label %for.cond17 unwind label %lpad.loopexit.split-lp
 
 for.cond17:                                       ; preds = %sw.bb15, %if.end26
-  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %if.end26 ], [ %indvars.iv, %sw.bb15 ]
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond.not = icmp eq i64 %indvars.iv30, %wide.trip.count
+  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %if.end26 ], [ %indvars.iv, %sw.bb15 ]
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond.not = icmp eq i64 %indvars.iv31, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body19
 
 for.body19:                                       ; preds = %for.cond17
   %19 = load ptr, ptr %m_soft, align 8
   %20 = load ptr, ptr %19, align 8
-  %arrayidx.i15 = getelementptr inbounds %"struct.opt::soft", ptr %20, i64 %indvars.iv.next31
+  %arrayidx.i15 = getelementptr inbounds %"struct.opt::soft", ptr %20, i64 %indvars.iv.next32
   %value23 = getelementptr inbounds i8, ptr %arrayidx.i15, i64 48
   %21 = load i32, ptr %value23, align 8
   %cmp24.not = icmp eq i32 %21, 1
@@ -3687,6 +3688,7 @@ sw.epilog:                                        ; preds = %for.end, %invoke.co
 
 cleanup:                                          ; preds = %invoke.cont9, %invoke.cont11, %sw.epilog
   %switch = phi i1 [ true, %sw.epilog ], [ false, %invoke.cont11 ], [ false, %invoke.cont9 ]
+  %retval.2 = phi i32 [ %retval.028, %sw.epilog ], [ 0, %invoke.cont11 ], [ %call3.i13, %invoke.cont9 ]
   %22 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i17 = icmp eq ptr %22, null
   br i1 %cmp.i.i.i17, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
@@ -3752,12 +3754,13 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %cleanup, %invoke.co
   br i1 %switch, label %for.inc30, label %return
 
 for.inc30:                                        ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %for.body
+  %retval.1 = phi i32 [ %retval.028, %for.body ], [ %retval.2, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond35.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
-  br i1 %exitcond35.not, label %return, label %for.body, !llvm.loop !21
+  %exitcond36.not = icmp eq i64 %indvars.iv.next, %wide.trip.count35
+  br i1 %exitcond36.not, label %return, label %for.body, !llvm.loop !21
 
 return:                                           ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %for.inc30, %entry, %_ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit
-  %retval.3 = phi i32 [ 1, %_ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit ], [ 1, %entry ], [ 1, %for.inc30 ], [ 0, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ]
+  %retval.3 = phi i32 [ 1, %_ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit ], [ 1, %entry ], [ 1, %for.inc30 ], [ %retval.2, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ]
   ret i32 %retval.3
 }
 

@@ -59386,8 +59386,7 @@ define internal fastcc range(i32 -1, 1) i32 @js_json_to_str(ptr noundef %0, ptr 
 
 65:                                               ; preds = %57
   %66 = extractvalue { i64, i64 } %62, 0
-  %.sroa.0101.0.insert.ext = and i64 %66, 4294967295
-  %67 = tail call fastcc i32 @JS_ToBoolFree(ptr noundef %0, i64 %.sroa.0101.0.insert.ext, i64 %63)
+  %67 = tail call fastcc i32 @JS_ToBoolFree(ptr noundef %0, i64 %66, i64 %63)
   %.not488 = icmp eq i32 %67, 0
   br i1 %.not488, label %70, label %68
 
@@ -69479,7 +69478,7 @@ JS_GetFunctionBytecode.exit.thread:               ; preds = %8, %5, %17, %13, %J
 
 22:                                               ; preds = %17, %JS_GetFunctionBytecode.exit.thread
   %.sroa.37.sroa.2.0 = phi i64 [ 6, %JS_GetFunctionBytecode.exit.thread ], [ 3, %17 ]
-  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %.sroa.37.sroa.2.0, 1
+  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.37.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -96808,7 +96807,7 @@ JS_FreeValue.exit:                                ; preds = %43, %53
 
 JS_FreeValue.exit37:                              ; preds = %77, %72, %61, %._crit_edge, %19, %17
   %.sroa.4.sroa.2.0 = phi i64 [ 6, %17 ], [ 3, %19 ], [ 3, %._crit_edge ], [ 3, %61 ], [ 3, %72 ], [ 3, %77 ]
-  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %.sroa.4.sroa.2.0, 1
+  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.4.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -120999,7 +120998,7 @@ JS_DupValue.exit:                                 ; preds = %16, %23
 
 .loopexit:                                        ; preds = %JS_DupValue.exit, %14
   %.sroa.3.sroa.2.0 = phi i64 [ 6, %14 ], [ 3, %JS_DupValue.exit ]
-  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %.sroa.3.sroa.2.0, 1
+  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.3.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -177289,7 +177288,7 @@ JS_ToBool.exit49:                                 ; preds = %89, %92
 
 98:                                               ; preds = %bigfloat_get_rnd_mode.exit.thread, %JS_GetOpaque2.exit.thread, %39, %53, %71, %JS_ToBool.exit, %JS_ToBool.exit49, %JS_ToInt32Sat.exit, %JS_ToInt64Sat.exit, %51, %37
   %.sroa.8.sroa.3.0 = phi i64 [ 6, %51 ], [ 6, %37 ], [ 6, %JS_ToInt64Sat.exit ], [ 6, %JS_ToInt32Sat.exit ], [ 3, %JS_ToBool.exit49 ], [ 3, %JS_ToBool.exit ], [ 3, %71 ], [ 3, %53 ], [ 3, %39 ], [ 6, %JS_GetOpaque2.exit.thread ], [ 6, %bigfloat_get_rnd_mode.exit.thread ]
-  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %.sroa.8.sroa.3.0, 1
+  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.8.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -183064,7 +183063,7 @@ define internal { i64, i64 } @js_object_set___proto__(ptr noundef %0, i64 %1, i6
 
 13:                                               ; preds = %9, %10, %7
   %.sroa.5.sroa.2.0 = phi i64 [ 6, %7 ], [ %., %10 ], [ 3, %9 ]
-  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %.sroa.5.sroa.2.0, 1
+  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.5.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -197209,9 +197208,9 @@ js_global_isNaN.exit:                             ; preds = %13, %JS_DupValue.ex
   br label %20
 
 20:                                               ; preds = %5, %js_global_isNaN.exit
-  %.sroa.03.0 = phi i64 [ %.sroa.03.012.i, %js_global_isNaN.exit ], [ 0, %5 ]
   %.sroa.3.sroa.2.0 = phi i64 [ %19, %js_global_isNaN.exit ], [ 1, %5 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
+  %.sroa.03.0.insert.insert = phi i64 [ %.sroa.03.012.i, %js_global_isNaN.exit ], [ 0, %5 ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -197269,9 +197268,9 @@ js_global_isFinite.exit:                          ; preds = %JS_ToFloat64.exit.i
   br label %22
 
 22:                                               ; preds = %5, %js_global_isFinite.exit
-  %.sroa.03.0 = phi i64 [ %.sroa.03.0.i, %js_global_isFinite.exit ], [ 0, %5 ]
   %.sroa.3.sroa.2.0 = phi i64 [ %.sroa.3.sroa.2.0.i, %js_global_isFinite.exit ], [ 1, %5 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
+  %.sroa.03.0.insert.insert = phi i64 [ %.sroa.03.0.i, %js_global_isFinite.exit ], [ 0, %5 ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -211290,11 +211289,11 @@ JS_DupValue.exit.i77:                             ; preds = %44, %39
   br label %JS_ToInt32Clamp.exit81.thread
 
 55:                                               ; preds = %50
-  %spec.select99 = tail call i32 @llvm.smin.i32(i32 %51, i32 %17)
+  %spec.select104 = tail call i32 @llvm.smin.i32(i32 %51, i32 %17)
   br label %JS_ToInt32Clamp.exit81.thread
 
 JS_ToInt32Clamp.exit81.thread:                    ; preds = %55, %53, %.sink.split.i
-  %56 = phi i32 [ %17, %.sink.split.i ], [ %spec.store.select.i80, %53 ], [ %spec.select99, %55 ]
+  %56 = phi i32 [ %17, %.sink.split.i ], [ %spec.store.select.i80, %53 ], [ %spec.select104, %55 ]
   %57 = sub i32 %56, %35
   %..i = tail call noundef i32 @llvm.smax.i32(i32 %57, i32 0)
   %58 = load i16, ptr %12, align 2
@@ -211312,79 +211311,65 @@ JS_ToInt32Clamp.exit81.thread:                    ; preds = %55, %53, %.sink.spl
   %63 = getelementptr i8, ptr %.val.val.val37.i, i64 4
   %.val.val.val.val38.i = load i8, ptr %63, align 4
   %.not3039.i = icmp eq i8 %.val.val.val.val38.i, 0
-  br i1 %.not3039.i, label %64, label %JS_FreeValue.exit
+  br i1 %.not3039.i, label %64, label %68
 
 64:                                               ; preds = %.thread.i
   %65 = getelementptr inbounds i8, ptr %.val35.i, i64 32
   %66 = load i32, ptr %65, align 8
-  br label %JS_FreeValue.exit
+  br label %68
 
 js_typed_array_get_byteOffset.exit:               ; preds = %JS_ToInt32Clamp.exit81.thread
   %67 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.872, ptr noundef nonnull @.str.92)
   br label %JS_ToInt32Clamp.exit
 
-JS_FreeValue.exit:                                ; preds = %.thread.i, %64
+68:                                               ; preds = %.thread.i, %64
   %.sroa.010.0.i.ph = phi i32 [ 0, %.thread.i ], [ %66, %64 ]
-  %68 = load i16, ptr %12, align 2
-  %69 = add i16 %68, -21
-  %or.cond.i.i86 = icmp ult i16 %69, 11
-  br i1 %or.cond.i.i86, label %71, label %js_typed_array_get_buffer.exit
-
-js_typed_array_get_buffer.exit:                   ; preds = %JS_FreeValue.exit
-  %70 = tail call { i64, i64 } (ptr, ptr, ...) @JS_ThrowTypeError(ptr noundef %0, ptr noundef nonnull @.str.872, ptr noundef nonnull @.str.92)
-  br label %JS_ToInt32Clamp.exit
-
-71:                                               ; preds = %JS_FreeValue.exit
-  %72 = zext nneg i16 %68 to i64
-  %73 = add nsw i64 %72, -21
-  %74 = getelementptr [11 x i8], ptr @typed_array_size_log2, i64 0, i64 %73
-  %75 = load i8, ptr %74, align 1
-  %76 = getelementptr inbounds i8, ptr %10, i64 48
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %.sroa.0.0..sroa.0.0.9.cast.i = ptrtoint ptr %79 to i64
-  %80 = load i32, ptr %79, align 4
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %79, align 4
-  %82 = zext nneg i8 %75 to i32
-  %83 = shl i32 %35, %82
-  %84 = add i32 %83, %.sroa.010.0.i.ph
+  %69 = zext nneg i16 %58 to i64
+  %70 = add nsw i64 %69, -21
+  %71 = getelementptr [11 x i8], ptr @typed_array_size_log2, i64 0, i64 %70
+  %72 = load i8, ptr %71, align 1
+  %.sroa.0.0..sroa.0.0.9.cast.i = ptrtoint ptr %.val.val36.i to i64
+  %73 = load i32, ptr %.val.val36.i, align 4
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %.val.val36.i, align 4
+  %75 = zext nneg i8 %72 to i32
+  %76 = shl i32 %35, %75
+  %77 = add i32 %76, %.sroa.010.0.i.ph
   store i64 %1, ptr %6, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
-  %85 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 %.sroa.0.0..sroa.0.0.9.cast.i, ptr %85, align 16
+  %78 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %.sroa.0.0..sroa.0.0.9.cast.i, ptr %78, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
   store i64 -1, ptr %.sroa.4.0..sroa_idx, align 8
-  %86 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.070.0.insert.ext = zext i32 %84 to i64
-  store i64 %.sroa.070.0.insert.ext, ptr %86, align 16
+  %79 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.070.0.insert.ext = zext i32 %77 to i64
+  store i64 %.sroa.070.0.insert.ext, ptr %79, align 16
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
   store i64 0, ptr %.sroa.26.0..sroa_idx, align 8
-  %87 = getelementptr inbounds i8, ptr %6, i64 48
+  %80 = getelementptr inbounds i8, ptr %6, i64 48
   %.sroa.065.0.insert.ext = zext nneg i32 %..i to i64
-  store i64 %.sroa.065.0.insert.ext, ptr %87, align 16
+  store i64 %.sroa.065.0.insert.ext, ptr %80, align 16
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
   store i64 0, ptr %.sroa.24.0..sroa_idx, align 8
-  %88 = call fastcc { i64, i64 } @js_typed_array___speciesCreate(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %6)
-  %89 = extractvalue { i64, i64 } %88, 0
-  %90 = extractvalue { i64, i64 } %88, 1
-  %91 = load i32, ptr %79, align 4
-  %92 = add i32 %91, -1
-  store i32 %92, ptr %79, align 4
-  %93 = icmp slt i32 %92, 1
-  br i1 %93, label %94, label %JS_ToInt32Clamp.exit
+  %81 = call fastcc { i64, i64 } @js_typed_array___speciesCreate(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %6)
+  %82 = extractvalue { i64, i64 } %81, 0
+  %83 = extractvalue { i64, i64 } %81, 1
+  %84 = load i32, ptr %.val.val36.i, align 4
+  %85 = add i32 %84, -1
+  store i32 %85, ptr %.val.val36.i, align 4
+  %86 = icmp slt i32 %85, 1
+  br i1 %86, label %87, label %JS_ToInt32Clamp.exit
 
-94:                                               ; preds = %71
-  %95 = getelementptr inbounds i8, ptr %0, i64 24
-  %96 = load ptr, ptr %95, align 8
-  call void @__JS_FreeValueRT(ptr noundef %96, i64 %.sroa.0.0..sroa.0.0.9.cast.i, i64 -1)
+87:                                               ; preds = %68
+  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %89 = load ptr, ptr %88, align 8
+  call void @__JS_FreeValueRT(ptr noundef %89, i64 %.sroa.0.0..sroa.0.0.9.cast.i, i64 -1)
   br label %JS_ToInt32Clamp.exit
 
-JS_ToInt32Clamp.exit:                             ; preds = %js_typed_array_get_byteOffset.exit, %94, %71, %js_typed_array_get_buffer.exit, %JS_DupValue.exit.i77, %JS_DupValue.exit.i, %get_typed_array.exit.thread
-  %.sroa.3.sroa.2.0 = phi i64 [ 6, %js_typed_array_get_buffer.exit ], [ 6, %js_typed_array_get_byteOffset.exit ], [ 6, %get_typed_array.exit.thread ], [ 6, %JS_DupValue.exit.i ], [ 6, %JS_DupValue.exit.i77 ], [ %90, %71 ], [ %90, %94 ]
-  %.sroa.060.0.insert.insert = phi i64 [ 0, %js_typed_array_get_buffer.exit ], [ 0, %js_typed_array_get_byteOffset.exit ], [ 0, %get_typed_array.exit.thread ], [ 0, %JS_DupValue.exit.i ], [ 0, %JS_DupValue.exit.i77 ], [ %89, %71 ], [ %89, %94 ]
+JS_ToInt32Clamp.exit:                             ; preds = %87, %68, %js_typed_array_get_byteOffset.exit, %JS_DupValue.exit.i77, %JS_DupValue.exit.i, %get_typed_array.exit.thread
+  %.sroa.3.sroa.2.0 = phi i64 [ 6, %js_typed_array_get_byteOffset.exit ], [ 6, %get_typed_array.exit.thread ], [ 6, %JS_DupValue.exit.i ], [ 6, %JS_DupValue.exit.i77 ], [ %83, %68 ], [ %83, %87 ]
+  %.sroa.060.0.insert.insert = phi i64 [ 0, %js_typed_array_get_byteOffset.exit ], [ 0, %get_typed_array.exit.thread ], [ 0, %JS_DupValue.exit.i ], [ 0, %JS_DupValue.exit.i77 ], [ %82, %68 ], [ %82, %87 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.060.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.sroa.2.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -214917,7 +214902,7 @@ JS_ToBool.exit:                                   ; preds = %83, %90
 
 135:                                              ; preds = %JS_ToIndex.exit.thread, %JS_GetOpaque2.exit.thread, %121, %124, %130, %132, %JS_ToFloat64.exit, %60, %JS_ToUint32.exit, %111, %102
   %.sroa.9.sroa.3.0 = phi i64 [ 6, %102 ], [ 6, %111 ], [ 6, %JS_ToUint32.exit ], [ 6, %60 ], [ 6, %JS_ToFloat64.exit ], [ 3, %132 ], [ 3, %130 ], [ 3, %124 ], [ 3, %121 ], [ 6, %JS_GetOpaque2.exit.thread ], [ 6, %JS_ToIndex.exit.thread ]
-  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %.sroa.9.sroa.3.0, 1
+  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.9.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

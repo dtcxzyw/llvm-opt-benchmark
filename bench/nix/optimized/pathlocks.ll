@@ -1056,8 +1056,9 @@ define noundef zeroext i1 @_ZN3nix9PathLocks9lockPathsERKSt3setINSt7__cxx1112bas
   br label %98
 
 98:                                               ; preds = %.lr.ph, %479
-  %.sroa.0181.0258 = phi ptr [ %31, %.lr.ph ], [ %480, %479 ]
-  %99 = getelementptr inbounds i8, ptr %.sroa.0181.0258, i64 32
+  %.0226 = phi i1 [ undef, %.lr.ph ], [ %.1, %479 ]
+  %.sroa.0181.0225 = phi ptr [ %31, %.lr.ph ], [ %480, %479 ]
+  %99 = getelementptr inbounds i8, ptr %.sroa.0181.0225, i64 32
   %100 = load atomic i8, ptr @_ZN3nix14_isInterruptedE seq_cst, align 1
   %101 = trunc i8 %100 to i1
   br i1 %101, label %108, label %102
@@ -2356,6 +2357,7 @@ _ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; pr
 
 474:                                              ; preds = %231, %_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %switch = phi i1 [ true, %_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ false, %231 ]
+  %.1 = phi i1 [ %.0226, %_ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ false, %231 ]
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %19) #29
   %475 = load ptr, ptr %15, align 8
   %476 = icmp eq ptr %475, %94
@@ -2376,7 +2378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
   br i1 %switch, label %479, label %._crit_edge
 
 479:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112
-  %480 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0181.0258) #35
+  %480 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0181.0225) #35
   %481 = icmp eq ptr %480, %32
   br i1 %481, label %._crit_edge, label %98
 
@@ -2397,8 +2399,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
   resume { ptr, i32 } %.pn46.pn
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112, %479, %4
-  %.lcssa225 = phi i1 [ true, %4 ], [ %switch, %479 ], [ %switch, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
-  ret i1 %.lcssa225
+  %.2 = phi i1 [ true, %4 ], [ true, %479 ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112 ]
+  ret i1 %.2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

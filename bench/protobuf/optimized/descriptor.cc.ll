@@ -53546,11 +53546,11 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 4
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp51 = icmp sgt i32 %conv.i, 0
+  %cmp52 = icmp sgt i32 %conv.i, 0
   br i1 %cmp.i, label %for.cond.preheader, label %for.cond12.preheader
 
 for.cond12.preheader:                             ; preds = %entry
-  br i1 %cmp51, label %for.body15.lr.ph, label %return
+  br i1 %cmp52, label %for.body15.lr.ph, label %return
 
 for.body15.lr.ph:                                 ; preds = %for.cond12.preheader
   %add.ptr.i35 = getelementptr inbounds i8, ptr %intermediate_fields_iter.coerce, i64 8
@@ -53558,7 +53558,7 @@ for.body15.lr.ph:                                 ; preds = %for.cond12.preheade
   br label %for.body15
 
 for.cond.preheader:                               ; preds = %entry
-  br i1 %cmp51, label %for.body.lr.ph, label %return
+  br i1 %cmp52, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %number_.i = getelementptr inbounds i8, ptr %innermost_field, i64 4
@@ -53592,6 +53592,7 @@ if.then8:                                         ; preds = %for.body
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.inc68
   %indvars.iv = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next, %for.inc68 ]
   %7 = phi ptr [ %1, %for.body15.lr.ph ], [ %29, %for.inc68 ]
+  %retval.149 = phi i1 [ undef, %for.body15.lr.ph ], [ %retval.3, %for.inc68 ]
   %add.ptr.i.i25 = getelementptr inbounds %"class.google::protobuf::UnknownField", ptr %7, i64 %indvars.iv
   %8 = load i32, ptr %add.ptr.i.i25, align 8
   %9 = load ptr, ptr %intermediate_fields_iter.coerce, align 8
@@ -53678,6 +53679,7 @@ if.end40:                                         ; preds = %invoke.cont37, %inv
 
 cleanup:                                          ; preds = %invoke.cont37, %if.end40
   %switch = phi i1 [ true, %if.end40 ], [ false, %invoke.cont37 ]
+  %retval.2 = phi i1 [ %retval.149, %if.end40 ], [ false, %invoke.cont37 ]
   %20 = load ptr, ptr %intermediate_unknown_fields, align 8
   %21 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %20, %21
@@ -53742,6 +53744,7 @@ lpad59:                                           ; preds = %sw.default, %invoke
   unreachable
 
 for.inc68:                                        ; preds = %_ZN6google8protobuf15UnknownFieldSetD2Ev.exit, %for.body15, %sw.bb42, %if.then45, %sw.bb
+  %retval.3 = phi i1 [ %retval.149, %if.then45 ], [ %retval.149, %sw.bb42 ], [ %retval.2, %_ZN6google8protobuf15UnknownFieldSetD2Ev.exit ], [ %retval.149, %sw.bb ], [ %retval.149, %for.body15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load ptr, ptr %_M_finish.i.i, align 8
   %29 = load ptr, ptr %unknown_fields, align 8
@@ -53754,7 +53757,7 @@ for.inc68:                                        ; preds = %_ZN6google8protobuf
   br i1 %cmp14, label %for.body15, label %return, !llvm.loop !800
 
 return:                                           ; preds = %_ZN6google8protobuf15UnknownFieldSetD2Ev.exit, %if.then45, %for.inc68, %for.cond, %for.cond12.preheader, %for.cond.preheader, %if.then8
-  %retval.0 = phi i1 [ false, %if.then8 ], [ true, %for.cond.preheader ], [ true, %for.cond12.preheader ], [ true, %for.cond ], [ false, %_ZN6google8protobuf15UnknownFieldSetD2Ev.exit ], [ false, %if.then45 ], [ true, %for.inc68 ]
+  %retval.0 = phi i1 [ false, %if.then8 ], [ true, %for.cond.preheader ], [ true, %for.cond12.preheader ], [ true, %for.cond ], [ %retval.2, %_ZN6google8protobuf15UnknownFieldSetD2Ev.exit ], [ false, %if.then45 ], [ true, %for.inc68 ]
   ret i1 %retval.0
 }
 

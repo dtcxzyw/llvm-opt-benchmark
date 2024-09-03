@@ -8268,18 +8268,24 @@ entry:
   %bn2 = alloca %"class.std::unique_ptr.10", align 8
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21, %entry
-  %i.026 = phi i64 [ 0, %entry ], [ %inc, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21 ]
-  %arrayidx = getelementptr inbounds [6 x %struct.MPITest], ptr @_ZL9kMPITests, i64 0, i64 %i.026
+for.cond:                                         ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21
+  %inc = add nuw nsw i64 %i.022, 1
+  %exitcond.not = icmp eq i64 %inc, 6
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !57
+
+for.body:                                         ; preds = %entry, %for.cond
+  %retval.023 = phi i1 [ undef, %entry ], [ %retval.1, %for.cond ]
+  %i.022 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [6 x %struct.MPITest], ptr @_ZL9kMPITests, i64 0, i64 %i.022
   %0 = load ptr, ptr %arrayidx, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  call void @llvm.experimental.noalias.scope.decl(metadata !58)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %raw.i)
-  store ptr null, ptr %raw.i, align 8, !noalias !57
-  %call.i = call i32 @BN_asc2bn(ptr noundef nonnull %raw.i, ptr noundef %0), !noalias !57
+  store ptr null, ptr %raw.i, align 8, !noalias !58
+  %call.i = call i32 @BN_asc2bn(ptr noundef nonnull %raw.i, ptr noundef %0), !noalias !58
   %tobool.not.i = icmp eq i32 %call.i, 0
-  %1 = load ptr, ptr %raw.i, align 8, !noalias !57
+  %1 = load ptr, ptr %raw.i, align 8, !noalias !58
   %storemerge.i = select i1 %tobool.not.i, ptr null, ptr %1
-  store ptr %storemerge.i, ptr %bn, align 8, !alias.scope !57
+  store ptr %storemerge.i, ptr %bn, align 8, !alias.scope !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %raw.i)
   %call1 = invoke i64 @BN_bn2mpi(ptr noundef %storemerge.i, ptr noundef null)
           to label %invoke.cont unwind label %lpad
@@ -8290,7 +8296,7 @@ invoke.cont:                                      ; preds = %for.body
 
 if.then:                                          ; preds = %invoke.cont
   %2 = load ptr, ptr @stderr, align 8
-  %conv = trunc nuw nsw i64 %i.026 to i32
+  %conv = trunc nuw nsw i64 %i.022 to i32
   %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.101, i32 noundef %conv) #17
   br label %cleanup50
 
@@ -8309,7 +8315,7 @@ invoke.cont6:                                     ; preds = %if.end
 
 if.then9:                                         ; preds = %invoke.cont6
   %4 = load ptr, ptr @stderr, align 8
-  %conv10 = trunc nuw nsw i64 %i.026 to i32
+  %conv10 = trunc nuw nsw i64 %i.022 to i32
   %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.102, i32 noundef %conv10) #17
   br label %cleanup50
 
@@ -8328,7 +8334,7 @@ lor.lhs.false:                                    ; preds = %if.end13
 
 if.then19:                                        ; preds = %lor.lhs.false, %if.end13
   %7 = load ptr, ptr @stderr, align 8
-  %conv20 = trunc nuw nsw i64 %i.026 to i32
+  %conv20 = trunc nuw nsw i64 %i.022 to i32
   %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.103, i32 noundef %conv20) #17
   %8 = load ptr, ptr @stderr, align 8
   %mpi23 = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -8366,17 +8372,18 @@ invoke.cont42:                                    ; preds = %if.end39
 
 if.then45:                                        ; preds = %invoke.cont42
   %12 = load ptr, ptr @stderr, align 8
-  %conv46 = trunc nuw nsw i64 %i.026 to i32
+  %conv46 = trunc nuw nsw i64 %i.022 to i32
   %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.107, i32 noundef %conv46) #17
   br label %if.then.i
 
 cleanup:                                          ; preds = %invoke.cont30
   %13 = load ptr, ptr @stderr, align 8
-  %conv35 = trunc nuw nsw i64 %i.026 to i32
+  %conv35 = trunc nuw nsw i64 %i.022 to i32
   %call38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.106, i32 noundef %conv35) #17
   br label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit
 
 if.then.i:                                        ; preds = %invoke.cont42, %if.then45
+  %retval.2.ph = phi i1 [ %retval.023, %invoke.cont42 ], [ false, %if.then45 ]
   invoke void @BN_free(ptr noundef nonnull %call31)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -8388,12 +8395,14 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i
+  %retval.226 = phi i1 [ false, %cleanup ], [ %retval.2.ph, %if.then.i ]
   %16 = phi i1 [ false, %cleanup ], [ %cmp44.not, %if.then.i ]
   store ptr null, ptr %bn2, align 8
   br label %cleanup50
 
 cleanup50:                                        ; preds = %invoke.cont25, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %if.then9, %if.then
   %cleanup.dest.slot.0 = phi i1 [ false, %if.then ], [ false, %if.then9 ], [ %16, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ false, %invoke.cont25 ]
+  %retval.1 = phi i1 [ false, %if.then ], [ false, %if.then9 ], [ %retval.226, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ false, %invoke.cont25 ]
   %cmp.not.i18 = icmp eq ptr %storemerge.i, null
   br i1 %cmp.not.i18, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21, label %if.then.i19
 
@@ -8410,18 +8419,16 @@ terminate.lpad.i20:                               ; preds = %if.then.i19
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21: ; preds = %cleanup50, %if.then.i19
   store ptr null, ptr %bn, align 8
-  %inc = add nuw nsw i64 %i.026, 1
-  %exitcond = icmp ne i64 %inc, 6
-  %or.cond.not = select i1 %cleanup.dest.slot.0, i1 %exitcond, i1 false
-  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !60
+  br i1 %cleanup.dest.slot.0, label %for.cond, label %return
 
 ehcleanup:                                        ; preds = %lpad36, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %11, %lpad36 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bn) #19
   resume { ptr, i32 } %.pn
 
-return:                                           ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21
-  ret i1 %cleanup.dest.slot.0
+return:                                           ; preds = %for.cond, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21
+  %retval.3 = phi i1 [ %retval.1, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit21 ], [ true, %for.cond ]
+  ret i1 %retval.3
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
@@ -8579,14 +8586,15 @@ entry:
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx101, 24
+  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx128, 24
   %cmp.not = icmp eq i64 %__begin1.0.add, 168
   br i1 %cmp.not, label %for.body87, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
-  %__begin1.0.idx101 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.cond ]
-  %__begin1.0.ptr102 = getelementptr inbounds i8, ptr @_ZL10kASN1Tests, i64 %__begin1.0.idx101
-  %0 = load ptr, ptr %__begin1.0.ptr102, align 8
+  %retval.0129 = phi i1 [ undef, %entry ], [ %retval.274, %for.cond ]
+  %__begin1.0.idx128 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.cond ]
+  %__begin1.0.ptr130 = getelementptr inbounds i8, ptr @_ZL10kASN1Tests, i64 %__begin1.0.idx128
+  %0 = load ptr, ptr %__begin1.0.ptr130, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %raw.i)
   store ptr null, ptr %raw.i, align 8, !noalias !61
@@ -8614,9 +8622,9 @@ lpad:                                             ; preds = %if.end
   br label %eh.resume
 
 if.end4:                                          ; preds = %invoke.cont
-  %der = getelementptr inbounds i8, ptr %__begin1.0.ptr102, i64 8
+  %der = getelementptr inbounds i8, ptr %__begin1.0.ptr130, i64 8
   %3 = load ptr, ptr %der, align 8
-  %der_len = getelementptr inbounds i8, ptr %__begin1.0.ptr102, i64 16
+  %der_len = getelementptr inbounds i8, ptr %__begin1.0.ptr130, i64 16
   %4 = load i64, ptr %der_len, align 8
   invoke void @CBS_init(ptr noundef nonnull %cbs, ptr noundef %3, i64 noundef %4)
           to label %invoke.cont6 unwind label %lpad5
@@ -8758,6 +8766,7 @@ if.then75:                                        ; preds = %invoke.cont72
 
 cleanup:                                          ; preds = %invoke.cont72, %if.then75, %if.then66, %if.then50
   %cleanup.dest.slot.2 = phi i32 [ 1, %if.then50 ], [ 1, %if.then66 ], [ 1, %if.then75 ], [ 0, %invoke.cont72 ]
+  %retval.3 = phi i1 [ false, %if.then50 ], [ false, %if.then66 ], [ false, %if.then75 ], [ %retval.0129, %invoke.cont72 ]
   %cmp.not.i31 = icmp eq ptr %10, null
   br i1 %cmp.not.i31, label %if.then.i35, label %if.then.i32
 
@@ -8767,6 +8776,7 @@ if.then.i32:                                      ; preds = %cleanup
 
 if.then.i35:                                      ; preds = %if.then13, %if.then22, %if.then41, %cleanup, %if.then.i32
   %cleanup.dest.slot.1.ph = phi i32 [ %cleanup.dest.slot.2, %if.then.i32 ], [ %cleanup.dest.slot.2, %cleanup ], [ 1, %if.then41 ], [ 1, %if.then22 ], [ 1, %if.then13 ]
+  %retval.2.ph = phi i1 [ %retval.3, %if.then.i32 ], [ %retval.3, %cleanup ], [ false, %if.then41 ], [ false, %if.then22 ], [ false, %if.then13 ]
   invoke void @BN_free(ptr noundef nonnull %call1)
           to label %if.then.i37 unwind label %terminate.lpad.i
 
@@ -8778,7 +8788,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i35
   unreachable
 
 if.then.i37:                                      ; preds = %if.then.i35, %invoke.cont
-  %cleanup.dest.slot.172 = phi i32 [ %cleanup.dest.slot.1.ph, %if.then.i35 ], [ 1, %invoke.cont ]
+  %retval.274 = phi i1 [ %retval.2.ph, %if.then.i35 ], [ false, %invoke.cont ]
+  %cleanup.dest.slot.173 = phi i32 [ %cleanup.dest.slot.1.ph, %if.then.i35 ], [ 1, %invoke.cont ]
   store ptr null, ptr %bn2, align 8
   invoke void @BN_free(ptr noundef nonnull %storemerge.i)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39 unwind label %terminate.lpad.i38
@@ -8792,7 +8803,7 @@ terminate.lpad.i38:                               ; preds = %if.then.i37
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39: ; preds = %if.then.i37
   store ptr null, ptr %bn, align 8
-  %switch = icmp eq i32 %cleanup.dest.slot.172, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.173, 0
   br i1 %switch, label %for.cond, label %return
 
 ehcleanup:                                        ; preds = %if.then.i, %lpad51, %lpad5
@@ -8801,21 +8812,22 @@ ehcleanup:                                        ; preds = %if.then.i, %lpad51,
   br label %eh.resume
 
 for.cond85:                                       ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44
-  %__begin183.0.add = add nuw nsw i64 %__begin183.0.idx103, 16
+  %__begin183.0.add = add nuw nsw i64 %__begin183.0.idx131, 16
   %cmp86.not = icmp eq i64 %__begin183.0.add, 32
   br i1 %cmp86.not, label %for.body132, label %for.body87
 
 for.body87:                                       ; preds = %for.cond, %for.cond85
-  %__begin183.0.idx103 = phi i64 [ %__begin183.0.add, %for.cond85 ], [ 0, %for.cond ]
+  %retval.5132 = phi i1 [ %retval.6.ph, %for.cond85 ], [ %retval.274, %for.cond ]
+  %__begin183.0.idx131 = phi i64 [ %__begin183.0.add, %for.cond85 ], [ 0, %for.cond ]
   %call90 = call ptr @BN_new()
   store ptr %call90, ptr %bn89, align 8
   %cmp.i40.not = icmp eq ptr %call90, null
   br i1 %cmp.i40.not, label %return, label %if.end93
 
 if.end93:                                         ; preds = %for.body87
-  %__begin183.0.ptr104 = getelementptr inbounds i8, ptr @_ZL17kASN1InvalidTests, i64 %__begin183.0.idx103
-  %23 = load ptr, ptr %__begin183.0.ptr104, align 16
-  %der_len96 = getelementptr inbounds i8, ptr %__begin183.0.ptr104, i64 8
+  %__begin183.0.ptr133 = getelementptr inbounds i8, ptr @_ZL17kASN1InvalidTests, i64 %__begin183.0.idx131
+  %23 = load ptr, ptr %__begin183.0.ptr133, align 16
+  %der_len96 = getelementptr inbounds i8, ptr %__begin183.0.ptr133, i64 8
   %24 = load i64, ptr %der_len96, align 8
   invoke void @CBS_init(ptr noundef nonnull %cbs94, ptr noundef %23, i64 noundef %24)
           to label %invoke.cont98 unwind label %lpad97
@@ -8860,6 +8872,7 @@ if.then.i42.sink.split:                           ; preds = %invoke.cont112, %in
 
 if.then.i42:                                      ; preds = %if.then.i42.sink.split, %if.end118
   %switch28 = phi i1 [ true, %if.end118 ], [ false, %if.then.i42.sink.split ]
+  %retval.6.ph = phi i1 [ %retval.5132, %if.end118 ], [ false, %if.then.i42.sink.split ]
   invoke void @BN_free(ptr noundef nonnull %call90)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44 unwind label %terminate.lpad.i43
 
@@ -8875,22 +8888,23 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44: ;
   br i1 %switch28, label %for.cond85, label %return
 
 for.cond130:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59
-  %__begin1128.0.add = add nuw nsw i64 %__begin1128.0.idx105, 24
+  %__begin1128.0.add = add nuw nsw i64 %__begin1128.0.idx134, 24
   %cmp131.not = icmp eq i64 %__begin1128.0.add, 72
   br i1 %cmp131.not, label %for.end192, label %for.body132
 
 for.body132:                                      ; preds = %for.cond85, %for.cond130
-  %__begin1128.0.idx105 = phi i64 [ %__begin1128.0.add, %for.cond130 ], [ 0, %for.cond85 ]
-  %__begin1128.0.ptr106 = getelementptr inbounds i8, ptr @_ZL15kASN1BuggyTests, i64 %__begin1128.0.idx105
+  %retval.7135 = phi i1 [ %retval.8.ph, %for.cond130 ], [ %retval.6.ph, %for.cond85 ]
+  %__begin1128.0.idx134 = phi i64 [ %__begin1128.0.add, %for.cond130 ], [ 0, %for.cond85 ]
+  %__begin1128.0.ptr136 = getelementptr inbounds i8, ptr @_ZL15kASN1BuggyTests, i64 %__begin1128.0.idx134
   %call135 = call ptr @BN_new()
   store ptr %call135, ptr %bn134, align 8
   %cmp.i45.not = icmp eq ptr %call135, null
   br i1 %cmp.i45.not, label %return, label %if.end138
 
 if.end138:                                        ; preds = %for.body132
-  %der140 = getelementptr inbounds i8, ptr %__begin1128.0.ptr106, i64 8
+  %der140 = getelementptr inbounds i8, ptr %__begin1128.0.ptr136, i64 8
   %30 = load ptr, ptr %der140, align 8
-  %der_len141 = getelementptr inbounds i8, ptr %__begin1128.0.ptr106, i64 16
+  %der_len141 = getelementptr inbounds i8, ptr %__begin1128.0.ptr136, i64 16
   %31 = load i64, ptr %der_len141, align 8
   invoke void @CBS_init(ptr noundef nonnull %cbs139, ptr noundef %30, i64 noundef %31)
           to label %invoke.cont143 unwind label %lpad142
@@ -8918,7 +8932,7 @@ if.end151:                                        ; preds = %invoke.cont145
           to label %invoke.cont152 unwind label %lpad142
 
 invoke.cont152:                                   ; preds = %if.end151
-  %35 = load ptr, ptr %__begin1128.0.ptr106, align 8
+  %35 = load ptr, ptr %__begin1128.0.ptr136, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %raw.i46)
   store ptr null, ptr %raw.i46, align 8, !noalias !64
@@ -8980,6 +8994,7 @@ if.then180:                                       ; preds = %invoke.cont177
 
 if.then.i53:                                      ; preds = %if.then171, %if.then180, %invoke.cont177
   %cleanup.dest.slot.5.ph = phi i32 [ 0, %invoke.cont177 ], [ 1, %if.then180 ], [ 1, %if.then171 ]
+  %retval.9.ph = phi i1 [ %retval.7135, %invoke.cont177 ], [ false, %if.then180 ], [ false, %if.then171 ]
   invoke void @BN_free(ptr noundef nonnull %storemerge.i49)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55 unwind label %terminate.lpad.i54
 
@@ -8991,13 +9006,15 @@ terminate.lpad.i54:                               ; preds = %if.then.i53
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55: ; preds = %invoke.cont155, %if.then.i53
-  %cleanup.dest.slot.588 = phi i32 [ %cleanup.dest.slot.5.ph, %if.then.i53 ], [ 1, %invoke.cont155 ]
+  %retval.998 = phi i1 [ %retval.9.ph, %if.then.i53 ], [ false, %invoke.cont155 ]
+  %cleanup.dest.slot.597 = phi i32 [ %cleanup.dest.slot.5.ph, %if.then.i53 ], [ 1, %invoke.cont155 ]
   store ptr null, ptr %bn2153, align 8
-  %44 = icmp eq i32 %cleanup.dest.slot.588, 0
+  %44 = icmp eq i32 %cleanup.dest.slot.597, 0
   br label %if.then.i57
 
 if.then.i57:                                      ; preds = %if.then148, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55
   %cleanup.dest.slot.4.ph = phi i1 [ %44, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55 ], [ false, %if.then148 ]
+  %retval.8.ph = phi i1 [ %retval.998, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55 ], [ false, %if.then148 ]
   invoke void @BN_free(ptr noundef nonnull %call135)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 unwind label %terminate.lpad.i58
 
@@ -9073,7 +9090,7 @@ terminate.lpad.i67:                               ; preds = %if.then.i66
   unreachable
 
 return:                                           ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39, %for.body, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44, %for.body87, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, %for.body132, %if.then.i66, %for.end192
-  %retval.4 = phi i1 [ %retval.10.ph, %if.then.i66 ], [ false, %for.end192 ], [ false, %for.body132 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 ], [ false, %for.body87 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44 ], [ false, %for.body ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39 ]
+  %retval.4 = phi i1 [ %retval.10.ph, %if.then.i66 ], [ false, %for.end192 ], [ false, %for.body132 ], [ %retval.8.ph, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59 ], [ false, %for.body87 ], [ %retval.6.ph, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44 ], [ false, %for.body ], [ %retval.274, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39 ]
   ret i1 %retval.4
 
 eh.resume:                                        ; preds = %lpad142, %lpad161, %lpad, %ehcleanup, %lpad198, %lpad97
@@ -9419,10 +9436,10 @@ attributes #20 = { noreturn nounwind }
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZL13ASCIIToBIGNUMPKc: %agg.result"}
 !56 = distinct !{!56, !"_ZL13ASCIIToBIGNUMPKc"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZL13ASCIIToBIGNUMPKc: %agg.result"}
-!59 = distinct !{!59, !"_ZL13ASCIIToBIGNUMPKc"}
-!60 = distinct !{!60, !8}
+!57 = distinct !{!57, !8}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZL13ASCIIToBIGNUMPKc: %agg.result"}
+!60 = distinct !{!60, !"_ZL13ASCIIToBIGNUMPKc"}
 !61 = !{!62}
 !62 = distinct !{!62, !63, !"_ZL13ASCIIToBIGNUMPKc: %agg.result"}
 !63 = distinct !{!63, !"_ZL13ASCIIToBIGNUMPKc"}

@@ -359,8 +359,8 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier30deoptimize_objects_all_thr
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
-  %.not.i47.not = icmp eq i32 %28, 0
-  br i1 %.not.i47.not, label %.loopexit42, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
+  %.not.i42.not = icmp eq i32 %28, 0
+  br i1 %.not.i42.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %9, %.backedge
   %29 = phi ptr [ %74, %.backedge ], [ %26, %9 ]
@@ -373,7 +373,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %9, %.backedge
   %35 = getelementptr inbounds ptr, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.loopexit42, label %37
+  br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %37
 
 37:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
   %38 = getelementptr inbounds i8, ptr %36, i64 1336
@@ -385,13 +385,13 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %9, %.backedge
   %41 = getelementptr inbounds i8, ptr %36, i64 1328
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.loopexit42, label %44
+  br i1 %43, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %36, i64 928
   %46 = load volatile ptr, ptr %45, align 8
-  %.not41 = icmp eq ptr %46, null
-  br i1 %.not41, label %.backedge, label %47
+  %.not37 = icmp eq ptr %46, null
+  br i1 %.not37, label %.backedge, label %47
 
 47:                                               ; preds = %44
   call void @_ZN24KeepStackGCProcessedMarkC1EP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %36) #10
@@ -401,88 +401,88 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %9, %.backedge
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(1800) %36) #10
   %48 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %36, ptr noundef nonnull byval(%class.frame) align 8 %2, ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  %.not2844 = icmp eq ptr %48, null
-  br i1 %.not2844, label %.critedge30, label %.lr.ph46
+  %.not2839 = icmp eq ptr %48, null
+  br i1 %.not2839, label %.thread, label %.lr.ph41
 
-.lr.ph46:                                         ; preds = %47, %.loopexit
-  %.02145 = phi ptr [ %72, %.loopexit ], [ %48, %47 ]
-  %49 = load ptr, ptr %.02145, align 8
+.thread:                                          ; preds = %.loopexit, %47
+  call void @_ZN24KeepStackGCProcessedMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
+  %.pre = load i32, ptr %24, align 8
+  %.pre47 = load ptr, ptr %25, align 8
+  br label %.backedge
+
+.lr.ph41:                                         ; preds = %47, %.loopexit
+  %.02140 = phi ptr [ %72, %.loopexit ], [ %48, %47 ]
+  %49 = load ptr, ptr %.02140, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
-  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(5064) %.02145) #10
+  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(5064) %.02140) #10
   br i1 %52, label %53, label %.loopexit
 
-53:                                               ; preds = %.lr.ph46
-  %54 = call noundef zeroext i1 @_ZNK14compiledVFrame21has_ea_local_in_scopeEv(ptr noundef nonnull align 8 dereferenceable(5076) %.02145) #10
+53:                                               ; preds = %.lr.ph41
+  %54 = call noundef zeroext i1 @_ZNK14compiledVFrame21has_ea_local_in_scopeEv(ptr noundef nonnull align 8 dereferenceable(5076) %.02140) #10
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %53
-  %56 = call noundef zeroext i1 @_ZNK14compiledVFrame10arg_escapeEv(ptr noundef nonnull align 8 dereferenceable(5076) %.02145) #10
+  %56 = call noundef zeroext i1 @_ZNK14compiledVFrame10arg_escapeEv(ptr noundef nonnull align 8 dereferenceable(5076) %.02140) #10
   br i1 %56, label %57, label %.critedge
 
 57:                                               ; preds = %55, %53
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %.02145, i64 56
+  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %.02140, i64 56
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   %58 = call noundef zeroext i1 @_ZN13EscapeBarrier27deoptimize_objects_internalEP10JavaThreadPl(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %36, ptr noundef %.sroa.1.0.copyload)
   br i1 %58, label %.critedge, label %73
 
 .critedge:                                        ; preds = %55, %57
-  %59 = load ptr, ptr %.02145, align 8
+  %59 = load ptr, ptr %.02140, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(5064) %.02145) #10
+  %62 = call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(5064) %.02140) #10
   br i1 %62, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
-  %.22343 = phi ptr [ %65, %.lr.ph ], [ %.02145, %.critedge ]
-  %63 = load ptr, ptr %.22343, align 8
+  %.22338 = phi ptr [ %65, %.lr.ph ], [ %.02140, %.critedge ]
+  %63 = load ptr, ptr %.22338, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(5064) %.22343) #10
+  %65 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(5064) %.22338) #10
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(5064) %65) #10
   br i1 %69, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.lr.ph, %.critedge, %.lr.ph46
-  %.122 = phi ptr [ %.02145, %.lr.ph46 ], [ %.02145, %.critedge ], [ %65, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.critedge, %.lr.ph41
+  %.122 = phi ptr [ %.02140, %.lr.ph41 ], [ %.02140, %.critedge ], [ %65, %.lr.ph ]
   %70 = load ptr, ptr %.122, align 8
   %71 = load ptr, ptr %70, align 8
   %72 = call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(5064) %.122) #10
   %.not28 = icmp eq ptr %72, null
-  br i1 %.not28, label %.critedge30, label %.lr.ph46, !llvm.loop !18
+  br i1 %.not28, label %.thread, label %.lr.ph41, !llvm.loop !18
 
 73:                                               ; preds = %57
   call void @_ZN24KeepStackGCProcessedMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
-  br label %.loopexit42
+  br label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
 
-.critedge30:                                      ; preds = %.loopexit, %47
-  call void @_ZN24KeepStackGCProcessedMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
-  %.pre = load i32, ptr %24, align 8
-  %.pre48 = load ptr, ptr %25, align 8
-  br label %.backedge
-
-.backedge:                                        ; preds = %44, %.critedge30, %37
-  %74 = phi ptr [ %29, %44 ], [ %.pre48, %.critedge30 ], [ %29, %37 ]
-  %75 = phi i32 [ %31, %44 ], [ %.pre, %.critedge30 ], [ %31, %37 ]
+.backedge:                                        ; preds = %44, %.thread, %37
+  %74 = phi ptr [ %29, %44 ], [ %.pre47, %.thread ], [ %29, %37 ]
+  %75 = phi i32 [ %31, %44 ], [ %.pre, %.thread ], [ %31, %37 ]
   %76 = getelementptr inbounds i8, ptr %74, i64 4
   %77 = load i32, ptr %76, align 4
   %.not.i = icmp ult i32 %75, %77
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %.loopexit42, !llvm.loop !19
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !19
 
-.loopexit42:                                      ; preds = %.backedge, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, %40, %9, %73
-  %.not39 = phi i1 [ false, %73 ], [ true, %9 ], [ false, %40 ], [ true, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ true, %.backedge ]
+_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, %40, %.backedge, %9, %73
+  %.not35 = phi i1 [ false, %73 ], [ true, %9 ], [ true, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ false, %40 ], [ true, %.backedge ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #10
   %78 = load ptr, ptr %14, align 8
   %.not.i.i.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i.i.i, label %80, label %79
 
-79:                                               ; preds = %.loopexit42
+79:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %20) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %14) #10
   br label %80
 
-80:                                               ; preds = %79, %.loopexit42
+80:                                               ; preds = %79, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
   %81 = load ptr, ptr %15, align 8
   %.not8.i.i.i.i = icmp eq ptr %81, %16
   br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %82
@@ -494,7 +494,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %9, %.backedge
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %82, %80, %1
-  %.0 = phi i1 [ true, %1 ], [ %.not39, %80 ], [ %.not39, %82 ]
+  %.0 = phi i1 [ true, %1 ], [ %.not35, %80 ], [ %.not35, %82 ]
   ret i1 %.0
 }
 

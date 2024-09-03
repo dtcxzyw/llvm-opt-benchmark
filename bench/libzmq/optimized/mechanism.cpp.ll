@@ -1639,8 +1639,8 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp39 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp40 = alloca %"class.std::allocator", align 1
-  %cmp53 = icmp ugt i64 %length_, 1
-  br i1 %cmp53, label %while.body.lr.ph, label %while.end
+  %cmp55 = icmp ugt i64 %length_, 1
+  br i1 %cmp55, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %recv_routing_id = getelementptr inbounds i8, ptr %this, i64 378
@@ -1652,12 +1652,12 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup
-  %ptr_.addr.055 = phi ptr [ %ptr_, %while.body.lr.ph ], [ %add.ptr16, %cleanup ]
-  %bytes_left.054 = phi i64 [ %length_, %while.body.lr.ph ], [ %sub17, %cleanup ]
-  %1 = load i8, ptr %ptr_.addr.055, align 1
+  %ptr_.addr.057 = phi ptr [ %ptr_, %while.body.lr.ph ], [ %add.ptr16, %cleanup ]
+  %bytes_left.056 = phi i64 [ %length_, %while.body.lr.ph ], [ %sub17, %cleanup ]
+  %1 = load i8, ptr %ptr_.addr.057, align 1
   %conv = zext i8 %1 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %ptr_.addr.055, i64 1
-  %sub = add i64 %bytes_left.054, -1
+  %add.ptr = getelementptr inbounds i8, ptr %ptr_.addr.057, i64 1
+  %sub = add i64 %bytes_left.056, -1
   %cmp2 = icmp ult i64 %sub, %conv
   br i1 %cmp2, label %if.then48, label %if.end
 
@@ -1778,7 +1778,7 @@ if.then24:                                        ; preds = %if.else
 if.then27:                                        ; preds = %if.then24
   %call28 = tail call ptr @__errno_location() #30
   store i32 22, ptr %call28, align 4
-  br label %cleanup.thread39
+  br label %cleanup.thread40
 
 if.else30:                                        ; preds = %if.else
   %vtable = load ptr, ptr %this, align 8
@@ -1789,7 +1789,7 @@ if.else30:                                        ; preds = %if.else
 
 invoke.cont31:                                    ; preds = %if.else30
   %cmp33 = icmp eq i32 %call32, -1
-  br i1 %cmp33, label %cleanup.thread39, label %if.end37
+  br i1 %cmp33, label %cleanup.thread40, label %if.end37
 
 if.end37:                                         ; preds = %if.then9.i.i, %land.lhs.true.i.i, %do.end.i.i, %if.then24, %invoke.cont31
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #26
@@ -1805,7 +1805,7 @@ cleanup.thread:                                   ; preds = %invoke.cont, %if.en
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #26
   br label %while.end
 
-cleanup.thread39:                                 ; preds = %invoke.cont31, %if.then27
+cleanup.thread40:                                 ; preds = %invoke.cont31, %if.then27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #26
   br label %return
 
@@ -1847,8 +1847,8 @@ if.then48:                                        ; preds = %while.body, %while.
   store i32 71, ptr %call49, align 4
   br label %return
 
-return:                                           ; preds = %cleanup.thread39, %while.end, %if.then48
-  %retval.2 = phi i32 [ -1, %if.then48 ], [ 0, %while.end ], [ -1, %cleanup.thread39 ]
+return:                                           ; preds = %cleanup.thread40, %while.end, %if.then48
+  %retval.2 = phi i32 [ -1, %if.then48 ], [ 0, %while.end ], [ -1, %cleanup.thread40 ]
   ret i32 %retval.2
 
 eh.resume:                                        ; preds = %ehcleanup46, %lpad

@@ -2169,6 +2169,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %spec.042 = phi ptr [ @PYCONFIG_SPEC, %entry ], [ %incdec.ptr, %for.inc ]
+  %tmp.sroa.8.041 = phi i32 [ undef, %entry ], [ %tmp.sroa.8.1, %for.inc ]
+  %tmp.sroa.4.037 = phi i32 [ undef, %entry ], [ %tmp.sroa.4.1, %for.inc ]
   %offset = getelementptr inbounds i8, ptr %spec.042, i64 8
   %0 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %config, i64 %0
@@ -2234,11 +2236,11 @@ PyConfig_SetString.exit:                          ; preds = %if.end.i, %if.then2
 
 if.then:                                          ; preds = %if.then2.i, %if.then.i
   %tmp.sroa.0.2.ph = phi i32 [ %5, %if.then.i ], [ 1, %if.then2.i ]
-  %tmp.sroa.4.2.ph = phi i32 [ %tmp.sroa.4.0.copyload, %if.then.i ], [ 0, %if.then2.i ]
+  %tmp.sroa.4.2.ph = phi i32 [ %tmp.sroa.4.0.copyload, %if.then.i ], [ %tmp.sroa.4.037, %if.then2.i ]
   %tmp.sroa.5.2.ph = phi ptr [ %tmp.sroa.5.0.copyload, %if.then.i ], [ @__func__.PyConfig_SetString, %if.then2.i ]
   %tmp.sroa.6.2.ph = phi ptr [ %tmp.sroa.6.0.copyload, %if.then.i ], [ @.str, %if.then2.i ]
   %tmp.sroa.7.2.ph = phi i32 [ %tmp.sroa.7.0.copyload, %if.then.i ], [ 0, %if.then2.i ]
-  %tmp.sroa.8.2.ph = phi i32 [ %tmp.sroa.8.0.copyload, %if.then.i ], [ 0, %if.then2.i ]
+  %tmp.sroa.8.2.ph = phi i32 [ %tmp.sroa.8.0.copyload, %if.then.i ], [ %tmp.sroa.8.041, %if.then2.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   store i32 %tmp.sroa.0.2.ph, ptr %agg.result, align 8
   %status.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -2272,6 +2274,8 @@ sw.default:                                       ; preds = %for.body
   unreachable
 
 for.inc:                                          ; preds = %PyConfig_SetString.exit, %sw.bb, %sw.bb3, %sw.bb6
+  %tmp.sroa.4.1 = phi i32 [ %tmp.sroa.4.037, %sw.bb6 ], [ 0, %PyConfig_SetString.exit ], [ %tmp.sroa.4.037, %sw.bb3 ], [ %tmp.sroa.4.037, %sw.bb ]
+  %tmp.sroa.8.1 = phi i32 [ %tmp.sroa.8.041, %sw.bb6 ], [ 0, %PyConfig_SetString.exit ], [ %tmp.sroa.8.041, %sw.bb3 ], [ %tmp.sroa.8.041, %sw.bb ]
   %incdec.ptr = getelementptr i8, ptr %spec.042, i64 24
   %7 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %7, null
@@ -4393,7 +4397,7 @@ if.then156.i.i:                                   ; preds = %lor.lhs.false153.i.
   br label %if.end7.i
 
 config_parse_cmdline.exit.i.thread:               ; preds = %sw.bb99.i.i, %if.end.i66.i.i, %if.end7.i67.i.i, %sw.default.i.i, %sw.bb92.i.i, %sw.bb69.i.i, %sw.bb64.i.i, %sw.bb59.i.i, %if.then51.i.i, %if.else.i.i, %cond.end.i.i, %if.then10.i.i, %if.then28.i.i, %if.then20.i.i.i, %if.then137.i.i
-  %cmdline_warnoptions.sroa.0.2411.i.ph = phi i64 [ %cmdline_warnoptions.sroa.0.2.i, %if.then137.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.then20.i.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.then28.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.then10.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %cond.end.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.else.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.then51.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.bb59.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.bb64.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.bb69.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.bb92.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.default.i.i ], [ 9223372036854775807, %sw.bb99.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.end.i66.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.end7.i67.i.i ]
+  %cmdline_warnoptions.sroa.0.2459.i.ph = phi i64 [ %cmdline_warnoptions.sroa.0.2.i, %if.then137.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.then20.i.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.then28.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.then10.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %cond.end.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.else.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.then51.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.bb59.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.bb64.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.bb69.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.bb92.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %sw.default.i.i ], [ 9223372036854775807, %sw.bb99.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.end.i66.i.i ], [ %cmdline_warnoptions.sroa.0.2.i, %if.end7.i67.i.i ]
   %tmp.sroa.0.0.i.ph = phi i32 [ 1, %if.then137.i.i ], [ 1, %if.then20.i.i.i ], [ 1, %if.then28.i.i ], [ 1, %if.then10.i.i ], [ 2, %cond.end.i.i ], [ 2, %if.else.i.i ], [ %tmp.sroa.0.2.ph.i.i, %if.then51.i.i ], [ 2, %sw.bb59.i.i ], [ 2, %sw.bb64.i.i ], [ 2, %sw.bb69.i.i ], [ 2, %sw.bb92.i.i ], [ 2, %sw.default.i.i ], [ 1, %if.end7.i67.i.i ], [ 1, %if.end.i66.i.i ], [ 1, %sw.bb99.i.i ]
   %tmp.sroa.21.0.i.ph = phi i32 [ undef, %if.then137.i.i ], [ 0, %if.then20.i.i.i ], [ undef, %if.then28.i.i ], [ undef, %if.then10.i.i ], [ 0, %cond.end.i.i ], [ 0, %if.else.i.i ], [ %tmp.sroa.4.2.ph.i.i, %if.then51.i.i ], [ 0, %sw.bb59.i.i ], [ 0, %sw.bb64.i.i ], [ 0, %sw.bb69.i.i ], [ 0, %sw.bb92.i.i ], [ 0, %sw.default.i.i ], [ 0, %if.end7.i67.i.i ], [ 0, %if.end.i66.i.i ], [ 0, %sw.bb99.i.i ]
   %tmp.sroa.23.0.i.ph = phi ptr [ @__func__.config_parse_cmdline, %if.then137.i.i ], [ @__func__.PyWideStringList_Insert, %if.then20.i.i.i ], [ @__func__.config_parse_cmdline, %if.then28.i.i ], [ @__func__.config_parse_cmdline, %if.then10.i.i ], [ null, %cond.end.i.i ], [ null, %if.else.i.i ], [ %tmp.sroa.5.2.ph.i.i, %if.then51.i.i ], [ null, %sw.bb59.i.i ], [ null, %sw.bb64.i.i ], [ null, %sw.bb69.i.i ], [ null, %sw.bb92.i.i ], [ null, %sw.default.i.i ], [ @__func__.PyWideStringList_Insert, %if.end7.i67.i.i ], [ @__func__.PyWideStringList_Insert, %if.end.i66.i.i ], [ @__func__.PyWideStringList_Insert, %sw.bb99.i.i ]
@@ -5303,7 +5307,7 @@ done.i:                                           ; preds = %config_init_warnopt
   %tmp23.sroa.25.1 = phi ptr [ @.str, %config_update_argv.exit.i ], [ null, %config_init_warnoptions.exit.i.thread ], [ %status.sroa.13.sroa.11.0.i.i, %config_init_warnoptions.exit.i ], [ %tmp23.sroa.25.0.copyload, %if.end30.i ], [ %tmp25.sroa.9.0.i, %config_init_env_warnoptions.exit.i ], [ @.str, %config_run_filename_abspath.exit.i ], [ %tmp.sroa.28.0.i.ph, %config_parse_cmdline.exit.i.thread ], [ %status.sroa.13.sroa.11.0.i.i, %config_init_warnoptions.exit.i.thread118 ]
   %tmp23.sroa.31.1 = phi i32 [ 0, %config_update_argv.exit.i ], [ 0, %config_init_warnoptions.exit.i.thread ], [ %status.sroa.13.sroa.15.0.i.i, %config_init_warnoptions.exit.i ], [ %tmp23.sroa.31.0.copyload, %if.end30.i ], [ %tmp25.sroa.11.0.i, %config_init_env_warnoptions.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ %tmp.sroa.33.0.i.ph, %config_parse_cmdline.exit.i.thread ], [ %status.sroa.13.sroa.15.0.i.i, %config_init_warnoptions.exit.i.thread118 ]
   %tmp23.sroa.37.1 = phi i32 [ 0, %config_update_argv.exit.i ], [ 0, %config_init_warnoptions.exit.i.thread ], [ %status.sroa.13.sroa.19.0.i.i, %config_init_warnoptions.exit.i ], [ %tmp23.sroa.37.0.copyload, %if.end30.i ], [ %tmp25.sroa.13.0.i, %config_init_env_warnoptions.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ %tmp.sroa.40.0.i.ph, %config_parse_cmdline.exit.i.thread ], [ %status.sroa.13.sroa.19.0.i.i, %config_init_warnoptions.exit.i.thread118 ]
-  %cmdline_warnoptions.sroa.0.0.i = phi i64 [ %cmdline_warnoptions.sroa.0.2.i, %config_update_argv.exit.i ], [ %cmdline_warnoptions.sroa.0.1.i, %config_init_warnoptions.exit.i.thread ], [ %cmdline_warnoptions.sroa.0.1.i, %config_init_warnoptions.exit.i ], [ %cmdline_warnoptions.sroa.0.1.i, %if.end30.i ], [ %cmdline_warnoptions.sroa.0.1.i, %config_init_env_warnoptions.exit.i ], [ %cmdline_warnoptions.sroa.0.2.i, %config_run_filename_abspath.exit.i ], [ %cmdline_warnoptions.sroa.0.2411.i.ph, %config_parse_cmdline.exit.i.thread ], [ %cmdline_warnoptions.sroa.0.1.i, %config_init_warnoptions.exit.i.thread118 ]
+  %cmdline_warnoptions.sroa.0.0.i = phi i64 [ %cmdline_warnoptions.sroa.0.2.i, %config_update_argv.exit.i ], [ %cmdline_warnoptions.sroa.0.1.i, %config_init_warnoptions.exit.i.thread ], [ %cmdline_warnoptions.sroa.0.1.i, %config_init_warnoptions.exit.i ], [ %cmdline_warnoptions.sroa.0.1.i, %if.end30.i ], [ %cmdline_warnoptions.sroa.0.1.i, %config_init_env_warnoptions.exit.i ], [ %cmdline_warnoptions.sroa.0.2.i, %config_run_filename_abspath.exit.i ], [ %cmdline_warnoptions.sroa.0.2459.i.ph, %config_parse_cmdline.exit.i.thread ], [ %cmdline_warnoptions.sroa.0.1.i, %config_init_warnoptions.exit.i.thread118 ]
   %cmdline_warnoptions.sroa.8.0.i = phi ptr [ %cmdline_warnoptions.sroa.8.2.i, %config_update_argv.exit.i ], [ %cmdline_warnoptions.sroa.8.1.i, %config_init_warnoptions.exit.i.thread ], [ %cmdline_warnoptions.sroa.8.1.i, %config_init_warnoptions.exit.i ], [ %cmdline_warnoptions.sroa.8.1.i, %if.end30.i ], [ %cmdline_warnoptions.sroa.8.1.i, %config_init_env_warnoptions.exit.i ], [ %cmdline_warnoptions.sroa.8.2.i, %config_run_filename_abspath.exit.i ], [ %cmdline_warnoptions.sroa.8.2.i, %config_parse_cmdline.exit.i.thread ], [ %cmdline_warnoptions.sroa.8.1.i, %config_init_warnoptions.exit.i.thread118 ]
   %env_warnoptions.sroa.0.0.i = phi i64 [ 0, %config_update_argv.exit.i ], [ %env_warnoptions.sroa.0.1.i, %config_init_warnoptions.exit.i.thread ], [ %env_warnoptions.sroa.0.1.i, %config_init_warnoptions.exit.i ], [ %env_warnoptions.sroa.0.1.i, %if.end30.i ], [ %env_warnoptions.sroa.0.4.i, %config_init_env_warnoptions.exit.i ], [ 0, %config_run_filename_abspath.exit.i ], [ 0, %config_parse_cmdline.exit.i.thread ], [ %env_warnoptions.sroa.0.1.i, %config_init_warnoptions.exit.i.thread118 ]
   %env_warnoptions.sroa.8.0.i = phi ptr [ null, %config_update_argv.exit.i ], [ %env_warnoptions.sroa.8.1.i, %config_init_warnoptions.exit.i.thread ], [ %env_warnoptions.sroa.8.1.i, %config_init_warnoptions.exit.i ], [ %env_warnoptions.sroa.8.1.i, %if.end30.i ], [ %env_warnoptions.sroa.8.4.i, %config_init_env_warnoptions.exit.i ], [ null, %config_run_filename_abspath.exit.i ], [ null, %config_parse_cmdline.exit.i.thread ], [ %env_warnoptions.sroa.8.1.i, %config_init_warnoptions.exit.i.thread118 ]
@@ -5330,8 +5334,8 @@ for.body.i116.i:                                  ; preds = %_PyWideStringList_C
   %147 = load ptr, ptr %arrayidx.i118.i, align 8, !noalias !51
   call void @PyMem_RawFree(ptr noundef %147) #21, !noalias !51
   %inc.i119.i = add nuw nsw i64 %i.08.i117.i, 1
-  %exitcond416.not.i = icmp eq i64 %inc.i119.i, %env_warnoptions.sroa.0.0.i
-  br i1 %exitcond416.not.i, label %_PyWideStringList_Clear.exit121.i, label %for.body.i116.i, !llvm.loop !8
+  %exitcond464.not.i = icmp eq i64 %inc.i119.i, %env_warnoptions.sroa.0.0.i
+  br i1 %exitcond464.not.i, label %_PyWideStringList_Clear.exit121.i, label %for.body.i116.i, !llvm.loop !8
 
 _PyWideStringList_Clear.exit121.i:                ; preds = %for.body.i116.i, %_PyWideStringList_Clear.exit.i, %_PyWideStringList_Clear.exit.thread.i
   %tmp23.sroa.0.2 = phi i32 [ %tmp23.sroa.0.1, %_PyWideStringList_Clear.exit.i ], [ 1, %_PyWideStringList_Clear.exit.thread.i ], [ %tmp23.sroa.0.1, %for.body.i116.i ]

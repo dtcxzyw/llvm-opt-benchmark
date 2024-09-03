@@ -33868,16 +33868,16 @@ _ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.ex
 
 99:                                               ; preds = %_ZN8pybind116detail13all_type_infoEP11_typeobject.exit
   %100 = icmp ult i64 %64, 9
-  %.not8185 = icmp eq ptr %61, %60
-  %or.cond = or i1 %.not8185, %100
+  %.not8186 = icmp eq ptr %61, %60
+  %or.cond = or i1 %.not8186, %100
   br i1 %or.cond, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %99
   br i1 %58, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %106
-  %.sroa.062.086.us = phi ptr [ %107, %106 ], [ %61, %.lr.ph ]
-  %101 = load ptr, ptr %.sroa.062.086.us, align 8
+  %.sroa.062.087.us = phi ptr [ %107, %106 ], [ %61, %.lr.ph ]
+  %101 = load ptr, ptr %.sroa.062.087.us, align 8
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %0, align 8
   %104 = load ptr, ptr %103, align 8
@@ -33886,7 +33886,7 @@ _ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.ex
   br i1 %.not45.us, label %106, label %.split.us
 
 106:                                              ; preds = %.lr.ph.split.us
-  %107 = getelementptr inbounds i8, ptr %.sroa.062.086.us, i64 8
+  %107 = getelementptr inbounds i8, ptr %.sroa.062.087.us, i64 8
   %.not81.us = icmp eq ptr %107, %60
   br i1 %.not81.us, label %.thread.loopexit, label %.lr.ph.split.us
 
@@ -33895,16 +33895,16 @@ _ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.ex
   br label %111
 
 109:                                              ; preds = %111
-  %110 = getelementptr inbounds i8, ptr %.sroa.062.086, i64 8
+  %110 = getelementptr inbounds i8, ptr %.sroa.062.087, i64 8
   %.not81 = icmp eq ptr %110, %60
   br i1 %.not81, label %.thread, label %111
 
 111:                                              ; preds = %.lr.ph.split, %109
-  %.sroa.062.086 = phi ptr [ %61, %.lr.ph.split ], [ %110, %109 ]
-  %112 = load ptr, ptr %.sroa.062.086, align 8
+  %.sroa.062.087 = phi ptr [ %61, %.lr.ph.split ], [ %110, %109 ]
+  %112 = load ptr, ptr %.sroa.062.087, align 8
   %113 = load ptr, ptr %112, align 8
-  %.not90 = icmp eq ptr %113, %108
-  br i1 %.not90, label %.split.us, label %109
+  %.not92 = icmp eq ptr %113, %108
+  br i1 %.not92, label %.split.us, label %109
 
 .split.us:                                        ; preds = %111, %.lr.ph.split.us
   %.us-phi = phi ptr [ %101, %.lr.ph.split.us ], [ %112, %111 ]
@@ -33913,38 +33913,38 @@ _ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.ex
   br label %_ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit
 
 .thread.loopexit:                                 ; preds = %106
-  %.pre122 = load ptr, ptr %0, align 8
+  %.pre132 = load ptr, ptr %0, align 8
   br label %.thread
 
 .thread:                                          ; preds = %109, %.thread.loopexit, %67, %99
-  %114 = phi ptr [ %.pre122, %.thread.loopexit ], [ %55, %67 ], [ %55, %99 ], [ %55, %109 ]
+  %114 = phi ptr [ %.pre132, %.thread.loopexit ], [ %55, %67 ], [ %55, %99 ], [ %55, %109 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %115 = getelementptr inbounds i8, ptr %114, i64 88
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %114, i64 96
   %118 = load ptr, ptr %117, align 8
   %.not.i = icmp eq ptr %116, %118
-  br i1 %.not.i, label %_ZN8pybind116detail19type_caster_generic18try_implicit_castsENS_6handleEb.exit.thread, label %.lr.ph.i105
+  br i1 %.not.i, label %_ZN8pybind116detail19type_caster_generic18try_implicit_castsENS_6handleEb.exit.thread, label %.lr.ph.i111
 
-.lr.ph.i105:                                      ; preds = %.thread
+.lr.ph.i111:                                      ; preds = %.thread
   %119 = getelementptr inbounds i8, ptr %5, i64 8
   %120 = getelementptr inbounds i8, ptr %5, i64 16
   br label %121
 
-121:                                              ; preds = %131, %.lr.ph.i105
-  %.sroa.07.013.i = phi ptr [ %116, %.lr.ph.i105 ], [ %132, %131 ]
+121:                                              ; preds = %131, %.lr.ph.i111
+  %.sroa.07.013.i = phi ptr [ %116, %.lr.ph.i111 ], [ %132, %131 ]
   %122 = load ptr, ptr %.sroa.07.013.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %122, ptr %4, align 8
   %123 = call noundef ptr @_ZN8pybind116detail19get_local_type_infoERKSt10type_index(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.not.i.i.i106 = icmp eq ptr %123, null
-  br i1 %.not.i.i.i106, label %124, label %_ZN8pybind116detail19type_caster_genericC2ERKSt9type_info.exit.i
+  %.not.i.i.i112 = icmp eq ptr %123, null
+  br i1 %.not.i.i.i112, label %124, label %_ZN8pybind116detail19type_caster_genericC2ERKSt9type_info.exit.i
 
 124:                                              ; preds = %121
   %125 = call noundef nonnull align 8 dereferenceable(472) ptr @_ZN8pybind116detail13get_internalsEv()
   %126 = call ptr @_ZNSt10_HashtableISt10type_indexSt4pairIKS0_PN8pybind116detail9type_infoEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS2_(ptr noundef nonnull align 8 dereferenceable(56) %125, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.not.i.i.i.i107 = icmp eq ptr %126, null
-  br i1 %.not.i.i.i.i107, label %_ZN8pybind116detail19type_caster_genericC2ERKSt9type_info.exit.i, label %127
+  %.not.i.i.i.i113 = icmp eq ptr %126, null
+  br i1 %.not.i.i.i.i113, label %_ZN8pybind116detail19type_caster_genericC2ERKSt9type_info.exit.i, label %127
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds i8, ptr %126, i64 16
@@ -33980,25 +33980,26 @@ _ZN8pybind116detail19type_caster_generic18try_implicit_castsENS_6handleEb.exit: 
   br label %_ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit
 
 138:                                              ; preds = %_ZN8pybind116detail19type_caster_generic18try_implicit_castsENS_6handleEb.exit.thread, %45
-  %.pre98 = load ptr, ptr %0, align 8
+  %.pre102 = load ptr, ptr %0, align 8
   br i1 %2, label %139, label %_ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit.thread
 
 139:                                              ; preds = %138
-  %140 = getelementptr inbounds i8, ptr %.pre98, i64 64
+  %140 = getelementptr inbounds i8, ptr %.pre102, i64 64
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %.pre98, i64 72
+  %142 = getelementptr inbounds i8, ptr %.pre102, i64 72
   %143 = load ptr, ptr %142, align 8
-  %.not8287 = icmp eq ptr %141, %143
-  br i1 %.not8287, label %._crit_edge, label %.lr.ph89
+  %.not8288 = icmp eq ptr %141, %143
+  br i1 %.not8288, label %._crit_edge, label %.lr.ph91
 
 144:                                              ; preds = %_ZN8pybind116objectD2Ev.exit
-  %145 = getelementptr inbounds i8, ptr %.sroa.058.088, i64 8
+  %145 = getelementptr inbounds i8, ptr %.sroa.058.089, i64 8
   %.not82 = icmp eq ptr %145, %143
-  br i1 %.not82, label %._crit_edge.loopexit, label %.lr.ph89
+  br i1 %.not82, label %._crit_edge.loopexit, label %.lr.ph91
 
-.lr.ph89:                                         ; preds = %139, %144
-  %.sroa.058.088 = phi ptr [ %145, %144 ], [ %141, %139 ]
-  %146 = load ptr, ptr %.sroa.058.088, align 8
+.lr.ph91:                                         ; preds = %139, %144
+  %.190 = phi i1 [ %.2, %144 ], [ undef, %139 ]
+  %.sroa.058.089 = phi ptr [ %145, %144 ], [ %141, %139 ]
+  %146 = load ptr, ptr %.sroa.058.089, align 8
   %147 = load ptr, ptr %0, align 8
   %148 = load ptr, ptr %147, align 8
   %149 = tail call noundef ptr %146(ptr noundef nonnull %1, ptr noundef %148)
@@ -34006,20 +34007,21 @@ _ZN8pybind116detail19type_caster_generic18try_implicit_castsENS_6handleEb.exit: 
   %150 = invoke noundef zeroext i1 @_ZN8pybind116detail19type_caster_generic9load_implIS1_EEbNS_6handleEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %149, i1 noundef zeroext false)
           to label %151 unwind label %153
 
-151:                                              ; preds = %.lr.ph89
+151:                                              ; preds = %.lr.ph91
   br i1 %150, label %152, label %155
 
 152:                                              ; preds = %151
   invoke void @_ZN8pybind116detail19loader_life_support11add_patientENS_6handleE(ptr %149)
           to label %155 unwind label %153
 
-153:                                              ; preds = %152, %.lr.ph89
+153:                                              ; preds = %152, %.lr.ph91
   %154 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8pybind116objectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   resume { ptr, i32 } %154
 
 155:                                              ; preds = %151, %152
+  %.2 = phi i1 [ true, %152 ], [ %.190, %151 ]
   %.not.i.i.i = icmp eq ptr %149, null
   br i1 %.not.i.i.i, label %_ZN8pybind116objectD2Ev.exit, label %156
 
@@ -34049,7 +34051,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %155, %156, %159
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %139
-  %163 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre98, %139 ]
+  %163 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.pre102, %139 ]
   %164 = getelementptr inbounds i8, ptr %163, i64 112
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr %165, align 8
@@ -34074,11 +34076,11 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %155, %156, %159
   br i1 %174, label %_ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit, label %170
 
 _ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit.thread.loopexit: ; preds = %170
-  %.pre97 = load ptr, ptr %0, align 8
+  %.pre101 = load ptr, ptr %0, align 8
   br label %_ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit.thread
 
 _ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit.thread: ; preds = %_ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit.thread.loopexit, %._crit_edge, %138
-  %175 = phi ptr [ %.pre97, %_ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit.thread.loopexit ], [ %163, %._crit_edge ], [ %.pre98, %138 ]
+  %175 = phi ptr [ %.pre101, %_ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit.thread.loopexit ], [ %163, %._crit_edge ], [ %.pre102, %138 ]
   %176 = getelementptr inbounds i8, ptr %175, i64 144
   %177 = load i8, ptr %176, align 8
   %178 = and i8 %177, 8
@@ -34120,7 +34122,7 @@ _ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit.thread: ; preds 
   br label %_ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit
 
 _ZN8pybind116detail19type_caster_generic22try_direct_conversionsENS_6handleE.exit: ; preds = %_ZN8pybind116objectD2Ev.exit, %172, %_ZN8pybind116detail19type_caster_generic18try_implicit_castsENS_6handleEb.exit, %189, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit.thread, %3, %191, %186, %.split.us, %_ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.exit54, %_ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.exit, %11
-  %.0 = phi i1 [ true, %_ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.exit ], [ true, %_ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.exit54 ], [ true, %.split.us ], [ %187, %186 ], [ true, %191 ], [ %12, %11 ], [ false, %3 ], [ true, %_ZN8pybind116detail19type_caster_generic18try_implicit_castsENS_6handleEb.exit ], [ true, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit.thread ], [ false, %189 ], [ true, %172 ], [ true, %_ZN8pybind116objectD2Ev.exit ]
+  %.0 = phi i1 [ true, %_ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.exit ], [ true, %_ZN8pybind116detail19type_caster_generic10load_valueEONS0_16value_and_holderE.exit54 ], [ true, %.split.us ], [ %187, %186 ], [ true, %191 ], [ %12, %11 ], [ false, %3 ], [ true, %_ZN8pybind116detail19type_caster_generic18try_implicit_castsENS_6handleEb.exit ], [ true, %_ZN8pybind116detail20get_global_type_infoERKSt10type_index.exit.thread ], [ false, %189 ], [ true, %172 ], [ %.2, %_ZN8pybind116objectD2Ev.exit ]
   ret i1 %.0
 }
 

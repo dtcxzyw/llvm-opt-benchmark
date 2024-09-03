@@ -85828,6 +85828,7 @@ land.rhs24:                                       ; preds = %sw.bb21
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15
+  %retval.1 = phi i1 [ %retval.2, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15 ], [ undef, %while.cond.preheader ]
   %5 = load i64, ptr %chars_read.i, align 8
   %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr %chars_read.i, align 8
@@ -85881,6 +85882,7 @@ if.end31:                                         ; preds = %invoke.cont
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end31, %invoke.cont
+  %retval.2 = phi i1 [ false, %invoke.cont ], [ %retval.1, %if.end31 ]
   %15 = load ptr, ptr %chunk, align 8
   %tobool.not.i.i.i.i13 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i13, label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15, label %if.then.i.i.i.i14
@@ -85981,7 +85983,7 @@ ehcleanup66:                                      ; preds = %ehcleanup63, %lpad4
   br label %eh.resume
 
 return:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEENS1_19json_sax_dom_parserISF_EEE3getEv.exit, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15, %sw.bb21, %land.rhs24, %sw.bb15, %land.rhs18, %sw.bb9, %land.rhs12, %sw.bb6, %land.rhs, %entry, %invoke.cont60, %sw.bb
-  %retval.0 = phi i1 [ %call61, %invoke.cont60 ], [ %call5, %sw.bb ], [ false, %entry ], [ false, %sw.bb6 ], [ %call8, %land.rhs ], [ false, %sw.bb9 ], [ %call13, %land.rhs12 ], [ false, %sw.bb15 ], [ %call19, %land.rhs18 ], [ false, %sw.bb21 ], [ %call25, %land.rhs24 ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEENS1_19json_sax_dom_parserISF_EEE3getEv.exit ], [ false, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15 ]
+  %retval.0 = phi i1 [ %call61, %invoke.cont60 ], [ %call5, %sw.bb ], [ false, %entry ], [ false, %sw.bb6 ], [ %call8, %land.rhs ], [ false, %sw.bb9 ], [ %call13, %land.rhs12 ], [ false, %sw.bb15 ], [ %call19, %land.rhs18 ], [ false, %sw.bb21 ], [ %call25, %land.rhs24 ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEENS1_19json_sax_dom_parserISF_EEE3getEv.exit ], [ %retval.2, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i, %lpad, %ehcleanup66
@@ -120426,6 +120428,7 @@ land.rhs24:                                       ; preds = %sw.bb21
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15
+  %retval.1 = phi i1 [ %retval.2, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15 ], [ undef, %while.cond.preheader ]
   %5 = load i64, ptr %chars_read.i, align 8
   %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr %chars_read.i, align 8
@@ -120479,6 +120482,7 @@ if.end31:                                         ; preds = %invoke.cont
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end31, %invoke.cont
+  %retval.2 = phi i1 [ false, %invoke.cont ], [ %retval.1, %if.end31 ]
   %15 = load ptr, ptr %chunk, align 8
   %tobool.not.i.i.i.i13 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i13, label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15, label %if.then.i.i.i.i14
@@ -120579,7 +120583,7 @@ ehcleanup66:                                      ; preds = %ehcleanup63, %lpad4
   br label %eh.resume
 
 return:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEENS1_28json_sax_dom_callback_parserISF_EEE3getEv.exit, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15, %sw.bb21, %land.rhs24, %sw.bb15, %land.rhs18, %sw.bb9, %land.rhs12, %sw.bb6, %land.rhs, %entry, %invoke.cont60, %sw.bb
-  %retval.0 = phi i1 [ %call61, %invoke.cont60 ], [ %call5, %sw.bb ], [ false, %entry ], [ false, %sw.bb6 ], [ %call8, %land.rhs ], [ false, %sw.bb9 ], [ %call13, %land.rhs12 ], [ false, %sw.bb15 ], [ %call19, %land.rhs18 ], [ false, %sw.bb21 ], [ %call25, %land.rhs24 ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEENS1_28json_sax_dom_callback_parserISF_EEE3getEv.exit ], [ false, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15 ]
+  %retval.0 = phi i1 [ %call61, %invoke.cont60 ], [ %call5, %sw.bb ], [ false, %entry ], [ false, %sw.bb6 ], [ %call8, %land.rhs ], [ false, %sw.bb9 ], [ %call13, %land.rhs12 ], [ false, %sw.bb15 ], [ %call19, %land.rhs18 ], [ false, %sw.bb21 ], [ %call25, %land.rhs24 ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKhSE_EEEENS1_28json_sax_dom_callback_parserISF_EEE3getEv.exit ], [ %retval.2, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i, %lpad, %ehcleanup66
@@ -148800,6 +148804,7 @@ land.rhs24:                                       ; preds = %sw.bb21
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit16
+  %retval.1 = phi i1 [ %retval.2, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit16 ], [ undef, %while.cond.preheader ]
   %5 = load i64, ptr %chars_read.i, align 8
   %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr %chars_read.i, align 8
@@ -148857,6 +148862,7 @@ if.end31:                                         ; preds = %invoke.cont
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end31, %invoke.cont
+  %retval.2 = phi i1 [ false, %invoke.cont ], [ %retval.1, %if.end31 ]
   %14 = load ptr, ptr %chunk, align 8
   %tobool.not.i.i.i.i14 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i14, label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit16, label %if.then.i.i.i.i15
@@ -148957,7 +148963,7 @@ ehcleanup66:                                      ; preds = %ehcleanup63, %lpad4
   br label %eh.resume
 
 return:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterENS1_19json_sax_dom_parserISF_EEE3getEv.exit, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit16, %sw.bb21, %land.rhs24, %sw.bb15, %land.rhs18, %sw.bb9, %land.rhs12, %sw.bb6, %land.rhs, %entry, %invoke.cont60, %sw.bb
-  %retval.0 = phi i1 [ %call61, %invoke.cont60 ], [ %call5, %sw.bb ], [ false, %entry ], [ false, %sw.bb6 ], [ %call8, %land.rhs ], [ false, %sw.bb9 ], [ %call13, %land.rhs12 ], [ false, %sw.bb15 ], [ %call19, %land.rhs18 ], [ false, %sw.bb21 ], [ %call25, %land.rhs24 ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterENS1_19json_sax_dom_parserISF_EEE3getEv.exit ], [ false, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit16 ]
+  %retval.0 = phi i1 [ %call61, %invoke.cont60 ], [ %call5, %sw.bb ], [ false, %entry ], [ false, %sw.bb6 ], [ %call8, %land.rhs ], [ false, %sw.bb9 ], [ %call13, %land.rhs12 ], [ false, %sw.bb15 ], [ %call19, %land.rhs18 ], [ false, %sw.bb21 ], [ %call25, %land.rhs24 ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterENS1_19json_sax_dom_parserISF_EEE3getEv.exit ], [ %retval.2, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit16 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i, %lpad, %ehcleanup66
@@ -162532,6 +162538,7 @@ land.rhs24:                                       ; preds = %sw.bb21
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15
+  %retval.1 = phi i1 [ %retval.2, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15 ], [ undef, %while.cond.preheader ]
   %5 = load i64, ptr %chars_read.i, align 8
   %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr %chars_read.i, align 8
@@ -162585,6 +162592,7 @@ if.end31:                                         ; preds = %invoke.cont
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end31, %invoke.cont
+  %retval.2 = phi i1 [ false, %invoke.cont ], [ %retval.1, %if.end31 ]
   %15 = load ptr, ptr %chunk, align 8
   %tobool.not.i.i.i.i13 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i13, label %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15, label %if.then.i.i.i.i14
@@ -162685,7 +162693,7 @@ ehcleanup66:                                      ; preds = %ehcleanup63, %lpad4
   br label %eh.resume
 
 return:                                           ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEENS1_19json_sax_dom_parserISF_EEE3getEv.exit, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15, %sw.bb21, %land.rhs24, %sw.bb15, %land.rhs18, %sw.bb9, %land.rhs12, %sw.bb6, %land.rhs, %entry, %invoke.cont60, %sw.bb
-  %retval.0 = phi i1 [ %call61, %invoke.cont60 ], [ %call5, %sw.bb ], [ false, %entry ], [ false, %sw.bb6 ], [ %call8, %land.rhs ], [ false, %sw.bb9 ], [ %call13, %land.rhs12 ], [ false, %sw.bb15 ], [ %call19, %land.rhs18 ], [ false, %sw.bb21 ], [ %call25, %land.rhs24 ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEENS1_19json_sax_dom_parserISF_EEE3getEv.exit ], [ false, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15 ]
+  %retval.0 = phi i1 [ %call61, %invoke.cont60 ], [ %call5, %sw.bb ], [ false, %entry ], [ false, %sw.bb6 ], [ %call8, %land.rhs ], [ false, %sw.bb9 ], [ %call13, %land.rhs12 ], [ false, %sw.bb15 ], [ %call19, %land.rhs18 ], [ false, %sw.bb21 ], [ %call25, %land.rhs24 ], [ true, %_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEENS1_19json_sax_dom_parserISF_EEE3getEv.exit ], [ %retval.2, %_ZN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEED2Ev.exit15 ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i, %lpad, %ehcleanup66

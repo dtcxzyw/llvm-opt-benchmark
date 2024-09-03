@@ -155,6 +155,7 @@ define dso_local noundef zeroext i1 @_ZN14ManifestParser5ParseERKNSt7__cxx1112ba
   br label %19
 
 19:                                               ; preds = %.backedge, %4
+  %.022 = phi i1 [ undef, %4 ], [ %.022.be, %.backedge ]
   %20 = call noundef i32 @_ZN5Lexer9ReadTokenEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
   switch i32 %20, label %61 [
     i32 12, label %21
@@ -230,6 +231,7 @@ define dso_local noundef zeroext i1 @_ZN14ManifestParser5ParseERKNSt7__cxx1112ba
   br label %45
 
 45:                                               ; preds = %31, %44
+  %.325 = phi i1 [ %.022, %44 ], [ false, %31 ]
   %46 = load ptr, ptr %6, align 8
   %47 = load ptr, ptr %18, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %46, %47
@@ -260,6 +262,7 @@ _ZN10EvalStringD2Ev.exit:                         ; preds = %_ZSt8_DestroyIPSt4p
   br i1 %30, label %.backedge, label %.loopexit
 
 .backedge:                                        ; preds = %_ZN10EvalStringD2Ev.exit, %19, %54, %52, %27, %25, %23, %21
+  %.022.be = phi i1 [ %.022, %19 ], [ %.022, %54 ], [ %.022, %52 ], [ %.325, %_ZN10EvalStringD2Ev.exit ], [ %.022, %27 ], [ %.022, %25 ], [ %.022, %23 ], [ %.022, %21 ]
   br label %19, !llvm.loop !7
 
 51:                                               ; preds = %40, %32
@@ -356,7 +359,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %78
 
 .loopexit:                                        ; preds = %19, %54, %52, %_ZN10EvalStringD2Ev.exit, %27, %25, %23, %21, %70, %58
-  %.123 = phi i1 [ %69, %70 ], [ %57, %58 ], [ true, %19 ], [ false, %54 ], [ false, %52 ], [ false, %27 ], [ false, %25 ], [ false, %23 ], [ false, %21 ], [ false, %_ZN10EvalStringD2Ev.exit ]
+  %.123 = phi i1 [ %69, %70 ], [ %57, %58 ], [ true, %19 ], [ false, %54 ], [ false, %52 ], [ false, %27 ], [ false, %25 ], [ false, %23 ], [ false, %21 ], [ %.325, %_ZN10EvalStringD2Ev.exit ]
   ret i1 %.123
 
 78:                                               ; preds = %.body, %59, %51

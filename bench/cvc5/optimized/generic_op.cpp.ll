@@ -4395,8 +4395,8 @@ entry:
   %0 = load ptr, ptr %indices, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %indices, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not15 = icmp eq ptr %0, %1
-  br i1 %cmp.i.not15, label %return, label %for.body.lr.ph
+  %cmp.i.not12 = icmp eq ptr %0, %1
+  br i1 %cmp.i.not12, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds i8, ptr %numerals, i64 8
@@ -4404,13 +4404,14 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond:                                         ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit6
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.016, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.013, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %__begin2.sroa.0.016 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
-  %2 = load ptr, ptr %__begin2.sroa.0.016, align 8
+  %retval.014 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.2, %for.cond ]
+  %__begin2.sroa.0.013 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
+  %2 = load ptr, ptr %__begin2.sroa.0.013, align 8
   %d_kind.i = getelementptr inbounds i8, ptr %2, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
@@ -4527,6 +4528,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %if.then.i.i, %invoke.cont
+  %retval.2 = phi i1 [ false, %invoke.cont ], [ %retval.014, %if.then.i.i ], [ %retval.014, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ]
   invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit6 unwind label %terminate.lpad.i.i5
 
@@ -4541,8 +4543,8 @@ _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %cleanup
   br i1 %call7, label %for.cond, label %return
 
 return:                                           ; preds = %for.body, %_ZN4cvc58internal7IntegerD2Ev.exit6, %for.cond, %entry
-  %cmp.i.not.lcssa = phi i1 [ true, %entry ], [ true, %for.cond ], [ false, %_ZN4cvc58internal7IntegerD2Ev.exit6 ], [ false, %for.body ]
-  ret i1 %cmp.i.not.lcssa
+  %retval.1 = phi i1 [ true, %entry ], [ true, %for.cond ], [ %retval.2, %_ZN4cvc58internal7IntegerD2Ev.exit6 ], [ false, %for.body ]
+  ret i1 %retval.1
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal7Integer15fitsUnsignedIntEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

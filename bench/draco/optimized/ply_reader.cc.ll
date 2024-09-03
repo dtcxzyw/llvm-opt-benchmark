@@ -2860,8 +2860,8 @@ define noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13Deco
   %13 = getelementptr inbounds i8, ptr %12, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
-  %16 = icmp slt i32 %15, 1
-  br i1 %16, label %.loopexit62, label %.preheader.lr.ph
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %.preheader.lr.ph, label %.loopexit62
 
 .preheader.lr.ph:                                 ; preds = %3
   %17 = getelementptr inbounds i8, ptr %12, i64 40
@@ -2870,21 +2870,22 @@ define noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13Deco
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   %21 = getelementptr inbounds i8, ptr %6, i64 32
   %.pre = load ptr, ptr %18, align 8
-  %.pre83 = load ptr, ptr %17, align 8
+  %.pre89 = load ptr, ptr %17, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %22 = phi i64 [ %14, %.preheader.lr.ph ], [ %157, %._crit_edge ]
-  %23 = phi ptr [ %.pre83, %.preheader.lr.ph ], [ %158, %._crit_edge ]
+  %23 = phi ptr [ %.pre89, %.preheader.lr.ph ], [ %158, %._crit_edge ]
   %24 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %159, %._crit_edge ]
-  %.03079 = phi i32 [ 0, %.preheader.lr.ph ], [ %160, %._crit_edge ]
+  %.02985 = phi i1 [ undef, %.preheader.lr.ph ], [ %.1.lcssa, %._crit_edge ]
+  %.03084 = phi i32 [ 0, %.preheader.lr.ph ], [ %160, %._crit_edge ]
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %23 to i64
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 96
   %29 = trunc i64 %28 to i32
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph78, label %._crit_edge
+  br i1 %30, label %.lr.ph83, label %._crit_edge
 
 31:                                               ; preds = %_ZN5draco17PlyPropertyWriterIdED2Ev.exit53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2897,11 +2898,12 @@ define noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13Deco
   %sext = shl i64 %37, 32
   %38 = ashr exact i64 %sext, 32
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !36
+  br i1 %39, label %.lr.ph83, label %._crit_edge.loopexit, !llvm.loop !36
 
-.lr.ph78:                                         ; preds = %.preheader, %31
+.lr.ph83:                                         ; preds = %.preheader, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.preheader ]
   %40 = phi ptr [ %33, %31 ], [ %23, %.preheader ]
+  %.182 = phi i1 [ %.2, %31 ], [ %.02985, %.preheader ]
   %41 = getelementptr inbounds %"class.draco::PlyProperty", ptr %40, i64 %indvars.iv
   call void @_ZN5draco17PlyPropertyWriterIdEC2EPNS_11PlyPropertyE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %41)
   store i32 1, ptr %7, align 4
@@ -2910,7 +2912,7 @@ define noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13Deco
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %.lr.ph, label %44
 
-44:                                               ; preds = %.lr.ph78
+44:                                               ; preds = %.lr.ph83
   invoke void @_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE(ptr noundef %1)
           to label %45 unwind label %.loopexit.split-lp.loopexit
 
@@ -2931,7 +2933,7 @@ define noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13Deco
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke90, %.invoke
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke98, %.invoke
   %lpad.loopexit.split-lp60 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2981,7 +2983,7 @@ _ZN5draco17PlyPropertyWriterIdED2Ev.exit:         ; preds = %.loopexit.split-lp,
   %72 = load ptr, ptr %67, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   store ptr %73, ptr %67, align 8
-  %.pre84 = load ptr, ptr %69, align 8
+  %.pre90 = load ptr, ptr %69, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 74:                                               ; preds = %54
@@ -2990,7 +2992,7 @@ _ZN5draco17PlyPropertyWriterIdED2Ev.exit:         ; preds = %.loopexit.split-lp,
   %77 = ptrtoint ptr %75 to i64
   %78 = sub i64 %76, %77
   %79 = icmp eq i64 %78, 9223372036854775800
-  br i1 %79, label %.invoke90, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %79, label %.invoke98, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i
 
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %74
   %80 = ashr exact i64 %78, 3
@@ -3036,7 +3038,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i, %71
-  %96 = phi ptr [ %95, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %.pre84, %71 ]
+  %96 = phi ptr [ %95, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %.pre90, %71 ]
   %97 = phi ptr [ %93, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %73, %71 ]
   %98 = load i32, ptr %7, align 4
   %99 = sext i32 %98 to i64
@@ -3056,13 +3058,13 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
   %106 = ptrtoint ptr %104 to i64
   %107 = sub i64 %105, %106
   %108 = icmp eq i64 %107, 9223372036854775800
-  br i1 %108, label %.invoke90, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i34
+  br i1 %108, label %.invoke98, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i34
 
-.invoke90:                                        ; preds = %103, %74
+.invoke98:                                        ; preds = %103, %74
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.34) #23
-          to label %.cont91 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont99 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont91:                                          ; preds = %.invoke90
+.cont99:                                          ; preds = %.invoke98
   unreachable
 
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i34: ; preds = %103
@@ -3099,11 +3101,11 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38: ; preds = %120, %
 
 123:                                              ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38
   call void @_ZdlPv(ptr noundef nonnull %104) #21
-  %.pre85.pre = load i32, ptr %7, align 4
+  %.pre91.pre = load i32, ptr %7, align 4
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40: ; preds = %123, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38
-  %.pre85 = phi i32 [ %.pre85.pre, %123 ], [ %98, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38 ]
+  %.pre91 = phi i32 [ %.pre91.pre, %123 ], [ %98, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i38 ]
   store ptr %117, ptr %55, align 8
   store ptr %122, ptr %67, align 8
   %124 = getelementptr inbounds i64, ptr %117, i64 %113
@@ -3111,16 +3113,16 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit43
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit43:         ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40, %100
-  %125 = phi i32 [ %.pre85, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40 ], [ %98, %100 ]
+  %125 = phi i32 [ %.pre91, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i40 ], [ %98, %100 ]
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph78, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit43
+.lr.ph:                                           ; preds = %.lr.ph83, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit43
   %127 = getelementptr inbounds i8, ptr %41, i64 80
   br label %128
 
 128:                                              ; preds = %.lr.ph, %147
-  %.072 = phi i32 [ 0, %.lr.ph ], [ %148, %147 ]
+  %.073 = phi i32 [ 0, %.lr.ph ], [ %148, %147 ]
   invoke void @_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE(ptr noundef %1)
           to label %129 unwind label %.loopexit58
 
@@ -3188,12 +3190,13 @@ _ZNK5draco17PlyPropertyWriterIdE13PushBackValueEd.exit51: ; preds = %_ZNKSt8func
   br label %147
 
 147:                                              ; preds = %_ZNK5draco17PlyPropertyWriterIdE13PushBackValueEd.exit51, %_ZNK5draco17PlyPropertyWriterIdE13PushBackValueEd.exit
-  %148 = add nuw nsw i32 %.072, 1
+  %148 = add nuw nsw i32 %.073, 1
   %149 = load i32, ptr %7, align 4
   %150 = icmp slt i32 %148, %149
   br i1 %150, label %128, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %133, %141, %147, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit43, %47
+  %.2 = phi i1 [ false, %47 ], [ %.182, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit43 ], [ false, %133 ], [ false, %141 ], [ %.182, %147 ]
   %switch = phi i1 [ false, %47 ], [ true, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit43 ], [ false, %133 ], [ false, %141 ], [ true, %147 ]
   %151 = load ptr, ptr %19, align 8
   %.not.i.i.i52 = icmp eq ptr %151, null
@@ -3214,21 +3217,22 @@ _ZN5draco17PlyPropertyWriterIdED2Ev.exit53:       ; preds = %.loopexit, %152
   br i1 %switch, label %31, label %.loopexit62
 
 ._crit_edge.loopexit:                             ; preds = %31
-  %.pre86 = load i64, ptr %13, align 8
+  %.pre92 = load i64, ptr %13, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %157 = phi i64 [ %.pre86, %._crit_edge.loopexit ], [ %22, %.preheader ]
-  %158 = phi ptr [ %33, %._crit_edge.loopexit ], [ %23, %.preheader ]
-  %159 = phi ptr [ %32, %._crit_edge.loopexit ], [ %24, %.preheader ]
-  %160 = add nuw nsw i32 %.03079, 1
+  %157 = phi i64 [ %22, %.preheader ], [ %.pre92, %._crit_edge.loopexit ]
+  %158 = phi ptr [ %23, %.preheader ], [ %33, %._crit_edge.loopexit ]
+  %159 = phi ptr [ %24, %.preheader ], [ %32, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i1 [ %.02985, %.preheader ], [ %.2, %._crit_edge.loopexit ]
+  %160 = add nuw nsw i32 %.03084, 1
   %161 = trunc i64 %157 to i32
-  %.not80 = icmp slt i32 %160, %161
-  br i1 %.not80, label %.preheader, label %.loopexit62, !llvm.loop !38
+  %162 = icmp slt i32 %160, %161
+  br i1 %162, label %.preheader, label %.loopexit62, !llvm.loop !38
 
 .loopexit62:                                      ; preds = %._crit_edge, %_ZN5draco17PlyPropertyWriterIdED2Ev.exit53, %3
-  %162 = phi i1 [ true, %3 ], [ false, %_ZN5draco17PlyPropertyWriterIdED2Ev.exit53 ], [ true, %._crit_edge ]
-  ret i1 %162
+  %.3 = phi i1 [ true, %3 ], [ %.2, %_ZN5draco17PlyPropertyWriterIdED2Ev.exit53 ], [ true, %._crit_edge ]
+  ret i1 %.3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

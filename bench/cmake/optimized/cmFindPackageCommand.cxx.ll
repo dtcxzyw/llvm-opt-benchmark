@@ -16610,21 +16610,21 @@ define dso_local noundef zeroext i1 @_ZN20cmFindPackageCommand15SearchDirectoryE
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %6, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not15.not = icmp eq ptr %6, %8
+  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 752
   br label %10
 
 10:                                               ; preds = %.lr.ph, %26
-  %.sroa.010.015 = phi ptr [ %6, %.lr.ph ], [ %27, %26 ]
+  %.sroa.010.016 = phi ptr [ %6, %.lr.ph ], [ %27, %26 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %11 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.015) #24
+  %11 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.016) #24
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.015)
+  %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.016)
           to label %14 unwind label %16
 
 14:                                               ; preds = %12
@@ -16684,13 +16684,13 @@ define dso_local noundef zeroext i1 @_ZN20cmFindPackageCommand15SearchDirectoryE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
-  %27 = getelementptr inbounds i8, ptr %.sroa.010.015, i64 32
-  %.not18 = icmp eq ptr %27, %8
-  br i1 %.not18, label %._crit_edge, label %10
+  %27 = getelementptr inbounds i8, ptr %.sroa.010.016, i64 32
+  %.not.not = icmp eq ptr %27, %8
+  br i1 %.not.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %26, %25, %2
-  %.lcssa = phi i1 [ false, %2 ], [ true, %25 ], [ false, %26 ]
-  ret i1 %.lcssa
+  %.not.lcssa = phi i1 [ false, %2 ], [ true, %25 ], [ false, %26 ]
+  ret i1 %.not.lcssa
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #0

@@ -2088,7 +2088,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %131 = invoke noundef i64 @_ZN11tree_sitter5Query13pattern_count17he6ab95e1b01de91aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %128)
           to label %133 unwind label %246
 
-132:                                              ; preds = %"_ZN4core3ptr153drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$alloc..vec..Vec$LT$tree_sitter..Node$GT$$C$bool$RP$$GT$$GT$17h4ffa9ca67090ca83E.exit117", %126
+132:                                              ; preds = %"_ZN4core3ptr153drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$alloc..vec..Vec$LT$tree_sitter..Node$GT$$C$bool$RP$$GT$$GT$17h4ffa9ca67090ca83E.exit118", %126
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
   invoke void @_ZN11tree_sitter4Tree9root_node17h294ec109d0e19f8eE(ptr noalias nocapture noundef nonnull sret({ { [4 x i32], ptr, ptr }, {} }) align 8 dereferenceable(32) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %39)
@@ -2177,35 +2177,35 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 .noexc:                                           ; preds = %149
   br i1 %151, label %.lr.ph.i, label %.thread59
 
-.lr.ph.i:                                         ; preds = %.noexc, %.noexc111
+.lr.ph.i:                                         ; preds = %.noexc, %.noexc112
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17), !noalias !313
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !313
   %152 = load ptr, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !310, !noalias !315, !noundef !4
   invoke void @_ZN11tree_sitter10QueryMatch3new17h811620d10164e2e3E(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64, ptr, i32, [1 x i32] }) align 8 dereferenceable(40) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16, ptr noundef %152)
-          to label %.noexc109 unwind label %.loopexit
+          to label %.noexc110 unwind label %.loopexit
 
-.noexc109:                                        ; preds = %.lr.ph.i
+.noexc110:                                        ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !313
   %153 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !310, !noalias !315, !nonnull !4, !align !5, !noundef !4
   %154 = invoke noundef zeroext i1 @_ZN11tree_sitter10QueryMatch25satisfies_text_predicates17h6bcfc2e9fbe63517E.llvm.2439763246776121497(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %153, ptr noalias noundef nonnull align 8 dereferenceable(24) %34, ptr noalias noundef nonnull align 8 dereferenceable(24) %64, ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx)
-          to label %.noexc110 unwind label %.loopexit
+          to label %.noexc111 unwind label %.loopexit
 
-.noexc110:                                        ; preds = %.noexc109
+.noexc111:                                        ; preds = %.noexc110
   br i1 %154, label %158, label %155
 
-155:                                              ; preds = %.noexc110
+155:                                              ; preds = %.noexc111
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !313
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !313
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !313
   %156 = load ptr, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !310, !noalias !315, !noundef !4
   %157 = invoke noundef zeroext i1 @ts_query_cursor_next_match(ptr noundef %156, ptr noundef nonnull %18)
-          to label %.noexc111 unwind label %.loopexit
+          to label %.noexc112 unwind label %.loopexit
 
-.noexc111:                                        ; preds = %155
+.noexc112:                                        ; preds = %155
   br i1 %157, label %.lr.ph.i, label %.thread59
 
-.loopexit:                                        ; preds = %.lr.ph.i, %.noexc109, %155
+.loopexit:                                        ; preds = %.lr.ph.i, %.noexc110, %155
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2225,11 +2225,11 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   invoke void @"_ZN4core3ptr89drop_in_place$LT$tree_sitter..QueryMatches$LT$$RF$$u5b$u8$u5d$$C$$RF$$u5b$u8$u5d$$GT$$GT$17he28c77becf23f584E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %34) #17
           to label %.thread48 unwind label %215
 
-.thread59:                                        ; preds = %.noexc, %.noexc111
+.thread59:                                        ; preds = %.noexc, %.noexc112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !313
   br label %.loopexit98
 
-158:                                              ; preds = %.noexc110
+158:                                              ; preds = %.noexc111
   %.sroa.01.0.copyload2 = load ptr, ptr %17, align 8, !noalias !310
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.73, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.73.0..sroa_idx4, i64 32, i1 false), !noalias !310
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !313
@@ -2247,15 +2247,15 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   store ptr %.sroa.01.0.copyload2, ptr %33, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.73.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.73, i64 32, i1 false)
   %161 = load i64, ptr %65, align 8, !noundef !4
-  %.val107 = load i64, ptr %66, align 8, !noundef !4
-  %162 = icmp ult i64 %161, %.val107
+  %.val108 = load i64, ptr %66, align 8, !noundef !4
+  %162 = icmp ult i64 %161, %.val108
   br i1 %162, label %221, label %163, !prof !166
 
 163:                                              ; preds = %160
-  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %161, i64 noundef %.val107, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.acc7b537c0cd5c83cdbe6cf00ab05d05.56) #16
-          to label %.noexc112 unwind label %.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %161, i64 noundef %.val108, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.acc7b537c0cd5c83cdbe6cf00ab05d05.56) #16
+          to label %.noexc113 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc112:                                        ; preds = %163
+.noexc113:                                        ; preds = %163
   unreachable
 
 164:                                              ; preds = %.loopexit98
@@ -2277,8 +2277,8 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %167 = add i64 %.072, 1
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d9a08aa635292a2E.exit"
 
-168:                                              ; preds = %.body121, %169
-  %.pn92 = phi { ptr, i32 } [ %170, %169 ], [ %.pn, %.body121 ]
+168:                                              ; preds = %.body122, %169
+  %.pn92 = phi { ptr, i32 } [ %170, %169 ], [ %.pn, %.body122 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd73aad1f3cc89bb4E.llvm.12279157293026222448"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31)
           to label %.body.thread68 unwind label %215
 
@@ -2305,7 +2305,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d9a08aa635292a2E.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d9a08aa635292a2E.exit", %217, %164
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.715)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd73aad1f3cc89bb4E.llvm.12279157293026222448"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31)
-          to label %"_ZN4core3ptr153drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$alloc..vec..Vec$LT$tree_sitter..Node$GT$$C$bool$RP$$GT$$GT$17h4ffa9ca67090ca83E.exit117" unwind label %145
+          to label %"_ZN4core3ptr153drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$alloc..vec..Vec$LT$tree_sitter..Node$GT$$C$bool$RP$$GT$$GT$17h4ffa9ca67090ca83E.exit118" unwind label %145
 
 174:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d9a08aa635292a2E.exit"
   %.sroa.919.0..sroa_idx = getelementptr inbounds i8, ptr %171, i64 40
@@ -2320,7 +2320,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %brmerge = or i1 %.not90, %177
   br i1 %brmerge, label %178, label %183
 
-"_ZN4core3ptr153drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$alloc..vec..Vec$LT$tree_sitter..Node$GT$$C$bool$RP$$GT$$GT$17h4ffa9ca67090ca83E.exit117": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d9a08aa635292a2E.exit.thread"
+"_ZN4core3ptr153drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..option..Option$LT$$RF$str$GT$$C$alloc..vec..Vec$LT$tree_sitter..Node$GT$$C$bool$RP$$GT$$GT$17h4ffa9ca67090ca83E.exit118": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d9a08aa635292a2E.exit.thread"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
   br label %132
@@ -2328,14 +2328,14 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 178:                                              ; preds = %187, %210, %174
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !321
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h37f9e8e6a0768439E.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %30)
-          to label %.noexc118 unwind label %169
+          to label %.noexc119 unwind label %169
 
-.noexc118:                                        ; preds = %178
+.noexc119:                                        ; preds = %178
   %179 = load i64, ptr %78, align 8, !range !55, !noalias !321, !noundef !4
   %.not.i.i.i = icmp eq i64 %179, 0
   br i1 %.not.i.i.i, label %217, label %180
 
-180:                                              ; preds = %.noexc118
+180:                                              ; preds = %.noexc119
   %181 = load ptr, ptr %15, align 8, !noalias !321, !nonnull !4, !noundef !4
   %182 = load i64, ptr %79, align 8, !noalias !321, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12279157293026222448"(ptr noalias noundef nonnull readonly align 1 %71, ptr noundef nonnull %181, i64 noundef %179, i64 noundef %182)
@@ -2346,7 +2346,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %184 = invoke fastcc noundef align 8 dereferenceable_or_null(352) ptr @"_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h6f3beb1227af4e82E"(ptr nonnull %.0.val, ptr noalias noundef nonnull readonly align 1 %.sroa.717.0.copyload, i64 noundef %.sroa.818.0.copyload)
           to label %187 unwind label %185
 
-.body121:                                         ; preds = %201, %185
+.body122:                                         ; preds = %201, %185
   %.pn = phi { ptr, i32 } [ %186, %185 ], [ %202, %201 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Node$GT$$GT$17h906c597fd28482beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #17
           to label %168 unwind label %215
@@ -2354,7 +2354,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 185:                                              ; preds = %212, %.critedge, %183, %188
   %186 = landingpad { ptr, i32 }
           cleanup
-  br label %.body121
+  br label %.body122
 
 187:                                              ; preds = %183
   %.not = icmp eq ptr %184, null
@@ -2386,9 +2386,9 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 
 200:                                              ; preds = %196
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h3aaa8a91dd2b0ecbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %197)
-          to label %._crit_edge.i120 unwind label %201, !noalias !331
+          to label %._crit_edge.i121 unwind label %201, !noalias !331
 
-._crit_edge.i120:                                 ; preds = %200
+._crit_edge.i121:                                 ; preds = %200
   %.pre.i = load i64, ptr %52, align 8, !alias.scope !328, !noalias !331
   br label %205
 
@@ -2396,7 +2396,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %202 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr130drop_in_place$LT$$LP$$RF$tree_sitter_highlight..HighlightConfiguration$C$usize$C$alloc..vec..Vec$LT$tree_sitter..Range$GT$$RP$$GT$17hbf7a2d7379c682d4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %28) #17
-          to label %.body121 unwind label %203
+          to label %.body122 unwind label %203
 
 203:                                              ; preds = %201
   %204 = landingpad { ptr, i32 }
@@ -2404,8 +2404,8 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #18
   unreachable
 
-205:                                              ; preds = %._crit_edge.i120, %196
-  %206 = phi i64 [ %.pre.i, %._crit_edge.i120 ], [ %197, %196 ]
+205:                                              ; preds = %._crit_edge.i121, %196
+  %206 = phi i64 [ %.pre.i, %._crit_edge.i121 ], [ %197, %196 ]
   %207 = load ptr, ptr %51, align 8, !alias.scope !328, !noalias !331, !nonnull !4, !noundef !4
   %208 = getelementptr inbounds { ptr, i64, { { i64, ptr }, i64 } }, ptr %207, i64 %206
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %208, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
@@ -2421,30 +2421,30 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 .critedge:                                        ; preds = %193
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !333
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ea4358195ed519cE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %29)
-          to label %.noexc124 unwind label %185
+          to label %.noexc125 unwind label %185
 
-.noexc124:                                        ; preds = %.critedge
+.noexc125:                                        ; preds = %.critedge
   %211 = load i64, ptr %76, align 8, !range !55, !noalias !333, !noundef !4
-  %.not.i.i.i123 = icmp eq i64 %211, 0
-  br i1 %.not.i.i.i123, label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit", label %212
+  %.not.i.i.i124 = icmp eq i64 %211, 0
+  br i1 %.not.i.i.i124, label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit", label %212
 
-212:                                              ; preds = %.noexc124
+212:                                              ; preds = %.noexc125
   %213 = load ptr, ptr %14, align 8, !noalias !333, !nonnull !4, !noundef !4
   %214 = load i64, ptr %77, align 8, !noalias !333, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12279157293026222448"(ptr noalias noundef nonnull readonly align 1 %73, ptr noundef nonnull %213, i64 noundef %211, i64 noundef %214)
           to label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit" unwind label %185
 
-"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit": ; preds = %212, %.noexc124
+"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit": ; preds = %212, %.noexc125
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !333
   br label %210
 
-215:                                              ; preds = %"_ZN4core3ptr45drop_in_place$LT$tree_sitter..QueryCursor$GT$17ha1747cb8fcb66c12E.exit", %.body.thread68, %279, %168, %318, %.thread78, %259, %246, %.thread48, %.body121, %.loopexit.split-lp, %"_ZN4core3ptr38drop_in_place$LT$tree_sitter..Tree$GT$17hfb519365632e8877E.exit"
+215:                                              ; preds = %"_ZN4core3ptr45drop_in_place$LT$tree_sitter..QueryCursor$GT$17ha1747cb8fcb66c12E.exit", %.body.thread68, %279, %168, %318, %.thread78, %259, %246, %.thread48, %.body122, %.loopexit.split-lp, %"_ZN4core3ptr38drop_in_place$LT$tree_sitter..Tree$GT$17hfb519365632e8877E.exit"
   %216 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #18
   unreachable
 
-217:                                              ; preds = %.noexc118, %180
+217:                                              ; preds = %.noexc119, %180
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !321
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.715)
@@ -2491,14 +2491,14 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 
 237:                                              ; preds = %232
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hcc847501dec7b76eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %222, i64 noundef %234)
-          to label %.noexc127 unwind label %.loopexit.split-lp.loopexit
+          to label %.noexc128 unwind label %.loopexit.split-lp.loopexit
 
-.noexc127:                                        ; preds = %237
-  %.pre.i126 = load i64, ptr %233, align 8, !alias.scope !342, !noalias !345
+.noexc128:                                        ; preds = %237
+  %.pre.i127 = load i64, ptr %233, align 8, !alias.scope !342, !noalias !345
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0e428065904d3132E.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0e428065904d3132E.exit": ; preds = %232, %.noexc127
-  %238 = phi i64 [ %.pre.i126, %.noexc127 ], [ %234, %232 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0e428065904d3132E.exit": ; preds = %232, %.noexc128
+  %238 = phi i64 [ %.pre.i127, %.noexc128 ], [ %234, %232 ]
   %239 = getelementptr inbounds i8, ptr %222, i64 8
   %240 = load ptr, ptr %239, align 8, !alias.scope !342, !noalias !345, !nonnull !4, !noundef !4
   %241 = getelementptr inbounds { { [4 x i32], ptr, ptr }, {} }, ptr %240, i64 %238
@@ -2563,9 +2563,9 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 
 258:                                              ; preds = %254
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 48) #16
-          to label %.noexc133 unwind label %259
+          to label %.noexc134 unwind label %259
 
-.noexc133:                                        ; preds = %258
+.noexc134:                                        ; preds = %258
   unreachable
 
 259:                                              ; preds = %258
@@ -2603,10 +2603,10 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 
 266:                                              ; preds = %261
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb5850db1564773b9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %263)
-          to label %._crit_edge.i134 unwind label %267, !noalias !358
+          to label %._crit_edge.i135 unwind label %267, !noalias !358
 
-._crit_edge.i134:                                 ; preds = %266
-  %.pre.i135 = load i64, ptr %50, align 8, !alias.scope !355, !noalias !358
+._crit_edge.i135:                                 ; preds = %266
+  %.pre.i136 = load i64, ptr %50, align 8, !alias.scope !355, !noalias !358
   br label %271
 
 267:                                              ; preds = %266
@@ -2621,8 +2621,8 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #18
   unreachable
 
-271:                                              ; preds = %._crit_edge.i134, %261
-  %272 = phi i64 [ %.pre.i135, %._crit_edge.i134 ], [ %263, %261 ]
+271:                                              ; preds = %._crit_edge.i135, %261
+  %272 = phi i64 [ %.pre.i136, %._crit_edge.i135 ], [ %263, %261 ]
   %273 = load ptr, ptr %49, align 8, !alias.scope !355, !noalias !358, !nonnull !4, !noundef !4
   %274 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %273, i64 %272
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %274, ptr noundef nonnull align 8 dereferenceable(240) %25, i64 240, i1 false)
@@ -2679,21 +2679,21 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ea4358195ed519cE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
   %286 = getelementptr inbounds i8, ptr %13, i64 8
   %287 = load i64, ptr %286, align 8, !range !55, !noalias !360, !noundef !4
-  %.not.i.i.i141 = icmp eq i64 %287, 0
-  br i1 %.not.i.i.i141, label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit142", label %288
+  %.not.i.i.i142 = icmp eq i64 %287, 0
+  br i1 %.not.i.i.i142, label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit143", label %288
 
 288:                                              ; preds = %285
   %289 = load ptr, ptr %13, align 8, !noalias !360, !nonnull !4, !noundef !4
   %290 = getelementptr inbounds i8, ptr %13, i64 16
   %291 = load i64, ptr %290, align 8, !noalias !360, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12279157293026222448"(ptr noalias noundef nonnull readonly align 1 %55, ptr noundef nonnull %289, i64 noundef %287, i64 noundef %291)
-  br label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit142"
+  br label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit143"
 
-"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit142": ; preds = %285, %288
+"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit143": ; preds = %285, %288
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !360
   br label %292
 
-292:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit145", %294, %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit142"
+292:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit146", %294, %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit143"
   ret void
 
 293:                                              ; preds = %276
@@ -2712,17 +2712,17 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ea4358195ed519cE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
   %297 = getelementptr inbounds i8, ptr %12, i64 8
   %298 = load i64, ptr %297, align 8, !range !55, !noalias !367, !noundef !4
-  %.not.i.i.i144 = icmp eq i64 %298, 0
-  br i1 %.not.i.i.i144, label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit145", label %299
+  %.not.i.i.i145 = icmp eq i64 %298, 0
+  br i1 %.not.i.i.i145, label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit146", label %299
 
 299:                                              ; preds = %296
   %300 = load ptr, ptr %12, align 8, !noalias !367, !nonnull !4, !noundef !4
   %301 = getelementptr inbounds i8, ptr %12, i64 16
   %302 = load i64, ptr %301, align 8, !noalias !367, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12279157293026222448"(ptr noalias noundef nonnull readonly align 1 %55, ptr noundef nonnull %300, i64 noundef %298, i64 noundef %302)
-  br label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit145"
+  br label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit146"
 
-"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit145": ; preds = %296, %299
+"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit146": ; preds = %296, %299
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !367
   br label %292
 
@@ -2743,7 +2743,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %308 = trunc nuw i8 %.6 to i1
   br i1 %308, label %310, label %309
 
-309:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit149", %303
+309:                                              ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit150", %303
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %92
@@ -2751,20 +2751,20 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
 310:                                              ; preds = %303
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !382
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ea4358195ed519cE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %9)
-          to label %.noexc147 unwind label %315
+          to label %.noexc148 unwind label %315
 
-.noexc147:                                        ; preds = %310
+.noexc148:                                        ; preds = %310
   %311 = load i64, ptr %90, align 8, !range !55, !noalias !382, !noundef !4
-  %.not.i.i.i146 = icmp eq i64 %311, 0
-  br i1 %.not.i.i.i146, label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit149", label %312
+  %.not.i.i.i147 = icmp eq i64 %311, 0
+  br i1 %.not.i.i.i147, label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit150", label %312
 
-312:                                              ; preds = %.noexc147
+312:                                              ; preds = %.noexc148
   %313 = load ptr, ptr %11, align 8, !noalias !382, !nonnull !4, !noundef !4
   %314 = load i64, ptr %91, align 8, !noalias !382, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12279157293026222448"(ptr noalias noundef nonnull readonly align 1 %55, ptr noundef nonnull %313, i64 noundef %311, i64 noundef %314)
-          to label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit149" unwind label %315
+          to label %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit150" unwind label %315
 
-"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit149": ; preds = %312, %.noexc147
+"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter..Range$GT$$GT$17hc706eb0c9f642ab9E.exit150": ; preds = %312, %.noexc148
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !382
   br label %309
 

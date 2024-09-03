@@ -38199,13 +38199,13 @@ entry:
   %state.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i8, ptr %state.i.i, align 16, !noalias !950
   %cond.i.i = icmp eq i8 %1, 0
-  %.pre51.i.i = load ptr, ptr %0, align 16, !noalias !950
+  %.pre64.i.i = load ptr, ptr %0, align 16, !noalias !950
   br i1 %cond.i.i, label %sw.bb.i.i, label %sw.bb14.i.i
 
 sw.bb.i.i:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !953)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %ref.tmp.i.i.i), !noalias !950
-  %2 = load ptr, ptr %.pre51.i.i, align 8, !noalias !956
+  %2 = load ptr, ptr %.pre64.i.i, align 8, !noalias !956
   %arg.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   call void %2(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i.i.i, ptr noundef nonnull %arg.i.i.i.i), !noalias !959
   call void @llvm.experimental.noalias.scope.decl(metadata !960)
@@ -38552,11 +38552,11 @@ _ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit14.i.i
   br i1 %switch.i.i, label %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit14.sw.bb14_crit_edge.i.i, label %"_ZN9grpc_core14promise_detail6TrySeqINS_12ArenaPromiseIN4absl12lts_202308028StatusOrINS_8CallArgsEEEEEJZNS_13ClientChannel15MakeCallPromiseEP20grpc_channel_elementS6_St8functionIFNS2_ISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES6_EEE3$_0EEclEv.exit"
 
 _ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit14.sw.bb14_crit_edge.i.i: ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit14.i.i
-  %.pre50.i.i = load ptr, ptr %0, align 16, !noalias !990
+  %.pre63.i.i = load ptr, ptr %0, align 16, !noalias !990
   br label %sw.bb14.i.i
 
 sw.bb14.i.i:                                      ; preds = %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit14.sw.bb14_crit_edge.i.i, %entry
-  %64 = phi ptr [ %.pre50.i.i, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit14.sw.bb14_crit_edge.i.i ], [ %.pre51.i.i, %entry ]
+  %64 = phi ptr [ %.pre63.i.i, %_ZN9grpc_core4PollIN4absl12lts_202308028StatusOrINS_8CallArgsEEEED2Ev.exit14.sw.bb14_crit_edge.i.i ], [ %.pre64.i.i, %entry ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i15.i.i), !noalias !950
   %65 = load ptr, ptr %64, align 8, !noalias !990
   %arg.i.i16.i.i = getelementptr inbounds i8, ptr %0, i64 16

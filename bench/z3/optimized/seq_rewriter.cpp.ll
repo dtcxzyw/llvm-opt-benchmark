@@ -1350,8 +1350,8 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %invoke.cont21
   %6 = load i32, ptr %arrayidx.i.i, align 4
   %7 = zext i32 %6 to i64
   %add.ptr.i53 = getelementptr inbounds i32, ptr %5, i64 %7
-  %cmp.not.not547 = icmp eq i32 %6, 0
-  br i1 %cmp.not.not547, label %for.end45, label %for.body.lr.ph
+  %cmp.not.not560 = icmp eq i32 %6, 0
+  br i1 %cmp.not.not560, label %for.end45, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
   %m_final_set.i = getelementptr inbounds i8, ptr %a, i64 32
@@ -1365,8 +1365,8 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc43
-  %__begin1.0548 = phi ptr [ %5, %for.body.lr.ph.split ], [ %incdec.ptr44, %for.inc43 ]
-  %10 = load i32, ptr %__begin1.0548, align 4
+  %__begin1.0561 = phi ptr [ %5, %for.body.lr.ph.split ], [ %incdec.ptr44, %for.inc43 ]
+  %10 = load i32, ptr %__begin1.0561, align 4
   %shr.i.i = lshr i32 %10, 5
   %cmp.i.i54 = icmp ult i32 %shr.i.i, %9
   br i1 %cmp.i.i54, label %invoke.cont25, label %for.inc43
@@ -1397,8 +1397,8 @@ _ZN6vectorIjLb0EjE3endEv.exit64:                  ; preds = %invoke.cont29
   %14 = load i32, ptr %arrayidx.i.i61, align 4
   %15 = zext i32 %14 to i64
   %add.ptr.i63 = getelementptr inbounds i32, ptr %13, i64 %15
-  %cmp34.not550 = icmp eq i32 %14, 0
-  br i1 %cmp34.not550, label %for.end45, label %for.body35.lr.ph
+  %cmp34.not563 = icmp eq i32 %14, 0
+  br i1 %cmp34.not563, label %for.end45, label %for.body35.lr.ph
 
 for.body35.lr.ph:                                 ; preds = %_ZN6vectorIjLb0EjE3endEv.exit64
   %m_final_set.i65 = getelementptr inbounds i8, ptr %b, i64 32
@@ -1412,8 +1412,8 @@ for.body35.lr.ph.split:                           ; preds = %for.body35.lr.ph
   br label %for.body35
 
 for.body35:                                       ; preds = %for.body35.lr.ph.split, %for.inc
-  %__begin3.0551 = phi ptr [ %13, %for.body35.lr.ph.split ], [ %incdec.ptr, %for.inc ]
-  %18 = load i32, ptr %__begin3.0551, align 4
+  %__begin3.0564 = phi ptr [ %13, %for.body35.lr.ph.split ], [ %incdec.ptr, %for.inc ]
+  %18 = load i32, ptr %__begin3.0564, align 4
   %shr.i.i66 = lshr i32 %18, 5
   %cmp.i.i70 = icmp ult i32 %shr.i.i66, %17
   br i1 %cmp.i.i70, label %invoke.cont36, label %for.inc
@@ -1475,23 +1475,23 @@ lpad18:                                           ; preds = %if.then.i88, %if.th
   br label %ehcleanup288
 
 for.inc:                                          ; preds = %for.body35, %invoke.cont36
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0551, i64 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0564, i64 4
   %cmp34.not = icmp eq ptr %incdec.ptr, %add.ptr.i63
   br i1 %cmp34.not, label %for.end45, label %for.body35
 
 for.inc43:                                        ; preds = %for.body, %invoke.cont25
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %__begin1.0548, i64 4
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %__begin1.0561, i64 4
   %cmp.not.not = icmp eq ptr %incdec.ptr44, %add.ptr.i53
   br i1 %cmp.not.not, label %for.end45, label %for.body
 
 for.end45:                                        ; preds = %for.inc43, %for.inc, %invoke.cont29, %invoke.cont21, %for.body35.lr.ph, %for.body.lr.ph, %_ZN6vectorIjLb0EjE3endEv.exit, %_ZN6vectorIjLb0EjE3endEv.exit64, %_ZN6vectorIjLb0EjE9push_backEOj.exit
-  %cmp.not.not546 = phi i1 [ false, %_ZN6vectorIjLb0EjE9push_backEOj.exit ], [ false, %_ZN6vectorIjLb0EjE3endEv.exit64 ], [ true, %_ZN6vectorIjLb0EjE3endEv.exit ], [ true, %for.body.lr.ph ], [ false, %for.body35.lr.ph ], [ true, %invoke.cont21 ], [ false, %invoke.cont29 ], [ false, %for.inc ], [ true, %for.inc43 ]
+  %cmp.not.not559 = phi i1 [ false, %_ZN6vectorIjLb0EjE9push_backEOj.exit ], [ false, %_ZN6vectorIjLb0EjE3endEv.exit64 ], [ true, %_ZN6vectorIjLb0EjE3endEv.exit ], [ true, %for.body.lr.ph ], [ false, %for.body35.lr.ph ], [ true, %invoke.cont21 ], [ false, %invoke.cont29 ], [ false, %for.inc ], [ true, %for.inc43 ]
   %b_init_is_final.0.not = phi i1 [ false, %_ZN6vectorIjLb0EjE9push_backEOj.exit ], [ true, %_ZN6vectorIjLb0EjE3endEv.exit64 ], [ true, %_ZN6vectorIjLb0EjE3endEv.exit ], [ true, %for.body.lr.ph ], [ true, %for.body35.lr.ph ], [ true, %invoke.cont21 ], [ true, %invoke.cont29 ], [ true, %for.inc ], [ true, %for.inc43 ]
   store ptr null, ptr %mvsA, align 8
   store ptr null, ptr %mvsB, align 8
   %29 = load ptr, ptr %todo, align 8
-  %cmp.i93552 = icmp eq ptr %29, null
-  br i1 %cmp.i93552, label %while.end, label %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit.lr.ph
+  %cmp.i93565 = icmp eq ptr %29, null
+  br i1 %cmp.i93565, label %while.end, label %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit.lr.ph
 
 _ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit.lr.ph: ; preds = %for.end45
   %m_delta.i132 = getelementptr inbounds i8, ptr %b, i64 8
@@ -1512,7 +1512,8 @@ while.cond.loopexit:                              ; preds = %_ZNK6vectorIN9autom
 
 _ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit:       ; preds = %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit.lr.ph, %while.cond.loopexit
   %31 = phi ptr [ %29, %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit.lr.ph ], [ %30, %while.cond.loopexit ]
-  %n.0554 = phi i32 [ 1, %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit.lr.ph ], [ %n.1, %while.cond.loopexit ]
+  %retval.0568 = phi ptr [ undef, %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit.lr.ph ], [ %retval.1, %while.cond.loopexit ]
+  %n.0567 = phi i32 [ 1, %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit.lr.ph ], [ %n.1, %while.cond.loopexit ]
   %arrayidx.i94 = getelementptr inbounds i8, ptr %31, i64 -4
   %32 = load i32, ptr %arrayidx.i94, align 4
   %cmp3.i = icmp eq i32 %32, 0
@@ -1729,8 +1730,9 @@ invoke.cont56:                                    ; preds = %invoke.cont55
           to label %for.cond58 unwind label %lpad46.loopexit.split-lp.loopexit
 
 for.cond58:                                       ; preds = %invoke.cont56, %for.inc132
-  %indvars.iv595 = phi i64 [ %indvars.iv.next596, %for.inc132 ], [ 0, %invoke.cont56 ]
-  %n.1 = phi i32 [ %n.2, %for.inc132 ], [ %n.0554, %invoke.cont56 ]
+  %indvars.iv622 = phi i64 [ %indvars.iv.next623, %for.inc132 ], [ 0, %invoke.cont56 ]
+  %n.1 = phi i32 [ %n.2, %for.inc132 ], [ %n.0567, %invoke.cont56 ]
+  %retval.1 = phi ptr [ %retval.2, %for.inc132 ], [ %retval.0568, %invoke.cont56 ]
   %63 = load ptr, ptr %mvsA, align 8
   %cmp.i135 = icmp eq ptr %63, null
   br i1 %cmp.i135, label %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit, label %if.end.i
@@ -1743,12 +1745,13 @@ if.end.i:                                         ; preds = %for.cond58
 
 _ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit: ; preds = %for.cond58, %if.end.i
   %retval.0.i = phi i64 [ %65, %if.end.i ], [ 0, %for.cond58 ]
-  %cmp61 = icmp ult i64 %indvars.iv595, %retval.0.i
+  %cmp61 = icmp ult i64 %indvars.iv622, %retval.0.i
   br i1 %cmp61, label %for.cond63, label %while.cond.loopexit
 
 for.cond63:                                       ; preds = %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit, %for.inc129
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc129 ], [ 0, %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit ]
   %n.2 = phi i32 [ %n.3, %for.inc129 ], [ %n.1, %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit ]
+  %retval.2 = phi ptr [ %retval.3, %for.inc129 ], [ %retval.1, %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit ]
   %66 = load ptr, ptr %mvsB, align 8
   %cmp.i137 = icmp eq ptr %66, null
   br i1 %cmp.i137, label %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit141, label %if.end.i138
@@ -1767,7 +1770,7 @@ _ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit141:
 for.body67:                                       ; preds = %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit141
   %69 = load ptr, ptr %m_ba, align 8
   %70 = load ptr, ptr %mvsA, align 8
-  %m_t.i = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %70, i64 %indvars.iv595, i32 1
+  %m_t.i = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %70, i64 %indvars.iv622, i32 1
   %71 = load ptr, ptr %m_t.i, align 8
   %m_t.i145 = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %66, i64 %indvars.iv, i32 1
   %72 = load ptr, ptr %m_t.i145, align 8
@@ -1830,7 +1833,7 @@ if.then90:                                        ; preds = %invoke.cont85
 
 if.end92:                                         ; preds = %invoke.cont85
   %79 = load ptr, ptr %mvsA, align 8
-  %m_dst.i = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %79, i64 %indvars.iv595, i32 3
+  %m_dst.i = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %79, i64 %indvars.iv622, i32 3
   %80 = load i32, ptr %m_dst.i, align 4
   %81 = load ptr, ptr %mvsB, align 8
   %m_dst.i150 = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %81, i64 %indvars.iv, i32 3
@@ -2112,6 +2115,7 @@ invoke.cont127:                                   ; preds = %.noexc234, %lor.lhs
 cleanup:                                          ; preds = %invoke.cont127, %invoke.cont85, %if.then90
   %n.3 = phi i32 [ %n.2, %if.then90 ], [ %n.2, %invoke.cont85 ], [ %n.4, %invoke.cont127 ]
   %cleanup.dest.slot.0 = phi i32 [ 1, %if.then90 ], [ 13, %invoke.cont85 ], [ 0, %invoke.cont127 ]
+  %retval.3 = phi ptr [ null, %if.then90 ], [ %retval.2, %invoke.cont85 ], [ %retval.2, %invoke.cont127 ]
   br i1 %tobool.not.i.i, label %_ZN7obj_refI8sym_expr16sym_expr_managerED2Ev.exit, label %if.then.i.i.i242
 
 if.then.i.i.i242:                                 ; preds = %cleanup
@@ -2156,11 +2160,11 @@ ehcleanup:                                        ; preds = %lpad126, %lpad80
   br label %ehcleanup284
 
 for.inc132:                                       ; preds = %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit141
-  %indvars.iv.next596 = add nuw nsw i64 %indvars.iv595, 1
+  %indvars.iv.next623 = add nuw nsw i64 %indvars.iv622, 1
   br label %for.cond58, !llvm.loop !10
 
 while.end:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit, %while.cond.loopexit, %for.end45
-  %n.0.lcssa = phi i32 [ 1, %for.end45 ], [ %n.1, %while.cond.loopexit ], [ %n.0554, %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit ]
+  %n.0.lcssa = phi i32 [ 1, %for.end45 ], [ %n.1, %while.cond.loopexit ], [ %n.0567, %_ZNK6vectorISt4pairIjjELb0EjE5emptyEv.exit ]
   %130 = load ptr, ptr %final, align 8
   %cmp.i246 = icmp eq ptr %130, null
   br i1 %cmp.i246, label %if.then137, label %_ZNK6vectorIjLb0EjE5emptyEv.exit
@@ -2193,7 +2197,7 @@ invoke.cont145:                                   ; preds = %if.end142
   br label %for.cond148
 
 for.cond148:                                      ; preds = %_ZN9automatonI8sym_expr16sym_expr_managerE4moveD2Ev.exit303, %invoke.cont145
-  %indvars.iv598 = phi i64 [ %indvars.iv.next599, %_ZN9automatonI8sym_expr16sym_expr_managerE4moveD2Ev.exit303 ], [ 0, %invoke.cont145 ]
+  %indvars.iv625 = phi i64 [ %indvars.iv.next626, %_ZN9automatonI8sym_expr16sym_expr_managerE4moveD2Ev.exit303 ], [ 0, %invoke.cont145 ]
   %133 = load ptr, ptr %mvs, align 8
   %cmp.i250 = icmp eq ptr %133, null
   br i1 %cmp.i250, label %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit254, label %if.end.i251
@@ -2206,11 +2210,11 @@ if.end.i251:                                      ; preds = %for.cond148
 
 _ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit254: ; preds = %for.cond148, %if.end.i251
   %retval.0.i253 = phi i64 [ %135, %if.end.i251 ], [ 0, %for.cond148 ]
-  %cmp152 = icmp ult i64 %indvars.iv598, %retval.0.i253
+  %cmp152 = icmp ult i64 %indvars.iv625, %retval.0.i253
   br i1 %cmp152, label %for.body153, label %for.end175
 
 for.body153:                                      ; preds = %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit254
-  %arrayidx.i256 = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %133, i64 %indvars.iv598
+  %arrayidx.i256 = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %133, i64 %indvars.iv625
   %m_dst.i257 = getelementptr inbounds i8, ptr %arrayidx.i256, i64 20
   %136 = load i32, ptr %m_dst.i257, align 4
   %137 = load ptr, ptr %inv, align 8
@@ -2276,7 +2280,7 @@ _ZN9automatonI8sym_expr16sym_expr_managerE4moveD2Ev.exit303: ; preds = %lor.lhs.
   %148 = load i32, ptr %arrayidx10.i286, align 4
   %inc.i287 = add i32 %148, 1
   store i32 %inc.i287, ptr %arrayidx10.i286, align 4
-  %indvars.iv.next599 = add nuw nsw i64 %indvars.iv598, 1
+  %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   br label %for.cond148, !llvm.loop !11
 
 lpad144:                                          ; preds = %if.end142
@@ -2311,17 +2315,17 @@ _ZN6vectorIjLb0EjE3endEv.exit309:                 ; preds = %invoke.cont177
   %153 = load i32, ptr %arrayidx.i.i306, align 4
   %154 = zext i32 %153 to i64
   %add.ptr.i308 = getelementptr inbounds i32, ptr %152, i64 %154
-  %cmp186.not557 = icmp eq i32 %153, 0
-  br i1 %cmp186.not557, label %for.end192, label %for.body187
+  %cmp186.not571 = icmp eq i32 %153, 0
+  br i1 %cmp186.not571, label %for.end192, label %for.body187
 
 for.body187:                                      ; preds = %_ZN6vectorIjLb0EjE3endEv.exit309, %for.body187
-  %__begin1179.0558 = phi ptr [ %incdec.ptr191, %for.body187 ], [ %152, %_ZN6vectorIjLb0EjE3endEv.exit309 ]
-  %155 = load i32, ptr %__begin1179.0558, align 4
+  %__begin1179.0572 = phi ptr [ %incdec.ptr191, %for.body187 ], [ %152, %_ZN6vectorIjLb0EjE3endEv.exit309 ]
+  %155 = load i32, ptr %__begin1179.0572, align 4
   %156 = load ptr, ptr %back_reachable, align 8
   %idxprom.i310 = zext i32 %155 to i64
   %arrayidx.i311 = getelementptr inbounds i8, ptr %156, i64 %idxprom.i310
   store i8 1, ptr %arrayidx.i311, align 1
-  %incdec.ptr191 = getelementptr inbounds i8, ptr %__begin1179.0558, i64 4
+  %incdec.ptr191 = getelementptr inbounds i8, ptr %__begin1179.0572, i64 4
   %cmp186.not = icmp eq ptr %incdec.ptr191, %add.ptr.i308
   br i1 %cmp186.not, label %for.end192, label %for.body187
 
@@ -2336,8 +2340,8 @@ for.end192:                                       ; preds = %for.body187, %invok
 
 while.cond194.preheader:                          ; preds = %for.end192
   %158 = load ptr, ptr %stack, align 8
-  %cmp.i312559 = icmp eq ptr %158, null
-  br i1 %cmp.i312559, label %while.end227, label %_ZNK6vectorIjLb0EjE5emptyEv.exit316
+  %cmp.i312573 = icmp eq ptr %158, null
+  br i1 %cmp.i312573, label %while.end227, label %_ZNK6vectorIjLb0EjE5emptyEv.exit316
 
 while.cond194.loopexit:                           ; preds = %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit330
   %159 = load ptr, ptr %stack, align 8
@@ -2363,7 +2367,7 @@ _ZN6vectorIjLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIjLb0EjE
   br label %for.cond207
 
 for.cond207:                                      ; preds = %for.inc224, %_ZN6vectorIjLb0EjE4backEv.exit
-  %indvars.iv601 = phi i64 [ %indvars.iv.next602, %for.inc224 ], [ 0, %_ZN6vectorIjLb0EjE4backEv.exit ]
+  %indvars.iv628 = phi i64 [ %indvars.iv.next629, %for.inc224 ], [ 0, %_ZN6vectorIjLb0EjE4backEv.exit ]
   %166 = load ptr, ptr %arrayidx.i325, align 8
   %cmp.i326 = icmp eq ptr %166, null
   br i1 %cmp.i326, label %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit330, label %if.end.i327
@@ -2376,11 +2380,11 @@ if.end.i327:                                      ; preds = %for.cond207
 
 _ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit330: ; preds = %for.cond207, %if.end.i327
   %retval.0.i329 = phi i64 [ %168, %if.end.i327 ], [ 0, %for.cond207 ]
-  %cmp210 = icmp ult i64 %indvars.iv601, %retval.0.i329
+  %cmp210 = icmp ult i64 %indvars.iv628, %retval.0.i329
   br i1 %cmp210, label %for.body211, label %while.cond194.loopexit
 
 for.body211:                                      ; preds = %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit330
-  %m_dst.i333 = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %166, i64 %indvars.iv601, i32 3
+  %m_dst.i333 = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %166, i64 %indvars.iv628, i32 3
   %169 = load i32, ptr %m_dst.i333, align 4
   %170 = load ptr, ptr %back_reachable, align 8
   %idxprom.i334 = zext i32 %169 to i64
@@ -2432,7 +2436,7 @@ lpad195:                                          ; preds = %if.then.i348
   br label %ehcleanup278
 
 for.inc224:                                       ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit353, %for.body211
-  %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
+  %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   br label %for.cond207, !llvm.loop !13
 
 while.end227:                                     ; preds = %_ZNK6vectorIjLb0EjE5emptyEv.exit316, %while.cond194.loopexit, %while.cond194.preheader
@@ -2440,7 +2444,7 @@ while.end227:                                     ; preds = %_ZNK6vectorIjLb0EjE
   br label %for.cond229
 
 for.cond229:                                      ; preds = %for.inc247, %while.end227
-  %indvars.iv604 = phi i64 [ %indvars.iv.next605, %for.inc247 ], [ 0, %while.end227 ]
+  %indvars.iv631 = phi i64 [ %indvars.iv.next632, %for.inc247 ], [ 0, %while.end227 ]
   %180 = load ptr, ptr %mvs, align 8
   %cmp.i354 = icmp eq ptr %180, null
   br i1 %cmp.i354, label %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit358, label %if.end.i355
@@ -2453,11 +2457,11 @@ if.end.i355:                                      ; preds = %for.cond229
 
 _ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit358: ; preds = %for.cond229, %if.end.i355
   %retval.0.i357 = phi i64 [ %182, %if.end.i355 ], [ 0, %for.cond229 ]
-  %cmp233 = icmp ult i64 %indvars.iv604, %retval.0.i357
+  %cmp233 = icmp ult i64 %indvars.iv631, %retval.0.i357
   br i1 %cmp233, label %for.body234, label %for.end249
 
 for.body234:                                      ; preds = %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit358
-  %arrayidx.i360 = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %180, i64 %indvars.iv604
+  %arrayidx.i360 = getelementptr inbounds %"class.automaton<sym_expr, sym_expr_manager>::move", ptr %180, i64 %indvars.iv631
   %m_dst.i361 = getelementptr inbounds i8, ptr %arrayidx.i360, i64 20
   %183 = load i32, ptr %m_dst.i361, align 4
   %184 = load ptr, ptr %back_reachable, align 8
@@ -2542,7 +2546,7 @@ lpad230:                                          ; preds = %lpad230.loopexit.sp
   br label %ehcleanup278
 
 for.inc247:                                       ; preds = %_ZN6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE9push_backERKS4_.exit, %for.body234
-  %indvars.iv.next605 = add nuw nsw i64 %indvars.iv604, 1
+  %indvars.iv.next632 = add nuw nsw i64 %indvars.iv631, 1
   br label %for.cond229, !llvm.loop !14
 
 for.end249:                                       ; preds = %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit358
@@ -2557,7 +2561,7 @@ _ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE5emptyEv.exit: ;
   br i1 %cmp3.i389, label %if.then252, label %if.else270
 
 if.then252:                                       ; preds = %for.end249, %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE5emptyEv.exit
-  %brmerge = or i1 %cmp.not.not546, %b_init_is_final.0.not
+  %brmerge = or i1 %cmp.not.not559, %b_init_is_final.0.not
   br i1 %brmerge, label %if.else265, label %if.then256
 
 if.then256:                                       ; preds = %if.then252
@@ -2626,7 +2630,7 @@ ehcleanup282:                                     ; preds = %ehcleanup280, %lpad
   br label %ehcleanup284
 
 cleanup283:                                       ; preds = %_ZN7obj_refI8sym_expr16sym_expr_managerED2Ev.exit, %invoke.cont138, %cleanup275
-  %retval.4 = phi ptr [ %retval.5, %cleanup275 ], [ %call139, %invoke.cont138 ], [ null, %_ZN7obj_refI8sym_expr16sym_expr_managerED2Ev.exit ]
+  %retval.4 = phi ptr [ %retval.5, %cleanup275 ], [ %call139, %invoke.cont138 ], [ %retval.3, %_ZN7obj_refI8sym_expr16sym_expr_managerED2Ev.exit ]
   %204 = load ptr, ptr %mvsB, align 8
   %tobool.not.i.i393 = icmp eq ptr %204, null
   br i1 %tobool.not.i.i393, label %_ZN6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjED2Ev.exit, label %_ZNK6vectorIN9automatonI8sym_expr16sym_expr_managerE4moveELb1EjE4sizeEv.exit.i.i.i

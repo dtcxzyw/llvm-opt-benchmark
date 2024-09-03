@@ -59,8 +59,18 @@ entry:
   %bob_password.i.i = getelementptr inbounds i8, ptr %spake2.i, i64 32
   br label %for.body.i
 
-for.body.i:                                       ; preds = %cleanup.i, %entry
-  %i.03.i = phi i32 [ 0, %entry ], [ %inc.i, %cleanup.i ]
+for.cond.i:                                       ; preds = %cleanup.i
+  %inc.i = add nuw nsw i32 %i.02.i, 1
+  %exitcond.not.i = icmp eq i32 %inc.i, 20
+  br i1 %exitcond.not.i, label %_ZL10TestSPAKE2v.exit.thread, label %for.body.i, !llvm.loop !7
+
+_ZL10TestSPAKE2v.exit.thread:                     ; preds = %for.cond.i
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %spake2.i)
+  br label %lor.lhs.false
+
+for.body.i:                                       ; preds = %for.cond.i, %entry
+  %retval.03.i = phi i1 [ undef, %entry ], [ %retval.1.i, %for.cond.i ]
+  %i.02.i = phi i32 [ 0, %entry ], [ %inc.i, %for.cond.i ]
   call void @_ZN9SPAKE2RunC2Ev(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i)
   %call.i = invoke noundef zeroext i1 @_ZN9SPAKE2Run3RunEv(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -95,6 +105,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.then5.i, %if.end.i, %if.then.i
+  %retval.1.i = phi i1 [ false, %if.then5.i ], [ false, %if.then.i ], [ %retval.03.i, %if.end.i ]
   %switch.i = phi i1 [ false, %if.then5.i ], [ false, %if.then.i ], [ true, %if.end.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_names.i.i) #12
@@ -102,16 +113,13 @@ cleanup.i:                                        ; preds = %if.then5.i, %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %alice_names.i.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_password.i.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %spake2.i) #12
-  %inc.i = add nuw nsw i32 %i.03.i, 1
-  %exitcond.i = icmp ne i32 %inc.i, 20
-  %or.cond.not.i = select i1 %switch.i, i1 %exitcond.i, i1 false
-  br i1 %or.cond.not.i, label %for.body.i, label %_ZL10TestSPAKE2v.exit, !llvm.loop !7
+  br i1 %switch.i, label %for.cond.i, label %_ZL10TestSPAKE2v.exit
 
 _ZL10TestSPAKE2v.exit:                            ; preds = %cleanup.i
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %spake2.i)
-  br i1 %switch.i, label %lor.lhs.false, label %return
+  br i1 %retval.1.i, label %lor.lhs.false, label %return
 
-lor.lhs.false:                                    ; preds = %_ZL10TestSPAKE2v.exit
+lor.lhs.false:                                    ; preds = %_ZL10TestSPAKE2v.exit.thread, %_ZL10TestSPAKE2v.exit
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %spake2.i1)
   call void @_ZN9SPAKE2RunC2Ev(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i1)
   %bob_password.i = getelementptr inbounds i8, ptr %spake2.i1, i64 32
@@ -222,10 +230,20 @@ _ZL14TestWrongNamesv.exit:                        ; preds = %if.end.i24
   %bob_password.i.i33 = getelementptr inbounds i8, ptr %spake2.i27, i64 32
   br label %for.body.i34
 
-for.body.i34:                                     ; preds = %cleanup.i38, %_ZL14TestWrongNamesv.exit
-  %i.05.i = phi i32 [ 0, %_ZL14TestWrongNamesv.exit ], [ %inc.i40, %cleanup.i38 ]
+for.cond.i42:                                     ; preds = %cleanup.i38
+  %inc.i43 = add nuw nsw i32 %i.04.i, 1
+  %exitcond.not.i44 = icmp eq i32 %inc.i43, 256
+  br i1 %exitcond.not.i44, label %_ZL19TestCorruptMessagesv.exit.thread, label %for.body.i34, !llvm.loop !9
+
+_ZL19TestCorruptMessagesv.exit.thread:            ; preds = %for.cond.i42
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %spake2.i27)
+  br label %if.end
+
+for.body.i34:                                     ; preds = %for.cond.i42, %_ZL14TestWrongNamesv.exit
+  %retval.05.i = phi i1 [ undef, %_ZL14TestWrongNamesv.exit ], [ %retval.1.i39, %for.cond.i42 ]
+  %i.04.i = phi i32 [ 0, %_ZL14TestWrongNamesv.exit ], [ %inc.i43, %for.cond.i42 ]
   call void @_ZN9SPAKE2RunC2Ev(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i27)
-  store i32 %i.05.i, ptr %alice_corrupt_msg_bit.i, align 8
+  store i32 %i.04.i, ptr %alice_corrupt_msg_bit.i, align 8
   %call.i35 = invoke noundef zeroext i1 @_ZN9SPAKE2Run3RunEv(ptr noundef nonnull align 8 dereferenceable(197) %spake2.i27)
           to label %invoke.cont.i37 unwind label %lpad.i36
 
@@ -234,12 +252,12 @@ invoke.cont.i37:                                  ; preds = %for.body.i34
 
 land.lhs.true.i:                                  ; preds = %invoke.cont.i37
   %18 = load i8, ptr %key_matches_.i.i28, align 4
-  %tobool.i.i43 = trunc i8 %18 to i1
-  br i1 %tobool.i.i43, label %if.then.i44, label %cleanup.i38
+  %tobool.i.i45 = trunc i8 %18 to i1
+  br i1 %tobool.i.i45, label %if.then.i46, label %cleanup.i38
 
-if.then.i44:                                      ; preds = %land.lhs.true.i
+if.then.i46:                                      ; preds = %land.lhs.true.i
   %19 = load ptr, ptr @stderr, align 8
-  %call3.i45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.10, i32 noundef %i.05.i) #11
+  %call3.i47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.10, i32 noundef %i.04.i) #11
   br label %cleanup.i38
 
 lpad.i36:                                         ; preds = %for.body.i34
@@ -247,24 +265,22 @@ lpad.i36:                                         ; preds = %for.body.i34
           cleanup
   br label %common.resume
 
-cleanup.i38:                                      ; preds = %if.then.i44, %land.lhs.true.i, %invoke.cont.i37
-  %switch.i39 = phi i1 [ false, %if.then.i44 ], [ true, %land.lhs.true.i ], [ true, %invoke.cont.i37 ]
+cleanup.i38:                                      ; preds = %if.then.i46, %land.lhs.true.i, %invoke.cont.i37
+  %retval.1.i39 = phi i1 [ false, %if.then.i46 ], [ %retval.05.i, %land.lhs.true.i ], [ %retval.05.i, %invoke.cont.i37 ]
+  %switch.i40 = phi i1 [ false, %if.then.i46 ], [ true, %land.lhs.true.i ], [ true, %invoke.cont.i37 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i30) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_names.i.i29) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i1.i.i32) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %alice_names.i.i31) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bob_password.i.i33) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %spake2.i27) #12
-  %inc.i40 = add nuw nsw i32 %i.05.i, 1
-  %exitcond.i41 = icmp ne i32 %inc.i40, 256
-  %or.cond.not.i42 = select i1 %switch.i39, i1 %exitcond.i41, i1 false
-  br i1 %or.cond.not.i42, label %for.body.i34, label %_ZL19TestCorruptMessagesv.exit, !llvm.loop !9
+  br i1 %switch.i40, label %for.cond.i42, label %_ZL19TestCorruptMessagesv.exit
 
 _ZL19TestCorruptMessagesv.exit:                   ; preds = %cleanup.i38
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %spake2.i27)
-  br i1 %switch.i39, label %if.end, label %return
+  br i1 %retval.1.i39, label %if.end, label %return
 
-if.end:                                           ; preds = %_ZL19TestCorruptMessagesv.exit
+if.end:                                           ; preds = %_ZL19TestCorruptMessagesv.exit.thread, %_ZL19TestCorruptMessagesv.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 

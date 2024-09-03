@@ -104,7 +104,7 @@ _ZL10testNoFilev.exit:                            ; preds = %2
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %5) #7
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %6, ptr noundef nonnull @.str.1, i32 noundef 4)
   %29 = invoke noundef i32 @_ZN5cmsys7FStream7ReadBOMERSi(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %30 unwind label %.loopexit25.i
+          to label %30 unwind label %.loopexit26.i
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds [7 x i32], ptr @_ZL12expected_bom, i64 0, i64 %indvars.iv.i
@@ -112,12 +112,12 @@ _ZL10testNoFilev.exit:                            ; preds = %2
   %.not.i = icmp eq i32 %29, %32
   br i1 %.not.i, label %39, label %.invoke
 
-.invoke43.i:                                      ; preds = %.invoke
+.invoke44.i:                                      ; preds = %.invoke
   %33 = trunc nuw nsw i64 %indvars.iv.i to i32
   %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 noundef %33)
           to label %.invoke.i unwind label %.loopexit.split-lp.i
 
-.invoke.i:                                        ; preds = %.invoke43.i
+.invoke.i:                                        ; preds = %.invoke44.i
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %.thread.i unwind label %.loopexit.split-lp.i
 
@@ -127,18 +127,18 @@ _ZL10testNoFilev.exit:                            ; preds = %2
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %5) #7
   br label %common.resume
 
-.loopexit25.i:                                    ; preds = %43, %39, %28
+.loopexit26.i:                                    ; preds = %43, %39, %28
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %38
 
-.loopexit.split-lp.i:                             ; preds = %.invoke, %.invoke.i, %.invoke43.i
+.loopexit.split-lp.i:                             ; preds = %.invoke, %.invoke.i, %.invoke44.i
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %38
 
-38:                                               ; preds = %.loopexit.split-lp.i, %.loopexit25.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit25.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+38:                                               ; preds = %.loopexit.split-lp.i, %.loopexit26.i
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit26.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %6) #7
   br label %common.resume
 
@@ -146,7 +146,7 @@ _ZL10testNoFilev.exit:                            ; preds = %2
   %40 = load i8, ptr %23, align 1
   %41 = zext i8 %40 to i64
   %42 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef %41)
-          to label %43 unwind label %.loopexit25.i
+          to label %43 unwind label %.loopexit26.i
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %6, align 8
@@ -154,7 +154,7 @@ _ZL10testNoFilev.exit:                            ; preds = %2
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %6, i64 %46
   %48 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %47)
-          to label %49 unwind label %.loopexit25.i
+          to label %49 unwind label %.loopexit26.i
 
 49:                                               ; preds = %43
   br i1 %48, label %50, label %.invoke
@@ -169,7 +169,7 @@ _ZL10testNoFilev.exit:                            ; preds = %2
 .invoke:                                          ; preds = %30, %50, %49
   %53 = phi ptr [ @.str.3, %49 ], [ @.str.4, %50 ], [ @.str.2, %30 ]
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %53)
-          to label %.invoke43.i unwind label %.loopexit.split-lp.i
+          to label %.invoke44.i unwind label %.loopexit.split-lp.i
 
 .thread.i:                                        ; preds = %.invoke.i
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %6) #7
@@ -199,7 +199,7 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
   %60 = load i8, ptr %58, align 1
   %61 = zext i8 %60 to i64
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %59, i64 noundef %61)
-          to label %63 unwind label %.loopexit23.i
+          to label %63 unwind label %.loopexit24.i
 
 63:                                               ; preds = %57
   %64 = getelementptr inbounds [7 x [45 x i8]], ptr @_ZL9file_data, i64 0, i64 %indvars.iv.i4
@@ -207,7 +207,7 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
   %66 = load i8, ptr %64, align 1
   %67 = zext i8 %66 to i64
   %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %65, i64 noundef %67)
-          to label %69 unwind label %.loopexit23.i
+          to label %69 unwind label %.loopexit24.i
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %3, align 8
@@ -215,42 +215,42 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
   %72 = load i64, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %3, i64 %72
   %74 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %73)
-          to label %75 unwind label %.loopexit23.i
+          to label %75 unwind label %.loopexit24.i
 
 75:                                               ; preds = %69
   br i1 %74, label %80, label %.invoke64
 
-.invoke41.i:                                      ; preds = %.invoke64
+.invoke42.i:                                      ; preds = %.invoke64
   %76 = trunc nuw nsw i64 %indvars.iv.i4 to i32
   %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %102, i32 noundef %76)
           to label %.invoke.i9 unwind label %.loopexit.split-lp.i7
 
-.invoke.i9:                                       ; preds = %.invoke41.i
+.invoke.i9:                                       ; preds = %.invoke42.i
   %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %.thread.i10 unwind label %.loopexit.split-lp.i7
 
-.loopexit23.i:                                    ; preds = %91, %87, %82, %80, %69, %63, %57
+.loopexit24.i:                                    ; preds = %91, %87, %82, %80, %69, %63, %57
   %lpad.loopexit.i5 = landingpad { ptr, i32 }
           cleanup
   br label %79
 
-.loopexit.split-lp.i7:                            ; preds = %.invoke64, %.invoke.i9, %.invoke41.i
+.loopexit.split-lp.i7:                            ; preds = %.invoke64, %.invoke.i9, %.invoke42.i
   %lpad.loopexit.split-lp.i8 = landingpad { ptr, i32 }
           cleanup
   br label %79
 
-79:                                               ; preds = %.loopexit.split-lp.i7, %.loopexit23.i
-  %lpad.phi.i6 = phi { ptr, i32 } [ %lpad.loopexit.i5, %.loopexit23.i ], [ %lpad.loopexit.split-lp.i8, %.loopexit.split-lp.i7 ]
+79:                                               ; preds = %.loopexit.split-lp.i7, %.loopexit24.i
+  %lpad.phi.i6 = phi { ptr, i32 } [ %lpad.loopexit.i5, %.loopexit24.i ], [ %lpad.loopexit.split-lp.i8, %.loopexit.split-lp.i7 ]
   call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3) #7
   br label %common.resume
 
 80:                                               ; preds = %75
   %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull align 8 dereferenceable(8) %56, i64 0, i64 0)
-          to label %82 unwind label %.loopexit23.i
+          to label %82 unwind label %.loopexit24.i
 
 82:                                               ; preds = %80
   %83 = invoke noundef i32 @_ZN5cmsys7FStream7ReadBOMERSi(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %84 unwind label %.loopexit23.i
+          to label %84 unwind label %.loopexit24.i
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds [7 x i32], ptr @_ZL12expected_bom, i64 0, i64 %indvars.iv.i4
@@ -262,7 +262,7 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
   %88 = load i8, ptr %64, align 1
   %89 = zext i8 %88 to i64
   %90 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, i64 noundef %89)
-          to label %91 unwind label %.loopexit23.i
+          to label %91 unwind label %.loopexit24.i
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %3, align 8
@@ -270,7 +270,7 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
   %94 = load i64, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %3, i64 %94
   %96 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %95)
-          to label %97 unwind label %.loopexit23.i
+          to label %97 unwind label %.loopexit24.i
 
 97:                                               ; preds = %91
   br i1 %96, label %98, label %.invoke64
@@ -285,7 +285,7 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
 .invoke64:                                        ; preds = %75, %98, %97, %84
   %101 = phi ptr [ @.str.2, %84 ], [ @.str.3, %97 ], [ @.str.4, %98 ], [ @.str.7, %75 ]
   %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %101)
-          to label %.invoke41.i unwind label %.loopexit.split-lp.i7
+          to label %.invoke42.i unwind label %.loopexit.split-lp.i7
 
 .thread.i10:                                      ; preds = %.invoke.i9
   call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(264) %3) #7

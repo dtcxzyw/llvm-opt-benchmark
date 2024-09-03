@@ -2901,13 +2901,13 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
   %10 = trunc nuw i8 %9 to i1
   %. = select i1 %10, i16 1, i16 2
   %11 = getelementptr inbounds i8, ptr %1, i64 18
-  %12 = tail call fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %11, i16 %., i16 256, i16 1)
+  %12 = tail call fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %11, i16 %., i16 256, i16 1, i16 1)
   call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias nonnull align 8 %7, i48 %12)
   %13 = getelementptr inbounds i8, ptr %1, i64 24
-  %14 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %13, i16 2, i16 256, i16 0)
+  %14 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %13, i16 2, i16 256, i16 0, i16 undef)
           to label %17 unwind label %15
 
-15:                                               ; preds = %2, %17
+15:                                               ; preds = %17, %2
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %45
@@ -2917,10 +2917,10 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
           to label %18 unwind label %15
 
 18:                                               ; preds = %17
-  %19 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %1, i16 8, i16 128, i16 0)
+  %19 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %1, i16 8, i16 128, i16 0, i16 undef)
           to label %22 unwind label %20
 
-20:                                               ; preds = %18, %22
+20:                                               ; preds = %22, %18
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %43
@@ -2931,10 +2931,10 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %1, i64 6
-  %25 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %24, i16 32, i16 64, i16 0)
+  %25 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %24, i16 32, i16 64, i16 0, i16 undef)
           to label %28 unwind label %26
 
-26:                                               ; preds = %23, %28
+26:                                               ; preds = %28, %23
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %42
@@ -2945,7 +2945,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %1, i64 12
-  %31 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %30, i16 32, i16 64, i16 0)
+  %31 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %30, i16 32, i16 64, i16 0, i16 undef)
           to label %32 unwind label %38
 
 32:                                               ; preds = %29
@@ -2996,35 +2996,36 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 %1, i16 %2, i16 %3) unnamed_addr #0 {
-  %5 = load i16, ptr %0, align 2, !range !31, !noundef !3
-  switch i16 %5, label %default.unreachable11 [
-    i16 0, label %6
-    i16 1, label %15
-    i16 2, label %8
+define internal fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 %1, i16 %2, i16 %3, i16 %4) unnamed_addr #0 {
+  %6 = load i16, ptr %0, align 2, !range !31, !noundef !3
+  switch i16 %6, label %default.unreachable11 [
+    i16 0, label %7
+    i16 1, label %16
+    i16 2, label %9
   ]
 
-default.unreachable11:                            ; preds = %4
+default.unreachable11:                            ; preds = %5
   unreachable
 
-6:                                                ; preds = %4
-  %7 = icmp ne i16 %3, 0
-  %. = zext i1 %7 to i16
-  br label %15
+7:                                                ; preds = %5
+  %8 = icmp ne i16 %3, 0
+  %. = zext i1 %8 to i16
+  %.10 = select i1 %8, i16 %4, i16 undef
+  br label %16
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
-  %10 = load i16, ptr %9, align 2, !noundef !3
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
-  %12 = load i16, ptr %11, align 2, !noundef !3
-  %13 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %10)
-  %14 = icmp eq i16 %13, 1
-  br i1 %14, label %16, label %19
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %11 = load i16, ptr %10, align 2, !noundef !3
+  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = load i16, ptr %12, align 2, !noundef !3
+  %14 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %11)
+  %15 = icmp eq i16 %14, 1
+  br i1 %15, label %17, label %20
 
-15:                                               ; preds = %25, %4, %6
-  %.sroa.01.0 = phi i16 [ %., %6 ], [ %5, %4 ], [ 1, %25 ]
-  %.sroa.5.0 = phi i16 [ 1, %6 ], [ %1, %4 ], [ %10, %25 ]
-  %.sroa.8.0 = phi i16 [ 1, %6 ], [ %2, %4 ], [ %12, %25 ]
+16:                                               ; preds = %26, %5, %7
+  %.sroa.01.0 = phi i16 [ %., %7 ], [ %6, %5 ], [ 1, %26 ]
+  %.sroa.5.0 = phi i16 [ %.10, %7 ], [ %1, %5 ], [ %11, %26 ]
+  %.sroa.8.0 = phi i16 [ %.10, %7 ], [ %2, %5 ], [ %13, %26 ]
   %.sroa.8.0.insert.ext = zext i16 %.sroa.8.0 to i48
   %.sroa.8.0.insert.shift = shl nuw i48 %.sroa.8.0.insert.ext, 32
   %.sroa.5.0.insert.ext = zext i16 %.sroa.5.0 to i48
@@ -3034,40 +3035,40 @@ default.unreachable11:                            ; preds = %4
   %.sroa.01.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.insert, %.sroa.01.0.insert.ext
   ret i48 %.sroa.01.0.insert.insert
 
-16:                                               ; preds = %8
-  %17 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %12)
-  %18 = icmp eq i16 %17, 1
-  br i1 %18, label %20, label %21
+17:                                               ; preds = %9
+  %18 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %13)
+  %19 = icmp eq i16 %18, 1
+  br i1 %19, label %21, label %22
 
-19:                                               ; preds = %8
+20:                                               ; preds = %9
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.96, i64 39, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.97) #14
   unreachable
 
-20:                                               ; preds = %16
-  %.not = icmp ugt i16 %10, %12
-  br i1 %.not, label %22, label %23
+21:                                               ; preds = %17
+  %.not = icmp ugt i16 %11, %13
+  br i1 %.not, label %23, label %24
 
-21:                                               ; preds = %16
+22:                                               ; preds = %17
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.94, i64 40, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.95) #14
   unreachable
 
-22:                                               ; preds = %20
+23:                                               ; preds = %21
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.88, i64 29, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.89) #14
   unreachable
 
-23:                                               ; preds = %20
-  %.not8 = icmp ult i16 %10, %1
-  br i1 %.not8, label %24, label %25
+24:                                               ; preds = %21
+  %.not8 = icmp ult i16 %11, %1
+  br i1 %.not8, label %25, label %26
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.90, i64 41, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.91) #14
   unreachable
 
-25:                                               ; preds = %23
-  %.not9 = icmp ugt i16 %12, %2
-  br i1 %.not9, label %26, label %15
+26:                                               ; preds = %24
+  %.not9 = icmp ugt i16 %13, %2
+  br i1 %.not9, label %27, label %16
 
-26:                                               ; preds = %25
+27:                                               ; preds = %26
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.92, i64 40, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.93) #14
   unreachable
 }

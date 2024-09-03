@@ -17053,8 +17053,8 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %matchers_, align 8
-  %cmp50 = icmp eq ptr %0, %1
-  br i1 %cmp50, label %for.end, label %for.body.lr.ph
+  %cmp52 = icmp eq ptr %0, %1
+  br i1 %cmp52, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %ss_.i = getelementptr inbounds i8, ptr %slistener, i64 16
@@ -17063,7 +17063,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.051 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.053 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   store ptr %add.ptr.i, ptr %stream_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %slistener, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
@@ -17071,7 +17071,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 invoke.cont:                                      ; preds = %for.body
   %2 = load ptr, ptr %matchers_, align 8
-  %add.ptr.i6 = getelementptr inbounds %"class.testing::Matcher", ptr %2, i64 %i.051
+  %add.ptr.i6 = getelementptr inbounds %"class.testing::Matcher", ptr %2, i64 %i.053
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %vtable_.i = getelementptr inbounds i8, ptr %add.ptr.i6, i64 8
   %3 = load ptr, ptr %vtable_.i, align 8
@@ -17123,22 +17123,22 @@ invoke.cont9:                                     ; preds = %if.then8
   br label %for.inc
 
 lpad.loopexit:                                    ; preds = %for.body
-  %lpad.loopexit29 = landingpad { ptr, i32 }
+  %lpad.loopexit31 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup30
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i24
-  %lpad.loopexit.split-lp30 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp32 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup30
 
 lpad4.loopexit:                                   ; preds = %invoke.cont, %if.else.i, %if.end.i, %if.then8, %if.else
-  %lpad.loopexit31 = landingpad { ptr, i32 }
+  %lpad.loopexit33 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad4.loopexit.split-lp:                          ; preds = %if.else20
-  %lpad.loopexit.split-lp32 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp34 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -17195,7 +17195,7 @@ for.inc:                                          ; preds = %invoke.cont11, %inv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result.sink) #23
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %slistener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #23
-  %inc = add nuw i64 %i.051, 1
+  %inc = add nuw i64 %i.053, 1
   %10 = load ptr, ptr %_M_finish.i, align 8
   %11 = load ptr, ptr %matchers_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
@@ -17206,7 +17206,7 @@ for.inc:                                          ; preds = %invoke.cont11, %inv
   br i1 %cmp.not, label %for.body, label %for.end, !llvm.loop !147
 
 ehcleanup:                                        ; preds = %lpad4.loopexit, %lpad4.loopexit.split-lp, %lpad.i, %lpad23, %lpad14
-  %.pn = phi { ptr, i32 } [ %7, %lpad14 ], [ %9, %lpad23 ], [ %4, %lpad.i ], [ %lpad.loopexit31, %lpad4.loopexit ], [ %lpad.loopexit.split-lp32, %lpad4.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad14 ], [ %9, %lpad23 ], [ %4, %lpad.i ], [ %lpad.loopexit33, %lpad4.loopexit ], [ %lpad.loopexit.split-lp34, %lpad4.loopexit.split-lp ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 16), ptr %slistener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #23
   br label %ehcleanup30
@@ -17222,12 +17222,12 @@ if.then.i24:                                      ; preds = %for.end
           to label %cleanup29 unwind label %lpad.loopexit.split-lp
 
 cleanup29:                                        ; preds = %for.end, %if.then.i24, %cleanup
-  %cmp39 = phi i1 [ true, %for.end ], [ true, %if.then.i24 ], [ false, %cleanup ]
+  %cmp41 = phi i1 [ true, %for.end ], [ true, %if.then.i24 ], [ false, %cleanup ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %all_match_result) #23
-  ret i1 %cmp39
+  ret i1 %cmp41
 
 ehcleanup30:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit29, %lpad.loopexit ], [ %lpad.loopexit.split-lp30, %lpad.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit31, %lpad.loopexit ], [ %lpad.loopexit.split-lp32, %lpad.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %all_match_result) #23
   resume { ptr, i32 } %.pn.pn
 }

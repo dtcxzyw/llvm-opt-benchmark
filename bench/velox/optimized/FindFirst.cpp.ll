@@ -13482,6 +13482,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %i.09 = phi i32 [ %offset, %for.body.lr.ph ], [ %add11, %for.inc ]
+  %retval.sroa.2.08 = phi i8 [ undef, %for.body.lr.ph ], [ %retval.sroa.2.1, %for.inc ]
   %2 = load ptr, ptr %elementErrors, align 8
   %cmp.i11.not = icmp eq ptr %2, null
   br i1 %cmp.i11.not, label %if.end.i, label %land.lhs.true.i
@@ -13735,6 +13736,7 @@ _ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit: ; preds = %lpad, 
 
 cleanup:                                          ; preds = %invoke.cont.cleanup_crit_edge, %_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase16getOptionalErrorERKSt10shared_ptrINS0_10FlatVectorIS4_IvEEEEi.exit
   %41 = phi i8 [ %37, %_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase16getOptionalErrorERKSt10shared_ptrINS0_10FlatVectorIS4_IvEEEEi.exit ], [ %.pre15, %invoke.cont.cleanup_crit_edge ]
+  %retval.sroa.2.1 = phi i8 [ %retval.sroa.2.08, %_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase16getOptionalErrorERKSt10shared_ptrINS0_10FlatVectorIS4_IvEEEEi.exit ], [ 0, %invoke.cont.cleanup_crit_edge ]
   %tobool.i.i.i.i58 = trunc i8 %41 to i1
   br i1 %tobool.i.i.i.i58, label %if.then.i.i.i.i59, label %_ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit62
 
@@ -13750,7 +13752,7 @@ if.then.i.i.i.i.i.i61:                            ; preds = %if.then.i.i.i.i59
 
 _ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit62: ; preds = %cleanup, %if.then.i.i.i.i59, %if.then.i.i.i.i.i.i61
   %43 = trunc nsw i64 %indvars.iv to i32
-  br i1 %tobool.i.i, label %return, label %cleanup.cont
+  br i1 %tobool.i.i, label %return.loopexit, label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %_ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit62
   %44 = load ptr, ptr %vector_.i, align 8
@@ -13842,18 +13844,25 @@ _ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit: ; preds = %land.lhs.true
   %shl.i.i = shl nuw i64 1, %and.i.i
   %and2.i.i = and i64 %shl.i.i, %58
   %tobool.i2.i.not = icmp eq i64 %and2.i.i, 0
-  br i1 %tobool.i2.i.not, label %for.inc, label %return
+  br i1 %tobool.i2.i.not, label %for.inc, label %return.loopexit
 
 for.inc:                                          ; preds = %if.then8.i, %if.then4.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, %1
   %add11 = add nsw i32 %i.09, %cond
   %59 = trunc nsw i64 %indvars.iv.next to i32
   %cmp2.not = icmp eq i32 %add, %59
-  br i1 %cmp2.not, label %return, label %for.body, !llvm.loop !130
+  br i1 %cmp2.not, label %return.loopexit, label %for.body, !llvm.loop !130
 
-return:                                           ; preds = %_ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit62, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit, %for.inc, %entry
-  %i.0.lcssa = phi i32 [ %offset, %entry ], [ %add11, %for.inc ], [ %43, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit ], [ %43, %_ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit62 ]
-  %retval.sroa.2.2 = phi i64 [ 0, %entry ], [ 0, %for.inc ], [ 4294967296, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit ], [ 0, %_ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit62 ]
+return.loopexit:                                  ; preds = %for.inc, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit, %_ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit62
+  %i.0.lcssa.ph = phi i32 [ %43, %_ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit62 ], [ %43, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit ], [ %add11, %for.inc ]
+  %retval.sroa.2.2.ph = phi i8 [ %retval.sroa.2.1, %_ZNSt8optionalINSt15__exception_ptr13exception_ptrEED2Ev.exit62 ], [ 1, %_ZNK8facebook5velox13DecodedVector7valueAtIbEET_i.exit ], [ 0, %for.inc ]
+  %60 = zext i8 %retval.sroa.2.2.ph to i64
+  %61 = shl nuw nsw i64 %60, 32
+  br label %return
+
+return:                                           ; preds = %return.loopexit, %entry
+  %i.0.lcssa = phi i32 [ %offset, %entry ], [ %i.0.lcssa.ph, %return.loopexit ]
+  %retval.sroa.2.2 = phi i64 [ 0, %entry ], [ %61, %return.loopexit ]
   %retval.sroa.0.0.insert.ext = zext i32 %i.0.lcssa to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.2, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert

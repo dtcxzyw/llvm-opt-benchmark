@@ -7554,8 +7554,8 @@ entry:
   %c = alloca %class.rational, align 8
   %m_arity.i = getelementptr inbounds i8, ptr %f, i64 32
   %0 = load i32, ptr %m_arity.i, align 8
-  %cmp12 = icmp eq i32 %0, 0
-  br i1 %cmp12, label %return, label %for.body.lr.ph
+  %cmp10.not = icmp eq i32 %0, 0
+  br i1 %cmp10.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %pb = getelementptr inbounds i8, ptr %this, i64 64
@@ -7563,10 +7563,16 @@ for.body.lr.ph:                                   ; preds = %entry
   %m_kind.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 20
   br label %for.body
 
-for.body:                                         ; preds = %_ZN8rationalD2Ev.exit, %for.body.lr.ph
-  %sum.014 = phi i32 [ 0, %for.body.lr.ph ], [ %sum.1, %_ZN8rationalD2Ev.exit ]
-  %i.013 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN8rationalD2Ev.exit ]
-  call void @_ZNK7pb_util9get_coeffEP9func_declj(ptr nonnull sret(%class.rational) align 8 %c, ptr noundef nonnull align 8 dereferenceable(64) %pb, ptr noundef nonnull %f, i32 noundef %i.013)
+for.cond:                                         ; preds = %_ZN8rationalD2Ev.exit
+  %inc = add nuw i32 %i.011, 1
+  %exitcond.not = icmp eq i32 %inc, %0
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !37
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %retval.013 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.1, %for.cond ]
+  %sum.012 = phi i32 [ 0, %for.body.lr.ph ], [ %sum.1, %for.cond ]
+  %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  call void @_ZNK7pb_util9get_coeffEP9func_declj(ptr nonnull sret(%class.rational) align 8 %c, ptr noundef nonnull align 8 dereferenceable(64) %pb, ptr noundef nonnull %f, i32 noundef %i.011)
   %bf.load.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i, 0
@@ -7605,14 +7611,16 @@ if.end:                                           ; preds = %invoke.cont
 
 invoke.cont3:                                     ; preds = %if.end
   %conv.i = trunc i64 %call.i.i.i.i9 to i32
-  %add = add i32 %sum.014, %conv.i
-  %cmp5 = icmp uge i32 %add, %sum.014
-  %sum.0.add = call i32 @llvm.umax.i32(i32 %add, i32 %sum.014)
+  %add = add i32 %sum.012, %conv.i
+  %cmp5 = icmp uge i32 %add, %sum.012
+  %sum.0.add = call i32 @llvm.umax.i32(i32 %add, i32 %sum.012)
+  %.retval.0 = select i1 %cmp5, i1 %retval.013, i1 false
   br label %cleanup
 
 cleanup:                                          ; preds = %for.body, %call.i.i.i.i.noexc, %invoke.cont3, %invoke.cont
-  %sum.1 = phi i32 [ %sum.014, %invoke.cont ], [ %sum.0.add, %invoke.cont3 ], [ %sum.014, %call.i.i.i.i.noexc ], [ %sum.014, %for.body ]
+  %sum.1 = phi i32 [ %sum.012, %invoke.cont ], [ %sum.0.add, %invoke.cont3 ], [ %sum.012, %call.i.i.i.i.noexc ], [ %sum.012, %for.body ]
   %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont ], [ %cmp5, %invoke.cont3 ], [ false, %call.i.i.i.i.noexc ], [ false, %for.body ]
+  %retval.1 = phi i1 [ false, %invoke.cont ], [ %.retval.0, %invoke.cont3 ], [ false, %call.i.i.i.i.noexc ], [ false, %for.body ]
   %7 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %c)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -7629,14 +7637,11 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
-  %inc = add nuw i32 %i.013, 1
-  %exitcond.not = icmp ne i32 %inc, %0
-  %or.cond.not = select i1 %cleanup.dest.slot.0, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !37
+  br i1 %cleanup.dest.slot.0, label %for.cond, label %return
 
-return:                                           ; preds = %_ZN8rationalD2Ev.exit, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cleanup.dest.slot.0, %_ZN8rationalD2Ev.exit ]
-  ret i1 %cmp.lcssa
+return:                                           ; preds = %_ZN8rationalD2Ev.exit, %for.cond, %entry
+  %retval.2 = phi i1 [ true, %entry ], [ true, %for.cond ], [ %retval.1, %_ZN8rationalD2Ev.exit ]
+  ret i1 %retval.2
 }
 
 ; Function Attrs: mustprogress uwtable

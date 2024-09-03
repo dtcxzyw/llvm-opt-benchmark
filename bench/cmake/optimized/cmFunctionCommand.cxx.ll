@@ -2242,8 +2242,8 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 .preheader101.i.i.i:                              ; preds = %65
   %66 = load ptr, ptr %21, align 8
   %67 = load ptr, ptr %6, align 8
-  %.not112.i.i.i = icmp eq ptr %66, %67
-  br i1 %.not112.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
+  %.not113.i.i.i = icmp eq ptr %66, %67
+  br i1 %.not113.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader101.i.i.i
   %.sroa.2.0..sroa_idx.i.i82.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -2370,11 +2370,11 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %120
   %.pre.i.i.i = load ptr, ptr %21, align 8, !noalias !37
-  %.pre113.i.i.i = load ptr, ptr %6, align 8, !noalias !37
+  %.pre115.i.i.i = load ptr, ptr %6, align 8, !noalias !37
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.preheader.i.i.i
-  %130 = phi ptr [ %.pre113.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %71, %.preheader.i.i.i ]
+  %130 = phi ptr [ %.pre115.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %71, %.preheader.i.i.i ]
   %131 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %72, %.preheader.i.i.i ]
   %132 = icmp eq ptr %131, %130
   br i1 %132, label %133, label %134
@@ -2497,9 +2497,9 @@ _ZN6cmList9to_stringI7cmRangeIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic
   %185 = getelementptr inbounds i8, ptr %.val, i64 32
   %186 = load ptr, ptr %185, align 8
   %.not107.i.i.i = icmp eq ptr %184, %186
-  br i1 %.not107.i.i.i, label %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i, label %.lr.ph110.i.i.i
+  br i1 %.not107.i.i.i, label %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i, label %.lr.ph111.i.i.i
 
-.lr.ph110.i.i.i:                                  ; preds = %182
+.lr.ph111.i.i.i:                                  ; preds = %182
   %187 = getelementptr inbounds i8, ptr %17, i64 32
   %188 = getelementptr inbounds i8, ptr %16, i64 43
   %189 = getelementptr inbounds i8, ptr %16, i64 40
@@ -2513,8 +2513,9 @@ _ZN6cmList9to_stringI7cmRangeIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic
   %197 = getelementptr inbounds i8, ptr %16, i64 8
   br label %198
 
-198:                                              ; preds = %238, %.lr.ph110.i.i.i
-  %.sroa.090.0108.i.i.i = phi ptr [ %184, %.lr.ph110.i.i.i ], [ %239, %238 ]
+198:                                              ; preds = %238, %.lr.ph111.i.i.i
+  %.1109.i.i.i = phi i1 [ undef, %.lr.ph111.i.i.i ], [ %.2.i.i.i, %238 ]
+  %.sroa.090.0108.i.i.i = phi ptr [ %184, %.lr.ph111.i.i.i ], [ %239, %238 ]
   invoke void @_ZN17cmExecutionStatusC2ER10cmMakefile(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(3520) %18)
           to label %199 unwind label %.loopexit.i.i.i
 
@@ -2623,6 +2624,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit87.
 
 232:                                              ; preds = %231, %228, %227, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit87.i.i.i
   %.070.i.i.i = phi i32 [ 1, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit87.i.i.i ], [ 8, %231 ], [ 8, %227 ], [ 0, %228 ]
+  %.2.i.i.i = phi i1 [ false, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit87.i.i.i ], [ %.1109.i.i.i, %231 ], [ %.1109.i.i.i, %227 ], [ %.1109.i.i.i, %228 ]
   %233 = load ptr, ptr %193, align 8
   %234 = load ptr, ptr %196, align 8
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %233, %234
@@ -2669,7 +2671,7 @@ _ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i.loopexit: ; preds = %_ZN17cmExe
   br label %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i
 
 _ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i: ; preds = %_ZN17cmExecutionStatusD2Ev.exit.i.i.i, %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i.loopexit, %182
-  %.3.i.i.i = phi i1 [ true, %182 ], [ true, %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i.loopexit ], [ false, %_ZN17cmExecutionStatusD2Ev.exit.i.i.i ]
+  %.3.i.i.i = phi i1 [ true, %182 ], [ true, %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i.loopexit ], [ %.2.i.i.i, %_ZN17cmExecutionStatusD2Ev.exit.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
   call void @_ZN10cmMakefile15FunctionPushPopD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %8) #19

@@ -6944,6 +6944,7 @@ for.cond118.preheader:                            ; preds = %cond.true102
   br label %for.body120
 
 for.body120:                                      ; preds = %for.cond118.preheader, %for.inc415
+  %retval.11424 = phi i1 [ undef, %for.cond118.preheader ], [ %retval.2, %for.inc415 ]
   %cmp121 = phi i1 [ true, %for.cond118.preheader ], [ false, %for.inc415 ]
   %cond-lvalue = select i1 %cmp121, ptr %d_pre, ptr %d_post
   %d_scons.i = getelementptr inbounds i8, ptr %cond-lvalue, i64 8
@@ -7950,6 +7951,7 @@ lpad314:                                          ; preds = %if.else.i, %if.then
 
 cleanup405:                                       ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %if.else.i, %invoke.cont315
   %cleanup.dest.slot.3 = phi i32 [ 0, %invoke.cont315 ], [ 1, %if.else.i ], [ 1, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ]
+  %retval.4 = phi i1 [ %retval.11424, %invoke.cont315 ], [ true, %if.else.i ], [ true, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ]
   %120 = load ptr, ptr %sol, align 8
   %bf.load.i.i1195 = load i64, ptr %120, align 8
   %121 = and i64 %bf.load.i.i1195, 1152920405095219200
@@ -8082,6 +8084,7 @@ if.then.i.i.i1249:                                ; preds = %invoke.cont.i1247
 
 cleanup411:                                       ; preds = %if.then.i.i.i1249, %invoke.cont.i1247, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit819
   %cleanup.dest.slot.2 = phi i32 [ %cleanup.dest.slot.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit819 ], [ %cleanup.dest.slot.3, %invoke.cont.i1247 ], [ %cleanup.dest.slot.3, %if.then.i.i.i1249 ]
+  %retval.3 = phi i1 [ %retval.11424, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit819 ], [ %retval.4, %invoke.cont.i1247 ], [ %retval.4, %if.then.i.i.i1249 ]
   %138 = load ptr, ptr %fpred, align 8
   %bf.load.i.i1253 = load i64, ptr %138, align 8
   %139 = and i64 %bf.load.i.i1253, 1152920405095219200
@@ -8115,6 +8118,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1264: ; preds = %cleanup411, %if.t
   ]
 
 for.inc415:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1264, %invoke.cont125, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1264
+  %retval.2 = phi i1 [ %retval.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1264 ], [ %retval.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1264 ], [ %retval.11424, %invoke.cont125 ]
   br i1 %cmp121, label %for.body120, label %cleanup448, !llvm.loop !51
 
 ehcleanup406:                                     ; preds = %lpad314, %lpad.i.i962
@@ -8138,7 +8142,7 @@ ehcleanup414:                                     ; preds = %lpad137, %lpad.i.i,
   br label %ehcleanup449
 
 cleanup448:                                       ; preds = %for.inc415, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1264
-  %cmp119.lcssa = phi i1 [ false, %for.inc415 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1264 ]
+  %retval.5 = phi i1 [ %retval.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1264 ], [ false, %for.inc415 ]
   %142 = load ptr, ptr %etsr, align 8
   %bf.load.i.i1357 = load i64, ptr %142, align 8
   %143 = and i64 %bf.load.i.i1357, 1152920405095219200
@@ -8203,7 +8207,7 @@ ehcleanup451:                                     ; preds = %ehcleanup449, %lpad
   resume { ptr, i32 } %.pn25.pn.pn.pn.pn.pn.pn
 
 return:                                           ; preds = %if.then13.i.i1378, %if.then.i.i1371, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1368, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp119.lcssa, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1368 ], [ %cmp119.lcssa, %if.then.i.i1371 ], [ %cmp119.lcssa, %if.then13.i.i1378 ]
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1368 ], [ %retval.5, %if.then.i.i1371 ], [ %retval.5, %if.then13.i.i1378 ]
   ret i1 %retval.0
 }
 

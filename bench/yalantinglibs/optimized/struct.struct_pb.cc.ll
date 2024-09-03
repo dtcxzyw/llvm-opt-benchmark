@@ -995,9 +995,10 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry
-  %pos.promoted = phi i64 [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %entry ]
-  %cmp.not.not = icmp uge i64 %pos.promoted, %size
-  br i1 %cmp.not.not, label %return, label %land.lhs.true.i642
+  %pos.promoted = phi i64 [ 0, %entry ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %retval.0 = phi i1 [ undef, %entry ], [ %retval.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %cmp = icmp ult i64 %pos.promoted, %size
+  br i1 %cmp, label %land.lhs.true.i642, label %return
 
 land.lhs.true.i642:                               ; preds = %while.cond
   %arrayidx.i643 = getelementptr inbounds i8, ptr %data, i64 %pos.promoted
@@ -2050,8 +2051,9 @@ cleanup.loopexit434:                              ; preds = %while.cond.i383.pre
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end13, %invoke.cont36, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit367, %invoke.cont21, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit225, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit509, %cleanup.loopexit434, %cleanup.loopexit433, %cleanup.loopexit, %_ZN6google8protobuf5ValueaSEOS1_.exit
-  %86 = phi i64 [ %size, %cleanup.loopexit434 ], [ %add, %cleanup.loopexit433 ], [ %add, %cleanup.loopexit ], [ %83, %_ZN6google8protobuf5ValueaSEOS1_.exit ], [ %pos.promoted511, %if.end13 ], [ %79, %invoke.cont36 ], [ %inc83.i339, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit367 ], [ %58, %invoke.cont21 ], [ %inc83.i197, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit225 ], [ %inc83.i481, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit509 ]
-  %cmp7465 = phi i1 [ true, %cleanup.loopexit434 ], [ true, %cleanup.loopexit433 ], [ true, %cleanup.loopexit ], [ false, %_ZN6google8protobuf5ValueaSEOS1_.exit ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit509 ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit225 ], [ true, %invoke.cont21 ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit367 ], [ true, %invoke.cont36 ], [ true, %if.end13 ]
+  %86 = phi i64 [ %83, %_ZN6google8protobuf5ValueaSEOS1_.exit ], [ %add, %cleanup.loopexit ], [ %add, %cleanup.loopexit433 ], [ %size, %cleanup.loopexit434 ], [ %pos.promoted511, %if.end13 ], [ %79, %invoke.cont36 ], [ %inc83.i339, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit367 ], [ %58, %invoke.cont21 ], [ %inc83.i197, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit225 ], [ %inc83.i481, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit509 ]
+  %cmp7465 = phi i1 [ false, %_ZN6google8protobuf5ValueaSEOS1_.exit ], [ true, %cleanup.loopexit ], [ true, %cleanup.loopexit433 ], [ true, %cleanup.loopexit434 ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit509 ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit225 ], [ true, %invoke.cont21 ], [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit367 ], [ true, %invoke.cont36 ], [ true, %if.end13 ]
+  %retval.2 = phi i1 [ %retval.0, %_ZN6google8protobuf5ValueaSEOS1_.exit ], [ false, %cleanup.loopexit ], [ false, %cleanup.loopexit433 ], [ false, %cleanup.loopexit434 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit509 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit225 ], [ false, %invoke.cont21 ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit367 ], [ false, %invoke.cont36 ], [ false, %if.end13 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS5_6StructESt14default_deleteISE_EESD_INS5_9ListValueESF_ISI_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S6_dSC_bSH_SK_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(33) %value_tmp_val)
           to label %_ZN6google8protobuf5ValueD2Ev.exit unwind label %terminate.lpad.i.i.i.i397
@@ -2090,7 +2092,7 @@ sw.default47:                                     ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %while.cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit651, %while.cond.i.preheader, %while.body.i539, %while.body.i, %sw.default47
-  %retval.1 = phi i1 [ %call48, %sw.default47 ], [ false, %while.body.i ], [ false, %while.body.i539 ], [ %cmp.not.not, %while.cond.i.preheader ], [ %cmp.not.not, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit651 ], [ %cmp.not.not, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %cmp.not.not, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %cmp.not.not, %while.cond ]
+  %retval.1 = phi i1 [ %call48, %sw.default47 ], [ false, %while.body.i ], [ false, %while.body.i539 ], [ false, %while.cond.i.preheader ], [ true, %while.cond ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit651 ], [ %retval.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret i1 %retval.1
 }
 

@@ -3482,11 +3482,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %109
           to label %.preheader159 unwind label %227
 
 .preheader159:                                    ; preds = %143
-  %.not193 = icmp slt i32 %84, 0
-  br i1 %.not193, label %._crit_edge196, label %.preheader.lr.ph
+  %.not210 = icmp slt i32 %84, 0
+  br i1 %.not210, label %._crit_edge214, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader159
-  %.not126190 = icmp slt i32 %86, 0
+  %.not126205 = icmp slt i32 %86, 0
   %144 = getelementptr inbounds i8, ptr %25, i64 4
   %145 = getelementptr inbounds i8, ptr %25, i64 8
   %146 = getelementptr inbounds i8, ptr %25, i64 12
@@ -3538,19 +3538,21 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %109
   %192 = getelementptr inbounds i8, ptr %40, i64 4
   %193 = getelementptr inbounds i8, ptr %40, i64 8
   %194 = getelementptr inbounds i8, ptr %40, i64 12
-  br i1 %.not126190, label %._crit_edge196, label %.preheader
+  br i1 %.not126205, label %._crit_edge214, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %.096195 = phi i32 [ %283, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.0118194 = phi i32 [ %.2120, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %195 = mul nsw i32 %.096195, %79
+  %.090213 = phi i32 [ %.2, %._crit_edge ], [ undef, %.preheader.lr.ph ]
+  %.096212 = phi i32 [ %283, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.0118211 = phi i32 [ %.2120, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %195 = mul nsw i32 %.096212, %79
   %196 = add nsw i32 %195, 1
   br label %197
 
 197:                                              ; preds = %.preheader, %267
-  %.095192 = phi i32 [ 0, %.preheader ], [ %268, %267 ]
-  %.1119191 = phi i32 [ %.0118194, %.preheader ], [ %.2120, %267 ]
-  %198 = mul nsw i32 %.095192, %82
+  %.1208 = phi i32 [ %.090213, %.preheader ], [ %.2, %267 ]
+  %.095207 = phi i32 [ 0, %.preheader ], [ %268, %267 ]
+  %.1119206 = phi i32 [ %.0118211, %.preheader ], [ %.2120, %267 ]
+  %198 = mul nsw i32 %.095207, %82
   %199 = invoke noundef i32 @_ZNK2cv11_InputArray4colsEi(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef -1)
           to label %200 unwind label %.loopexit
 
@@ -3665,7 +3667,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit155:            ; preds = %221
           cleanup
   br label %307
 
-.loopexit.split-lp:                               ; preds = %._crit_edge196, %285, %291, %294, %296, %287, %298
+.loopexit.split-lp:                               ; preds = %._crit_edge214, %285, %291, %294, %296, %287, %298
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %307
@@ -3718,7 +3720,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit155:            ; preds = %221
   br label %280
 
 243:                                              ; preds = %210
-  %244 = add nsw i32 %.1119191, 1
+  %244 = add nsw i32 %.1119206, 1
   %245 = add nsw i32 %198, 1
   %246 = invoke noundef i32 @_ZNK2cv11_InputArray4colsEi(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef -1)
           to label %247 unwind label %233
@@ -3817,7 +3819,8 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit155:            ; preds = %221
 
 266:                                              ; preds = %254, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit155, %265
   %.sink = phi ptr [ %51, %265 ], [ %39, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit155 ], [ %41, %254 ]
-  %.2120 = phi i32 [ %.1119191, %265 ], [ %.1119191, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit155 ], [ %244, %254 ]
+  %.2120 = phi i32 [ %.1119206, %265 ], [ %.1119206, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit155 ], [ %244, %254 ]
+  %.2 = phi i32 [ %.1208, %265 ], [ -1, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit155 ], [ %.1208, %254 ]
   %.0 = phi i32 [ 0, %265 ], [ 1, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit155 ], [ 9, %254 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #15
@@ -3830,8 +3833,8 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit155:            ; preds = %221
   ]
 
 267:                                              ; preds = %266, %266
-  %268 = add nuw i32 %.095192, 1
-  %exitcond.not = icmp eq i32 %.095192, %86
+  %268 = add nuw i32 %.095207, 1
+  %exitcond.not = icmp eq i32 %.095207, %86
   br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !57
 
 269:                                              ; preds = %258
@@ -3882,16 +3885,16 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit155:            ; preds = %221
   br label %307
 
 ._crit_edge:                                      ; preds = %267
-  %283 = add nuw i32 %.096195, 1
-  %exitcond200.not = icmp eq i32 %.096195, %84
-  br i1 %exitcond200.not, label %._crit_edge196, label %.preheader, !llvm.loop !58
+  %283 = add nuw i32 %.096212, 1
+  %exitcond219.not = icmp eq i32 %.096212, %84
+  br i1 %exitcond219.not, label %._crit_edge214, label %.preheader, !llvm.loop !58
 
-._crit_edge196:                                   ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader159
+._crit_edge214:                                   ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader159
   %.0118.lcssa = phi i32 [ 0, %.preheader159 ], [ 0, %.preheader.lr.ph ], [ %.2120, %._crit_edge ]
   %284 = invoke noundef i32 @_ZNK2cv11_InputArray4colsEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef -1)
           to label %285 unwind label %.loopexit.split-lp
 
-285:                                              ; preds = %._crit_edge196
+285:                                              ; preds = %._crit_edge214
   %286 = invoke noundef i32 @_ZNK2cv11_InputArray4rowsEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef -1)
           to label %287 unwind label %.loopexit.split-lp
 
@@ -3958,7 +3961,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit157:            ; preds = %298
   br label %307
 
 .loopexit158:                                     ; preds = %266, %293, %302
-  %.3 = phi i32 [ %.0118.lcssa, %302 ], [ %.0118.lcssa, %293 ], [ -1, %266 ]
+  %.3 = phi i32 [ %.0118.lcssa, %302 ], [ %.0118.lcssa, %293 ], [ %.2, %266 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #15

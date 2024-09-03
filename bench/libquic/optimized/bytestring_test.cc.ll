@@ -1527,9 +1527,15 @@ entry:
   %out = alloca %struct.cbs_st, align 8
   br label %for.body
 
-for.body:                                         ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12, %entry
-  %__begin1.0.idx15 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12 ]
-  %__begin1.0.ptr16 = getelementptr inbounds i8, ptr @_ZL20kImplicitStringTests, i64 %__begin1.0.idx15
+for.cond:                                         ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12
+  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx14, 40
+  %cmp.not = icmp eq i64 %__begin1.0.add, 240
+  br i1 %cmp.not, label %return, label %for.body
+
+for.body:                                         ; preds = %entry, %for.cond
+  %retval.015 = phi i1 [ undef, %entry ], [ %retval.1, %for.cond ]
+  %__begin1.0.idx14 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.cond ]
+  %__begin1.0.ptr16 = getelementptr inbounds i8, ptr @_ZL20kImplicitStringTests, i64 %__begin1.0.idx14
   store ptr null, ptr %storage, align 8
   %0 = load ptr, ptr %__begin1.0.ptr16, align 8
   %in_len = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 8
@@ -1593,6 +1599,7 @@ if.then18:                                        ; preds = %invoke.cont12, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %invoke.cont12, %if.then18, %if.then
+  %retval.1 = phi i1 [ false, %if.then ], [ false, %if.then18 ], [ %retval.015, %invoke.cont12 ], [ %retval.015, %if.end ]
   %switch = phi i1 [ false, %if.then ], [ false, %if.then18 ], [ true, %invoke.cont12 ], [ true, %if.end ]
   %cmp.not.i10 = icmp eq ptr %2, null
   br i1 %cmp.not.i10, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12, label %if.then.i11
@@ -1602,13 +1609,11 @@ if.then.i11:                                      ; preds = %cleanup
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12:  ; preds = %cleanup, %if.then.i11
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx15, 40
-  %cmp.not = icmp ne i64 %__begin1.0.add, 240
-  %or.cond.not = select i1 %switch, i1 %cmp.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return
+  br i1 %switch, label %for.cond, label %return
 
-return:                                           ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12
-  ret i1 %switch
+return:                                           ; preds = %for.cond, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12
+  %retval.2 = phi i1 [ %retval.1, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12 ], [ true, %for.cond ]
+  ret i1 %retval.2
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
@@ -1624,13 +1629,14 @@ entry:
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
-  %inc = add nuw nsw i64 %i.012, 1
+  %inc = add nuw nsw i64 %i.014, 1
   %exitcond.not = icmp eq i64 %inc, 7
   br i1 %exitcond.not, label %for.body29, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %entry, %for.cond
-  %i.012 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds [7 x %struct.ASN1Uint64Test], ptr @_ZL16kASN1Uint64Tests, i64 0, i64 %i.012
+  %retval.015 = phi i1 [ undef, %entry ], [ %retval.2, %for.cond ]
+  %i.014 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [7 x %struct.ASN1Uint64Test], ptr @_ZL16kASN1Uint64Tests, i64 0, i64 %i.014
   %encoding = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %encoding, align 8
   %encoding_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -1679,10 +1685,12 @@ if.end17:                                         ; preds = %lor.lhs.false13
 lor.lhs.false20:                                  ; preds = %if.end17
   %bcmp = call i32 @bcmp(ptr %4, ptr %0, i64 %1)
   %cmp23.not = icmp eq i32 %bcmp, 0
+  %spec.select11 = select i1 %cmp23.not, i1 %retval.015, i1 false
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false20, %if.end17
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.end17 ], [ %cmp23.not, %lor.lhs.false20 ]
+  %switch = phi i1 [ false, %if.end17 ], [ %cmp23.not, %lor.lhs.false20 ]
+  %retval.2 = phi i1 [ false, %if.end17 ], [ %spec.select11, %lor.lhs.false20 ]
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %if.then.i
 
@@ -1691,24 +1699,24 @@ if.then.i:                                        ; preds = %cleanup
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %cleanup, %if.then.i
-  br i1 %cleanup.dest.slot.0, label %for.cond, label %return
+  br i1 %switch, label %for.cond, label %return
 
 for.body29:                                       ; preds = %for.cond, %for.body29
-  %i26.013 = phi i64 [ %inc41, %for.body29 ], [ 0, %for.cond ]
-  %arrayidx31 = getelementptr inbounds [5 x %struct.ASN1InvalidUint64Test], ptr @_ZL23kASN1InvalidUint64Tests, i64 0, i64 %i26.013
+  %i26.016 = phi i64 [ %inc41, %for.body29 ], [ 0, %for.cond ]
+  %arrayidx31 = getelementptr inbounds [5 x %struct.ASN1InvalidUint64Test], ptr @_ZL23kASN1InvalidUint64Tests, i64 0, i64 %i26.016
   %6 = load ptr, ptr %arrayidx31, align 16
   %encoding_len35 = getelementptr inbounds i8, ptr %arrayidx31, i64 8
   %7 = load i64, ptr %encoding_len35, align 8
   call void @CBS_init(ptr noundef nonnull %cbs32, ptr noundef %6, i64 noundef %7)
   %call36 = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %cbs32, ptr noundef nonnull %value33)
   %tobool37.not = icmp eq i32 %call36, 0
-  %inc41 = add nuw nsw i64 %i26.013, 1
-  %exitcond15.not = icmp ne i64 %inc41, 5
-  %or.cond.not = select i1 %tobool37.not, i1 %exitcond15.not, i1 false
+  %inc41 = add nuw nsw i64 %i26.016, 1
+  %exitcond19.not = icmp ne i64 %inc41, 5
+  %or.cond.not = select i1 %tobool37.not, i1 %exitcond19.not, i1 false
   br i1 %or.cond.not, label %for.body29, label %return, !llvm.loop !9
 
 return:                                           ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %if.end, %for.body, %lor.lhs.false, %lor.lhs.false3, %for.body29, %if.then16
-  %retval.1 = phi i1 [ false, %if.then16 ], [ %tobool37.not, %for.body29 ], [ false, %lor.lhs.false3 ], [ false, %lor.lhs.false ], [ false, %for.body ], [ false, %if.end ], [ false, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ]
+  %retval.1 = phi i1 [ false, %if.then16 ], [ %tobool37.not, %for.body29 ], [ false, %if.end ], [ false, %for.body ], [ false, %lor.lhs.false ], [ false, %lor.lhs.false3 ], [ %retval.2, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ]
   ret i1 %retval.1
 }
 

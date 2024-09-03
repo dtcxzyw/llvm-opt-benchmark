@@ -72,11 +72,6 @@ define i64 @Abc_Isop6Cover(i64 noundef %0, i64 noundef %1, ptr nocapture noundef
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %.preheader._crit_edge
 
-.preheader._crit_edge:                            ; preds = %.preheader
-  %.pre = shl nuw nsw i32 1, %15
-  %.pre86 = zext nneg i32 %.pre to i64
-  br label %split
-
 20:                                               ; preds = %.preheader
   %21 = shl nuw i32 1, %indvars
   %22 = zext nneg i32 %21 to i64
@@ -87,18 +82,18 @@ define i64 @Abc_Isop6Cover(i64 noundef %0, i64 noundef %1, ptr nocapture noundef
   %27 = xor i64 %23, %0
   %28 = and i64 %26, %27
   %.not84 = icmp eq i64 %28, 0
-  br i1 %.not84, label %29, label %split
+  br i1 %.not84, label %29, label %.preheader._crit_edge
 
 29:                                               ; preds = %20
   %30 = lshr i64 %1, %22
   %31 = xor i64 %30, %1
   %32 = and i64 %26, %31
   %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %.preheader, label %split, !llvm.loop !4
+  br i1 %.not, label %.preheader, label %.preheader._crit_edge, !llvm.loop !4
 
-split:                                            ; preds = %20, %29, %.preheader._crit_edge
-  %.pre-phi87 = phi i64 [ %.pre86, %.preheader._crit_edge ], [ %22, %29 ], [ %22, %20 ]
-  %.0.lcssa = phi i32 [ %15, %.preheader._crit_edge ], [ %indvars, %29 ], [ %indvars, %20 ]
+.preheader._crit_edge:                            ; preds = %20, %29, %.preheader
+  %.pre-phi87 = phi i64 [ poison, %.preheader ], [ %22, %29 ], [ %22, %20 ]
+  %.0.lcssa = phi i32 [ %15, %.preheader ], [ %indvars, %29 ], [ %indvars, %20 ]
   %33 = sext i32 %.0.lcssa to i64
   %34 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %33
   %35 = load i64, ptr %34, align 8
@@ -122,7 +117,7 @@ split:                                            ; preds = %20, %29, %.preheade
   %.not79 = icmp ult i64 %52, %4
   br i1 %.not79, label %53, label %101
 
-53:                                               ; preds = %split
+53:                                               ; preds = %.preheader._crit_edge
   %54 = xor i64 %46, -1
   %55 = and i64 %43, %54
   %.not80 = icmp eq ptr %5, null
@@ -207,8 +202,8 @@ Abc_IsopAddLits.exit:                             ; preds = %96, %75, %.preheade
   %100 = add i64 %99, %74
   br label %101
 
-101:                                              ; preds = %16, %17, %61, %53, %split, %Abc_IsopAddLits.exit, %11
-  %.069 = phi i64 [ 0, %11 ], [ %100, %Abc_IsopAddLits.exit ], [ %4, %split ], [ %4, %53 ], [ %4, %61 ], [ 4294967296, %17 ], [ 4294967296, %16 ]
+101:                                              ; preds = %16, %17, %61, %53, %.preheader._crit_edge, %Abc_IsopAddLits.exit, %11
+  %.069 = phi i64 [ 0, %11 ], [ %100, %Abc_IsopAddLits.exit ], [ %4, %.preheader._crit_edge ], [ %4, %53 ], [ %4, %61 ], [ 4294967296, %17 ], [ 4294967296, %16 ]
   ret i64 %.069
 }
 
@@ -1099,11 +1094,6 @@ define i64 @Abc_Esop6Cover(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.preheader._crit_edge
 
-.preheader._crit_edge:                            ; preds = %.preheader
-  %.pre = shl nuw nsw i32 1, %6
-  %.pre79 = zext nneg i32 %.pre to i64
-  br label %split
-
 11:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -1116,11 +1106,11 @@ define i64 @Abc_Esop6Cover(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
   %18 = xor i64 %14, %0
   %19 = and i64 %17, %18
   %.not77 = icmp eq i64 %19, 0
-  br i1 %.not77, label %.preheader, label %split, !llvm.loop !30
+  br i1 %.not77, label %.preheader, label %.preheader._crit_edge, !llvm.loop !30
 
-split:                                            ; preds = %11, %.preheader._crit_edge
-  %.pre-phi80 = phi i64 [ %.pre79, %.preheader._crit_edge ], [ %13, %11 ]
-  %.0.lcssa = phi i32 [ %6, %.preheader._crit_edge ], [ %indvars, %11 ]
+.preheader._crit_edge:                            ; preds = %11, %.preheader
+  %.pre-phi80 = phi i64 [ poison, %.preheader ], [ %13, %11 ]
+  %.0.lcssa = phi i32 [ %6, %.preheader ], [ %indvars, %11 ]
   %20 = sext i32 %.0.lcssa to i64
   %21 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
@@ -1136,7 +1126,7 @@ split:                                            ; preds = %11, %.preheader._cr
   %.not70 = icmp ult i64 %31, %2
   br i1 %.not70, label %32, label %56
 
-32:                                               ; preds = %split
+32:                                               ; preds = %.preheader._crit_edge
   %.not69 = icmp eq ptr %3, null
   br i1 %.not69, label %33, label %.thread
 
@@ -1180,8 +1170,8 @@ split:                                            ; preds = %11, %.preheader._cr
   %55 = add i64 %51, %54
   br label %56
 
-56:                                               ; preds = %.thread, %7, %8, %46, %41, %33, %split, %4, %52
-  %.060 = phi i64 [ %55, %52 ], [ %0, %4 ], [ %2, %split ], [ %2, %33 ], [ %2, %41 ], [ %2, %46 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ %2, %.thread ]
+56:                                               ; preds = %.thread, %7, %8, %46, %41, %33, %.preheader._crit_edge, %4, %52
+  %.060 = phi i64 [ %55, %52 ], [ %0, %4 ], [ %2, %.preheader._crit_edge ], [ %2, %33 ], [ %2, %41 ], [ %2, %46 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ %2, %.thread ]
   ret i64 %.060
 }
 

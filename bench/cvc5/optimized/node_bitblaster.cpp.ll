@@ -2296,8 +2296,8 @@ entry:
   %_M_left.i.i = getelementptr inbounds i8, ptr %relevantTerms, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %relevantTerms, i64 8
-  %cmp.i.not20 = icmp eq ptr %0, %add.ptr.i.i
-  br i1 %cmp.i.not20, label %return, label %for.body.lr.ph
+  %cmp.i.not17 = icmp eq ptr %0, %add.ptr.i.i
+  br i1 %cmp.i.not17, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 6016
@@ -2307,8 +2307,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin3.sroa.0.021 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i, %for.inc ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.021, i64 32
+  %retval.019 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.1, %for.inc ]
+  %__begin3.sroa.0.018 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i, %for.inc ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.018, i64 32
   %1 = load ptr, ptr %_M_storage.i.i, align 8
   store ptr %1, ptr %ref.tmp6, align 8
   %2 = load i64, ptr %_M_element_count.i.i.i, align 8
@@ -2431,6 +2432,7 @@ if.end32:                                         ; preds = %invoke.cont28, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont28, %if.end32
+  %retval.2 = phi i1 [ %retval.019, %if.end32 ], [ false, %invoke.cont28 ]
   %switch = phi i1 [ true, %if.end32 ], [ false, %invoke.cont28 ]
   %26 = load ptr, ptr %const_value, align 8
   %bf.load.i.i = load i64, ptr %26, align 8
@@ -2462,7 +2464,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %cleanup, %if.then.i
   br i1 %switch, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.021) #27
+  %retval.1 = phi i1 [ %retval.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %retval.019, %if.end15.i.i ], [ %retval.019, %for.cond.i.i ], [ %retval.019, %lor.lhs.false.i.i.i.i ], [ %retval.019, %if.end3.i.i.i.i ]
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.018) #27
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -2472,8 +2475,8 @@ ehcleanup33:                                      ; preds = %lpad.i.i, %lpad27
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %for.inc, %entry
-  %cmp.i.not.lcssa = phi i1 [ true, %entry ], [ true, %for.inc ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  ret i1 %cmp.i.not.lcssa
+  %retval.3 = phi i1 [ true, %entry ], [ true, %for.inc ], [ %retval.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  ret i1 %retval.3
 }
 
 declare noundef zeroext i1 @_ZN4cvc58internal6theory11TheoryModel14assertEqualityENS0_12NodeTemplateILb0EEES4_b(ptr noundef nonnull align 8 dereferenceable(904), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0

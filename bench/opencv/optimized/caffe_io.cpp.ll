@@ -6108,8 +6108,8 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn19NetNeedsDataUpgradeERKN12opencv_ca
   call void @_ZN12opencv_caffe13DataParameterC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %23)
   %24 = load i32, ptr %9, align 8
   %25 = and i32 %24, 266
-  %or.cond47.not = icmp eq i32 %25, 0
-  br i1 %or.cond47.not, label %26, label %.thread
+  %or.cond50.not = icmp eq i32 %25, 0
+  br i1 %or.cond50.not, label %26, label %.thread
 
 .thread:                                          ; preds = %20
   call void @_ZN12opencv_caffe13DataParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #17
@@ -6124,15 +6124,15 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn19NetNeedsDataUpgradeERKN12opencv_ca
 ._crit_edge:                                      ; preds = %26
   %.pre = load ptr, ptr %8, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
-  %.phi.trans.insert69 = getelementptr inbounds [268435454 x ptr], ptr %.phi.trans.insert, i64 0, i64 %indvars.iv
-  %.pre70 = load ptr, ptr %.phi.trans.insert69, align 8
-  %.phi.trans.insert71 = getelementptr inbounds i8, ptr %.pre70, i64 496
-  %.pre72 = load i32, ptr %.phi.trans.insert71, align 8
+  %.phi.trans.insert72 = getelementptr inbounds [268435454 x ptr], ptr %.phi.trans.insert, i64 0, i64 %indvars.iv
+  %.pre73 = load ptr, ptr %.phi.trans.insert72, align 8
+  %.phi.trans.insert74 = getelementptr inbounds i8, ptr %.pre73, i64 496
+  %.pre75 = load i32, ptr %.phi.trans.insert74, align 8
   br label %28
 
 28:                                               ; preds = %._crit_edge, %12
-  %29 = phi i32 [ %.pre72, %._crit_edge ], [ %18, %12 ]
-  %30 = phi ptr [ %.pre70, %._crit_edge ], [ %16, %12 ]
+  %29 = phi i32 [ %.pre75, %._crit_edge ], [ %18, %12 ]
+  %30 = phi ptr [ %.pre73, %._crit_edge ], [ %16, %12 ]
   %31 = icmp eq i32 %29, 12
   br i1 %31, label %32, label %40
 
@@ -6144,31 +6144,31 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn19NetNeedsDataUpgradeERKN12opencv_ca
   call void @_ZN12opencv_caffe18ImageDataParameterC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %35)
   %36 = load i32, ptr %10, align 8
   %37 = and i32 %36, 1034
-  %or.cond51.not = icmp eq i32 %37, 0
-  br i1 %or.cond51.not, label %38, label %.thread38
+  %or.cond54.not = icmp eq i32 %37, 0
+  br i1 %or.cond54.not, label %38, label %.thread39
 
-.thread38:                                        ; preds = %32
+.thread39:                                        ; preds = %32
   call void @_ZN12opencv_caffe18ImageDataParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #17
   br label %.loopexit
 
 38:                                               ; preds = %32
   %39 = and i32 %36, 64
-  %.not56 = icmp eq i32 %39, 0
+  %.not59 = icmp eq i32 %39, 0
   call void @_ZN12opencv_caffe18ImageDataParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %3) #17
-  br i1 %.not56, label %._crit_edge73, label %.loopexit
+  br i1 %.not59, label %._crit_edge76, label %.loopexit
 
-._crit_edge73:                                    ; preds = %38
-  %.pre74 = load ptr, ptr %8, align 8
-  %.phi.trans.insert75 = getelementptr inbounds i8, ptr %.pre74, i64 8
-  %.phi.trans.insert76 = getelementptr inbounds [268435454 x ptr], ptr %.phi.trans.insert75, i64 0, i64 %indvars.iv
-  %.pre77 = load ptr, ptr %.phi.trans.insert76, align 8
-  %.phi.trans.insert78 = getelementptr inbounds i8, ptr %.pre77, i64 496
-  %.pre79 = load i32, ptr %.phi.trans.insert78, align 8
+._crit_edge76:                                    ; preds = %38
+  %.pre77 = load ptr, ptr %8, align 8
+  %.phi.trans.insert78 = getelementptr inbounds i8, ptr %.pre77, i64 8
+  %.phi.trans.insert79 = getelementptr inbounds [268435454 x ptr], ptr %.phi.trans.insert78, i64 0, i64 %indvars.iv
+  %.pre80 = load ptr, ptr %.phi.trans.insert79, align 8
+  %.phi.trans.insert81 = getelementptr inbounds i8, ptr %.pre80, i64 496
+  %.pre82 = load i32, ptr %.phi.trans.insert81, align 8
   br label %40
 
-40:                                               ; preds = %._crit_edge73, %28
-  %41 = phi i32 [ %.pre79, %._crit_edge73 ], [ %29, %28 ]
-  %42 = phi ptr [ %.pre77, %._crit_edge73 ], [ %30, %28 ]
+40:                                               ; preds = %._crit_edge76, %28
+  %41 = phi i32 [ %.pre82, %._crit_edge76 ], [ %29, %28 ]
+  %42 = phi ptr [ %.pre80, %._crit_edge76 ], [ %30, %28 ]
   %43 = icmp eq i32 %41, 24
   br i1 %43, label %44, label %52
 
@@ -6180,18 +6180,18 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn19NetNeedsDataUpgradeERKN12opencv_ca
   call void @_ZN12opencv_caffe19WindowDataParameterC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %47)
   %48 = load i32, ptr %11, align 8
   %49 = and i32 %48, 546
-  %or.cond55.not = icmp eq i32 %49, 0
-  br i1 %or.cond55.not, label %50, label %.thread42
+  %or.cond58.not = icmp eq i32 %49, 0
+  br i1 %or.cond58.not, label %50, label %.thread44
 
-.thread42:                                        ; preds = %44
+.thread44:                                        ; preds = %44
   call void @_ZN12opencv_caffe19WindowDataParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #17
   br label %.loopexit
 
 50:                                               ; preds = %44
   %51 = and i32 %48, 64
-  %.not57 = icmp eq i32 %51, 0
+  %.not60 = icmp eq i32 %51, 0
   call void @_ZN12opencv_caffe19WindowDataParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #17
-  br i1 %.not57, label %52, label %.loopexit
+  br i1 %.not60, label %52, label %.loopexit
 
 52:                                               ; preds = %50, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6200,8 +6200,8 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn19NetNeedsDataUpgradeERKN12opencv_ca
   %55 = icmp slt i64 %indvars.iv.next, %54
   br i1 %55, label %12, label %.loopexit, !llvm.loop !60
 
-.loopexit:                                        ; preds = %26, %38, %50, %52, %1, %.thread42, %.thread38, %.thread
-  %56 = phi i1 [ true, %.thread42 ], [ true, %.thread38 ], [ true, %.thread ], [ false, %1 ], [ true, %26 ], [ true, %38 ], [ true, %50 ], [ false, %52 ]
+.loopexit:                                        ; preds = %26, %38, %50, %52, %1, %.thread44, %.thread39, %.thread
+  %56 = phi i1 [ true, %.thread44 ], [ true, %.thread39 ], [ true, %.thread ], [ false, %1 ], [ true, %26 ], [ true, %38 ], [ true, %50 ], [ false, %52 ]
   ret i1 %56
 }
 

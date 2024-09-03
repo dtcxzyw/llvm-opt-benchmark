@@ -9705,8 +9705,8 @@ if.end.i927:                                      ; preds = %lor.lhs.false.i924
   %935 = load i32, ptr %length75.i, align 4
   %idx.ext.i.i931 = zext i32 %935 to i64
   %add.ptr.i.i932 = getelementptr inbounds %struct.hb_pair_t, ptr %934, i64 %idx.ext.i.i931
-  %cmp.not17.i = icmp eq i32 %935, 0
-  br i1 %cmp.not17.i, label %cleanup18.i, label %for.body.lr.ph.i933
+  %cmp.not18.i = icmp eq i32 %935, 0
+  br i1 %cmp.not18.i, label %cleanup18.i, label %for.body.lr.ph.i933
 
 for.body.lr.ph.i933:                              ; preds = %if.end.i927
   %length.i.i.i.i.i934 = getelementptr inbounds i8, ptr %all_points.i, i64 4
@@ -9714,8 +9714,9 @@ for.body.lr.ph.i933:                              ; preds = %if.end.i927
   br label %for.body.i936
 
 for.body.i936:                                    ; preds = %for.inc.i943, %for.body.lr.ph.i933
-  %__begin1.018.i = phi ptr [ %934, %for.body.lr.ph.i933 ], [ %incdec.ptr.i944, %for.inc.i943 ]
-  %936 = load i32, ptr %__begin1.018.i, align 4
+  %retval.120.i = phi i1 [ undef, %for.body.lr.ph.i933 ], [ %retval.2.i, %for.inc.i943 ]
+  %__begin1.019.i = phi ptr [ %934, %for.body.lr.ph.i933 ], [ %incdec.ptr.i944, %for.inc.i943 ]
+  %936 = load i32, ptr %__begin1.019.i, align 4
   store i32 %936, ptr %new_gid.i920, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %all_points.i, i8 0, i64 16, i1 false)
   %cmp3.i937 = icmp eq i32 %936, 0
@@ -9730,10 +9731,11 @@ land.lhs.true.i947:                               ; preds = %for.body.i936
 if.then5.i:                                       ; preds = %land.lhs.true.i947
   %call2.i.i948 = call noundef zeroext i1 @_ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE13set_with_hashIRKjRS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %new_gid_contour_points_map, ptr noundef nonnull align 4 dereferenceable(4) %new_gid.i920, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %all_points.i, i1 noundef zeroext true)
   %..i = select i1 %call2.i.i948, i32 3, i32 1
+  %retval.1..i = select i1 %call2.i.i948, i1 %retval.120.i, i1 false
   br label %cleanup.i940
 
 if.end9.i938:                                     ; preds = %land.lhs.true.i947, %for.body.i936
-  %second.i939 = getelementptr inbounds i8, ptr %__begin1.018.i, i64 4
+  %second.i939 = getelementptr inbounds i8, ptr %__begin1.019.i, i64 4
   %938 = load i32, ptr %second.i939, align 4
   call void @_ZNK2OT18glyf_accelerator_t13glyph_for_gidEjb(ptr nonnull sret(%"struct.OT::glyf_impl::Glyph") align 8 %ref.tmp.i921, ptr noundef nonnull align 8 dereferenceable(48) %glyf.i, i32 noundef %938, i1 noundef zeroext false)
   %939 = load ptr, ptr %source, align 8
@@ -9741,15 +9743,17 @@ if.end9.i938:                                     ; preds = %land.lhs.true.i947,
   br i1 %call11.i, label %if.end13.i, label %cleanup.i940
 
 if.end13.i:                                       ; preds = %if.end9.i938
-  %key.val.i14.i = load i32, ptr %new_gid.i920, align 4
-  %mul.i.i.i15.i = mul i32 %key.val.i14.i, -1640531535
-  %call2.i16.i = call noundef zeroext i1 @_ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE13set_with_hashIRKjRS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %new_gid_contour_points_map, ptr noundef nonnull align 4 dereferenceable(4) %new_gid.i920, i32 noundef %mul.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(16) %all_points.i, i1 noundef zeroext true)
-  %not.call2.i16.i = xor i1 %call2.i16.i, true
-  %.12.i = zext i1 %not.call2.i16.i to i32
+  %key.val.i15.i = load i32, ptr %new_gid.i920, align 4
+  %mul.i.i.i16.i = mul i32 %key.val.i15.i, -1640531535
+  %call2.i17.i = call noundef zeroext i1 @_ZN12hb_hashmap_tIj22contour_point_vector_tLb0EE13set_with_hashIRKjRS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %new_gid_contour_points_map, ptr noundef nonnull align 4 dereferenceable(4) %new_gid.i920, i32 noundef %mul.i.i.i16.i, ptr noundef nonnull align 8 dereferenceable(16) %all_points.i, i1 noundef zeroext true)
+  %not.call2.i17.i = xor i1 %call2.i17.i, true
+  %.12.i = zext i1 %not.call2.i17.i to i32
+  %retval.1.13.i = select i1 %call2.i17.i, i1 %retval.120.i, i1 false
   br label %cleanup.i940
 
 cleanup.i940:                                     ; preds = %if.end13.i, %if.end9.i938, %if.then5.i
   %cleanup.dest.slot.0.i = phi i32 [ %..i, %if.then5.i ], [ 1, %if.end9.i938 ], [ %.12.i, %if.end13.i ]
+  %retval.2.i = phi i1 [ %retval.1..i, %if.then5.i ], [ false, %if.end9.i938 ], [ %retval.1.13.i, %if.end13.i ]
   %940 = load i32, ptr %all_points.i, align 8
   %tobool.not.i.i.i.i941 = icmp eq i32 %940, 0
   br i1 %tobool.not.i.i.i.i941, label %_ZN22contour_point_vector_tD2Ev.exit.i, label %if.then.i.i.i.i942
@@ -9768,19 +9772,19 @@ _ZN22contour_point_vector_tD2Ev.exit.i:           ; preds = %if.then.i.i.i.i942,
   ]
 
 for.inc.i943:                                     ; preds = %_ZN22contour_point_vector_tD2Ev.exit.i, %_ZN22contour_point_vector_tD2Ev.exit.i
-  %incdec.ptr.i944 = getelementptr inbounds i8, ptr %__begin1.018.i, i64 8
+  %incdec.ptr.i944 = getelementptr inbounds i8, ptr %__begin1.019.i, i64 8
   %cmp.not.i945 = icmp eq ptr %incdec.ptr.i944, %add.ptr.i.i932
   br i1 %cmp.not.i945, label %cleanup18.i, label %for.body.i936
 
 cleanup18.i:                                      ; preds = %for.inc.i943, %_ZN22contour_point_vector_tD2Ev.exit.i, %if.end.i927
-  %cmp.not.lcssa.i = phi i1 [ true, %if.end.i927 ], [ false, %_ZN22contour_point_vector_tD2Ev.exit.i ], [ true, %for.inc.i943 ]
+  %retval.3.i = phi i1 [ true, %if.end.i927 ], [ %retval.2.i, %_ZN22contour_point_vector_tD2Ev.exit.i ], [ true, %for.inc.i943 ]
   %glyf_table.i.i = getelementptr inbounds i8, ptr %glyf.i, i64 40
   %942 = load ptr, ptr %glyf_table.i.i, align 8
   call void @hb_blob_destroy(ptr noundef %942) #18
   br label %_ZL35_get_instance_glyphs_contour_pointsP16hb_subset_plan_t.exit
 
 _ZL35_get_instance_glyphs_contour_pointsP16hb_subset_plan_t.exit: ; preds = %_ZL38_update_instance_metrics_map_from_cff2P16hb_subset_plan_t.exit, %lor.lhs.false.i924, %cleanup18.i
-  %retval.0.i946 = phi i1 [ %cmp.not.lcssa.i, %cleanup18.i ], [ true, %lor.lhs.false.i924 ], [ true, %_ZL38_update_instance_metrics_map_from_cff2P16hb_subset_plan_t.exit ]
+  %retval.0.i946 = phi i1 [ %retval.3.i, %cleanup18.i ], [ true, %lor.lhs.false.i924 ], [ true, %_ZL38_update_instance_metrics_map_from_cff2P16hb_subset_plan_t.exit ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %glyf.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %new_gid.i920)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %all_points.i)

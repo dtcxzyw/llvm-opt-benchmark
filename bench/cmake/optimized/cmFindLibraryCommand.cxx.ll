@@ -1932,18 +1932,18 @@ define dso_local noundef zeroext i1 @_ZN19cmFindLibraryHelper14HasValidSuffixERK
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %.not29 = icmp eq ptr %6, %8
-  br i1 %.not29, label %.loopexit, label %.lr.ph
+  %.not2627 = icmp eq ptr %6, %8
+  br i1 %.not2627, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %31
-  %.sroa.012.026 = phi ptr [ %32, %31 ], [ %6, %2 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.026)
+  %.sroa.012.028 = phi ptr [ %32, %31 ], [ %6, %2 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.028)
   %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   %10 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %.not = icmp ugt i64 %9, %10
-  br i1 %.not, label %11, label %.thread19
+  br i1 %.not, label %11, label %.thread20
 
-.thread19:                                        ; preds = %.lr.ph
+.thread20:                                        ; preds = %.lr.ph
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   br label %31
 
@@ -1997,18 +1997,18 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 29:                                               ; preds = %27
   %30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0) #18
-  %.not11.not.not = icmp eq i64 %30, -1
+  %.not11.not = icmp eq i64 %30, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
-  br i1 %.not11.not.not, label %31, label %.loopexit
+  br i1 %.not11.not, label %31, label %.loopexit
 
-31:                                               ; preds = %.thread19, %29
-  %32 = getelementptr inbounds i8, ptr %.sroa.012.026, i64 32
-  %.not30 = icmp eq ptr %32, %8
-  br i1 %.not30, label %.loopexit, label %.lr.ph
+31:                                               ; preds = %.thread20, %29
+  %32 = getelementptr inbounds i8, ptr %.sroa.012.028, i64 32
+  %.not26 = icmp eq ptr %32, %8
+  br i1 %.not26, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %29, %31, %2, %.thread
-  %33 = phi i1 [ true, %.thread ], [ false, %2 ], [ true, %29 ], [ false, %31 ]
-  ret i1 %33
+  %.2 = phi i1 [ true, %.thread ], [ false, %2 ], [ true, %29 ], [ false, %31 ]
+  ret i1 %.2
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0

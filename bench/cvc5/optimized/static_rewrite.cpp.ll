@@ -200,7 +200,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6passes13StaticRewrite13applyInternalEPNS1_17AssertionPipelineE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %assertions) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes13StaticRewrite13applyInternalEPNS1_17AssertionPipelineE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %assertions) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %assertion = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %trn = alloca %"class.cvc5::internal::TrustNode", align 8
@@ -232,6 +232,7 @@ for.cond:                                         ; preds = %_ZN4cvc58internal12
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %retval.041 = phi i32 [ undef, %for.body.lr.ph ], [ %retval.1, %for.cond ]
   %i.040 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %2 = load ptr, ptr %d_nodes.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %2, i64 %i.040
@@ -362,6 +363,7 @@ if.end15:                                         ; preds = %_ZN4cvc58internal9T
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4cvc58internal9TrustNodeD2Ev.exit, %if.end15
+  %retval.1 = phi i32 [ %retval.041, %if.end15 ], [ 0, %_ZN4cvc58internal9TrustNodeD2Ev.exit ]
   %switch = phi i1 [ true, %if.end15 ], [ false, %_ZN4cvc58internal9TrustNodeD2Ev.exit ]
   %17 = load ptr, ptr %d_proven3.i, align 8
   %bf.load.i.i.i20 = load i64, ptr %17, align 8
@@ -429,7 +431,7 @@ ehcleanup17:                                      ; preds = %ehcleanup, %lpad3
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %for.cond, %entry
-  %retval.2 = phi i32 [ 1, %entry ], [ 1, %for.cond ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %retval.2 = phi i32 [ 1, %entry ], [ 1, %for.cond ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   ret i32 %retval.2
 }
 

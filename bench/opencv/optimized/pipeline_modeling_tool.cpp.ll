@@ -31266,8 +31266,8 @@ define internal fastcc noundef zeroext i1 @_ZL5visitSt10shared_ptrI4NodeERSt6vec
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
-  %.not58 = icmp eq ptr %15, %17
-  br i1 %.not58, label %._crit_edge, label %.lr.ph
+  %.not4854 = icmp eq ptr %15, %17
+  br i1 %.not4854, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %18 = getelementptr inbounds i8, ptr %4, i64 8
@@ -31275,14 +31275,15 @@ define internal fastcc noundef zeroext i1 @_ZL5visitSt10shared_ptrI4NodeERSt6vec
   br label %22
 
 20:                                               ; preds = %_ZNSt8weak_ptrI4NodeED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %.sroa.045.057, i64 16
-  %.not59 = icmp eq ptr %21, %17
-  br i1 %.not59, label %._crit_edge, label %22
+  %21 = getelementptr inbounds i8, ptr %.sroa.045.055, i64 16
+  %.not48 = icmp eq ptr %21, %17
+  br i1 %.not48, label %._crit_edge, label %22
 
 22:                                               ; preds = %.lr.ph, %20
-  %.sroa.045.057 = phi ptr [ %15, %.lr.ph ], [ %21, %20 ]
-  %23 = load ptr, ptr %.sroa.045.057, align 8
-  %24 = getelementptr inbounds i8, ptr %.sroa.045.057, i64 8
+  %.01356 = phi i1 [ undef, %.lr.ph ], [ %.1, %20 ]
+  %.sroa.045.055 = phi ptr [ %15, %.lr.ph ], [ %21, %20 ]
+  %23 = load ptr, ptr %.sroa.045.055, align 8
+  %24 = getelementptr inbounds i8, ptr %.sroa.045.055, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i, label %_ZNSt8weak_ptrI4NodeEC2ERKS1_.exit, label %26
@@ -31482,6 +31483,7 @@ _ZNSt13unordered_mapISt10shared_ptrI4NodeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pai
   br label %106
 
 106:                                              ; preds = %_ZNSt13unordered_mapISt10shared_ptrI4NodeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEEixERS8_.exit26, %_ZNSt10shared_ptrI4NodeED2Ev.exit, %105
+  %.1 = phi i1 [ %.01356, %105 ], [ true, %_ZNSt10shared_ptrI4NodeED2Ev.exit ], [ true, %_ZNSt13unordered_mapISt10shared_ptrI4NodeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEEixERS8_.exit26 ]
   %switch = phi i1 [ true, %105 ], [ false, %_ZNSt10shared_ptrI4NodeED2Ev.exit ], [ false, %_ZNSt13unordered_mapISt10shared_ptrI4NodeEiSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_iEEEixERS8_.exit26 ]
   %107 = load ptr, ptr %18, align 8
   %.not.i.i.i27 = icmp eq ptr %107, null
@@ -31669,8 +31671,8 @@ _ZNSt16allocator_traitsISaISt10shared_ptrI4NodeEEE9constructIS2_JRKS2_EEEvRS3_PT
   br label %_ZNSt6vectorISt10shared_ptrI4NodeESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorISt10shared_ptrI4NodeESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt8weak_ptrI4NodeED2Ev.exit, %191, %_ZNSt16allocator_traitsISaISt10shared_ptrI4NodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
-  %192 = phi i1 [ false, %191 ], [ false, %_ZNSt16allocator_traitsISaISt10shared_ptrI4NodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i ], [ true, %_ZNSt8weak_ptrI4NodeED2Ev.exit ]
-  ret i1 %192
+  %.2 = phi i1 [ false, %_ZNSt16allocator_traitsISaISt10shared_ptrI4NodeEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i ], [ false, %191 ], [ %.1, %_ZNSt8weak_ptrI4NodeED2Ev.exit ]
+  ret i1 %.2
 
 _ZNSt8weak_ptrI4NodeED2Ev.exit40:                 ; preds = %167, %165, %156, %10
   %.pn.pn = phi { ptr, i32 } [ %11, %10 ], [ %.pn, %156 ], [ %.pn, %165 ], [ %.pn, %167 ]

@@ -5796,10 +5796,10 @@ entry:
   %0 = load ptr, ptr %parser_, align 8
   %vec = getelementptr inbounds i8, ptr %0, i64 288
   %1 = load ptr, ptr %vec, align 8
-  %_M_finish.i14 = getelementptr inbounds i8, ptr %0, i64 296
-  %2 = load ptr, ptr %_M_finish.i14, align 8
-  %cmp.i.not15 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not15, label %return, label %for.body.lr.ph
+  %_M_finish.i16 = getelementptr inbounds i8, ptr %0, i64 296
+  %2 = load ptr, ptr %_M_finish.i16, align 8
+  %cmp.i.not17 = icmp eq ptr %1, %2
+  br i1 %cmp.i.not17, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %tracked_imported_namespaces_.i = getelementptr inbounds i8, ptr %this, i64 560
@@ -5814,8 +5814,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %3 = phi ptr [ %0, %for.body.lr.ph ], [ %15, %for.inc ]
-  %needs_imports.017 = phi i1 [ false, %for.body.lr.ph ], [ %needs_imports.2, %for.inc ]
-  %it.sroa.0.016 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %needs_imports.019 = phi i1 [ false, %for.body.lr.ph ], [ %needs_imports.2, %for.inc ]
+  %it.sroa.0.018 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %one_file = getelementptr inbounds i8, ptr %3, i64 1016
   %4 = load i8, ptr %one_file, align 8
   %tobool = trunc i8 %4 to i1
@@ -5843,8 +5843,8 @@ _ZN11flatbuffers2go11GoGenerator12ResetImportsEv.exit: ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %_ZN11flatbuffers2go11GoGenerator12ResetImportsEv.exit, %for.body
-  %needs_imports.1 = phi i1 [ %needs_imports.017, %for.body ], [ false, %_ZN11flatbuffers2go11GoGenerator12ResetImportsEv.exit ]
-  %8 = load ptr, ptr %it.sroa.0.016, align 8
+  %needs_imports.1 = phi i1 [ %needs_imports.019, %for.body ], [ false, %_ZN11flatbuffers2go11GoGenerator12ResetImportsEv.exit ]
+  %8 = load ptr, ptr %it.sroa.0.018, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %enumcode) #20
   invoke void @_ZN11flatbuffers2go11GoGenerator7GenEnumERKNS_7EnumDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(610) %this, ptr noundef nonnull align 8 dereferenceable(312) %8, ptr noundef nonnull %enumcode)
           to label %invoke.cont unwind label %lpad
@@ -5853,11 +5853,11 @@ invoke.cont:                                      ; preds = %if.end
   %is_union = getelementptr inbounds i8, ptr %8, i64 200
   %9 = load i8, ptr %is_union, align 8
   %tobool10 = trunc i8 %9 to i1
-  %.pre19 = load ptr, ptr %parser_, align 8
+  %.pre21 = load ptr, ptr %parser_, align 8
   br i1 %tobool10, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %generate_object_based_api = getelementptr inbounds i8, ptr %.pre19, i64 1022
+  %generate_object_based_api = getelementptr inbounds i8, ptr %.pre21, i64 1022
   %10 = load i8, ptr %generate_object_based_api, align 2
   %tobool13 = trunc i8 %10 to i1
   br i1 %tobool13, label %if.then14, label %if.end16
@@ -5891,7 +5891,7 @@ lpad:                                             ; preds = %.noexc4, %.noexc, %
   resume { ptr, i32 } %12
 
 if.end16:                                         ; preds = %.noexc4.if.end16_crit_edge, %if.then14, %land.lhs.true, %invoke.cont
-  %13 = phi ptr [ %.pre19, %land.lhs.true ], [ %.pre19, %invoke.cont ], [ %.pre, %.noexc4.if.end16_crit_edge ], [ %.pre19, %if.then14 ]
+  %13 = phi ptr [ %.pre21, %land.lhs.true ], [ %.pre21, %invoke.cont ], [ %.pre, %.noexc4.if.end16_crit_edge ], [ %.pre21, %if.then14 ]
   %needs_imports.2 = phi i1 [ %needs_imports.1, %land.lhs.true ], [ %needs_imports.1, %invoke.cont ], [ true, %.noexc4.if.end16_crit_edge ], [ true, %if.then14 ]
   %one_file19 = getelementptr inbounds i8, ptr %13, i64 1016
   %14 = load i8, ptr %one_file19, align 8
@@ -5915,7 +5915,7 @@ cleanup:                                          ; preds = %invoke.cont25
 
 for.inc:                                          ; preds = %if.then21, %invoke.cont25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %enumcode) #20
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.016, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.018, i64 8
   %15 = load ptr, ptr %parser_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %15, i64 296
   %16 = load ptr, ptr %_M_finish.i, align 8
@@ -5923,8 +5923,8 @@ for.inc:                                          ; preds = %if.then21, %invoke.
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !24
 
 return:                                           ; preds = %for.inc, %entry, %cleanup
-  %cmp.i.not13 = phi i1 [ false, %cleanup ], [ true, %entry ], [ true, %for.inc ]
-  ret i1 %cmp.i.not13
+  %cmp.i.not15 = phi i1 [ false, %cleanup ], [ true, %entry ], [ true, %for.inc ]
+  ret i1 %cmp.i.not15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5935,10 +5935,10 @@ entry:
   %0 = load ptr, ptr %parser_, align 8
   %vec = getelementptr inbounds i8, ptr %0, i64 216
   %1 = load ptr, ptr %vec, align 8
-  %_M_finish.i10 = getelementptr inbounds i8, ptr %0, i64 224
-  %2 = load ptr, ptr %_M_finish.i10, align 8
-  %cmp.i.not11 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not11, label %return, label %for.body.lr.ph
+  %_M_finish.i12 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = load ptr, ptr %_M_finish.i12, align 8
+  %cmp.i.not13 = icmp eq ptr %1, %2
+  br i1 %cmp.i.not13, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %tracked_imported_namespaces_.i = getelementptr inbounds i8, ptr %this, i64 560
@@ -5953,7 +5953,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %3 = phi ptr [ %0, %for.body.lr.ph ], [ %12, %for.inc ]
-  %it.sroa.0.012 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %it.sroa.0.014 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %one_file = getelementptr inbounds i8, ptr %3, i64 1016
   %4 = load i8, ptr %one_file, align 8
   %tobool = trunc i8 %4 to i1
@@ -5982,7 +5982,7 @@ _ZN11flatbuffers2go11GoGenerator12ResetImportsEv.exit: ; preds = %if.then
 
 if.end:                                           ; preds = %_ZN11flatbuffers2go11GoGenerator12ResetImportsEv.exit, %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %declcode) #20
-  %8 = load ptr, ptr %it.sroa.0.012, align 8
+  %8 = load ptr, ptr %it.sroa.0.014, align 8
   invoke void @_ZN11flatbuffers2go11GoGenerator9GenStructERKNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(610) %this, ptr noundef nonnull align 8 dereferenceable(328) %8, ptr noundef nonnull %declcode)
           to label %invoke.cont unwind label %lpad
 
@@ -6016,7 +6016,7 @@ cleanup:                                          ; preds = %invoke.cont17
 
 for.inc:                                          ; preds = %if.then14, %invoke.cont17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %declcode) #20
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.012, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.014, i64 8
   %12 = load ptr, ptr %parser_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %12, i64 224
   %13 = load ptr, ptr %_M_finish.i, align 8
@@ -6024,8 +6024,8 @@ for.inc:                                          ; preds = %if.then14, %invoke.
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !25
 
 return:                                           ; preds = %for.inc, %entry, %cleanup
-  %cmp.i.not9 = phi i1 [ false, %cleanup ], [ true, %entry ], [ true, %for.inc ]
-  ret i1 %cmp.i.not9
+  %cmp.i.not11 = phi i1 [ false, %cleanup ], [ true, %entry ], [ true, %for.inc ]
+  ret i1 %cmp.i.not11
 }
 
 ; Function Attrs: mustprogress uwtable

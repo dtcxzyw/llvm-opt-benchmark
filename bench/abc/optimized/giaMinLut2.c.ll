@@ -5722,11 +5722,6 @@ define i32 @Gia_ManBuildMuxes6_rec(ptr noundef %0, i64 noundef %1, i32 noundef %
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %.preheader._crit_edge
 
-.preheader._crit_edge:                            ; preds = %.preheader
-  %.pre = shl nuw nsw i32 1, %6
-  %.pre31 = zext nneg i32 %.pre to i64
-  br label %split
-
 10:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -5739,12 +5734,12 @@ define i32 @Gia_ManBuildMuxes6_rec(ptr noundef %0, i64 noundef %1, i32 noundef %
   %17 = xor i64 %13, %1
   %18 = and i64 %16, %17
   %.not29 = icmp eq i64 %18, 0
-  br i1 %.not29, label %.preheader, label %split, !llvm.loop !70
+  br i1 %.not29, label %.preheader, label %.preheader._crit_edge, !llvm.loop !70
 
-split:                                            ; preds = %10, %.preheader._crit_edge
-  %.pre-phi32 = phi i64 [ %.pre31, %.preheader._crit_edge ], [ %12, %10 ]
-  %.0.in.lcssa = phi i32 [ %smin, %.preheader._crit_edge ], [ %8, %10 ]
-  %.0.lcssa = phi i32 [ %6, %.preheader._crit_edge ], [ %indvars, %10 ]
+.preheader._crit_edge:                            ; preds = %10, %.preheader
+  %.pre-phi32 = phi i64 [ poison, %.preheader ], [ %12, %10 ]
+  %.0.in.lcssa = phi i32 [ %smin, %.preheader ], [ %8, %10 ]
+  %.0.lcssa = phi i32 [ %6, %.preheader ], [ %indvars, %10 ]
   %19 = sext i32 %.0.lcssa to i64
   %20 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
@@ -5761,14 +5756,14 @@ split:                                            ; preds = %10, %.preheader._cr
   %.not28 = icmp eq ptr %3, null
   br i1 %.not28, label %36, label %32
 
-32:                                               ; preds = %split
+32:                                               ; preds = %.preheader._crit_edge
   %33 = getelementptr inbounds i32, ptr %3, i64 %19
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 1
   br label %36
 
-36:                                               ; preds = %split, %32
-  %37 = phi i32 [ %35, %32 ], [ %.0.in.lcssa, %split ]
+36:                                               ; preds = %.preheader._crit_edge, %32
+  %37 = phi i32 [ %35, %32 ], [ %.0.in.lcssa, %.preheader._crit_edge ]
   %38 = shl nsw i32 %37, 1
   %39 = or disjoint i32 %38, 1
   %40 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %39, i32 noundef %25)

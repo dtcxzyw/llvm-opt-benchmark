@@ -3746,6 +3746,7 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN6Assimp3PLY7ElementD2Ev.exit, %entry
+  %retval.0 = phi i1 [ undef, %entry ], [ %retval.1, %_ZN6Assimp3PLY7ElementD2Ev.exit ]
   %0 = load ptr, ptr %buffer, align 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
@@ -3897,6 +3898,7 @@ if.end16:                                         ; preds = %_ZNSt16allocator_tr
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i.i.i, %invoke.cont.i.i.i.i, %invoke.cont12, %if.end16
+  %retval.1 = phi i1 [ %retval.0, %if.end16 ], [ false, %invoke.cont12 ], [ %retval.0, %invoke.cont.i.i.i.i ], [ %retval.0, %if.end.i.i.i ]
   %cleanup.dest.slot.0 = phi i32 [ 0, %if.end16 ], [ 1, %invoke.cont12 ], [ 3, %invoke.cont.i.i.i.i ], [ 3, %if.end.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %szName.i) #23
   %17 = load ptr, ptr %out, align 8
@@ -3995,7 +3997,7 @@ if.end19:                                         ; preds = %invoke.cont.i.i.i.i
   br label %return
 
 return:                                           ; preds = %_ZN6Assimp3PLY7ElementD2Ev.exit, %if.end19
-  %retval.2 = phi i1 [ true, %if.end19 ], [ false, %_ZN6Assimp3PLY7ElementD2Ev.exit ]
+  %retval.2 = phi i1 [ true, %if.end19 ], [ %retval.1, %_ZN6Assimp3PLY7ElementD2Ev.exit ]
   ret i1 %retval.2
 
 eh.resume:                                        ; preds = %lpad4.body, %lpad

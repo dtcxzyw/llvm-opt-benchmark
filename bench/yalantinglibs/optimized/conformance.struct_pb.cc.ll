@@ -196,9 +196,10 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry
-  %pos.promoted = phi i64 [ %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %entry ]
-  %cmp.not.not = icmp uge i64 %pos.promoted, %size
-  br i1 %cmp.not.not, label %return, label %land.lhs.true.i159
+  %pos.promoted = phi i64 [ 0, %entry ], [ %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %retval.0 = phi i1 [ undef, %entry ], [ %retval.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %cmp = icmp ult i64 %pos.promoted, %size
+  br i1 %cmp, label %land.lhs.true.i159, label %return
 
 land.lhs.true.i159:                               ; preds = %while.cond
   %arrayidx.i160 = getelementptr inbounds i8, ptr %data, i64 %pos.promoted
@@ -689,6 +690,7 @@ cleanup.loopexit:                                 ; preds = %while.body.i, %whil
 
 cleanup:                                          ; preds = %cleanup.loopexit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i, %if.else.i.i166, %invoke.cont6, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit
   %44 = phi i64 [ %inc83.i, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ %29, %invoke.cont6 ], [ %add, %if.else.i.i166 ], [ %add, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ %size, %cleanup.loopexit ]
+  %retval.2 = phi i1 [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ false, %invoke.cont6 ], [ %retval.0, %if.else.i.i166 ], [ %retval.0, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ false, %cleanup.loopexit ]
   %switch = phi i1 [ true, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit ], [ true, %invoke.cont6 ], [ false, %if.else.i.i166 ], [ false, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i ], [ true, %cleanup.loopexit ]
   %45 = load ptr, ptr %tmp_str, align 8
   %cmp.i.i.i = icmp eq ptr %45, %0
@@ -714,7 +716,7 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %while.cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit168, %while.body.i56, %sw.default
-  %retval.1 = phi i1 [ %call13, %sw.default ], [ false, %while.body.i56 ], [ %cmp.not.not, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit168 ], [ %cmp.not.not, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %cmp.not.not, %while.cond ]
+  %retval.1 = phi i1 [ %call13, %sw.default ], [ false, %while.body.i56 ], [ true, %while.cond ], [ false, %_ZN9struct_pb8internal13decode_varintEPKcRmmS3_.exit168 ], [ %retval.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret i1 %retval.1
 }
 

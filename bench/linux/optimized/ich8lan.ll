@@ -6740,13 +6740,13 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
   store i16 0, ptr %3, align 2
   %5 = tail call i32 @e1000e_update_nvm_checksum_generic(ptr noundef %0) #9
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %109
+  br i1 %6, label %7, label %110
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 1120
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 4
-  br i1 %10, label %11, label %109
+  br i1 %10, label %11, label %110
 
 11:                                               ; preds = %7
   store i32 0, ptr %2, align 4, !annotation !5
@@ -6772,12 +6772,12 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
   %23 = phi i32 [ %17, %.thread ], [ %21, %18 ]
   %24 = tail call fastcc i32 @e1000_erase_flash_bank_ich8lan(ptr noundef %0, i32 noundef 1)
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %29, label %.critedge13
+  br i1 %25, label %29, label %.critedge12.thread
 
 26:                                               ; preds = %18
   %27 = tail call fastcc i32 @e1000_erase_flash_bank_ich8lan(ptr noundef %0, i32 noundef 0)
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %.critedge13
+  br i1 %28, label %29, label %.critedge12.thread
 
 29:                                               ; preds = %26, %22
   %30 = phi i32 [ %23, %22 ], [ 0, %26 ]
@@ -6809,7 +6809,7 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
   %46 = shl i32 %45, 1
   %47 = call fastcc noundef i32 @e1000_read_flash_data_ich8lan(ptr noundef %0, i32 noundef %46, i8 noundef zeroext 2, ptr noundef nonnull %3), !range !36
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %._crit_edge, label %.critedge13
+  br i1 %48, label %._crit_edge, label %.critedge12.thread
 
 ._crit_edge:                                      ; preds = %43
   %.pre.pre = load i16, ptr %3, align 2
@@ -6834,23 +6834,23 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
   %58 = trunc i16 %54 to i8
   %59 = tail call fastcc i32 @e1000_write_flash_byte_ich8lan(ptr noundef %0, i32 noundef %57, i8 noundef zeroext %58), !range !36
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.critedge, label %.preheader18
+  br i1 %60, label %.critedge, label %.preheader17
 
-.preheader18:                                     ; preds = %53, %64
+.preheader17:                                     ; preds = %53, %64
   %61 = phi i16 [ %65, %64 ], [ 0, %53 ]
   tail call void @usleep_range_state(i64 noundef 100, i64 noundef 200, i32 noundef 2) #9
   %62 = tail call fastcc i32 @e1000_write_flash_byte_ich8lan(ptr noundef %0, i32 noundef %57, i8 noundef zeroext %58), !range !36
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %67, label %64
 
-64:                                               ; preds = %.preheader18
+64:                                               ; preds = %.preheader17
   %65 = add nuw nsw i16 %61, 1
   %66 = icmp eq i16 %65, 100
-  br i1 %66, label %.critedge13, label %.preheader18, !llvm.loop !44
+  br i1 %66, label %.critedge12.thread, label %.preheader17, !llvm.loop !44
 
-67:                                               ; preds = %.preheader18
+67:                                               ; preds = %.preheader17
   %.not = icmp eq i16 %61, 100
-  br i1 %.not, label %.critedge13, label %.critedge
+  br i1 %.not, label %.critedge12.thread, label %.critedge
 
 .critedge:                                        ; preds = %53, %67
   tail call void @usleep_range_state(i64 noundef 100, i64 noundef 200, i32 noundef 2) #9
@@ -6859,30 +6859,30 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
   %70 = trunc nuw i16 %69 to i8
   %71 = tail call fastcc i32 @e1000_write_flash_byte_ich8lan(ptr noundef %0, i32 noundef %68, i8 noundef zeroext %70), !range !36
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %.critedge10, label %.preheader17
+  br i1 %72, label %.critedge10, label %.preheader16
 
-.preheader17:                                     ; preds = %.critedge, %76
+.preheader16:                                     ; preds = %.critedge, %76
   %73 = phi i16 [ %77, %76 ], [ 0, %.critedge ]
   tail call void @usleep_range_state(i64 noundef 100, i64 noundef 200, i32 noundef 2) #9
   %74 = tail call fastcc i32 @e1000_write_flash_byte_ich8lan(ptr noundef %0, i32 noundef %68, i8 noundef zeroext %70), !range !36
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %79, label %76
 
-76:                                               ; preds = %.preheader17
+76:                                               ; preds = %.preheader16
   %77 = add nuw nsw i16 %73, 1
   %78 = icmp eq i16 %77, 100
-  br i1 %78, label %.critedge13, label %.preheader17, !llvm.loop !44
+  br i1 %78, label %.critedge12.thread, label %.preheader16, !llvm.loop !44
 
-79:                                               ; preds = %.preheader17
-  %.not16 = icmp eq i16 %73, 100
-  br i1 %.not16, label %.critedge13, label %.critedge10
+79:                                               ; preds = %.preheader16
+  %.not15 = icmp eq i16 %73, 100
+  br i1 %.not15, label %.critedge12.thread, label %.critedge10
 
 80:                                               ; preds = %.critedge10
   %81 = shl i32 %30, 1
   %82 = add i32 %81, 38
   %83 = call fastcc noundef i32 @e1000_read_flash_data_ich8lan(ptr noundef %0, i32 noundef %82, i8 noundef zeroext 2, ptr noundef nonnull %3), !range !36
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %.critedge13
+  br i1 %84, label %85, label %.critedge12.thread
 
 85:                                               ; preds = %80
   %86 = load i16, ptr %3, align 2
@@ -6892,14 +6892,14 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
   %90 = and i8 %89, -65
   %91 = tail call fastcc i32 @e1000_retry_write_flash_byte_ich8lan(ptr noundef %0, i32 noundef %87, i8 noundef zeroext %90), !range !36
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %.critedge13
+  br i1 %92, label %93, label %.critedge12.thread
 
 93:                                               ; preds = %85
   %94 = shl i32 %31, 1
   %95 = add i32 %94, 39
   %96 = tail call fastcc i32 @e1000_retry_write_flash_byte_ich8lan(ptr noundef %0, i32 noundef %95, i8 noundef zeroext 0), !range !36
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %.preheader, label %.critedge13
+  br i1 %97, label %.preheader, label %.critedge12.thread
 
 .preheader:                                       ; preds = %93, %.preheader
   %98 = phi i64 [ %101, %.preheader ], [ 0, %93 ]
@@ -6909,29 +6909,30 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
   store i16 -1, ptr %99, align 2
   %101 = add nuw nsw i64 %98, 1
   %102 = icmp eq i64 %101, 2048
-  br i1 %102, label %.critedge12, label %.preheader, !llvm.loop !45
+  br i1 %102, label %105, label %.preheader, !llvm.loop !45
 
-.critedge12:                                      ; preds = %.preheader
+.critedge12.thread:                               ; preds = %43, %79, %67, %64, %76, %22, %80, %85, %93, %26
+  %.ph = phi i32 [ %27, %26 ], [ -1, %93 ], [ -1, %85 ], [ -1, %80 ], [ %24, %22 ], [ -1, %76 ], [ -1, %64 ], [ -1, %67 ], [ -1, %79 ], [ -1, %43 ]
   %103 = getelementptr inbounds i8, ptr %0, i64 1072
   %104 = load ptr, ptr %103, align 8
   tail call void %104(ptr noundef %0) #9
-  %105 = getelementptr inbounds i8, ptr %0, i64 1080
-  %106 = load ptr, ptr %105, align 8
-  tail call void %106(ptr noundef %0) #9
+  br label %110
+
+105:                                              ; preds = %.preheader
+  %106 = getelementptr inbounds i8, ptr %0, i64 1072
+  %107 = load ptr, ptr %106, align 8
+  tail call void %107(ptr noundef %0) #9
+  %108 = getelementptr inbounds i8, ptr %0, i64 1080
+  %109 = load ptr, ptr %108, align 8
+  tail call void %109(ptr noundef %0) #9
   tail call void @usleep_range_state(i64 noundef 10000, i64 noundef 11000, i32 noundef 2) #9
-  br label %109
+  br label %110
 
-.critedge13:                                      ; preds = %67, %79, %43, %64, %76, %26, %93, %85, %80, %22
-  %107 = getelementptr inbounds i8, ptr %0, i64 1072
-  %108 = load ptr, ptr %107, align 8
-  tail call void %108(ptr noundef %0) #9
-  br label %109
-
-109:                                              ; preds = %.critedge13, %.critedge12, %7, %1
-  %110 = phi i32 [ %5, %1 ], [ 0, %7 ], [ 0, %.critedge12 ], [ -1, %.critedge13 ]
+110:                                              ; preds = %.critedge12.thread, %105, %7, %1
+  %111 = phi i32 [ %5, %1 ], [ 0, %7 ], [ 0, %105 ], [ %.ph, %.critedge12.thread ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
-  ret i32 %110
+  ret i32 %111
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7784,7 +7785,7 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
   br i1 %104, label %107, label %.preheader, !llvm.loop !53
 
 .thread14:                                        ; preds = %63, %81, %78, %22, %82, %86, %91, %95, %26
-  %.ph13 = phi i32 [ %27, %26 ], [ -1, %95 ], [ -1, %91 ], [ -1, %86 ], [ -1, %82 ], [ -1, %22 ], [ -1, %78 ], [ -1, %81 ], [ -1, %63 ]
+  %.ph13 = phi i32 [ %27, %26 ], [ -1, %95 ], [ -1, %91 ], [ -1, %86 ], [ -1, %82 ], [ %24, %22 ], [ -1, %78 ], [ -1, %81 ], [ -1, %63 ]
   %105 = getelementptr inbounds i8, ptr %0, i64 1072
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef %0) #9

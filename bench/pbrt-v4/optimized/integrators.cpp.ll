@@ -6232,7 +6232,9 @@ if.then:                                          ; preds = %_ZN4pbrt15SampledSp
   br label %return
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330
-  %rng.sroa.0.0 = phi i64 [ %rng.sroa.0.1, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330 ], [ %add.i3.i.i, %while.body.preheader ]
+  %retval.sroa.5.1 = phi <2 x float> [ undef, %while.body.preheader ], [ %retval.sroa.5.2, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330 ]
+  %retval.sroa.0.1 = phi <2 x float> [ undef, %while.body.preheader ], [ %retval.sroa.0.2, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330 ]
+  %rng.sroa.0.0 = phi i64 [ %add.i3.i.i, %while.body.preheader ], [ %rng.sroa.0.1, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !147)
   %64 = load i64, ptr %26, align 8, !noalias !147
   %inc.i = add nsw i64 %64, 1
@@ -8767,6 +8769,8 @@ invoke.cont76:                                    ; preds = %invoke.cont73, %if.
 
 cleanup:                                          ; preds = %invoke.cont13, %invoke.cont76, %if.end67
   %327 = phi i8 [ %.pre645, %invoke.cont76 ], [ %319, %if.end67 ], [ %.pre, %invoke.cont13 ]
+  %retval.sroa.5.2 = phi <2 x float> [ %retval.sroa.5.1, %invoke.cont76 ], [ %retval.sroa.5.1, %if.end67 ], [ zeroinitializer, %invoke.cont13 ]
+  %retval.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.1, %invoke.cont76 ], [ %retval.sroa.0.1, %if.end67 ], [ zeroinitializer, %invoke.cont13 ]
   %rng.sroa.0.1 = phi i64 [ %rng.sroa.0.2, %invoke.cont76 ], [ %rng.sroa.0.2, %if.end67 ], [ %rng.sroa.0.0, %invoke.cont13 ]
   %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont76 ], [ 3, %if.end67 ], [ 1, %invoke.cont13 ]
   %tobool.i.i328 = trunc i8 %327 to i1
@@ -8821,8 +8825,8 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit349:           ; preds = %for.body.i.i338
   br label %return
 
 return:                                           ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330, %_ZNK4pbrt15SampledSpectrumdvEf.exit349, %if.then
-  %retval.sroa.5.0 = phi <2 x float> [ %retval.sroa.5.0.copyload, %if.then ], [ %retval.sroa.2.0.copyload.i346, %_ZNK4pbrt15SampledSpectrumdvEf.exit349 ], [ zeroinitializer, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330 ]
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.0.copyload.i344, %_ZNK4pbrt15SampledSpectrumdvEf.exit349 ], [ zeroinitializer, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330 ]
+  %retval.sroa.5.0 = phi <2 x float> [ %retval.sroa.5.0.copyload, %if.then ], [ %retval.sroa.2.0.copyload.i346, %_ZNK4pbrt15SampledSpectrumdvEf.exit349 ], [ %retval.sroa.5.2, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330 ]
+  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.copyload, %if.then ], [ %retval.sroa.0.0.copyload.i344, %_ZNK4pbrt15SampledSpectrumdvEf.exit349 ], [ %retval.sroa.0.2, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit330 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.5.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -24880,6 +24884,8 @@ invoke.cont126:                                   ; preds = %for.body.i.i258
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont126, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit516
+  %retval.sroa.13.2 = phi <2 x float> [ undef, %invoke.cont126 ], [ %retval.sroa.13.3, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit516 ]
+  %retval.sroa.0.2 = phi <2 x float> [ undef, %invoke.cont126 ], [ %retval.sroa.0.3, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit516 ]
   %110 = load float, ptr %d4.i.i.i, align 4
   %cmp.i277 = fcmp une float %110, 0.000000e+00
   %111 = load float, ptr %y.i278, align 8
@@ -27483,7 +27489,9 @@ invoke.cont208:                                   ; preds = %invoke.cont205, %if
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit397, %invoke.cont139, %invoke.cont208, %if.end196
-  %cleanup.dest.slot.0 = phi i32 [ 5, %if.end196 ], [ 0, %invoke.cont208 ], [ 1, %invoke.cont139 ], [ 1, %_ZNK4pbrt15SampledSpectrumcvbEv.exit397 ]
+  %retval.sroa.13.3 = phi <2 x float> [ %retval.sroa.13.2, %invoke.cont208 ], [ %retval.sroa.13.2, %if.end196 ], [ zeroinitializer, %invoke.cont139 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit397 ]
+  %retval.sroa.0.3 = phi <2 x float> [ %retval.sroa.0.2, %invoke.cont208 ], [ %retval.sroa.0.2, %if.end196 ], [ zeroinitializer, %invoke.cont139 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit397 ]
+  %cleanup.dest.slot.0 = phi i32 [ 0, %invoke.cont208 ], [ 5, %if.end196 ], [ 1, %invoke.cont139 ], [ 1, %_ZNK4pbrt15SampledSpectrumcvbEv.exit397 ]
   %391 = load i8, ptr %set.i283, align 8
   %tobool.i.i514 = trunc i8 %391 to i1
   br i1 %tobool.i.i514, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i515, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit516
@@ -27822,8 +27830,8 @@ invoke.cont280:                                   ; preds = %for.body.i.i693
   br label %cleanup285
 
 cleanup285:                                       ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit516, %invoke.cont250, %invoke.cont280, %invoke.cont53, %_ZNK4pbrt15SampledSpectrumcvbEv.exit, %invoke.cont36, %_ZNK4pbrt15SampledSpectrumcvbEv.exit223, %if.end27
-  %retval.sroa.13.0 = phi <2 x float> [ zeroinitializer, %if.end27 ], [ %retval.sroa.2.0.copyload.i619, %invoke.cont250 ], [ %retval.sroa.2.0.copyload.i701, %invoke.cont280 ], [ zeroinitializer, %invoke.cont53 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ zeroinitializer, %invoke.cont36 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit223 ], [ zeroinitializer, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit516 ]
-  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %if.end27 ], [ %retval.sroa.0.0.copyload.i617, %invoke.cont250 ], [ %retval.sroa.0.0.copyload.i699, %invoke.cont280 ], [ zeroinitializer, %invoke.cont53 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ zeroinitializer, %invoke.cont36 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit223 ], [ zeroinitializer, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit516 ]
+  %retval.sroa.13.0 = phi <2 x float> [ zeroinitializer, %if.end27 ], [ %retval.sroa.2.0.copyload.i619, %invoke.cont250 ], [ %retval.sroa.2.0.copyload.i701, %invoke.cont280 ], [ zeroinitializer, %invoke.cont53 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ zeroinitializer, %invoke.cont36 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit223 ], [ %retval.sroa.13.3, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit516 ]
+  %retval.sroa.0.0 = phi <2 x float> [ zeroinitializer, %if.end27 ], [ %retval.sroa.0.0.copyload.i617, %invoke.cont250 ], [ %retval.sroa.0.0.copyload.i699, %invoke.cont280 ], [ zeroinitializer, %invoke.cont53 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ zeroinitializer, %invoke.cont36 ], [ zeroinitializer, %_ZNK4pbrt15SampledSpectrumcvbEv.exit223 ], [ %retval.sroa.0.3, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit516 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.13.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

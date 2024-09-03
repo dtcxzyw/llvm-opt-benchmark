@@ -754,6 +754,15 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   %call2.i25 = invoke noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noundef %call32, ptr noundef %call.i, i64 noundef %call1.i, i1 noundef zeroext false)
           to label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit unwind label %lpad33
 
+_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #15
+  %vtable.i.i = load ptr, ptr %call.i18, align 8
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %17 = load ptr, ptr %vfn.i.i, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %call.i18) #15
+  br i1 %call2.i25, label %for.cond, label %cleanup41
+
 lpad.loopexit:                                    ; preds = %for.body
   %lpad.loopexit35 = landingpad { ptr, i32 }
           cleanup
@@ -765,69 +774,60 @@ lpad.loopexit.split-lp:                           ; preds = %entry
   br label %ehcleanup42
 
 lpad7:                                            ; preds = %invoke.cont17, %invoke.cont4
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit30
 
 lpad14:                                           ; preds = %call.i.noexc, %invoke.cont8
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad16:                                           ; preds = %invoke.cont15
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad14, %lpad.i, %lpad16
-  %.pn = phi { ptr, i32 } [ %19, %lpad16 ], [ %18, %lpad14 ], [ %15, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %20, %lpad16 ], [ %19, %lpad14 ], [ %15, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #15
   br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit30
 
 lpad24:                                           ; preds = %invoke.cont20
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup38
 
 lpad26:                                           ; preds = %invoke.cont25
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup31
 
 lpad28:                                           ; preds = %invoke.cont27
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #15
   br label %ehcleanup31
 
 ehcleanup31:                                      ; preds = %lpad28, %lpad26
-  %.pn8 = phi { ptr, i32 } [ %22, %lpad28 ], [ %21, %lpad26 ]
+  %.pn8 = phi { ptr, i32 } [ %23, %lpad28 ], [ %22, %lpad26 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #15
   br label %ehcleanup38
 
 lpad33:                                           ; preds = %invoke.cont29
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #15
   br label %ehcleanup38
 
-_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #15
-  %vtable.i.i = load ptr, ptr %call.i18, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %24 = load ptr, ptr %vfn.i.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %call.i18) #15
-  br i1 %call2.i25, label %for.cond, label %cleanup41
-
 ehcleanup38:                                      ; preds = %lpad33, %ehcleanup31, %lpad24
-  %.pn10 = phi { ptr, i32 } [ %23, %lpad33 ], [ %.pn8, %ehcleanup31 ], [ %20, %lpad24 ]
+  %.pn10 = phi { ptr, i32 } [ %24, %lpad33 ], [ %.pn8, %ehcleanup31 ], [ %21, %lpad24 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #15
   br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit30
 
 _ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit30: ; preds = %ehcleanup38, %ehcleanup, %lpad7
-  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %ehcleanup38 ], [ %17, %lpad7 ], [ %.pn, %ehcleanup ]
+  %.pn10.pn = phi { ptr, i32 } [ %.pn10, %ehcleanup38 ], [ %18, %lpad7 ], [ %.pn, %ehcleanup ]
   %vtable.i.i28 = load ptr, ptr %call.i18, align 8
   %vfn.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i28, i64 8
   %25 = load ptr, ptr %vfn.i.i29, align 8
@@ -1936,75 +1936,75 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   %call2.i24 = invoke noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noundef %call25, ptr noundef %call.i, i64 noundef %call1.i, i1 noundef zeroext false)
           to label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit unwind label %lpad26
 
-lpad:                                             ; preds = %for.body
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup35
-
-lpad6:                                            ; preds = %call.i.noexc, %invoke.cont
-  %17 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad8:                                            ; preds = %invoke.cont7
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #15
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad6, %lpad.i, %lpad8
-  %.pn = phi { ptr, i32 } [ %18, %lpad8 ], [ %17, %lpad6 ], [ %14, %lpad.i ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #15
-  br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit29
-
-lpad12:                                           ; preds = %invoke.cont9
-  %19 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit29
-
-lpad17:                                           ; preds = %invoke.cont13
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup31
-
-lpad19:                                           ; preds = %invoke.cont18
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup24
-
-lpad21:                                           ; preds = %invoke.cont20
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #15
-  br label %ehcleanup24
-
-ehcleanup24:                                      ; preds = %lpad21, %lpad19
-  %.pn7 = phi { ptr, i32 } [ %22, %lpad21 ], [ %21, %lpad19 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #15
-  br label %ehcleanup31
-
-lpad26:                                           ; preds = %invoke.cont22
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #15
-  br label %ehcleanup31
-
 _ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #15
   %vtable.i.i = load ptr, ptr %call.i17, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %24 = load ptr, ptr %vfn.i.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %call.i17) #15
+  %16 = load ptr, ptr %vfn.i.i, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %call.i17) #15
   br i1 %call2.i24, label %for.cond, label %cleanup34
 
+lpad:                                             ; preds = %for.body
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup35
+
+lpad6:                                            ; preds = %call.i.noexc, %invoke.cont
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup
+
+lpad8:                                            ; preds = %invoke.cont7
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #15
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %lpad6, %lpad.i, %lpad8
+  %.pn = phi { ptr, i32 } [ %19, %lpad8 ], [ %18, %lpad6 ], [ %14, %lpad.i ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #15
+  br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit29
+
+lpad12:                                           ; preds = %invoke.cont9
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit29
+
+lpad17:                                           ; preds = %invoke.cont13
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup31
+
+lpad19:                                           ; preds = %invoke.cont18
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup24
+
+lpad21:                                           ; preds = %invoke.cont20
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #15
+  br label %ehcleanup24
+
+ehcleanup24:                                      ; preds = %lpad21, %lpad19
+  %.pn7 = phi { ptr, i32 } [ %23, %lpad21 ], [ %22, %lpad19 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #15
+  br label %ehcleanup31
+
+lpad26:                                           ; preds = %invoke.cont22
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #15
+  br label %ehcleanup31
+
 ehcleanup31:                                      ; preds = %lpad26, %ehcleanup24, %lpad17
-  %.pn9 = phi { ptr, i32 } [ %23, %lpad26 ], [ %.pn7, %ehcleanup24 ], [ %20, %lpad17 ]
+  %.pn9 = phi { ptr, i32 } [ %24, %lpad26 ], [ %.pn7, %ehcleanup24 ], [ %21, %lpad17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output) #15
   br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit29
 
 _ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit29: ; preds = %ehcleanup31, %lpad12, %ehcleanup
-  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %ehcleanup31 ], [ %19, %lpad12 ], [ %.pn, %ehcleanup ]
+  %.pn9.pn = phi { ptr, i32 } [ %.pn9, %ehcleanup31 ], [ %20, %lpad12 ], [ %.pn, %ehcleanup ]
   %vtable.i.i27 = load ptr, ptr %call.i17, align 8
   %vfn.i.i28 = getelementptr inbounds i8, ptr %vtable.i.i27, i64 8
   %25 = load ptr, ptr %vfn.i.i28, align 8
@@ -2017,7 +2017,7 @@ cleanup34:                                        ; preds = %_ZNSt10unique_ptrIK
   ret i1 %cmp.lcssa
 
 ehcleanup35:                                      ; preds = %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit29, %lpad
-  %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit29 ], [ %16, %lpad ]
+  %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit29 ], [ %17, %lpad ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %p) #15
   resume { ptr, i32 } %.pn9.pn.pn
 }
@@ -3425,17 +3425,17 @@ entry:
   store ptr %1, ptr %file_name_.i, align 8
   %language_.i = getelementptr inbounds i8, ptr %file, i64 24
   store i32 5, ptr %language_.i, align 8
-  %vec.i70 = getelementptr inbounds i8, ptr %0, i64 360
-  %_M_finish.i.i71 = getelementptr inbounds i8, ptr %0, i64 368
-  %2 = load ptr, ptr %_M_finish.i.i71, align 8
-  %3 = load ptr, ptr %vec.i70, align 8
-  %sub.ptr.lhs.cast.i.i72 = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i.i73 = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i.i74 = sub i64 %sub.ptr.lhs.cast.i.i72, %sub.ptr.rhs.cast.i.i73
-  %sub.ptr.div.i.i75 = lshr exact i64 %sub.ptr.sub.i.i74, 3
-  %conv.i76 = trunc i64 %sub.ptr.div.i.i75 to i32
-  %cmp77 = icmp slt i32 %conv.i76, 1
-  br i1 %cmp77, label %cleanup45, label %for.body.lr.ph
+  %vec.i50 = getelementptr inbounds i8, ptr %0, i64 360
+  %_M_finish.i.i51 = getelementptr inbounds i8, ptr %0, i64 368
+  %2 = load ptr, ptr %_M_finish.i.i51, align 8
+  %3 = load ptr, ptr %vec.i50, align 8
+  %sub.ptr.lhs.cast.i.i52 = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i.i53 = ptrtoint ptr %3 to i64
+  %sub.ptr.sub.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i52, %sub.ptr.rhs.cast.i.i53
+  %sub.ptr.div.i.i55 = lshr exact i64 %sub.ptr.sub.i.i54, 3
+  %conv.i56 = trunc i64 %sub.ptr.div.i.i55 to i32
+  %cmp57 = icmp sgt i32 %conv.i56, 0
+  br i1 %cmp57, label %for.body.lr.ph, label %cleanup45
 
 for.body.lr.ph:                                   ; preds = %entry
   %path_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3454,14 +3454,15 @@ for.cond:                                         ; preds = %_ZNSt10unique_ptrIK
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sext = shl i64 %sub.ptr.sub.i.i, 29
   %7 = ashr i64 %sext, 32
-  %cmp.not = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp.not, label %for.body, label %cleanup45, !llvm.loop !49
+  %cmp = icmp slt i64 %indvars.iv.next, %7
+  br i1 %cmp, label %for.body, label %cleanup45, !llvm.loop !49
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %vec.i79 = phi ptr [ %vec.i70, %for.body.lr.ph ], [ %vec.i, %for.cond ]
+  %vec.i60 = phi ptr [ %vec.i50, %for.body.lr.ph ], [ %vec.i, %for.cond ]
+  %retval.058 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.1, %for.cond ]
   %call.i11 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
-  %8 = load ptr, ptr %vec.i79, align 8, !noalias !50
+  %8 = load ptr, ptr %vec.i60, align 8, !noalias !50
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %9 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !50
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11flatbuffers14FlatBufServiceE, i64 16), ptr %call.i11, align 8, !noalias !50
@@ -3522,7 +3523,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
 
 invoke.cont16:                                    ; preds = %invoke.cont14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
-  br i1 %call2.i13, label %if.end, label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit36
+  br i1 %call2.i13, label %if.end, label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit
 
 lpad4:                                            ; preds = %invoke.cont8, %for.body
   %15 = landingpad { ptr, i32 }
@@ -3602,42 +3603,48 @@ invoke.cont34:                                    ; preds = %invoke.cont29
   %call.i23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #15
   %call1.i24 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #15
   %call2.i25 = invoke noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noundef %call30, ptr noundef %call.i23, i64 noundef %call1.i24, i1 noundef zeroext false)
-          to label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit unwind label %lpad35
+          to label %invoke.cont36 unwind label %lpad35
 
-_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont34
+invoke.cont36:                                    ; preds = %invoke.cont34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #15
+  %retval.0. = select i1 %call2.i25, i1 %retval.058, i1 false
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ts_interface_name) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ts_name) #15
-  %vtable.i.i = load ptr, ptr %call.i11, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
-  %24 = load ptr, ptr %vfn.i.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %call.i11) #15
-  br i1 %call2.i25, label %for.cond, label %cleanup45
+  br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit
 
 lpad25:                                           ; preds = %invoke.cont23
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp20) #15
   br label %ehcleanup42
 
 lpad33:                                           ; preds = %invoke.cont29
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad35:                                           ; preds = %invoke.cont34
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #15
   br label %ehcleanup
 
+_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont16, %invoke.cont36
+  %retval.1 = phi i1 [ %retval.0., %invoke.cont36 ], [ false, %invoke.cont16 ]
+  %cleanup.dest.slot.0 = phi i1 [ %call2.i25, %invoke.cont36 ], [ false, %invoke.cont16 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ts_name) #15
+  %vtable.i.i = load ptr, ptr %call.i11, align 8
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %27 = load ptr, ptr %vfn.i.i, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %call.i11) #15
+  br i1 %cleanup.dest.slot.0, label %for.cond, label %cleanup45
+
 ehcleanup:                                        ; preds = %lpad35, %lpad33
-  %.pn = phi { ptr, i32 } [ %27, %lpad35 ], [ %26, %lpad33 ]
+  %.pn = phi { ptr, i32 } [ %26, %lpad35 ], [ %25, %lpad33 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ts_interface_name) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %lpad13, %common.resume.i15, %ehcleanup, %lpad25, %lpad15
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %25, %lpad25 ], [ %18, %lpad15 ], [ %17, %lpad13 ], [ %common.resume.op.i16, %common.resume.i15 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %24, %lpad25 ], [ %18, %lpad15 ], [ %17, %lpad13 ], [ %common.resume.op.i16, %common.resume.i15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ts_name) #15
   br label %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit31
 
@@ -3649,17 +3656,9 @@ _ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit31
   call void %28(ptr noundef nonnull align 8 dereferenceable(8) %call.i11) #15
   resume { ptr, i32 } %.pn.pn.pn
 
-_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit36: ; preds = %invoke.cont16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ts_name) #15
-  %vtable.i.i34 = load ptr, ptr %call.i11, align 8
-  %vfn.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i34, i64 8
-  %29 = load ptr, ptr %vfn.i.i35, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(8) %call.i11) #15
-  br label %cleanup45
-
-cleanup45:                                        ; preds = %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit, %for.cond, %entry, %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit36
-  %cmp69 = phi i1 [ false, %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit36 ], [ true, %entry ], [ %call2.i25, %for.cond ], [ %call2.i25, %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit ]
-  ret i1 %cmp69
+cleanup45:                                        ; preds = %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit, %for.cond, %entry
+  %retval.3 = phi i1 [ true, %entry ], [ true, %for.cond ], [ %retval.1, %_ZNSt10unique_ptrIKN14grpc_generator7ServiceESt14default_deleteIS2_EED2Ev.exit ]
+  ret i1 %retval.3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

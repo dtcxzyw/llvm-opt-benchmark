@@ -976,9 +976,10 @@ define noundef zeroext i1 @_ZN5draco17MeshAreEquivalentclERKNS_4MeshES3_(ptr nou
   br label %43
 
 43:                                               ; preds = %41, %151
-  %.05898 = phi i32 [ 0, %41 ], [ %152, %151 ]
-  %44 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %1, i32 noundef %.05898)
-  %45 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %2, i32 noundef %.05898)
+  %.1103 = phi i1 [ undef, %41 ], [ %.2, %151 ]
+  %.058102 = phi i32 [ 0, %41 ], [ %152, %151 ]
+  %44 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %1, i32 noundef %.058102)
+  %45 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %2, i32 noundef %.058102)
   %46 = icmp eq ptr %44, null
   %47 = icmp eq ptr %45, null
   %or.cond = and i1 %46, %47
@@ -1029,8 +1030,8 @@ define noundef zeroext i1 @_ZN5draco17MeshAreEquivalentclERKNS_4MeshES3_(ptr nou
 
 .preheader:                                       ; preds = %71
   %75 = load i32, ptr %42, align 8
-  %.not9496 = icmp sgt i32 %75, 0
-  br i1 %.not9496, label %.lr.ph, label %.critedge
+  %.not9499 = icmp sgt i32 %75, 0
+  br i1 %.not9499, label %.lr.ph, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79
 
 .lr.ph:                                           ; preds = %.preheader
   %76 = load ptr, ptr %0, align 8
@@ -1070,18 +1071,18 @@ define noundef zeroext i1 @_ZN5draco17MeshAreEquivalentclERKNS_4MeshES3_(ptr nou
   br label %108
 
 106:                                              ; preds = %131
-  %107 = add nuw nsw i32 %.06295, 1
+  %107 = add nuw nsw i32 %.06298, 1
   %exitcond.not = icmp eq i32 %107, 3
   br i1 %exitcond.not, label %150, label %108, !llvm.loop !30
 
 108:                                              ; preds = %89, %106
-  %.06295 = phi i32 [ 0, %89 ], [ %107, %106 ]
-  %109 = add nsw i32 %.06295, %99
+  %.06298 = phi i32 [ 0, %89 ], [ %107, %106 ]
+  %109 = add nsw i32 %.06298, %99
   %110 = srem i32 %109, 3
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [3 x %"class.draco::IndexType.17"], ptr %104, i64 0, i64 %111
   %.sroa.010.0.copyload = load i32, ptr %112, align 4
-  %113 = add nsw i32 %.06295, %103
+  %113 = add nsw i32 %.06298, %103
   %114 = srem i32 %113, 3
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds [3 x %"class.draco::IndexType.17"], ptr %105, i64 0, i64 %115
@@ -1143,26 +1144,24 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit82: ; preds = %71
 
 150:                                              ; preds = %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond102.not, label %.critedge, label %89, !llvm.loop !31
+  %exitcond106.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond106.not, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79, label %89, !llvm.loop !31
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79: ; preds = %131
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79: ; preds = %150, %131, %.preheader
+  %.not9497 = phi i1 [ false, %.preheader ], [ true, %131 ], [ false, %150 ]
+  %.3 = phi i1 [ %.1103, %.preheader ], [ false, %131 ], [ %.1103, %150 ]
   tail call void @_ZdaPv(ptr noundef nonnull %74) #22
   tail call void @_ZdaPv(ptr noundef nonnull %72) #22
-  br label %.loopexit
+  br i1 %.not9497, label %.loopexit, label %151
 
-.critedge:                                        ; preds = %150, %.preheader
-  tail call void @_ZdaPv(ptr noundef nonnull %74) #22
-  tail call void @_ZdaPv(ptr noundef nonnull %72) #22
-  br label %151
+151:                                              ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79, %43
+  %.2 = phi i1 [ %.1103, %43 ], [ %.3, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79 ]
+  %152 = add nuw nsw i32 %.058102, 1
+  %exitcond107.not = icmp eq i32 %152, 5
+  br i1 %exitcond107.not, label %.loopexit, label %43, !llvm.loop !32
 
-151:                                              ; preds = %.critedge, %43
-  %152 = add nuw nsw i32 %.05898, 1
-  %exitcond103.not = icmp eq i32 %152, 5
-  br i1 %exitcond103.not, label %.loopexit, label %43, !llvm.loop !32
-
-.loopexit:                                        ; preds = %48, %151, %66, %59, %54, %49, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79, %22, %3
-  %.057 = phi i1 [ false, %3 ], [ false, %22 ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79 ], [ true, %151 ], [ false, %66 ], [ false, %59 ], [ false, %54 ], [ false, %49 ], [ false, %48 ]
+.loopexit:                                        ; preds = %48, %151, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79, %66, %59, %54, %49, %22, %3
+  %.057 = phi i1 [ false, %3 ], [ false, %22 ], [ true, %151 ], [ false, %66 ], [ false, %59 ], [ false, %54 ], [ false, %49 ], [ false, %48 ], [ %.3, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79 ]
   ret i1 %.057
 }
 

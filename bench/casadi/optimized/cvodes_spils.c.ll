@@ -703,9 +703,9 @@ define range(i32 -1, 2) i32 @CVSpilsDQJtimes(ptr noundef %0, ptr noundef %1, dou
   br label %17
 
 17:                                               ; preds = %7, %26
-  %.02634 = phi i32 [ 0, %7 ], [ %28, %26 ]
-  %.02833 = phi double [ %13, %7 ], [ %27, %26 ]
-  tail call void @N_VLinearSum(double noundef %.02833, ptr noundef %0, double noundef 1.000000e+00, ptr noundef %3, ptr noundef %6) #5
+  %.02638 = phi i32 [ 0, %7 ], [ %28, %26 ]
+  %.02837 = phi double [ %13, %7 ], [ %27, %26 ]
+  tail call void @N_VLinearSum(double noundef %.02837, ptr noundef %0, double noundef 1.000000e+00, ptr noundef %3, ptr noundef %6) #5
   %18 = load ptr, ptr %14, align 8
   %19 = load ptr, ptr %15, align 8
   %20 = tail call i32 %18(double noundef %2, ptr noundef %6, ptr noundef %1, ptr noundef %19) #5
@@ -713,26 +713,26 @@ define range(i32 -1, 2) i32 @CVSpilsDQJtimes(ptr noundef %0, ptr noundef %1, dou
   %22 = add nsw i64 %21, 1
   store i64 %22, ptr %16, align 8
   %23 = icmp eq i32 %20, 0
-  br i1 %23, label %29, label %24
+  br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %17
   %25 = icmp slt i32 %20, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %24
-  %27 = fmul double %.02833, 2.500000e-01
-  %28 = add nuw nsw i32 %.02634, 1
+  %27 = fmul double %.02837, 2.500000e-01
+  %28 = add nuw nsw i32 %.02638, 1
   %exitcond.not = icmp eq i32 %28, 3
-  br i1 %exitcond.not, label %.thread, label %17, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !4
 
-29:                                               ; preds = %17
-  %30 = fdiv double 1.000000e+00, %.02833
-  %31 = fneg double %30
-  tail call void @N_VLinearSum(double noundef %30, ptr noundef %1, double noundef %31, ptr noundef %4, ptr noundef %1) #5
-  br label %.thread
+.thread:                                          ; preds = %17
+  %29 = fdiv double 1.000000e+00, %.02837
+  %30 = fneg double %29
+  tail call void @N_VLinearSum(double noundef %29, ptr noundef %1, double noundef %30, ptr noundef %4, ptr noundef %1) #5
+  br label %.loopexit
 
-.thread:                                          ; preds = %26, %24, %29
-  %.027 = phi i32 [ 0, %29 ], [ 1, %26 ], [ -1, %24 ]
+.loopexit:                                        ; preds = %24, %26, %.thread
+  %.027 = phi i32 [ 0, %.thread ], [ -1, %24 ], [ 1, %26 ]
   ret i32 %.027
 }
 

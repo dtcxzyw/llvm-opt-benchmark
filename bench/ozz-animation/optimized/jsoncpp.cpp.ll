@@ -6760,15 +6760,15 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader10readObjectERNS0_5TokenE
   %56 = getelementptr inbounds i8, ptr %0, i64 274
   %57 = getelementptr inbounds i8, ptr %0, i64 72
   %58 = getelementptr inbounds i8, ptr %0, i64 64
-  br label %.loopexit70
+  br label %.loopexit71
 
-.loopexit70:                                      ; preds = %297, %44
+.loopexit71:                                      ; preds = %297, %44
   %59 = invoke noundef zeroext i1 @_ZN4Json9OurReader9readTokenERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(281) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.preheader:                                       ; preds = %.loopexit70, %61
+.preheader:                                       ; preds = %.loopexit71, %61
   %60 = load i32, ptr %6, align 8
-  switch i32 %60, label %.loopexit75 [
+  switch i32 %60, label %.loopexit76 [
     i32 15, label %61
     i32 2, label %65
   ]
@@ -6788,39 +6788,39 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader10readObjectERNS0_5TokenE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %85
-  %lpad.loopexit63 = landingpad { ptr, i32 }
+  %lpad.loopexit64 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %299
-  %lpad.loopexit72 = landingpad { ptr, i32 }
+  %lpad.loopexit73 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %61
-  %lpad.loopexit76 = landingpad { ptr, i32 }
+  %lpad.loopexit77 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.loopexit70, %.loopexit75, %69, %155, %_ZNSt5stackIPN4Json5ValueESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit, %284, %191, %220, %235
-  %lpad.loopexit79 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.loopexit71, %.loopexit76, %69, %155, %_ZNSt5stackIPN4Json5ValueESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit, %284, %191, %220, %235
+  %lpad.loopexit80 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %201, %88, %264
-  %lpad.loopexit.split-lp80 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp81 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 65:                                               ; preds = %.preheader
   %66 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #41
-  br i1 %66, label %.loopexit71, label %.loopexit75
+  br i1 %66, label %.loopexit72, label %.loopexit76
 
-.loopexit75:                                      ; preds = %.preheader, %65
+.loopexit76:                                      ; preds = %.preheader, %65
   %67 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str)
           to label %68 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-68:                                               ; preds = %.loopexit75
+68:                                               ; preds = %.loopexit76
   switch i32 %60, label %301 [
     i32 5, label %69
     i32 6, label %108
@@ -6887,7 +6887,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader10readObjectERNS0_5TokenE
 
 _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit: ; preds = %88
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %.loopexit71
+  br label %.loopexit72
 
 108:                                              ; preds = %68
   %109 = load i8, ptr %53, align 1
@@ -6900,7 +6900,7 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit: ; preds = %88
   store i16 %113, ptr %54, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %114 = invoke noundef zeroext i1 @_ZN4Json9OurReader12decodeNumberERNS0_5TokenERNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(281) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %115 unwind label %.loopexit.split-lp67.loopexit
+          to label %115 unwind label %.loopexit.split-lp68.loopexit
 
 115:                                              ; preds = %111
   br i1 %114, label %152, label %116
@@ -6923,7 +6923,7 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit: ; preds = %88
 
 129:                                              ; preds = %.noexc45, %116
   %130 = invoke noundef zeroext i1 @_ZN4Json9OurReader9readTokenERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(281) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %.noexc45 unwind label %.loopexit66
+          to label %.noexc45 unwind label %.loopexit67
 
 .noexc45:                                         ; preds = %129
   %131 = load i32, ptr %4, align 8
@@ -6955,31 +6955,31 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit: ; preds = %88
   %sext.i44 = shl i64 %149, 32
   %151 = ashr exact i64 %sext.i44, 32
   invoke void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(80) %150, i64 noundef %151)
-          to label %154 unwind label %.loopexit.split-lp67.loopexit.split-lp
+          to label %154 unwind label %.loopexit.split-lp68.loopexit.split-lp
 
-.loopexit66:                                      ; preds = %129
-  %lpad.loopexit68 = landingpad { ptr, i32 }
+.loopexit67:                                      ; preds = %129
+  %lpad.loopexit69 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp67
+  br label %.loopexit.split-lp68
 
-.loopexit.split-lp67.loopexit:                    ; preds = %152, %111
-  %lpad.loopexit83 = landingpad { ptr, i32 }
+.loopexit.split-lp68.loopexit:                    ; preds = %152, %111
+  %lpad.loopexit84 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp67
+  br label %.loopexit.split-lp68
 
-.loopexit.split-lp67.loopexit.split-lp:           ; preds = %132
-  %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
+.loopexit.split-lp68.loopexit.split-lp:           ; preds = %132
+  %lpad.loopexit.split-lp85 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp67
+  br label %.loopexit.split-lp68
 
-.loopexit.split-lp67:                             ; preds = %.loopexit.split-lp67.loopexit, %.loopexit.split-lp67.loopexit.split-lp, %.loopexit66
-  %lpad.phi69 = phi { ptr, i32 } [ %lpad.loopexit68, %.loopexit66 ], [ %lpad.loopexit83, %.loopexit.split-lp67.loopexit ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp67.loopexit.split-lp ]
+.loopexit.split-lp68:                             ; preds = %.loopexit.split-lp68.loopexit, %.loopexit.split-lp68.loopexit.split-lp, %.loopexit67
+  %lpad.phi70 = phi { ptr, i32 } [ %lpad.loopexit69, %.loopexit67 ], [ %lpad.loopexit84, %.loopexit.split-lp68.loopexit ], [ %lpad.loopexit.split-lp85, %.loopexit.split-lp68.loopexit.split-lp ]
   call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #41
   br label %.loopexit.split-lp
 
 152:                                              ; preds = %115
   invoke void @_ZNK4Json5Value8asStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %.thread unwind label %.loopexit.split-lp67.loopexit
+          to label %.thread unwind label %.loopexit.split-lp68.loopexit
 
 .thread:                                          ; preds = %152
   %153 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %10) #41
@@ -6990,7 +6990,7 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit: ; preds = %88
 154:                                              ; preds = %132
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #41
-  br label %.loopexit71
+  br label %.loopexit72
 
 155:                                              ; preds = %.thread, %71
   %156 = invoke noundef zeroext i1 @_ZN4Json9OurReader9readTokenERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(281) %0, ptr noundef nonnull align 8 dereferenceable(24) %11)
@@ -7013,7 +7013,7 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit: ; preds = %88
 162:                                              ; preds = %160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #41
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #41
-  br label %.loopexit71
+  br label %.loopexit72
 
 163:                                              ; preds = %159
   %164 = landingpad { ptr, i32 }
@@ -7094,8 +7094,8 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit: ; preds = %88
           to label %200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 200:                                              ; preds = %191
-  %.not60 = icmp eq ptr %199, null
-  br i1 %.not60, label %211, label %201
+  %.not61 = icmp eq ptr %199, null
+  br i1 %.not61, label %211, label %201
 
 201:                                              ; preds = %200
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull @.str.29, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -7113,7 +7113,7 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit: ; preds = %88
 
 206:                                              ; preds = %204
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #41
-  br label %.loopexit71
+  br label %.loopexit72
 
 207:                                              ; preds = %202
   %208 = landingpad { ptr, i32 }
@@ -7255,7 +7255,7 @@ _ZNSt5stackIPN4Json5ValueESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %240, %242
 
 _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit59: ; preds = %264
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %.loopexit71
+  br label %.loopexit72
 
 284:                                              ; preds = %_ZNSt5stackIPN4Json5ValueESt5dequeIS2_SaIS2_EEE3popEv.exit
   %285 = invoke noundef zeroext i1 @_ZN4Json9OurReader9readTokenERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(281) %0, ptr noundef nonnull align 8 dereferenceable(24) %19)
@@ -7264,12 +7264,12 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit59: ; preds = %264
 286:                                              ; preds = %284
   %287 = load i32, ptr %19, align 8
   switch i32 %287, label %288 [
-    i32 15, label %.preheader97
-    i32 13, label %.preheader97
-    i32 2, label %.preheader97
+    i32 15, label %.preheader98
+    i32 13, label %.preheader98
+    i32 2, label %.preheader98
   ]
 
-.preheader97:                                     ; preds = %286, %286, %286
+.preheader98:                                     ; preds = %286, %286, %286
   br label %297
 
 288:                                              ; preds = %286
@@ -7284,7 +7284,7 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit59: ; preds = %264
 291:                                              ; preds = %289
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #41
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #41
-  br label %.loopexit71
+  br label %.loopexit72
 
 292:                                              ; preds = %288
   %293 = landingpad { ptr, i32 }
@@ -7302,11 +7302,11 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit59: ; preds = %264
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #41
   br label %.loopexit.split-lp
 
-297:                                              ; preds = %.preheader97, %299
+297:                                              ; preds = %.preheader98, %299
   %298 = load i32, ptr %19, align 8
-  switch i32 %298, label %.loopexit70 [
+  switch i32 %298, label %.loopexit71 [
     i32 15, label %299
-    i32 2, label %.loopexit71
+    i32 2, label %.loopexit72
   ]
 
 299:                                              ; preds = %297
@@ -7325,7 +7325,7 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit59: ; preds = %264
 304:                                              ; preds = %302
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #41
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #41
-  br label %.loopexit71
+  br label %.loopexit72
 
 305:                                              ; preds = %301
   %306 = landingpad { ptr, i32 }
@@ -7343,14 +7343,14 @@ _ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit59: ; preds = %264
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #41
   br label %.loopexit.split-lp
 
-.loopexit71:                                      ; preds = %65, %297, %154, %_ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit59, %_ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit, %304, %291, %206, %162
+.loopexit72:                                      ; preds = %65, %297, %154, %_ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit59, %_ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit, %304, %291, %206, %162
   %.1 = phi i1 [ false, %162 ], [ false, %206 ], [ false, %291 ], [ false, %154 ], [ false, %304 ], [ false, %_ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit ], [ false, %_ZN4Json9OurReader16recoverFromErrorENS0_9TokenTypeE.exit59 ], [ true, %297 ], [ true, %65 ]
   call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #41
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #41
   ret i1 %.1
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %309, %296, %209, %207, %178, %167, %.loopexit.split-lp67
-  %.pn38 = phi { ptr, i32 } [ %.pn36, %167 ], [ %.pn34, %178 ], [ %210, %209 ], [ %208, %207 ], [ %.pn32, %296 ], [ %lpad.phi69, %.loopexit.split-lp67 ], [ %.pn, %309 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit63, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit72, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit76, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit79, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp80, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %309, %296, %209, %207, %178, %167, %.loopexit.split-lp68
+  %.pn38 = phi { ptr, i32 } [ %.pn36, %167 ], [ %.pn34, %178 ], [ %210, %209 ], [ %208, %207 ], [ %.pn32, %296 ], [ %lpad.phi70, %.loopexit.split-lp68 ], [ %.pn, %309 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit73, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit77, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #41
   br label %310
 

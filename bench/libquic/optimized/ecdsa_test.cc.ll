@@ -92,13 +92,24 @@ for.cond.i:                                       ; preds = %_ZNSt10unique_ptrI1
   %arrayidx.i = getelementptr inbounds [5 x %struct.anon], ptr @_ZZL11TestBuiltinP8_IO_FILEE7kCurves, i64 0, i64 %inc.i
   %3 = load i32, ptr %arrayidx.i, align 16
   %exitcond.i = icmp eq i64 %inc.i, 4
-  br i1 %exitcond.i, label %lor.lhs.false, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.i, label %_ZL11TestBuiltinP8_IO_FILE.exit.thread3, label %for.body.i, !llvm.loop !7
+
+_ZL11TestBuiltinP8_IO_FILE.exit.thread3:          ; preds = %for.cond.i
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %digest.i)
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %wrong_digest.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %eckey.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %wrong_eckey.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sig_len.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ecdsa_sig.i)
+  br label %lor.lhs.false
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end.i
   %4 = phi i32 [ 713, %if.end.i ], [ %3, %for.cond.i ]
-  %arrayidx135.i = phi ptr [ @_ZZL11TestBuiltinP8_IO_FILEE7kCurves, %if.end.i ], [ %arrayidx.i, %for.cond.i ]
+  %arrayidx136.i = phi ptr [ @_ZZL11TestBuiltinP8_IO_FILEE7kCurves, %if.end.i ], [ %arrayidx.i, %for.cond.i ]
+  %retval.1135.i = phi i1 [ undef, %if.end.i ], [ %retval.2143.i, %for.cond.i ]
   %n.0134.i = phi i64 [ 0, %if.end.i ], [ %inc.i, %for.cond.i ]
-  %name.i = getelementptr inbounds i8, ptr %arrayidx135.i, i64 8
+  %name.i = getelementptr inbounds i8, ptr %arrayidx136.i, i64 8
   %5 = load ptr, ptr %name.i, align 8
   %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %5)
   %call11.i = call ptr @EC_GROUP_new_by_curve_name(i32 noundef %4)
@@ -125,9 +136,9 @@ invoke.cont17.i:                                  ; preds = %if.end15.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont17.i
   %cmp21.i = icmp ult i32 %call20.i, 160
-  br i1 %cmp21.i, label %cleanup259.thread141.i, label %if.end25.i
+  br i1 %cmp21.i, label %cleanup259.thread144.i, label %if.end25.i
 
-cleanup259.thread141.i:                           ; preds = %invoke.cont19.i
+cleanup259.thread144.i:                           ; preds = %invoke.cont19.i
   %8 = call i64 @fwrite(ptr nonnull @.str.10, i64 9, i64 1, ptr %0)
   br label %if.then.i105.i
 
@@ -335,7 +346,7 @@ if.then.i31.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i: ; preds = %if.then.i31.i.i.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i.i
   %add.ptr36.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i79.i, i64 %conv97.i
-  %.pre137.i = ptrtoint ptr %call5.i.i.i.i.i79.i to i64
+  %.pre138.i = ptrtoint ptr %call5.i.i.i.i.i79.i to i64
   br label %invoke.cont98.i
 
 if.else.i.i:                                      ; preds = %if.end96.i
@@ -345,7 +356,7 @@ if.else.i.i:                                      ; preds = %if.end96.i
   br label %invoke.cont98.i
 
 invoke.cont98.i:                                  ; preds = %if.else.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i, %if.then.i.i.i.i.i73.i
-  %sub.ptr.rhs.cast.i.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i, %if.else.i.i ], [ %.pre137.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i73.i ]
+  %sub.ptr.rhs.cast.i.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i, %if.else.i.i ], [ %.pre138.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %sub.ptr.rhs.cast.i.i.i, %if.then.i.i.i.i.i73.i ]
   %signature.sroa.0.8.i = phi ptr [ %signature.sroa.0.7.i, %if.else.i.i ], [ %call5.i.i.i.i.i79.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %signature.sroa.0.7.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %signature.sroa.0.7.i, %if.then.i.i.i.i.i73.i ]
   %signature.sroa.18.5.i = phi ptr [ %spec.select.i, %if.else.i.i ], [ %add.ptr36.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i77.i ], [ %incdec.ptr.i.i.i.i.i74.i, %if.then.i.i.i.i.i73.i ]
   %fputc54.i = call i32 @fputc(i32 46, ptr %0)
@@ -503,12 +514,14 @@ cleanup.sink.split.i:                             ; preds = %invoke.cont241.i, %
 
 cleanup.i:                                        ; preds = %cleanup.sink.split.i, %if.end246.i
   %cleanup.dest.slot.4.i = phi i32 [ 0, %if.end246.i ], [ 1, %cleanup.sink.split.i ]
+  %retval.6.i = phi i1 [ %retval.1135.i, %if.end246.i ], [ false, %cleanup.sink.split.i ]
   call void @_ZNSt10unique_ptrI12ecdsa_sig_st14OpenSSLDeleterIS0_XadL_Z14ECDSA_SIG_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ecdsa_sig.i) #18
   br label %cleanup254.i
 
 cleanup254.i:                                     ; preds = %cleanup.i, %if.then155.i, %if.then140.i, %if.then125.i, %if.then110.i, %if.then93.i
   %signature.sroa.0.5.i = phi ptr [ %signature.sroa.0.7.i, %if.then93.i ], [ %signature.sroa.0.8.i, %if.then110.i ], [ %signature.sroa.0.8.i, %cleanup.i ], [ %signature.sroa.0.8.i, %if.then155.i ], [ %signature.sroa.0.8.i, %if.then140.i ], [ %signature.sroa.0.8.i, %if.then125.i ]
   %cleanup.dest.slot.3.i = phi i32 [ 1, %if.then93.i ], [ 1, %if.then110.i ], [ %cleanup.dest.slot.4.i, %cleanup.i ], [ 1, %if.then155.i ], [ 1, %if.then140.i ], [ 1, %if.then125.i ]
+  %retval.5.i = phi i1 [ false, %if.then93.i ], [ false, %if.then110.i ], [ %retval.6.i, %cleanup.i ], [ false, %if.then155.i ], [ false, %if.then140.i ], [ false, %if.then125.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %signature.sroa.0.5.i, null
   br i1 %tobool.not.i.i.i.i, label %cleanup255.i, label %if.then.i.i.i98.i
 
@@ -518,6 +531,7 @@ if.then.i.i.i98.i:                                ; preds = %cleanup254.i
 
 cleanup255.i:                                     ; preds = %if.then.i.i.i98.i, %cleanup254.i, %if.then72.i, %if.then60.i
   %cleanup.dest.slot.2.i = phi i32 [ 1, %if.then60.i ], [ 1, %if.then72.i ], [ %cleanup.dest.slot.3.i, %cleanup254.i ], [ %cleanup.dest.slot.3.i, %if.then.i.i.i98.i ]
+  %retval.4.i = phi i1 [ false, %if.then60.i ], [ false, %if.then72.i ], [ %retval.5.i, %cleanup254.i ], [ %retval.5.i, %if.then.i.i.i98.i ]
   %35 = load ptr, ptr %wrong_eckey.i, align 8
   %cmp.not.i.i = icmp eq ptr %35, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i, label %if.then.i99.i
@@ -542,6 +556,7 @@ _ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit
 cleanup257.i:                                     ; preds = %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i, %if.then41.i
   %39 = phi ptr [ %call27.i, %if.then41.i ], [ %.pre.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
   %cleanup.dest.slot.1.i = phi i1 [ true, %if.then41.i ], [ %38, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
+  %retval.3.i = phi i1 [ false, %if.then41.i ], [ %retval.4.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
   %cmp.not.i100.i = icmp eq ptr %39, null
   br i1 %cmp.not.i100.i, label %cleanup259.i, label %if.then.i101.i
 
@@ -558,13 +573,14 @@ terminate.lpad.i102.i:                            ; preds = %if.then.i101.i
 
 cleanup259.i:                                     ; preds = %if.then.i101.i, %cleanup257.i
   store ptr null, ptr %eckey.i, align 8
-  %.pre136.i = load ptr, ptr %group.i, align 8
-  %cmp.not.i104.i = icmp eq ptr %.pre136.i, null
+  %.pre137.i = load ptr, ptr %group.i, align 8
+  %cmp.not.i104.i = icmp eq ptr %.pre137.i, null
   br i1 %cmp.not.i104.i, label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i, label %if.then.i105.i
 
-if.then.i105.i:                                   ; preds = %cleanup259.i, %cleanup259.thread141.i
-  %cleanup.dest.slot.0144.i = phi i1 [ false, %cleanup259.thread141.i ], [ %cleanup.dest.slot.1.i, %cleanup259.i ]
-  %42 = phi ptr [ %call11.i, %cleanup259.thread141.i ], [ %.pre136.i, %cleanup259.i ]
+if.then.i105.i:                                   ; preds = %cleanup259.i, %cleanup259.thread144.i
+  %retval.2149.i = phi i1 [ %retval.1135.i, %cleanup259.thread144.i ], [ %retval.3.i, %cleanup259.i ]
+  %cleanup.dest.slot.0148.i = phi i1 [ false, %cleanup259.thread144.i ], [ %cleanup.dest.slot.1.i, %cleanup259.i ]
+  %42 = phi ptr [ %call11.i, %cleanup259.thread144.i ], [ %.pre137.i, %cleanup259.i ]
   invoke void @EC_GROUP_free(ptr noundef nonnull %42)
           to label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i unwind label %terminate.lpad.i106.i
 
@@ -576,9 +592,10 @@ terminate.lpad.i106.i:                            ; preds = %if.then.i105.i
   unreachable
 
 _ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i: ; preds = %if.then.i105.i, %cleanup259.i
-  %cleanup.dest.slot.0140.i = phi i1 [ %cleanup.dest.slot.1.i, %cleanup259.i ], [ %cleanup.dest.slot.0144.i, %if.then.i105.i ]
+  %retval.2143.i = phi i1 [ %retval.3.i, %cleanup259.i ], [ %retval.2149.i, %if.then.i105.i ]
+  %cleanup.dest.slot.0142.i = phi i1 [ %cleanup.dest.slot.1.i, %cleanup259.i ], [ %cleanup.dest.slot.0148.i, %if.then.i105.i ]
   store ptr null, ptr %group.i, align 8
-  br i1 %cleanup.dest.slot.0140.i, label %_ZL11TestBuiltinP8_IO_FILE.exit.thread, label %for.cond.i
+  br i1 %cleanup.dest.slot.0142.i, label %_ZL11TestBuiltinP8_IO_FILE.exit, label %for.cond.i
 
 ehcleanup.i:                                      ; preds = %lpad172.i, %lpad89.i
   %signature.sroa.0.6.i = phi ptr [ %signature.sroa.0.4.i, %lpad89.i ], [ %signature.sroa.0.8.i, %lpad172.i ]
@@ -605,7 +622,7 @@ ehcleanup260.i:                                   ; preds = %ehcleanup258.i, %lp
   call void @_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %group.i) #18
   resume { ptr, i32 } %.pn.pn.pn.pn.i
 
-_ZL11TestBuiltinP8_IO_FILE.exit.thread:           ; preds = %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i, %if.then.i, %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.thread.i
+_ZL11TestBuiltinP8_IO_FILE.exit.thread:           ; preds = %if.then.i, %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %wrong_digest.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i)
@@ -615,7 +632,7 @@ _ZL11TestBuiltinP8_IO_FILE.exit.thread:           ; preds = %_ZNSt10unique_ptrI1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ecdsa_sig.i)
   br label %if.then
 
-lor.lhs.false:                                    ; preds = %for.cond.i
+_ZL11TestBuiltinP8_IO_FILE.exit:                  ; preds = %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %wrong_digest.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %group.i)
@@ -623,6 +640,9 @@ lor.lhs.false:                                    ; preds = %for.cond.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %wrong_eckey.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %sig_len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ecdsa_sig.i)
+  br i1 %retval.2143.i, label %lor.lhs.false, label %if.then
+
+lor.lhs.false:                                    ; preds = %_ZL11TestBuiltinP8_IO_FILE.exit.thread3, %_ZL11TestBuiltinP8_IO_FILE.exit
   %call2 = call fastcc noundef zeroext i1 @_ZL21TestECDSA_SIG_max_lenm(i64 noundef 28)
   br i1 %call2, label %lor.lhs.false3, label %if.then
 
@@ -642,7 +662,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false9
   %call14 = call fastcc noundef zeroext i1 @_ZL21TestECDSA_SIG_max_lenm(i64 noundef 1250)
   br i1 %call14, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZL11TestBuiltinP8_IO_FILE.exit.thread, %lor.lhs.false12, %lor.lhs.false9, %lor.lhs.false6, %lor.lhs.false3, %lor.lhs.false
+if.then:                                          ; preds = %_ZL11TestBuiltinP8_IO_FILE.exit.thread, %lor.lhs.false12, %lor.lhs.false9, %lor.lhs.false6, %lor.lhs.false3, %lor.lhs.false, %_ZL11TestBuiltinP8_IO_FILE.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %45 = load ptr, ptr @stdout, align 8
   call void @ERR_print_errors_fp(ptr noundef %45)

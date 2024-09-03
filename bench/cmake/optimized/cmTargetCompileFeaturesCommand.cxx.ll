@@ -192,14 +192,14 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125TargetCompileFeaturesImpl
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not18 = icmp eq ptr %10, %12
-  br i1 %.not18, label %.loopexit, label %.lr.ph
+  %.not20 = icmp eq ptr %10, %12
+  br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %18
-  %.sroa.010.019 = phi ptr [ %19, %18 ], [ %10, %5 ]
+  %.sroa.010.021 = phi ptr [ %19, %18 ], [ %10, %5 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
-  %13 = invoke noundef zeroext i1 @_ZNK23cmStandardLevelResolver24AddRequiredTargetFeatureEP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.019, ptr noundef nonnull %7)
-          to label %14 unwind label %.loopexit14
+  %13 = invoke noundef zeroext i1 @_ZNK23cmStandardLevelResolver24AddRequiredTargetFeatureEP8cmTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.021, ptr noundef nonnull %7)
+          to label %14 unwind label %.loopexit16
 
 14:                                               ; preds = %.lr.ph
   br i1 %13, label %18, label %15
@@ -208,7 +208,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125TargetCompileFeaturesImpl
   invoke void @_ZN23cmTargetPropCommandBase8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %17 unwind label %.loopexit.split-lp
 
-.loopexit14:                                      ; preds = %.lr.ph
+.loopexit16:                                      ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %16
@@ -218,8 +218,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125TargetCompileFeaturesImpl
           cleanup
   br label %16
 
-16:                                               ; preds = %.loopexit.split-lp, %.loopexit14
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit14 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+16:                                               ; preds = %.loopexit.split-lp, %.loopexit16
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit16 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
   resume { ptr, i32 } %lpad.phi
 
@@ -229,13 +229,13 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125TargetCompileFeaturesImpl
 
 18:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
-  %19 = getelementptr inbounds i8, ptr %.sroa.010.019, i64 32
+  %19 = getelementptr inbounds i8, ptr %.sroa.010.021, i64 32
   %.not = icmp eq ptr %19, %12
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %18, %5, %17
-  %.not17 = phi i1 [ false, %17 ], [ true, %5 ], [ true, %18 ]
-  ret i1 %.not17
+  %.not19 = phi i1 [ false, %17 ], [ true, %5 ], [ true, %18 ]
+  ret i1 %.not19
 }
 
 ; Function Attrs: mustprogress uwtable

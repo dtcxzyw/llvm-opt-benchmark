@@ -342,7 +342,7 @@ lpad:                                             ; preds = %entry
           cleanup
   br label %ehcleanup82
 
-lpad5.loopexit:                                   ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread9, %lor.rhs
+lpad5.loopexit:                                   ; preds = %do.cond, %lor.rhs
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -353,6 +353,7 @@ lpad5.loopexit.split-lp:                          ; preds = %invoke.cont4, %lor.
   br label %ehcleanup
 
 do.body:                                          ; preds = %invoke.cont8, %do.body.backedge
+  %retval.1 = phi i1 [ %retval.2, %do.body.backedge ], [ undef, %invoke.cont8 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line1) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line2) #11
   %call12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %file1, ptr noundef nonnull align 8 dereferenceable(32) %line1)
@@ -380,7 +381,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 
 invoke.cont21:                                    ; preds = %invoke.cont15
   %1 = xor i1 %call16, %call22
-  br i1 %1, label %cleanup80.sink.split, label %lor.lhs.false24
+  br i1 %1, label %cleanup, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %invoke.cont21
   %vtable25 = load ptr, ptr %file1, align 8
@@ -391,7 +392,7 @@ lor.lhs.false24:                                  ; preds = %invoke.cont21
           to label %invoke.cont29 unwind label %lpad10
 
 invoke.cont29:                                    ; preds = %lor.lhs.false24
-  br i1 %call30, label %cleanup80.sink.split, label %lor.lhs.false31
+  br i1 %call30, label %cleanup, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %invoke.cont29
   %vtable32 = load ptr, ptr %file2, align 8
@@ -402,7 +403,7 @@ lor.lhs.false31:                                  ; preds = %invoke.cont29
           to label %invoke.cont36 unwind label %lpad10
 
 invoke.cont36:                                    ; preds = %lor.lhs.false31
-  br i1 %call37, label %cleanup80.sink.split, label %if.end39
+  br i1 %call37, label %cleanup, label %if.end39
 
 lpad10:                                           ; preds = %if.then58, %if.then45, %lor.lhs.false31, %lor.lhs.false24, %invoke.cont15, %invoke.cont13, %invoke.cont11, %do.body
   %2 = landingpad { ptr, i32 }
@@ -453,24 +454,30 @@ if.end63:                                         ; preds = %if.else54, %if.then
   %call.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %line1) #11
   %call1.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %line2) #11
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %cleanup80.sink.split
+  br i1 %cmp.i.i, label %land.rhs.i.i, label %cleanup
 
 land.rhs.i.i:                                     ; preds = %if.end63
   %call2.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %line1) #11
   %call3.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %line2) #11
   %call4.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %line1) #11
   %cmp.i.i.i = icmp eq i64 %call4.i.i, 0
-  br i1 %cmp.i.i.i, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread9, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
+  br i1 %cmp.i.i.i, label %cleanup, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %land.rhs.i.i
   %bcmp.i.i = call i32 @bcmp(ptr %call2.i.i, ptr %call3.i.i, i64 %call4.i.i)
   %bcmp.i.i.fr = freeze i32 %bcmp.i.i
   %.not = icmp eq i32 %bcmp.i.i.fr, 0
-  br i1 %.not, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread9, label %cleanup80.sink.split
+  %spec.select21 = select i1 %.not, i1 %retval.1, i1 false
+  br label %cleanup
 
-_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread9: ; preds = %land.rhs.i.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
+cleanup:                                          ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %if.end63, %land.rhs.i.i, %invoke.cont21, %invoke.cont29, %invoke.cont36
+  %cond = phi i1 [ false, %invoke.cont36 ], [ false, %invoke.cont29 ], [ false, %invoke.cont21 ], [ true, %land.rhs.i.i ], [ false, %if.end63 ], [ %.not, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
+  %retval.2 = phi i1 [ false, %invoke.cont36 ], [ false, %invoke.cont29 ], [ false, %invoke.cont21 ], [ %retval.1, %land.rhs.i.i ], [ false, %if.end63 ], [ %spec.select21, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line2) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line1) #11
+  br i1 %cond, label %do.cond, label %cleanup80
+
+do.cond:                                          ; preds = %cleanup
   %vtable68 = load ptr, ptr %file1, align 8
   %vbase.offset.ptr69 = getelementptr i8, ptr %vtable68, i64 -24
   %vbase.offset70 = load i64, ptr %vbase.offset.ptr69, align 8
@@ -478,7 +485,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %call73 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr71)
           to label %invoke.cont72 unwind label %lpad5.loopexit
 
-invoke.cont72:                                    ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread9
+invoke.cont72:                                    ; preds = %do.cond
   br i1 %call73, label %lor.rhs, label %do.body.backedge
 
 lor.rhs:                                          ; preds = %invoke.cont72
@@ -495,13 +502,8 @@ invoke.cont78:                                    ; preds = %lor.rhs
 do.body.backedge:                                 ; preds = %invoke.cont78, %invoke.cont72
   br label %do.body, !llvm.loop !8
 
-cleanup80.sink.split:                             ; preds = %invoke.cont36, %invoke.cont29, %invoke.cont21, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %if.end63
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line2) #11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line1) #11
-  br label %cleanup80
-
-cleanup80:                                        ; preds = %invoke.cont78, %cleanup80.sink.split, %invoke.cont6, %invoke.cont8
-  %retval.0 = phi i1 [ false, %invoke.cont8 ], [ false, %invoke.cont6 ], [ false, %cleanup80.sink.split ], [ true, %invoke.cont78 ]
+cleanup80:                                        ; preds = %invoke.cont78, %cleanup, %invoke.cont6, %invoke.cont8
+  %retval.0 = phi i1 [ false, %invoke.cont8 ], [ false, %invoke.cont6 ], [ true, %invoke.cont78 ], [ %retval.2, %cleanup ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %file2) #11
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %file1) #11
   ret i1 %retval.0

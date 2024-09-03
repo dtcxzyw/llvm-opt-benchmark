@@ -6068,7 +6068,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_sl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @_ZN4core5slice5index5range17hb4a827da9dda26a7E(i64 noundef %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %3 = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %0, 1
+  %3 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %0, 1
   ret { i64, i64 } %3
 }
 
@@ -6078,7 +6078,7 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17he0e5a96151ff3847E(i64 n
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %0, 1
+  %6 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %0, 1
   ret { i64, i64 } %6
 
 7:                                                ; preds = %3

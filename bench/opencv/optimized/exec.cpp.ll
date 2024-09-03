@@ -3795,7 +3795,11 @@ define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111fuseGeneralERN3ade5Grap
   br label %160
 
 160:                                              ; preds = %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit, %2
-  %.sroa.0403.0 = phi i32 [ undef, %2 ], [ %.sroa.0403.21952, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit ]
+  %.sroa.0403.0 = phi i32 [ undef, %2 ], [ %.sroa.0403.21956, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit ]
+  %.sroa.17.0 = phi ptr [ undef, %2 ], [ %.sroa.17.21957, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit ]
+  %.sroa.13.0 = phi ptr [ undef, %2 ], [ %.sroa.13.21958, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit ]
+  %.sroa.9.0 = phi ptr [ undef, %2 ], [ %.sroa.9.21959, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit ]
+  %.sroa.4404.0 = phi ptr [ undef, %2 ], [ %.sroa.4404.21960, %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit ]
   invoke void @_ZN2cv5gimpl12pass_helpers8topoSortERKN3ade5GraphE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.173") align 8 %57, ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %161 unwind label %2597
 
@@ -3808,6 +3812,10 @@ define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111fuseGeneralERN3ade5Grap
 .lr.ph:                                           ; preds = %161, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309
   %.0351446 = phi i1 [ %.6, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309 ], [ false, %161 ]
   %.sroa.0430.01445 = phi ptr [ %3263, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309 ], [ %162, %161 ]
+  %.sroa.4404.11444 = phi ptr [ %.sroa.4404.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309 ], [ %.sroa.4404.0, %161 ]
+  %.sroa.9.11443 = phi ptr [ %.sroa.9.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309 ], [ %.sroa.9.0, %161 ]
+  %.sroa.13.11442 = phi ptr [ %.sroa.13.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309 ], [ %.sroa.13.0, %161 ]
+  %.sroa.17.11441 = phi ptr [ %.sroa.17.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309 ], [ %.sroa.17.0, %161 ]
   %.sroa.0403.11440 = phi i32 [ %.sroa.0403.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309 ], [ %.sroa.0403.0, %161 ]
   %164 = load ptr, ptr %.sroa.0430.01445, align 8
   %165 = getelementptr inbounds i8, ptr %.sroa.0430.01445, i64 8
@@ -5447,10 +5455,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 872:                                              ; preds = %1463, %.lr.ph606.i
   %.sroa.0403.4 = phi i32 [ %.sroa.0403.11440, %.lr.ph606.i ], [ %.sroa.0403.5, %1463 ]
-  %.sroa.17.4 = phi ptr [ null, %.lr.ph606.i ], [ %.sroa.17.5, %1463 ]
-  %.sroa.13.4 = phi ptr [ null, %.lr.ph606.i ], [ %.sroa.13.5, %1463 ]
-  %.sroa.9.4 = phi ptr [ null, %.lr.ph606.i ], [ %.sroa.9.5, %1463 ]
-  %.sroa.4404.4 = phi ptr [ null, %.lr.ph606.i ], [ %.sroa.4404.5, %1463 ]
+  %.sroa.17.4 = phi ptr [ %.sroa.17.11441, %.lr.ph606.i ], [ %.sroa.17.5, %1463 ]
+  %.sroa.13.4 = phi ptr [ %.sroa.13.11442, %.lr.ph606.i ], [ %.sroa.13.5, %1463 ]
+  %.sroa.9.4 = phi ptr [ %.sroa.9.11443, %.lr.ph606.i ], [ %.sroa.9.5, %1463 ]
+  %.sroa.4404.4 = phi ptr [ %.sroa.4404.11444, %.lr.ph606.i ], [ %.sroa.4404.5, %1463 ]
   %873 = phi ptr [ %868, %.lr.ph606.i ], [ %1465, %1463 ]
   %874 = load i8, ptr %111, align 8, !noalias !113
   %875 = trunc i8 %874 to i1
@@ -10057,7 +10065,7 @@ _ZNSt4pairISt10shared_ptrIN2cv5gimpl7GIslandEES4_EC2IRS4_S7_TnNSt9enable_ifIXaac
   %2861 = icmp eq i64 %.val16.i.i.i.i, 0
   %.val19.i.i.i.i = load ptr, ptr %70, align 8
   %.val20.i.i.i.i = load ptr, ptr %157, align 8
-  br i1 %2861, label %.preheader2382, label %.thread.i.i.i.i
+  br i1 %2861, label %.preheader2390, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNSt4pairISt10shared_ptrIN2cv5gimpl7GIslandEES4_EC2IRS4_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
   %2862 = ptrtoint ptr %.val19.i.i.i.i to i64
@@ -10072,13 +10080,13 @@ _ZNSt4pairISt10shared_ptrIN2cv5gimpl7GIslandEES4_EC2IRS4_S7_TnNSt9enable_ifIXaac
   %.not.i.i.i.i.i.i238 = icmp eq ptr %2868, null
   br i1 %.not.i.i.i.i.i.i238, label %_ZNKSt10_HashtableISt4pairISt10shared_ptrIN2cv5gimpl7GIslandEES5_ES6_SaIS6_ENSt8__detail9_IdentityESt8equal_toIS6_ENS3_12_GLOBAL__N_112MergeContext11CycleHasherENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS6_EEPNS8_10_Hash_nodeIS6_Lb1EEEmRKT_m.exit.thread.i.i.i.i, label %2881
 
-.preheader2382:                                   ; preds = %_ZNSt4pairISt10shared_ptrIN2cv5gimpl7GIslandEES4_EC2IRS4_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, %2869
+.preheader2390:                                   ; preds = %_ZNSt4pairISt10shared_ptrIN2cv5gimpl7GIslandEES4_EC2IRS4_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, %2869
   %.sroa.06.0.in.i.i.i.i245 = phi ptr [ %.sroa.06.0.i.i.i.i246, %2869 ], [ %80, %_ZNSt4pairISt10shared_ptrIN2cv5gimpl7GIslandEES4_EC2IRS4_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit ]
   %.sroa.06.0.i.i.i.i246 = load ptr, ptr %.sroa.06.0.in.i.i.i.i245, align 8
   %.not.i.i.i.i247 = icmp eq ptr %.sroa.06.0.i.i.i.i246, null
   br i1 %.not.i.i.i.i247, label %2875, label %2869
 
-2869:                                             ; preds = %.preheader2382
+2869:                                             ; preds = %.preheader2390
   %2870 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i246, i64 8
   %.val21.i.i.i.i = load ptr, ptr %2870, align 8
   %2871 = getelementptr i8, ptr %.sroa.06.0.i.i.i.i246, i64 24
@@ -10086,9 +10094,9 @@ _ZNSt4pairISt10shared_ptrIN2cv5gimpl7GIslandEES4_EC2IRS4_S7_TnNSt9enable_ifIXaac
   %2872 = icmp eq ptr %.val19.i.i.i.i, %.val21.i.i.i.i
   %2873 = icmp eq ptr %.val20.i.i.i.i, %.val22.i.i.i.i
   %2874 = select i1 %2872, i1 %2873, i1 false
-  br i1 %2874, label %.loopexit, label %.preheader2382, !llvm.loop !299
+  br i1 %2874, label %.loopexit, label %.preheader2390, !llvm.loop !299
 
-2875:                                             ; preds = %.preheader2382
+2875:                                             ; preds = %.preheader2390
   %2876 = ptrtoint ptr %.val19.i.i.i.i to i64
   %2877 = ptrtoint ptr %.val20.i.i.i.i to i64
   %2878 = shl i64 %2877, 1
@@ -10840,19 +10848,19 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit277:            ; preds = %_ZNSt10shared_ptrIN
   br label %_ZN3ade6HandleINS_4NodeEED2Ev.exit233
 
 _ZN3ade6HandleINS_4NodeEED2Ev.exit233:            ; preds = %2785, %2783, %_ZN3ade6HandleINS_4NodeEED2Ev.exit229, %.loopexit.split-lp, %2649, %2614
-  %.not.i.i.i.i1132078 = phi i1 [ %.not.i.i.i.i113, %.loopexit.split-lp ], [ %.not.i.i.i.i113, %2649 ], [ %.not.i.i.i.i113, %2614 ], [ true, %_ZN3ade6HandleINS_4NodeEED2Ev.exit229 ], [ false, %2783 ], [ false, %2785 ]
+  %.not.i.i.i.i1132086 = phi i1 [ %.not.i.i.i.i113, %.loopexit.split-lp ], [ %.not.i.i.i.i113, %2649 ], [ %.not.i.i.i.i113, %2614 ], [ true, %_ZN3ade6HandleINS_4NodeEED2Ev.exit229 ], [ false, %2783 ], [ false, %2785 ]
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %.loopexit.split-lp ], [ %.pn62, %2649 ], [ %2615, %2614 ], [ %2746, %_ZN3ade6HandleINS_4NodeEED2Ev.exit229 ], [ %2746, %2783 ], [ %2746, %2785 ]
   call void @_ZNSt10shared_ptrIN2cv5gimpl7GIslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %60) #22
   br label %.body163
 
 .body163:                                         ; preds = %.loopexit460, %.loopexit.split-lp461.loopexit.split-lp, %.loopexit.split-lp461.loopexit, %2548, %2546, %2535, %_ZN3ade6HandleINS_4NodeEED2Ev.exit233
-  %.not.i.i.i.i1132077 = phi i1 [ %.not.i.i.i.i1132078, %_ZN3ade6HandleINS_4NodeEED2Ev.exit233 ], [ %.not.i.i.i.i113, %2548 ], [ %.not.i.i.i.i113, %2546 ], [ %.not.i.i.i.i113, %2535 ], [ %.not.i.i.i.i113, %.loopexit460 ], [ %.not.i.i.i.i113, %.loopexit.split-lp461.loopexit ], [ %.not.i.i.i.i113, %.loopexit.split-lp461.loopexit.split-lp ]
+  %.not.i.i.i.i1132085 = phi i1 [ %.not.i.i.i.i1132086, %_ZN3ade6HandleINS_4NodeEED2Ev.exit233 ], [ %.not.i.i.i.i113, %2548 ], [ %.not.i.i.i.i113, %2546 ], [ %.not.i.i.i.i113, %2535 ], [ %.not.i.i.i.i113, %.loopexit460 ], [ %.not.i.i.i.i113, %.loopexit.split-lp461.loopexit ], [ %.not.i.i.i.i113, %.loopexit.split-lp461.loopexit.split-lp ]
   %.pn74.pn.pn = phi { ptr, i32 } [ %.pn74.pn, %_ZN3ade6HandleINS_4NodeEED2Ev.exit233 ], [ %2536, %2548 ], [ %2536, %2546 ], [ %2536, %2535 ], [ %lpad.loopexit462, %.loopexit460 ], [ %lpad.loopexit465, %.loopexit.split-lp461.loopexit ], [ %lpad.loopexit.split-lp466, %.loopexit.split-lp461.loopexit.split-lp ]
   call void @_ZNSt10shared_ptrIN2cv5gimpl7GIslandEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %59) #22
   br label %.body130
 
 .body130:                                         ; preds = %.loopexit468, %.loopexit.split-lp469.loopexit.split-lp, %.loopexit.split-lp469.loopexit, %2460, %2458, %2447, %.body163
-  %.not.i.i.i.i1132076 = phi i1 [ %.not.i.i.i.i1132077, %.body163 ], [ %.not.i.i.i.i113, %2460 ], [ %.not.i.i.i.i113, %2458 ], [ %.not.i.i.i.i113, %2447 ], [ %.not.i.i.i.i113, %.loopexit468 ], [ %.not.i.i.i.i113, %.loopexit.split-lp469.loopexit ], [ %.not.i.i.i.i113, %.loopexit.split-lp469.loopexit.split-lp ]
+  %.not.i.i.i.i1132084 = phi i1 [ %.not.i.i.i.i1132085, %.body163 ], [ %.not.i.i.i.i113, %2460 ], [ %.not.i.i.i.i113, %2458 ], [ %.not.i.i.i.i113, %2447 ], [ %.not.i.i.i.i113, %.loopexit468 ], [ %.not.i.i.i.i113, %.loopexit.split-lp469.loopexit ], [ %.not.i.i.i.i113, %.loopexit.split-lp469.loopexit.split-lp ]
   %.pn74.pn.pn.pn = phi { ptr, i32 } [ %.pn74.pn.pn, %.body163 ], [ %2448, %2460 ], [ %2448, %2458 ], [ %2448, %2447 ], [ %lpad.loopexit470, %.loopexit468 ], [ %lpad.loopexit473, %.loopexit.split-lp469.loopexit ], [ %lpad.loopexit.split-lp474, %.loopexit.split-lp469.loopexit.split-lp ]
   br i1 %.not.i.i.i.i116, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit285, label %3166
 
@@ -10885,7 +10893,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit233:            ; preds = %2785, %2783, %_ZN3a
   br label %_ZN3ade6HandleINS_4NodeEED2Ev.exit285
 
 _ZN3ade6HandleINS_4NodeEED2Ev.exit285:            ; preds = %.body130, %3174, %3176
-  br i1 %.not.i.i.i.i1132076, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit191, label %3180
+  br i1 %.not.i.i.i.i1132084, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit191, label %3180
 
 3180:                                             ; preds = %_ZN3ade6HandleINS_4NodeEED2Ev.exit285
   %3181 = getelementptr inbounds i8, ptr %.sroa.speculated422, i64 12
@@ -11042,6 +11050,10 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit301:            ; preds = %3232, %3230, %_ZN3a
 
 _ZN3ade6HandleINS_4NodeEED2Ev.exit297:            ; preds = %3218, %3216, %_ZN3ade6HandleINS_4NodeEED2Ev.exit293, %.loopexit481
   %.sroa.0403.3 = phi i32 [ %.sroa.0403.11440, %.loopexit481 ], [ %.sroa.0403.6, %_ZN3ade6HandleINS_4NodeEED2Ev.exit293 ], [ %.sroa.0403.6, %3216 ], [ %.sroa.0403.6, %3218 ]
+  %.sroa.17.3 = phi ptr [ %.sroa.17.11441, %.loopexit481 ], [ null, %_ZN3ade6HandleINS_4NodeEED2Ev.exit293 ], [ null, %3216 ], [ null, %3218 ]
+  %.sroa.13.3 = phi ptr [ %.sroa.13.11442, %.loopexit481 ], [ null, %_ZN3ade6HandleINS_4NodeEED2Ev.exit293 ], [ null, %3216 ], [ null, %3218 ]
+  %.sroa.9.3 = phi ptr [ %.sroa.9.11443, %.loopexit481 ], [ null, %_ZN3ade6HandleINS_4NodeEED2Ev.exit293 ], [ null, %3216 ], [ null, %3218 ]
+  %.sroa.4404.3 = phi ptr [ %.sroa.4404.11444, %.loopexit481 ], [ null, %_ZN3ade6HandleINS_4NodeEED2Ev.exit293 ], [ null, %3216 ], [ null, %3218 ]
   %.6 = phi i1 [ %.0351446, %.loopexit481 ], [ %.5, %_ZN3ade6HandleINS_4NodeEED2Ev.exit293 ], [ %.5, %3216 ], [ %.5, %3218 ]
   %.2 = phi i1 [ true, %.loopexit481 ], [ %.1, %_ZN3ade6HandleINS_4NodeEED2Ev.exit293 ], [ %.1, %3216 ], [ %.1, %3218 ]
   br i1 %.not.i.i.i.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit309, label %3249
@@ -11167,8 +11179,12 @@ _ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.
   br label %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %161, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge
-  %.1361953 = phi i1 [ %.6, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.6, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge ], [ false, %161 ]
-  %.sroa.0403.21952 = phi i32 [ %.sroa.0403.3, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.0403.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge ], [ %.sroa.0403.0, %161 ]
+  %.1361961 = phi i1 [ %.6, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.6, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge ], [ false, %161 ]
+  %.sroa.4404.21960 = phi ptr [ %.sroa.4404.3, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.4404.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge ], [ %.sroa.4404.0, %161 ]
+  %.sroa.9.21959 = phi ptr [ %.sroa.9.3, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.9.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge ], [ %.sroa.9.0, %161 ]
+  %.sroa.13.21958 = phi ptr [ %.sroa.13.3, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.13.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge ], [ %.sroa.13.0, %161 ]
+  %.sroa.17.21957 = phi ptr [ %.sroa.17.3, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.17.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge ], [ %.sroa.17.0, %161 ]
+  %.sroa.0403.21956 = phi i32 [ %.sroa.0403.3, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.sroa.0403.3, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge ], [ %.sroa.0403.0, %161 ]
   %3295 = phi ptr [ %.pr.i318, %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %.pre1944, %_ZN3ade6HandleINS_4NodeEED2Ev.exit309._crit_edge ], [ %162, %161 ]
   %.not.i.i.i319 = icmp eq ptr %3295, null
   br i1 %.not.i.i.i319, label %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit, label %3296
@@ -11178,7 +11194,7 @@ _ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %16
   br label %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i, %3296
-  br i1 %.1361953, label %160, label %3297, !llvm.loop !304
+  br i1 %.1361961, label %160, label %3297, !llvm.loop !304
 
 3297:                                             ; preds = %_ZNSt6vectorIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit
   %.val.i.i.i.i = load ptr, ptr %80, align 8

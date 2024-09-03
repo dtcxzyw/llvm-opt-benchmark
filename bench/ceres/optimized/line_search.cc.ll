@@ -3426,6 +3426,7 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
   br label %103
 
 103:                                              ; preds = %.preheader, %349
+  %.072 = phi i1 [ %.1, %349 ], [ undef, %.preheader ]
   %104 = load i32, ptr %85, align 8
   %105 = add nsw i32 %104, 1
   store i32 %105, ptr %85, align 8
@@ -3950,6 +3951,7 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
           to label %349 unwind label %312
 
 349:                                              ; preds = %344, %328, %337
+  %.1 = phi i1 [ false, %337 ], [ false, %328 ], [ %.072, %344 ]
   %350 = load ptr, ptr %101, align 8
   call void @free(ptr noundef %350) #25
   %351 = load ptr, ptr %102, align 8
@@ -3989,7 +3991,7 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
   br label %.loopexit105
 
 .loopexit105:                                     ; preds = %349, %.critedge, %357, %365
-  %.2 = phi i1 [ true, %365 ], [ true, %357 ], [ true, %.critedge ], [ false, %349 ]
+  %.2 = phi i1 [ true, %365 ], [ true, %357 ], [ true, %.critedge ], [ %.1, %349 ]
   %366 = getelementptr inbounds i8, ptr %11, i64 48
   %367 = load ptr, ptr %366, align 8
   call void @free(ptr noundef %367) #25
@@ -4464,8 +4466,8 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
   %198 = load i32, ptr %143, align 8
   %199 = getelementptr inbounds i8, ptr %0, i64 48
   %200 = load i32, ptr %199, align 8
-  %.not150 = icmp slt i32 %198, %200
-  br i1 %.not150, label %.lr.ph, label %._crit_edge
+  %.not152 = icmp slt i32 %198, %200
+  br i1 %.not152, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit
   %201 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4625,7 +4627,7 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
   %284 = getelementptr inbounds i8, ptr %0, i64 72
   %285 = load i8, ptr %284, align 8
   %286 = trunc i8 %285 to i1
-  br i1 %286, label %.critedge94.thread129, label %287
+  br i1 %286, label %.critedge94.thread130, label %287
 
 287:                                              ; preds = %281
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %29, ptr noundef nonnull @.str.6, i32 noundef 841, i32 noundef 1)
@@ -4641,7 +4643,7 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
 
 292:                                              ; preds = %290
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #25
-  br label %.critedge94.thread129
+  br label %.critedge94.thread130
 
 293:                                              ; preds = %290, %288
   %294 = landingpad { ptr, i32 }
@@ -4859,7 +4861,7 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
   %387 = invoke noundef nonnull align 8 dereferenceable(81) ptr @_ZN5ceres8internal14FunctionSampleaSERKS1_(ptr noundef nonnull align 8 dereferenceable(81) %3, ptr noundef nonnull align 8 dereferenceable(81) %2)
           to label %.invoke unwind label %.loopexit
 
-.critedge94.thread129:                            ; preds = %292, %281
+.critedge94.thread130:                            ; preds = %292, %281
   %388 = load ptr, ptr %214, align 8
   call void @free(ptr noundef %388) #25
   %389 = load ptr, ptr %215, align 8
@@ -4892,8 +4894,8 @@ _ZNK5ceres8internal18LineSearchFunction21DirectionInfinityNormEv.exit: ; preds =
   call void @free(ptr noundef %400) #25
   br label %401
 
-401:                                              ; preds = %.critedge94.thread129, %237, %247, %._crit_edge, %225, %398, %140
-  %.0 = phi i1 [ false, %140 ], [ true, %398 ], [ false, %225 ], [ false, %._crit_edge ], [ false, %247 ], [ false, %237 ], [ false, %.critedge94.thread129 ]
+401:                                              ; preds = %.critedge94.thread130, %237, %247, %._crit_edge, %225, %398, %140
+  %.0 = phi i1 [ false, %140 ], [ true, %398 ], [ false, %225 ], [ false, %._crit_edge ], [ false, %247 ], [ false, %237 ], [ false, %.critedge94.thread130 ]
   ret i1 %.0
 
 402:                                              ; preds = %395, %248, %226, %138, %137

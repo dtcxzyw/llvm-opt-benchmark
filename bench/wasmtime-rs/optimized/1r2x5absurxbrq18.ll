@@ -16247,20 +16247,19 @@ define hidden void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7vari
   %13 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %9)
   %14 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %13)
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29, label %16
+  br i1 %15, label %_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit, label %16
 
 16:                                               ; preds = %12
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.232e22e09a4c41574f60338730f76634.180.llvm.13863633964030799667, i64 noundef 37, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.181.llvm.13863633964030799667) #49
   unreachable
 
-_ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit29: ; preds = %12
-  %reass.add = shl i32 %13, 1
-  %17 = add i32 %reass.add, -1
-  %18 = sub i32 0, %13
-  %19 = and i32 %17, %18
-  %20 = add i32 %13, -1
-  %21 = add i32 %20, %19
-  %22 = and i32 %21, %18
+_ZN16wasmtime_environ9component5types8add_flat17h4446092aac2a602fE.exit: ; preds = %12
+  %17 = add i32 %13, -1
+  %18 = add i32 %17, %13
+  %19 = sub i32 0, %13
+  %20 = and i32 %18, %19
+  %21 = add i32 %17, %20
+  %22 = and i32 %21, %19
   store i32 %22, ptr %0, align 4
   %23 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %13, ptr %23, align 4
@@ -17664,19 +17663,18 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17haea
   unreachable
 
 _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit5: ; preds = %16
-  %reass.add.i = shl i32 %17, 1
-  %21 = add i32 %reass.add.i, -1
-  %22 = sub i32 0, %17
-  %23 = and i32 %21, %22
-  %24 = add i32 %17, -1
-  %25 = add i32 %24, %23
-  %26 = and i32 %25, %22
+  %21 = add i32 %17, -1
+  %22 = add i32 %21, %17
+  %23 = sub i32 0, %17
+  %24 = and i32 %22, %23
+  %25 = add i32 %24, %21
+  %26 = and i32 %25, %23
   %27 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %9)
-  %28 = add i32 %24, %27
-  %29 = and i32 %28, %22
+  %28 = add i32 %21, %27
+  %29 = and i32 %28, %23
   %30 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %9)
-  %31 = add i32 %24, %30
-  %32 = and i32 %31, %22
+  %31 = add i32 %21, %30
+  %32 = and i32 %31, %23
   store i32 %29, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %32, ptr %.sroa.4.0..sroa_idx, align 4

@@ -5084,6 +5084,7 @@ entry:
 
 for.cond:                                         ; preds = %for.inc, %entry
   %i.0 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
+  %retval.0 = phi i1 [ undef, %entry ], [ %retval.2, %for.inc ]
   %1 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -5095,8 +5096,8 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i32 [ %2, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not.not.not.not.not = icmp uge i32 %i.0, %retval.0.i.i
-  br i1 %cmp.not.not.not.not.not, label %return, label %for.body
+  %cmp = icmp ult i32 %i.0, %retval.0.i.i
+  br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %idxprom.i.i.i = zext i32 %i.0 to i64
@@ -5182,6 +5183,7 @@ if.end19:                                         ; preds = %invoke.cont12, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont15, %if.end19
+  %retval.3 = phi i1 [ %retval.0, %if.end19 ], [ false, %invoke.cont15 ]
   %switch = phi i1 [ true, %if.end19 ], [ false, %invoke.cont15 ]
   %16 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(16) %v)
@@ -5202,11 +5204,13 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   br i1 %switch, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN8rationalD2Ev.exit, %_ZNK7datalog15vector_relationI12old_intervalNS_22vector_relation_helperIS1_EEEixEj.exit
+  %retval.2 = phi i1 [ %retval.0, %_ZNK7datalog15vector_relationI12old_intervalNS_22vector_relation_helperIS1_EEEixEj.exit ], [ %retval.3, %_ZN8rationalD2Ev.exit ]
   %inc = add i32 %i.0, 1
   br label %for.cond, !llvm.loop !14
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %_ZN8rationalD2Ev.exit, %_ZNK7datalog15vector_relationI12old_intervalNS_22vector_relation_helperIS1_EEE4findEj.exit
-  ret i1 %cmp.not.not.not.not.not
+  %retval.1 = phi i1 [ %retval.3, %_ZN8rationalD2Ev.exit ], [ false, %_ZNK7datalog15vector_relationI12old_intervalNS_22vector_relation_helperIS1_EEE4findEj.exit ], [ true, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  ret i1 %retval.1
 }
 
 declare noundef zeroext i1 @_ZNK12old_interval8containsERK8rational(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

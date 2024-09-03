@@ -234,12 +234,12 @@ lpad6.loopexit:                                   ; preds = %for.body111, %invok
   br label %ehcleanup188
 
 lpad6.loopexit.split-lp.loopexit:                 ; preds = %while.body, %invoke.cont7, %while.cond
-  %lpad.loopexit222 = landingpad { ptr, i32 }
+  %lpad.loopexit223 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup188
 
 lpad6.loopexit.split-lp.loopexit.split-lp:        ; preds = %while.end, %invoke.cont168, %invoke.cont167, %invoke.cont161, %invoke.cont156, %for.end155
-  %lpad.loopexit.split-lp223 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp224 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup188
 
@@ -276,8 +276,8 @@ if.then.i.i:                                      ; preds = %invoke.cont22
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %sext217 = shl i64 %3, 32
-  %mul.i.i.i.i = ashr exact i64 %sext217, 28
+  %sext218 = shl i64 %3, 32
+  %mul.i.i.i.i = ashr exact i64 %sext218, 28
   %call.i.i.i.i49 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul.i.i.i.i, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i unwind label %lpad14.loopexit
 
@@ -320,7 +320,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.end.i, %
   br label %cleanup
 
 lpad14.loopexit:                                  ; preds = %if.else, %if.then19, %invoke.cont20, %if.else27, %if.then33, %invoke.cont34, %if.else43, %if.then51, %invoke.cont52, %invoke.cont55, %if.then66, %if.end, %if.then.i.i.i, %if.then3.i.i.i
-  %lpad.loopexit225 = landingpad { ptr, i32 }
+  %lpad.loopexit226 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -421,8 +421,8 @@ invoke.cont55:                                    ; preds = %invoke.cont52
 invoke.cont58:                                    ; preds = %invoke.cont55
   %16 = load float, ptr %p, align 4
   %inc = add i64 %x_count.0, 1
-  %sext216 = shl i64 %x_count.0, 32
-  %17 = ashr exact i64 %sext216, 28
+  %sext217 = shl i64 %x_count.0, 32
+  %17 = ashr exact i64 %sext217, 28
   %arrayidx.i66 = getelementptr inbounds i8, ptr %0, i64 %17
   store float %14, ptr %arrayidx.i66, align 4
   %position.sroa.2.0.arrayidx.i66.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i66, i64 4
@@ -483,28 +483,28 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body8.i80
   br label %for.body
 
 for.body:                                         ; preds = %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit, %for.inc
-  %i.0227 = phi i64 [ 0, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit ], [ %inc86, %for.inc ]
-  %arrayidx.i112 = getelementptr inbounds i32, ptr %call.i.i.i.i108, i64 %i.0227
+  %i.0228 = phi i64 [ 0, %_ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit ], [ %inc86, %for.inc ]
+  %arrayidx.i112 = getelementptr inbounds i32, ptr %call.i.i.i.i108, i64 %i.0228
   %call85 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16) %ss, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i112)
           to label %for.inc unwind label %lpad78.loopexit
 
 for.inc:                                          ; preds = %for.body
-  %inc86 = add nuw nsw i64 %i.0227, 1
+  %inc86 = add nuw nsw i64 %i.0228, 1
   %exitcond.not = icmp eq i64 %inc86, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 lpad78.loopexit:                                  ; preds = %for.body
-  %lpad.loopexit219 = landingpad { ptr, i32 }
+  %lpad.loopexit220 = landingpad { ptr, i32 }
           cleanup
   br label %lpad78
 
 lpad78.loopexit.split-lp:                         ; preds = %if.then.i.i85, %if.then.i.i.i.i.i, %if.then3.i.i.i.i.i
-  %lpad.loopexit.split-lp220 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp221 = landingpad { ptr, i32 }
           cleanup
   br label %lpad78
 
 lpad78:                                           ; preds = %lpad78.loopexit.split-lp, %lpad78.loopexit
-  %lpad.phi221 = phi { ptr, i32 } [ %lpad.loopexit219, %lpad78.loopexit ], [ %lpad.loopexit.split-lp220, %lpad78.loopexit.split-lp ]
+  %lpad.phi222 = phi { ptr, i32 } [ %lpad.loopexit220, %lpad78.loopexit ], [ %lpad.loopexit.split-lp221, %lpad78.loopexit.split-lp ]
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %tet) #15
   br label %ehcleanup
 
@@ -632,7 +632,7 @@ cleanup:                                          ; preds = %_ZN20btAlignedObjec
   br label %while.cond, !llvm.loop !10
 
 ehcleanup:                                        ; preds = %lpad14.loopexit, %lpad14.loopexit.split-lp, %lpad78, %lpad41
-  %.pn = phi { ptr, i32 } [ %13, %lpad41 ], [ %lpad.phi221, %lpad78 ], [ %lpad.loopexit225, %lpad14.loopexit ], [ %lpad.loopexit.split-lp, %lpad14.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %13, %lpad41 ], [ %lpad.phi222, %lpad78 ], [ %lpad.loopexit226, %lpad14.loopexit ], [ %lpad.loopexit.split-lp, %lpad14.loopexit.split-lp ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #15
   br label %ehcleanup188
 
@@ -648,8 +648,8 @@ invoke.cont99:                                    ; preds = %while.end
 
 for.cond108.preheader:                            ; preds = %invoke.cont99
   %36 = load i64, ptr %n_tets, align 8
-  %cmp110228.not = icmp eq i64 %36, 0
-  br i1 %cmp110228.not, label %for.end155, label %for.body111
+  %cmp110229.not = icmp eq i64 %36, 0
+  br i1 %cmp110229.not, label %for.end155, label %for.body111
 
 for.body111:                                      ; preds = %for.cond108.preheader, %for.inc153
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc153 ], [ 0, %for.cond108.preheader ]
@@ -874,7 +874,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjec
   ret ptr %retval.2
 
 ehcleanup188:                                     ; preds = %lpad6.loopexit, %lpad6.loopexit.split-lp.loopexit.split-lp, %lpad6.loopexit.split-lp.loopexit, %lpad102, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %62, %lpad102 ], [ %lpad.loopexit, %lpad6.loopexit ], [ %lpad.loopexit222, %lpad6.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp223, %lpad6.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %62, %lpad102 ], [ %lpad.loopexit, %lpad6.loopexit ], [ %lpad.loopexit223, %lpad6.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp224, %lpad6.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %indices) #15
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %X) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line) #15

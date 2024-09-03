@@ -304,7 +304,7 @@ define dso_local noundef zeroext i1 @_ZN11cmExportSet7ComputeEP16cmLocalGenerato
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not133 = icmp eq ptr %13, %15
-  br i1 %.not133, label %._crit_edge, label %.lr.ph
+  br i1 %.not133, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %16 = getelementptr inbounds i8, ptr %12, i64 8
@@ -813,21 +813,6 @@ _ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_
   %spec.select.i.i.i.i = select i1 %206, ptr %.sroa.025.2.i.i.i.i, ptr %64
   br label %207
 
-.loopexit:                                        ; preds = %161, %130, %99, %.lr.ph.i.i.i.i
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
-
-.loopexit.split-lp:                               ; preds = %197, %201, %205, %_ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit.thread.i.i, %.noexc25, %_ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit.thread.i.i38, %.noexc45, %_ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit.thread.i.i61, %.noexc68, %_ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit.thread.i.i84, %.noexc91
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
-
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %159, %97, %128, %190
-  %eh.lpad-body = phi { ptr, i32 } [ %191, %190 ], [ %160, %159 ], [ %129, %128 ], [ %98, %97 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
-  resume { ptr, i32 } %eh.lpad-body
-
 207:                                              ; preds = %.noexc22, %.noexc21, %.noexc20, %._crit_edge.i.i.i.i, %.noexc.thread, %.noexc17.thread, %.noexc18.thread, %.noexc19.thread
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %.noexc20 ], [ %.sroa.025.1.i.i.i.i, %.noexc21 ], [ %64, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %.noexc22 ], [ %.sroa.025.035.i.i.i.i, %.noexc.thread ], [ %100, %.noexc17.thread ], [ %131, %.noexc18.thread ], [ %162, %.noexc19.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
@@ -861,9 +846,24 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %214 = getelementptr inbounds i8, ptr %.sroa.096.0134, i64 8
   %.not = icmp ne ptr %214, %15
   %or.cond.not = select i1 %208, i1 %.not, i1 false
-  br i1 %or.cond.not, label %54, label %._crit_edge
+  br i1 %or.cond.not, label %54, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit._crit_edge
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %2
+.loopexit:                                        ; preds = %161, %130, %99, %.lr.ph.i.i.i.i
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.loopexit.split-lp:                               ; preds = %197, %201, %205, %_ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit.thread.i.i, %.noexc25, %_ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit.thread.i.i38, %.noexc45, %_ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit.thread.i.i61, %.noexc68, %_ZNKSt3mapIP9cmFileSetP25cmInstallFileSetGeneratorSt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit.thread.i.i84, %.noexc91
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %159, %97, %128, %190
+  %eh.lpad-body = phi { ptr, i32 } [ %191, %190 ], [ %160, %159 ], [ %129, %128 ], [ %98, %97 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
+  resume { ptr, i32 } %eh.lpad-body
+
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit._crit_edge: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %2
   %.not.lcssa = phi i1 [ true, %2 ], [ %208, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   ret i1 %.not.lcssa
 }

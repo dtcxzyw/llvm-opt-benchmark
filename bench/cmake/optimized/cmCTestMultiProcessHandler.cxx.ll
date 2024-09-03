@@ -1967,10 +1967,10 @@ define dso_local noundef zeroext i1 @_ZN26cmCTestMultiProcessHandler11CheckCycle
   %27 = getelementptr inbounds i8, ptr %0, i64 256
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 240
-  %.not85 = icmp eq ptr %28, %29
-  br i1 %.not85, label %._crit_edge, label %.lr.ph88
+  %.not75 = icmp eq ptr %28, %29
+  br i1 %.not75, label %._crit_edge, label %.lr.ph78
 
-.lr.ph88:                                         ; preds = %25
+.lr.ph78:                                         ; preds = %25
   %30 = getelementptr inbounds i8, ptr %7, i64 8
   %31 = getelementptr inbounds i8, ptr %7, i64 16
   %32 = getelementptr inbounds i8, ptr %7, i64 24
@@ -1989,9 +1989,10 @@ define dso_local noundef zeroext i1 @_ZN26cmCTestMultiProcessHandler11CheckCycle
   %45 = getelementptr inbounds i8, ptr %0, i64 392
   br label %46
 
-46:                                               ; preds = %.lr.ph88, %257
-  %.sroa.047.086 = phi ptr [ %28, %.lr.ph88 ], [ %258, %257 ]
-  %47 = getelementptr inbounds i8, ptr %.sroa.047.086, i64 32
+46:                                               ; preds = %.lr.ph78, %257
+  %.01177 = phi i1 [ undef, %.lr.ph78 ], [ %.1, %257 ]
+  %.sroa.047.076 = phi ptr [ %28, %.lr.ph78 ], [ %258, %257 ]
+  %47 = getelementptr inbounds i8, ptr %.sroa.047.076, i64 32
   %48 = load i32, ptr %47, align 8
   store i32 %48, ptr %6, align 4
   store i32 0, ptr %30, align 8
@@ -2030,21 +2031,21 @@ _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit:     ; preds = %._ZNSt5stackIiSt5de
   %57 = phi ptr [ %.pre, %._ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit_crit_edge ], [ %55, %52 ]
   %58 = load ptr, ptr %37, align 8
   %59 = icmp eq ptr %57, %58
-  br i1 %59, label %.loopexit56, label %.lr.ph84
+  br i1 %59, label %.loopexit56, label %.lr.ph74
 
-.lr.ph84:                                         ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit, %.loopexit
+.lr.ph74:                                         ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit, %.loopexit
   %60 = phi ptr [ %239, %.loopexit ], [ %57, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ]
   %61 = load ptr, ptr %38, align 8
   %62 = icmp eq ptr %60, %61
   br i1 %62, label %66, label %63
 
-63:                                               ; preds = %.lr.ph84
+63:                                               ; preds = %.lr.ph74
   %64 = getelementptr inbounds i8, ptr %60, i64 -4
   %65 = load i32, ptr %64, align 4
   store i32 %65, ptr %9, align 4
   br label %_ZNSt5stackIiSt5dequeIiSaIiEEE3popEv.exit
 
-66:                                               ; preds = %.lr.ph84
+66:                                               ; preds = %.lr.ph74
   %67 = load ptr, ptr %39, align 8, !noalias !12
   %68 = getelementptr inbounds i8, ptr %67, i64 -8
   %69 = load ptr, ptr %68, align 8
@@ -2172,16 +2173,16 @@ _ZNSt3mapIiN26cmCTestMultiProcessHandler8TestInfoESt4lessIiESaISt4pairIKiS1_EEE1
   %111 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 64
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 48
-  %.not5482 = icmp eq ptr %112, %113
-  br i1 %.not5482, label %..loopexit_crit_edge, label %.lr.ph
+  %.not5472 = icmp eq ptr %112, %113
+  br i1 %.not5472, label %..loopexit_crit_edge, label %.lr.ph
 
 ..loopexit_crit_edge:                             ; preds = %110
-  %.pre93 = load ptr, ptr %35, align 8
+  %.pre84 = load ptr, ptr %35, align 8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %110, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34
-  %.sroa.043.083 = phi ptr [ %238, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34 ], [ %112, %110 ]
-  %114 = getelementptr inbounds i8, ptr %.sroa.043.083, i64 32
+  %.sroa.043.073 = phi ptr [ %238, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34 ], [ %112, %110 ]
+  %114 = getelementptr inbounds i8, ptr %.sroa.043.073, i64 32
   %115 = load i32, ptr %114, align 4
   %116 = load i32, ptr %6, align 4
   %117 = icmp eq i32 %115, %116
@@ -2465,18 +2466,19 @@ _ZNSt5dequeIiSaIiEE22_M_reserve_map_at_backEm.exit.i: ; preds = %.noexc38, %178
 _ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34:   ; preds = %.noexc33, %150
   %storemerge = phi ptr [ %152, %150 ], [ %236, %.noexc33 ]
   store ptr %storemerge, ptr %35, align 8
-  %238 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.043.083) #29
+  %238 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.043.073) #29
   %.not54 = icmp eq ptr %238, %113
   br i1 %.not54, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34, %..loopexit_crit_edge, %84
-  %239 = phi ptr [ %.pre93, %..loopexit_crit_edge ], [ %storemerge.i.i, %84 ], [ %storemerge, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34 ]
+  %239 = phi ptr [ %.pre84, %..loopexit_crit_edge ], [ %storemerge.i.i, %84 ], [ %storemerge, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit34 ]
   %240 = load ptr, ptr %37, align 8
   %241 = icmp eq ptr %239, %240
-  br i1 %241, label %.loopexit56, label %.lr.ph84, !llvm.loop !17
+  br i1 %241, label %.loopexit56, label %.lr.ph74, !llvm.loop !17
 
 .loopexit56:                                      ; preds = %.loopexit, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit, %133
   %242 = phi i1 [ false, %133 ], [ true, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ], [ true, %.loopexit ]
+  %.1 = phi i1 [ false, %133 ], [ %.01177, %_ZNSt5stackIiSt5dequeIiSaIiEEE4pushERKi.exit ], [ %.01177, %.loopexit ]
   %243 = load ptr, ptr %8, align 8
   %.not.i.i.i35 = icmp eq ptr %243, null
   br i1 %.not.i.i.i35, label %_ZNSt5stackIiSt5dequeIiSaIiEEED2Ev.exit, label %244
@@ -2521,7 +2523,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %_ZNSt5stackIiSt5deq
   br i1 %242, label %257, label %.loopexit62
 
 257:                                              ; preds = %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit
-  %258 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.047.086) #29
+  %258 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.047.076) #29
   %.not = icmp eq ptr %258, %29
   br i1 %.not, label %._crit_edge, label %46
 
@@ -2578,8 +2580,8 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %_ZNSt5stackIiSt5deq
   br label %275
 
 .loopexit62:                                      ; preds = %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit, %269
-  %.not81 = phi i1 [ true, %269 ], [ false, %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit ]
-  ret i1 %.not81
+  %.2 = phi i1 [ true, %269 ], [ %.1, %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit ]
+  ret i1 %.2
 
 275:                                              ; preds = %274, %259, %138
   %.pn24.pn.pn.pn = phi { ptr, i32 } [ %.pn24.pn.pn, %259 ], [ %.pn22, %274 ], [ %.pn, %138 ]

@@ -1543,7 +1543,7 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadOldEPKc(ptr noundef nonnull ali
 21:                                               ; preds = %18, %17
   %22 = phi i32 [ %20, %18 ], [ -1, %17 ]
   %23 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef %1, i32 noundef %22)
-          to label %24 unwind label %.loopexit25
+          to label %24 unwind label %.loopexit27
 
 24:                                               ; preds = %21
   store ptr %23, ptr %5, align 8
@@ -1575,7 +1575,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %27, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %32 = invoke noundef zeroext i1 @_ZN6QImage4loadERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null)
-          to label %35 unwind label %.loopexit25
+          to label %35 unwind label %.loopexit27
 
 .loopexit:                                        ; preds = %12, %15, %16
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1587,13 +1587,13 @@ _ZN7QStringD2Ev.exit:                             ; preds = %27, %_ZN9QtPrivate8
           cleanup
   br label %60
 
-.loopexit25:                                      ; preds = %_ZN7QStringD2Ev.exit, %37, %21
-  %lpad.loopexit27 = landingpad { ptr, i32 }
+.loopexit27:                                      ; preds = %_ZN7QStringD2Ev.exit, %37, %21
+  %lpad.loopexit29 = landingpad { ptr, i32 }
           cleanup
   br label %53
 
-.loopexit.split-lp26:                             ; preds = %36
-  %lpad.loopexit.split-lp28 = landingpad { ptr, i32 }
+.loopexit.split-lp28:                             ; preds = %36
+  %lpad.loopexit.split-lp30 = landingpad { ptr, i32 }
           cleanup
   br label %53
 
@@ -1608,11 +1608,11 @@ _ZN7QStringD2Ev.exit:                             ; preds = %27, %_ZN9QtPrivate8
 
 36:                                               ; preds = %35
   invoke void @glPopAttrib()
-          to label %49 unwind label %.loopexit.split-lp26
+          to label %49 unwind label %.loopexit.split-lp28
 
 37:                                               ; preds = %35
   invoke void @_ZN9QGLWidget17convertToGLFormatERK6QImage(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %38 unwind label %.loopexit25
+          to label %38 unwind label %.loopexit27
 
 38:                                               ; preds = %37
   %39 = load i32, ptr %13, align 4
@@ -1657,8 +1657,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %27, %_ZN9QtPrivate8
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   br label %53
 
-53:                                               ; preds = %.loopexit25, %.loopexit.split-lp26, %51, %33
-  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %34, %33 ], [ %lpad.loopexit27, %.loopexit25 ], [ %lpad.loopexit.split-lp28, %.loopexit.split-lp26 ]
+53:                                               ; preds = %.loopexit27, %.loopexit.split-lp28, %51, %33
+  %.pn = phi { ptr, i32 } [ %52, %51 ], [ %34, %33 ], [ %lpad.loopexit29, %.loopexit27 ], [ %lpad.loopexit.split-lp30, %.loopexit.split-lp28 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   br label %60
 
@@ -1738,11 +1738,12 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadExtEPKc(ptr noundef nonnull ali
 
 18:                                               ; preds = %_ZN7QStringD2Ev.exit21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %62, label %19, !llvm.loop !26
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %62, label %19, !llvm.loop !26
 
 19:                                               ; preds = %11, %18
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %18 ]
+  %.01322 = phi i1 [ undef, %11 ], [ %.1, %18 ]
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
   call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   br i1 %.not.i, label %23, label %20
@@ -1839,6 +1840,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %29, %_ZN9QtPrivate8
   br label %54
 
 54:                                               ; preds = %40, %53
+  %.1 = phi i1 [ %.01322, %53 ], [ false, %40 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   %55 = load ptr, ptr %4, align 8
   %56 = load atomic i32, ptr %55 monotonic, align 4
@@ -1882,7 +1884,8 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %54, %_ZN9QtPrivate8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN7QStringD2Ev.exit21, %62
-  ret i1 %34
+  %.2 = phi i1 [ true, %62 ], [ %.1, %_ZN7QStringD2Ev.exit21 ]
+  ret i1 %.2
 }
 
 declare void @glGenTextures(i32 noundef, ptr noundef) local_unnamed_addr #0

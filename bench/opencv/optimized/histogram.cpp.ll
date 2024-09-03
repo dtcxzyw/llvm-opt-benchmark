@@ -766,6 +766,7 @@ define linkonce_odr hidden noundef float @_ZN2cv5rapid15HistTrackerImpl7computeE
   br label %173
 
 173:                                              ; preds = %68, %590
+  %.0150 = phi float [ undef, %68 ], [ %.2, %590 ]
   %.058149 = phi float [ 0.000000e+00, %68 ], [ %.260, %590 ]
   %.063148 = phi i32 [ 0, %68 ], [ %591, %590 ]
   store i32 0, ptr %72, align 8
@@ -968,8 +969,8 @@ _ZN2cv4Mat_INS_3VecIhLi3EEEEC2ERKNS_3MatE.exit:   ; preds = %_ZN2cv4Mat_IfE6crea
   %.pre40.i = load i64, ptr %.pre39.i, align 8
   %.pre42.i = mul i64 %.pre40.i, %indvars.iv36.i
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre.i, i64 %.pre42.i
-  %.phi.trans.insert157 = getelementptr inbounds i8, ptr %.phi.trans.insert, i64 %indvars.iv.i
-  %.pre = load i8, ptr %.phi.trans.insert157, align 1
+  %.phi.trans.insert158 = getelementptr inbounds i8, ptr %.phi.trans.insert, i64 %indvars.iv.i
+  %.pre = load i8, ptr %.phi.trans.insert158, align 1
   br label %236
 
 236:                                              ; preds = %235, %232
@@ -1816,6 +1817,7 @@ _ZN2cv4Mat_INS_3VecIhLi3EEEEC2ERKNS_3MatE.exit131: ; preds = %543
 589:                                              ; preds = %530, %565, %588
   %.061 = phi i32 [ 0, %588 ], [ 4, %565 ], [ 1, %530 ]
   %.260 = phi float [ %553, %588 ], [ %553, %565 ], [ %.058149, %530 ]
+  %.2 = phi float [ %.0150, %588 ], [ %.0150, %565 ], [ 0.000000e+00, %530 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #16
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #16
@@ -1862,7 +1864,7 @@ _ZN2cv4Mat_INS_3VecIhLi3EEEEC2ERKNS_3MatE.exit131: ; preds = %543
   br label %.loopexit142
 
 .loopexit142:                                     ; preds = %590, %178, %589, %.loopexit142.loopexit
-  %.1 = phi float [ %.260, %589 ], [ %.260, %590 ], [ 0.000000e+00, %178 ], [ 0.000000e+00, %.loopexit142.loopexit ]
+  %.1 = phi float [ %.260, %589 ], [ %.260, %590 ], [ 0.000000e+00, %178 ], [ %.2, %.loopexit142.loopexit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #16
   ret float %.1

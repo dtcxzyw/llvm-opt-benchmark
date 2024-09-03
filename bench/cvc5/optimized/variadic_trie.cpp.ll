@@ -272,6 +272,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %retval.131 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.2, %for.inc ]
   %__begin2.sroa.0.030 = phi ptr [ %5, %for.body.lr.ph ], [ %call.i, %for.inc ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.030, i64 32
   %6 = load ptr, ptr %_M_storage.i.i, align 8
@@ -423,6 +424,7 @@ if.end25:                                         ; preds = %for.end.i.i.i, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont21, %if.end25
+  %retval.2 = phi i1 [ %retval.131, %if.end25 ], [ true, %invoke.cont21 ]
   %switch = phi i1 [ true, %if.end25 ], [ false, %invoke.cont21 ]
   %19 = load ptr, ptr %n, align 8
   %bf.load.i.i9 = load i64, ptr %19, align 8
@@ -451,19 +453,15 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i16
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %cleanup, %if.then.i.i10, %if.then13.i.i16
-  br i1 %switch, label %for.inc, label %return.loopexit
+  br i1 %switch, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.030) #16
   %cmp.i6.not = icmp eq ptr %call.i, %add.ptr.i.i
-  br i1 %cmp.i6.not, label %return.loopexit, label %for.body
+  br i1 %cmp.i6.not, label %return, label %for.body
 
-return.loopexit:                                  ; preds = %for.inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %retval.0.ph = xor i1 %switch, true
-  br label %return
-
-return:                                           ; preds = %return.loopexit, %if.end, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
-  %retval.0 = phi i1 [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %if.end ], [ %retval.0.ph, %return.loopexit ]
+return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %for.inc, %if.end, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
+  %retval.0 = phi i1 [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %if.end ], [ %retval.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %for.inc ]
   ret i1 %retval.0
 }
 

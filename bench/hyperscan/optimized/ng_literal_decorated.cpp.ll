@@ -876,8 +876,8 @@ _ZNSt12_Vector_baseIN3ue28PathMaskESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %_ZNSt12_Vector_baseIN3ue28PathMaskESaIS1_EE13_M_deallocateEPS1_m.exit.i, %if.end.i19
-  %cmp.i33.not83 = icmp eq ptr %84, %83
-  br i1 %cmp.i33.not83, label %cleanup69, label %for.body.lr.ph
+  %cmp.i33.not79 = icmp eq ptr %84, %83
+  br i1 %cmp.i33.not79, label %cleanup69, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont20
   %reports = getelementptr inbounds i8, ptr %pm, i64 24
@@ -891,9 +891,15 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20
   %m_capacity.i.i.i4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pm, i64 40
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.sroa.0.084 = phi ptr [ %84, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  invoke void @_ZN3ue28PathMaskC2ERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(58) %pm, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(24) %__begin1.sroa.0.084)
+for.cond:                                         ; preds = %_ZN3ue28PathMaskD2Ev.exit
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.080, i64 24
+  %cmp.i33.not = icmp eq ptr %incdec.ptr.i, %83
+  br i1 %cmp.i33.not, label %for.end, label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %retval.281 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.3, %for.cond ]
+  %__begin1.sroa.0.080 = phi ptr [ %84, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
+  invoke void @_ZN3ue28PathMaskC2ERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISB_EE(ptr noundef nonnull align 8 dereferenceable(58) %pm, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(24) %__begin1.sroa.0.080)
           to label %invoke.cont29 unwind label %lpad19.loopexit.split-lp.loopexit
 
 invoke.cont29:                                    ; preds = %for.body
@@ -908,7 +914,7 @@ invoke.cont29:                                    ; preds = %for.body
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont29
-  br i1 %call34, label %if.end39, label %cleanup69.critedge
+  br i1 %call34, label %if.end39, label %cleanup
 
 lpad19.loopexit:                                  ; preds = %for.body51
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -997,7 +1003,8 @@ if.else.i.i41:                                    ; preds = %if.end39
   invoke void @_ZNSt6vectorIN3ue28PathMaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %masks, ptr %89, ptr noundef nonnull align 8 dereferenceable(58) %pm)
           to label %cleanup unwind label %lpad32
 
-cleanup:                                          ; preds = %_ZNSt16allocator_traitsISaIN3ue28PathMaskEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %if.else.i.i41
+cleanup:                                          ; preds = %_ZNSt16allocator_traitsISaIN3ue28PathMaskEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i, %if.else.i.i41, %invoke.cont33
+  %retval.3 = phi i1 [ false, %invoke.cont33 ], [ %retval.281, %if.else.i.i41 ], [ %retval.281, %_ZNSt16allocator_traitsISaIN3ue28PathMaskEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i ]
   %102 = load i64, ptr %m_capacity.i.i.i4.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i43 = icmp eq i64 %102, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i43, label %_ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit.i, label %if.then.i.i.i.i.i.i.i.i.i.i44
@@ -1014,49 +1021,43 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i
 _ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit.i:    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i44, %cleanup
   %104 = load ptr, ptr %pm, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %104, null
-  br i1 %tobool.not.i.i.i.i, label %for.inc, label %if.then.i.i.i.i45
+  br i1 %tobool.not.i.i.i.i, label %_ZN3ue28PathMaskD2Ev.exit, label %if.then.i.i.i.i45
 
 if.then.i.i.i.i45:                                ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit.i
   call void @_ZdlPv(ptr noundef nonnull %104) #21
-  br label %for.inc
+  br label %_ZN3ue28PathMaskD2Ev.exit
 
-for.inc:                                          ; preds = %if.then.i.i.i.i45, %_ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.084, i64 24
-  %cmp.i33.not = icmp eq ptr %incdec.ptr.i, %83
-  br i1 %cmp.i33.not, label %for.end, label %for.body
+_ZN3ue28PathMaskD2Ev.exit:                        ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEED2Ev.exit.i, %if.then.i.i.i.i45
+  br i1 %call34, label %for.cond, label %cleanup69
 
-for.end:                                          ; preds = %for.inc
+for.end:                                          ; preds = %for.cond
   %.pre = load ptr, ptr %masks, align 8
-  %.pre90 = load ptr, ptr %_M_finish.i.i34, align 8
-  %cmp.i47.not86 = icmp eq ptr %.pre, %.pre90
-  br i1 %cmp.i47.not86, label %cleanup69, label %for.body51
+  %.pre88 = load ptr, ptr %_M_finish.i.i34, align 8
+  %cmp.i47.not82 = icmp eq ptr %.pre, %.pre88
+  br i1 %cmp.i47.not82, label %cleanup69, label %for.body51
 
 for.body51:                                       ; preds = %for.end, %for.inc63
-  %__begin143.sroa.0.087 = phi ptr [ %incdec.ptr.i48, %for.inc63 ], [ %.pre, %for.end ]
-  %reports55 = getelementptr inbounds i8, ptr %__begin143.sroa.0.087, i64 24
-  %is_anchored56 = getelementptr inbounds i8, ptr %__begin143.sroa.0.087, i64 56
+  %__begin143.sroa.0.083 = phi ptr [ %incdec.ptr.i48, %for.inc63 ], [ %.pre, %for.end ]
+  %reports55 = getelementptr inbounds i8, ptr %__begin143.sroa.0.083, i64 24
+  %is_anchored56 = getelementptr inbounds i8, ptr %__begin143.sroa.0.083, i64 56
   %105 = load i8, ptr %is_anchored56, align 8
   %tobool57 = trunc i8 %105 to i1
-  %is_eod58 = getelementptr inbounds i8, ptr %__begin143.sroa.0.087, i64 57
+  %is_eod58 = getelementptr inbounds i8, ptr %__begin143.sroa.0.083, i64 57
   %106 = load i8, ptr %is_eod58, align 1
   %tobool59 = trunc i8 %106 to i1
   %vtable60 = load ptr, ptr %rose, align 8
   %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 96
   %107 = load ptr, ptr %vfn61, align 8
-  invoke void %107(ptr noundef nonnull align 8 dereferenceable(8) %rose, ptr noundef nonnull align 8 dereferenceable(24) %__begin143.sroa.0.087, ptr noundef nonnull align 8 dereferenceable(32) %reports55, i1 noundef zeroext %tobool57, i1 noundef zeroext %tobool59)
+  invoke void %107(ptr noundef nonnull align 8 dereferenceable(8) %rose, ptr noundef nonnull align 8 dereferenceable(24) %__begin143.sroa.0.083, ptr noundef nonnull align 8 dereferenceable(32) %reports55, i1 noundef zeroext %tobool57, i1 noundef zeroext %tobool59)
           to label %for.inc63 unwind label %lpad19.loopexit
 
 for.inc63:                                        ; preds = %for.body51
-  %incdec.ptr.i48 = getelementptr inbounds i8, ptr %__begin143.sroa.0.087, i64 64
-  %cmp.i47.not = icmp eq ptr %incdec.ptr.i48, %.pre90
+  %incdec.ptr.i48 = getelementptr inbounds i8, ptr %__begin143.sroa.0.083, i64 64
+  %cmp.i47.not = icmp eq ptr %incdec.ptr.i48, %.pre88
   br i1 %cmp.i47.not, label %cleanup69, label %for.body51
 
-cleanup69.critedge:                               ; preds = %invoke.cont33
-  call void @_ZN3ue28PathMaskD2Ev(ptr noundef nonnull align 8 dereferenceable(58) %pm) #18
-  br label %cleanup69
-
-cleanup69:                                        ; preds = %for.inc63, %invoke.cont20, %for.end, %cleanup69.critedge
-  %cmp.i33.not82 = phi i1 [ false, %cleanup69.critedge ], [ true, %for.end ], [ true, %invoke.cont20 ], [ true, %for.inc63 ]
+cleanup69:                                        ; preds = %_ZN3ue28PathMaskD2Ev.exit, %for.inc63, %invoke.cont20, %for.end
+  %retval.4 = phi i1 [ true, %for.end ], [ true, %invoke.cont20 ], [ true, %for.inc63 ], [ %retval.3, %_ZN3ue28PathMaskD2Ev.exit ]
   %108 = load ptr, ptr %masks, align 8
   %_M_finish.i49 = getelementptr inbounds i8, ptr %masks, i64 8
   %109 = load ptr, ptr %_M_finish.i49, align 8
@@ -1114,7 +1115,7 @@ ehcleanup:                                        ; preds = %lpad19.loopexit, %l
   br label %ehcleanup71
 
 cleanup70:                                        ; preds = %if.then.i.i.i56, %invoke.cont.i, %invoke.cont
-  %retval.1 = phi i1 [ false, %invoke.cont ], [ %cmp.i33.not82, %invoke.cont.i ], [ %cmp.i33.not82, %if.then.i.i.i56 ]
+  %retval.1 = phi i1 [ false, %invoke.cont ], [ %retval.4, %invoke.cont.i ], [ %retval.4, %if.then.i.i.i56 ]
   %114 = load ptr, ptr %paths, align 8
   %_M_finish.i57 = getelementptr inbounds i8, ptr %paths, i64 8
   %115 = load ptr, ptr %_M_finish.i57, align 8

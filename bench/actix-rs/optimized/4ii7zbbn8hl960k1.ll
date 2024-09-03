@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h90e1812bf5b3d234E"(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq i64 %0, 0
-  br i1 %3, label %16, label %4
+  br i1 %3, label %14, label %4
 
 4:                                                ; preds = %2
   %5 = icmp sgt i64 %0, -1
@@ -16,35 +16,35 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  br i1 %1, label %11, label %8
+  br i1 %1, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
 
 7:                                                ; preds = %4
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hbca7785f3bc15d50E() #5
   unreachable
 
-8:                                                ; preds = %6
-  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %10 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef %.sroa.0.0.i) #6
-  br label %13
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit": ; preds = %6
+  %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %9 = tail call noundef ptr @__rust_alloc(i64 noundef %0, i64 noundef %.sroa.0.0.i) #6
+  br label %11
 
-11:                                               ; preds = %6
-  %12 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %0, i64 noundef %.sroa.0.0.i) #6
-  br label %13
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit": ; preds = %6
+  %10 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %0, i64 noundef %.sroa.0.0.i) #6
+  br label %11
 
-13:                                               ; preds = %11, %8
-  %.pn21 = phi ptr [ %12, %11 ], [ %10, %8 ]
-  %14 = icmp eq ptr %.pn21, null
-  br i1 %14, label %15, label %16
+11:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit"
+  %.pn22 = phi ptr [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h1b82520d41d4075dE.exit" ], [ %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h1ec59203150b9c13E.exit" ]
+  %12 = icmp eq ptr %.pn22, null
+  br i1 %12, label %13, label %14
 
-15:                                               ; preds = %13
+13:                                               ; preds = %11
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %.sroa.0.0.i, i64 noundef %0) #5
   unreachable
 
-16:                                               ; preds = %13, %2
-  %.sroa.3.0 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ %.pn21, %13 ]
-  %17 = insertvalue { i64, ptr } poison, i64 %0, 0
-  %18 = insertvalue { i64, ptr } %17, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %18
+14:                                               ; preds = %11, %2
+  %.sroa.3.0 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ %.pn22, %11 ]
+  %15 = insertvalue { i64, ptr } poison, i64 %0, 0
+  %16 = insertvalue { i64, ptr } %15, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %16
 }
 
 ; Function Attrs: nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable

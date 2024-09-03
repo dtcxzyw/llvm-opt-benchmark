@@ -3919,6 +3919,7 @@ define linkonce_odr dso_local { i8, i64 } @_ZN7Reducer21deleteChildStatementsEPN
 .preheader:                                       ; preds = %3, %171
   %8 = phi i64 [ %172, %171 ], [ %6, %3 ]
   %.0 = phi i64 [ %.1, %171 ], [ %2, %3 ]
+  %.sroa.094.1 = phi i8 [ %.sroa.094.4, %171 ], [ undef, %3 ]
   %.sroa.4.1 = phi i64 [ %.sroa.4.4, %171 ], [ undef, %3 ]
   %9 = icmp ult i64 %8, 2
   br i1 %9, label %._crit_edge, label %10
@@ -4059,12 +4060,12 @@ _ZZN7Reducer13generateSpansEmmENKUlSt4pairImmES1_E_clES1_S1_.exit57: ; preds = %
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %.body, %43
-  %.sroa.0.5.lcssa287.sink317 = phi ptr [ %.sroa.0.3, %43 ], [ %.sroa.0.5, %.body ]
-  %.sink315 = phi i64 [ %44, %43 ], [ %72, %.body ]
+  %.sroa.0.5.lcssa287.sink318 = phi ptr [ %.sroa.0.3, %43 ], [ %.sroa.0.5, %.body ]
+  %.sink316 = phi i64 [ %44, %43 ], [ %72, %.body ]
   %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi.i, %43 ], [ %.pn, %.body ]
-  %45 = ptrtoint ptr %.sroa.0.5.lcssa287.sink317 to i64
-  %46 = sub i64 %.sink315, %45
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5.lcssa287.sink317, i64 noundef %46) #24
+  %45 = ptrtoint ptr %.sroa.0.5.lcssa287.sink318 to i64
+  %46 = sub i64 %.sink316, %45
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5.lcssa287.sink318, i64 noundef %46) #24
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %.body, %.loopexit43.i
@@ -4180,6 +4181,7 @@ _ZN7Reducer13generateSpansEmm.exit:               ; preds = %_ZZN7Reducer13gener
 
 76:                                               ; preds = %.lr.ph, %74
   %.sroa.4.2210 = phi i64 [ %.sroa.4.1, %.lr.ph ], [ %.sroa.4.3, %74 ]
+  %.sroa.094.2209 = phi i8 [ %.sroa.094.1, %.lr.ph ], [ %.sroa.094.3, %74 ]
   %.sroa.085.0208 = phi ptr [ %.sroa.0.5, %.lr.ph ], [ %75, %74 ]
   %77 = getelementptr inbounds i8, ptr %.sroa.085.0208, i64 16
   %.sroa.0.0.copyload = load i64, ptr %.sroa.085.0208, align 8
@@ -4438,6 +4440,7 @@ _ZN7Reducer20reallocateStatementsERKSt6vectorIPN4Luau7AstStatESaIS3_EE.exit: ; p
   br label %163
 
 163:                                              ; preds = %162, %_ZN7Reducer20reallocateStatementsERKSt6vectorIPN4Luau7AstStatESaIS3_EE.exit
+  %.sroa.094.3 = phi i8 [ 1, %_ZN7Reducer20reallocateStatementsERKSt6vectorIPN4Luau7AstStatESaIS3_EE.exit ], [ %.sroa.094.2209, %162 ]
   %.sroa.4.3 = phi i64 [ %.sroa.speculated, %_ZN7Reducer20reallocateStatementsERKSt6vectorIPN4Luau7AstStatESaIS3_EE.exit ], [ %.sroa.4.2210, %162 ]
   %.not.i.i.i27 = icmp eq ptr %.lcssa31.i, null
   br i1 %.not.i.i.i27, label %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28, label %164
@@ -4454,6 +4457,7 @@ _ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28: ; preds = %163, %164
 ._crit_edge:                                      ; preds = %74, %.preheader, %_ZN7Reducer13generateSpansEmm.exit
   %.sroa.19.4271 = phi i64 [ %72, %_ZN7Reducer13generateSpansEmm.exit ], [ 0, %.preheader ], [ %72, %74 ]
   %.sroa.0.4267 = phi ptr [ %.sroa.0.5, %_ZN7Reducer13generateSpansEmm.exit ], [ null, %.preheader ], [ %.sroa.0.5, %74 ]
+  %.sroa.094.2.lcssa = phi i8 [ %.sroa.094.1, %_ZN7Reducer13generateSpansEmm.exit ], [ %.sroa.094.1, %.preheader ], [ %.sroa.094.3, %74 ]
   %.sroa.4.2.lcssa = phi i64 [ %.sroa.4.1, %_ZN7Reducer13generateSpansEmm.exit ], [ %.sroa.4.1, %.preheader ], [ %.sroa.4.3, %74 ]
   %167 = shl i64 %.0, 1
   br label %.loopexit
@@ -4463,6 +4467,7 @@ _ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28: ; preds = %163, %164
   %.sroa.0.4266 = phi ptr [ %.sroa.0.4267, %._crit_edge ], [ %.sroa.0.5, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
   %.not124166 = phi i1 [ true, %._crit_edge ], [ false, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
   %.1 = phi i64 [ %167, %._crit_edge ], [ %.0, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
+  %.sroa.094.4 = phi i8 [ %.sroa.094.2.lcssa, %._crit_edge ], [ %.sroa.094.3, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
   %.sroa.4.4 = phi i64 [ %.sroa.4.2.lcssa, %._crit_edge ], [ %.sroa.4.3, %_ZNSt6vectorIPN4Luau7AstStatESaIS2_EED2Ev.exit28 ]
   %.not.i.i.i29 = icmp eq ptr %.sroa.0.4266, null
   br i1 %.not.i.i.i29, label %_ZNSt6vectorISt4pairIS0_ImmES1_ESaIS2_EED2Ev.exit, label %168
@@ -4487,7 +4492,7 @@ _ZNSt6vectorISt4pairIS0_ImmES1_ESaIS2_EED2Ev.exit: ; preds = %.loopexit, %168
   br i1 %.not.i.i.i30, label %common.resume, label %common.resume.sink.split
 
 .loopexit128:                                     ; preds = %171, %_ZNSt6vectorISt4pairIS0_ImmES1_ESaIS2_EED2Ev.exit, %3
-  %.sroa.094.0 = phi i8 [ 0, %3 ], [ 0, %171 ], [ 1, %_ZNSt6vectorISt4pairIS0_ImmES1_ESaIS2_EED2Ev.exit ]
+  %.sroa.094.0 = phi i8 [ 0, %3 ], [ 0, %171 ], [ %.sroa.094.4, %_ZNSt6vectorISt4pairIS0_ImmES1_ESaIS2_EED2Ev.exit ]
   %.sroa.4.0 = phi i64 [ %2, %3 ], [ %172, %171 ], [ %.sroa.4.4, %_ZNSt6vectorISt4pairIS0_ImmES1_ESaIS2_EED2Ev.exit ]
   %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.094.0, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1

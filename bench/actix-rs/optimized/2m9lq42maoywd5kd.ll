@@ -1680,7 +1680,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$$LP$regex..regex..s
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @_ZN4core5slice5index5range17h2ca29b842482dcdcE(i64 noundef %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %0, 1
+  %3 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %0, 1
   ret { i64, i64 } %3
 }
 

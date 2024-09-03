@@ -23080,6 +23080,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK4llvh12DenseMap
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh16DenseMapIteratorIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EELb1EEppEv.exit
+  %retval.195 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.2, %_ZN4llvh16DenseMapIteratorIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EELb1EEppEv.exit ]
   %__begin0.sroa.0.094 = phi ptr [ %add.ptr.i.i.pn16.i, %for.body.lr.ph ], [ %__begin0.sroa.0.2, %_ZN4llvh16DenseMapIteratorIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EELb1EEppEv.exit ]
   %second = getelementptr inbounds i8, ptr %__begin0.sroa.0.094, i64 8
   %22 = load ptr, ptr %second, align 8
@@ -23178,22 +23179,22 @@ _ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EEC2IN9__g
   %conv.i10.i.i = add i32 %.pre.i.i, %36
   store i32 %conv.i10.i.i, ptr %Size.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %conv.i10.i.i, 0
-  %.pre99 = load ptr, ptr %Children, align 8
+  %.pre100 = load ptr, ptr %Children, align 8
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh4sortIRNS_11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EEEZNS_14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseIS4_Lb0EEEE16VerifyDFSNumbersERKSC_EUlS6_S6_E_EEvOT_T0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EEC2IN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEvEET_SF_.exit
   %conv.i.i.i.i.i72 = zext i32 %conv.i10.i.i to i64
-  %add.ptr.i.i.i.i.i73 = getelementptr inbounds ptr, ptr %.pre99, i64 %conv.i.i.i.i.i72
+  %add.ptr.i.i.i.i.i73 = getelementptr inbounds ptr, ptr %.pre100, i64 %conv.i.i.i.i.i72
   %37 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv.i.i.i.i.i72, i1 true)
   %sub.i.i.i.i.i = shl nuw nsw i64 %37, 1
   %mul.i.i.i.i = xor i64 %sub.i.i.i.i.i, 126
-  call void @_ZSt16__introsort_loopIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS3_Lb0EEEE16VerifyDFSNumbersERKSD_EUlS5_S5_E_EEEvT_SJ_T0_T1_(ptr noundef %.pre99, ptr noundef nonnull %add.ptr.i.i.i.i.i73, i64 noundef %mul.i.i.i.i)
-  call void @_ZSt22__final_insertion_sortIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS3_Lb0EEEE16VerifyDFSNumbersERKSD_EUlS5_S5_E_EEEvT_SJ_T0_(ptr noundef %.pre99, ptr noundef nonnull %add.ptr.i.i.i.i.i73)
+  call void @_ZSt16__introsort_loopIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS3_Lb0EEEE16VerifyDFSNumbersERKSD_EUlS5_S5_E_EEEvT_SJ_T0_T1_(ptr noundef %.pre100, ptr noundef nonnull %add.ptr.i.i.i.i.i73, i64 noundef %mul.i.i.i.i)
+  call void @_ZSt22__final_insertion_sortIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS3_Lb0EEEE16VerifyDFSNumbersERKSD_EUlS5_S5_E_EEEvT_SJ_T0_(ptr noundef %.pre100, ptr noundef nonnull %add.ptr.i.i.i.i.i73)
   %.pre = load ptr, ptr %Children, align 8
   br label %_ZN4llvh4sortIRNS_11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EEEZNS_14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseIS4_Lb0EEEE16VerifyDFSNumbersERKSC_EUlS6_S6_E_EEvOT_T0_.exit
 
 _ZN4llvh4sortIRNS_11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EEEZNS_14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseIS4_Lb0EEEE16VerifyDFSNumbersERKSC_EUlS6_S6_E_EEvOT_T0_.exit: ; preds = %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EEC2IN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEvEET_SF_.exit, %if.then.i.i.i.i
-  %38 = phi ptr [ %.pre99, %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EEC2IN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEvEET_SF_.exit ], [ %.pre, %if.then.i.i.i.i ]
+  %38 = phi ptr [ %.pre100, %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EEC2IN9__gnu_cxx17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEvEET_SF_.exit ], [ %.pre, %if.then.i.i.i.i ]
   store ptr %22, ptr %PrintChildrenError, align 8
   store ptr %Children, ptr %21, align 8
   %39 = load ptr, ptr %38, align 8
@@ -23255,6 +23256,7 @@ if.then65:                                        ; preds = %for.body57
 
 cleanup:                                          ; preds = %for.cond55, %if.then65, %if.then51, %if.then43
   %switch = phi i1 [ false, %if.then43 ], [ false, %if.then51 ], [ false, %if.then65 ], [ true, %for.cond55 ]
+  %retval.3 = phi i1 [ false, %if.then43 ], [ false, %if.then51 ], [ false, %if.then65 ], [ %retval.195, %for.cond55 ]
   %50 = load ptr, ptr %Children, align 8
   %cmp.i.i.i86 = icmp eq ptr %50, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i86, label %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit, label %if.then.i.i87
@@ -23267,6 +23269,7 @@ _ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exi
   br i1 %switch, label %for.inc70, label %return
 
 for.inc70:                                        ; preds = %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit, %if.then19
+  %retval.2 = phi i1 [ %retval.195, %if.then19 ], [ %retval.3, %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit ]
   %incdec.ptr3.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.094, i64 16
   %cmp.not3.i3.i = icmp eq ptr %incdec.ptr3.i, %add.ptr.i.i3.i
   br i1 %cmp.not3.i3.i, label %_ZN4llvh16DenseMapIteratorIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EELb1EEppEv.exit, label %land.rhs.i4.i
@@ -23296,7 +23299,7 @@ return.sink.split:                                ; preds = %_ZN4llvh11raw_ostre
   br label %return
 
 return:                                           ; preds = %while.body.i6.i12.i9.i, %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit, %_ZN4llvh16DenseMapIteratorIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EELb1EEppEv.exit, %return.sink.split, %if.end11, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit, %_ZN4llvh11raw_ostreamlsEc.exit58, %_ZN4llvh11raw_ostreamlsEc.exit, %entry
-  %retval.0 = phi i1 [ true, %entry ], [ false, %_ZN4llvh11raw_ostreamlsEc.exit ], [ false, %_ZN4llvh11raw_ostreamlsEc.exit58 ], [ true, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit ], [ true, %if.end11 ], [ false, %return.sink.split ], [ false, %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit ], [ true, %_ZN4llvh16DenseMapIteratorIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EELb1EEppEv.exit ], [ true, %while.body.i6.i12.i9.i ]
+  %retval.0 = phi i1 [ true, %entry ], [ false, %_ZN4llvh11raw_ostreamlsEc.exit ], [ false, %_ZN4llvh11raw_ostreamlsEc.exit58 ], [ true, %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5beginEv.exit ], [ true, %if.end11 ], [ false, %return.sink.split ], [ %retval.3, %_ZN4llvh11SmallVectorIPNS_15DomTreeNodeBaseIN6hermes10BasicBlockEEELj8EED2Ev.exit ], [ true, %_ZN4llvh16DenseMapIteratorIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EELb1EEppEv.exit ], [ true, %while.body.i6.i12.i9.i ]
   ret i1 %retval.0
 }
 

@@ -8778,6 +8778,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   %.sroa.8.01087 = phi i64 [ undef, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20f9becab9b1fc1cE.exit.lr.ph" ], [ %.sroa.8.1, %.thread422 ]
   %.sroa.9.01086 = phi i64 [ undef, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20f9becab9b1fc1cE.exit.lr.ph" ], [ %.sroa.9.1, %.thread422 ]
   %.sroa.10.01085 = phi i64 [ undef, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20f9becab9b1fc1cE.exit.lr.ph" ], [ %.sroa.10.1, %.thread422 ]
+  %.sroa.11.01084 = phi i8 [ undef, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20f9becab9b1fc1cE.exit.lr.ph" ], [ %.sroa.11.1, %.thread422 ]
   %.sroa.760.01083 = phi i32 [ undef, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20f9becab9b1fc1cE.exit.lr.ph" ], [ %.sroa.760.1, %.thread422 ]
   %.sroa.01.01082 = phi ptr [ %.8.val, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20f9becab9b1fc1cE.exit.lr.ph" ], [ %278, %.thread422 ]
   %.sroa.20242.01081 = phi i64 [ undef, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20f9becab9b1fc1cE.exit.lr.ph" ], [ %.sroa.20242.1, %.thread422 ]
@@ -13854,6 +13855,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %.sroa.19241.1 = phi i64 [ %.sroa.19241.01080, %.invoke ], [ %.sroa.19241.6, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i471 ]
   %.sroa.20242.1 = phi i64 [ %.sroa.20242.01081, %.invoke ], [ %.sroa.20242.6, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i471 ]
   %.sroa.760.1 = phi i32 [ %.sroa.760.01083, %.invoke ], [ %.sroa.760.2.ph, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i471 ]
+  %.sroa.11.1 = phi i8 [ %.sroa.11.01084, %.invoke ], [ %.sroa.11.2, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i471 ]
   %.sroa.10.1 = phi i64 [ %.sroa.10.01085, %.invoke ], [ %.sroa.10.2, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i471 ]
   %.sroa.9.1 = phi i64 [ %.sroa.9.01086, %.invoke ], [ %.sroa.9.2, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i471 ]
   %.sroa.8.1 = phi i64 [ %.sroa.8.01087, %.invoke ], [ %.sroa.8.2, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i471 ]
@@ -15066,6 +15068,7 @@ _ZN11smallbitvec11SmallBitVec3len17hd19085f87d1dfa85E.llvm.16258808753110442553.
   %2394 = phi i32 [ %283, %2056 ], [ %.pre, %2392 ]
   %.sroa.19241.6 = phi i64 [ %.sroa.19241.01080, %2056 ], [ %.sroa.19241.3, %2392 ]
   %.sroa.20242.6 = phi i64 [ %.sroa.20242.01081, %2056 ], [ %.sroa.20242.3, %2392 ]
+  %.sroa.11.2 = phi i8 [ %.sroa.11.01084, %2056 ], [ 4, %2392 ]
   %.sroa.10.2 = phi i64 [ %.sroa.10.01085, %2056 ], [ %2059, %2392 ]
   %.sroa.9.2 = phi i64 [ %.sroa.9.01086, %2056 ], [ %.035.i, %2392 ]
   %.sroa.8.2 = phi i64 [ %.sroa.8.01087, %2056 ], [ %284, %2392 ]
@@ -15424,7 +15427,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i471: ;
   %.sroa.875.0..sroa_idx = getelementptr inbounds i8, ptr %2519, i64 24
   store i64 %.sroa.10.2, ptr %.sroa.875.0..sroa_idx, align 8
   %.sroa.976.0..sroa_idx = getelementptr inbounds i8, ptr %2519, i64 32
-  store i8 4, ptr %.sroa.976.0..sroa_idx, align 8
+  store i8 %.sroa.11.2, ptr %.sroa.976.0..sroa_idx, align 8
   %.sroa.1077.0..sroa_idx = getelementptr inbounds i8, ptr %2519, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1077.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12, i64 7, i1 false)
   %2520 = load i64, ptr %2503, align 8, !alias.scope !2727, !noalias !2730, !noundef !14
@@ -15506,7 +15509,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i471: ;
   %.sroa.891.0..sroa_idx = getelementptr inbounds i8, ptr %2545, i64 24
   store i64 %.sroa.10.2, ptr %.sroa.891.0..sroa_idx, align 8
   %.sroa.992.0..sroa_idx = getelementptr inbounds i8, ptr %2545, i64 32
-  store i8 4, ptr %.sroa.992.0..sroa_idx, align 8
+  store i8 %.sroa.11.2, ptr %.sroa.992.0..sroa_idx, align 8
   %.sroa.1093.0..sroa_idx = getelementptr inbounds i8, ptr %2545, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1093.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12, i64 7, i1 false)
   %2546 = load i64, ptr %2529, align 8, !alias.scope !2732, !noalias !2735, !noundef !14
@@ -15659,7 +15662,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet6insert17hd5ca867a7dd68ffaE.exit: ; 
   %.sroa.883.0..sroa_idx = getelementptr inbounds i8, ptr %2586, i64 24
   store i64 %.sroa.10.2, ptr %.sroa.883.0..sroa_idx, align 8
   %.sroa.984.0..sroa_idx = getelementptr inbounds i8, ptr %2586, i64 32
-  store i8 4, ptr %.sroa.984.0..sroa_idx, align 8
+  store i8 %.sroa.11.2, ptr %.sroa.984.0..sroa_idx, align 8
   %.sroa.1085.0..sroa_idx = getelementptr inbounds i8, ptr %2586, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1085.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12, i64 7, i1 false)
   %2587 = load i64, ptr %2535, align 8, !alias.scope !2737, !noalias !2740, !noundef !14

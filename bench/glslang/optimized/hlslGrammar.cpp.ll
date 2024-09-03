@@ -941,9 +941,9 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptDeclarationERP11TInte
   %98 = and i64 %77, -9223372019674906624
   store i64 %98, ptr %76, align 8
   %99 = call noundef zeroext i1 @_ZNK7glslang15HlslTokenStream14peekTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 308) #16
-  br i1 %99, label %.thread61, label %101
+  br i1 %99, label %.thread62, label %101
 
-.thread61:                                        ; preds = %57
+.thread62:                                        ; preds = %57
   %100 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptFullySpecifiedTypeERNS_5TTypeERP11TIntermNodeRKNS_5TListINS_14TAttributeArgsEEEb(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %59, i1 noundef zeroext true)
   br label %.loopexit
 
@@ -1004,8 +1004,8 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptDeclarationERP11TInte
   br label %138
 
 138:                                              ; preds = %.lr.ph, %.thread
-  %.056 = phi ptr [ null, %.lr.ph ], [ %.1, %.thread ]
-  %.02855 = phi i8 [ 0, %.lr.ph ], [ %spec.select, %.thread ]
+  %.057 = phi ptr [ null, %.lr.ph ], [ %.1, %.thread ]
+  %.02856 = phi i8 [ 0, %.lr.ph ], [ %spec.select, %.thread ]
   %139 = load ptr, ptr %120, align 8
   store ptr %139, ptr %7, align 8
   %140 = load ptr, ptr %122, align 8
@@ -1111,7 +1111,7 @@ _ZNK7glslang17TParseContextBase20renameShaderFunctionERPNSt7__cxx1112basic_strin
   br i1 %200, label %201, label %218
 
 201:                                              ; preds = %189
-  %202 = trunc nuw i8 %.02855 to i1
+  %202 = trunc nuw i8 %.02856 to i1
   br i1 %202, label %203, label %208
 
 203:                                              ; preds = %201
@@ -1158,7 +1158,7 @@ _ZNK7glslang17TParseContextBase20renameShaderFunctionERPNSt7__cxx1112basic_strin
   br label %.thread
 
 227:                                              ; preds = %153
-  %228 = trunc nuw i8 %.02855 to i1
+  %228 = trunc nuw i8 %.02856 to i1
   br i1 %228, label %231, label %229
 
 229:                                              ; preds = %227
@@ -1340,8 +1340,8 @@ _ZNK7glslang5TType14containsOpaqueEv.exit:        ; preds = %325
   %333 = getelementptr inbounds i8, ptr %330, i64 16
   %334 = load ptr, ptr %333, align 8
   %335 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_14containsOpaqueEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %332, ptr %334) #18
-  %.not41 = icmp eq ptr %334, %335
-  br i1 %.not41, label %_ZNK7glslang5TType14containsOpaqueEv.exit.thread37, label %_ZNK7glslang5TType14containsOpaqueEv.exit.thread
+  %.not42 = icmp eq ptr %334, %335
+  br i1 %.not42, label %_ZNK7glslang5TType14containsOpaqueEv.exit.thread37, label %_ZNK7glslang5TType14containsOpaqueEv.exit.thread
 
 _ZNK7glslang5TType14containsOpaqueEv.exit.thread37: ; preds = %325, %_ZNK7glslang5TType14containsOpaqueEv.exit
   %336 = load ptr, ptr %122, align 8
@@ -1358,13 +1358,13 @@ _ZNK7glslang5TType14containsOpaqueEv.exit.thread: ; preds = %320, %_ZNK7glslang5
   %343 = load ptr, ptr %7, align 8
   %344 = load ptr, ptr %10, align 8
   %345 = call noundef ptr @_ZN7glslang16HlslParseContext15declareVariableERKNS_10TSourceLocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeEPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(2489) %342, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(40) %343, ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef %344) #16
-  %346 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_RKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %341, ptr noundef %.056, ptr noundef %345, ptr noundef nonnull align 8 dereferenceable(24) %6) #16
+  %346 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_RKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %341, ptr noundef %.057, ptr noundef %345, ptr noundef nonnull align 8 dereferenceable(24) %6) #16
   br label %.thread
 
 .thread:                                          ; preds = %288, %295, %311, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread37, %301, %224
-  %.1 = phi ptr [ %.056, %224 ], [ %.056, %288 ], [ %.056, %295 ], [ %.056, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread37 ], [ %346, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread ], [ %.056, %311 ], [ %.056, %301 ]
+  %.1 = phi ptr [ %.057, %224 ], [ %.057, %288 ], [ %.057, %295 ], [ %.057, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread37 ], [ %346, %_ZNK7glslang5TType14containsOpaqueEv.exit.thread ], [ %.057, %311 ], [ %.057, %301 ]
   %347 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 362) #16
-  %spec.select = select i1 %347, i8 1, i8 %.02855
+  %spec.select = select i1 %347, i8 1, i8 %.02856
   %348 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar16acceptIdentifierERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(40) %6)
   br i1 %348, label %138, label %._crit_edge, !llvm.loop !6
 
@@ -1380,7 +1380,7 @@ _ZNK7glslang5TType14containsOpaqueEv.exit.thread: ; preds = %320, %_ZNK7glslang5
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %119, %349, %._crit_edge
-  %.0.lcssa66 = phi ptr [ %.1, %349 ], [ null, %._crit_edge ], [ null, %119 ]
+  %.0.lcssa67 = phi ptr [ %.1, %349 ], [ null, %._crit_edge ], [ null, %119 ]
   %353 = load i64, ptr %76, align 8
   %354 = and i64 %353, 127
   %355 = icmp eq i64 %354, 1
@@ -1407,7 +1407,7 @@ _ZNK7glslang5TType14containsOpaqueEv.exit.thread: ; preds = %320, %_ZNK7glslang5
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds i8, ptr %0, i64 352
   %374 = load ptr, ptr %373, align 8
-  %375 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_RKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %372, ptr noundef %374, ptr noundef %.0.lcssa66, ptr noundef nonnull align 8 dereferenceable(24) %6) #16
+  %375 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_RKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %372, ptr noundef %374, ptr noundef %.0.lcssa67, ptr noundef nonnull align 8 dereferenceable(24) %6) #16
   store ptr %375, ptr %373, align 8
   br label %383
 
@@ -1419,12 +1419,12 @@ _ZNK7glslang5TType14containsOpaqueEv.exit.thread: ; preds = %320, %_ZNK7glslang5
 378:                                              ; preds = %376
   %379 = getelementptr inbounds i8, ptr %0, i64 336
   %380 = load ptr, ptr %379, align 8
-  %381 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_(ptr noundef nonnull align 8 dereferenceable(2024) %380, ptr noundef nonnull %377, ptr noundef %.0.lcssa66) #16
+  %381 = call noundef ptr @_ZN7glslang13TIntermediate13growAggregateEP11TIntermNodeS2_(ptr noundef nonnull align 8 dereferenceable(2024) %380, ptr noundef nonnull %377, ptr noundef %.0.lcssa67) #16
   store ptr %381, ptr %1, align 8
   br label %383
 
 382:                                              ; preds = %376
-  store ptr %.0.lcssa66, ptr %1, align 8
+  store ptr %.0.lcssa67, ptr %1, align 8
   br label %383
 
 383:                                              ; preds = %378, %382, %370
@@ -1465,8 +1465,8 @@ _ZNK7glslang5TType14containsOpaqueEv.exit.thread: ; preds = %320, %_ZNK7glslang5
   call void (ptr, ptr, ptr, ptr, ptr, ...) %404(ptr noundef nonnull align 8 dereferenceable(1280) %400, ptr noundef nonnull align 8 dereferenceable(24) %401, ptr noundef nonnull @.str, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.1) #16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %266, %.thread61, %184, %214, %398, %397, %383, %101, %279, %56, %51, %38, %25, %17
-  %.024 = phi i1 [ true, %56 ], [ false, %51 ], [ false, %38 ], [ false, %25 ], [ false, %17 ], [ %217, %214 ], [ false, %184 ], [ %103, %101 ], [ false, %398 ], [ false, %397 ], [ true, %383 ], [ false, %279 ], [ %100, %.thread61 ], [ false, %266 ]
+.loopexit:                                        ; preds = %266, %.thread62, %184, %214, %398, %397, %383, %101, %279, %56, %51, %38, %25, %17
+  %.024 = phi i1 [ true, %56 ], [ false, %51 ], [ false, %38 ], [ false, %25 ], [ false, %17 ], [ %217, %214 ], [ false, %184 ], [ %103, %101 ], [ false, %398 ], [ false, %397 ], [ true, %383 ], [ false, %279 ], [ %100, %.thread62 ], [ false, %266 ]
   ret i1 %.024
 }
 
@@ -1497,6 +1497,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar18acceptSamplerStateEv(ptr no
   br label %21
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %10
+  %.1 = phi i1 [ undef, %10 ], [ %.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
   store ptr null, ptr %17, align 8
   %22 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar16acceptIdentifierERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(40) %2)
   br i1 %22, label %23, label %84
@@ -1678,6 +1679,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   br label %79
 
 79:                                               ; preds = %.sink.split, %73, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit54.thread, %62, %57
+  %.2 = phi i1 [ false, %57 ], [ false, %62 ], [ false, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit54.thread ], [ %.1, %73 ], [ false, %.sink.split ]
   %switch = phi i1 [ false, %57 ], [ false, %62 ], [ false, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit54.thread ], [ true, %73 ], [ false, %.sink.split ]
   %80 = load ptr, ptr %19, align 8
   %81 = icmp eq ptr %80, %18
@@ -1697,7 +1699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %84, %1
-  %.05 = phi i1 [ true, %1 ], [ %85, %84 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
+  %.05 = phi i1 [ true, %1 ], [ %85, %84 ], [ %.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
   ret i1 %.05
 }
 
@@ -8985,8 +8987,8 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar27acceptStructDeclarationList
   %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
   %84 = sub i64 %82, %83
-  %.not23 = icmp eq i64 %84, -72
-  br i1 %.not23, label %86, label %85
+  %.not24 = icmp eq i64 %84, -72
+  br i1 %.not24, label %86, label %85
 
 85:                                               ; preds = %79
   call void @_ZNSt6vectorIN7glslang19TFunctionDeclaratorENS0_14pool_allocatorIS1_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 1)

@@ -7069,7 +7069,8 @@ entry:
   br label %restart
 
 restart:                                          ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit, %entry
-  %m.0 = phi i64 [ %2, %entry ], [ %m.177, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit ]
+  %m.0 = phi i64 [ %2, %entry ], [ %m.180, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit ]
+  %retval.0 = phi i1 [ undef, %entry ], [ %retval.181, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit ]
   %and = and i64 %m.0, %1
   %or.i.i.i = or i64 %and, 1
   %3 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true)
@@ -7219,8 +7220,9 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   %node_list.i.i = getelementptr inbounds %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<mold::elf::InputSection<mold::elf::ALPHA> *const, std::vector<mold::elf::Symbol<mold::elf::ALPHA> *>>>, tbb::detail::d1::spin_rw_mutex>::bucket", ptr %atomic-temp.i.0.i.i.i.i, i64 %sub.i.i.i, i32 1
   %23 = load atomic i64, ptr %node_list.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %23 to ptr
-  %cmp.i.i.i16 = icmp eq ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
-  %spec.select = select i1 %cmp.i.i.i16, i32 1, i32 2
+  %cmp.i.i.i16 = icmp ne ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 3 to ptr)
+  %spec.select = select i1 %cmp.i.i.i16, i1 %retval.0, i1 false
+  %spec.select83 = select i1 %cmp.i.i.i16, i32 2, i32 1
   br label %cleanup
 
 if.end7:                                          ; preds = %land.rhs.i, %_ZNK3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE13search_bucketIS8_EEPNSN_4nodeERKT_PNS1_13hash_map_baseISM_NSF_13spin_rw_mutexEE6bucketE.exit
@@ -7340,7 +7342,8 @@ cleanup:                                          ; preds = %for.end.i.i, %if.th
   %tobool.not60 = phi i1 [ true, %if.end7 ], [ true, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit ], [ true, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit35 ], [ false, %if.then ], [ false, %if.then.i ], [ false, %for.end.i.i ]
   %n.0.lcssa.i59 = phi ptr [ %n.0.lcssa.i58, %if.end7 ], [ %n.0.lcssa.i58, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit ], [ %n.0.lcssa.i58, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit35 ], [ null, %if.then ], [ null, %if.then.i ], [ null, %for.end.i.i ]
   %m.1 = phi i64 [ %m.0, %if.end7 ], [ %m.0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit ], [ %m.0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit35 ], [ %m.0, %if.then ], [ %18, %if.then.i ], [ %18, %for.end.i.i ]
-  %cleanup.dest.slot.0 = phi i32 [ 4, %if.end7 ], [ 0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit ], [ 0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit35 ], [ 1, %if.then ], [ 1, %if.then.i ], [ %spec.select, %for.end.i.i ]
+  %retval.1 = phi i1 [ %retval.0, %if.end7 ], [ %retval.0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit ], [ %retval.0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit35 ], [ false, %if.then ], [ false, %if.then.i ], [ %spec.select, %for.end.i.i ]
+  %cleanup.dest.slot.0 = phi i32 [ 4, %if.end7 ], [ 0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit ], [ 0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit35 ], [ 1, %if.then ], [ 1, %if.then.i ], [ %spec.select83, %for.end.i.i ]
   %tobool.not.i.i40 = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i40, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit, label %if.then.i.i41
 
@@ -7356,11 +7359,12 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i41
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit
 
 _ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit: ; preds = %cleanup.thread, %cleanup, %if.then.i.i.i, %if.else.i.i.i
-  %cleanup.dest.slot.078 = phi i32 [ 2, %cleanup.thread ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i.i ], [ %cleanup.dest.slot.0, %if.else.i.i.i ]
-  %m.177 = phi i64 [ %36, %cleanup.thread ], [ %m.1, %cleanup ], [ %m.1, %if.then.i.i.i ], [ %m.1, %if.else.i.i.i ]
-  %n.0.lcssa.i5976 = phi ptr [ %n.0.lcssa.i58, %cleanup.thread ], [ %n.0.lcssa.i59, %cleanup ], [ %n.0.lcssa.i59, %if.then.i.i.i ], [ %n.0.lcssa.i59, %if.else.i.i.i ]
-  %tobool.not6075 = phi i1 [ true, %cleanup.thread ], [ %tobool.not60, %cleanup ], [ %tobool.not60, %if.then.i.i.i ], [ %tobool.not60, %if.else.i.i.i ]
-  switch i32 %cleanup.dest.slot.078, label %unreachable [
+  %cleanup.dest.slot.082 = phi i32 [ 2, %cleanup.thread ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i.i.i ], [ %cleanup.dest.slot.0, %if.else.i.i.i ]
+  %retval.181 = phi i1 [ %retval.0, %cleanup.thread ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i ], [ %retval.1, %if.else.i.i.i ]
+  %m.180 = phi i64 [ %36, %cleanup.thread ], [ %m.1, %cleanup ], [ %m.1, %if.then.i.i.i ], [ %m.1, %if.else.i.i.i ]
+  %n.0.lcssa.i5979 = phi ptr [ %n.0.lcssa.i58, %cleanup.thread ], [ %n.0.lcssa.i59, %cleanup ], [ %n.0.lcssa.i59, %if.then.i.i.i ], [ %n.0.lcssa.i59, %if.else.i.i.i ]
+  %tobool.not6078 = phi i1 [ true, %cleanup.thread ], [ %tobool.not60, %cleanup ], [ %tobool.not60, %if.then.i.i.i ], [ %tobool.not60, %if.else.i.i.i ]
+  switch i32 %cleanup.dest.slot.082, label %unreachable [
     i32 0, label %cleanup.cont
     i32 2, label %restart
     i32 1, label %return
@@ -7369,7 +7373,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt
 
 cleanup.cont:                                     ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit
   %my_node = getelementptr inbounds i8, ptr %result, i64 16
-  store ptr %n.0.lcssa.i5976, ptr %my_node, align 8
+  store ptr %n.0.lcssa.i5979, ptr %my_node, align 8
   %my_hash = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %1, ptr %my_hash, align 8
   br label %if.end27
@@ -7393,7 +7397,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt
   br label %return
 
 return:                                           ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit, %if.end27, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSF_13spin_rw_mutexEEE.exit
-  %retval.2 = phi i1 [ %tobool.not6075, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSF_13spin_rw_mutexEEE.exit ], [ %tobool.not6075, %if.end27 ], [ false, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit ]
+  %retval.2 = phi i1 [ %tobool.not6078, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE11delete_nodeEPNS1_18hash_map_node_baseINSF_13spin_rw_mutexEEE.exit ], [ %tobool.not6078, %if.end27 ], [ %retval.181, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit ]
   ret i1 %retval.2
 
 unreachable:                                      ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf12InputSectionINS4_5ALPHAEEESt6vectorIPNS4_6SymbolIS6_EESaISC_EENS0_2d116tbb_hash_compareIS8_EENSF_13tbb_allocatorISt4pairIKS8_SE_EEEE15bucket_accessorD2Ev.exit

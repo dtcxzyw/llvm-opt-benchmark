@@ -3465,8 +3465,8 @@ entry:
   %0 = load ptr, ptr %d_list.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i14.not = icmp eq ptr %0, %1
-  br i1 %cmp.i14.not, label %return, label %for.body
+  %cmp.i.not14.not = icmp eq ptr %0, %1
+  br i1 %cmp.i.not14.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %i.sroa.0.015 = phi ptr [ %incdec.ptr.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %0, %entry ]
@@ -3527,13 +3527,13 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i9
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, %if.then.i.i3, %if.then13.i.i9
   %incdec.ptr.i = getelementptr inbounds i8, ptr %i.sroa.0.015, i64 16
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  %or.cond = select i1 %cmp.i1.not, i1 true, i1 %cmp.i.not
+  %cmp.i.not.not = icmp eq ptr %incdec.ptr.i, %1
+  %or.cond = select i1 %cmp.i1.not, i1 true, i1 %cmp.i.not.not
   br i1 %or.cond, label %return, label %for.body, !llvm.loop !23
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %entry
-  %cmp.i.lcssa = phi i1 [ false, %entry ], [ %cmp.i1.not, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  ret i1 %cmp.i.lcssa
+  %cmp.i.not.lcssa = phi i1 [ false, %entry ], [ %cmp.i1.not, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  ret i1 %cmp.i.not.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable

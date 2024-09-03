@@ -1284,9 +1284,9 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 define hidden noundef ptr @_ZN26ShenandoahBarrierC2Support11no_branchesEP4NodeS1_bP14PhaseIdealLoop(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Unique_Node_List, align 8
   %.not88 = icmp eq ptr %0, %1
-  br i1 %.not88, label %._crit_edge, label %.lr.ph91
+  br i1 %.not88, label %._crit_edge, label %.lr.ph92
 
-.lr.ph91:                                         ; preds = %4
+.lr.ph92:                                         ; preds = %4
   %6 = getelementptr inbounds i8, ptr %3, i64 200
   %7 = getelementptr inbounds i8, ptr %3, i64 32
   %8 = getelementptr inbounds i8, ptr %3, i64 40
@@ -1299,9 +1299,10 @@ define hidden noundef ptr @_ZN26ShenandoahBarrierC2Support11no_branchesEP4NodeS1
   %15 = getelementptr inbounds i8, ptr %5, i64 40
   br label %16
 
-16:                                               ; preds = %.lr.ph91, %230
-  %.04590 = phi ptr [ %0, %.lr.ph91 ], [ %.0.lcssa.i.i.i, %230 ]
-  %.04889 = phi ptr [ null, %.lr.ph91 ], [ %.149, %230 ]
+16:                                               ; preds = %.lr.ph92, %230
+  %.04391 = phi ptr [ undef, %.lr.ph92 ], [ %.3, %230 ]
+  %.04590 = phi ptr [ %0, %.lr.ph92 ], [ %.0.lcssa.i.i.i, %230 ]
+  %.04889 = phi ptr [ null, %.lr.ph92 ], [ %.149, %230 ]
   %17 = getelementptr inbounds i8, ptr %.04590, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = load ptr, ptr %6, align 8
@@ -1430,17 +1431,17 @@ _ZN9Node_List4pushEP4Node.exit.i:                 ; preds = %84, %80
 
 _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_setEj.exit.i, %_ZN9Node_List4pushEP4Node.exit.i
   %88 = load i32, ptr %12, align 8
-  %.not102 = icmp eq i32 %88, 0
-  br i1 %.not102, label %.loopexit74, label %.lr.ph81
+  %.not103 = icmp eq i32 %88, 0
+  br i1 %.not103, label %.loopexit74, label %.lr.ph81
 
 .preheader75:                                     ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit65
   %.not7384.not = icmp eq i32 %155, 0
   br i1 %.not7384.not, label %.loopexit74, label %.lr.ph87
 
 .lr.ph81:                                         ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit, %_ZN16Unique_Node_List4pushEP4Node.exit65
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %_ZN16Unique_Node_List4pushEP4Node.exit65 ], [ 0, %_ZN16Unique_Node_List4pushEP4Node.exit ]
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %_ZN16Unique_Node_List4pushEP4Node.exit65 ], [ 0, %_ZN16Unique_Node_List4pushEP4Node.exit ]
   %89 = load ptr, ptr %11, align 8
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv106
+  %90 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv107
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, %.0.lcssa.i.i.i
   br i1 %92, label %_ZN16Unique_Node_List4pushEP4Node.exit65, label %93
@@ -1565,17 +1566,17 @@ _ZN9Node_List4pushEP4Node.exit.i64:               ; preds = %151, %147
   br label %_ZN16Unique_Node_List4pushEP4Node.exit65
 
 _ZN16Unique_Node_List4pushEP4Node.exit65:         ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit59, %.preheader, %_ZN9Node_List4pushEP4Node.exit.i64, %_ZN9VectorSet8test_setEj.exit.i61, %.lr.ph81
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %155 = load i32, ptr %12, align 8
   %156 = zext i32 %155 to i64
-  %157 = icmp ult i64 %indvars.iv.next107, %156
+  %157 = icmp ult i64 %indvars.iv.next108, %156
   br i1 %157, label %.lr.ph81, label %.preheader75, !llvm.loop !15
 
 .lr.ph87:                                         ; preds = %.preheader75, %.loopexit
   %158 = phi i32 [ %193, %.loopexit ], [ %155, %.preheader75 ]
-  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.loopexit ], [ 0, %.preheader75 ]
+  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.loopexit ], [ 0, %.preheader75 ]
   %159 = load ptr, ptr %11, align 8
-  %160 = getelementptr inbounds ptr, ptr %159, i64 %indvars.iv109
+  %160 = getelementptr inbounds ptr, ptr %159, i64 %indvars.iv110
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 44
   %163 = load i32, ptr %162, align 4
@@ -1590,8 +1591,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit65:         ; preds = %_ZN16Unique_Node_Li
   %169 = load i32, ptr %168, align 8
   %170 = zext i32 %169 to i64
   %171 = getelementptr inbounds ptr, ptr %167, i64 %170
-  %.not103 = icmp eq i32 %169, 0
-  br i1 %.not103, label %.loopexit, label %.lr.ph83
+  %.not104 = icmp eq i32 %169, 0
+  br i1 %.not104, label %.loopexit, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %165, %190
   %.04482 = phi ptr [ %191, %190 ], [ %167, %165 ]
@@ -1632,18 +1633,19 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread:  ; preds = %177, %_ZN16Unique_N
   br i1 %192, label %.lr.ph83, label %.loopexit.loopexit, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %190
-  %.pre112 = load i32, ptr %12, align 8
+  %.pre113 = load i32, ptr %12, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %165, %.lr.ph87
-  %193 = phi i32 [ %.pre112, %.loopexit.loopexit ], [ %158, %165 ], [ %158, %.lr.ph87 ]
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
+  %193 = phi i32 [ %.pre113, %.loopexit.loopexit ], [ %158, %165 ], [ %158, %.lr.ph87 ]
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %194 = zext i32 %193 to i64
-  %.not73 = icmp ult i64 %indvars.iv.next110, %194
+  %.not73 = icmp ult i64 %indvars.iv.next111, %194
   br i1 %.not73, label %.lr.ph87, label %.loopexit74, !llvm.loop !17
 
 .loopexit74:                                      ; preds = %.loopexit, %_ZN16Unique_Node_List6memberEP4Node.exit.thread, %_ZN16Unique_Node_List4pushEP4Node.exit, %.preheader75
   %.not7378 = phi i1 [ false, %.preheader75 ], [ false, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ true, %_ZN16Unique_Node_List6memberEP4Node.exit.thread ], [ false, %.loopexit ]
+  %.1 = phi ptr [ %.04391, %.preheader75 ], [ %.04391, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ inttoptr (i64 -1 to ptr), %_ZN16Unique_Node_List6memberEP4Node.exit.thread ], [ %.04391, %.loopexit ]
   %195 = load ptr, ptr %51, align 8
   %.not.i.i.i.i = icmp eq ptr %195, null
   br i1 %.not.i.i.i.i, label %197, label %196
@@ -1717,11 +1719,12 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %197, %199
 
 230:                                              ; preds = %208, %_ZN12ResourceMarkD2Ev.exit, %200, %225, %220, %206
   %.149 = phi ptr [ %.04889, %_ZN12ResourceMarkD2Ev.exit ], [ %.04889, %206 ], [ %.04889, %225 ], [ %.04889, %220 ], [ %.04889, %200 ], [ %.04590, %208 ]
+  %.3 = phi ptr [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ %.04391, %206 ], [ %.04391, %225 ], [ %.04391, %220 ], [ %.04391, %200 ], [ %.04391, %208 ]
   %.not = icmp eq ptr %.0.lcssa.i.i.i, %1
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN12ResourceMarkD2Ev.exit, %208, %210, %215, %225, %230, %4
-  %.2 = phi ptr [ null, %4 ], [ %.149, %230 ], [ inttoptr (i64 -1 to ptr), %225 ], [ inttoptr (i64 -1 to ptr), %215 ], [ inttoptr (i64 -1 to ptr), %210 ], [ inttoptr (i64 -1 to ptr), %208 ], [ inttoptr (i64 -1 to ptr), %_ZN12ResourceMarkD2Ev.exit ]
+  %.2 = phi ptr [ null, %4 ], [ %.149, %230 ], [ inttoptr (i64 -1 to ptr), %225 ], [ inttoptr (i64 -1 to ptr), %215 ], [ inttoptr (i64 -1 to ptr), %210 ], [ inttoptr (i64 -1 to ptr), %208 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit ]
   ret ptr %.2
 }
 

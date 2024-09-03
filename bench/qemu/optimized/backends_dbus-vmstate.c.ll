@@ -635,18 +635,18 @@ get_id_list_set.exit:                             ; preds = %entry, %if.then.i.i
   %4 = load ptr, ptr %bus, align 8
   %call2 = call ptr @qemu_dbus_get_queued_owners(ptr noundef %4, ptr noundef nonnull @.str.18, ptr noundef nonnull %error) #6
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %cleanup82.thread63, label %for.cond.preheader
+  br i1 %tobool.not, label %cleanup82.thread67, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %get_id_list_set.exit
   %5 = load ptr, ptr %call2, align 8
-  %tobool5.not66 = icmp eq ptr %5, null
-  br i1 %tobool5.not66, label %for.end, label %for.body.lr.ph
+  %tobool5.not70 = icmp eq ptr %5, null
+  br i1 %tobool5.not70, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %tobool23.not = icmp eq ptr %retval.06.i, null
   br label %for.body
 
-cleanup82.thread63:                               ; preds = %get_id_list_set.exit
+cleanup82.thread67:                               ; preds = %get_id_list_set.exit
   %call3 = call i32 @g_io_error_quark() #6
   %6 = load ptr, ptr %error, align 8
   %call4 = call ptr @error_get_pretty(ptr noundef %6) #6
@@ -657,7 +657,8 @@ cleanup82.thread63:                               ; preds = %get_id_list_set.exi
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %8 = phi ptr [ %5, %for.body.lr.ph ], [ %14, %for.inc ]
-  %i.067 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %retval.172 = phi ptr [ undef, %for.body.lr.ph ], [ %retval.25358, %for.inc ]
+  %i.071 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %9 = load ptr, ptr %bus, align 8
   %call8 = call ptr @g_dbus_proxy_new_sync(ptr noundef %9, i32 noundef 0, ptr noundef nonnull @vmstate1_interface_info, ptr noundef nonnull %8, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef %err) #6
   %tobool9.not = icmp eq ptr %call8, null
@@ -740,24 +741,26 @@ glib_autoptr_cleanup_GVariant.exit:               ; preds = %if.then42, %if.then
   %proxy.0 = phi ptr [ %call8, %if.then49 ], [ %call8, %if.then54 ], [ null, %if.then42 ]
   %id.0 = phi ptr [ %call22, %if.then49 ], [ %call22, %if.then54 ], [ null, %if.then42 ]
   %cleanup.dest.slot.0 = phi i32 [ 1, %if.then49 ], [ 1, %if.then54 ], [ 4, %if.then42 ]
+  %retval.2 = phi ptr [ null, %if.then49 ], [ null, %if.then54 ], [ %retval.172, %if.then42 ]
   call void @g_free(ptr noundef %id.0) #6
   call void @g_variant_unref(ptr noundef nonnull %call15) #6
-  %tobool.not.i.i29 = icmp eq ptr %proxy.0, null
-  br i1 %tobool.not.i.i29, label %glib_autoptr_cleanup_GDBusProxy.exit, label %if.then.i.i30
+  %tobool.not.i.i28 = icmp eq ptr %proxy.0, null
+  br i1 %tobool.not.i.i28, label %glib_autoptr_cleanup_GDBusProxy.exit, label %if.then.i.i29
 
-if.then.i.i30:                                    ; preds = %glib_autoptr_cleanup_GVariant.exit
+if.then.i.i29:                                    ; preds = %glib_autoptr_cleanup_GVariant.exit
   call void @g_object_unref(ptr noundef nonnull %proxy.0) #6
   br label %glib_autoptr_cleanup_GDBusProxy.exit
 
-glib_autoptr_cleanup_GDBusProxy.exit:             ; preds = %glib_autoptr_cleanup_GVariant.exit.thread, %glib_autoptr_cleanup_GVariant.exit, %if.then.i.i30
-  %cleanup.dest.slot.05256 = phi i32 [ %cleanup.dest.slot.0.ph, %glib_autoptr_cleanup_GVariant.exit.thread ], [ %cleanup.dest.slot.0, %glib_autoptr_cleanup_GVariant.exit ], [ %cleanup.dest.slot.0, %if.then.i.i30 ]
-  switch i32 %cleanup.dest.slot.05256, label %if.then.i [
+glib_autoptr_cleanup_GDBusProxy.exit:             ; preds = %glib_autoptr_cleanup_GVariant.exit.thread, %glib_autoptr_cleanup_GVariant.exit, %if.then.i.i29
+  %cleanup.dest.slot.05259 = phi i32 [ %cleanup.dest.slot.0.ph, %glib_autoptr_cleanup_GVariant.exit.thread ], [ %cleanup.dest.slot.0, %glib_autoptr_cleanup_GVariant.exit ], [ %cleanup.dest.slot.0, %if.then.i.i29 ]
+  %retval.25358 = phi ptr [ %retval.172, %glib_autoptr_cleanup_GVariant.exit.thread ], [ %retval.2, %glib_autoptr_cleanup_GVariant.exit ], [ %retval.2, %if.then.i.i29 ]
+  switch i32 %cleanup.dest.slot.05259, label %if.then.i [
     i32 0, label %for.inc
     i32 4, label %for.inc
   ]
 
 for.inc:                                          ; preds = %glib_autoptr_cleanup_GDBusProxy.exit, %glib_autoptr_cleanup_GDBusProxy.exit
-  %inc = add i64 %i.067, 1
+  %inc = add i64 %i.071, 1
   %arrayidx = getelementptr ptr, ptr %call2, i64 %inc
   %14 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %14, null
@@ -771,47 +774,47 @@ if.then69:                                        ; preds = %for.end
   %call70 = call ptr @g_hash_table_get_keys_as_array(ptr noundef nonnull %retval.06.i, ptr noundef null) #6
   %15 = load ptr, ptr %call70, align 8
   %tobool71.not = icmp eq ptr %15, null
-  br i1 %tobool71.not, label %if.then.i.sink.split, label %if.then72
+  br i1 %tobool71.not, label %if.then.i.sink.split, label %cleanup77
 
-if.then72:                                        ; preds = %if.then69
+cleanup77:                                        ; preds = %if.then69
   %call73 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.26, ptr noundef nonnull %call70) #6
   %call74 = call i32 @g_io_error_quark() #6
   call void (ptr, i32, i32, ptr, ...) @g_set_error(ptr noundef %err, i32 noundef %call74, i32 noundef 0, ptr noundef nonnull @.str.27, ptr noundef %call73) #6
   call void @g_free(ptr noundef %call73) #6
   br label %if.then.i.sink.split
 
-if.then.i.sink.split:                             ; preds = %if.then69, %if.then72
-  %retval.061.ph = phi ptr [ null, %if.then72 ], [ %call1, %if.then69 ]
-  %proxies.059.ph = phi ptr [ %call1, %if.then72 ], [ null, %if.then69 ]
+if.then.i.sink.split:                             ; preds = %if.then69, %cleanup77
+  %retval.065.ph = phi ptr [ null, %cleanup77 ], [ %call1, %if.then69 ]
+  %proxies.063.ph = phi ptr [ %call1, %cleanup77 ], [ null, %if.then69 ]
   call void @g_free(ptr noundef nonnull %call70) #6
   br label %if.then.i
 
 if.then.i:                                        ; preds = %glib_autoptr_cleanup_GDBusProxy.exit, %if.then.i.sink.split, %for.end
-  %retval.061 = phi ptr [ %call1, %for.end ], [ %retval.061.ph, %if.then.i.sink.split ], [ null, %glib_autoptr_cleanup_GDBusProxy.exit ]
-  %proxies.059 = phi ptr [ null, %for.end ], [ %proxies.059.ph, %if.then.i.sink.split ], [ %call1, %glib_autoptr_cleanup_GDBusProxy.exit ]
+  %retval.065 = phi ptr [ %call1, %for.end ], [ %retval.065.ph, %if.then.i.sink.split ], [ %retval.25358, %glib_autoptr_cleanup_GDBusProxy.exit ]
+  %proxies.063 = phi ptr [ null, %for.end ], [ %proxies.063.ph, %if.then.i.sink.split ], [ %call1, %glib_autoptr_cleanup_GDBusProxy.exit ]
   call void @g_strfreev(ptr noundef nonnull %call2) #6
   br label %glib_auto_cleanup_GStrv.exit
 
-glib_auto_cleanup_GStrv.exit:                     ; preds = %cleanup82.thread63, %if.then.i
-  %retval.062 = phi ptr [ %retval.061, %if.then.i ], [ null, %cleanup82.thread63 ]
-  %proxies.060 = phi ptr [ %proxies.059, %if.then.i ], [ %call1, %cleanup82.thread63 ]
-  %tobool.not.i.i32 = icmp eq ptr %retval.06.i, null
-  br i1 %tobool.not.i.i32, label %glib_autoptr_cleanup_GHashTable.exit, label %if.then.i.i33
+glib_auto_cleanup_GStrv.exit:                     ; preds = %cleanup82.thread67, %if.then.i
+  %retval.066 = phi ptr [ %retval.065, %if.then.i ], [ null, %cleanup82.thread67 ]
+  %proxies.064 = phi ptr [ %proxies.063, %if.then.i ], [ %call1, %cleanup82.thread67 ]
+  %tobool.not.i.i31 = icmp eq ptr %retval.06.i, null
+  br i1 %tobool.not.i.i31, label %glib_autoptr_cleanup_GHashTable.exit, label %if.then.i.i32
 
-if.then.i.i33:                                    ; preds = %glib_auto_cleanup_GStrv.exit
+if.then.i.i32:                                    ; preds = %glib_auto_cleanup_GStrv.exit
   call void @g_hash_table_unref(ptr noundef nonnull %retval.06.i) #6
   br label %glib_autoptr_cleanup_GHashTable.exit
 
-glib_autoptr_cleanup_GHashTable.exit:             ; preds = %glib_auto_cleanup_GStrv.exit, %if.then.i.i33
-  %tobool.not.i.i34 = icmp eq ptr %proxies.060, null
-  br i1 %tobool.not.i.i34, label %glib_autoptr_cleanup_GHashTable.exit36, label %if.then.i.i35
+glib_autoptr_cleanup_GHashTable.exit:             ; preds = %glib_auto_cleanup_GStrv.exit, %if.then.i.i32
+  %tobool.not.i.i33 = icmp eq ptr %proxies.064, null
+  br i1 %tobool.not.i.i33, label %glib_autoptr_cleanup_GHashTable.exit35, label %if.then.i.i34
 
-if.then.i.i35:                                    ; preds = %glib_autoptr_cleanup_GHashTable.exit
-  call void @g_hash_table_unref(ptr noundef nonnull %proxies.060) #6
-  br label %glib_autoptr_cleanup_GHashTable.exit36
+if.then.i.i34:                                    ; preds = %glib_autoptr_cleanup_GHashTable.exit
+  call void @g_hash_table_unref(ptr noundef nonnull %proxies.064) #6
+  br label %glib_autoptr_cleanup_GHashTable.exit35
 
-glib_autoptr_cleanup_GHashTable.exit36:           ; preds = %glib_autoptr_cleanup_GHashTable.exit, %if.then.i.i35
-  ret ptr %retval.062
+glib_autoptr_cleanup_GHashTable.exit35:           ; preds = %glib_autoptr_cleanup_GHashTable.exit, %if.then.i.i34
+  ret ptr %retval.066
 }
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1

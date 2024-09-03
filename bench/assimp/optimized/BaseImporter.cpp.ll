@@ -1417,12 +1417,12 @@ entry:
   %_M_left.i.i = getelementptr inbounds i8, ptr %extensions, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %extensions, i64 8
-  %cmp.i10.not = icmp eq ptr %0, %add.ptr.i.i
-  br i1 %cmp.i10.not, label %cleanup19, label %for.body
+  %cmp.i.not12.not = icmp eq ptr %0, %add.ptr.i.i
+  br i1 %cmp.i.not12.not, label %cleanup19, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin1.sroa.0.011 = phi ptr [ %call.i3, %for.inc ], [ %0, %entry ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 32
+  %__begin1.sroa.0.013 = phi ptr [ %call.i3, %for.inc ], [ %0, %entry ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 32
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %dotExt, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1476,14 +1476,14 @@ cleanup:                                          ; preds = %_ZN6Assimp14ASSIMP_
 
 for.inc:                                          ; preds = %invoke.cont, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dotExt) #26
-  %call.i3 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.011) #29
-  %cmp.i.not = icmp eq ptr %call.i3, %add.ptr.i.i
-  br i1 %cmp.i.not, label %cleanup19, label %for.body
+  %call.i3 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.013) #29
+  %cmp.i.not.not = icmp eq ptr %call.i3, %add.ptr.i.i
+  br i1 %cmp.i.not.not, label %cleanup19, label %for.body
 
 cleanup19:                                        ; preds = %for.inc, %entry, %cleanup
-  %cmp.i9 = phi i1 [ true, %cleanup ], [ false, %entry ], [ false, %for.inc ]
+  %cmp.i.not11 = phi i1 [ true, %cleanup ], [ false, %entry ], [ false, %for.inc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file) #26
-  ret i1 %cmp.i9
+  ret i1 %cmp.i.not11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

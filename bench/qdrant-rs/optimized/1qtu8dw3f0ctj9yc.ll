@@ -648,23 +648,23 @@ define void @_ZN6sparse6common13sparse_vector12SparseVector15sort_by_indices17h7
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !5
-  br label %.split.us.i.i
+  br label %.split.i.i
 
-.split.us.i.i:                                    ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i.i", %1
-  %15 = phi ptr [ %18, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i.i" ], [ %12, %1 ]
-  %16 = phi i64 [ %17, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i.i" ], [ %14, %1 ]
-  %.not15.not.i.i = icmp ult i64 %16, 2
-  br i1 %.not15.not.i.i, label %_ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exit.thread, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i.i"
+.split.i.i:                                       ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i.i", %1
+  %15 = phi ptr [ %18, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i.i" ], [ %12, %1 ]
+  %16 = phi i64 [ %17, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i.i" ], [ %14, %1 ]
+  %.not17.not.i.i = icmp ult i64 %16, 2
+  br i1 %.not17.not.i.i, label %_ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exit.thread, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i.i"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i.i": ; preds = %.split.us.i.i
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i.i": ; preds = %.split.i.i
   %17 = add i64 %16, -1
   %18 = getelementptr inbounds i8, ptr %15, i64 4
   %19 = load i32, ptr %15, align 4, !alias.scope !104, !noalias !109, !noundef !5
   %20 = load i32, ptr %18, align 4, !alias.scope !104, !noalias !109, !noundef !5
-  %.not.us.i.i = icmp ult i32 %19, %20
-  br i1 %.not.us.i.i, label %.split.us.i.i, label %_ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exit
+  %.not.i.i = icmp ult i32 %19, %20
+  br i1 %.not.i.i, label %.split.i.i, label %_ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exit
 
-_ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i.i"
+_ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   %21 = getelementptr inbounds i32, ptr %12, i64 %14
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -810,7 +810,7 @@ _ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %_ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exit.thread
 
-_ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exit.thread: ; preds = %.split.us.i.i, %"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$$LP$u32$C$f32$RP$$GT$$GT$17h610d724b7fd20f78E.exit"
+_ZN6sparse6common13sparse_vector12SparseVector9is_sorted17h7c48e1966c46940eE.exit.thread: ; preds = %.split.i.i, %"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$$LP$u32$C$f32$RP$$GT$$GT$17h610d724b7fd20f78E.exit"
   ret void
 
 70:                                               ; preds = %32
@@ -829,24 +829,24 @@ define noundef zeroext i1 @_ZN6sparse6common13sparse_vector12SparseVector9is_sor
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
-  br label %.split.us.i
+  br label %.split.i
 
-.split.us.i:                                      ; preds = %1, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i"
-  %6 = phi ptr [ %9, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i" ], [ %3, %1 ]
-  %7 = phi i64 [ %8, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i" ], [ %5, %1 ]
-  %.not15.not.i = icmp ult i64 %7, 2
-  br i1 %.not15.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h913866f3aefba30cE.exit, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i"
+.split.i:                                         ; preds = %1, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i"
+  %6 = phi ptr [ %9, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i" ], [ %3, %1 ]
+  %7 = phi i64 [ %8, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i" ], [ %5, %1 ]
+  %.not17.not.i = icmp ult i64 %7, 2
+  br i1 %.not17.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h913866f3aefba30cE.exit, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i"
 
-"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i": ; preds = %.split.us.i
+"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i": ; preds = %.split.i
   %8 = add i64 %7, -1
   %9 = getelementptr inbounds i8, ptr %6, i64 4
   %10 = load i32, ptr %6, align 4, !alias.scope !142, !noalias !147, !noundef !5
   %11 = load i32, ptr %9, align 4, !alias.scope !142, !noalias !147, !noundef !5
-  %.not.us.i = icmp ult i32 %10, %11
-  br i1 %.not.us.i, label %.split.us.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h913866f3aefba30cE.exit
+  %.not.i = icmp ult i32 %10, %11
+  br i1 %.not.i, label %.split.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h913866f3aefba30cE.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h913866f3aefba30cE.exit: ; preds = %.split.us.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.us.i"
-  ret i1 %.not15.not.i
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h913866f3aefba30cE.exit: ; preds = %.split.i, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h44b189797327705fE.exit.i"
+  ret i1 %.not17.not.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

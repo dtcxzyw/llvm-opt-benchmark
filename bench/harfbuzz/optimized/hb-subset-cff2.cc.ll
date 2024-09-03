@@ -5500,6 +5500,7 @@ for.body59.lr.ph:                                 ; preds = %if.end53
   br label %for.body59
 
 for.body59:                                       ; preds = %for.body59.lr.ph, %for.inc144
+  %retval.1328 = phi i1 [ undef, %for.body59.lr.ph ], [ %retval.2, %for.inc144 ]
   %__begin2.0327 = phi ptr [ %65, %for.body59.lr.ph ], [ %incdec.ptr, %for.inc144 ]
   %_.sroa.0.0.copyload = load i32, ptr %__begin2.0327, align 4
   %_.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin2.0327, i64 4
@@ -6132,7 +6133,8 @@ _ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit300: ; preds = %if.then.i2
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tEE9interpretERS5_.exit, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit300
-  %retval.0.i211314 = phi i1 [ false, %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tEE9interpretERS5_.exit ], [ true, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit300 ]
+  %retval.0.i211314 = phi i1 [ true, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit300 ], [ false, %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tEE9interpretERS5_.exit ]
+  %retval.3 = phi i1 [ %retval.1328, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit300 ], [ false, %_ZN3CFF16cs_interpreter_tINS_20cff2_cs_interp_env_tINS_11blend_arg_tEEE27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tEE9interpretERS5_.exit ]
   %155 = load i32, ptr %scalars.i, align 8
   %tobool.not.i.i.i302 = icmp eq i32 %155, 0
   br i1 %tobool.not.i.i.i302, label %_ZN11hb_vector_tIfLb0EED2Ev.exit.i, label %if.then.i.i.i
@@ -6173,6 +6175,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEED2Ev.exit: ; preds = %_ZN3CFF11b
   br i1 %retval.0.i211314, label %for.inc144, label %return
 
 for.inc144:                                       ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEED2Ev.exit, %_ZN11hb_vector_tIPKN3CFF15parsed_cs_str_tELb0EEixEi.exit, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit
+  %retval.2 = phi i1 [ %retval.1328, %_ZN11hb_vector_tIPKN3CFF15parsed_cs_str_tELb0EEixEi.exit ], [ %retval.1328, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EEixEi.exit ], [ %retval.3, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEED2Ev.exit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0327, i64 8
   %cmp58.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp58.not, label %for.end145, label %for.body59
@@ -6201,7 +6204,7 @@ if.end158:                                        ; preds = %land.lhs.true153, %
   br label %return
 
 return:                                           ; preds = %_ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit110, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEED2Ev.exit, %_ZNK3CFF12CFF2FDSelect6get_fdEj.exit, %land.lhs.true153, %if.end40, %lor.lhs.false47, %lor.lhs.false50, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE12resize_exactEib.exit80, %if.end158
-  %retval.0 = phi i1 [ true, %if.end158 ], [ false, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE12resize_exactEib.exit80 ], [ false, %lor.lhs.false50 ], [ false, %lor.lhs.false47 ], [ false, %if.end40 ], [ false, %land.lhs.true153 ], [ false, %_ZNK3CFF12CFF2FDSelect6get_fdEj.exit ], [ false, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEED2Ev.exit ], [ false, %_ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit110 ]
+  %retval.0 = phi i1 [ true, %if.end158 ], [ false, %_ZN11hb_vector_tIN3CFF15parsed_cs_str_tELb0EE12resize_exactEib.exit80 ], [ false, %lor.lhs.false50 ], [ false, %lor.lhs.false47 ], [ false, %if.end40 ], [ false, %land.lhs.true153 ], [ false, %_ZNK3CFF12CFF2FDSelect6get_fdEj.exit ], [ %retval.3, %_ZN3CFF20cff2_cs_interp_env_tINS_11blend_arg_tEED2Ev.exit ], [ false, %_ZN11hb_vector_tIN3CFF19parsed_cs_str_vec_tELb0EEixEi.exit110 ]
   ret i1 %retval.0
 }
 

@@ -3516,7 +3516,7 @@ sw.bb48.i.i:                                      ; preds = %_ZN9grpc_core4PollI
   call void %52(ptr nonnull sret(%"class.grpc_core::Poll") align 8 %ref.tmp.i63.i.i, ptr noundef nonnull %arg.i.i64.i.i), !noalias !95
   %53 = load i8, ptr %ref.tmp.i63.i.i, align 8, !noalias !95
   %tobool.i.i.i.i65.i.i = trunc i8 %53 to i1
-  br i1 %tobool.i.i.i.i65.i.i, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit77.i.i, label %"_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit.thread11"
+  br i1 %tobool.i.i.i.i65.i.i, label %cleanup63.thread.i.i, label %"_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit.thread11"
 
 "_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit.thread11": ; preds = %sw.bb48.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i63.i.i), !noalias !38
@@ -3527,7 +3527,7 @@ sw.bb48.i.i:                                      ; preds = %_ZN9grpc_core4PollI
   store i8 0, ptr %agg.result, align 8, !alias.scope !96
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit
 
-_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit77.i.i: ; preds = %sw.bb48.i.i
+cleanup63.thread.i.i:                             ; preds = %sw.bb48.i.i
   %54 = getelementptr inbounds i8, ptr %ref.tmp.i63.i.i, i64 8
   %55 = load i8, ptr %54, align 8, !noalias !101
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i63.i.i, i64 16
@@ -3542,9 +3542,9 @@ eh.resume.i.i:                                    ; preds = %lpad19.i.i, %lpad.i
   call void @_ZN9grpc_core4PollIN4absl12lts_202308026StatusEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %result17.sink.i.i) #27, !noalias !38
   resume { ptr, i32 } %.pn.i.i
 
-"_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit.thread": ; preds = %cleanup44.i.i, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit77.i.i
-  %agg.tmp.sroa.9.5.ph = phi ptr [ %57, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit77.i.i ], [ %45, %cleanup44.i.i ]
-  %agg.tmp.sroa.5.5.ph = phi i8 [ %55, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit77.i.i ], [ %43, %cleanup44.i.i ]
+"_ZN9grpc_core14promise_detail6TrySeqINS_5SleepEJZNS_20FaultInjectionFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEES4_EEE3$_0SC_EEclEv.exit.thread": ; preds = %cleanup44.i.i, %cleanup63.thread.i.i
+  %agg.tmp.sroa.9.5.ph = phi ptr [ %57, %cleanup63.thread.i.i ], [ %45, %cleanup44.i.i ]
+  %agg.tmp.sroa.5.5.ph = phi i8 [ %55, %cleanup63.thread.i.i ], [ %43, %cleanup44.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result.i.i), !noalias !35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result17.i.i), !noalias !35
