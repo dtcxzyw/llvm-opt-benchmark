@@ -6,11 +6,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.icu_75::CalendarAstronomer::Equatorial" = type { double, double }
 %"class.icu_75::SunTimeAngleFunc" = type { %"class.icu_75::CalendarAstronomer::AngleFunc" }
 %"class.icu_75::CalendarAstronomer::AngleFunc" = type { ptr }
 %"class.icu_75::RiseSetCoordFunc" = type { %"class.icu_75::CalendarAstronomer::CoordFunc" }
 %"class.icu_75::CalendarAstronomer::CoordFunc" = type { ptr }
+%"class.icu_75::CalendarAstronomer::Equatorial" = type { double, double }
 %"class.icu_75::MoonTimeAngleFunc" = type { %"class.icu_75::CalendarAstronomer::AngleFunc" }
 %"class.icu_75::MoonRiseSetCoordFunc" = type { %"class.icu_75::CalendarAstronomer::CoordFunc" }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
@@ -744,44 +744,91 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer17eclipticToHorizonERNS0_7HorizonEd(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) %result, double noundef %eclipLong) local_unnamed_addr #0 align 2 {
 entry:
-  %equatorial = alloca %"class.icu_75::CalendarAstronomer::Equatorial", align 8
-  %declination.i = getelementptr inbounds i8, ptr %equatorial, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %equatorial, i8 0, i64 16, i1 false)
-  %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(16) %equatorial, double noundef %eclipLong, double noundef 0.000000e+00)
-  %call.i8 = call noundef double @_ZN6icu_7518CalendarAstronomer20getGreenwichSiderealEv(ptr noundef nonnull align 8 dereferenceable(129) %this)
+  %eclipObliquity.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %0 = load double, ptr %eclipObliquity.i.i, align 8
+  %call.i.i.i9 = tail call noundef signext i8 @uprv_isNaN_75(double noundef %0)
+  %tobool.not.i.i = icmp eq i8 %call.i.i.i9, 0
+  br i1 %tobool.not.i.i, label %entry.if.end_crit_edge.i.i, label %if.then.i.i
+
+entry.if.end_crit_edge.i.i:                       ; preds = %entry
+  %.pre.i.i = load double, ptr %eclipObliquity.i.i, align 8
+  br label %_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit
+
+if.then.i.i:                                      ; preds = %entry
+  %julianDay.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = load double, ptr %julianDay.i.i.i, align 8
+  %call.i.i.i.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %1)
+  %tobool.not.i.i.i = icmp eq i8 %call.i.i.i.i, 0
+  br i1 %tobool.not.i.i.i, label %entry.if.end_crit_edge.i.i.i, label %if.then.i.i.i
+
+entry.if.end_crit_edge.i.i.i:                     ; preds = %if.then.i.i
+  %.pre.i.i.i = load double, ptr %julianDay.i.i.i, align 8
+  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i.i
+
+if.then.i.i.i:                                    ; preds = %if.then.i.i
+  %2 = load double, ptr %this, align 8
+  %sub.i.i.i = fadd double %2, 0x42E7F907CA644000
+  %div.i.i.i10 = fdiv double %sub.i.i.i, 8.640000e+07
+  store double %div.i.i.i10, ptr %julianDay.i.i.i, align 8
+  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i.i
+
+_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i.i: ; preds = %if.then.i.i.i, %entry.if.end_crit_edge.i.i.i
+  %3 = phi double [ %.pre.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %div.i.i.i10, %if.then.i.i.i ]
+  %sub.i.i = fadd double %3, 0xC142B42C80000000
+  %div.i.i = fdiv double %sub.i.i, 3.652500e+04
+  %4 = tail call double @llvm.fmuladd.f64(double %div.i.i, double 0xBF8AA1EDB45C4BE9, double 0x4037707570C564F9)
+  %neg.i.i = fmul double %div.i.i, 0xBE865E9F80F29211
+  %5 = tail call double @llvm.fmuladd.f64(double %neg.i.i, double %div.i.i, double %4)
+  %mul4.i.i = fmul double %div.i.i, 0x3EA0DED40694CE29
+  %mul5.i.i = fmul double %div.i.i, %mul4.i.i
+  %6 = tail call double @llvm.fmuladd.f64(double %mul5.i.i, double %div.i.i, double %5)
+  %mul9.i.i = fmul double %6, 0x3F91DF46A2529D39
+  store double %mul9.i.i, ptr %eclipObliquity.i.i, align 8
+  br label %_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit
+
+_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit: ; preds = %entry.if.end_crit_edge.i.i, %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i.i
+  %7 = phi double [ %.pre.i.i, %entry.if.end_crit_edge.i.i ], [ %mul9.i.i, %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i.i ]
+  %call2.i = tail call double @sin(double noundef %7) #17
+  %call3.i = tail call double @cos(double noundef %7) #17
+  %call4.i = tail call double @sin(double noundef %eclipLong) #17
+  %call5.i = tail call double @cos(double noundef %eclipLong) #17
+  %neg.i = fmul double %call2.i, -0.000000e+00
+  %8 = tail call double @llvm.fmuladd.f64(double %call4.i, double %call3.i, double %neg.i)
+  %call10.i = tail call double @atan2(double noundef %8, double noundef %call5.i) #17
+  %mul12.i = fmul double %call2.i, %call4.i
+  %9 = tail call double @llvm.fmuladd.f64(double %call3.i, double 0.000000e+00, double %mul12.i)
+  %call13.i = tail call double @asin(double noundef %9) #17
+  %call.i8 = tail call noundef double @_ZN6icu_7518CalendarAstronomer20getGreenwichSiderealEv(ptr noundef nonnull align 8 dereferenceable(129) %this)
   %fGmtOffset.i = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load double, ptr %fGmtOffset.i, align 8
-  %div.i = fdiv double %0, 3.600000e+06
+  %10 = load double, ptr %fGmtOffset.i, align 8
+  %div.i = fdiv double %10, 3.600000e+06
   %add.i = fadd double %call.i8, %div.i
   %div.i.i.i = fdiv double %add.i, 2.400000e+01
-  %call.i.i.i = call noundef double @uprv_floor_75(double noundef %div.i.i.i)
-  %1 = call noundef double @llvm.fmuladd.f64(double %call.i.i.i, double -2.400000e+01, double %add.i)
-  %mul = fmul double %1, 0x400921FB54442D18
+  %call.i.i.i = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i)
+  %11 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i, double -2.400000e+01, double %add.i)
+  %mul = fmul double %11, 0x400921FB54442D18
   %div = fdiv double %mul, 1.200000e+01
-  %2 = load double, ptr %equatorial, align 8
-  %sub = fsub double %div, %2
-  %call3 = call double @sin(double noundef %sub) #17
-  %call4 = call double @cos(double noundef %sub) #17
-  %3 = load double, ptr %declination.i, align 8
-  %call5 = call double @sin(double noundef %3) #17
-  %4 = load double, ptr %declination.i, align 8
-  %call7 = call double @cos(double noundef %4) #17
+  %sub = fsub double %div, %call10.i
+  %call3 = tail call double @sin(double noundef %sub) #17
+  %call4 = tail call double @cos(double noundef %sub) #17
+  %call5 = tail call double @sin(double noundef %call13.i) #17
+  %call7 = tail call double @cos(double noundef %call13.i) #17
   %fLatitude = getelementptr inbounds i8, ptr %this, i64 16
-  %5 = load double, ptr %fLatitude, align 8
-  %call8 = call double @sin(double noundef %5) #17
-  %6 = load double, ptr %fLatitude, align 8
-  %call10 = call double @cos(double noundef %6) #17
+  %12 = load double, ptr %fLatitude, align 8
+  %call8 = tail call double @sin(double noundef %12) #17
+  %13 = load double, ptr %fLatitude, align 8
+  %call10 = tail call double @cos(double noundef %13) #17
   %mul12 = fmul double %call7, %call10
   %mul13 = fmul double %call4, %mul12
-  %7 = call double @llvm.fmuladd.f64(double %call5, double %call8, double %mul13)
-  %call14 = call double @asin(double noundef %7) #17
+  %14 = tail call double @llvm.fmuladd.f64(double %call5, double %call8, double %mul13)
+  %call14 = tail call double @asin(double noundef %14) #17
   %fneg = fneg double %call7
   %mul15 = fmul double %call10, %fneg
   %mul16 = fmul double %call3, %mul15
-  %call17 = call double @sin(double noundef %call14) #17
+  %call17 = tail call double @sin(double noundef %call14) #17
   %neg = fneg double %call8
-  %8 = call double @llvm.fmuladd.f64(double %neg, double %call17, double %call5)
-  %call19 = call double @atan2(double noundef %mul16, double noundef %8) #17
+  %15 = tail call double @llvm.fmuladd.f64(double %neg, double %call17, double %call5)
+  %call19 = tail call double @atan2(double noundef %mul16, double noundef %15) #17
   store double %call19, ptr %result, align 8
   %azimuth.i = getelementptr inbounds i8, ptr %result, i64 8
   store double %call14, ptr %azimuth.i, align 8
@@ -795,7 +842,11 @@ entry:
   %0 = load double, ptr %sunLongitude, align 8
   %call.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %0)
   %tobool.not = icmp eq i8 %call.i, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  br i1 %tobool.not, label %entry.if.end_crit_edge, label %if.then
+
+entry.if.end_crit_edge:                           ; preds = %entry
+  %.pre = load double, ptr %sunLongitude, align 8
+  br label %if.end
 
 if.then:                                          ; preds = %entry
   %julianDay.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -818,16 +869,52 @@ if.then.i:                                        ; preds = %if.then
 _ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit: ; preds = %entry.if.end_crit_edge.i, %if.then.i
   %3 = phi double [ %.pre.i, %entry.if.end_crit_edge.i ], [ %div.i, %if.then.i ]
   %meanAnomalySun = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_(ptr nonnull align 8 poison, double noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %sunLongitude, ptr noundef nonnull align 8 dereferenceable(8) %meanAnomalySun)
+  %sub.i1 = fadd double %3, 0xC142AD09C0000000
+  %mul.i = fmul double %sub.i1, 0x3F919D9BCDD8AC02
+  %div.i.i.i.i = fdiv double %mul.i, 0x401921FB54442D18
+  %call.i.i.i.i = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i.i)
+  %4 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i.i, double 0xC01921FB54442D18, double %mul.i)
+  %add.i = fadd double %4, 0x4013818B33DDEEE0
+  %sub2.i = fadd double %add.i, 0xC013BDAF8CEE89A2
+  %div.i.i.i2.i = fdiv double %sub2.i, 0x401921FB54442D18
+  %call.i.i.i3.i = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i2.i)
+  %5 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i3.i, double 0xC01921FB54442D18, double %sub2.i)
+  store double %5, ptr %meanAnomalySun, align 8
+  br label %do.body.i.i
+
+do.body.i.i:                                      ; preds = %do.body.i.i, %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit
+  %E.0.i.i = phi double [ %5, %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit ], [ %sub3.i.i, %do.body.i.i ]
+  %call.i.i2 = tail call double @sin(double noundef %E.0.i.i) #17
+  %6 = tail call double @llvm.fmuladd.f64(double %call.i.i2, double -1.671300e-02, double %E.0.i.i)
+  %sub.i.i = fsub double %6, %5
+  %call1.i.i = tail call double @cos(double noundef %E.0.i.i) #17
+  %7 = tail call double @llvm.fmuladd.f64(double %call1.i.i, double -1.671300e-02, double 1.000000e+00)
+  %div.i.i = fdiv double %sub.i.i, %7
+  %sub3.i.i = fsub double %E.0.i.i, %div.i.i
+  %call4.i.i = tail call double @uprv_fabs_75(double noundef %sub.i.i)
+  %cmp.i.i = fcmp ogt double %call4.i.i, 1.000000e-05
+  br i1 %cmp.i.i, label %do.body.i.i, label %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_.exit, !llvm.loop !4
+
+_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_.exit: ; preds = %do.body.i.i
+  %div5.i.i = fmul double %sub3.i.i, 5.000000e-01
+  %call6.i.i = tail call double @tan(double noundef %div5.i.i) #17
+  %mul.i.i = fmul double %call6.i.i, 0x3FF04509C69ED7D5
+  %call10.i.i = tail call double @atan(double noundef %mul.i.i) #17
+  %mul11.i.i = fmul double %call10.i.i, 2.000000e+00
+  %add5.i = fadd double %mul11.i.i, 0x4013BDAF8CEE89A2
+  %div.i.i.i4.i = fdiv double %add5.i, 0x401921FB54442D18
+  %call.i.i.i5.i = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i4.i)
+  %8 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i5.i, double 0xC01921FB54442D18, double %add5.i)
+  store double %8, ptr %sunLongitude, align 8
   br label %if.end
 
-if.end:                                           ; preds = %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit, %entry
-  %4 = load double, ptr %sunLongitude, align 8
-  ret double %4
+if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_.exit
+  %9 = phi double [ %.pre, %entry.if.end_crit_edge ], [ %8, %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_.exit ]
+  ret double %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_(ptr nocapture nonnull readnone align 8 %this, double noundef %jDay, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %longitude, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %meanAnomaly) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(129) %this, double noundef %jDay, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %longitude, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %meanAnomaly) local_unnamed_addr #0 align 2 {
 entry:
   %sub = fadd double %jDay, 0xC142AD09C0000000
   %mul = fmul double %sub, 0x3F919D9BCDD8AC02
@@ -872,39 +959,8 @@ _ZN6icu_75L11trueAnomalyEdd.exit:                 ; preds = %do.body.i
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer14getSunPositionERNS0_10EquatorialE(ptr nocapture noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull returned align 8 dereferenceable(16) %result) local_unnamed_addr #0 align 2 {
 entry:
-  %sunLongitude.i = getelementptr inbounds i8, ptr %this, i64 48
-  %0 = load double, ptr %sunLongitude.i, align 8
-  %call.i.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %0)
-  %tobool.not.i = icmp eq i8 %call.i.i, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %julianDay.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %1 = load double, ptr %julianDay.i.i, align 8
-  %call.i.i.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %1)
-  %tobool.not.i.i = icmp eq i8 %call.i.i.i, 0
-  br i1 %tobool.not.i.i, label %entry.if.end_crit_edge.i.i, label %if.then.i.i
-
-entry.if.end_crit_edge.i.i:                       ; preds = %if.then.i
-  %.pre.i.i = load double, ptr %julianDay.i.i, align 8
-  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i
-
-if.then.i.i:                                      ; preds = %if.then.i
-  %2 = load double, ptr %this, align 8
-  %sub.i.i = fadd double %2, 0x42E7F907CA644000
-  %div.i.i = fdiv double %sub.i.i, 8.640000e+07
-  store double %div.i.i, ptr %julianDay.i.i, align 8
-  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i
-
-_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i: ; preds = %if.then.i.i, %entry.if.end_crit_edge.i.i
-  %3 = phi double [ %.pre.i.i, %entry.if.end_crit_edge.i.i ], [ %div.i.i, %if.then.i.i ]
-  %meanAnomalySun.i = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_(ptr nonnull align 8 poison, double noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %sunLongitude.i, ptr noundef nonnull align 8 dereferenceable(8) %meanAnomalySun.i)
-  br label %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit
-
-_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit: ; preds = %entry, %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i
-  %4 = load double, ptr %sunLongitude.i, align 8
-  %call2 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(16) %result, double noundef %4, double noundef 0.000000e+00)
+  %call = tail call noundef double @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(129) %this)
+  %call2 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(16) %result, double noundef %call, double noundef 0.000000e+00)
   ret ptr %result
 }
 
@@ -1330,129 +1386,100 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sunLongitude.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load double, ptr %sunLongitude.i, align 8
+  %call = tail call noundef double @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(129) %this)
+  %julianDay.i = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = load double, ptr %julianDay.i, align 8
   %call.i.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %1)
   %tobool.not.i = icmp eq i8 %call.i.i, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit, label %if.then.i
+  br i1 %tobool.not.i, label %entry.if.end_crit_edge.i, label %if.then.i
 
-if.then.i:                                        ; preds = %if.then
-  %julianDay.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load double, ptr %julianDay.i.i, align 8
-  %call.i.i.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %2)
-  %tobool.not.i.i = icmp eq i8 %call.i.i.i, 0
-  br i1 %tobool.not.i.i, label %entry.if.end_crit_edge.i.i, label %if.then.i.i
-
-entry.if.end_crit_edge.i.i:                       ; preds = %if.then.i
-  %.pre.i.i = load double, ptr %julianDay.i.i, align 8
-  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i
-
-if.then.i.i:                                      ; preds = %if.then.i
-  %3 = load double, ptr %this, align 8
-  %sub.i.i = fadd double %3, 0x42E7F907CA644000
-  %div.i.i = fdiv double %sub.i.i, 8.640000e+07
-  store double %div.i.i, ptr %julianDay.i.i, align 8
-  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i
-
-_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i: ; preds = %if.then.i.i, %entry.if.end_crit_edge.i.i
-  %4 = phi double [ %.pre.i.i, %entry.if.end_crit_edge.i.i ], [ %div.i.i, %if.then.i.i ]
-  %meanAnomalySun.i = getelementptr inbounds i8, ptr %this, i64 56
-  tail call void @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_(ptr nonnull align 8 poison, double noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %sunLongitude.i, ptr noundef nonnull align 8 dereferenceable(8) %meanAnomalySun.i)
-  br label %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit
-
-_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit: ; preds = %if.then, %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i
-  %julianDay.i = getelementptr inbounds i8, ptr %this, i64 32
-  %5 = load double, ptr %julianDay.i, align 8
-  %call.i.i11 = tail call noundef signext i8 @uprv_isNaN_75(double noundef %5)
-  %tobool.not.i12 = icmp eq i8 %call.i.i11, 0
-  br i1 %tobool.not.i12, label %entry.if.end_crit_edge.i, label %if.then.i13
-
-entry.if.end_crit_edge.i:                         ; preds = %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit
+entry.if.end_crit_edge.i:                         ; preds = %if.then
   %.pre.i = load double, ptr %julianDay.i, align 8
   br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit
 
-if.then.i13:                                      ; preds = %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit
-  %6 = load double, ptr %this, align 8
-  %sub.i = fadd double %6, 0x42E7F907CA644000
+if.then.i:                                        ; preds = %if.then
+  %2 = load double, ptr %this, align 8
+  %sub.i = fadd double %2, 0x42E7F907CA644000
   %div.i = fdiv double %sub.i, 8.640000e+07
   store double %div.i, ptr %julianDay.i, align 8
   br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit
 
-_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit: ; preds = %entry.if.end_crit_edge.i, %if.then.i13
-  %7 = phi double [ %.pre.i, %entry.if.end_crit_edge.i ], [ %div.i, %if.then.i13 ]
-  %sub = fadd double %7, 0xC142AD09C0000000
-  %8 = tail call double @llvm.fmuladd.f64(double %sub, double 0x3FCD6FB4CCD0BC8D, double 0x401639A2A09C75E2)
-  %div.i.i.i = fdiv double %8, 0x401921FB54442D18
-  %call.i.i.i14 = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i)
-  %9 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i14, double 0xC01921FB54442D18, double %8)
-  %10 = tail call double @llvm.fmuladd.f64(double %sub, double 0xBF5FDB459D100168, double %9)
-  %sub4 = fadd double %10, 0xBFE44BDB3881627C
-  %div.i.i.i15 = fdiv double %sub4, 0x401921FB54442D18
-  %call.i.i.i16 = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i15)
-  %11 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i16, double 0xC01921FB54442D18, double %sub4)
+_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit: ; preds = %entry.if.end_crit_edge.i, %if.then.i
+  %3 = phi double [ %.pre.i, %entry.if.end_crit_edge.i ], [ %div.i, %if.then.i ]
+  %sub = fadd double %3, 0xC142AD09C0000000
+  %4 = tail call double @llvm.fmuladd.f64(double %sub, double 0x3FCD6FB4CCD0BC8D, double 0x401639A2A09C75E2)
+  %div.i.i.i = fdiv double %4, 0x401921FB54442D18
+  %call.i.i.i = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i)
+  %5 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i, double 0xC01921FB54442D18, double %4)
+  %6 = tail call double @llvm.fmuladd.f64(double %sub, double 0xBF5FDB459D100168, double %5)
+  %sub4 = fadd double %6, 0xBFE44BDB3881627C
+  %div.i.i.i11 = fdiv double %sub4, 0x401921FB54442D18
+  %call.i.i.i12 = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i11)
+  %7 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i12, double 0xC01921FB54442D18, double %sub4)
   %meanAnomalyMoon = getelementptr inbounds i8, ptr %this, i64 80
-  store double %11, ptr %meanAnomalyMoon, align 8
-  %12 = load double, ptr %sunLongitude.i, align 8
-  %sub6 = fsub double %9, %12
-  %neg = fneg double %11
-  %13 = tail call double @llvm.fmuladd.f64(double %sub6, double 2.000000e+00, double %neg)
-  %call8 = tail call double @sin(double noundef %13) #17
+  store double %7, ptr %meanAnomalyMoon, align 8
+  %sunLongitude = getelementptr inbounds i8, ptr %this, i64 48
+  %8 = load double, ptr %sunLongitude, align 8
+  %sub6 = fsub double %5, %8
+  %neg = fneg double %7
+  %9 = tail call double @llvm.fmuladd.f64(double %sub6, double 2.000000e+00, double %neg)
+  %call8 = tail call double @sin(double noundef %9) #17
   %mul = fmul double %call8, 0x3F96C471A926A187
   %meanAnomalySun = getelementptr inbounds i8, ptr %this, i64 56
-  %14 = load double, ptr %meanAnomalySun, align 8
-  %call9 = tail call double @sin(double noundef %14) #17
+  %10 = load double, ptr %meanAnomalySun, align 8
+  %call9 = tail call double @sin(double noundef %10) #17
   %mul10 = fmul double %call9, 0x3F6A90B0ABA4FC89
-  %15 = load double, ptr %meanAnomalySun, align 8
-  %call12 = tail call double @sin(double noundef %15) #17
+  %11 = load double, ptr %meanAnomalySun, align 8
+  %call12 = tail call double @sin(double noundef %11) #17
   %mul13 = fmul double %call12, 0x3F7A736889D66DD0
   %sub14 = fsub double %mul, %mul10
   %sub15 = fsub double %sub14, %mul13
-  %16 = load double, ptr %meanAnomalyMoon, align 8
-  %add = fadd double %16, %sub15
+  %12 = load double, ptr %meanAnomalyMoon, align 8
+  %add = fadd double %12, %sub15
   store double %add, ptr %meanAnomalyMoon, align 8
   %call18 = tail call double @sin(double noundef %add) #17
   %mul19 = fmul double %call18, 0x3FBC1905209A88DE
-  %17 = load double, ptr %meanAnomalyMoon, align 8
-  %mul21 = fmul double %17, 2.000000e+00
+  %13 = load double, ptr %meanAnomalyMoon, align 8
+  %mul21 = fmul double %13, 2.000000e+00
   %call22 = tail call double @sin(double noundef %mul21) #17
   %mul23 = fmul double %call22, 0x3F6E98DF535623B2
-  %add24 = fadd double %9, %mul
+  %add24 = fadd double %5, %mul
   %add25 = fadd double %add24, %mul19
   %sub26 = fsub double %add25, %mul10
   %add27 = fadd double %sub26, %mul23
   %moonLongitude = getelementptr inbounds i8, ptr %this, i64 64
   store double %add27, ptr %moonLongitude, align 8
-  %18 = load double, ptr %sunLongitude.i, align 8
-  %sub30 = fsub double %add27, %18
+  %14 = load double, ptr %sunLongitude, align 8
+  %sub30 = fsub double %add27, %14
   %mul31 = fmul double %sub30, 2.000000e+00
   %call32 = tail call double @sin(double noundef %mul31) #17
   %mul33 = fmul double %call32, 0x3F8787CEEAB4C1CA
-  %19 = load double, ptr %moonLongitude, align 8
-  %add35 = fadd double %19, %mul33
+  %15 = load double, ptr %moonLongitude, align 8
+  %add35 = fadd double %15, %mul33
   store double %add35, ptr %moonLongitude, align 8
-  %20 = tail call double @llvm.fmuladd.f64(double %sub, double 0xBF4E48EB230F0FE5, double 0x40163C779EFC0D54)
-  %div.i.i.i17 = fdiv double %20, 0x401921FB54442D18
-  %call.i.i.i18 = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i17)
-  %21 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i18, double 0xC01921FB54442D18, double %20)
-  %22 = load double, ptr %meanAnomalySun, align 8
-  %call39 = tail call double @sin(double noundef %22) #17
-  %23 = tail call double @llvm.fmuladd.f64(double %call39, double 0xBF66E05A695F8191, double %21)
-  %24 = load double, ptr %moonLongitude, align 8
-  %sub42 = fsub double %24, %23
+  %16 = tail call double @llvm.fmuladd.f64(double %sub, double 0xBF4E48EB230F0FE5, double 0x40163C779EFC0D54)
+  %div.i.i.i13 = fdiv double %16, 0x401921FB54442D18
+  %call.i.i.i14 = tail call noundef double @uprv_floor_75(double noundef %div.i.i.i13)
+  %17 = tail call noundef double @llvm.fmuladd.f64(double %call.i.i.i14, double 0xC01921FB54442D18, double %16)
+  %18 = load double, ptr %meanAnomalySun, align 8
+  %call39 = tail call double @sin(double noundef %18) #17
+  %19 = tail call double @llvm.fmuladd.f64(double %call39, double 0xBF66E05A695F8191, double %17)
+  %20 = load double, ptr %moonLongitude, align 8
+  %sub42 = fsub double %20, %19
   %call43 = tail call double @sin(double noundef %sub42) #17
-  %25 = load double, ptr %moonLongitude, align 8
-  %sub45 = fsub double %25, %23
+  %21 = load double, ptr %moonLongitude, align 8
+  %sub45 = fsub double %21, %19
   %call46 = tail call double @cos(double noundef %sub45) #17
   %mul48 = fmul double %call43, 0x3FEFDEFD3FC184D3
   %call49 = tail call double @atan2(double noundef %mul48, double noundef %call46) #17
-  %add50 = fadd double %23, %call49
+  %add50 = fadd double %19, %call49
   %moonEclipLong = getelementptr inbounds i8, ptr %this, i64 72
   store double %add50, ptr %moonEclipLong, align 8
   %mul52 = fmul double %call43, 0x3FB6F575B9F2C24F
   %call53 = tail call double @asin(double noundef %mul52) #17
   %moonPosition = getelementptr inbounds i8, ptr %this, i64 112
-  %26 = load double, ptr %moonEclipLong, align 8
-  %call55 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(16) %moonPosition, double noundef %26, double noundef %call53)
+  %22 = load double, ptr %moonEclipLong, align 8
+  %call55 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 dereferenceable(129) %this, ptr noundef nonnull align 8 dereferenceable(16) %moonPosition, double noundef %22, double noundef %call53)
   store i8 1, ptr %moonPositionSet, align 8
   br label %if.end
 
@@ -1913,77 +1940,15 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZN6icu_7516SunTimeAngleFunc4evalERNS_18CalendarAstronomerE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(129) %a) unnamed_addr #0 comdat align 2 {
 entry:
-  %sunLongitude.i = getelementptr inbounds i8, ptr %a, i64 48
-  %0 = load double, ptr %sunLongitude.i, align 8
-  %call.i.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %0)
-  %tobool.not.i = icmp eq i8 %call.i.i, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %julianDay.i.i = getelementptr inbounds i8, ptr %a, i64 32
-  %1 = load double, ptr %julianDay.i.i, align 8
-  %call.i.i.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %1)
-  %tobool.not.i.i = icmp eq i8 %call.i.i.i, 0
-  br i1 %tobool.not.i.i, label %entry.if.end_crit_edge.i.i, label %if.then.i.i
-
-entry.if.end_crit_edge.i.i:                       ; preds = %if.then.i
-  %.pre.i.i = load double, ptr %julianDay.i.i, align 8
-  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i
-
-if.then.i.i:                                      ; preds = %if.then.i
-  %2 = load double, ptr %a, align 8
-  %sub.i.i = fadd double %2, 0x42E7F907CA644000
-  %div.i.i = fdiv double %sub.i.i, 8.640000e+07
-  store double %div.i.i, ptr %julianDay.i.i, align 8
-  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i
-
-_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i: ; preds = %if.then.i.i, %entry.if.end_crit_edge.i.i
-  %3 = phi double [ %.pre.i.i, %entry.if.end_crit_edge.i.i ], [ %div.i.i, %if.then.i.i ]
-  %meanAnomalySun.i = getelementptr inbounds i8, ptr %a, i64 56
-  tail call void @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_(ptr nonnull align 8 poison, double noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %sunLongitude.i, ptr noundef nonnull align 8 dereferenceable(8) %meanAnomalySun.i)
-  br label %_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit
-
-_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv.exit: ; preds = %entry, %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i
-  %4 = load double, ptr %sunLongitude.i, align 8
-  ret double %4
+  %call = tail call noundef double @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(129) %a)
+  ret double %call
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_7516RiseSetCoordFunc4evalERNS_18CalendarAstronomer10EquatorialERS1_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull align 8 dereferenceable(129) %a) unnamed_addr #0 comdat align 2 {
 entry:
-  %sunLongitude.i.i = getelementptr inbounds i8, ptr %a, i64 48
-  %0 = load double, ptr %sunLongitude.i.i, align 8
-  %call.i.i.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %0)
-  %tobool.not.i.i = icmp eq i8 %call.i.i.i, 0
-  br i1 %tobool.not.i.i, label %_ZN6icu_7518CalendarAstronomer14getSunPositionERNS0_10EquatorialE.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  %julianDay.i.i.i = getelementptr inbounds i8, ptr %a, i64 32
-  %1 = load double, ptr %julianDay.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef signext i8 @uprv_isNaN_75(double noundef %1)
-  %tobool.not.i.i.i = icmp eq i8 %call.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %entry.if.end_crit_edge.i.i.i, label %if.then.i.i.i
-
-entry.if.end_crit_edge.i.i.i:                     ; preds = %if.then.i.i
-  %.pre.i.i.i = load double, ptr %julianDay.i.i.i, align 8
-  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i.i
-
-if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %2 = load double, ptr %a, align 8
-  %sub.i.i.i = fadd double %2, 0x42E7F907CA644000
-  %div.i.i.i = fdiv double %sub.i.i.i, 8.640000e+07
-  store double %div.i.i.i, ptr %julianDay.i.i.i, align 8
-  br label %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i.i
-
-_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i.i: ; preds = %if.then.i.i.i, %entry.if.end_crit_edge.i.i.i
-  %3 = phi double [ %.pre.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %div.i.i.i, %if.then.i.i.i ]
-  %meanAnomalySun.i.i = getelementptr inbounds i8, ptr %a, i64 56
-  tail call void @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEdRdS1_(ptr nonnull align 8 poison, double noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %sunLongitude.i.i, ptr noundef nonnull align 8 dereferenceable(8) %meanAnomalySun.i.i)
-  br label %_ZN6icu_7518CalendarAstronomer14getSunPositionERNS0_10EquatorialE.exit
-
-_ZN6icu_7518CalendarAstronomer14getSunPositionERNS0_10EquatorialE.exit: ; preds = %entry, %_ZN6icu_7518CalendarAstronomer12getJulianDayEv.exit.i.i
-  %4 = load double, ptr %sunLongitude.i.i, align 8
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 dereferenceable(129) %a, ptr noundef nonnull align 8 dereferenceable(16) %result, double noundef %4, double noundef 0.000000e+00)
+  %call.i = tail call noundef double @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(129) %a)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 dereferenceable(129) %a, ptr noundef nonnull align 8 dereferenceable(16) %result, double noundef %call.i, double noundef 0.000000e+00)
   ret void
 }
 

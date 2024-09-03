@@ -196,7 +196,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.224" = type { %"class.std::__shared_ptr.225" }
 %"class.std::__shared_ptr.225" = type { ptr, %"class.std::__shared_count" }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
-%"class.cv::Point_.322" = type { float, float }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
 
@@ -818,8 +817,6 @@ $_ZN2cv6detail18RotationWarperBaseINS0_15PaniniProjectorEE8setScaleEf = comdat a
 
 $_ZN2cv6detail18RotationWarperBaseINS0_15PaniniProjectorEE15detectResultRoiENS_5Size_IiEERNS_6Point_IiEES8_ = comdat any
 
-$_ZN2cv6detail15PaniniProjector11mapBackwardEffRfS2_ = comdat any
-
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv20PaniniPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv20PaniniPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev = comdat any
@@ -867,8 +864,6 @@ $_ZNK2cv6detail18RotationWarperBaseINS0_23PaniniPortraitProjectorEE8getScaleEv =
 $_ZN2cv6detail18RotationWarperBaseINS0_23PaniniPortraitProjectorEE8setScaleEf = comdat any
 
 $_ZN2cv6detail18RotationWarperBaseINS0_23PaniniPortraitProjectorEE15detectResultRoiENS_5Size_IiEERNS_6Point_IiEES8_ = comdat any
-
-$_ZN2cv6detail23PaniniPortraitProjector11mapBackwardEffRfS2_ = comdat any
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv14MercatorWarperESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -965,8 +960,6 @@ $_ZNK2cv6detail18RotationWarperBaseINS0_27TransverseMercatorProjectorEE8getScale
 $_ZN2cv6detail18RotationWarperBaseINS0_27TransverseMercatorProjectorEE8setScaleEf = comdat any
 
 $_ZN2cv6detail18RotationWarperBaseINS0_27TransverseMercatorProjectorEE15detectResultRoiENS_5Size_IiEERNS_6Point_IiEES8_ = comdat any
-
-$_ZN2cv6detail27TransverseMercatorProjector11mapBackwardEffRfS2_ = comdat any
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN2cv6detail12NoSeamFinderESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -24242,48 +24235,122 @@ _ZN2cv6detail15PaniniProjector10mapForwardEffRfS2_.exit: ; preds = %63, %66
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_15PaniniProjectorEE17warpPointBackwardERKNS_6Point_IfEERKNS_11_InputArrayESA_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.cv::Point_.322", align 8
-  %6 = alloca %"class.cv::_InputArray", align 8
-  %7 = alloca %"class.cv::MatExpr", align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %7, i32 noundef 3, i32 noundef 1, i32 noundef 5)
-  invoke void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(352) %7)
-          to label %9 unwind label %19
+  %5 = alloca %"class.cv::_InputArray", align 8
+  %6 = alloca %"class.cv::MatExpr", align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %6, i32 noundef 3, i32 noundef 1, i32 noundef 5)
+  invoke void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(352) %6)
+          to label %8 unwind label %82
 
-9:                                                ; preds = %4
-  invoke void @_ZN2cv6detail13ProjectorBase15setCameraParamsERKNS_11_InputArrayES4_S4_(ptr noundef nonnull align 4 dereferenceable(160) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %10 unwind label %21
+8:                                                ; preds = %4
+  invoke void @_ZN2cv6detail13ProjectorBase15setCameraParamsERKNS_11_InputArrayES4_S4_(ptr noundef nonnull align 4 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %84
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %7, i64 208
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds i8, ptr %6, i64 208
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #25
+  %11 = getelementptr inbounds i8, ptr %6, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #25
-  %12 = getelementptr inbounds i8, ptr %7, i64 112
+  %12 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #25
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #25
-  store float 0.000000e+00, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %14, align 4
-  %15 = load float, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
-  %17 = load float, ptr %16, align 4
-  call void @_ZN2cv6detail15PaniniProjector11mapBackwardEffRfS2_(ptr noundef nonnull align 4 dereferenceable(168) %8, float noundef %15, float noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  %18 = load <2 x float>, ptr %5, align 8
-  ret <2 x float> %18
+  %13 = load float, ptr %1, align 4
+  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = load float, ptr %14, align 4
+  %16 = load float, ptr %7, align 8
+  %17 = fdiv float %13, %16
+  %18 = fdiv float %15, %16
+  %19 = getelementptr inbounds i8, ptr %0, i64 168
+  %20 = load float, ptr %19, align 8
+  %21 = fdiv float %17, %20
+  %22 = call float @atanf(float noundef %21) #25
+  %23 = fmul float %20, %22
+  %24 = call float @llvm.fabs.f32(float %23)
+  %25 = fpext float %24 to double
+  %26 = fcmp ogt double %25, 0x3E7AD7F29ABCAF48
+  br i1 %26, label %27, label %38
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+27:                                               ; preds = %9
+  %28 = call float @sinf(float noundef %23) #25
+  %29 = fmul float %18, %28
+  %30 = getelementptr inbounds i8, ptr %0, i64 172
+  %31 = load float, ptr %30, align 4
+  %32 = load float, ptr %19, align 8
+  %33 = fmul float %31, %32
+  %34 = fdiv float %23, %32
+  %35 = call float @tanf(float noundef %34) #25
+  %36 = fmul float %33, %35
+  %37 = fdiv float %29, %36
+  br label %42
+
+38:                                               ; preds = %9
+  %39 = getelementptr inbounds i8, ptr %0, i64 172
+  %40 = load float, ptr %39, align 4
+  %41 = fdiv float %18, %40
+  br label %42
+
+42:                                               ; preds = %38, %27
+  %.sink.i = phi float [ %41, %38 ], [ %37, %27 ]
+  %43 = call float @atanf(float noundef %.sink.i) #25
+  %44 = call float @cosf(float noundef %43) #25
+  %45 = call float @sinf(float noundef %23) #25
+  %46 = fmul float %44, %45
+  %47 = call float @sinf(float noundef %43) #25
+  %48 = call float @cosf(float noundef %23) #25
+  %49 = fmul float %44, %48
+  %50 = getelementptr inbounds i8, ptr %0, i64 144
+  %51 = load float, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 148
+  %53 = load float, ptr %52, align 4
+  %54 = fmul float %47, %53
+  %55 = call float @llvm.fmuladd.f32(float %51, float %46, float %54)
+  %56 = getelementptr inbounds i8, ptr %0, i64 152
+  %57 = load float, ptr %56, align 8
+  %58 = call float @llvm.fmuladd.f32(float %57, float %49, float %55)
+  %59 = fcmp ogt float %58, 0.000000e+00
+  br i1 %59, label %60, label %_ZN2cv6detail15PaniniProjector11mapBackwardEffRfS2_.exit
+
+60:                                               ; preds = %42
+  %61 = getelementptr inbounds i8, ptr %0, i64 128
+  %62 = load float, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 120
+  %64 = load float, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 124
+  %66 = load float, ptr %65, align 4
+  %67 = fmul float %47, %66
+  %68 = call float @llvm.fmuladd.f32(float %64, float %46, float %67)
+  %69 = call float @llvm.fmuladd.f32(float %62, float %49, float %68)
+  %70 = getelementptr inbounds i8, ptr %0, i64 140
+  %71 = load float, ptr %70, align 4
+  %72 = getelementptr inbounds i8, ptr %0, i64 132
+  %73 = load float, ptr %72, align 4
+  %74 = getelementptr inbounds i8, ptr %0, i64 136
+  %75 = load float, ptr %74, align 8
+  %76 = fmul float %47, %75
+  %77 = call float @llvm.fmuladd.f32(float %73, float %46, float %76)
+  %78 = call float @llvm.fmuladd.f32(float %71, float %49, float %77)
+  %79 = fdiv float %69, %58
+  %80 = insertelement <2 x float> poison, float %79, i64 0
+  %81 = fdiv float %78, %58
+  %.sroa.0.4.vec.insert20 = insertelement <2 x float> %80, float %81, i64 1
+  br label %_ZN2cv6detail15PaniniProjector11mapBackwardEffRfS2_.exit
+
+_ZN2cv6detail15PaniniProjector11mapBackwardEffRfS2_.exit: ; preds = %42, %60
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %60 ], [ <float -1.000000e+00, float -1.000000e+00>, %42 ]
+  ret <2 x float> %.sroa.0.0
+
+82:                                               ; preds = %4
+  %83 = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %86
 
-21:                                               ; preds = %9
-  %22 = landingpad { ptr, i32 }
+84:                                               ; preds = %8
+  %85 = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %86
 
-23:                                               ; preds = %21, %19
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %7) #25
+86:                                               ; preds = %84, %82
+  %.pn = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %6) #25
   resume { ptr, i32 } %.pn
 }
 
@@ -25174,99 +25241,6 @@ _ZN2cv6detail15PaniniProjector10mapForwardEffRfS2_.exit.us: ; preds = %64, %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6detail15PaniniProjector11mapBackwardEffRfS2_(ptr noundef nonnull align 4 dereferenceable(168) %0, float noundef %1, float noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #3 comdat align 2 {
-  %6 = load float, ptr %0, align 4
-  %7 = fdiv float %1, %6
-  %8 = fdiv float %2, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
-  %10 = load float, ptr %9, align 4
-  %11 = fdiv float %7, %10
-  %12 = tail call float @atanf(float noundef %11) #25
-  %13 = fmul float %10, %12
-  %14 = tail call float @llvm.fabs.f32(float %13)
-  %15 = fpext float %14 to double
-  %16 = fcmp ogt double %15, 0x3E7AD7F29ABCAF48
-  br i1 %16, label %17, label %28
-
-17:                                               ; preds = %5
-  %18 = tail call float @sinf(float noundef %13) #25
-  %19 = fmul float %8, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 164
-  %21 = load float, ptr %20, align 4
-  %22 = load float, ptr %9, align 4
-  %23 = fmul float %21, %22
-  %24 = fdiv float %13, %22
-  %25 = tail call float @tanf(float noundef %24) #25
-  %26 = fmul float %23, %25
-  %27 = fdiv float %19, %26
-  br label %32
-
-28:                                               ; preds = %5
-  %29 = getelementptr inbounds i8, ptr %0, i64 164
-  %30 = load float, ptr %29, align 4
-  %31 = fdiv float %8, %30
-  br label %32
-
-32:                                               ; preds = %28, %17
-  %.sink = phi float [ %31, %28 ], [ %27, %17 ]
-  %33 = tail call float @atanf(float noundef %.sink) #25
-  %34 = tail call float @cosf(float noundef %33) #25
-  %35 = tail call float @sinf(float noundef %13) #25
-  %36 = fmul float %34, %35
-  %37 = tail call float @sinf(float noundef %33) #25
-  %38 = tail call float @cosf(float noundef %13) #25
-  %39 = fmul float %34, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 112
-  %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 116
-  %43 = load float, ptr %42, align 4
-  %44 = fmul float %37, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %41, float %36, float %44)
-  %46 = getelementptr inbounds i8, ptr %0, i64 120
-  %47 = load float, ptr %46, align 4
-  %48 = tail call float @llvm.fmuladd.f32(float %47, float %39, float %45)
-  store float %48, ptr %3, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 124
-  %50 = load float, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 128
-  %52 = load float, ptr %51, align 4
-  %53 = fmul float %37, %52
-  %54 = tail call float @llvm.fmuladd.f32(float %50, float %36, float %53)
-  %55 = getelementptr inbounds i8, ptr %0, i64 132
-  %56 = load float, ptr %55, align 4
-  %57 = tail call float @llvm.fmuladd.f32(float %56, float %39, float %54)
-  store float %57, ptr %4, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 136
-  %59 = load float, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %0, i64 140
-  %61 = load float, ptr %60, align 4
-  %62 = fmul float %37, %61
-  %63 = tail call float @llvm.fmuladd.f32(float %59, float %36, float %62)
-  %64 = getelementptr inbounds i8, ptr %0, i64 144
-  %65 = load float, ptr %64, align 4
-  %66 = tail call float @llvm.fmuladd.f32(float %65, float %39, float %63)
-  %67 = fcmp ogt float %66, 0.000000e+00
-  br i1 %67, label %68, label %73
-
-68:                                               ; preds = %32
-  %69 = load float, ptr %3, align 4
-  %70 = fdiv float %69, %66
-  store float %70, ptr %3, align 4
-  %71 = load float, ptr %4, align 4
-  %72 = fdiv float %71, %66
-  store float %72, ptr %4, align 4
-  br label %74
-
-73:                                               ; preds = %32
-  store float -1.000000e+00, ptr %4, align 4
-  store float -1.000000e+00, ptr %3, align 4
-  br label %74
-
-74:                                               ; preds = %73, %68
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv20PaniniPortraitWarperESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 {
   ret void
 }
@@ -25542,48 +25516,123 @@ _ZN2cv6detail23PaniniPortraitProjector10mapForwardEffRfS2_.exit: ; preds = %63, 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_23PaniniPortraitProjectorEE17warpPointBackwardERKNS_6Point_IfEERKNS_11_InputArrayESA_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.cv::Point_.322", align 8
-  %6 = alloca %"class.cv::_InputArray", align 8
-  %7 = alloca %"class.cv::MatExpr", align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %7, i32 noundef 3, i32 noundef 1, i32 noundef 5)
-  invoke void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(352) %7)
-          to label %9 unwind label %19
+  %5 = alloca %"class.cv::_InputArray", align 8
+  %6 = alloca %"class.cv::MatExpr", align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %6, i32 noundef 3, i32 noundef 1, i32 noundef 5)
+  invoke void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(352) %6)
+          to label %8 unwind label %83
 
-9:                                                ; preds = %4
-  invoke void @_ZN2cv6detail13ProjectorBase15setCameraParamsERKNS_11_InputArrayES4_S4_(ptr noundef nonnull align 4 dereferenceable(160) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %10 unwind label %21
+8:                                                ; preds = %4
+  invoke void @_ZN2cv6detail13ProjectorBase15setCameraParamsERKNS_11_InputArrayES4_S4_(ptr noundef nonnull align 4 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %85
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %7, i64 208
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds i8, ptr %6, i64 208
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #25
+  %11 = getelementptr inbounds i8, ptr %6, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #25
-  %12 = getelementptr inbounds i8, ptr %7, i64 112
+  %12 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #25
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #25
-  store float 0.000000e+00, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %14, align 4
-  %15 = load float, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
-  %17 = load float, ptr %16, align 4
-  call void @_ZN2cv6detail23PaniniPortraitProjector11mapBackwardEffRfS2_(ptr noundef nonnull align 4 dereferenceable(168) %8, float noundef %15, float noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  %18 = load <2 x float>, ptr %5, align 8
-  ret <2 x float> %18
+  %13 = load float, ptr %1, align 4
+  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = load float, ptr %14, align 4
+  %16 = load float, ptr %7, align 8
+  %17 = fneg float %16
+  %18 = fdiv float %13, %17
+  %19 = fdiv float %15, %16
+  %20 = getelementptr inbounds i8, ptr %0, i64 168
+  %21 = load float, ptr %20, align 8
+  %22 = fdiv float %18, %21
+  %23 = call float @atanf(float noundef %22) #25
+  %24 = fmul float %21, %23
+  %25 = call float @llvm.fabs.f32(float %24)
+  %26 = fpext float %25 to double
+  %27 = fcmp ogt double %26, 0x3E7AD7F29ABCAF48
+  br i1 %27, label %28, label %39
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+28:                                               ; preds = %9
+  %29 = call float @sinf(float noundef %24) #25
+  %30 = fmul float %19, %29
+  %31 = getelementptr inbounds i8, ptr %0, i64 172
+  %32 = load float, ptr %31, align 4
+  %33 = load float, ptr %20, align 8
+  %34 = fmul float %32, %33
+  %35 = fdiv float %24, %33
+  %36 = call float @tanf(float noundef %35) #25
+  %37 = fmul float %34, %36
+  %38 = fdiv float %30, %37
+  br label %43
+
+39:                                               ; preds = %9
+  %40 = getelementptr inbounds i8, ptr %0, i64 172
+  %41 = load float, ptr %40, align 4
+  %42 = fdiv float %19, %41
+  br label %43
+
+43:                                               ; preds = %39, %28
+  %.sink.i = phi float [ %42, %39 ], [ %38, %28 ]
+  %44 = call float @atanf(float noundef %.sink.i) #25
+  %45 = call float @cosf(float noundef %44) #25
+  %46 = call float @sinf(float noundef %24) #25
+  %47 = fmul float %45, %46
+  %48 = call float @sinf(float noundef %44) #25
+  %49 = call float @cosf(float noundef %24) #25
+  %50 = fmul float %45, %49
+  %51 = getelementptr inbounds i8, ptr %0, i64 144
+  %52 = load float, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 148
+  %54 = load float, ptr %53, align 4
+  %55 = fmul float %47, %54
+  %56 = call float @llvm.fmuladd.f32(float %52, float %48, float %55)
+  %57 = getelementptr inbounds i8, ptr %0, i64 152
+  %58 = load float, ptr %57, align 8
+  %59 = call float @llvm.fmuladd.f32(float %58, float %50, float %56)
+  %60 = fcmp ogt float %59, 0.000000e+00
+  br i1 %60, label %61, label %_ZN2cv6detail23PaniniPortraitProjector11mapBackwardEffRfS2_.exit
+
+61:                                               ; preds = %43
+  %62 = getelementptr inbounds i8, ptr %0, i64 128
+  %63 = load float, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %0, i64 120
+  %65 = load float, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 124
+  %67 = load float, ptr %66, align 4
+  %68 = fmul float %47, %67
+  %69 = call float @llvm.fmuladd.f32(float %65, float %48, float %68)
+  %70 = call float @llvm.fmuladd.f32(float %63, float %50, float %69)
+  %71 = getelementptr inbounds i8, ptr %0, i64 140
+  %72 = load float, ptr %71, align 4
+  %73 = getelementptr inbounds i8, ptr %0, i64 132
+  %74 = load float, ptr %73, align 4
+  %75 = getelementptr inbounds i8, ptr %0, i64 136
+  %76 = load float, ptr %75, align 8
+  %77 = fmul float %47, %76
+  %78 = call float @llvm.fmuladd.f32(float %74, float %48, float %77)
+  %79 = call float @llvm.fmuladd.f32(float %72, float %50, float %78)
+  %80 = fdiv float %70, %59
+  %81 = insertelement <2 x float> poison, float %80, i64 0
+  %82 = fdiv float %79, %59
+  %.sroa.0.4.vec.insert20 = insertelement <2 x float> %81, float %82, i64 1
+  br label %_ZN2cv6detail23PaniniPortraitProjector11mapBackwardEffRfS2_.exit
+
+_ZN2cv6detail23PaniniPortraitProjector11mapBackwardEffRfS2_.exit: ; preds = %43, %61
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %61 ], [ <float -1.000000e+00, float -1.000000e+00>, %43 ]
+  ret <2 x float> %.sroa.0.0
+
+83:                                               ; preds = %4
+  %84 = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %87
 
-21:                                               ; preds = %9
-  %22 = landingpad { ptr, i32 }
+85:                                               ; preds = %8
+  %86 = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %87
 
-23:                                               ; preds = %21, %19
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %7) #25
+87:                                               ; preds = %85, %83
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %6) #25
   resume { ptr, i32 } %.pn
 }
 
@@ -26473,100 +26522,6 @@ _ZN2cv6detail23PaniniPortraitProjector10mapForwardEffRfS2_.exit.us: ; preds = %6
   store i32 %.038.lcssa, ptr %3, align 4
   %79 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.036.lcssa, ptr %79, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6detail23PaniniPortraitProjector11mapBackwardEffRfS2_(ptr noundef nonnull align 4 dereferenceable(168) %0, float noundef %1, float noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #3 comdat align 2 {
-  %6 = load float, ptr %0, align 4
-  %7 = fneg float %6
-  %8 = fdiv float %1, %7
-  %9 = fdiv float %2, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
-  %11 = load float, ptr %10, align 4
-  %12 = fdiv float %8, %11
-  %13 = tail call float @atanf(float noundef %12) #25
-  %14 = fmul float %11, %13
-  %15 = tail call float @llvm.fabs.f32(float %14)
-  %16 = fpext float %15 to double
-  %17 = fcmp ogt double %16, 0x3E7AD7F29ABCAF48
-  br i1 %17, label %18, label %29
-
-18:                                               ; preds = %5
-  %19 = tail call float @sinf(float noundef %14) #25
-  %20 = fmul float %9, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 164
-  %22 = load float, ptr %21, align 4
-  %23 = load float, ptr %10, align 4
-  %24 = fmul float %22, %23
-  %25 = fdiv float %14, %23
-  %26 = tail call float @tanf(float noundef %25) #25
-  %27 = fmul float %24, %26
-  %28 = fdiv float %20, %27
-  br label %33
-
-29:                                               ; preds = %5
-  %30 = getelementptr inbounds i8, ptr %0, i64 164
-  %31 = load float, ptr %30, align 4
-  %32 = fdiv float %9, %31
-  br label %33
-
-33:                                               ; preds = %29, %18
-  %.sink = phi float [ %32, %29 ], [ %28, %18 ]
-  %34 = tail call float @atanf(float noundef %.sink) #25
-  %35 = tail call float @cosf(float noundef %34) #25
-  %36 = tail call float @sinf(float noundef %14) #25
-  %37 = fmul float %35, %36
-  %38 = tail call float @sinf(float noundef %34) #25
-  %39 = tail call float @cosf(float noundef %14) #25
-  %40 = fmul float %35, %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 112
-  %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 116
-  %44 = load float, ptr %43, align 4
-  %45 = fmul float %37, %44
-  %46 = tail call float @llvm.fmuladd.f32(float %42, float %38, float %45)
-  %47 = getelementptr inbounds i8, ptr %0, i64 120
-  %48 = load float, ptr %47, align 4
-  %49 = tail call float @llvm.fmuladd.f32(float %48, float %40, float %46)
-  store float %49, ptr %3, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 124
-  %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 128
-  %53 = load float, ptr %52, align 4
-  %54 = fmul float %37, %53
-  %55 = tail call float @llvm.fmuladd.f32(float %51, float %38, float %54)
-  %56 = getelementptr inbounds i8, ptr %0, i64 132
-  %57 = load float, ptr %56, align 4
-  %58 = tail call float @llvm.fmuladd.f32(float %57, float %40, float %55)
-  store float %58, ptr %4, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 136
-  %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 140
-  %62 = load float, ptr %61, align 4
-  %63 = fmul float %37, %62
-  %64 = tail call float @llvm.fmuladd.f32(float %60, float %38, float %63)
-  %65 = getelementptr inbounds i8, ptr %0, i64 144
-  %66 = load float, ptr %65, align 4
-  %67 = tail call float @llvm.fmuladd.f32(float %66, float %40, float %64)
-  %68 = fcmp ogt float %67, 0.000000e+00
-  br i1 %68, label %69, label %74
-
-69:                                               ; preds = %33
-  %70 = load float, ptr %3, align 4
-  %71 = fdiv float %70, %67
-  store float %71, ptr %3, align 4
-  %72 = load float, ptr %4, align 4
-  %73 = fdiv float %72, %67
-  store float %73, ptr %4, align 4
-  br label %75
-
-74:                                               ; preds = %33
-  store float -1.000000e+00, ptr %4, align 4
-  store float -1.000000e+00, ptr %3, align 4
-  br label %75
-
-75:                                               ; preds = %74, %69
   ret void
 }
 
@@ -27965,48 +27920,97 @@ define linkonce_odr hidden <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_27
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_27TransverseMercatorProjectorEE17warpPointBackwardERKNS_6Point_IfEERKNS_11_InputArrayESA_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"class.cv::Point_.322", align 8
-  %6 = alloca %"class.cv::_InputArray", align 8
-  %7 = alloca %"class.cv::MatExpr", align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %7, i32 noundef 3, i32 noundef 1, i32 noundef 5)
-  invoke void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(352) %7)
-          to label %9 unwind label %19
+  %5 = alloca %"class.cv::_InputArray", align 8
+  %6 = alloca %"class.cv::MatExpr", align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %6, i32 noundef 3, i32 noundef 1, i32 noundef 5)
+  invoke void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(352) %6)
+          to label %8 unwind label %64
 
-9:                                                ; preds = %4
-  invoke void @_ZN2cv6detail13ProjectorBase15setCameraParamsERKNS_11_InputArrayES4_S4_(ptr noundef nonnull align 4 dereferenceable(160) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %10 unwind label %21
+8:                                                ; preds = %4
+  invoke void @_ZN2cv6detail13ProjectorBase15setCameraParamsERKNS_11_InputArrayES4_S4_(ptr noundef nonnull align 4 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %66
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %7, i64 208
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds i8, ptr %6, i64 208
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #25
+  %11 = getelementptr inbounds i8, ptr %6, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #25
-  %12 = getelementptr inbounds i8, ptr %7, i64 112
+  %12 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #25
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #25
-  store float 0.000000e+00, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %14, align 4
-  %15 = load float, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
-  %17 = load float, ptr %16, align 4
-  call void @_ZN2cv6detail27TransverseMercatorProjector11mapBackwardEffRfS2_(ptr noundef nonnull align 4 dereferenceable(160) %8, float noundef %15, float noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  %18 = load <2 x float>, ptr %5, align 8
-  ret <2 x float> %18
+  %13 = load float, ptr %1, align 4
+  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = load float, ptr %14, align 4
+  %16 = load float, ptr %7, align 8
+  %17 = fdiv float %13, %16
+  %18 = fdiv float %15, %16
+  %19 = call float @sinf(float noundef %18) #25
+  %20 = call float @coshf(float noundef %17) #25
+  %21 = fdiv float %19, %20
+  %22 = call float @asinf(float noundef %21) #25
+  %23 = call float @sinhf(float noundef %17) #25
+  %24 = call noundef float @cosf(float noundef %18) #25
+  %25 = call float @atan2f(float noundef %23, float noundef %24) #25
+  %26 = call float @cosf(float noundef %22) #25
+  %27 = call float @sinf(float noundef %25) #25
+  %28 = fmul float %26, %27
+  %29 = call float @sinf(float noundef %22) #25
+  %30 = call float @cosf(float noundef %25) #25
+  %31 = fmul float %26, %30
+  %32 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = load float, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 148
+  %35 = load float, ptr %34, align 4
+  %36 = fmul float %29, %35
+  %37 = call float @llvm.fmuladd.f32(float %33, float %28, float %36)
+  %38 = getelementptr inbounds i8, ptr %0, i64 152
+  %39 = load float, ptr %38, align 8
+  %40 = call float @llvm.fmuladd.f32(float %39, float %31, float %37)
+  %41 = fcmp ogt float %40, 0.000000e+00
+  br i1 %41, label %42, label %_ZN2cv6detail27TransverseMercatorProjector11mapBackwardEffRfS2_.exit
 
-19:                                               ; preds = %4
-  %20 = landingpad { ptr, i32 }
+42:                                               ; preds = %9
+  %43 = getelementptr inbounds i8, ptr %0, i64 128
+  %44 = load float, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 120
+  %46 = load float, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 124
+  %48 = load float, ptr %47, align 4
+  %49 = fmul float %29, %48
+  %50 = call float @llvm.fmuladd.f32(float %46, float %28, float %49)
+  %51 = call float @llvm.fmuladd.f32(float %44, float %31, float %50)
+  %52 = getelementptr inbounds i8, ptr %0, i64 140
+  %53 = load float, ptr %52, align 4
+  %54 = getelementptr inbounds i8, ptr %0, i64 132
+  %55 = load float, ptr %54, align 4
+  %56 = getelementptr inbounds i8, ptr %0, i64 136
+  %57 = load float, ptr %56, align 8
+  %58 = fmul float %29, %57
+  %59 = call float @llvm.fmuladd.f32(float %55, float %28, float %58)
+  %60 = call float @llvm.fmuladd.f32(float %53, float %31, float %59)
+  %61 = fdiv float %51, %40
+  %62 = insertelement <2 x float> poison, float %61, i64 0
+  %63 = fdiv float %60, %40
+  %.sroa.0.4.vec.insert20 = insertelement <2 x float> %62, float %63, i64 1
+  br label %_ZN2cv6detail27TransverseMercatorProjector11mapBackwardEffRfS2_.exit
+
+_ZN2cv6detail27TransverseMercatorProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %42
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %42 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  ret <2 x float> %.sroa.0.0
+
+64:                                               ; preds = %4
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %68
 
-21:                                               ; preds = %9
-  %22 = landingpad { ptr, i32 }
+66:                                               ; preds = %8
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %68
 
-23:                                               ; preds = %21, %19
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %7) #25
+68:                                               ; preds = %66, %64
+  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %6) #25
   resume { ptr, i32 } %.pn
 }
 
@@ -28837,74 +28841,6 @@ define linkonce_odr hidden void @_ZN2cv6detail18RotationWarperBaseINS0_27Transve
   store i32 %.038.lcssa, ptr %3, align 4
   %70 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.036.lcssa, ptr %70, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv6detail27TransverseMercatorProjector11mapBackwardEffRfS2_(ptr noundef nonnull align 4 dereferenceable(160) %0, float noundef %1, float noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #3 comdat align 2 {
-  %6 = load float, ptr %0, align 4
-  %7 = fdiv float %1, %6
-  %8 = fdiv float %2, %6
-  %9 = tail call float @sinf(float noundef %8) #25
-  %10 = tail call float @coshf(float noundef %7) #25
-  %11 = fdiv float %9, %10
-  %12 = tail call float @asinf(float noundef %11) #25
-  %13 = tail call float @sinhf(float noundef %7) #25
-  %14 = tail call noundef float @cosf(float noundef %8) #25
-  %15 = tail call float @atan2f(float noundef %13, float noundef %14) #25
-  %16 = tail call float @cosf(float noundef %12) #25
-  %17 = tail call float @sinf(float noundef %15) #25
-  %18 = fmul float %16, %17
-  %19 = tail call float @sinf(float noundef %12) #25
-  %20 = tail call float @cosf(float noundef %15) #25
-  %21 = fmul float %16, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
-  %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 116
-  %25 = load float, ptr %24, align 4
-  %26 = fmul float %19, %25
-  %27 = tail call float @llvm.fmuladd.f32(float %23, float %18, float %26)
-  %28 = getelementptr inbounds i8, ptr %0, i64 120
-  %29 = load float, ptr %28, align 4
-  %30 = tail call float @llvm.fmuladd.f32(float %29, float %21, float %27)
-  store float %30, ptr %3, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 124
-  %32 = load float, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 128
-  %34 = load float, ptr %33, align 4
-  %35 = fmul float %19, %34
-  %36 = tail call float @llvm.fmuladd.f32(float %32, float %18, float %35)
-  %37 = getelementptr inbounds i8, ptr %0, i64 132
-  %38 = load float, ptr %37, align 4
-  %39 = tail call float @llvm.fmuladd.f32(float %38, float %21, float %36)
-  store float %39, ptr %4, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 136
-  %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 140
-  %43 = load float, ptr %42, align 4
-  %44 = fmul float %19, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %41, float %18, float %44)
-  %46 = getelementptr inbounds i8, ptr %0, i64 144
-  %47 = load float, ptr %46, align 4
-  %48 = tail call float @llvm.fmuladd.f32(float %47, float %21, float %45)
-  %49 = fcmp ogt float %48, 0.000000e+00
-  br i1 %49, label %50, label %55
-
-50:                                               ; preds = %5
-  %51 = load float, ptr %3, align 4
-  %52 = fdiv float %51, %48
-  store float %52, ptr %3, align 4
-  %53 = load float, ptr %4, align 4
-  %54 = fdiv float %53, %48
-  store float %54, ptr %4, align 4
-  br label %56
-
-55:                                               ; preds = %5
-  store float -1.000000e+00, ptr %4, align 4
-  store float -1.000000e+00, ptr %3, align 4
-  br label %56
-
-56:                                               ; preds = %55, %50
   ret void
 }
 
