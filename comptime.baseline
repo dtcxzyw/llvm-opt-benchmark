@@ -10688,7 +10688,7 @@ icu/double-conversion-fast-dtoa.ll 573134591
 icu/double-conversion-string-to-double.ll 1367612842
 icu/double-conversion-strtod.ll 422768881
 icu/dtfmtsym.ll 2605362429
-icu/dtintrv.ll 49731323
+icu/dtintrv.ll 49781067
 icu/dtitvfmt.ll 979009486
 icu/dtitvinf.ll 448827645
 icu/dtptngen.ll 2075277957
