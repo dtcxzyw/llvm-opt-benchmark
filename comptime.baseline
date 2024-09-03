@@ -8868,7 +8868,7 @@ gromacs/optionsection.cpp.ll 76446329
 gromacs/optionsvisitor.cpp.ll 97948576
 gromacs/orires.cpp.ll 1454644957
 gromacs/output.cpp.ll 884298195
-gromacs/outputadaptercontainer.cpp.ll 249436287
+gromacs/outputadaptercontainer.cpp.ll 249685894
 gromacs/outputselector.cpp.ll 305919850
 gromacs/p2p_protocol.cpp.ll 285517982
 gromacs/p2p_send_recv.cpp.ll 69462400
@@ -9557,7 +9557,7 @@ grpc/timer.cc.ll 385090194
 grpc/timer_generic.cc.ll 392023942
 grpc/timer_heap.cc.ll 156171498
 grpc/timer_manager.cc.ll 391267478
-grpc/tls_credentials.cc.ll 309723705
+grpc/tls_credentials.cc.ll 310034126
 grpc/tls_security_connector.cc.ll 1672837233
 grpc/traced_buffer_list.cc.ll 450669681
 grpc/transport.cc.ll 5230052981
@@ -17658,7 +17658,7 @@ nuttx/pthread_attr_getinheritsched.c.ll 36422051
 nuttx/pthread_attr_getschedparam.c.ll 36236858
 nuttx/pthread_attr_getschedpolicy.c.ll 36420753
 nuttx/pthread_attr_getstack.c.ll 37169430
-nuttx/pthread_attr_getstackaddr.c.ll 36190283
+nuttx/pthread_attr_getstackaddr.c.ll 36226548
 nuttx/pthread_attr_getstacksize.c.ll 35667622
 nuttx/pthread_attr_init.c.ll 36029662
 nuttx/pthread_attr_setdetachstate.c.ll 36522972
@@ -19564,7 +19564,7 @@ opencv/gcommon.cpp.ll 37829949
 opencv/gcompiled.cpp.ll 1361253754
 opencv/gcompiler.cpp.ll 6738499329
 opencv/gcompoundbackend.cpp.ll 126873334
-opencv/gcompoundkernel.cpp.ll 448125851
+opencv/gcompoundkernel.cpp.ll 448574259
 opencv/gcomputation.cpp.ll 4435370540
 opencv/gcpubackend.cpp.ll 4343382096
 opencv/gcpucore.cpp.ll 7905189382
@@ -23265,7 +23265,7 @@ openmpi/libmpi_c_profile_la-status_set_cancelled.ll 42012877
 openmpi/libmpi_c_profile_la-status_set_elements.ll 50382380
 openmpi/libmpi_c_profile_la-status_set_elements_x.ll 50314048
 openmpi/libmpi_c_profile_la-test.ll 44661331
-openmpi/libmpi_c_profile_la-test_cancelled.ll 41850881
+openmpi/libmpi_c_profile_la-test_cancelled.ll 41892763
 openmpi/libmpi_c_profile_la-testall.ll 58456358
 openmpi/libmpi_c_profile_la-testany.ll 61489329
 openmpi/libmpi_c_profile_la-testsome.ll 59907490
@@ -27531,7 +27531,7 @@ postgres/stem_ISO_8859_1_porter.ll 216276493
 postgres/stem_ISO_8859_1_portuguese.ll 234090232
 postgres/stem_ISO_8859_1_spanish.ll 253962104
 postgres/stem_ISO_8859_1_swedish.ll 94259539
-postgres/stem_ISO_8859_2_hungarian.ll 190796868
+postgres/stem_ISO_8859_2_hungarian.ll 190988006
 postgres/stem_ISO_8859_2_romanian.ll 201760759
 postgres/stem_KOI8_R_russian.ll 183430280
 postgres/stem_UTF_8_arabic.ll 375884556
@@ -31905,7 +31905,7 @@ spike/fmul_s.ll 639464441
 spike/fmv_d_x.ll 415286911
 spike/fmv_h_x.ll 448871162
 spike/fmv_w_x.ll 450826069
-spike/fmv_x_d.ll 410227468
+spike/fmv_x_d.ll 410638251
 spike/fmv_x_h.ll 441449691
 spike/fmv_x_w.ll 444046931
 spike/fmvh_x_d.ll 455787771
@@ -32124,7 +32124,7 @@ spike/mulsr64.ll 507200113
 spike/mulw.ll 430651980
 spike/ns16550.ll 680694251
 spike/option_parser.ll 185873690
-spike/or.ll 422067340
+spike/or.ll 422490174
 spike/ori.ll 413277526
 spike/orn.ll 462670268
 spike/pack.ll 483531865
@@ -34835,7 +34835,7 @@ wireshark/firewall_rules_dialog.cpp.ll 492603665
 wireshark/follow.c.ll 109558640
 wireshark/follow_stream_action.cpp.ll 78053749
 wireshark/follow_stream_dialog.cpp.ll 1890074903
-wireshark/follow_stream_text.cpp.ll 424443626
+wireshark/follow_stream_text.cpp.ll 424869369
 wireshark/font_color_preferences_frame.cpp.ll 1312928390
 wireshark/frame_data.c.ll 132178831
 wireshark/frame_data_sequence.c.ll 104246245
