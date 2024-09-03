@@ -692,19 +692,23 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
   %40 = icmp slt i32 %39, %36
   br i1 %40, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.split, %intel_pll_is_valid.exit.thread
-  %.sroa.13.0 = phi i32 [ %164, %intel_pll_is_valid.exit.thread ], [ %39, %.split ]
-  %41 = phi i32 [ %161, %intel_pll_is_valid.exit.thread ], [ %37, %.split ]
-  %42 = phi i32 [ %160, %intel_pll_is_valid.exit.thread ], [ %38, %.split ]
-  %43 = mul i32 %.sroa.13.0, %.sroa.10.0
-  %44 = mul i32 %43, 5
-  %45 = zext i32 %44 to i64
-  %46 = mul i64 %13, %45
-  %47 = icmp ugt i64 %46, 214748364799999
-  br i1 %47, label %intel_pll_is_valid.exit.thread, label %48
+.preheader:                                       ; preds = %.split
+  %invariant.op = mul i32 %.sroa.10.0, 5
+  br label %41
 
-48:                                               ; preds = %.preheader
-  %49 = or disjoint i64 %46, 99968
+41:                                               ; preds = %.preheader, %intel_pll_is_valid.exit.thread
+  %.sroa.13.0 = phi i32 [ %164, %intel_pll_is_valid.exit.thread ], [ %39, %.preheader ]
+  %42 = phi i32 [ %161, %intel_pll_is_valid.exit.thread ], [ %37, %.preheader ]
+  %43 = phi i32 [ %160, %intel_pll_is_valid.exit.thread ], [ %38, %.preheader ]
+  %.reass = mul i32 %.sroa.13.0, %invariant.op
+  %44 = zext i32 %.reass to i64
+  %45 = mul i64 %13, %44
+  %46 = icmp ugt i64 %45, 214748364799999
+  br i1 %46, label %intel_pll_is_valid.exit.thread, label %47
+
+47:                                               ; preds = %41
+  %48 = mul i32 %.sroa.13.0, %.sroa.10.0
+  %49 = or disjoint i64 %45, 99968
   %50 = udiv i64 %49, 200000
   %51 = trunc nuw nsw i64 %50 to i32
   %52 = shl nuw nsw i32 %51, 1
@@ -713,21 +717,21 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
   %55 = add nuw nsw i64 %54, 2097152
   %56 = lshr i64 %55, 22
   %57 = trunc nuw nsw i64 %56 to i32
-  %58 = icmp eq i32 %43, 0
+  %58 = icmp eq i32 %48, 0
   br i1 %58, label %67, label %59
 
-59:                                               ; preds = %48
+59:                                               ; preds = %47
   %60 = icmp ugt i64 %49, 2199999
-  %61 = icmp slt i32 %44, 1
+  %61 = icmp slt i32 %.reass, 1
   %62 = xor i1 %61, %60
   %63 = select i1 %62, i32 2, i32 -2
-  %64 = sdiv i32 %44, %63
+  %64 = sdiv i32 %.reass, %63
   %65 = add nsw i32 %64, %57
-  %66 = sdiv i32 %65, %44
+  %66 = sdiv i32 %65, %.reass
   br label %67
 
-67:                                               ; preds = %59, %48
-  %68 = phi i32 [ %66, %59 ], [ 0, %48 ]
+67:                                               ; preds = %59, %47
+  %68 = phi i32 [ %66, %59 ], [ 0, %47 ]
   %69 = load i32, ptr %14, align 4
   %70 = icmp sgt i32 %69, 1
   br i1 %70, label %intel_pll_is_valid.exit.thread, label %71
@@ -789,12 +793,12 @@ define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef read
 
 105:                                              ; preds = %._crit_edge.i
   %106 = load i32, ptr %22, align 4
-  %107 = icmp slt i32 %44, %106
+  %107 = icmp slt i32 %.reass, %106
   br i1 %107, label %intel_pll_is_valid.exit.thread, label %108
 
 108:                                              ; preds = %105
   %109 = load i32, ptr %23, align 4
-  %110 = icmp slt i32 %109, %44
+  %110 = icmp slt i32 %109, %.reass
   br i1 %110, label %intel_pll_is_valid.exit.thread, label %111
 
 111:                                              ; preds = %108
@@ -834,7 +838,7 @@ intel_pll_is_valid.exit:                          ; preds = %123
 
 130:                                              ; preds = %127
   %131 = load i32, ptr %29, align 4
-  %132 = icmp sgt i32 %44, %131
+  %132 = icmp sgt i32 %.reass, %131
   br i1 %132, label %vlv_PLL_is_optimal.exit.thread13, label %intel_pll_is_valid.exit.thread
 
 133:                                              ; preds = %127
@@ -881,12 +885,12 @@ intel_pll_is_valid.exit:                          ; preds = %123
 
 155:                                              ; preds = %147
   %156 = load i32, ptr %29, align 4
-  %157 = icmp sgt i32 %44, %156
+  %157 = icmp sgt i32 %.reass, %156
   br i1 %157, label %vlv_PLL_is_optimal.exit.thread13, label %vlv_PLL_is_optimal.exit
 
 vlv_PLL_is_optimal.exit:                          ; preds = %147, %155
   %158 = add i32 %153, 10
-  %159 = icmp ult i32 %158, %41
+  %159 = icmp ult i32 %158, %42
   br i1 %159, label %vlv_PLL_is_optimal.exit.thread13, label %intel_pll_is_valid.exit.thread
 
 vlv_PLL_is_optimal.exit.thread13:                 ; preds = %155, %130, %vlv_PLL_is_optimal.exit
@@ -899,18 +903,18 @@ vlv_PLL_is_optimal.exit.thread13:                 ; preds = %155, %130, %vlv_PLL
   store i32 %68, ptr %.sroa.15.0..sroa_idx, align 4
   store i32 %57, ptr %.sroa.18.0..sroa_idx, align 4
   store i32 %52, ptr %.sroa.20.0..sroa_idx, align 4
-  store i32 %44, ptr %29, align 4
+  store i32 %.reass, ptr %29, align 4
   br label %intel_pll_is_valid.exit.thread
 
-intel_pll_is_valid.exit.thread:                   ; preds = %.thread.i, %146, %100, %123, %117, %120, %111, %114, %105, %108, %86, %89, %80, %83, %74, %77, %67, %71, %130, %vlv_PLL_is_optimal.exit.thread13, %vlv_PLL_is_optimal.exit, %intel_pll_is_valid.exit, %.preheader
-  %160 = phi i32 [ 1, %vlv_PLL_is_optimal.exit.thread13 ], [ %42, %.preheader ], [ %42, %intel_pll_is_valid.exit ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %130 ], [ %42, %71 ], [ %42, %67 ], [ %42, %77 ], [ %42, %74 ], [ %42, %83 ], [ %42, %80 ], [ %42, %89 ], [ %42, %86 ], [ %42, %108 ], [ %42, %105 ], [ %42, %114 ], [ %42, %111 ], [ %42, %120 ], [ %42, %117 ], [ %42, %123 ], [ %42, %100 ], [ %42, %146 ], [ %42, %.thread.i ]
-  %161 = phi i32 [ %.015, %vlv_PLL_is_optimal.exit.thread13 ], [ %41, %.preheader ], [ %41, %intel_pll_is_valid.exit ], [ %41, %vlv_PLL_is_optimal.exit ], [ %41, %130 ], [ %41, %71 ], [ %41, %67 ], [ %41, %77 ], [ %41, %74 ], [ %41, %83 ], [ %41, %80 ], [ %41, %89 ], [ %41, %86 ], [ %41, %108 ], [ %41, %105 ], [ %41, %114 ], [ %41, %111 ], [ %41, %120 ], [ %41, %117 ], [ %41, %123 ], [ %41, %100 ], [ %41, %146 ], [ %41, %.thread.i ]
+intel_pll_is_valid.exit.thread:                   ; preds = %.thread.i, %146, %100, %123, %117, %120, %111, %114, %105, %108, %86, %89, %80, %83, %74, %77, %67, %71, %130, %vlv_PLL_is_optimal.exit.thread13, %vlv_PLL_is_optimal.exit, %intel_pll_is_valid.exit, %41
+  %160 = phi i32 [ 1, %vlv_PLL_is_optimal.exit.thread13 ], [ %43, %41 ], [ %43, %intel_pll_is_valid.exit ], [ %43, %vlv_PLL_is_optimal.exit ], [ %43, %130 ], [ %43, %71 ], [ %43, %67 ], [ %43, %77 ], [ %43, %74 ], [ %43, %83 ], [ %43, %80 ], [ %43, %89 ], [ %43, %86 ], [ %43, %108 ], [ %43, %105 ], [ %43, %114 ], [ %43, %111 ], [ %43, %120 ], [ %43, %117 ], [ %43, %123 ], [ %43, %100 ], [ %43, %146 ], [ %43, %.thread.i ]
+  %161 = phi i32 [ %.015, %vlv_PLL_is_optimal.exit.thread13 ], [ %42, %41 ], [ %42, %intel_pll_is_valid.exit ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %130 ], [ %42, %71 ], [ %42, %67 ], [ %42, %77 ], [ %42, %74 ], [ %42, %83 ], [ %42, %80 ], [ %42, %89 ], [ %42, %86 ], [ %42, %108 ], [ %42, %105 ], [ %42, %114 ], [ %42, %111 ], [ %42, %120 ], [ %42, %117 ], [ %42, %123 ], [ %42, %100 ], [ %42, %146 ], [ %42, %.thread.i ]
   %162 = icmp sgt i32 %.sroa.13.0, 10
   %163 = select i1 %162, i32 -2, i32 -1
   %164 = add i32 %163, %.sroa.13.0
   %165 = load i32, ptr %11, align 4
   %166 = icmp slt i32 %164, %165
-  br i1 %166, label %.loopexit.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %166, label %.loopexit.loopexit, label %41, !llvm.loop !13
 
 .loopexit.loopexit:                               ; preds = %intel_pll_is_valid.exit.thread
   %.pre = load i32, ptr %4, align 4

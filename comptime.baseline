@@ -551,7 +551,7 @@ abc/giaPf.c.ll 1750669466
 abc/giaQbf.c.ll 1069259830
 abc/giaResub.c.ll 3396809074
 abc/giaResub2.c.ll 1945169747
-abc/giaResub6.c.ll 521720257
+abc/giaResub6.c.ll 522327877
 abc/giaRetime.c.ll 426434330
 abc/giaRex.c.ll 705734752
 abc/giaSat3.c.ll 84739469
@@ -2769,7 +2769,7 @@ clamav/clamfi.c.ll 291203089
 clamav/clamonacc.c.ll 106167433
 clamav/clamscan.c.ll 88673838
 clamav/clamsubmit.c.ll 199585822
-clamav/client.c.ll 160490464
+clamav/client.c.ll 160329391
 clamav/cmddata.cpp.ll 501883516
 clamav/communication.c.ll 111916282
 clamav/connpool.c.ll 136521241
@@ -6139,7 +6139,7 @@ darktable/introspection_spots.c.ll 623853433
 darktable/introspection_temperature.c.ll 735820461
 darktable/introspection_tonecurve.c.ll 1560433267
 darktable/introspection_toneequal.c.ll 2052186552
-darktable/introspection_tonemap.cc.ll 418367898
+darktable/introspection_tonemap.cc.ll 418909165
 darktable/introspection_velvia.c.ll 100768486
 darktable/introspection_vibrance.c.ll 95624365
 darktable/introspection_vignette.c.ll 318770278
@@ -7013,7 +7013,7 @@ faiss/IndexBinaryFlat.cpp.ll 265186359
 faiss/IndexBinaryFromFloat.cpp.ll 116687079
 faiss/IndexBinaryHNSW.cpp.ll 1094614783
 faiss/IndexBinaryHash.cpp.ll 5896406906
-faiss/IndexBinaryIVF.cpp.ll 9784907649
+faiss/IndexBinaryIVF.cpp.ll 9797379545
 faiss/IndexFastScan.cpp.ll 3155170786
 faiss/IndexFlat.cpp.ll 591714372
 faiss/IndexFlatCodes.cpp.ll 244867049
@@ -7061,7 +7061,7 @@ faiss/clone_index.cpp.ll 2345191614
 faiss/distances.cpp.ll 4184752993
 faiss/distances_simd.cpp.ll 663615608
 faiss/extra_distances.cpp.ll 1463532688
-faiss/hamming.cpp.ll 9301410934
+faiss/hamming.cpp.ll 9310813855
 faiss/index_factory.cpp.ll 7716915620
 faiss/index_read.cpp.ll 4754879514
 faiss/index_write.cpp.ll 2701808305
@@ -7069,7 +7069,7 @@ faiss/io.cpp.ll 323311073
 faiss/kmeans1d.cpp.ll 1142614522
 faiss/lattice_Zn.cpp.ll 2124801314
 faiss/partitioning.cpp.ll 593512335
-faiss/pq4_fast_scan.cpp.ll 297945499
+faiss/pq4_fast_scan.cpp.ll 298331534
 faiss/pq4_fast_scan_search_1.cpp.ll 64881301860
 faiss/pq4_fast_scan_search_qbs.cpp.ll 135028439099
 faiss/quantize_lut.cpp.ll 566092771
@@ -7083,7 +7083,7 @@ flac/bitmath.c.ll 38367734
 flac/bitreader.c.ll 420509711
 flac/bitwriter.c.ll 338499850
 flac/crc.c.ll 106773649
-flac/cuesheet.c.ll 702450641
+flac/cuesheet.c.ll 703605420
 flac/decode.c.ll 833876700
 flac/encode.c.ll 1693732528
 flac/file.c.ll 55681349
@@ -7792,7 +7792,7 @@ git/xdiffi.ll 667600722
 git/xemit.ll 371297175
 git/xhistogram.ll 343723133
 git/xmerge.ll 724902492
-git/xpatience.ll 241531181
+git/xpatience.ll 241283633
 git/xprepare.ll 325975992
 git/xutils.ll 396583458
 glog/cleanup_immediately_unittest.cc.ll 814776021
@@ -9178,7 +9178,7 @@ gromacs/timecontrol.cpp.ll 62672485
 gromacs/timeunitmanager.cpp.ll 528396993
 gromacs/tmpi_init.cpp.ll 205113129
 gromacs/tmpi_malloc.cpp.ll 39168360
-gromacs/tng_compress.c.ll 1307225123
+gromacs/tng_compress.c.ll 1302423805
 gromacs/tng_io.c.ll 5948368731
 gromacs/tngio.cpp.ll 1029513339
 gromacs/tomorse.cpp.ll 588993023
@@ -11749,7 +11749,7 @@ libquic/bn_test.cc.ll 1496369180
 libquic/bssl_shim.cc.ll 1042559013
 libquic/buf.c.ll 98379943
 libquic/buffer.c.ll 154525458
-libquic/by_dir.c.ll 138623099
+libquic/by_dir.c.ll 138473627
 libquic/by_file.c.ll 84518473
 libquic/bytestring_test.cc.ll 350707455
 libquic/cached_network_parameters.pb.cc.ll 303669468
@@ -19264,7 +19264,7 @@ opencv/contours_link.cpp.ll 1006958507
 opencv/contours_new.cpp.ll 1072308801
 opencv/contrast_preserve.cpp.ll 1218610473
 opencv/conv_1x1_fast_spv.cpp.ll 48034581
-opencv/conv_depthwise.cpp.ll 646613942
+opencv/conv_depthwise.cpp.ll 647458046
 opencv/conv_depthwise_3x3_spv.cpp.ll 43520728
 opencv/conv_depthwise_spv.cpp.ll 43965756
 opencv/conv_implicit_gemm_spv.cpp.ll 49743534
@@ -22622,7 +22622,7 @@ openmpi/coll_base_comm_unselect.ll 814177447
 openmpi/coll_base_exscan.ll 138629381
 openmpi/coll_base_find_available.ll 68845201
 openmpi/coll_base_frame.ll 84652348
-openmpi/coll_base_gather.ll 196070019
+openmpi/coll_base_gather.ll 196437468
 openmpi/coll_base_reduce.ll 453879916
 openmpi/coll_base_reduce_scatter.ll 388577830
 openmpi/coll_base_reduce_scatter_block.ll 494981939
@@ -22633,7 +22633,7 @@ openmpi/coll_base_util.ll 252341408
 openmpi/coll_basic_allgather.ll 101870632
 openmpi/coll_basic_allreduce.ll 124587003
 openmpi/coll_basic_alltoall.ll 88616193
-openmpi/coll_basic_alltoallv.ll 88737113
+openmpi/coll_basic_alltoallv.ll 88641618
 openmpi/coll_basic_alltoallw.ll 217451369
 openmpi/coll_basic_barrier.ll 62903012
 openmpi/coll_basic_bcast.ll 106192428
@@ -23168,7 +23168,7 @@ openmpi/libmpi_c_profile_la-iscatter.ll 108301274
 openmpi/libmpi_c_profile_la-iscatterv.ll 135264049
 openmpi/libmpi_c_profile_la-isend.ll 95468774
 openmpi/libmpi_c_profile_la-isendrecv.ll 179430042
-openmpi/libmpi_c_profile_la-isendrecv_replace.ll 208156289
+openmpi/libmpi_c_profile_la-isendrecv_replace.ll 207943679
 openmpi/libmpi_c_profile_la-issend.ll 95244856
 openmpi/libmpi_c_profile_la-keyval_create.ll 44162277
 openmpi/libmpi_c_profile_la-keyval_free.ll 41356195
@@ -23824,7 +23824,7 @@ openmpi/pquery.ll 255443180
 openmpi/preg_base_frame.ll 88796198
 openmpi/preg_base_select.ll 84604984
 openmpi/preg_base_stubs.ll 88940290
-openmpi/preg_compress.ll 88765371
+openmpi/preg_compress.ll 88673980
 openmpi/preg_compress_component.ll 37276223
 openmpi/preg_native.ll 537191764
 openmpi/preg_raw.ll 55123675
@@ -26179,7 +26179,7 @@ pbrt-v4/aggregates.cpp.ll 5139324640
 pbrt-v4/bssrdf.cpp.ll 588404914
 pbrt-v4/buffercache.cpp.ll 153047998
 pbrt-v4/bxdfs.cpp.ll 5830183821
-pbrt-v4/camera.cpp.ll 2581866348
+pbrt-v4/camera.cpp.ll 2584448344
 pbrt-v4/cameras.cpp.ll 4364745049
 pbrt-v4/check.cpp.ll 303645816
 pbrt-v4/color.cpp.ll 709328911
@@ -37777,7 +37777,7 @@ zstd/zstd_decompress_block.c.ll 4882870843
 zstd/zstd_double_fast.c.ll 4332178092
 zstd/zstd_fast.c.ll 3986151628
 zstd/zstd_lazy.c.ll 15040730846
-zstd/zstd_ldm.c.ll 660018326
+zstd/zstd_ldm.c.ll 659346655
 zstd/zstd_opt.c.ll 2594259053
 zstd/zstd_v01.c.ll 3004372333
 zstd/zstd_v02.c.ll 2946544963

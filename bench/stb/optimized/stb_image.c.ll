@@ -9749,7 +9749,7 @@ stbi__mul2sizes_valid.exit.i.i:                   ; preds = %if.end.i.i.i
   br i1 %cmp5.i.not.i.i, label %if.then2, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %stbi__mul2sizes_valid.exit.i.i, %if.end.i.i.i
-  %mul.i.i = mul nsw i32 %x, %req_comp
+  %mul.i.i = mul i32 %x, %req_comp
   %1 = or i32 %y, %mul.i.i
   %or.cond.not.i6.i.i = icmp sgt i32 %1, -1
   br i1 %or.cond.not.i6.i.i, label %if.end.i8.i.i, label %if.then2
@@ -9771,6 +9771,7 @@ stbi__malloc_mad3.exit:                           ; preds = %if.end.i8.i.i, %stb
   br i1 %cmp1, label %if.then2, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %stbi__malloc_mad3.exit
+  %invariant.op = mul i32 %x, %img_n
   %cmp5227 = icmp sgt i32 %y, 0
   br i1 %cmp5227, label %for.body.lr.ph, label %for.end205
 
@@ -9807,12 +9808,11 @@ if.then2:                                         ; preds = %land.lhs.true.i.i, 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc204
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph.split ], [ %indvars.iv.next, %for.inc204 ]
   %3 = trunc nuw nsw i64 %indvars.iv to i32
-  %mul = mul i32 %x, %3
-  %mul6 = mul i32 %mul, %img_n
-  %idx.ext = zext i32 %mul6 to i64
+  %mul.reass = mul i32 %mul.i.i, %3
+  %mul6.reass = mul i32 %invariant.op, %3
+  %idx.ext = zext i32 %mul6.reass to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
-  %mul8 = mul i32 %mul, %req_comp
-  %idx.ext9 = zext i32 %mul8 to i64
+  %idx.ext9 = zext i32 %mul.reass to i64
   %add.ptr10 = getelementptr inbounds i8, ptr %call.i.i, i64 %idx.ext9
   switch i32 %add, label %for.cond186.preheader [
     i32 10, label %for.cond12.preheader
@@ -10162,6 +10162,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then5, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
+  %invariant.op = mul i32 %x, %img_n
+  %factor.op.mul = mul i32 %x, %req_comp
   %cmp8224 = icmp sgt i32 %y, 0
   br i1 %cmp8224, label %for.body.lr.ph, label %for.end219
 
@@ -10198,12 +10200,11 @@ if.then5:                                         ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc218
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph.split ], [ %indvars.iv.next, %for.inc218 ]
   %1 = trunc nuw nsw i64 %indvars.iv to i32
-  %mul10 = mul i32 %x, %1
-  %mul11 = mul i32 %mul10, %img_n
-  %idx.ext = zext i32 %mul11 to i64
+  %mul10.reass = mul i32 %factor.op.mul, %1
+  %mul11.reass = mul i32 %invariant.op, %1
+  %idx.ext = zext i32 %mul11.reass to i64
   %add.ptr = getelementptr inbounds i16, ptr %data, i64 %idx.ext
-  %mul13 = mul i32 %mul10, %req_comp
-  %idx.ext14 = zext i32 %mul13 to i64
+  %idx.ext14 = zext i32 %mul10.reass to i64
   %add.ptr15 = getelementptr inbounds i16, ptr %call.i, i64 %idx.ext14
   switch i32 %add, label %for.cond200.preheader [
     i32 10, label %for.cond17.preheader

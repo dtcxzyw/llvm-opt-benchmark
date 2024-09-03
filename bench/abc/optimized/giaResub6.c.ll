@@ -742,9 +742,9 @@ define void @Res6_ManPrintProblem(ptr nocapture noundef readonly %0, i32 noundef
   %25 = icmp eq i32 %.3.i, 4
   %26 = and i32 %.3.i, -2
   %27 = icmp eq i32 %26, 4
-  br label %75
+  br label %73
 
-.preheader:                                       ; preds = %107, %15
+.preheader:                                       ; preds = %105, %15
   %28 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %28, 31
   br i1 %.not, label %.loopexit, label %.lr.ph67
@@ -768,6 +768,9 @@ define void @Res6_ManPrintProblem(ptr nocapture noundef readonly %0, i32 noundef
 
 .lr.ph67.split.us.split.us.preheader:             ; preds = %.lr.ph67.split.us
   %.227.i59.us.us.v = select i1 %32, i64 85, i64 5
+  %invariant.op = mul nuw nsw i64 %.227.i59.us.us.v, 257
+  %.328.i61.us.us.v = select i1 %33, i64 %invariant.op, i64 %.227.i59.us.us.v
+  %invariant.op88 = mul i64 %.328.i61.us.us.v, 65537
   br label %.lr.ph67.split.us.split.us
 
 .lr.ph67.split.us.split.us:                       ; preds = %.lr.ph67.split.us.split.us.preheader, %.lr.ph67.split.us.split.us
@@ -777,153 +780,151 @@ define void @Res6_ManPrintProblem(ptr nocapture noundef readonly %0, i32 noundef
   %39 = load ptr, ptr %38, align 8
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 3
-  %.227.i59.us.us = mul nuw nsw i64 %41, %.227.i59.us.us.v
-  %42 = mul nuw nsw i64 %.227.i59.us.us, 257
-  %.328.i61.us.us = select i1 %33, i64 %42, i64 %.227.i59.us.us
-  %43 = mul nuw nsw i64 %.328.i61.us.us, 65537
-  %.429.i63.us.us = select i1 %34, i64 %43, i64 %.328.i61.us.us
-  %44 = mul nuw i64 %.429.i63.us.us, 4294967297
-  %.5.i64.us.us = select i1 %36, i64 %44, i64 %.429.i63.us.us
+  %.328.i61.us.us = mul nuw nsw i64 %41, %.328.i61.us.us.v
+  %.reass = mul i64 %41, %invariant.op88
+  %.429.i63.us.us = select i1 %34, i64 %.reass, i64 %.328.i61.us.us
+  %42 = mul nuw i64 %.429.i63.us.us, 4294967297
+  %.5.i64.us.us = select i1 %36, i64 %42, i64 %.429.i63.us.us
   store i64 %.5.i64.us.us, ptr %39, align 8
-  %45 = trunc nuw nsw i64 %indvars.iv77 to i32
-  %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %45)
-  %47 = load ptr, ptr %30, align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv77
-  %49 = load ptr, ptr %48, align 8
-  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %49, i32 noundef 1) #18
+  %43 = trunc nuw nsw i64 %indvars.iv77 to i32
+  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %43)
+  %45 = load ptr, ptr %30, align 8
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv77
+  %47 = load ptr, ptr %46, align 8
+  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %47, i32 noundef 1) #18
   %putchar.us.us = tail call i32 @putchar(i32 10)
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %50 = load i32, ptr %10, align 4
-  %51 = shl nuw i32 1, %50
-  %52 = sext i32 %51 to i64
-  %53 = icmp slt i64 %indvars.iv.next78, %52
-  br i1 %53, label %.lr.ph67.split.us.split.us, label %.loopexit, !llvm.loop !15
+  %48 = load i32, ptr %10, align 4
+  %49 = shl nuw i32 1, %48
+  %50 = sext i32 %49 to i64
+  %51 = icmp slt i64 %indvars.iv.next78, %50
+  br i1 %51, label %.lr.ph67.split.us.split.us, label %.loopexit, !llvm.loop !15
 
 .lr.ph67.split.us.split:                          ; preds = %.lr.ph67.split.us, %.lr.ph67.split.us.split
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.lr.ph67.split.us.split ], [ 0, %.lr.ph67.split.us ]
-  %54 = load ptr, ptr %30, align 8
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv74
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i64, ptr %56, align 8
-  %58 = and i64 %57, 15
-  %59 = mul nuw nsw i64 %58, 17
-  %.227.i59.us = select i1 %32, i64 %59, i64 %57
-  %60 = and i64 %.227.i59.us, 255
-  %61 = mul nuw nsw i64 %60, 257
-  %.328.i61.us = select i1 %33, i64 %61, i64 %.227.i59.us
-  %62 = and i64 %.328.i61.us, 65535
-  %63 = mul nuw nsw i64 %62, 65537
-  %.429.i63.us = select i1 %34, i64 %63, i64 %.328.i61.us
-  %64 = and i64 %.429.i63.us, 4294967295
-  %65 = mul nuw i64 %64, 4294967297
-  %.5.i64.us = select i1 %36, i64 %65, i64 %.429.i63.us
-  store i64 %.5.i64.us, ptr %56, align 8
-  %66 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %66)
-  %68 = load ptr, ptr %30, align 8
-  %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv74
-  %70 = load ptr, ptr %69, align 8
-  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %70, i32 noundef %5) #18
+  %52 = load ptr, ptr %30, align 8
+  %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv74
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, 15
+  %57 = mul nuw nsw i64 %56, 17
+  %.227.i59.us = select i1 %32, i64 %57, i64 %55
+  %58 = and i64 %.227.i59.us, 255
+  %59 = mul nuw nsw i64 %58, 257
+  %.328.i61.us = select i1 %33, i64 %59, i64 %.227.i59.us
+  %60 = and i64 %.328.i61.us, 65535
+  %61 = mul nuw nsw i64 %60, 65537
+  %.429.i63.us = select i1 %34, i64 %61, i64 %.328.i61.us
+  %62 = and i64 %.429.i63.us, 4294967295
+  %63 = mul nuw i64 %62, 4294967297
+  %.5.i64.us = select i1 %36, i64 %63, i64 %.429.i63.us
+  store i64 %.5.i64.us, ptr %54, align 8
+  %64 = trunc nuw nsw i64 %indvars.iv74 to i32
+  %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %64)
+  %66 = load ptr, ptr %30, align 8
+  %67 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv74
+  %68 = load ptr, ptr %67, align 8
+  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %68, i32 noundef %5) #18
   %putchar.us = tail call i32 @putchar(i32 10)
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %71 = load i32, ptr %10, align 4
-  %72 = shl nuw i32 1, %71
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next75, %73
-  br i1 %74, label %.lr.ph67.split.us.split, label %.loopexit, !llvm.loop !15
+  %69 = load i32, ptr %10, align 4
+  %70 = shl nuw i32 1, %69
+  %71 = sext i32 %70 to i64
+  %72 = icmp slt i64 %indvars.iv.next75, %71
+  br i1 %72, label %.lr.ph67.split.us.split, label %.loopexit, !llvm.loop !15
 
-75:                                               ; preds = %.lr.ph, %107
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %107 ]
-  br i1 %20, label %76, label %._crit_edge
+73:                                               ; preds = %.lr.ph, %105
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %105 ]
+  br i1 %20, label %74, label %._crit_edge
 
-._crit_edge:                                      ; preds = %75
+._crit_edge:                                      ; preds = %73
   %.pre = shl nuw nsw i64 %indvars.iv, 1
   %.pre80 = or disjoint i64 %.pre, 1
-  br label %107
+  br label %105
 
-76:                                               ; preds = %75
-  %77 = load ptr, ptr %21, align 8
-  %78 = shl nuw nsw i64 %indvars.iv, 1
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i64, ptr %80, align 8
-  %82 = and i64 %81, 3
-  %83 = mul nuw nsw i64 %82, 5
-  %.126.i = select i1 %22, i64 %83, i64 %81
-  %84 = and i64 %.126.i, 15
-  %85 = mul nuw nsw i64 %84, 17
-  %.227.i = select i1 %23, i64 %85, i64 %.126.i
-  %86 = and i64 %.227.i, 255
-  %87 = mul nuw nsw i64 %86, 257
-  %.328.i = select i1 %24, i64 %87, i64 %.227.i
-  %88 = and i64 %.328.i, 65535
-  %89 = mul nuw nsw i64 %88, 65537
-  %.429.i = select i1 %25, i64 %89, i64 %.328.i
-  %90 = and i64 %.429.i, 4294967295
-  %91 = mul nuw i64 %90, 4294967297
-  %.5.i = select i1 %27, i64 %91, i64 %.429.i
-  store i64 %.5.i, ptr %80, align 8
-  %92 = load ptr, ptr %21, align 8
-  %93 = or disjoint i64 %78, 1
-  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  %96 = load i64, ptr %95, align 8
-  %97 = and i64 %96, 3
-  %98 = mul nuw nsw i64 %97, 5
-  %.126.i49 = select i1 %22, i64 %98, i64 %96
-  %99 = and i64 %.126.i49, 15
-  %100 = mul nuw nsw i64 %99, 17
-  %.227.i51 = select i1 %23, i64 %100, i64 %.126.i49
-  %101 = and i64 %.227.i51, 255
-  %102 = mul nuw nsw i64 %101, 257
-  %.328.i53 = select i1 %24, i64 %102, i64 %.227.i51
-  %103 = and i64 %.328.i53, 65535
-  %104 = mul nuw nsw i64 %103, 65537
-  %.429.i55 = select i1 %25, i64 %104, i64 %.328.i53
-  %105 = and i64 %.429.i55, 4294967295
-  %106 = mul nuw i64 %105, 4294967297
-  %.5.i56 = select i1 %27, i64 %106, i64 %.429.i55
-  store i64 %.5.i56, ptr %95, align 8
-  br label %107
+74:                                               ; preds = %73
+  %75 = load ptr, ptr %21, align 8
+  %76 = shl nuw nsw i64 %indvars.iv, 1
+  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i64, ptr %78, align 8
+  %80 = and i64 %79, 3
+  %81 = mul nuw nsw i64 %80, 5
+  %.126.i = select i1 %22, i64 %81, i64 %79
+  %82 = and i64 %.126.i, 15
+  %83 = mul nuw nsw i64 %82, 17
+  %.227.i = select i1 %23, i64 %83, i64 %.126.i
+  %84 = and i64 %.227.i, 255
+  %85 = mul nuw nsw i64 %84, 257
+  %.328.i = select i1 %24, i64 %85, i64 %.227.i
+  %86 = and i64 %.328.i, 65535
+  %87 = mul nuw nsw i64 %86, 65537
+  %.429.i = select i1 %25, i64 %87, i64 %.328.i
+  %88 = and i64 %.429.i, 4294967295
+  %89 = mul nuw i64 %88, 4294967297
+  %.5.i = select i1 %27, i64 %89, i64 %.429.i
+  store i64 %.5.i, ptr %78, align 8
+  %90 = load ptr, ptr %21, align 8
+  %91 = or disjoint i64 %76, 1
+  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i64, ptr %93, align 8
+  %95 = and i64 %94, 3
+  %96 = mul nuw nsw i64 %95, 5
+  %.126.i49 = select i1 %22, i64 %96, i64 %94
+  %97 = and i64 %.126.i49, 15
+  %98 = mul nuw nsw i64 %97, 17
+  %.227.i51 = select i1 %23, i64 %98, i64 %.126.i49
+  %99 = and i64 %.227.i51, 255
+  %100 = mul nuw nsw i64 %99, 257
+  %.328.i53 = select i1 %24, i64 %100, i64 %.227.i51
+  %101 = and i64 %.328.i53, 65535
+  %102 = mul nuw nsw i64 %101, 65537
+  %.429.i55 = select i1 %25, i64 %102, i64 %.328.i53
+  %103 = and i64 %.429.i55, 4294967295
+  %104 = mul nuw i64 %103, 4294967297
+  %.5.i56 = select i1 %27, i64 %104, i64 %.429.i55
+  store i64 %.5.i56, ptr %93, align 8
+  br label %105
 
-107:                                              ; preds = %._crit_edge, %76
-  %.pre-phi81 = phi i64 [ %.pre80, %._crit_edge ], [ %93, %76 ]
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %78, %76 ]
-  %108 = trunc nuw i64 %.pre-phi to i32
-  %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %108)
-  %110 = load ptr, ptr %21, align 8
-  %111 = getelementptr inbounds ptr, ptr %110, i64 %.pre-phi
-  %112 = load ptr, ptr %111, align 8
-  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %112, i32 noundef %5) #18
+105:                                              ; preds = %._crit_edge, %74
+  %.pre-phi81 = phi i64 [ %.pre80, %._crit_edge ], [ %91, %74 ]
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %76, %74 ]
+  %106 = trunc nuw i64 %.pre-phi to i32
+  %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %106)
+  %108 = load ptr, ptr %21, align 8
+  %109 = getelementptr inbounds ptr, ptr %108, i64 %.pre-phi
+  %110 = load ptr, ptr %109, align 8
+  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %110, i32 noundef %5) #18
   %putchar47 = tail call i32 @putchar(i32 10)
-  %113 = trunc nuw i64 %.pre-phi81 to i32
-  %114 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %113)
-  %115 = load ptr, ptr %21, align 8
-  %116 = getelementptr inbounds ptr, ptr %115, i64 %.pre-phi81
-  %117 = load ptr, ptr %116, align 8
-  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %117, i32 noundef %5) #18
+  %111 = trunc nuw i64 %.pre-phi81 to i32
+  %112 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %111)
+  %113 = load ptr, ptr %21, align 8
+  %114 = getelementptr inbounds ptr, ptr %113, i64 %.pre-phi81
+  %115 = load ptr, ptr %114, align 8
+  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %115, i32 noundef %5) #18
   %putchar48 = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %118 = load i32, ptr %6, align 4
-  %119 = sext i32 %118 to i64
-  %120 = icmp slt i64 %indvars.iv.next, %119
-  br i1 %120, label %75, label %.preheader, !llvm.loop !16
+  %116 = load i32, ptr %6, align 4
+  %117 = sext i32 %116 to i64
+  %118 = icmp slt i64 %indvars.iv.next, %117
+  br i1 %118, label %73, label %.preheader, !llvm.loop !16
 
 .lr.ph67.split:                                   ; preds = %.lr.ph67, %.lr.ph67.split
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.lr.ph67.split ], [ 0, %.lr.ph67 ]
-  %121 = trunc nuw nsw i64 %indvars.iv71 to i32
-  %122 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %121)
-  %123 = load ptr, ptr %30, align 8
-  %124 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv71
-  %125 = load ptr, ptr %124, align 8
-  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %125, i32 noundef %5) #18
+  %119 = trunc nuw nsw i64 %indvars.iv71 to i32
+  %120 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %119)
+  %121 = load ptr, ptr %30, align 8
+  %122 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv71
+  %123 = load ptr, ptr %122, align 8
+  tail call void @Dau_DsdPrintFromTruth2(ptr noundef %123, i32 noundef %5) #18
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %126 = load i32, ptr %10, align 4
-  %127 = shl nuw i32 1, %126
-  %128 = sext i32 %127 to i64
-  %129 = icmp slt i64 %indvars.iv.next72, %128
-  br i1 %129, label %.lr.ph67.split, label %.loopexit, !llvm.loop !15
+  %124 = load i32, ptr %10, align 4
+  %125 = shl nuw i32 1, %124
+  %126 = sext i32 %125 to i64
+  %127 = icmp slt i64 %indvars.iv.next72, %126
+  br i1 %127, label %.lr.ph67.split, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph67.split, %.lr.ph67.split.us.split, %.lr.ph67.split.us.split.us, %.preheader, %2
   ret void

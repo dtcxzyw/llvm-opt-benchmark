@@ -42629,7 +42629,7 @@ if.end161:                                        ; preds = %do.end127
   %61 = load i32, ptr %blck_size.i.i164, align 8
   %conv.i165 = sext i32 %61 to i64
   %div.i166 = udiv i64 %mul.i163, %conv.i165
-  %mul170 = mul nsw i64 %9, %10
+  %mul170 = mul i64 %9, %10
   %mul171 = mul nsw i64 %mul170, %11
   %cmp172 = icmp sgt i64 %1, %mul171
   %62 = sext i32 %25 to i64
@@ -42684,11 +42684,11 @@ for.body232.us.us:                                ; preds = %for.end299.us.us, %
   %ir1.0187.us.us = phi i64 [ %iir1.0190.us, %for.cond226.preheader.us.us ], [ %inc312.us.us, %for.end299.us.us ]
   %div235.us.us = sdiv i64 %ir1.0187.us.us, %mul170
   %mul237.us.us = mul nsw i64 %div235.us.us, %10
-  %mul238.us.us = mul nsw i64 %mul237.us.us, %9
-  %sub239.us.us = sub nsw i64 %ir1.0187.us.us, %mul238.us.us
-  %div240.us.us = sdiv i64 %sub239.us.us, %9
+  %mul238.reass.us.us = mul i64 %div235.us.us, %mul170
+  %sub239.us.us.recomposed = srem i64 %ir1.0187.us.us, %mul170
+  %div240.us.us = sdiv i64 %sub239.us.us.recomposed, %9
   %mul245.us.us = mul nsw i64 %div240.us.us, %9
-  %sub246.us.us.recomposed = srem i64 %sub239.us.us, %9
+  %sub246.us.us.recomposed = srem i64 %sub239.us.us.recomposed, %9
   %div247.us.us = sdiv i64 %div235.us.us, %div128
   %div248.us.us = sdiv i64 %div240.us.us, %div
   %63 = load ptr, ptr %data249, align 8
@@ -43024,8 +43024,9 @@ cond.end:                                         ; preds = %do.end127, %cond.fa
   ]
 
 for.cond220.preheader:                            ; preds = %cond.end
-  %cmp221250 = icmp sgt i32 %57, 0
-  br i1 %cmp221250, label %for.body223.lr.ph, label %for.end404
+  %invariant.op250 = mul i64 %11, %12
+  %cmp221251 = icmp sgt i32 %57, 0
+  br i1 %cmp221251, label %for.body223.lr.ph, label %for.end404
 
 for.body223.lr.ph:                                ; preds = %for.cond220.preheader
   %data239 = getelementptr inbounds i8, ptr %src1, i64 280
@@ -43059,8 +43060,8 @@ for.cond147.preheader.lr.ph:                      ; preds = %if.then144
   %data = getelementptr inbounds i8, ptr %src1, i64 280
   %conv = trunc i64 %9 to i32
   %cmp151216 = icmp sgt i64 %10, 0
-  %or.cond262 = select i1 %cmp148219, i1 %cmp151216, i1 false
-  br i1 %or.cond262, label %for.cond147.preheader.us.us, label %do.body166
+  %or.cond263 = select i1 %cmp148219, i1 %cmp151216, i1 false
+  br i1 %or.cond263, label %for.cond147.preheader.us.us, label %do.body166
 
 for.cond147.preheader.us.us:                      ; preds = %for.cond147.preheader.lr.ph, %for.cond147.for.inc162_crit_edge.split.us.us.us
   %wdata140.0225.us.us = phi ptr [ %add.ptr158.us.us.us, %for.cond147.for.inc162_crit_edge.split.us.us.us ], [ %58, %for.cond147.preheader.lr.ph ]
@@ -43090,13 +43091,13 @@ for.body152.us.us.us:                             ; preds = %for.body152.us.us.u
 
 for.cond150.for.inc159_crit_edge.us.us.us:        ; preds = %for.body152.us.us.us
   %inc160.us.us.us = add nuw nsw i64 %i12.0220.us.us.us, 1
-  %exitcond256.not = icmp eq i64 %inc160.us.us.us, %11
-  br i1 %exitcond256.not, label %for.cond147.for.inc162_crit_edge.split.us.us.us, label %for.cond150.preheader.us.us.us, !llvm.loop !483
+  %exitcond257.not = icmp eq i64 %inc160.us.us.us, %11
+  br i1 %exitcond257.not, label %for.cond147.for.inc162_crit_edge.split.us.us.us, label %for.cond150.preheader.us.us.us, !llvm.loop !483
 
 for.cond147.for.inc162_crit_edge.split.us.us.us:  ; preds = %for.cond150.for.inc159_crit_edge.us.us.us
   %inc163.us.us = add nuw nsw i64 %i13.0224.us.us, 1
-  %exitcond257.not = icmp eq i64 %inc163.us.us, %12
-  br i1 %exitcond257.not, label %do.body166, label %for.cond147.preheader.us.us, !llvm.loop !484
+  %exitcond258.not = icmp eq i64 %inc163.us.us, %12
+  br i1 %exitcond258.not, label %do.body166, label %for.cond147.preheader.us.us, !llvm.loop !484
 
 do.body166:                                       ; preds = %for.cond147.for.inc162_crit_edge.split.us.us.us, %for.cond147.preheader.lr.ph, %if.then144, %if.then139
   %wdata140.3 = phi ptr [ %58, %if.then139 ], [ %58, %if.then144 ], [ %58, %for.cond147.preheader.lr.ph ], [ %add.ptr158.us.us.us, %for.cond147.for.inc162_crit_edge.split.us.us.us ]
@@ -43184,16 +43185,16 @@ if.end229:                                        ; preds = %for.body223
   %82 = load i32, ptr %blck_size.i.i211, align 8
   %conv.i212 = sext i32 %82 to i64
   %div.i213 = udiv i64 %mul.i210, %conv.i212
-  %mul246 = mul nsw i64 %79, %11
-  %mul247 = mul nsw i64 %mul246, %12
-  %cmp248 = icmp sgt i64 %2, %mul247
+  %mul246 = mul i64 %79, %11
+  %mul247.reass = mul i64 %79, %invariant.op250
+  %cmp248 = icmp sgt i64 %2, %mul247.reass
   %conv254 = select i1 %cmp248, i64 %62, i64 1
   %conv261 = select i1 %cmp248, i64 1, i64 %62
   %rem = srem i64 %conv262, %conv254
   %div264 = sdiv i64 %conv262, %conv254
   %sub266 = add i64 %add265, %conv254
   %div267 = sdiv i64 %sub266, %conv254
-  %add268 = add i64 %mul247, -1
+  %add268 = add i64 %mul247.reass, -1
   %sub269 = add i64 %add268, %conv261
   %div270 = sdiv i64 %sub269, %conv261
   %mul271 = mul nsw i64 %div267, %rem
@@ -43201,7 +43202,7 @@ if.end229:                                        ; preds = %for.body223
   %cond279 = call i64 @llvm.smin.i64(i64 %add272, i64 %2)
   %mul280 = mul nsw i64 %div270, %div264
   %add281 = add nsw i64 %mul280, %div270
-  %cond288 = call i64 @llvm.smin.i64(i64 %add281, i64 %mul247)
+  %cond288 = call i64 @llvm.smin.i64(i64 %add281, i64 %mul247.reass)
   %cond288.fr = freeze i64 %cond288
   %cmp289.not = icmp slt i64 %mul271, %cond279
   %cmp291.not = icmp slt i64 %mul280, %cond288.fr
@@ -43239,11 +43240,11 @@ for.body310.us.us:                                ; preds = %for.end381.us.us, %
   %ir1.0239.us.us = phi i64 [ %iir1.0242.us, %for.cond304.preheader.us.us ], [ %inc394.us.us, %for.end381.us.us ]
   %div313.us.us = sdiv i64 %ir1.0239.us.us, %mul246
   %mul315.us.us = mul nsw i64 %div313.us.us, %11
-  %mul316.us.us = mul nsw i64 %mul315.us.us, %79
-  %sub317.us.us = sub nsw i64 %ir1.0239.us.us, %mul316.us.us
-  %div318.us.us = sdiv i64 %sub317.us.us, %79
+  %mul316.reass.us.us = mul i64 %div313.us.us, %mul246
+  %sub317.us.us.recomposed = srem i64 %ir1.0239.us.us, %mul246
+  %div318.us.us = sdiv i64 %sub317.us.us.recomposed, %79
   %mul322.us.us = mul nsw i64 %div318.us.us, %79
-  %sub323.us.us.recomposed = srem i64 %sub317.us.us, %79
+  %sub323.us.us.recomposed = srem i64 %sub317.us.us.recomposed, %79
   %arrayidx328.us.us = getelementptr i64, ptr %85, i64 %sub323.us.us.recomposed
   %86 = load i64, ptr %arrayidx328.us.us, align 8
   %div329.us.us = sdiv i64 %div313.us.us, %div128
@@ -43315,8 +43316,8 @@ if.then293:                                       ; preds = %if.end229
 
 for.inc402:                                       ; preds = %for.cond300.for.inc399_crit_edge.us, %for.body223, %if.then293
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond260.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond260.not, label %for.end404, label %for.body223, !llvm.loop !490
+  %exitcond261.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond261.not, label %for.end404, label %for.body223, !llvm.loop !490
 
 for.end404:                                       ; preds = %do.end201, %for.inc402, %do.end173, %for.cond220.preheader, %cond.end
   ret void

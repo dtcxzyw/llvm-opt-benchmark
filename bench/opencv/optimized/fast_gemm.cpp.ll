@@ -152,11 +152,12 @@ define hidden void @_ZN2cv3dnn12cpu_baseline19fastGemmPackBKernelEPKcPciiiii(ptr
   %13 = add i32 %2, -1
   %14 = add i32 %13, %12
   %15 = sdiv i32 %14, %12
-  %factor.op.mul60 = mul i32 %6, %5
+  %invariant.op = mul i32 %12, %6
+  %factor.op.mul = mul i32 %invariant.op, %5
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph64, label %._crit_edge65
+  br i1 %16, label %.lr.ph63, label %._crit_edge64
 
-.lr.ph64:                                         ; preds = %7
+.lr.ph63:                                         ; preds = %7
   %factor.op.mul56 = mul i32 %4, %6
   %17 = icmp sgt i32 %3, 0
   %18 = getelementptr inbounds i8, ptr %8, i64 8
@@ -192,17 +193,17 @@ define hidden void @_ZN2cv3dnn12cpu_baseline19fastGemmPackBKernelEPKcPciiiii(ptr
   %48 = sext i32 %36 to i64
   %49 = sext i32 %37 to i64
   %50 = sext i32 %38 to i64
-  br i1 %17, label %.lr.ph.us.preheader, label %._crit_edge65
+  br i1 %17, label %.lr.ph.us.preheader, label %._crit_edge64
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph64
+.lr.ph.us.preheader:                              ; preds = %.lr.ph63
   %51 = zext nneg i32 %3 to i64
   %52 = tail call i64 @llvm.umin.i64(i64 %51, i64 64)
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %.062.us = phi ptr [ %.us-phi.us, %._crit_edge.us ], [ %1, %.lr.ph.us.preheader ]
-  %.04761.us = phi i32 [ %69, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %53 = mul nsw i32 %.04761.us, %12
+  %.061.us = phi ptr [ %.us-phi.us, %._crit_edge.us ], [ %1, %.lr.ph.us.preheader ]
+  %.04760.us = phi i32 [ %69, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
+  %53 = mul nsw i32 %.04760.us, %12
   %54 = sub nsw i32 %2, %53
   %55 = tail call i32 @llvm.smin.i32(i32 %54, i32 %12)
   %.fr49.us = freeze i32 %55
@@ -210,38 +211,38 @@ define hidden void @_ZN2cv3dnn12cpu_baseline19fastGemmPackBKernelEPKcPciiiii(ptr
   %57 = srem i32 %56, 12
   %58 = sub nsw i32 %56, %57
   %59 = mul nsw i32 %58, %6
-  %factor.op.mul.reass.us = mul i32 %53, %factor.op.mul60
+  %factor.op.mul.reass.reass.us = mul i32 %.04760.us, %factor.op.mul
   %60 = icmp sgt i32 %.fr49.us, 0
   %61 = zext nneg i32 %.fr49.us to i64
   br i1 %60, label %.lr.ph109.i.us.us, label %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us
 
 _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us: ; preds = %.lr.ph.us, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us
-  %.159.us66 = phi ptr [ %66, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ], [ %.062.us, %.lr.ph.us ]
-  %.04658.us67 = phi i32 [ %67, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ], [ 0, %.lr.ph.us ]
-  %62 = sub nsw i32 %3, %.04658.us67
+  %.159.us65 = phi ptr [ %66, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ], [ %.061.us, %.lr.ph.us ]
+  %.04658.us66 = phi i32 [ %67, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ], [ 0, %.lr.ph.us ]
+  %62 = sub nsw i32 %3, %.04658.us66
   %63 = tail call i32 @llvm.smin.i32(i32 %62, i32 %.sroa.speculated)
   %64 = mul nsw i32 %59, %63
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %.159.us66, i64 %65
-  %67 = add nuw nsw i32 %.04658.us67, %.sroa.speculated
+  %66 = getelementptr inbounds i8, ptr %.159.us65, i64 %65
+  %67 = add nuw nsw i32 %.04658.us66, %.sroa.speculated
   %68 = icmp slt i32 %67, %3
   br i1 %68, label %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us, label %._crit_edge.us, !llvm.loop !4
 
 ._crit_edge.us:                                   ; preds = %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us
   %.us-phi.us = phi ptr [ %149, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us ], [ %66, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ]
-  %69 = add nuw nsw i32 %.04761.us, 1
+  %69 = add nuw nsw i32 %.04760.us, 1
   %exitcond.not = icmp eq i32 %69, %15
-  br i1 %exitcond.not, label %._crit_edge65, label %.lr.ph.us, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge64, label %.lr.ph.us, !llvm.loop !6
 
 .lr.ph109.i.us.us:                                ; preds = %.lr.ph.us, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us ], [ 0, %.lr.ph.us ]
-  %.159.us.us = phi ptr [ %149, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us ], [ %.062.us, %.lr.ph.us ]
+  %.159.us.us = phi ptr [ %149, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us ], [ %.061.us, %.lr.ph.us ]
   %70 = trunc i64 %indvars.iv to i32
   %71 = sub i32 %3, %70
   %72 = tail call i32 @llvm.smin.i32(i32 %71, i32 %.sroa.speculated)
   %73 = trunc nsw i64 %indvars.iv to i32
   %.reass57.us.us = mul i32 %factor.op.mul56, %73
-  %74 = add i32 %.reass57.us.us, %factor.op.mul.reass.us
+  %74 = add i32 %.reass57.us.us, %factor.op.mul.reass.reass.us
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %0, i64 %75
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8)
@@ -431,7 +432,7 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us: ;
   %150 = icmp ult i64 %indvars.iv.next, %51
   br i1 %150, label %.lr.ph109.i.us.us, label %._crit_edge.us, !llvm.loop !4
 
-._crit_edge65:                                    ; preds = %._crit_edge.us, %.lr.ph64, %7
+._crit_edge64:                                    ; preds = %._crit_edge.us, %.lr.ph63, %7
   ret void
 }
 

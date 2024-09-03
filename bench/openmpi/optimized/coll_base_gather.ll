@@ -488,6 +488,7 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %76
   %78 = sext i32 %4 to i64
+  %invariant.op = mul i64 %61, %78
   %79 = sext i32 %.1114 to i64
   %80 = sub nsw i32 %4, %.1114
   %81 = sext i32 %80 to i64
@@ -496,77 +497,77 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
   %83 = getelementptr inbounds ptr, ptr %53, i64 %82
   br label %84
 
-84:                                               ; preds = %.lr.ph, %107
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
+84:                                               ; preds = %.lr.ph, %106
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %85 = icmp eq i64 %indvars.iv, %82
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %84
   store ptr @ompi_request_null, ptr %83, align 8
-  br label %107
+  br label %106
 
 87:                                               ; preds = %84
   %88 = mul nsw i64 %indvars.iv, %78
-  %89 = mul nsw i64 %88, %61
-  %90 = getelementptr inbounds i8, ptr %3, i64 %89
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
-  %92 = trunc nuw nsw i64 %indvars.iv to i32
-  %93 = call i32 %91(ptr noundef %90, i64 noundef %79, ptr noundef %5, i32 noundef %92, i32 noundef -19, ptr noundef %7, ptr noundef nonnull %11) #5
-  %.not142 = icmp eq i32 %93, 0
-  br i1 %.not142, label %94, label %.loopexit166
+  %.reass = mul i64 %invariant.op, %indvars.iv
+  %89 = getelementptr inbounds i8, ptr %3, i64 %.reass
+  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %91 = trunc nuw nsw i64 %indvars.iv to i32
+  %92 = call i32 %90(ptr noundef %89, i64 noundef %79, ptr noundef %5, i32 noundef %91, i32 noundef -19, ptr noundef %7, ptr noundef nonnull %11) #5
+  %.not142 = icmp eq i32 %92, 0
+  br i1 %.not142, label %93, label %.loopexit166
 
-94:                                               ; preds = %87
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %96 = call i32 %95(ptr noundef %3, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %92, i32 noundef -19, i32 noundef 4, ptr noundef %7) #5
-  %.not143 = icmp eq i32 %96, 0
-  br i1 %.not143, label %97, label %.loopexit166
+93:                                               ; preds = %87
+  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %95 = call i32 %94(ptr noundef %3, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %91, i32 noundef -19, i32 noundef 4, ptr noundef %7) #5
+  %.not143 = icmp eq i32 %95, 0
+  br i1 %.not143, label %96, label %.loopexit166
 
-97:                                               ; preds = %94
-  %98 = add nsw i64 %88, %79
-  %99 = mul nsw i64 %98, %61
-  %100 = getelementptr inbounds i8, ptr %3, i64 %99
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
-  %102 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
-  %103 = call i32 %101(ptr noundef %100, i64 noundef %81, ptr noundef %5, i32 noundef %92, i32 noundef -19, ptr noundef %7, ptr noundef nonnull %102) #5
-  %.not144 = icmp eq i32 %103, 0
-  br i1 %.not144, label %104, label %.loopexit166
+96:                                               ; preds = %93
+  %97 = add nsw i64 %88, %79
+  %98 = mul nsw i64 %97, %61
+  %99 = getelementptr inbounds i8, ptr %3, i64 %98
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %101 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
+  %102 = call i32 %100(ptr noundef %99, i64 noundef %81, ptr noundef %5, i32 noundef %91, i32 noundef -19, ptr noundef %7, ptr noundef nonnull %101) #5
+  %.not144 = icmp eq i32 %102, 0
+  br i1 %.not144, label %103, label %.loopexit166
 
-104:                                              ; preds = %97
-  %105 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
-  %106 = call i32 %105(ptr noundef nonnull %11, ptr noundef null) #5
-  %.not145 = icmp eq i32 %106, 0
-  br i1 %.not145, label %107, label %.loopexit166
+103:                                              ; preds = %96
+  %104 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %105 = call i32 %104(ptr noundef nonnull %11, ptr noundef null) #5
+  %.not145 = icmp eq i32 %105, 0
+  br i1 %.not145, label %106, label %.loopexit166
 
-107:                                              ; preds = %104, %86
+106:                                              ; preds = %103, %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %84, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %107, %76
+._crit_edge:                                      ; preds = %106, %76
   %.not139 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
-  br i1 %.not139, label %115, label %108
+  br i1 %.not139, label %114, label %107
 
-108:                                              ; preds = %._crit_edge
-  %109 = sext i32 %6 to i64
-  %110 = sext i32 %4 to i64
-  %111 = mul nsw i64 %109, %110
-  %112 = mul nsw i64 %111, %61
-  %113 = getelementptr inbounds i8, ptr %3, i64 %112
-  %114 = call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %113, i32 noundef %4, ptr noundef %5) #5
-  %.not140 = icmp eq i32 %114, 0
-  br i1 %.not140, label %115, label %.loopexit166
+107:                                              ; preds = %._crit_edge
+  %108 = sext i32 %6 to i64
+  %109 = sext i32 %4 to i64
+  %110 = mul nsw i64 %108, %109
+  %111 = mul nsw i64 %110, %61
+  %112 = getelementptr inbounds i8, ptr %3, i64 %111
+  %113 = call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %112, i32 noundef %4, ptr noundef %5) #5
+  %.not140 = icmp eq i32 %113, 0
+  br i1 %.not140, label %114, label %.loopexit166
 
-115:                                              ; preds = %108, %._crit_edge
-  %116 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
-  %117 = sext i32 %.val.val to i64
-  %118 = call i32 %116(i64 noundef %117, ptr noundef nonnull %53, ptr noundef null) #5
-  %.not141 = icmp eq i32 %118, 0
+114:                                              ; preds = %107, %._crit_edge
+  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %116 = sext i32 %.val.val to i64
+  %117 = call i32 %115(i64 noundef %116, ptr noundef nonnull %53, ptr noundef null) #5
+  %.not141 = icmp eq i32 %117, 0
   br i1 %.not141, label %ompi_coll_base_free_reqs.exit, label %.loopexit166
 
-.loopexit166:                                     ; preds = %87, %94, %97, %104, %108, %115
-  %.0115 = phi i32 [ %114, %108 ], [ %118, %115 ], [ %106, %104 ], [ %103, %97 ], [ %96, %94 ], [ %93, %87 ]
-  %119 = icmp eq i32 %.0115, 18
-  br i1 %119, label %.preheader, label %.loopexit
+.loopexit166:                                     ; preds = %87, %93, %96, %103, %107, %114
+  %.0115 = phi i32 [ %113, %107 ], [ %117, %114 ], [ %105, %103 ], [ %102, %96 ], [ %95, %93 ], [ %92, %87 ]
+  %118 = icmp eq i32 %.0115, 18
+  br i1 %118, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit166
   br i1 %77, label %.lr.ph169.preheader, label %ompi_coll_base_free_reqs.exit
@@ -575,76 +576,76 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
   %wide.trip.count176 = zext nneg i32 %.val.val to i64
   br label %.lr.ph169
 
-.lr.ph169:                                        ; preds = %.lr.ph169.preheader, %126
-  %indvars.iv173 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next174, %126 ]
-  %120 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv173
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp eq ptr %121, @ompi_request_null
-  br i1 %122, label %126, label %123
+.lr.ph169:                                        ; preds = %.lr.ph169.preheader, %125
+  %indvars.iv173 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next174, %125 ]
+  %119 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv173
+  %120 = load ptr, ptr %119, align 8
+  %121 = icmp eq ptr %120, @ompi_request_null
+  br i1 %121, label %125, label %122
 
-123:                                              ; preds = %.lr.ph169
-  %124 = getelementptr inbounds i8, ptr %121, i64 72
-  %125 = load i32, ptr %124, align 8
-  switch i32 %125, label %.loopexit [
-    i32 19, label %126
-    i32 0, label %126
+122:                                              ; preds = %.lr.ph169
+  %123 = getelementptr inbounds i8, ptr %120, i64 72
+  %124 = load i32, ptr %123, align 8
+  switch i32 %124, label %.loopexit [
+    i32 19, label %125
+    i32 0, label %125
   ]
 
-126:                                              ; preds = %123, %123, %.lr.ph169
+125:                                              ; preds = %122, %122, %.lr.ph169
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
   br i1 %exitcond177.not, label %.loopexit, label %.lr.ph169, !llvm.loop !8
 
-.loopexit:                                        ; preds = %126, %123, %.loopexit166
-  %.2 = phi i32 [ %.0115, %.loopexit166 ], [ 18, %126 ], [ %125, %123 ]
+.loopexit:                                        ; preds = %125, %122, %.loopexit166
+  %.2 = phi i32 [ %.0115, %.loopexit166 ], [ 18, %125 ], [ %124, %122 ]
   br i1 %77, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit
   %wide.trip.count.i = zext nneg i32 %.val.val to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %143, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %143 ]
-  %127 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i
-  %128 = load ptr, ptr %127, align 8
-  %.not.i = icmp eq ptr %128, @ompi_request_null
-  br i1 %.not.i, label %143, label %129
+.lr.ph.i:                                         ; preds = %142, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %142 ]
+  %126 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i
+  %127 = load ptr, ptr %126, align 8
+  %.not.i = icmp eq ptr %127, @ompi_request_null
+  br i1 %.not.i, label %142, label %128
 
-129:                                              ; preds = %.lr.ph.i
-  %130 = getelementptr inbounds i8, ptr %128, i64 72
-  %131 = load i32, ptr %130, align 8
-  %.off.i = add i32 %131, -75
+128:                                              ; preds = %.lr.ph.i
+  %129 = getelementptr inbounds i8, ptr %127, i64 72
+  %130 = load i32, ptr %129, align 8
+  %.off.i = add i32 %130, -75
   %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %132, label %139
+  br i1 %switch.i, label %131, label %138
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds i8, ptr %128, i64 128
-  %134 = load ptr, ptr %133, align 8
-  %.not.i.i = icmp eq ptr %134, null
-  br i1 %.not.i.i, label %ompi_request_cancel.exit.i, label %135
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds i8, ptr %127, i64 128
+  %133 = load ptr, ptr %132, align 8
+  %.not.i.i = icmp eq ptr %133, null
+  br i1 %.not.i.i, label %ompi_request_cancel.exit.i, label %134
 
-135:                                              ; preds = %132
-  %136 = call i32 %134(ptr noundef nonnull %128, i32 noundef 1) #5
+134:                                              ; preds = %131
+  %135 = call i32 %133(ptr noundef nonnull %127, i32 noundef 1) #5
   br label %ompi_request_cancel.exit.i
 
-ompi_request_cancel.exit.i:                       ; preds = %135, %132
-  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
-  %138 = call i32 %137(ptr noundef nonnull %127, ptr noundef null) #5
-  br label %143
+ompi_request_cancel.exit.i:                       ; preds = %134, %131
+  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %137 = call i32 %136(ptr noundef nonnull %126, ptr noundef null) #5
+  br label %142
 
-139:                                              ; preds = %129
-  %140 = getelementptr inbounds i8, ptr %128, i64 120
-  %141 = load ptr, ptr %140, align 8
-  %142 = call i32 %141(ptr noundef nonnull %127) #5
-  br label %143
+138:                                              ; preds = %128
+  %139 = getelementptr inbounds i8, ptr %127, i64 120
+  %140 = load ptr, ptr %139, align 8
+  %141 = call i32 %140(ptr noundef nonnull %126) #5
+  br label %142
 
-143:                                              ; preds = %139, %ompi_request_cancel.exit.i, %.lr.ph.i
+142:                                              ; preds = %138, %ompi_request_cancel.exit.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !9
 
-ompi_coll_base_free_reqs.exit:                    ; preds = %143, %.preheader, %43, %50, %39, %36, %.loopexit, %115
-  %.0 = phi i32 [ 0, %115 ], [ %.2, %.loopexit ], [ -1, %50 ], [ %42, %39 ], [ %38, %36 ], [ %49, %43 ], [ 18, %.preheader ], [ %.2, %143 ]
+ompi_coll_base_free_reqs.exit:                    ; preds = %142, %.preheader, %43, %50, %39, %36, %.loopexit, %114
+  %.0 = phi i32 [ 0, %114 ], [ %.2, %.loopexit ], [ -1, %50 ], [ %42, %39 ], [ %38, %36 ], [ %49, %43 ], [ 18, %.preheader ], [ %.2, %142 ]
   ret i32 %.0
 }
 

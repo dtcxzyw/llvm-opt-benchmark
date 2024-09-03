@@ -4413,6 +4413,7 @@ entry:
   %m_data = getelementptr inbounds i8, ptr %vm, i64 32
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds i8, ptr %ndef, i64 312
   %sub11.i = sub nsw i32 %conv7.i, %conv10.i
+  %invariant.op = mul nsw i32 %conv3.i, %conv5.i
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %for.cond.cleanup4, %entry
@@ -4425,8 +4426,8 @@ for.cond1.preheader:                              ; preds = %for.cond.cleanup4, 
   %mul.i = mul nsw i32 %sub.i, %conv3.i
   %mul622.i = add i32 %sub11.i, %mul.i
   %add.i89 = mul i32 %mul622.i, %conv5.i
-  %add.i104 = mul i32 %mul.i, %conv5.i
-  %cmp21.not114 = icmp slt i32 %add.i89, %add.i104
+  %add.i104.reass = mul i32 %sub.i, %invariant.op
+  %cmp21.not114 = icmp slt i32 %add.i89, %add.i104.reass
   br i1 %cmp21.not114, label %for.cond.cleanup4, label %for.cond1.preheader.split
 
 for.cond1.preheader.split:                        ; preds = %for.cond1.preheader
@@ -4449,7 +4450,7 @@ for.body5:                                        ; preds = %for.cond.cleanup22.
   %sext = shl i32 %add.i, 16
   %conv16.i = ashr exact i32 %sext, 16
   %sub20.i = sub nsw i32 %conv16.i, %conv19.i
-  %add21.i108 = add nsw i32 %sub20.i, %add.i104
+  %add21.i108 = add nsw i32 %sub20.i, %add.i104.reass
   %arrayidx19 = getelementptr inbounds [16 x i8], ptr %light, i64 %indvars.iv120, i64 %indvars.iv
   %9 = load i8, ptr %arrayidx19, align 1, !tbaa !118, !range !99, !noundef !100
   %add21.i = add nsw i32 %sub20.i, %add.i89
@@ -6023,6 +6024,7 @@ invoke.cont36:                                    ; preds = %for.body32
   %22 = load i16, ptr %m_area, align 2, !tbaa !163
   %conv19.i.i = sext i16 %22 to i32
   %sub11.i.i = sub nsw i32 %conv7.i.i, %conv10.i.i
+  %invariant.op = mul nsw i32 %conv3.i.i, %conv5.i.i
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.cond.cleanup4.i, %invoke.cont36
@@ -6035,8 +6037,8 @@ for.cond1.preheader.i:                            ; preds = %for.cond.cleanup4.i
   %mul.i.i = mul nsw i32 %sub.i.i423, %conv3.i.i
   %mul622.i.i = add i32 %sub11.i.i, %mul.i.i
   %add.i89.i = mul i32 %mul622.i.i, %conv5.i.i
-  %add.i104.i = mul i32 %mul.i.i, %conv5.i.i
-  %cmp21.not114.i = icmp slt i32 %add.i89.i, %add.i104.i
+  %add.i104.i.reass = mul i32 %sub.i.i423, %invariant.op
+  %cmp21.not114.i = icmp slt i32 %add.i89.i, %add.i104.i.reass
   br i1 %cmp21.not114.i, label %for.cond.cleanup4.i, label %for.cond1.preheader.i.split
 
 for.cond1.preheader.i.split:                      ; preds = %for.cond1.preheader.i
@@ -6055,7 +6057,7 @@ for.body5.i:                                      ; preds = %for.cond.cleanup22.
   %sext.i = shl i32 %add.i.i, 16
   %conv16.i.i = ashr exact i32 %sext.i, 16
   %sub20.i.i = sub nsw i32 %conv16.i.i, %conv19.i.i
-  %add21.i108.i = add nsw i32 %sub20.i.i, %add.i104.i
+  %add21.i108.i = add nsw i32 %sub20.i.i, %add.i104.i.reass
   %arrayidx19.i = getelementptr inbounds [16 x i8], ptr %lights, i64 %indvars.iv120.i, i64 %indvars.iv.i
   %26 = load i8, ptr %arrayidx19.i, align 1, !tbaa !118, !range !99, !noundef !100
   %add21.i.i = add nsw i32 %sub20.i.i, %add.i89.i
@@ -6457,14 +6459,14 @@ for.cond121.preheader:                            ; preds = %for.cond121.for.inc
   %storemerge370593 = phi i16 [ %minblock.sroa.7.0.extract.trunc, %for.cond112.preheader ], [ %inc265, %for.cond121.for.inc263_crit_edge ]
   %blockpos.sroa.8.0.insert.ext533 = zext i16 %storemerge370593 to i48
   %blockpos.sroa.8.0.insert.shift534 = shl nuw nsw i48 %blockpos.sroa.8.0.insert.ext533, 16
-  %invariant.op50 = or disjoint i48 %blockpos.sroa.8.0.insert.shift534, %blockpos.sroa.0.0.insert.ext530
+  %invariant.op51 = or disjoint i48 %blockpos.sroa.8.0.insert.shift534, %blockpos.sroa.0.0.insert.ext530
   br label %for.body127
 
 for.body127:                                      ; preds = %cleanup, %for.cond121.preheader
   %storemerge371591 = phi i16 [ %minblock.sroa.9.0.extract.trunc, %for.cond121.preheader ], [ %inc261, %cleanup ]
   %blockpos.sroa.11.0.insert.ext537 = zext i16 %storemerge371591 to i48
   %blockpos.sroa.11.0.insert.shift538 = shl nuw i48 %blockpos.sroa.11.0.insert.ext537, 32
-  %blockpos.sroa.0.0.insert.insert532.reass = or disjoint i48 %blockpos.sroa.11.0.insert.shift538, %invariant.op50
+  %blockpos.sroa.0.0.insert.insert532.reass = or disjoint i48 %blockpos.sroa.11.0.insert.shift538, %invariant.op51
   %call131 = invoke noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %blockpos.sroa.0.0.insert.insert532.reass)
           to label %invoke.cont130 unwind label %lpad129
 
@@ -6551,14 +6553,14 @@ invoke.cont185.lr.ph:                             ; preds = %for.body164
   %add.i.i440 = add nsw i64 %mul.i.i439, %conv4.i.i
   %add13.i = add i16 %storemerge373585, %offset134.sroa.6.0.extract.trunc
   %conv23.i.i = sext i16 %add13.i to i64
-  %invariant.op49 = or disjoint i48 %relpos.sroa.13.0.insert.shift526, %relpos.sroa.0.0.insert.ext517
+  %invariant.op50 = or disjoint i48 %relpos.sroa.13.0.insert.shift526, %relpos.sroa.0.0.insert.ext517
   br label %invoke.cont185
 
 invoke.cont185:                                   ; preds = %if.end227.1, %invoke.cont185.lr.ph
   %storemerge374583 = phi i16 [ %87, %invoke.cont185.lr.ph ], [ %inc241, %if.end227.1 ]
   %relpos.sroa.9.0.insert.ext520 = zext i16 %storemerge374583 to i48
   %relpos.sroa.9.0.insert.shift521 = shl nuw nsw i48 %relpos.sroa.9.0.insert.ext520, 16
-  %relpos.sroa.0.0.insert.insert519.reass = or disjoint i48 %relpos.sroa.9.0.insert.shift521, %invariant.op49
+  %relpos.sroa.0.0.insert.insert519.reass = or disjoint i48 %relpos.sroa.9.0.insert.shift521, %invariant.op50
   %p.sroa.2.0.extract.trunc.i = zext i16 %storemerge374583 to i64
   %88 = load ptr, ptr %data.i.i, align 8, !tbaa !23
   %sext2.i = shl nuw i64 %p.sroa.2.0.extract.trunc.i, 48

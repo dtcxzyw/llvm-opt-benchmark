@@ -116,7 +116,7 @@ vector.body:                                      ; preds = %.lr.ph.i.preheader,
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %16, %15
-  %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit, label %.lr.ph.i.preheader17
 
 .lr.ph.i.preheader17:                             ; preds = %middle.block, %.lr.ph.i.preheader
@@ -188,7 +188,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %13, %12
-  %15 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %15 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   %cmp.n = icmp eq i64 %2, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader17
 
@@ -335,7 +335,7 @@ vector.body:                                      ; preds = %.lr.ph.i.preheader.
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %16, %15
-  %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit.i.i, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %middle.block, %.lr.ph.i.preheader.i.i
@@ -436,7 +436,7 @@ vector.body:                                      ; preds = %.lr.ph.i.preheader.
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %16, %15
-  %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit.i, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %middle.block, %.lr.ph.i.preheader.i
@@ -602,7 +602,7 @@ vector.body:                                      ; preds = %.lr.ph.i.preheader,
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %14, %13
-  %16 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %16 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit, label %.lr.ph.i.preheader17
 
 .lr.ph.i.preheader17:                             ; preds = %middle.block, %.lr.ph.i.preheader
@@ -671,7 +671,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %11, %10
-  %13 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %13 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   %cmp.n = icmp eq i64 %2, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader16
 
@@ -729,7 +729,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %8, %7
-  %10 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %10 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   %cmp.n = icmp eq i64 %1, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader14
 
@@ -819,13 +819,13 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %36, %35
-  %38 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %38 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   %bin.rdx67 = fadd fast <4 x float> %30, %29
-  %39 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx67)
+  %39 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx67)
   %bin.rdx68 = fadd fast <4 x float> %24, %23
-  %40 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx68)
+  %40 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx68)
   %bin.rdx69 = fadd fast <4 x float> %18, %17
-  %41 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx69)
+  %41 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx69)
   %cmp.n = icmp eq i64 %5, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader73
 
@@ -923,10 +923,10 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %28, label %middle.block, label %vector.body, !llvm.loop !33
 
 middle.block:                                     ; preds = %vector.body
-  %29 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %21)
-  %30 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %23)
-  %31 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %25)
-  %32 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %27)
+  %29 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %21)
+  %30 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %23)
+  %31 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %25)
+  %32 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %27)
   %cmp.n = icmp eq i64 %5, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader69
 
@@ -1146,7 +1146,7 @@ vector.body:                                      ; preds = %.lr.ph.i.preheader.
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %16, %15
-  %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %middle.block, %.lr.ph.i.preheader.i.i.i
@@ -1329,7 +1329,7 @@ vector.body:                                      ; preds = %.lr.ph.i.preheader.
 
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = fadd fast <4 x float> %14, %13
-  %16 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float -0.000000e+00, <4 x float> %bin.rdx)
+  %16 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit.i, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %middle.block, %.lr.ph.i.preheader.i

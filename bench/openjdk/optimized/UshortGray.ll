@@ -1364,119 +1364,120 @@ define hidden void @UshortGraySrcOverMaskFill(ptr noundef %0, ptr noundef %1, i3
 .preheader:                                       ; preds = %31
   %34 = sext i32 %33 to i64
   %35 = xor i32 %25, 65535
-  br label %79
+  br label %76
 
 36:                                               ; preds = %31
   %37 = sext i32 %2 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
   %39 = sub nsw i32 %3, %4
   %40 = sext i32 %33 to i64
+  %invariant.op = mul nuw nsw i32 %18, 66049
+  %factor.op.mul = mul nuw nsw i32 %.082, 257
   %41 = sext i32 %39 to i64
   br label %42
 
-42:                                               ; preds = %71, %36
-  %.083 = phi ptr [ %0, %36 ], [ %73, %71 ]
-  %.074 = phi i32 [ %5, %36 ], [ %77, %71 ]
-  %.0 = phi ptr [ %38, %36 ], [ %76, %71 ]
+42:                                               ; preds = %68, %36
+  %.083 = phi ptr [ %0, %36 ], [ %70, %68 ]
+  %.074 = phi i32 [ %5, %36 ], [ %74, %68 ]
+  %.0 = phi ptr [ %38, %36 ], [ %73, %68 ]
   br label %43
 
-43:                                               ; preds = %65, %42
-  %.184 = phi ptr [ %.083, %42 ], [ %68, %65 ]
-  %.081 = phi i32 [ %4, %42 ], [ %69, %65 ]
-  %.1 = phi ptr [ %.0, %42 ], [ %44, %65 ]
+43:                                               ; preds = %62, %42
+  %.184 = phi ptr [ %.083, %42 ], [ %65, %62 ]
+  %.081 = phi i32 [ %4, %42 ], [ %66, %62 ]
+  %.1 = phi ptr [ %.0, %42 ], [ %44, %62 ]
   %44 = getelementptr inbounds i8, ptr %.1, i64 1
   %45 = load i8, ptr %.1, align 1
   switch i8 %45, label %46 [
-    i8 0, label %65
-    i8 -1, label %53
+    i8 0, label %62
+    i8 -1, label %50
   ]
 
 46:                                               ; preds = %43
   %47 = zext i8 %45 to i32
-  %48 = mul nuw nsw i32 %47, 257
-  %49 = mul nuw i32 %48, %25
-  %50 = udiv i32 %49, 65535
-  %51 = mul nuw i32 %48, %.082
-  %52 = udiv i32 %51, 65535
-  br label %53
+  %.reass100 = mul nuw i32 %factor.op.mul, %47
+  %.reass = mul nuw i32 %invariant.op, %47
+  %48 = udiv i32 %.reass, 65535
+  %49 = udiv i32 %.reass100, 65535
+  br label %50
 
-53:                                               ; preds = %43, %46
-  %.080 = phi i32 [ %50, %46 ], [ %25, %43 ]
-  %.078 = phi i32 [ %52, %46 ], [ %.082, %43 ]
+50:                                               ; preds = %43, %46
+  %.080 = phi i32 [ %48, %46 ], [ %25, %43 ]
+  %.078 = phi i32 [ %49, %46 ], [ %.082, %43 ]
   %.not95 = icmp eq i32 %.080, 65535
-  br i1 %.not95, label %63, label %54
+  br i1 %.not95, label %60, label %51
 
-54:                                               ; preds = %53
-  %55 = load i16, ptr %.184, align 2
-  %56 = zext i16 %55 to i32
+51:                                               ; preds = %50
+  %52 = load i16, ptr %.184, align 2
+  %53 = zext i16 %52 to i32
   %.not96 = icmp eq i32 %.080, 0
-  br i1 %.not96, label %61, label %57
+  br i1 %.not96, label %58, label %54
 
-57:                                               ; preds = %54
-  %58 = sub nuw nsw i32 65535, %.080
-  %59 = mul nuw i32 %58, %56
-  %60 = udiv i32 %59, 65535
-  br label %61
+54:                                               ; preds = %51
+  %55 = sub nuw nsw i32 65535, %.080
+  %56 = mul nuw i32 %55, %53
+  %57 = udiv i32 %56, 65535
+  br label %58
 
-61:                                               ; preds = %57, %54
-  %.077 = phi i32 [ %60, %57 ], [ %56, %54 ]
-  %62 = add nuw nsw i32 %.077, %.078
-  br label %63
+58:                                               ; preds = %54, %51
+  %.077 = phi i32 [ %57, %54 ], [ %53, %51 ]
+  %59 = add nuw nsw i32 %.077, %.078
+  br label %60
 
-63:                                               ; preds = %61, %53
-  %.179 = phi i32 [ %62, %61 ], [ %.078, %53 ]
-  %64 = trunc i32 %.179 to i16
-  store i16 %64, ptr %.184, align 2
-  br label %65
+60:                                               ; preds = %58, %50
+  %.179 = phi i32 [ %59, %58 ], [ %.078, %50 ]
+  %61 = trunc i32 %.179 to i16
+  store i16 %61, ptr %.184, align 2
+  br label %62
 
-65:                                               ; preds = %43, %63
-  %66 = ptrtoint ptr %.184 to i64
-  %67 = add nsw i64 %66, 2
-  %68 = inttoptr i64 %67 to ptr
-  %69 = add nsw i32 %.081, -1
-  %70 = icmp sgt i32 %.081, 1
-  br i1 %70, label %43, label %71, !llvm.loop !47
+62:                                               ; preds = %43, %60
+  %63 = ptrtoint ptr %.184 to i64
+  %64 = add nsw i64 %63, 2
+  %65 = inttoptr i64 %64 to ptr
+  %66 = add nsw i32 %.081, -1
+  %67 = icmp sgt i32 %.081, 1
+  br i1 %67, label %43, label %68, !llvm.loop !47
 
-71:                                               ; preds = %65
-  %72 = add nsw i64 %67, %40
+68:                                               ; preds = %62
+  %69 = add nsw i64 %64, %40
+  %70 = inttoptr i64 %69 to ptr
+  %71 = ptrtoint ptr %44 to i64
+  %72 = add nsw i64 %71, %41
   %73 = inttoptr i64 %72 to ptr
-  %74 = ptrtoint ptr %44 to i64
-  %75 = add nsw i64 %74, %41
-  %76 = inttoptr i64 %75 to ptr
-  %77 = add nsw i32 %.074, -1
-  %78 = icmp sgt i32 %.074, 1
-  br i1 %78, label %42, label %.loopexit, !llvm.loop !48
+  %74 = add nsw i32 %.074, -1
+  %75 = icmp sgt i32 %.074, 1
+  br i1 %75, label %42, label %.loopexit, !llvm.loop !48
 
-79:                                               ; preds = %.preheader, %92
-  %.2 = phi ptr [ %94, %92 ], [ %0, %.preheader ]
-  %.175 = phi i32 [ %95, %92 ], [ %5, %.preheader ]
-  br label %80
+76:                                               ; preds = %.preheader, %89
+  %.2 = phi ptr [ %91, %89 ], [ %0, %.preheader ]
+  %.175 = phi i32 [ %92, %89 ], [ %5, %.preheader ]
+  br label %77
 
-80:                                               ; preds = %80, %79
-  %.3 = phi ptr [ %.2, %79 ], [ %89, %80 ]
-  %.076 = phi i32 [ %4, %79 ], [ %90, %80 ]
-  %81 = load i16, ptr %.3, align 2
-  %82 = zext i16 %81 to i32
-  %83 = mul nuw i32 %35, %82
-  %84 = udiv i32 %83, 65535
-  %85 = add nuw nsw i32 %84, %.082
-  %86 = trunc i32 %85 to i16
-  store i16 %86, ptr %.3, align 2
-  %87 = ptrtoint ptr %.3 to i64
-  %88 = add nsw i64 %87, 2
-  %89 = inttoptr i64 %88 to ptr
-  %90 = add nsw i32 %.076, -1
-  %91 = icmp sgt i32 %.076, 1
-  br i1 %91, label %80, label %92, !llvm.loop !49
+77:                                               ; preds = %77, %76
+  %.3 = phi ptr [ %.2, %76 ], [ %86, %77 ]
+  %.076 = phi i32 [ %4, %76 ], [ %87, %77 ]
+  %78 = load i16, ptr %.3, align 2
+  %79 = zext i16 %78 to i32
+  %80 = mul nuw i32 %35, %79
+  %81 = udiv i32 %80, 65535
+  %82 = add nuw nsw i32 %81, %.082
+  %83 = trunc i32 %82 to i16
+  store i16 %83, ptr %.3, align 2
+  %84 = ptrtoint ptr %.3 to i64
+  %85 = add nsw i64 %84, 2
+  %86 = inttoptr i64 %85 to ptr
+  %87 = add nsw i32 %.076, -1
+  %88 = icmp sgt i32 %.076, 1
+  br i1 %88, label %77, label %89, !llvm.loop !49
 
-92:                                               ; preds = %80
-  %93 = add nsw i64 %88, %34
-  %94 = inttoptr i64 %93 to ptr
-  %95 = add nsw i32 %.175, -1
-  %96 = icmp sgt i32 %.175, 1
-  br i1 %96, label %79, label %.loopexit, !llvm.loop !50
+89:                                               ; preds = %77
+  %90 = add nsw i64 %85, %34
+  %91 = inttoptr i64 %90 to ptr
+  %92 = add nsw i32 %.175, -1
+  %93 = icmp sgt i32 %.175, 1
+  br i1 %93, label %76, label %.loopexit, !llvm.loop !50
 
-.loopexit:                                        ; preds = %71, %92, %26
+.loopexit:                                        ; preds = %68, %89, %26
   ret void
 }
 
@@ -2910,25 +2911,26 @@ define hidden void @IntRgbToUshortGrayAlphaMaskBlit(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @UshortGrayDrawGlyphListAA(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture readnone %9, ptr nocapture readnone %10) #1 {
-  %12 = and i32 %4, 255
-  %13 = lshr i32 %4, 8
-  %14 = and i32 %13, 255
-  %15 = lshr i32 %4, 16
-  %16 = and i32 %15, 255
-  %17 = mul nuw nsw i32 %16, 19672
-  %18 = mul nuw nsw i32 %14, 38621
-  %19 = mul nuw nsw i32 %12, 7500
-  %20 = add nuw nsw i32 %18, %19
-  %21 = add nuw nsw i32 %20, %17
-  %22 = lshr i32 %21, 8
-  %23 = icmp sgt i32 %2, 0
-  br i1 %23, label %.lr.ph, label %._crit_edge
+  %12 = icmp sgt i32 %2, 0
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
+  %13 = lshr i32 %4, 8
+  %14 = and i32 %13, 255
+  %15 = mul nuw nsw i32 %14, 38621
+  %16 = and i32 %4, 255
+  %17 = mul nuw nsw i32 %16, 7500
+  %18 = add nuw nsw i32 %15, %17
+  %19 = lshr i32 %4, 16
+  %20 = and i32 %19, 255
+  %21 = mul nuw nsw i32 %20, 19672
+  %22 = add nuw nsw i32 %18, %21
+  %23 = lshr i32 %22, 8
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 16
   %27 = sext i32 %25 to i64
+  %invariant.op = mul nuw nsw i32 %23, 257
   %28 = trunc i32 %3 to i16
   %wide.trip.count118 = zext nneg i32 %2 to i64
   br label %29
@@ -2990,20 +2992,20 @@ define hidden void @UshortGrayDrawGlyphListAA(ptr nocapture noundef readonly %0,
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %63
 
-63:                                               ; preds = %82, %44
-  %.2 = phi ptr [ %.1, %44 ], [ %84, %82 ]
-  %.090 = phi i32 [ %53, %44 ], [ %85, %82 ]
-  %.086.in = phi i64 [ %61, %44 ], [ %83, %82 ]
+63:                                               ; preds = %81, %44
+  %.2 = phi ptr [ %.1, %44 ], [ %83, %81 ]
+  %.090 = phi i32 [ %53, %44 ], [ %84, %81 ]
+  %.086.in = phi i64 [ %61, %44 ], [ %82, %81 ]
   %.086 = inttoptr i64 %.086.in to ptr
   br label %64
 
-64:                                               ; preds = %81, %63
-  %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %63 ]
+64:                                               ; preds = %80, %63
+  %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %63 ]
   %65 = getelementptr inbounds i8, ptr %.2, i64 %indvars.iv
   %66 = load i8, ptr %65, align 1
   switch i8 %66, label %67 [
-    i8 0, label %81
-    i8 -1, label %79
+    i8 0, label %80
+    i8 -1, label %78
   ]
 
 67:                                               ; preds = %64
@@ -3014,31 +3016,31 @@ define hidden void @UshortGrayDrawGlyphListAA(ptr nocapture noundef readonly %0,
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i32
   %74 = mul nuw i32 %70, %73
-  %75 = mul nuw i32 %69, %22
-  %76 = add i32 %74, %75
-  %77 = udiv i32 %76, 65535
-  %78 = trunc i32 %77 to i16
-  store i16 %78, ptr %71, align 2
-  br label %81
+  %.reass = mul nuw i32 %invariant.op, %68
+  %75 = add i32 %74, %.reass
+  %76 = udiv i32 %75, 65535
+  %77 = trunc i32 %76 to i16
+  store i16 %77, ptr %71, align 2
+  br label %80
 
-79:                                               ; preds = %64
-  %80 = getelementptr inbounds i16, ptr %.086, i64 %indvars.iv
-  store i16 %28, ptr %80, align 2
-  br label %81
+78:                                               ; preds = %64
+  %79 = getelementptr inbounds i16, ptr %.086, i64 %indvars.iv
+  store i16 %28, ptr %79, align 2
+  br label %80
 
-81:                                               ; preds = %64, %67, %79
+80:                                               ; preds = %64, %67, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %82, label %64, !llvm.loop !67
+  br i1 %exitcond.not, label %81, label %64, !llvm.loop !67
 
-82:                                               ; preds = %81
-  %83 = add nsw i64 %.086.in, %27
-  %84 = getelementptr inbounds i8, ptr %.2, i64 %62
-  %85 = add nsw i32 %.090, -1
-  %86 = icmp sgt i32 %.090, 1
-  br i1 %86, label %63, label %.loopexit, !llvm.loop !68
+81:                                               ; preds = %80
+  %82 = add nsw i64 %.086.in, %27
+  %83 = getelementptr inbounds i8, ptr %.2, i64 %62
+  %84 = add nsw i32 %.090, -1
+  %85 = icmp sgt i32 %.090, 1
+  br i1 %85, label %63, label %.loopexit, !llvm.loop !68
 
-.loopexit:                                        ; preds = %82, %33, %29
+.loopexit:                                        ; preds = %81, %33, %29
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
   br i1 %exitcond119.not, label %._crit_edge, label %29, !llvm.loop !69

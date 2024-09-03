@@ -143,11 +143,11 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   %mul32.i.i = mul i32 %sample_rate, 60
   %conv33.i.i = zext i32 %mul32.i.i to i64
   %conv39.i.i = zext i32 %sample_rate to i64
+  %invariant.op.i = mul nuw nsw i64 %conv39.i.i, 60
   %div139.i.i = udiv i32 %sample_rate, 75
   %conv140.i.i = zext nneg i32 %div139.i.i to i64
   %rem.i = urem i32 %sample_rate, 75
   %tobool146.i = icmp ne i32 %rem.i, 0
-  %mul38.i372.i = mul nuw nsw i64 %conv39.i.i, 60
   %conv59.i.i = uitofp i32 %sample_rate to double
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call, i64 144
   br label %while.body.i
@@ -708,7 +708,7 @@ while.end.i.i:                                    ; preds = %if.else25.i.i, %if.
 
 if.end37.i.i:                                     ; preds = %while.end.i.i
   %mul38.i.i = mul nsw i64 %field.0.lcssa.i.i, 60
-  %mul40.i.i = mul nsw i64 %mul38.i.i, %conv39.i.i
+  %mul40.i.reass.i = mul i64 %field.0.lcssa.i.i, %invariant.op.i
   %86 = load i8, ptr %incdec.ptr10.lcssa.i.i, align 1
   %87 = add i8 %86, -48
   %or.cond2.i.i = icmp ult i8 %87, 10
@@ -744,7 +744,7 @@ if.end85.i.i:                                     ; preds = %if.then67.i.i, %if.
   %field.159.i.i = phi i64 [ %conv52.i.i, %if.then49.i.i ], [ %add72.i.i, %if.then67.i.i ]
   %mul4051.i.i = add i64 %field.159.i.i, %mul38.i.i
   %add88.i.i = mul i64 %mul4051.i.i, %conv39.i.i
-  %cmp89.i.i = icmp slt i64 %add88.i.i, %mul40.i.i
+  %cmp89.i.i = icmp slt i64 %add88.i.i, %mul40.i.reass.i
   br i1 %cmp89.i.i, label %if.then131.i, label %if.end92.i.i
 
 if.end92.i.i:                                     ; preds = %if.end85.i.i
@@ -828,7 +828,7 @@ while.end.i363.i:                                 ; preds = %if.else25.i357.i, %
   br i1 %cmp34.not.i369.i, label %if.end37.i370.i, label %local__parse_ms_.exit.thread.i
 
 if.end37.i370.i:                                  ; preds = %while.end.i363.i
-  %mul40.i373.i = mul i64 %mul38.i372.i, %field.0.lcssa.i364.i
+  %mul40.i373.i = mul i64 %field.0.lcssa.i364.i, %invariant.op.i
   %call.i374.i = call i64 @strspn(ptr noundef nonnull %incdec.ptr10.lcssa.i365.i, ptr noundef nonnull @.str.71) #15
   %call41.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr10.lcssa.i365.i) #15
   %cmp42.not.i.i = icmp eq i64 %call.i374.i, %call41.i.i
