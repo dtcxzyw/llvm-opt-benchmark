@@ -365,8 +365,8 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %90
 .critedge2.preheader.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
   %147 = load ptr, ptr %33, align 8
   %148 = getelementptr i8, ptr %147, i64 4
-  %.val81102.i = load i32, ptr %148, align 4
-  %149 = icmp sgt i32 %.val81102.i, 2
+  %.val81101.i = load i32, ptr %148, align 4
+  %149 = icmp sgt i32 %.val81101.i, 2
   br i1 %149, label %.critedge2.i, label %.critedge4.preheader.i
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
@@ -395,8 +395,8 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %90
 .critedge4.preheader.i:                           ; preds = %.critedge2.i, %.critedge2.preheader.i
   %163 = load ptr, ptr %38, align 8
   %164 = getelementptr i8, ptr %163, i64 4
-  %.val82107.i = load i32, ptr %164, align 4
-  %165 = icmp sgt i32 %.val82107.i, 2
+  %.val82105.i = load i32, ptr %164, align 4
+  %165 = icmp sgt i32 %.val82105.i, 2
   br i1 %165, label %.critedge4.i, label %Io_ReadBlifCreateTiming.exit
 
 .critedge2.i:                                     ; preds = %.critedge2.preheader.i, %.critedge2.i

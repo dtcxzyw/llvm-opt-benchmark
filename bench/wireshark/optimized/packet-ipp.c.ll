@@ -1334,7 +1334,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 
 .lr.ph.i156.i:                                    ; preds = %.preheader306.i.i, %.backedge.i157.i
   %460 = phi i32 [ %496, %.backedge.i157.i ], [ %343, %.preheader306.i.i ]
-  %461 = phi i32 [ %.reass341.i.i, %.backedge.i157.i ], [ %342, %.preheader306.i.i ]
+  %461 = phi i32 [ %.reass340.i.i, %.backedge.i157.i ], [ %342, %.preheader306.i.i ]
   %462 = phi i32 [ %495, %.backedge.i157.i ], [ 1, %.preheader306.i.i ]
   %.2251321.i.i = phi i16 [ %491, %.backedge.i157.i ], [ %174, %.preheader306.i.i ]
   %.6320.i.i = phi ptr [ %.7.i.i, %.backedge.i157.i ], [ null, %.preheader306.i.i ]
@@ -1403,8 +1403,8 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 .backedge.i157.i:                                 ; preds = %493, %493
   %494 = zext i16 %491 to i32
   %495 = add i32 %462, 1
-  %.reass341.i.i = add i32 %460, 5
-  %496 = add i32 %.reass341.i.i, %494
+  %.reass340.i.i = add i32 %460, 5
+  %496 = add i32 %.reass340.i.i, %494
   %497 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %496) #8
   %.not288.i.i = icmp eq i32 %497, 0
   br i1 %.not288.i.i, label %.critedge.i152.i, label %.lr.ph.i156.i
@@ -1567,7 +1567,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 
 ._crit_edge.i.i:                                  ; preds = %586
   %.pre.i161.i = add i32 %.0125207.i, 5
-  %.pre355.i.i = add i32 %.pre.i161.i, %167
+  %.pre354.i.i = add i32 %.pre.i161.i, %167
   br label %592
 
 587:                                              ; preds = %586
@@ -1578,13 +1578,13 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
   br label %592
 
 592:                                              ; preds = %587, %._crit_edge.i.i
-  %.pre-phi356.i.i = phi i32 [ %.pre355.i.i, %._crit_edge.i.i ], [ %590, %587 ]
+  %.pre-phi355.i.i = phi i32 [ %.pre354.i.i, %._crit_edge.i.i ], [ %590, %587 ]
   %.12.i.i = phi ptr [ null, %._crit_edge.i.i ], [ %591, %587 ]
-  %593 = add i32 %.pre-phi356.i.i, %175
+  %593 = add i32 %.pre-phi355.i.i, %175
   br label %595
 
 .critedge.i152.i:                                 ; preds = %580, %572, %569, %553, %550, %542, %536, %.backedge.i157.i, %493, %490, %482, %479, %454, %446, %442, %367, %359, %355, %.preheader306.i.i
-  %.1269.i.i = phi i32 [ %342, %.preheader306.i.i ], [ %356, %355 ], [ %356, %359 ], [ %356, %367 ], [ %443, %442 ], [ %443, %446 ], [ %443, %454 ], [ %460, %482 ], [ %460, %479 ], [ %.reass341.i.i, %.backedge.i157.i ], [ %460, %490 ], [ %460, %493 ], [ %539, %536 ], [ %539, %542 ], [ %539, %550 ], [ %539, %553 ], [ %563, %569 ], [ %563, %572 ], [ %563, %580 ]
+  %.1269.i.i = phi i32 [ %342, %.preheader306.i.i ], [ %356, %355 ], [ %356, %359 ], [ %356, %367 ], [ %443, %442 ], [ %443, %446 ], [ %443, %454 ], [ %460, %482 ], [ %460, %479 ], [ %.reass340.i.i, %.backedge.i157.i ], [ %460, %490 ], [ %460, %493 ], [ %539, %536 ], [ %539, %542 ], [ %539, %550 ], [ %539, %553 ], [ %563, %569 ], [ %563, %572 ], [ %563, %580 ]
   %.2264.i.i = phi ptr [ null, %.preheader306.i.i ], [ %.1263.i.i, %355 ], [ %.1263.i.i, %359 ], [ %.1263.i.i, %367 ], [ %.5267.i.i, %442 ], [ %.5267.i.i, %446 ], [ %.5267.i.i, %454 ], [ %.7.i.i, %479 ], [ %.7.i.i, %482 ], [ %.7.i.i, %490 ], [ %.7.i.i, %493 ], [ %.7.i.i, %.backedge.i157.i ], [ %.9.i.i, %536 ], [ %.9.i.i, %542 ], [ %.9.i.i, %550 ], [ %.9.i.i, %553 ], [ %.11.i.i, %569 ], [ %.11.i.i, %572 ], [ %.11.i.i, %580 ]
   %.1257.i.i = phi i32 [ 1, %.preheader306.i.i ], [ %345, %355 ], [ %345, %359 ], [ %345, %367 ], [ %417, %442 ], [ %417, %446 ], [ %417, %454 ], [ %462, %482 ], [ %462, %479 ], [ %495, %.backedge.i157.i ], [ %462, %490 ], [ %462, %493 ], [ %498, %536 ], [ %498, %542 ], [ %498, %550 ], [ %498, %553 ], [ %559, %569 ], [ %559, %572 ], [ %559, %580 ]
   %.1257.fr.i.i = freeze i32 %.1257.i.i

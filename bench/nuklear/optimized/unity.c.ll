@@ -72735,10 +72735,10 @@ entry:
   %2 = load i64, ptr %1, align 8
   %call = tail call fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %0, i64 %2, i32 noundef %glyph_index)
   %3 = extractvalue { ptr, i64 } %call, 1
-  %b.sroa.8.8.extract.trunc368 = trunc i64 %3 to i32
-  %b.sroa.8.12.extract.shift305369 = lshr i64 %3, 32
-  %b.sroa.8.12.extract.trunc306370 = trunc nuw i64 %b.sroa.8.12.extract.shift305369 to i32
-  %cmp371 = icmp slt i32 %b.sroa.8.8.extract.trunc368, %b.sroa.8.12.extract.trunc306370
+  %b.sroa.8.8.extract.trunc367 = trunc i64 %3 to i32
+  %b.sroa.8.12.extract.shift305368 = lshr i64 %3, 32
+  %b.sroa.8.12.extract.trunc306369 = trunc nuw i64 %b.sroa.8.12.extract.shift305368 to i32
+  %cmp371 = icmp slt i32 %b.sroa.8.8.extract.trunc367, %b.sroa.8.12.extract.trunc306369
   br i1 %cmp371, label %stbtt__buf_get8.exit.lr.ph, label %return
 
 stbtt__buf_get8.exit.lr.ph:                       ; preds = %entry

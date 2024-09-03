@@ -1108,7 +1108,7 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
 
 50:                                               ; preds = %.lr.ph102
   %51 = and i16 %46, -1024
-  switch i16 %51, label %.sink.split114 [
+  switch i16 %51, label %.sink.split113 [
     i16 -10240, label %52
     i16 -9216, label %74
   ]
@@ -1142,22 +1142,22 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
   %68 = shl nuw nsw i32 %49, 10
   %69 = add nsw i32 %68, -56613888
   %70 = add nsw i32 %69, %63
-  br label %.sink.split114
+  br label %.sink.split113
 
-.sink.split114:                                   ; preds = %50, %67
-  %.sink117 = phi i32 [ %70, %67 ], [ %49, %50 ]
+.sink.split113:                                   ; preds = %50, %67
+  %.sink116 = phi i32 [ %70, %67 ], [ %49, %50 ]
   %.3.ph = phi i32 [ %53, %67 ], [ %.2100, %50 ]
-  %71 = tail call i32 @g_unichar_to_utf8(i32 noundef %.sink117, ptr noundef %.0101) #13
+  %71 = tail call i32 @g_unichar_to_utf8(i32 noundef %.sink116, ptr noundef %.0101) #13
   %72 = sext i32 %71 to i64
   %73 = getelementptr i8, ptr %.0101, i64 %72
   br label %74
 
-74:                                               ; preds = %.sink.split114, %50, %65
-  %.3 = phi i32 [ %53, %65 ], [ %.2100, %50 ], [ %.3.ph, %.sink.split114 ]
-  %.1 = phi ptr [ %.0101, %65 ], [ %.0101, %50 ], [ %73, %.sink.split114 ]
+74:                                               ; preds = %.sink.split113, %50, %65
+  %.3 = phi i32 [ %53, %65 ], [ %.2100, %50 ], [ %.3.ph, %.sink.split113 ]
+  %.1 = phi ptr [ %.0101, %65 ], [ %.0101, %50 ], [ %73, %.sink.split113 ]
   %75 = add i32 %.3, 2
-  %.reass111 = add i32 %.3, 3
-  %76 = icmp ult i32 %.reass111, %1
+  %.reass110 = add i32 %.3, 3
+  %76 = icmp ult i32 %.reass110, %1
   br i1 %76, label %.lr.ph102, label %.critedge10, !llvm.loop !8
 
 .critedge10:                                      ; preds = %.lr.ph102, %52, %55, %74, %.critedge.thread

@@ -113063,11 +113063,11 @@ define internal fastcc i64 @drwav__write_or_count_metadata(ptr noundef readonly 
   br label %76
 
 76:                                               ; preds = %.preheader1061, %.thread959
-  %indvars.iv1110 = phi i64 [ 0, %.preheader1061 ], [ %indvars.iv.next1111, %.thread959 ]
+  %indvars.iv1109 = phi i64 [ 0, %.preheader1061 ], [ %indvars.iv.next1110, %.thread959 ]
   %.04161073 = phi i64 [ 0, %.preheader1061 ], [ %.4, %.thread959 ]
   %.04231072 = phi i32 [ 0, %.preheader1061 ], [ %.1424900965, %.thread959 ]
   %.04251071 = phi i32 [ 0, %.preheader1061 ], [ %.1426888898966, %.thread959 ]
-  %77 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1110
+  %77 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1109
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 261632
   %.not463 = icmp eq i32 %79, 0
@@ -113096,11 +113096,11 @@ define internal fastcc i64 @drwav__write_or_count_metadata(ptr noundef readonly 
 
 ..thread891_crit_edge:                            ; preds = %88
   %.phi.trans.insert = getelementptr inbounds i8, ptr %77, i64 12
-  %.pre1135 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre1134 = load i32, ptr %.phi.trans.insert, align 4
   br label %.thread891
 
 .thread891:                                       ; preds = %..thread891_crit_edge, %82
-  %90 = phi i32 [ %.pre1135, %..thread891_crit_edge ], [ %84, %82 ]
+  %90 = phi i32 [ %.pre1134, %..thread891_crit_edge ], [ %84, %82 ]
   %.1426890893 = phi i32 [ %.1426, %..thread891_crit_edge ], [ %spec.select1051, %82 ]
   %91 = icmp eq i32 %90, 3
   %spec.select1052 = select i1 %91, i32 1, i32 %.04231072
@@ -113118,8 +113118,8 @@ define internal fastcc i64 @drwav__write_or_count_metadata(ptr noundef readonly 
   ]
 
 ..thread894_crit_edge:                            ; preds = %92
-  %.phi.trans.insert1136 = getelementptr inbounds i8, ptr %77, i64 12
-  %.pre1137 = load i32, ptr %.phi.trans.insert1136, align 4
+  %.phi.trans.insert1135 = getelementptr inbounds i8, ptr %77, i64 12
+  %.pre1136 = load i32, ptr %.phi.trans.insert1135, align 4
   br label %.thread894
 
 93:                                               ; preds = %92
@@ -113226,16 +113226,16 @@ drwav__write_or_count_u32ne_to_le.exit505.thread: ; preds = %93
   store i32 %138, ptr %60, align 4
   %139 = call i64 %.val.i506(ptr noundef %.val4.i507, ptr noundef nonnull %60, i64 noundef 4) #66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60)
-  %.pre1133 = load i32, ptr %94, align 4
+  %.pre1132 = load i32, ptr %94, align 4
   br label %drwav__write_or_count_u32ne_to_le.exit509
 
 drwav__write_or_count_u32ne_to_le.exit509:        ; preds = %drwav__write_or_count_u32ne_to_le.exit505.thread, %102
-  %140 = phi i32 [ %.pre1133, %102 ], [ %95, %drwav__write_or_count_u32ne_to_le.exit505.thread ]
+  %140 = phi i32 [ %.pre1132, %102 ], [ %95, %drwav__write_or_count_u32ne_to_le.exit505.thread ]
   %141 = phi i64 [ %137, %102 ], [ %101, %drwav__write_or_count_u32ne_to_le.exit505.thread ]
   %.0.i508 = phi i64 [ %139, %102 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit505.thread ]
   %142 = add i64 %.0.i508, %141
-  %.not1095 = icmp eq i32 %140, 0
-  br i1 %.not1095, label %._crit_edge, label %.lr.ph1068
+  %.not1094 = icmp eq i32 %140, 0
+  br i1 %.not1094, label %._crit_edge, label %.lr.ph1068
 
 .lr.ph1068:                                       ; preds = %drwav__write_or_count_u32ne_to_le.exit509
   %143 = getelementptr inbounds i8, ptr %77, i64 48
@@ -113243,7 +113243,7 @@ drwav__write_or_count_u32ne_to_le.exit509:        ; preds = %drwav__write_or_cou
 
 144:                                              ; preds = %.lr.ph1068, %drwav__write_or_count_u32ne_to_le.exit533
   %145 = phi i32 [ %140, %.lr.ph1068 ], [ %177, %drwav__write_or_count_u32ne_to_le.exit533 ]
-  %indvars.iv1107 = phi i64 [ 0, %.lr.ph1068 ], [ %indvars.iv.next1108, %drwav__write_or_count_u32ne_to_le.exit533 ]
+  %indvars.iv1106 = phi i64 [ 0, %.lr.ph1068 ], [ %indvars.iv.next1107, %drwav__write_or_count_u32ne_to_le.exit533 ]
   %.14171067 = phi i64 [ %142, %.lr.ph1068 ], [ %179, %drwav__write_or_count_u32ne_to_le.exit533 ]
   br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit529.thread, label %147
 
@@ -113253,7 +113253,7 @@ drwav__write_or_count_u32ne_to_le.exit529.thread: ; preds = %144
 
 147:                                              ; preds = %144
   %148 = load ptr, ptr %143, align 8
-  %149 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %148, i64 %indvars.iv1107
+  %149 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %148, i64 %indvars.iv1106
   %150 = load i32, ptr %149, align 4
   %.val.i510 = load ptr, ptr %74, align 8
   %.val4.i511 = load ptr, ptr %75, align 8
@@ -113263,7 +113263,7 @@ drwav__write_or_count_u32ne_to_le.exit529.thread: ; preds = %144
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
   %152 = add i64 %151, %.14171067
   %153 = load ptr, ptr %143, align 8
-  %154 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %153, i64 %indvars.iv1107, i32 1
+  %154 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %153, i64 %indvars.iv1106, i32 1
   %155 = load i32, ptr %154, align 4
   %.val.i514 = load ptr, ptr %74, align 8
   %.val4.i515 = load ptr, ptr %75, align 8
@@ -113273,7 +113273,7 @@ drwav__write_or_count_u32ne_to_le.exit529.thread: ; preds = %144
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58)
   %157 = add i64 %152, %156
   %158 = load ptr, ptr %143, align 8
-  %159 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %158, i64 %indvars.iv1107, i32 2
+  %159 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %158, i64 %indvars.iv1106, i32 2
   %160 = load i32, ptr %159, align 4
   %.val.i518 = load ptr, ptr %74, align 8
   %.val4.i519 = load ptr, ptr %75, align 8
@@ -113283,7 +113283,7 @@ drwav__write_or_count_u32ne_to_le.exit529.thread: ; preds = %144
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57)
   %162 = add i64 %157, %161
   %163 = load ptr, ptr %143, align 8
-  %164 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %163, i64 %indvars.iv1107, i32 3
+  %164 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %163, i64 %indvars.iv1106, i32 3
   %165 = load i32, ptr %164, align 4
   %.val.i522 = load ptr, ptr %74, align 8
   %.val4.i523 = load ptr, ptr %75, align 8
@@ -113293,7 +113293,7 @@ drwav__write_or_count_u32ne_to_le.exit529.thread: ; preds = %144
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56)
   %167 = add i64 %162, %166
   %168 = load ptr, ptr %143, align 8
-  %169 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %168, i64 %indvars.iv1107, i32 4
+  %169 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %168, i64 %indvars.iv1106, i32 4
   %170 = load i32, ptr %169, align 4
   %.val.i526 = load ptr, ptr %74, align 8
   %.val4.i527 = load ptr, ptr %75, align 8
@@ -113303,7 +113303,7 @@ drwav__write_or_count_u32ne_to_le.exit529.thread: ; preds = %144
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55)
   %172 = add i64 %167, %171
   %173 = load ptr, ptr %143, align 8
-  %174 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %173, i64 %indvars.iv1107, i32 5
+  %174 = getelementptr inbounds %struct.drwav_smpl_loop, ptr %173, i64 %indvars.iv1106, i32 5
   %175 = load i32, ptr %174, align 4
   %.val.i530 = load ptr, ptr %74, align 8
   %.val4.i531 = load ptr, ptr %75, align 8
@@ -113311,17 +113311,17 @@ drwav__write_or_count_u32ne_to_le.exit529.thread: ; preds = %144
   store i32 %175, ptr %54, align 4
   %176 = call i64 %.val.i530(ptr noundef %.val4.i531, ptr noundef nonnull %54, i64 noundef 4) #66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54)
-  %.pre1134 = load i32, ptr %94, align 4
+  %.pre1133 = load i32, ptr %94, align 4
   br label %drwav__write_or_count_u32ne_to_le.exit533
 
 drwav__write_or_count_u32ne_to_le.exit533:        ; preds = %drwav__write_or_count_u32ne_to_le.exit529.thread, %147
-  %177 = phi i32 [ %.pre1134, %147 ], [ %145, %drwav__write_or_count_u32ne_to_le.exit529.thread ]
+  %177 = phi i32 [ %.pre1133, %147 ], [ %145, %drwav__write_or_count_u32ne_to_le.exit529.thread ]
   %178 = phi i64 [ %172, %147 ], [ %146, %drwav__write_or_count_u32ne_to_le.exit529.thread ]
   %.0.i532 = phi i64 [ %176, %147 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit529.thread ]
   %179 = add i64 %.0.i532, %178
-  %indvars.iv.next1108 = add nuw nsw i64 %indvars.iv1107, 1
+  %indvars.iv.next1107 = add nuw nsw i64 %indvars.iv1106, 1
   %180 = zext i32 %177 to i64
-  %181 = icmp ult i64 %indvars.iv.next1108, %180
+  %181 = icmp ult i64 %indvars.iv.next1107, %180
   br i1 %181, label %144, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %drwav__write_or_count_u32ne_to_le.exit533, %drwav__write_or_count_u32ne_to_le.exit509
@@ -113417,8 +113417,8 @@ drwav__write_or_count.exit569.thread:             ; preds = %190
 
 drwav__write_or_count_u32ne_to_le.exit585:        ; preds = %219
   %224 = add i64 %.04161073, 12
-  %.not1094 = icmp eq i32 %221, 0
-  br i1 %.not1094, label %.loopexit1058, label %.lr.ph.split.us
+  %.not1093 = icmp eq i32 %221, 0
+  br i1 %.not1093, label %.loopexit1058, label %.lr.ph.split.us
 
 drwav__write_or_count_u32ne_to_le.exit585.thread: ; preds = %219
   %.val.i574 = load ptr, ptr %74, align 8
@@ -113441,8 +113441,8 @@ drwav__write_or_count_u32ne_to_le.exit585.thread: ; preds = %219
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51)
   %.pre = load i32, ptr %220, align 8
   %231 = add i64 %230, %228
-  %.not10941139 = icmp eq i32 %.pre, 0
-  br i1 %.not10941139, label %.loopexit1058, label %drwav__write_or_count_u32ne_to_le.exit609.preheader
+  %.not10931138 = icmp eq i32 %.pre, 0
+  br i1 %.not10931138, label %.loopexit1058, label %drwav__write_or_count_u32ne_to_le.exit609.preheader
 
 drwav__write_or_count_u32ne_to_le.exit609.preheader: ; preds = %drwav__write_or_count_u32ne_to_le.exit585.thread
   %232 = getelementptr inbounds i8, ptr %77, i64 16
@@ -113888,7 +113888,7 @@ drwav__write_or_count.exit734:                    ; preds = %.thread955, %413
   br label %.loopexit1058
 
 .thread894:                                       ; preds = %..thread894_crit_edge, %.thread891
-  %420 = phi i32 [ %.pre1137, %..thread894_crit_edge ], [ %90, %.thread891 ]
+  %420 = phi i32 [ %.pre1136, %..thread894_crit_edge ], [ %90, %.thread891 ]
   %.1424899 = phi i32 [ %.1424, %..thread894_crit_edge ], [ %spec.select1052, %.thread891 ]
   %.1426888897 = phi i32 [ %.1426, %..thread894_crit_edge ], [ %.1426890893, %.thread891 ]
   %421 = icmp eq i32 %420, 1
@@ -113965,8 +113965,8 @@ drwav__write_or_count_byte.exit:                  ; preds = %441, %442
   %.1426888898966 = phi i32 [ %.1426888898974, %drwav__write_or_count_byte.exit ], [ %.1426888898, %.loopexit1058 ], [ %.1426, %drwav__write_or_count_f32ne_to_le.exit647 ], [ %.1426888897, %.thread894 ], [ %.1426, %92 ], [ %.1426, %drwav__write_or_count.exit730.thread ]
   %.1424900965 = phi i32 [ %.1424900973, %drwav__write_or_count_byte.exit ], [ %.1424900, %.loopexit1058 ], [ %.1424, %drwav__write_or_count_f32ne_to_le.exit647 ], [ %.1424899, %.thread894 ], [ %.1424, %92 ], [ %.1424, %drwav__write_or_count.exit730.thread ]
   %.4 = phi i64 [ %444, %drwav__write_or_count_byte.exit ], [ %.2, %.loopexit1058 ], [ %309, %drwav__write_or_count_f32ne_to_le.exit647 ], [ %.04161073, %.thread894 ], [ %.04161073, %92 ], [ %411, %drwav__write_or_count.exit730.thread ]
-  %indvars.iv.next1111 = add nuw nsw i64 %indvars.iv1110, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next1111, %wide.trip.count
+  %indvars.iv.next1110 = add nuw nsw i64 %indvars.iv1109, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next1110, %wide.trip.count
   br i1 %exitcond.not, label %445, label %76
 
 445:                                              ; preds = %.thread959
@@ -113974,9 +113974,9 @@ drwav__write_or_count_byte.exit:                  ; preds = %441, %442
   br i1 %.not, label %.loopexit1056, label %.lr.ph1076
 
 .lr.ph1076:                                       ; preds = %445, %465
-  %indvars.iv1113 = phi i64 [ %indvars.iv.next1114, %465 ], [ 0, %445 ]
+  %indvars.iv1112 = phi i64 [ %indvars.iv.next1113, %465 ], [ 0, %445 ]
   %.04271075 = phi i32 [ %spec.select, %465 ], [ 4, %445 ]
-  %446 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1113
+  %446 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1112
   %447 = load i32, ptr %446, align 8
   %448 = and i32 %447, 261632
   %.not461 = icmp eq i32 %448, 0
@@ -114010,9 +114010,9 @@ drwav__write_or_count_byte.exit:                  ; preds = %441, %442
   %.1428 = phi i32 [ %453, %449 ], [ %464, %460 ], [ %.04271075, %456 ], [ %.04271075, %454 ]
   %466 = and i32 %.1428, 1
   %spec.select = add i32 %466, %.1428
-  %indvars.iv.next1114 = add nuw nsw i64 %indvars.iv1113, 1
-  %exitcond1117.not = icmp eq i64 %indvars.iv.next1114, %wide.trip.count
-  br i1 %exitcond1117.not, label %._crit_edge1077, label %.lr.ph1076
+  %indvars.iv.next1113 = add nuw nsw i64 %indvars.iv1112, 1
+  %exitcond1116.not = icmp eq i64 %indvars.iv.next1113, %wide.trip.count
+  br i1 %exitcond1116.not, label %._crit_edge1077, label %.lr.ph1076
 
 ._crit_edge1077:                                  ; preds = %465
   br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit757.thread, label %468
@@ -114045,9 +114045,9 @@ drwav__write_or_count_u32ne_to_le.exit757.thread: ; preds = %._crit_edge1077
   br label %476
 
 476:                                              ; preds = %.lr.ph1081, %.thread984
-  %indvars.iv1118 = phi i64 [ 0, %.lr.ph1081 ], [ %indvars.iv.next1119, %.thread984 ]
+  %indvars.iv1117 = phi i64 [ 0, %.lr.ph1081 ], [ %indvars.iv.next1118, %.thread984 ]
   %.61080 = phi i64 [ %475, %.lr.ph1081 ], [ %.8, %.thread984 ]
-  %477 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1118
+  %477 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1117
   %478 = load i32, ptr %477, align 8
   %479 = and i32 %478, 261632
   %.not457 = icmp eq i32 %479, 0
@@ -114222,19 +114222,19 @@ drwav__write_or_count_byte.exit793:               ; preds = %539, %540
 
 .thread984:                                       ; preds = %512, %514, %519, %490, %537, %drwav__write_or_count_byte.exit793
   %.8 = phi i64 [ %542, %drwav__write_or_count_byte.exit793 ], [ %.7, %537 ], [ %.61080, %490 ], [ %.61080, %519 ], [ %.61080, %514 ], [ %.61080, %512 ]
-  %indvars.iv.next1119 = add nuw nsw i64 %indvars.iv1118, 1
-  %exitcond1122.not = icmp eq i64 %indvars.iv.next1119, %wide.trip.count
-  br i1 %exitcond1122.not, label %.loopexit1056, label %476
+  %indvars.iv.next1118 = add nuw nsw i64 %indvars.iv1117, 1
+  %exitcond1121.not = icmp eq i64 %indvars.iv.next1118, %wide.trip.count
+  br i1 %exitcond1121.not, label %.loopexit1056, label %476
 
 .loopexit1056:                                    ; preds = %.thread984, %445
   %.5 = phi i64 [ %.4, %445 ], [ %.8, %.thread984 ]
   %.not449 = icmp eq i32 %.1424900965, 0
-  br i1 %.not449, label %.loopexit, label %.lr.ph1087
+  br i1 %.not449, label %.loopexit, label %.lr.ph1086
 
-.lr.ph1087:                                       ; preds = %.loopexit1056, %566
-  %indvars.iv1123 = phi i64 [ %indvars.iv.next1124, %566 ], [ 0, %.loopexit1056 ]
-  %.04181086 = phi i32 [ %spec.select468, %566 ], [ 4, %.loopexit1056 ]
-  %543 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1123
+.lr.ph1086:                                       ; preds = %.loopexit1056, %566
+  %indvars.iv1122 = phi i64 [ %indvars.iv.next1123, %566 ], [ 0, %.loopexit1056 ]
+  %.04181085 = phi i32 [ %spec.select468, %566 ], [ 4, %.loopexit1056 ]
+  %543 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1122
   %544 = load i32, ptr %543, align 8
   switch i32 %544, label %566 [
     i32 64, label %545
@@ -114243,59 +114243,59 @@ drwav__write_or_count_byte.exit793:               ; preds = %539, %540
     i32 1, label %557
   ]
 
-545:                                              ; preds = %.lr.ph1087, %.lr.ph1087
-  %546 = add i32 %.04181086, 12
+545:                                              ; preds = %.lr.ph1086, %.lr.ph1086
+  %546 = add i32 %.04181085, 12
   %547 = getelementptr inbounds i8, ptr %543, i64 12
   %548 = load i32, ptr %547, align 4
   %.not455 = icmp eq i32 %548, 0
   br i1 %.not455, label %566, label %549
 
 549:                                              ; preds = %545
-  %.reass1084 = add i32 %.04181086, 13
-  %550 = add i32 %.reass1084, %548
+  %.reass1083 = add i32 %.04181085, 13
+  %550 = add i32 %.reass1083, %548
   br label %566
 
-551:                                              ; preds = %.lr.ph1087
-  %552 = add i32 %.04181086, 28
+551:                                              ; preds = %.lr.ph1086
+  %552 = add i32 %.04181085, 28
   %553 = getelementptr inbounds i8, ptr %543, i64 28
   %554 = load i32, ptr %553, align 4
   %.not454 = icmp eq i32 %554, 0
   br i1 %.not454, label %566, label %555
 
 555:                                              ; preds = %551
-  %.reass = add i32 %.04181086, 29
+  %.reass = add i32 %.04181085, 29
   %556 = add i32 %.reass, %554
   br label %566
 
-557:                                              ; preds = %.lr.ph1087
+557:                                              ; preds = %.lr.ph1086
   %558 = getelementptr inbounds i8, ptr %543, i64 12
   %559 = load i32, ptr %558, align 4
   %560 = icmp eq i32 %559, 3
   br i1 %560, label %561, label %566
 
 561:                                              ; preds = %557
-  %562 = add i32 %.04181086, 8
+  %562 = add i32 %.04181085, 8
   %563 = getelementptr inbounds i8, ptr %543, i64 16
   %564 = load i32, ptr %563, align 8
   %565 = add i32 %562, %564
   br label %566
 
-566:                                              ; preds = %.lr.ph1087, %557, %561, %551, %555, %545, %549
-  %.1419 = phi i32 [ %.04181086, %.lr.ph1087 ], [ %565, %561 ], [ %.04181086, %557 ], [ %556, %555 ], [ %552, %551 ], [ %550, %549 ], [ %546, %545 ]
+566:                                              ; preds = %.lr.ph1086, %557, %561, %551, %555, %545, %549
+  %.1419 = phi i32 [ %.04181085, %.lr.ph1086 ], [ %565, %561 ], [ %.04181085, %557 ], [ %556, %555 ], [ %552, %551 ], [ %550, %549 ], [ %546, %545 ]
   %567 = and i32 %.1419, 1
   %spec.select468 = add i32 %567, %.1419
-  %indvars.iv.next1124 = add nuw nsw i64 %indvars.iv1123, 1
-  %exitcond1127.not = icmp eq i64 %indvars.iv.next1124, %wide.trip.count
-  br i1 %exitcond1127.not, label %._crit_edge1088, label %.lr.ph1087
+  %indvars.iv.next1123 = add nuw nsw i64 %indvars.iv1122, 1
+  %exitcond1126.not = icmp eq i64 %indvars.iv.next1123, %wide.trip.count
+  br i1 %exitcond1126.not, label %._crit_edge1087, label %.lr.ph1086
 
-._crit_edge1088:                                  ; preds = %566
+._crit_edge1087:                                  ; preds = %566
   br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit801.thread, label %569
 
-drwav__write_or_count_u32ne_to_le.exit801.thread: ; preds = %._crit_edge1088
+drwav__write_or_count_u32ne_to_le.exit801.thread: ; preds = %._crit_edge1087
   %568 = add i64 %.5, 8
-  br label %.lr.ph1092
+  br label %.lr.ph1091
 
-569:                                              ; preds = %._crit_edge1088
+569:                                              ; preds = %._crit_edge1087
   %.val.i794 = load ptr, ptr %74, align 8
   %.val6.i795 = load ptr, ptr %75, align 8
   %570 = call i64 %.val.i794(ptr noundef %.val6.i795, ptr noundef nonnull @.str.598, i64 noundef 4) #66
@@ -114310,18 +114310,18 @@ drwav__write_or_count_u32ne_to_le.exit801.thread: ; preds = %._crit_edge1088
   %.val.i802 = load ptr, ptr %74, align 8
   %.val6.i803 = load ptr, ptr %75, align 8
   %574 = call i64 %.val.i802(ptr noundef %.val6.i803, ptr noundef nonnull @.str.600, i64 noundef 4) #66
-  br label %.lr.ph1092
+  br label %.lr.ph1091
 
-.lr.ph1092:                                       ; preds = %569, %drwav__write_or_count_u32ne_to_le.exit801.thread
+.lr.ph1091:                                       ; preds = %569, %drwav__write_or_count_u32ne_to_le.exit801.thread
   %575 = phi i64 [ %573, %569 ], [ %568, %drwav__write_or_count_u32ne_to_le.exit801.thread ]
   %.0.i804 = phi i64 [ %574, %569 ], [ 4, %drwav__write_or_count_u32ne_to_le.exit801.thread ]
   %576 = add i64 %.0.i804, %575
   br label %577
 
-577:                                              ; preds = %.lr.ph1092, %.thread1033
-  %indvars.iv1128 = phi i64 [ 0, %.lr.ph1092 ], [ %indvars.iv.next1129, %.thread1033 ]
-  %.101091 = phi i64 [ %576, %.lr.ph1092 ], [ %.12, %.thread1033 ]
-  %578 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1128
+577:                                              ; preds = %.lr.ph1091, %.thread1033
+  %indvars.iv1127 = phi i64 [ 0, %.lr.ph1091 ], [ %indvars.iv.next1128, %.thread1033 ]
+  %.101090 = phi i64 [ %576, %.lr.ph1091 ], [ %.12, %.thread1033 ]
+  %578 = getelementptr inbounds %struct.drwav_metadata, ptr %1, i64 %indvars.iv1127
   %579 = load i32, ptr %578, align 8
   switch i32 %579, label %.thread1033 [
     i32 64, label %580
@@ -114342,7 +114342,7 @@ drwav__write_or_count_u32ne_to_le.exit801.thread: ; preds = %._crit_edge1088
 
 drwav__write_or_count.exit821.thread:             ; preds = %584
   %585 = add i32 %583, 5
-  %586 = add i64 %.101091, 12
+  %586 = add i64 %.101090, 12
   %587 = zext i32 %583 to i64
   %588 = add i64 %586, %587
   br label %drwav__write_or_count_byte.exit825
@@ -114355,7 +114355,7 @@ drwav__write_or_count.exit821.thread:             ; preds = %584
   %.val.i806 = load ptr, ptr %74, align 8
   %.val6.i807 = load ptr, ptr %75, align 8
   %590 = call i64 %.val.i806(ptr noundef %.val6.i807, ptr noundef %switch.select471, i64 noundef 4) #66
-  %591 = add i64 %590, %.101091
+  %591 = add i64 %590, %.101090
   %592 = load i32, ptr %582, align 4
   %593 = add i32 %592, 5
   %.val.i810 = load ptr, ptr %74, align 8
@@ -114403,14 +114403,14 @@ drwav__write_or_count_u16ne_to_le.exit861:        ; preds = %609
   %610 = getelementptr inbounds i8, ptr %578, i64 28
   %611 = load i32, ptr %610, align 4
   %.not450995 = icmp eq i32 %611, 0
-  %612 = add i64 %.101091, 28
+  %612 = add i64 %.101090, 28
   br i1 %.not450995, label %.thread1033, label %drwav__write_or_count.exit865.thread
 
 drwav__write_or_count_u16ne_to_le.exit861.thread: ; preds = %609
   %.val.i826 = load ptr, ptr %74, align 8
   %.val6.i827 = load ptr, ptr %75, align 8
   %613 = call i64 %.val.i826(ptr noundef %.val6.i827, ptr noundef nonnull @.str.603, i64 noundef 4) #66
-  %614 = add i64 %613, %.101091
+  %614 = add i64 %613, %.101090
   %615 = getelementptr inbounds i8, ptr %578, i64 8
   %616 = getelementptr inbounds i8, ptr %578, i64 28
   %617 = load i32, ptr %616, align 4
@@ -114527,7 +114527,7 @@ drwav__write_or_count_byte.exit869:               ; preds = %drwav__write_or_cou
   br i1 %73, label %drwav__write_or_count_u32ne_to_le.exit877.thread, label %669
 
 drwav__write_or_count_u32ne_to_le.exit877.thread: ; preds = %664
-  %667 = add i64 %.101091, 8
+  %667 = add i64 %.101090, 8
   %668 = zext i32 %666 to i64
   br label %drwav__write_or_count.exit881
 
@@ -114536,7 +114536,7 @@ drwav__write_or_count_u32ne_to_le.exit877.thread: ; preds = %664
   %.val.i870 = load ptr, ptr %74, align 8
   %.val6.i871 = load ptr, ptr %75, align 8
   %671 = call i64 %.val.i870(ptr noundef %.val6.i871, ptr noundef nonnull %670, i64 noundef 4) #66
-  %672 = add i64 %671, %.101091
+  %672 = add i64 %671, %.101090
   %.val.i874 = load ptr, ptr %74, align 8
   %.val4.i875 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -114590,10 +114590,10 @@ drwav__write_or_count_byte.exit885:               ; preds = %684, %.thread1042
   br label %.thread1033
 
 .thread1033:                                      ; preds = %drwav__write_or_count_u16ne_to_le.exit861, %580, %660, %577, %.thread1037, %681, %drwav__write_or_count_byte.exit885
-  %.12 = phi i64 [ %686, %drwav__write_or_count_byte.exit885 ], [ %.11, %681 ], [ %646, %.thread1037 ], [ %.101091, %577 ], [ %.101091, %660 ], [ %.101091, %580 ], [ %612, %drwav__write_or_count_u16ne_to_le.exit861 ]
-  %indvars.iv.next1129 = add nuw nsw i64 %indvars.iv1128, 1
-  %exitcond1132.not = icmp eq i64 %indvars.iv.next1129, %wide.trip.count
-  br i1 %exitcond1132.not, label %.loopexit, label %577
+  %.12 = phi i64 [ %686, %drwav__write_or_count_byte.exit885 ], [ %.11, %681 ], [ %646, %.thread1037 ], [ %.101090, %577 ], [ %.101090, %660 ], [ %.101090, %580 ], [ %612, %drwav__write_or_count_u16ne_to_le.exit861 ]
+  %indvars.iv.next1128 = add nuw nsw i64 %indvars.iv1127, 1
+  %exitcond1131.not = icmp eq i64 %indvars.iv.next1128, %wide.trip.count
+  br i1 %exitcond1131.not, label %.loopexit, label %577
 
 .loopexit:                                        ; preds = %.thread1033, %.loopexit1056, %3
   %.0415 = phi i64 [ 0, %3 ], [ %.5, %.loopexit1056 ], [ %.12, %.thread1033 ]

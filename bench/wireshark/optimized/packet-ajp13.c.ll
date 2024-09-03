@@ -735,8 +735,8 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %235 = load ptr, ptr %234, align 8
   %236 = load i32, ptr %235, align 4
   %237 = zext i16 %228 to i32
-  %.reass68 = add nuw nsw i32 %222, 4
-  %238 = add nuw nsw i32 %.reass68, %237
+  %.reass67 = add nuw nsw i32 %222, 4
+  %238 = add nuw nsw i32 %.reass67, %237
   %239 = load ptr, ptr %93, align 8
   %240 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %239, ptr noundef nonnull @.str.205, ptr noundef %221, ptr noundef %232) #2
   %241 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.047, i32 noundef %236, ptr noundef %0, i32 noundef %.0220.i, i32 noundef %238, ptr noundef %240, ptr noundef nonnull @.str.205, ptr noundef %221, ptr noundef %232) #2

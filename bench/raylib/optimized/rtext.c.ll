@@ -13367,10 +13367,10 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__run_charstring(ptr nocapture 
   %9 = load i64, ptr %8, align 8
   %10 = tail call fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %7, i64 %9, i32 noundef %1)
   %11 = extractvalue { ptr, i64 } %10, 1
-  %.sroa.8.8.extract.trunc431 = trunc i64 %11 to i32
-  %.sroa.8.12.extract.shift360432 = lshr i64 %11, 32
-  %.sroa.8.12.extract.trunc361433 = trunc nuw i64 %.sroa.8.12.extract.shift360432 to i32
-  %12 = icmp slt i32 %.sroa.8.8.extract.trunc431, %.sroa.8.12.extract.trunc361433
+  %.sroa.8.8.extract.trunc430 = trunc i64 %11 to i32
+  %.sroa.8.12.extract.shift360431 = lshr i64 %11, 32
+  %.sroa.8.12.extract.trunc361432 = trunc nuw i64 %.sroa.8.12.extract.shift360431 to i32
+  %12 = icmp slt i32 %.sroa.8.8.extract.trunc430, %.sroa.8.12.extract.trunc361432
   br i1 %12, label %stbtt__buf_get8.exit.lr.ph, label %stbtt__buf_get8.exit278.thread
 
 stbtt__buf_get8.exit.lr.ph:                       ; preds = %3
@@ -13401,22 +13401,22 @@ stbtt__buf_get8.exit.lr.ph:                       ; preds = %3
   br label %stbtt__buf_get8.exit
 
 stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exit.lr.ph, %.thread
-  %.0232444 = phi i32 [ 1, %stbtt__buf_get8.exit.lr.ph ], [ %.1400, %.thread ]
-  %.0233443 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.2399, %.thread ]
-  %.0237442 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.1238398, %.thread ]
-  %.0239439 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %544, %.thread ]
-  %.0245438 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.2247397, %.thread ]
-  %.sroa.373.0437 = phi i64 [ %.sroa.373.0.copyload, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.373.2396, %.thread ]
-  %.sroa.072.0436 = phi ptr [ %.sroa.072.0.copyload, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.072.2395, %.thread ]
-  %.sroa.0.0380435 = phi ptr [ %13, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.0.1394, %.thread ]
-  %.sroa.8.0434 = phi i64 [ %11, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.8.1393, %.thread ]
-  %33 = add i64 %.sroa.8.0434, 1
+  %.0232443 = phi i32 [ 1, %stbtt__buf_get8.exit.lr.ph ], [ %.1400, %.thread ]
+  %.0233442 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.2399, %.thread ]
+  %.0237441 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.1238398, %.thread ]
+  %.0239438 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %544, %.thread ]
+  %.0245437 = phi i32 [ 0, %stbtt__buf_get8.exit.lr.ph ], [ %.2247397, %.thread ]
+  %.sroa.373.0436 = phi i64 [ %.sroa.373.0.copyload, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.373.2396, %.thread ]
+  %.sroa.072.0435 = phi ptr [ %.sroa.072.0.copyload, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.072.2395, %.thread ]
+  %.sroa.0.0380434 = phi ptr [ %13, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.0.1394, %.thread ]
+  %.sroa.8.0433 = phi i64 [ %11, %stbtt__buf_get8.exit.lr.ph ], [ %.sroa.8.1393, %.thread ]
+  %33 = add i64 %.sroa.8.0433, 1
   %.sroa.8.8.insert.ext = and i64 %33, 4294967295
-  %.sroa.8.8.insert.mask311 = and i64 %.sroa.8.0434, -4294967296
+  %.sroa.8.8.insert.mask311 = and i64 %.sroa.8.0433, -4294967296
   %.sroa.8.8.insert.insert312 = or disjoint i64 %.sroa.8.8.insert.ext, %.sroa.8.8.insert.mask311
-  %sext = shl i64 %.sroa.8.0434, 32
+  %sext = shl i64 %.sroa.8.0433, 32
   %34 = ashr exact i64 %sext, 32
-  %35 = getelementptr inbounds i8, ptr %.sroa.0.0380435, i64 %34
+  %35 = getelementptr inbounds i8, ptr %.sroa.0.0380434, i64 %34
   %36 = load i8, ptr %35, align 1
   switch i8 %36, label %458 [
     i8 19, label %37
@@ -13446,21 +13446,21 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   ]
 
 37:                                               ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit
-  %.not270 = icmp eq i32 %.0232444, 0
+  %.not270 = icmp eq i32 %.0232443, 0
   br i1 %.not270, label %41, label %38
 
 38:                                               ; preds = %37
-  %39 = sdiv i32 %.0239439, 2
-  %40 = add nsw i32 %.0233443, %39
+  %39 = sdiv i32 %.0239438, 2
+  %40 = add nsw i32 %.0233442, %39
   br label %41
 
 41:                                               ; preds = %38, %37
-  %.1234 = phi i32 [ %40, %38 ], [ %.0233443, %37 ]
+  %.1234 = phi i32 [ %40, %38 ], [ %.0233442, %37 ]
   %42 = add nsw i32 %.1234, 7
   %43 = sdiv i32 %42, 8
   %.sroa.8.8.extract.trunc314 = trunc i64 %33 to i32
   %44 = add nsw i32 %43, %.sroa.8.8.extract.trunc314
-  %.sroa.8.12.extract.shift366 = lshr i64 %.sroa.8.0434, 32
+  %.sroa.8.12.extract.shift366 = lshr i64 %.sroa.8.0433, 32
   %.sroa.8.12.extract.trunc367 = trunc nuw i64 %.sroa.8.12.extract.shift366 to i32
   %45 = icmp slt i32 %44, 0
   %46 = tail call i32 @llvm.smin.i32(i32 %44, i32 %.sroa.8.12.extract.trunc367)
@@ -13470,20 +13470,20 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   br label %.thread
 
 47:                                               ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit, %stbtt__buf_get8.exit, %stbtt__buf_get8.exit
-  %48 = sdiv i32 %.0239439, 2
-  %49 = add nsw i32 %.0233443, %48
+  %48 = sdiv i32 %.0239438, 2
+  %49 = add nsw i32 %.0233442, %48
   br label %.thread
 
 50:                                               ; preds = %stbtt__buf_get8.exit
-  %51 = icmp slt i32 %.0239439, 2
+  %51 = icmp slt i32 %.0239438, 2
   br i1 %51, label %stbtt__buf_get8.exit278.thread, label %52
 
 52:                                               ; preds = %50
-  %53 = add nsw i32 %.0239439, -2
+  %53 = add nsw i32 %.0239438, -2
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %54
   %56 = load float, ptr %55, align 4
-  %57 = add nsw i32 %.0239439, -1
+  %57 = add nsw i32 %.0239438, -1
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %58
   %60 = load float, ptr %59, align 4
@@ -13491,11 +13491,11 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   br label %.thread
 
 61:                                               ; preds = %stbtt__buf_get8.exit
-  %62 = icmp slt i32 %.0239439, 1
+  %62 = icmp slt i32 %.0239438, 1
   br i1 %62, label %stbtt__buf_get8.exit278.thread, label %63
 
 63:                                               ; preds = %61
-  %64 = add nsw i32 %.0239439, -1
+  %64 = add nsw i32 %.0239438, -1
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %65
   %67 = load float, ptr %66, align 4
@@ -13503,11 +13503,11 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   br label %.thread
 
 68:                                               ; preds = %stbtt__buf_get8.exit
-  %69 = icmp slt i32 %.0239439, 1
+  %69 = icmp slt i32 %.0239438, 1
   br i1 %69, label %stbtt__buf_get8.exit278.thread, label %70
 
 70:                                               ; preds = %68
-  %71 = add nsw i32 %.0239439, -1
+  %71 = add nsw i32 %.0239438, -1
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %72
   %74 = load float, ptr %73, align 4
@@ -13515,37 +13515,37 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   br label %.thread
 
 75:                                               ; preds = %stbtt__buf_get8.exit
-  %76 = icmp slt i32 %.0239439, 2
+  %76 = icmp slt i32 %.0239438, 2
   br i1 %76, label %stbtt__buf_get8.exit278.thread, label %.preheader405.preheader
 
 .preheader405.preheader:                          ; preds = %75
-  %77 = zext nneg i32 %.0239439 to i64
+  %77 = zext nneg i32 %.0239438 to i64
   br label %.preheader405
 
 .preheader405:                                    ; preds = %.preheader405.preheader, %.preheader405
-  %indvars.iv498 = phi i64 [ 0, %.preheader405.preheader ], [ %indvars.iv.next499, %.preheader405 ]
-  %78 = or disjoint i64 %indvars.iv498, 1
-  %79 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv498
+  %indvars.iv497 = phi i64 [ 0, %.preheader405.preheader ], [ %indvars.iv.next498, %.preheader405 ]
+  %78 = or disjoint i64 %indvars.iv497, 1
+  %79 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv497
   %80 = load float, ptr %79, align 8
   %81 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %78
   %82 = load float, ptr %81, align 4
   tail call fastcc void @stbtt__csctx_rline_to(ptr noundef %2, float noundef %80, float noundef %82)
-  %indvars.iv.next499 = add nuw nsw i64 %indvars.iv498, 2
-  %83 = or disjoint i64 %indvars.iv.next499, 1
+  %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 2
+  %83 = or disjoint i64 %indvars.iv.next498, 1
   %84 = icmp ult i64 %83, %77
   br i1 %84, label %.preheader405, label %.thread
 
 85:                                               ; preds = %stbtt__buf_get8.exit
-  %86 = icmp slt i32 %.0239439, 1
+  %86 = icmp slt i32 %.0239438, 1
   br i1 %86, label %stbtt__buf_get8.exit278.thread, label %95
 
 87:                                               ; preds = %stbtt__buf_get8.exit
-  %88 = icmp slt i32 %.0239439, 1
+  %88 = icmp slt i32 %.0239438, 1
   br i1 %88, label %stbtt__buf_get8.exit278.thread, label %89
 
 89:                                               ; preds = %87, %96
   %.2244 = phi i32 [ 0, %87 ], [ %100, %96 ]
-  %.not269 = icmp slt i32 %.2244, %.0239439
+  %.not269 = icmp slt i32 %.2244, %.0239438
   br i1 %.not269, label %90, label %.thread
 
 90:                                               ; preds = %89
@@ -13558,7 +13558,7 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
 
 95:                                               ; preds = %85, %90
   %.1243 = phi i32 [ %94, %90 ], [ 0, %85 ]
-  %.not268 = icmp slt i32 %.1243, %.0239439
+  %.not268 = icmp slt i32 %.1243, %.0239438
   br i1 %.not268, label %96, label %.thread
 
 96:                                               ; preds = %95
@@ -13570,17 +13570,17 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   br label %89
 
 101:                                              ; preds = %stbtt__buf_get8.exit
-  %102 = icmp slt i32 %.0239439, 4
+  %102 = icmp slt i32 %.0239438, 4
   br i1 %102, label %stbtt__buf_get8.exit278.thread, label %130
 
 103:                                              ; preds = %stbtt__buf_get8.exit
-  %104 = icmp slt i32 %.0239439, 4
+  %104 = icmp slt i32 %.0239438, 4
   br i1 %104, label %stbtt__buf_get8.exit278.thread, label %105
 
-105:                                              ; preds = %103, %._crit_edge502
-  %.4 = phi i32 [ 0, %103 ], [ %146, %._crit_edge502 ]
+105:                                              ; preds = %103, %._crit_edge501
+  %.4 = phi i32 [ 0, %103 ], [ %146, %._crit_edge501 ]
   %106 = add nsw i32 %.4, 3
-  %.not267 = icmp slt i32 %106, %.0239439
+  %.not267 = icmp slt i32 %106, %.0239438
   br i1 %.not267, label %107, label %.thread
 
 107:                                              ; preds = %105
@@ -13598,26 +13598,26 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   %119 = sext i32 %106 to i64
   %120 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %119
   %121 = load float, ptr %120, align 4
-  %122 = sub nsw i32 %.0239439, %.4
+  %122 = sub nsw i32 %.0239438, %.4
   %123 = icmp eq i32 %122, 5
   %124 = add nsw i32 %.4, 4
-  br i1 %123, label %125, label %._crit_edge501
+  br i1 %123, label %125, label %._crit_edge500
 
 125:                                              ; preds = %107
   %126 = sext i32 %124 to i64
   %127 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %126
   %128 = load float, ptr %127, align 4
-  br label %._crit_edge501
+  br label %._crit_edge500
 
-._crit_edge501:                                   ; preds = %107, %125
+._crit_edge500:                                   ; preds = %107, %125
   %129 = phi float [ %128, %125 ], [ 0.000000e+00, %107 ]
   tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef 0.000000e+00, float noundef %110, float noundef %114, float noundef %118, float noundef %121, float noundef %129)
   br label %130
 
-130:                                              ; preds = %101, %._crit_edge501
-  %.3 = phi i32 [ %124, %._crit_edge501 ], [ 0, %101 ]
+130:                                              ; preds = %101, %._crit_edge500
+  %.3 = phi i32 [ %124, %._crit_edge500 ], [ 0, %101 ]
   %131 = add nsw i32 %.3, 3
-  %.not266 = icmp slt i32 %131, %.0239439
+  %.not266 = icmp slt i32 %131, %.0239438
   br i1 %.not266, label %132, label %.thread
 
 132:                                              ; preds = %130
@@ -13632,18 +13632,18 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %141
   %143 = load float, ptr %142, align 4
-  %144 = sub nsw i32 %.0239439, %.3
+  %144 = sub nsw i32 %.0239438, %.3
   %145 = icmp eq i32 %144, 5
   %146 = add nsw i32 %.3, 4
-  br i1 %145, label %147, label %._crit_edge502
+  br i1 %145, label %147, label %._crit_edge501
 
 147:                                              ; preds = %132
   %148 = sext i32 %146 to i64
   %149 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %148
   %150 = load float, ptr %149, align 4
-  br label %._crit_edge502
+  br label %._crit_edge501
 
-._crit_edge502:                                   ; preds = %132, %147
+._crit_edge501:                                   ; preds = %132, %147
   %151 = phi float [ %150, %147 ], [ 0.000000e+00, %132 ]
   %152 = sext i32 %131 to i64
   %153 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %152
@@ -13652,77 +13652,77 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   br label %105
 
 155:                                              ; preds = %stbtt__buf_get8.exit
-  %156 = icmp slt i32 %.0239439, 6
+  %156 = icmp slt i32 %.0239438, 6
   br i1 %156, label %stbtt__buf_get8.exit278.thread, label %.preheader406
 
 .preheader406:                                    ; preds = %155, %.preheader406
-  %indvars.iv492 = phi i64 [ %indvars.iv.next493, %.preheader406 ], [ 0, %155 ]
-  %indvars.iv490 = phi i64 [ %indvars.iv.next491, %.preheader406 ], [ 5, %155 ]
-  %157 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv492
+  %indvars.iv491 = phi i64 [ %indvars.iv.next492, %.preheader406 ], [ 0, %155 ]
+  %indvars.iv489 = phi i64 [ %indvars.iv.next490, %.preheader406 ], [ 5, %155 ]
+  %157 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv491
   %158 = load float, ptr %157, align 8
-  %159 = or disjoint i64 %indvars.iv492, 1
+  %159 = or disjoint i64 %indvars.iv491, 1
   %160 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %159
   %161 = load float, ptr %160, align 4
-  %162 = add nuw nsw i64 %indvars.iv492, 2
+  %162 = add nuw nsw i64 %indvars.iv491, 2
   %163 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %162
   %164 = load float, ptr %163, align 8
-  %165 = add nuw nsw i64 %indvars.iv492, 3
+  %165 = add nuw nsw i64 %indvars.iv491, 3
   %166 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %165
   %167 = load float, ptr %166, align 4
-  %168 = add nuw nsw i64 %indvars.iv492, 4
+  %168 = add nuw nsw i64 %indvars.iv491, 4
   %169 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %168
   %170 = load float, ptr %169, align 8
-  %171 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv490
+  %171 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv489
   %172 = load float, ptr %171, align 4
   tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %158, float noundef %161, float noundef %164, float noundef %167, float noundef %170, float noundef %172)
-  %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 6
-  %173 = trunc i64 %indvars.iv492 to i32
+  %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 6
+  %173 = trunc i64 %indvars.iv491 to i32
   %174 = add i32 %173, 11
-  %175 = icmp slt i32 %174, %.0239439
-  %indvars.iv.next491 = add nuw i64 %indvars.iv490, 6
+  %175 = icmp slt i32 %174, %.0239438
+  %indvars.iv.next490 = add nuw i64 %indvars.iv489, 6
   br i1 %175, label %.preheader406, label %.thread
 
 176:                                              ; preds = %stbtt__buf_get8.exit
-  %177 = icmp slt i32 %.0239439, 8
+  %177 = icmp slt i32 %.0239438, 8
   br i1 %177, label %stbtt__buf_get8.exit278.thread, label %.lr.ph424.preheader
 
 .lr.ph424.preheader:                              ; preds = %176
-  %178 = zext nneg i32 %.0239439 to i64
+  %178 = zext nneg i32 %.0239438 to i64
   %invariant.op = add nsw i64 %178, -13
   br label %.lr.ph424
 
 .lr.ph424:                                        ; preds = %.lr.ph424.preheader, %.lr.ph424
-  %indvars.iv487 = phi i64 [ 0, %.lr.ph424.preheader ], [ %indvars.iv.next488, %.lr.ph424 ]
-  %179 = add nuw nsw i64 %indvars.iv487, 5
-  %180 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv487
+  %indvars.iv486 = phi i64 [ 0, %.lr.ph424.preheader ], [ %indvars.iv.next487, %.lr.ph424 ]
+  %179 = add nuw nsw i64 %indvars.iv486, 5
+  %180 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv486
   %181 = load float, ptr %180, align 8
-  %182 = or disjoint i64 %indvars.iv487, 1
+  %182 = or disjoint i64 %indvars.iv486, 1
   %183 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %182
   %184 = load float, ptr %183, align 4
-  %185 = add nuw nsw i64 %indvars.iv487, 2
+  %185 = add nuw nsw i64 %indvars.iv486, 2
   %186 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %185
   %187 = load float, ptr %186, align 8
-  %188 = add nuw nsw i64 %indvars.iv487, 3
+  %188 = add nuw nsw i64 %indvars.iv486, 3
   %189 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %188
   %190 = load float, ptr %189, align 4
-  %191 = add nuw nsw i64 %indvars.iv487, 4
+  %191 = add nuw nsw i64 %indvars.iv486, 4
   %192 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %191
   %193 = load float, ptr %192, align 8
   %194 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %179
   %195 = load float, ptr %194, align 4
   tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %181, float noundef %184, float noundef %187, float noundef %190, float noundef %193, float noundef %195)
-  %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 6
-  %196 = icmp slt i64 %indvars.iv487, %invariant.op
+  %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 6
+  %196 = icmp slt i64 %indvars.iv486, %invariant.op
   br i1 %196, label %.lr.ph424, label %._crit_edge425
 
 ._crit_edge425:                                   ; preds = %.lr.ph424
-  %197 = trunc nuw nsw i64 %indvars.iv.next488 to i32
+  %197 = trunc nuw nsw i64 %indvars.iv.next487 to i32
   %198 = or disjoint i32 %197, 1
-  %.not265 = icmp slt i32 %198, %.0239439
+  %.not265 = icmp slt i32 %198, %.0239438
   br i1 %.not265, label %199, label %stbtt__buf_get8.exit278.thread
 
 199:                                              ; preds = %._crit_edge425
-  %200 = and i64 %indvars.iv.next488, 4294967294
+  %200 = and i64 %indvars.iv.next487, 4294967294
   %201 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %200
   %202 = load float, ptr %201, align 8
   %203 = zext nneg i32 %198 to i64
@@ -13732,49 +13732,49 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   br label %.thread
 
 206:                                              ; preds = %stbtt__buf_get8.exit
-  %207 = icmp slt i32 %.0239439, 8
+  %207 = icmp slt i32 %.0239438, 8
   br i1 %207, label %stbtt__buf_get8.exit278.thread, label %.lr.ph421.preheader
 
 .lr.ph421.preheader:                              ; preds = %206
-  %208 = add nsw i32 %.0239439, -6
+  %208 = add nsw i32 %.0239438, -6
   %209 = zext nneg i32 %208 to i64
   br label %.lr.ph421
 
 .lr.ph421:                                        ; preds = %.lr.ph421.preheader, %.lr.ph421
-  %indvars.iv484 = phi i64 [ 0, %.lr.ph421.preheader ], [ %indvars.iv.next485, %.lr.ph421 ]
-  %210 = or disjoint i64 %indvars.iv484, 1
-  %211 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv484
+  %indvars.iv483 = phi i64 [ 0, %.lr.ph421.preheader ], [ %indvars.iv.next484, %.lr.ph421 ]
+  %210 = or disjoint i64 %indvars.iv483, 1
+  %211 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %indvars.iv483
   %212 = load float, ptr %211, align 8
   %213 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %210
   %214 = load float, ptr %213, align 4
   tail call fastcc void @stbtt__csctx_rline_to(ptr noundef %2, float noundef %212, float noundef %214)
-  %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 2
-  %215 = or disjoint i64 %indvars.iv.next485, 1
+  %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 2
+  %215 = or disjoint i64 %indvars.iv.next484, 1
   %216 = icmp ult i64 %215, %209
   br i1 %216, label %.lr.ph421, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph421
-  %217 = trunc nuw nsw i64 %indvars.iv.next485 to i32
+  %217 = trunc nuw nsw i64 %indvars.iv.next484 to i32
   %218 = add nuw nsw i32 %217, 5
-  %.not264 = icmp slt i32 %218, %.0239439
+  %.not264 = icmp slt i32 %218, %.0239438
   br i1 %.not264, label %219, label %stbtt__buf_get8.exit278.thread
 
 219:                                              ; preds = %._crit_edge
-  %220 = and i64 %indvars.iv.next485, 4294967294
+  %220 = and i64 %indvars.iv.next484, 4294967294
   %221 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %220
   %222 = load float, ptr %221, align 8
   %223 = and i64 %215, 4294967295
   %224 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %223
   %225 = load float, ptr %224, align 4
-  %226 = add nuw i64 %indvars.iv484, 4
+  %226 = add nuw i64 %indvars.iv483, 4
   %227 = and i64 %226, 4294967294
   %228 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %227
   %229 = load float, ptr %228, align 8
-  %230 = add nuw i64 %indvars.iv484, 5
+  %230 = add nuw i64 %indvars.iv483, 5
   %231 = and i64 %230, 4294967295
   %232 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %231
   %233 = load float, ptr %232, align 4
-  %234 = add nuw i64 %indvars.iv484, 6
+  %234 = add nuw i64 %indvars.iv483, 6
   %235 = and i64 %234, 4294967294
   %236 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %235
   %237 = load float, ptr %236, align 8
@@ -13785,13 +13785,13 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   br label %.thread
 
 241:                                              ; preds = %stbtt__buf_get8.exit, %stbtt__buf_get8.exit
-  %242 = icmp slt i32 %.0239439, 4
+  %242 = icmp slt i32 %.0239438, 4
   br i1 %242, label %stbtt__buf_get8.exit278.thread, label %243
 
 243:                                              ; preds = %241
-  %244 = and i32 %.0239439, 1
+  %244 = and i32 %.0239438, 1
   %245 = add nuw nsw i32 %244, 3
-  %246 = icmp ult i32 %245, %.0239439
+  %246 = icmp ult i32 %245, %.0239438
   br i1 %246, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %243
@@ -13799,7 +13799,7 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   %247 = load float, ptr %4, align 16
   %.0249 = select i1 %.not263.not, float 0.000000e+00, float %247
   %248 = icmp eq i8 %36, 27
-  %249 = and i32 %.0239439, 1
+  %249 = and i32 %.0239438, 1
   %250 = zext nneg i32 %249 to i64
   br label %251
 
@@ -13832,11 +13832,11 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %267 = trunc i64 %indvars.iv to i32
   %268 = add i32 %267, 7
-  %269 = icmp slt i32 %268, %.0239439
+  %269 = icmp slt i32 %268, %.0239438
   br i1 %269, label %251, label %.thread
 
 270:                                              ; preds = %stbtt__buf_get8.exit
-  %.not = icmp eq i32 %.0245438, 0
+  %.not = icmp eq i32 %.0245437, 0
   br i1 %.not, label %271, label %339
 
 271:                                              ; preds = %270
@@ -14003,26 +14003,26 @@ stbtt__cid_get_glyph_subrs.exit:                  ; preds = %stbtt__buf_get.exit
   br label %339
 
 339:                                              ; preds = %271, %stbtt__cid_get_glyph_subrs.exit, %270, %stbtt__buf_get8.exit
-  %.sroa.072.1 = phi ptr [ %.sroa.072.0436, %stbtt__buf_get8.exit ], [ %.sroa.072.0436, %270 ], [ %337, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.072.0436, %271 ]
-  %.sroa.373.1 = phi i64 [ %.sroa.373.0437, %stbtt__buf_get8.exit ], [ %.sroa.373.0437, %270 ], [ %338, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.373.0437, %271 ]
-  %.1246 = phi i32 [ %.0245438, %stbtt__buf_get8.exit ], [ 1, %270 ], [ 1, %stbtt__cid_get_glyph_subrs.exit ], [ 1, %271 ]
-  %340 = icmp slt i32 %.0239439, 1
+  %.sroa.072.1 = phi ptr [ %.sroa.072.0435, %stbtt__buf_get8.exit ], [ %.sroa.072.0435, %270 ], [ %337, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.072.0435, %271 ]
+  %.sroa.373.1 = phi i64 [ %.sroa.373.0436, %stbtt__buf_get8.exit ], [ %.sroa.373.0436, %270 ], [ %338, %stbtt__cid_get_glyph_subrs.exit ], [ %.sroa.373.0436, %271 ]
+  %.1246 = phi i32 [ %.0245437, %stbtt__buf_get8.exit ], [ 1, %270 ], [ 1, %stbtt__cid_get_glyph_subrs.exit ], [ 1, %271 ]
+  %340 = icmp slt i32 %.0239438, 1
   br i1 %340, label %stbtt__buf_get8.exit278.thread, label %341
 
 341:                                              ; preds = %339
-  %342 = add nsw i32 %.0239439, -1
+  %342 = add nsw i32 %.0239438, -1
   %343 = zext nneg i32 %342 to i64
   %344 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %343
   %345 = load float, ptr %344, align 4
   %346 = fptosi float %345 to i32
-  %347 = icmp sgt i32 %.0237442, 9
+  %347 = icmp sgt i32 %.0237441, 9
   br i1 %347, label %stbtt__buf_get8.exit278.thread, label %348
 
 348:                                              ; preds = %341
-  %349 = add nsw i32 %.0237442, 1
-  %350 = sext i32 %.0237442 to i64
+  %349 = add nsw i32 %.0237441, 1
+  %350 = sext i32 %.0237441 to i64
   %351 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %350
-  store ptr %.sroa.0.0380435, ptr %351, align 16
+  store ptr %.sroa.0.0380434, ptr %351, align 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %351, i64 8
   store i64 %.sroa.8.8.insert.insert312, ptr %.sroa.8.0..sroa_idx, align 8
   %352 = icmp eq i8 %36, 10
@@ -14097,11 +14097,11 @@ stbtt__get_subr.exit:                             ; preds = %stbtt__cff_index_co
   br label %.thread
 
 378:                                              ; preds = %stbtt__buf_get8.exit
-  %379 = icmp slt i32 %.0237442, 1
+  %379 = icmp slt i32 %.0237441, 1
   br i1 %379, label %stbtt__buf_get8.exit278.thread, label %380
 
 380:                                              ; preds = %378
-  %381 = add nsw i32 %.0237442, -1
+  %381 = add nsw i32 %.0237441, -1
   %382 = zext nneg i32 %381 to i64
   %383 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %382
   %.sroa.0.0.copyload305 = load ptr, ptr %383, align 16
@@ -14115,18 +14115,18 @@ stbtt__get_subr.exit:                             ; preds = %stbtt__cff_index_co
 
 385:                                              ; preds = %stbtt__buf_get8.exit
   %.sroa.8.8.extract.trunc320 = trunc i64 %33 to i32
-  %.sroa.8.12.extract.shift369 = lshr i64 %.sroa.8.0434, 32
+  %.sroa.8.12.extract.shift369 = lshr i64 %.sroa.8.0433, 32
   %.sroa.8.12.extract.trunc370 = trunc nuw i64 %.sroa.8.12.extract.shift369 to i32
   %.not.i276 = icmp slt i32 %.sroa.8.8.extract.trunc320, %.sroa.8.12.extract.trunc370
   br i1 %.not.i276, label %stbtt__buf_get8.exit278, label %stbtt__buf_get8.exit278.thread
 
 stbtt__buf_get8.exit278:                          ; preds = %385
-  %386 = add i64 %.sroa.8.0434, 2
+  %386 = add i64 %.sroa.8.0433, 2
   %.sroa.8.8.insert.ext322 = and i64 %386, 4294967295
   %.sroa.8.8.insert.insert324 = or disjoint i64 %.sroa.8.8.insert.ext322, %.sroa.8.8.insert.mask311
   %sext401 = shl i64 %33, 32
   %387 = ashr exact i64 %sext401, 32
-  %388 = getelementptr inbounds i8, ptr %.sroa.0.0380435, i64 %387
+  %388 = getelementptr inbounds i8, ptr %.sroa.0.0380434, i64 %387
   %389 = load i8, ptr %388, align 1
   switch i8 %389, label %stbtt__buf_get8.exit278.thread [
     i8 34, label %390
@@ -14136,7 +14136,7 @@ stbtt__buf_get8.exit278:                          ; preds = %385
   ]
 
 390:                                              ; preds = %stbtt__buf_get8.exit278
-  %391 = icmp slt i32 %.0239439, 7
+  %391 = icmp slt i32 %.0239438, 7
   br i1 %391, label %stbtt__buf_get8.exit278.thread, label %392
 
 392:                                              ; preds = %390
@@ -14153,7 +14153,7 @@ stbtt__buf_get8.exit278:                          ; preds = %385
   br label %.thread
 
 401:                                              ; preds = %stbtt__buf_get8.exit278
-  %402 = icmp slt i32 %.0239439, 13
+  %402 = icmp slt i32 %.0239438, 13
   br i1 %402, label %stbtt__buf_get8.exit278.thread, label %403
 
 403:                                              ; preds = %401
@@ -14174,7 +14174,7 @@ stbtt__buf_get8.exit278:                          ; preds = %385
   br label %.thread
 
 416:                                              ; preds = %stbtt__buf_get8.exit278
-  %417 = icmp slt i32 %.0239439, 9
+  %417 = icmp slt i32 %.0239438, 9
   br i1 %417, label %stbtt__buf_get8.exit278.thread, label %418
 
 418:                                              ; preds = %416
@@ -14195,7 +14195,7 @@ stbtt__buf_get8.exit278:                          ; preds = %385
   br label %.thread
 
 431:                                              ; preds = %stbtt__buf_get8.exit278
-  %432 = icmp slt i32 %.0239439, 11
+  %432 = icmp slt i32 %.0239438, 11
   br i1 %432, label %stbtt__buf_get8.exit278.thread, label %433
 
 433:                                              ; preds = %431
@@ -14240,7 +14240,7 @@ stbtt__buf_get8.exit278:                          ; preds = %385
   br i1 %462, label %463, label %478
 
 463:                                              ; preds = %461
-  %.sroa.8.12.extract.shift372 = lshr i64 %.sroa.8.0434, 32
+  %.sroa.8.12.extract.shift372 = lshr i64 %.sroa.8.0433, 32
   %.sroa.8.12.extract.trunc373 = trunc nuw i64 %.sroa.8.12.extract.shift372 to i32
   %.sroa.8.8.extract.trunc326 = trunc i64 %33 to i32
   br label %464
@@ -14260,7 +14260,7 @@ stbtt__buf_get8.exit278:                          ; preds = %385
   %.sroa.8.8.insert.mask329 = and i64 %.sroa.8.5, -4294967296
   %.sroa.8.8.insert.insert330 = or disjoint i64 %.sroa.8.8.insert.mask329, %.sroa.8.8.insert.ext328
   %469 = sext i32 %465 to i64
-  %470 = getelementptr inbounds i8, ptr %.sroa.0.0380435, i64 %469
+  %470 = getelementptr inbounds i8, ptr %.sroa.0.0380434, i64 %469
   %471 = load i8, ptr %470, align 1
   %472 = zext i8 %471 to i32
   br label %stbtt__buf_get8.exit.i281
@@ -14282,7 +14282,7 @@ stbtt__buf_get.exit:                              ; preds = %stbtt__buf_get8.exi
 478:                                              ; preds = %461
   %.sroa.8.8.extract.trunc332 = trunc i64 %33 to i32
   %479 = add nsw i32 %.sroa.8.8.extract.trunc332, -1
-  %.sroa.8.12.extract.shift375 = lshr i64 %.sroa.8.0434, 32
+  %.sroa.8.12.extract.shift375 = lshr i64 %.sroa.8.0433, 32
   %.sroa.8.12.extract.trunc376 = trunc nuw i64 %.sroa.8.12.extract.shift375 to i32
   %480 = icmp slt i32 %.sroa.8.8.extract.trunc332, 1
   %481 = tail call i32 @llvm.smin.i32(i32 %479, i32 %.sroa.8.12.extract.trunc376)
@@ -14297,7 +14297,7 @@ stbtt__buf_get8.exit.i287:                        ; preds = %478
   %.sroa.8.8.insert.ext340 = zext i32 %482 to i64
   %.sroa.8.8.insert.insert342 = or disjoint i64 %.sroa.8.8.insert.mask311, %.sroa.8.8.insert.ext340
   %483 = sext i32 %..i.i283 to i64
-  %484 = getelementptr inbounds i8, ptr %.sroa.0.0380435, i64 %483
+  %484 = getelementptr inbounds i8, ptr %.sroa.0.0380434, i64 %483
   %485 = load i8, ptr %484, align 1
   %486 = zext i8 %485 to i16
   %487 = add i8 %485, -32
@@ -14323,7 +14323,7 @@ stbtt__buf_get8.exit.i287:                        ; preds = %478
   %.sroa.8.8.insert.ext356 = zext i32 %495 to i64
   %.sroa.8.8.insert.insert358 = or disjoint i64 %.sroa.8.8.insert.mask311, %.sroa.8.8.insert.ext356
   %496 = sext i32 %482 to i64
-  %497 = getelementptr inbounds i8, ptr %.sroa.0.0380435, i64 %496
+  %497 = getelementptr inbounds i8, ptr %.sroa.0.0380434, i64 %496
   %498 = load i8, ptr %497, align 1
   %499 = zext i8 %498 to i16
   br label %stbtt__buf_get8.exit24.i
@@ -14349,7 +14349,7 @@ stbtt__buf_get8.exit24.i:                         ; preds = %494, %492
   %.sroa.8.8.insert.ext352 = zext i32 %506 to i64
   %.sroa.8.8.insert.insert354 = or disjoint i64 %.sroa.8.8.insert.mask311, %.sroa.8.8.insert.ext352
   %507 = sext i32 %482 to i64
-  %508 = getelementptr inbounds i8, ptr %.sroa.0.0380435, i64 %507
+  %508 = getelementptr inbounds i8, ptr %.sroa.0.0380434, i64 %507
   %509 = load i8, ptr %508, align 1
   %510 = zext i8 %509 to i16
   br label %stbtt__buf_get8.exit27.i
@@ -14383,7 +14383,7 @@ stbtt__buf_get8.exit27.i:                         ; preds = %505, %504
   %.sroa.8.8.insert.mask349 = and i64 %.sroa.8.9, -4294967296
   %.sroa.8.8.insert.insert350 = or disjoint i64 %.sroa.8.8.insert.mask349, %.sroa.8.8.insert.ext348
   %519 = sext i32 %515 to i64
-  %520 = getelementptr inbounds i8, ptr %.sroa.0.0380435, i64 %519
+  %520 = getelementptr inbounds i8, ptr %.sroa.0.0380434, i64 %519
   %521 = load i8, ptr %520, align 1
   %522 = zext i8 %521 to i16
   br label %stbtt__buf_get8.exit.i.i298
@@ -14412,7 +14412,7 @@ stbtt__buf_get8.exit.i.i298:                      ; preds = %517, %.preheader
   %.sroa.8.8.insert.mask345 = and i64 %.sroa.8.7, -4294967296
   %.sroa.8.8.insert.insert346 = or disjoint i64 %.sroa.8.8.insert.mask345, %.sroa.8.8.insert.ext344
   %530 = sext i32 %526 to i64
-  %531 = getelementptr inbounds i8, ptr %.sroa.0.0380435, i64 %530
+  %531 = getelementptr inbounds i8, ptr %.sroa.0.0380434, i64 %530
   %532 = load i8, ptr %531, align 1
   %533 = zext i8 %532 to i16
   br label %stbtt__buf_get8.exit.i32.i292
@@ -14435,26 +14435,26 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
 538:                                              ; preds = %stbtt__cff_int.exit, %stbtt__buf_get.exit
   %.sroa.8.2 = phi i64 [ %.sroa.8.6, %stbtt__buf_get.exit ], [ %.sroa.8.13, %stbtt__cff_int.exit ]
   %.2251 = phi float [ %477, %stbtt__buf_get.exit ], [ %537, %stbtt__cff_int.exit ]
-  %539 = icmp sgt i32 %.0239439, 47
+  %539 = icmp sgt i32 %.0239438, 47
   br i1 %539, label %stbtt__buf_get8.exit278.thread, label %540
 
 540:                                              ; preds = %538
-  %541 = add nsw i32 %.0239439, 1
-  %542 = sext i32 %.0239439 to i64
+  %541 = add nsw i32 %.0239438, 1
+  %542 = sext i32 %.0239438 to i64
   %543 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %542
   store float %.2251, ptr %543, align 4
   br label %.thread
 
 .thread:                                          ; preds = %266, %.preheader406, %.preheader405, %243, %41, %47, %52, %63, %70, %95, %89, %130, %105, %199, %219, %392, %403, %418, %433, %540, %380, %376
-  %.1400 = phi i32 [ %.0232444, %540 ], [ %.0232444, %380 ], [ %.0232444, %376 ], [ 0, %41 ], [ %.0232444, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %70 ], [ %.0232444, %95 ], [ %.0232444, %89 ], [ %.0232444, %130 ], [ %.0232444, %105 ], [ %.0232444, %199 ], [ %.0232444, %219 ], [ %.0232444, %392 ], [ %.0232444, %403 ], [ %.0232444, %418 ], [ %.0232444, %433 ], [ %.0232444, %243 ], [ %.0232444, %.preheader405 ], [ %.0232444, %.preheader406 ], [ %.0232444, %266 ]
-  %.2399 = phi i32 [ %.0233443, %540 ], [ %.0233443, %380 ], [ %.0233443, %376 ], [ %.1234, %41 ], [ %49, %47 ], [ %.0233443, %52 ], [ %.0233443, %63 ], [ %.0233443, %70 ], [ %.0233443, %95 ], [ %.0233443, %89 ], [ %.0233443, %130 ], [ %.0233443, %105 ], [ %.0233443, %199 ], [ %.0233443, %219 ], [ %.0233443, %392 ], [ %.0233443, %403 ], [ %.0233443, %418 ], [ %.0233443, %433 ], [ %.0233443, %243 ], [ %.0233443, %.preheader405 ], [ %.0233443, %.preheader406 ], [ %.0233443, %266 ]
-  %.1238398 = phi i32 [ %.0237442, %540 ], [ %381, %380 ], [ %349, %376 ], [ %.0237442, %41 ], [ %.0237442, %47 ], [ %.0237442, %52 ], [ %.0237442, %63 ], [ %.0237442, %70 ], [ %.0237442, %95 ], [ %.0237442, %89 ], [ %.0237442, %130 ], [ %.0237442, %105 ], [ %.0237442, %199 ], [ %.0237442, %219 ], [ %.0237442, %392 ], [ %.0237442, %403 ], [ %.0237442, %418 ], [ %.0237442, %433 ], [ %.0237442, %243 ], [ %.0237442, %.preheader405 ], [ %.0237442, %.preheader406 ], [ %.0237442, %266 ]
-  %.2247397 = phi i32 [ %.0245438, %540 ], [ %.0245438, %380 ], [ %.1246, %376 ], [ %.0245438, %41 ], [ %.0245438, %47 ], [ %.0245438, %52 ], [ %.0245438, %63 ], [ %.0245438, %70 ], [ %.0245438, %95 ], [ %.0245438, %89 ], [ %.0245438, %130 ], [ %.0245438, %105 ], [ %.0245438, %199 ], [ %.0245438, %219 ], [ %.0245438, %392 ], [ %.0245438, %403 ], [ %.0245438, %418 ], [ %.0245438, %433 ], [ %.0245438, %243 ], [ %.0245438, %.preheader405 ], [ %.0245438, %.preheader406 ], [ %.0245438, %266 ]
-  %.sroa.373.2396 = phi i64 [ %.sroa.373.0437, %540 ], [ %.sroa.373.0437, %380 ], [ %.sroa.373.1, %376 ], [ %.sroa.373.0437, %41 ], [ %.sroa.373.0437, %47 ], [ %.sroa.373.0437, %52 ], [ %.sroa.373.0437, %63 ], [ %.sroa.373.0437, %70 ], [ %.sroa.373.0437, %95 ], [ %.sroa.373.0437, %89 ], [ %.sroa.373.0437, %130 ], [ %.sroa.373.0437, %105 ], [ %.sroa.373.0437, %199 ], [ %.sroa.373.0437, %219 ], [ %.sroa.373.0437, %392 ], [ %.sroa.373.0437, %403 ], [ %.sroa.373.0437, %418 ], [ %.sroa.373.0437, %433 ], [ %.sroa.373.0437, %243 ], [ %.sroa.373.0437, %.preheader405 ], [ %.sroa.373.0437, %.preheader406 ], [ %.sroa.373.0437, %266 ]
-  %.sroa.072.2395 = phi ptr [ %.sroa.072.0436, %540 ], [ %.sroa.072.0436, %380 ], [ %.sroa.072.1, %376 ], [ %.sroa.072.0436, %41 ], [ %.sroa.072.0436, %47 ], [ %.sroa.072.0436, %52 ], [ %.sroa.072.0436, %63 ], [ %.sroa.072.0436, %70 ], [ %.sroa.072.0436, %95 ], [ %.sroa.072.0436, %89 ], [ %.sroa.072.0436, %130 ], [ %.sroa.072.0436, %105 ], [ %.sroa.072.0436, %199 ], [ %.sroa.072.0436, %219 ], [ %.sroa.072.0436, %392 ], [ %.sroa.072.0436, %403 ], [ %.sroa.072.0436, %418 ], [ %.sroa.072.0436, %433 ], [ %.sroa.072.0436, %243 ], [ %.sroa.072.0436, %.preheader405 ], [ %.sroa.072.0436, %.preheader406 ], [ %.sroa.072.0436, %266 ]
-  %.sroa.0.1394 = phi ptr [ %.sroa.0.0380435, %540 ], [ %.sroa.0.0.copyload305, %380 ], [ %377, %376 ], [ %.sroa.0.0380435, %41 ], [ %.sroa.0.0380435, %47 ], [ %.sroa.0.0380435, %52 ], [ %.sroa.0.0380435, %63 ], [ %.sroa.0.0380435, %70 ], [ %.sroa.0.0380435, %95 ], [ %.sroa.0.0380435, %89 ], [ %.sroa.0.0380435, %130 ], [ %.sroa.0.0380435, %105 ], [ %.sroa.0.0380435, %199 ], [ %.sroa.0.0380435, %219 ], [ %.sroa.0.0380435, %392 ], [ %.sroa.0.0380435, %403 ], [ %.sroa.0.0380435, %418 ], [ %.sroa.0.0380435, %433 ], [ %.sroa.0.0380435, %243 ], [ %.sroa.0.0380435, %.preheader405 ], [ %.sroa.0.0380435, %.preheader406 ], [ %.sroa.0.0380435, %266 ]
+  %.1400 = phi i32 [ %.0232443, %540 ], [ %.0232443, %380 ], [ %.0232443, %376 ], [ 0, %41 ], [ %.0232443, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %70 ], [ %.0232443, %95 ], [ %.0232443, %89 ], [ %.0232443, %130 ], [ %.0232443, %105 ], [ %.0232443, %199 ], [ %.0232443, %219 ], [ %.0232443, %392 ], [ %.0232443, %403 ], [ %.0232443, %418 ], [ %.0232443, %433 ], [ %.0232443, %243 ], [ %.0232443, %.preheader405 ], [ %.0232443, %.preheader406 ], [ %.0232443, %266 ]
+  %.2399 = phi i32 [ %.0233442, %540 ], [ %.0233442, %380 ], [ %.0233442, %376 ], [ %.1234, %41 ], [ %49, %47 ], [ %.0233442, %52 ], [ %.0233442, %63 ], [ %.0233442, %70 ], [ %.0233442, %95 ], [ %.0233442, %89 ], [ %.0233442, %130 ], [ %.0233442, %105 ], [ %.0233442, %199 ], [ %.0233442, %219 ], [ %.0233442, %392 ], [ %.0233442, %403 ], [ %.0233442, %418 ], [ %.0233442, %433 ], [ %.0233442, %243 ], [ %.0233442, %.preheader405 ], [ %.0233442, %.preheader406 ], [ %.0233442, %266 ]
+  %.1238398 = phi i32 [ %.0237441, %540 ], [ %381, %380 ], [ %349, %376 ], [ %.0237441, %41 ], [ %.0237441, %47 ], [ %.0237441, %52 ], [ %.0237441, %63 ], [ %.0237441, %70 ], [ %.0237441, %95 ], [ %.0237441, %89 ], [ %.0237441, %130 ], [ %.0237441, %105 ], [ %.0237441, %199 ], [ %.0237441, %219 ], [ %.0237441, %392 ], [ %.0237441, %403 ], [ %.0237441, %418 ], [ %.0237441, %433 ], [ %.0237441, %243 ], [ %.0237441, %.preheader405 ], [ %.0237441, %.preheader406 ], [ %.0237441, %266 ]
+  %.2247397 = phi i32 [ %.0245437, %540 ], [ %.0245437, %380 ], [ %.1246, %376 ], [ %.0245437, %41 ], [ %.0245437, %47 ], [ %.0245437, %52 ], [ %.0245437, %63 ], [ %.0245437, %70 ], [ %.0245437, %95 ], [ %.0245437, %89 ], [ %.0245437, %130 ], [ %.0245437, %105 ], [ %.0245437, %199 ], [ %.0245437, %219 ], [ %.0245437, %392 ], [ %.0245437, %403 ], [ %.0245437, %418 ], [ %.0245437, %433 ], [ %.0245437, %243 ], [ %.0245437, %.preheader405 ], [ %.0245437, %.preheader406 ], [ %.0245437, %266 ]
+  %.sroa.373.2396 = phi i64 [ %.sroa.373.0436, %540 ], [ %.sroa.373.0436, %380 ], [ %.sroa.373.1, %376 ], [ %.sroa.373.0436, %41 ], [ %.sroa.373.0436, %47 ], [ %.sroa.373.0436, %52 ], [ %.sroa.373.0436, %63 ], [ %.sroa.373.0436, %70 ], [ %.sroa.373.0436, %95 ], [ %.sroa.373.0436, %89 ], [ %.sroa.373.0436, %130 ], [ %.sroa.373.0436, %105 ], [ %.sroa.373.0436, %199 ], [ %.sroa.373.0436, %219 ], [ %.sroa.373.0436, %392 ], [ %.sroa.373.0436, %403 ], [ %.sroa.373.0436, %418 ], [ %.sroa.373.0436, %433 ], [ %.sroa.373.0436, %243 ], [ %.sroa.373.0436, %.preheader405 ], [ %.sroa.373.0436, %.preheader406 ], [ %.sroa.373.0436, %266 ]
+  %.sroa.072.2395 = phi ptr [ %.sroa.072.0435, %540 ], [ %.sroa.072.0435, %380 ], [ %.sroa.072.1, %376 ], [ %.sroa.072.0435, %41 ], [ %.sroa.072.0435, %47 ], [ %.sroa.072.0435, %52 ], [ %.sroa.072.0435, %63 ], [ %.sroa.072.0435, %70 ], [ %.sroa.072.0435, %95 ], [ %.sroa.072.0435, %89 ], [ %.sroa.072.0435, %130 ], [ %.sroa.072.0435, %105 ], [ %.sroa.072.0435, %199 ], [ %.sroa.072.0435, %219 ], [ %.sroa.072.0435, %392 ], [ %.sroa.072.0435, %403 ], [ %.sroa.072.0435, %418 ], [ %.sroa.072.0435, %433 ], [ %.sroa.072.0435, %243 ], [ %.sroa.072.0435, %.preheader405 ], [ %.sroa.072.0435, %.preheader406 ], [ %.sroa.072.0435, %266 ]
+  %.sroa.0.1394 = phi ptr [ %.sroa.0.0380434, %540 ], [ %.sroa.0.0.copyload305, %380 ], [ %377, %376 ], [ %.sroa.0.0380434, %41 ], [ %.sroa.0.0380434, %47 ], [ %.sroa.0.0380434, %52 ], [ %.sroa.0.0380434, %63 ], [ %.sroa.0.0380434, %70 ], [ %.sroa.0.0380434, %95 ], [ %.sroa.0.0380434, %89 ], [ %.sroa.0.0380434, %130 ], [ %.sroa.0.0380434, %105 ], [ %.sroa.0.0380434, %199 ], [ %.sroa.0.0380434, %219 ], [ %.sroa.0.0380434, %392 ], [ %.sroa.0.0380434, %403 ], [ %.sroa.0.0380434, %418 ], [ %.sroa.0.0380434, %433 ], [ %.sroa.0.0380434, %243 ], [ %.sroa.0.0380434, %.preheader405 ], [ %.sroa.0.0380434, %.preheader406 ], [ %.sroa.0.0380434, %266 ]
   %.sroa.8.1393 = phi i64 [ %.sroa.8.2, %540 ], [ %.sroa.8.0.copyload307, %380 ], [ %.sroa.8.8.insert.mask, %376 ], [ %.sroa.8.8.insert.insert318, %41 ], [ %.sroa.8.8.insert.insert312, %47 ], [ %.sroa.8.8.insert.insert312, %52 ], [ %.sroa.8.8.insert.insert312, %63 ], [ %.sroa.8.8.insert.insert312, %70 ], [ %.sroa.8.8.insert.insert312, %95 ], [ %.sroa.8.8.insert.insert312, %89 ], [ %.sroa.8.8.insert.insert312, %130 ], [ %.sroa.8.8.insert.insert312, %105 ], [ %.sroa.8.8.insert.insert312, %199 ], [ %.sroa.8.8.insert.insert312, %219 ], [ %.sroa.8.8.insert.insert324, %392 ], [ %.sroa.8.8.insert.insert324, %403 ], [ %.sroa.8.8.insert.insert324, %418 ], [ %.sroa.8.8.insert.insert324, %433 ], [ %.sroa.8.8.insert.insert312, %243 ], [ %.sroa.8.8.insert.insert312, %.preheader405 ], [ %.sroa.8.8.insert.insert312, %.preheader406 ], [ %.sroa.8.8.insert.insert312, %266 ]
-  %544 = phi i32 [ %541, %540 ], [ %.0239439, %380 ], [ %342, %376 ], [ 0, %41 ], [ 0, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %70 ], [ 0, %95 ], [ 0, %89 ], [ 0, %130 ], [ 0, %105 ], [ 0, %199 ], [ 0, %219 ], [ 0, %392 ], [ 0, %403 ], [ 0, %418 ], [ 0, %433 ], [ 0, %243 ], [ 0, %.preheader405 ], [ 0, %.preheader406 ], [ 0, %266 ]
+  %544 = phi i32 [ %541, %540 ], [ %.0239438, %380 ], [ %342, %376 ], [ 0, %41 ], [ 0, %47 ], [ 0, %52 ], [ 0, %63 ], [ 0, %70 ], [ 0, %95 ], [ 0, %89 ], [ 0, %130 ], [ 0, %105 ], [ 0, %199 ], [ 0, %219 ], [ 0, %392 ], [ 0, %403 ], [ 0, %418 ], [ 0, %433 ], [ 0, %243 ], [ 0, %.preheader405 ], [ 0, %.preheader406 ], [ 0, %266 ]
   %.sroa.8.8.extract.trunc = trunc i64 %.sroa.8.1393 to i32
   %.sroa.8.12.extract.shift360 = lshr i64 %.sroa.8.1393, 32
   %.sroa.8.12.extract.trunc361 = trunc nuw i64 %.sroa.8.12.extract.shift360 to i32

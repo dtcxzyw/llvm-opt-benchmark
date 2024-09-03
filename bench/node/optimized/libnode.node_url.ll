@@ -4228,9 +4228,9 @@ if.end:                                           ; preds = %entry
 for.cond.preheader:                               ; preds = %if.end
   %invariant.gep = getelementptr i8, ptr %3, i64 1
   %cmp1028 = icmp ugt i64 %2, 2
-  br i1 %cmp1028, label %for.body.lr.ph, label %for.end
+  br i1 %cmp1028, label %for.body.preheader, label %for.end
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
+for.body.preheader:                               ; preds = %for.cond.preheader
   %5 = add i64 %2, -3
   br label %for.body
 
@@ -4245,10 +4245,10 @@ if.then5:                                         ; preds = %if.end
   store i8 0, ptr %_M_engaged.i.i.i.i.i14, align 8
   br label %return
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %add31 = phi i64 [ 2, %for.body.lr.ph ], [ %add.reass, %for.inc ]
-  %first_percent.030 = phi i64 [ -1, %for.body.lr.ph ], [ %first_percent.1, %for.inc ]
-  %i.029 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %add31 = phi i64 [ %add.reass, %for.inc ], [ 2, %for.body.preheader ]
+  %first_percent.030 = phi i64 [ %first_percent.1, %for.inc ], [ -1, %for.body.preheader ]
+  %i.029 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %i.029
   %7 = load i8, ptr %add.ptr.i, align 1
   %cmp13.not = icmp eq i8 %7, 37

@@ -3936,7 +3936,7 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_reques
 
 .lr.ph.i.i19.i.us.i:                              ; preds = %.lr.ph.i.i19.i.preheader.i, %.lr.ph.i.i19.i.us.i
   %.011.i.i20.i.us.i = phi i32 [ %60, %.lr.ph.i.i19.i.us.i ], [ 0, %.lr.ph.i.i19.i.preheader.i ]
-  %.0910.i.i21.i.us.i = phi i32 [ %.reass23.i, %.lr.ph.i.i19.i.us.i ], [ %40, %.lr.ph.i.i19.i.preheader.i ]
+  %.0910.i.i21.i.us.i = phi i32 [ %.reass22.i, %.lr.ph.i.i19.i.us.i ], [ %40, %.lr.ph.i.i19.i.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %47 = load i32, ptr @ett_kafka_partition, align 4
   %48 = call ptr @proto_tree_add_subtree(ptr noundef %38, ptr noundef %0, i32 noundef %.0910.i.i21.i.us.i, i32 noundef -1, i32 noundef %47, ptr noundef nonnull %6, ptr noundef nonnull @.str.549) #6
@@ -3949,9 +3949,9 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_reques
   %55 = add i32 %.0910.i.i21.i.us.i, 8
   %56 = load i32, ptr @hf_kafka_leader_epoch, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #6
-  %.reass23.i = add i32 %.0910.i.i21.i.us.i, 12
+  %.reass22.i = add i32 %.0910.i.i21.i.us.i, 12
   %58 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %58, ptr noundef %0, i32 noundef %.reass23.i) #6
+  call void @proto_item_set_end(ptr noundef %58, ptr noundef %0, i32 noundef %.reass22.i) #6
   %59 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %59, ptr noundef nonnull @.str.550, i32 noundef %49) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3982,7 +3982,7 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_reques
   br i1 %exitcond.not.i.i22.i.i, label %dissect_kafka_offset_for_leader_epoch_request_topic.exit, label %.lr.ph.i.i19.i.i, !llvm.loop !6
 
 dissect_kafka_offset_for_leader_epoch_request_topic.exit: ; preds = %.lr.ph.i.i19.i.i, %.lr.ph.i.i19.i.us.i, %42, %45
-  %.0.i.i = phi i32 [ %40, %42 ], [ %40, %45 ], [ %.reass23.i, %.lr.ph.i.i19.i.us.i ], [ %.reass.i, %.lr.ph.i.i19.i.i ]
+  %.0.i.i = phi i32 [ %40, %42 ], [ %40, %45 ], [ %.reass22.i, %.lr.ph.i.i19.i.us.i ], [ %.reass.i, %.lr.ph.i.i19.i.i ]
   %72 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %72, ptr noundef %0, i32 noundef %.0.i.i) #6
   %73 = load ptr, ptr %9, align 8

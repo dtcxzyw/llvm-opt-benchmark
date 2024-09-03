@@ -2941,8 +2941,8 @@ _ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures14calculateBendsERK10
 .preheader317.i.i:                                ; preds = %._crit_edge.i78.i, %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures14calculateBendsERK10t_trxframePK5t_pbc.exit.i
   %.val121178.pre.i233.i = phi ptr [ %.val81385.i.i, %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures14calculateBendsERK10t_trxframePK5t_pbc.exit.i ], [ %.val81.i79.i, %._crit_edge.i78.i ]
   %.val177.pre.i231.i = phi ptr [ %.val384.i.i, %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures14calculateBendsERK10t_trxframePK5t_pbc.exit.i ], [ %.val.i80.i, %._crit_edge.i78.i ]
-  %.pre-phi479.i.i = phi i64 [ %424, %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures14calculateBendsERK10t_trxframePK5t_pbc.exit.i ], [ %.pre-phi475.i.i, %._crit_edge.i78.i ]
-  %427 = icmp ugt i64 %.pre-phi479.i.i, 2
+  %.pre-phi478.i.i = phi i64 [ %424, %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures14calculateBendsERK10t_trxframePK5t_pbc.exit.i ], [ %.pre-phi474.i.i, %._crit_edge.i78.i ]
+  %427 = icmp ugt i64 %.pre-phi478.i.i, 2
   br i1 %427, label %.preheader316.lr.ph.i.i, label %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures32analyzeBridgesAndStrandsPatternsEv.exit.i
 
 .preheader316.lr.ph.i.i:                          ; preds = %.preheader317.i.i
@@ -2950,12 +2950,12 @@ _ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures14calculateBendsERK10
   br label %.preheader316.i.i
 
 429:                                              ; preds = %._crit_edge.i78.i, %.lr.ph389.i.i
-  %.val81458.i.i = phi ptr [ %.val81385.i.i, %.lr.ph389.i.i ], [ %.val81.i79.i, %._crit_edge.i78.i ]
-  %.val456.i.i = phi ptr [ %.val384.i.i, %.lr.ph389.i.i ], [ %.val.i80.i, %._crit_edge.i78.i ]
+  %.val81457.i.i = phi ptr [ %.val81385.i.i, %.lr.ph389.i.i ], [ %.val81.i79.i, %._crit_edge.i78.i ]
+  %.val455.i.i = phi ptr [ %.val384.i.i, %.lr.ph389.i.i ], [ %.val.i80.i, %._crit_edge.i78.i ]
   %.070386.i.i = phi i64 [ 1, %.lr.ph389.i.i ], [ %435, %._crit_edge.i78.i ]
   %.reass.i77.i = add nuw i64 %.070386.i.i, 4
-  %430 = ptrtoint ptr %.val81458.i.i to i64
-  %431 = ptrtoint ptr %.val456.i.i to i64
+  %430 = ptrtoint ptr %.val81457.i.i to i64
+  %431 = ptrtoint ptr %.val455.i.i to i64
   %432 = sub i64 %430, %431
   %433 = sdiv exact i64 %432, 112
   %434 = icmp ult i64 %.reass.i77.i, %433
@@ -2968,7 +2968,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures14calculateBendsERK10
   br label %438
 
 438:                                              ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i, %.lr.ph.split.preheader.i.i
-  %.val82383.i.i = phi ptr [ %.val82.i83.i, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ], [ %.val456.i.i, %.lr.ph.split.preheader.i.i ]
+  %.val82383.i.i = phi ptr [ %.val82.i83.i, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ], [ %.val455.i.i, %.lr.ph.split.preheader.i.i ]
   %439 = phi i64 [ %769, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ], [ %.reass.i77.i, %.lr.ph.split.preheader.i.i ]
   %.071382.i.i = phi i64 [ %439, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ], [ %437, %.lr.ph.split.preheader.i.i ]
   %.val40.i.i.i = load ptr, ptr %39, align 8, !noalias !16
@@ -3176,7 +3176,7 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm
   br i1 %548, label %553, label %549
 
 549:                                              ; preds = %545, %.split.i199.i.i
-  br i1 %541, label %.split.i199.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.loopexit443.i.i, !llvm.loop !32
+  br i1 %541, label %.split.i199.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.loopexit442.i.i, !llvm.loop !32
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.i.i: ; preds = %.thread246.i.i
   %550 = getelementptr inbounds i8, ptr %530, i64 88
@@ -3185,8 +3185,8 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm
   br i1 %552, label %.split.us.i194.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204..thread271_crit_edge.i.i
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204..thread271_crit_edge.i.i: ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.i.i
-  %.phi.trans.insert453.i.i = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val40.i.i.i, i64 %458, i32 2
-  %.pre454.i.i = load ptr, ptr %.phi.trans.insert453.i.i, align 8, !noalias !16
+  %.phi.trans.insert452.i.i = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val40.i.i.i, i64 %458, i32 2
+  %.pre453.i.i = load ptr, ptr %.phi.trans.insert452.i.i, align 8, !noalias !16
   br label %.thread271.i.i
 
 553:                                              ; preds = %545
@@ -3198,8 +3198,8 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm
 
 .split.us.i194.i.i:                               ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.i.i, %.thread246.i.i
   %558 = getelementptr inbounds i8, ptr %473, i64 80
-  %.in436.i.i = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val40.i.i.i, i64 %458, i32 2
-  %559 = load ptr, ptr %.in436.i.i, align 8, !noalias !16
+  %.in435.i.i = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val40.i.i.i, i64 %458, i32 2
+  %559 = load ptr, ptr %.in435.i.i, align 8, !noalias !16
   %560 = load ptr, ptr %558, align 8, !noalias !16
   %561 = icmp eq ptr %560, %559
   br i1 %561, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit212.thread.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit196.i.i
@@ -3228,17 +3228,17 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm
   br i1 %573, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit212.thread.i.i, label %.thread271.i.i
 
 .thread271.i.i:                                   ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit196.i.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204..thread271_crit_edge.i.i
-  %574 = phi ptr [ %.pre454.i.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204..thread271_crit_edge.i.i ], [ %559, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit196.i.i ]
+  %574 = phi ptr [ %.pre453.i.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204..thread271_crit_edge.i.i ], [ %559, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit196.i.i ]
   %575 = icmp eq ptr %495, %574
   br i1 %575, label %.split.us.i178.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit188.i.i
 
-_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.loopexit443.i.i: ; preds = %549
+_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.loopexit442.i.i: ; preds = %549
   %.phi.trans.insert.i.i = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val40.i.i.i, i64 %458, i32 2
   %.pre.i85.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !noalias !16
   br label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.i.i
 
-_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.i.i: ; preds = %570, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.loopexit443.i.i
-  %576 = phi ptr [ %.pre.i85.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.loopexit443.i.i ], [ %556, %570 ]
+_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.i.i: ; preds = %570, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.loopexit442.i.i
+  %576 = phi ptr [ %.pre.i85.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.loopexit442.i.i ], [ %556, %570 ]
   br label %.split.i183.i.i
 
 .split.i183.i.i:                                  ; preds = %585, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit204.thread251.i.i
@@ -3270,8 +3270,8 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm
   br label %.split.i175.i.i
 
 .split.us.i178.i.i:                               ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit188.i.i, %.thread271.i.i
-  %.in437.i.i = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val40.i.i.i, i64 %436, i32 2
-  %592 = load ptr, ptr %.in437.i.i, align 8, !noalias !16
+  %.in436.i.i = getelementptr inbounds %"struct.gmx::analysismodules::(anonymous namespace)::ResInfo", ptr %.val40.i.i.i, i64 %436, i32 2
+  %592 = load ptr, ptr %.in436.i.i, align 8, !noalias !16
   %593 = icmp eq ptr %534, %592
   br i1 %593, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15calculateBridgeEmm.exit.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures15hasHBondBetweenEmm.exit180.i.i
 
@@ -3668,27 +3668,27 @@ _ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_1
   br i1 %774, label %438, label %._crit_edge.i78.i, !llvm.loop !33
 
 ._crit_edge.i78.i:                                ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i, %429
-  %.pre-phi475.i.i = phi i64 [ %433, %429 ], [ %773, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ]
-  %.val81.i79.i = phi ptr [ %.val81458.i.i, %429 ], [ %.val83.i.i, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ]
-  %.val.i80.i = phi ptr [ %.val456.i.i, %429 ], [ %.val82.i83.i, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ]
-  %.reass391.i.i = add nuw i64 %.070386.i.i, 5
-  %775 = icmp ult i64 %.reass391.i.i, %.pre-phi475.i.i
+  %.pre-phi474.i.i = phi i64 [ %433, %429 ], [ %773, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ]
+  %.val81.i79.i = phi ptr [ %.val81457.i.i, %429 ], [ %.val83.i.i, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ]
+  %.val.i80.i = phi ptr [ %.val455.i.i, %429 ], [ %.val82.i83.i, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_11BridgeTypesE.exit119.i.i ]
+  %.reass390.i.i = add nuw i64 %.070386.i.i, 5
+  %775 = icmp ult i64 %.reass390.i.i, %.pre-phi474.i.i
   br i1 %775, label %429, label %.preheader317.i.i, !llvm.loop !34
 
 .preheader316.i.i:                                ; preds = %.critedge.i.i, %.preheader316.lr.ph.i.i
   %776 = phi i64 [ 2, %.preheader316.lr.ph.i.i ], [ %880, %.critedge.i.i ]
-  %.072429.i.i = phi i64 [ 1, %.preheader316.lr.ph.i.i ], [ %776, %.critedge.i.i ]
-  %777 = add i64 %.072429.i.i, -1
+  %.072428.i.i = phi i64 [ 1, %.preheader316.lr.ph.i.i ], [ %776, %.critedge.i.i ]
+  %777 = add i64 %.072428.i.i, -1
   br label %779
 
 .preheader.i70.i:                                 ; preds = %.critedge.i.i
-  %778 = icmp ugt i64 %.pre-phi487.i.i, 2
-  br i1 %778, label %.lr.ph434.i.i, label %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures32analyzeBridgesAndStrandsPatternsEv.exit.i
+  %778 = icmp ugt i64 %.pre-phi486.i.i, 2
+  br i1 %778, label %.lr.ph433.i.i, label %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures32analyzeBridgesAndStrandsPatternsEv.exit.i
 
 779:                                              ; preds = %878, %.preheader316.i.i
   %indvars.iv.i.i = phi i64 [ 2, %.preheader316.i.i ], [ %indvars.iv.next.i.i, %878 ]
-  %.073420.i.i = phi i64 [ 1, %.preheader316.i.i ], [ %879, %878 ]
-  %780 = add nuw i64 %.073420.i.i, %.072429.i.i
+  %.073419.i.i = phi i64 [ 1, %.preheader316.i.i ], [ %879, %878 ]
+  %780 = add nuw i64 %.073419.i.i, %.072428.i.i
   %.val86.i.i = load ptr, ptr %21, align 8, !noalias !16
   %.val87.i.i = load ptr, ptr %420, align 8, !noalias !16
   %781 = ptrtoint ptr %.val87.i.i to i64
@@ -3708,8 +3708,8 @@ _ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_1
   br label %789
 
 789:                                              ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetweenEmm.exit.i.i, %786
-  %.074.idx413.i.i = phi i64 [ 0, %786 ], [ %.074.add.i.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetweenEmm.exit.i.i ]
-  %.074.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %.074.idx413.i.i
+  %.074.idx412.i.i = phi i64 [ 0, %786 ], [ %.074.add.i.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetweenEmm.exit.i.i ]
+  %.074.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %.074.idx412.i.i
   %.val94.i.i = load ptr, ptr %21, align 8, !noalias !16
   %790 = load i64, ptr %.074.ptr.i.i, align 8, !noalias !16
   %791 = add i64 %790, -1
@@ -3721,7 +3721,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData9setBridgeEmNS1_1
   unreachable
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10hasBridgesENS1_11BridgeTypesE.exit.i.i: ; preds = %789
-  %793 = getelementptr inbounds %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val94.i.i, i64 %.072429.i.i
+  %793 = getelementptr inbounds %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val94.i.i, i64 %.072428.i.i
   %794 = icmp eq i64 %790, 2
   %..i.i.i = select i1 %794, i64 16, i64 40
   %.9.i.i.i = select i1 %794, i64 24, i64 48
@@ -3800,7 +3800,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_
   %833 = ptrtoint ptr %796 to i64
   %834 = sub i64 %832, %833
   %.not.i.i.i.i149.i.i = icmp eq ptr %831, %796
-  br i1 %.not.i.i.i.i149.i.i, label %.thread507.i.i, label %835
+  br i1 %.not.i.i.i.i149.i.i, label %.thread506.i.i, label %835
 
 835:                                              ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_11BridgeTypesE.exit.i.i
   %836 = icmp ugt i64 %834, 9223372036854775800
@@ -3812,20 +3812,20 @@ _ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_
 
 837:                                              ; preds = %835
   %838 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %834) #27, !noalias !16
-  %.pre461.i.i = load ptr, ptr %795, align 8, !noalias !16
-  %.pre462.i.i = load ptr, ptr %830, align 8, !noalias !16
-  %.pre492.i.i = ptrtoint ptr %.pre462.i.i to i64
-  %.pre494.i.i = ptrtoint ptr %.pre461.i.i to i64
-  %839 = sub i64 %.pre492.i.i, %.pre494.i.i
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre462.i.i, %.pre461.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %.thread507.i.i, label %840
+  %.pre460.i.i = load ptr, ptr %795, align 8, !noalias !16
+  %.pre461.i.i = load ptr, ptr %830, align 8, !noalias !16
+  %.pre491.i.i = ptrtoint ptr %.pre461.i.i to i64
+  %.pre493.i.i = ptrtoint ptr %.pre460.i.i to i64
+  %839 = sub i64 %.pre491.i.i, %.pre493.i.i
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre461.i.i, %.pre460.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %.thread506.i.i, label %840
 
 840:                                              ; preds = %837
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %838, ptr align 8 %.pre461.i.i, i64 %839, i1 false), !noalias !16
-  br label %.thread507.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %838, ptr align 8 %.pre460.i.i, i64 %839, i1 false), !noalias !16
+  br label %.thread506.i.i
 
-.thread507.i.i:                                   ; preds = %840, %837, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_11BridgeTypesE.exit.i.i
-  %.not.i.i.i.i.i.i.i.i.i511.i.i = phi i1 [ true, %837 ], [ false, %840 ], [ true, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_11BridgeTypesE.exit.i.i ]
+.thread506.i.i:                                   ; preds = %840, %837, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_11BridgeTypesE.exit.i.i
+  %.not.i.i.i.i.i.i.i.i.i510.i.i = phi i1 [ true, %837 ], [ false, %840 ], [ true, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_11BridgeTypesE.exit.i.i ]
   %841 = phi i64 [ %839, %837 ], [ %839, %840 ], [ 0, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_11BridgeTypesE.exit.i.i ]
   %842 = phi ptr [ %838, %837 ], [ %838, %840 ], [ null, %_ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_11BridgeTypesE.exit.i.i ]
   %843 = getelementptr inbounds i8, ptr %842, i64 %841
@@ -3838,7 +3838,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10getBridgesENS1_
   %.not.i.i.i.i154.i.i = icmp eq ptr %845, %846
   br i1 %.not.i.i.i.i154.i.i, label %.noexc159.i.i, label %850
 
-850:                                              ; preds = %.thread507.i.i
+850:                                              ; preds = %.thread506.i.i
   %851 = icmp ugt i64 %849, 9223372036854775800
   br i1 %851, label %.noexc.i.i157.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155.i.i
 
@@ -3854,35 +3854,35 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155.i.i: ; preds = %85
           to label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i unwind label %.loopexit315.i.i, !noalias !16
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155.i.i
-  %.pre463.i.i = load ptr, ptr %800, align 8, !noalias !16
-  %.pre464.i.i = load ptr, ptr %844, align 8, !noalias !16
-  %.pre496.i.i = ptrtoint ptr %.pre464.i.i to i64
-  %.pre498.i.i = ptrtoint ptr %.pre463.i.i to i64
-  %.pre500.i.i = sub i64 %.pre496.i.i, %.pre498.i.i
+  %.pre462.i.i = load ptr, ptr %800, align 8, !noalias !16
+  %.pre463.i.i = load ptr, ptr %844, align 8, !noalias !16
+  %.pre495.i.i = ptrtoint ptr %.pre463.i.i to i64
+  %.pre497.i.i = ptrtoint ptr %.pre462.i.i to i64
+  %.pre499.i.i = sub i64 %.pre495.i.i, %.pre497.i.i
   br label %.noexc159.i.i
 
-.noexc159.i.i:                                    ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i, %.thread507.i.i
-  %.pre-phi501.i.i = phi i64 [ %.pre500.i.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i ], [ %849, %.thread507.i.i ]
-  %853 = phi ptr [ %.pre464.i.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i ], [ %845, %.thread507.i.i ]
-  %854 = phi ptr [ %.pre463.i.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i ], [ %846, %.thread507.i.i ]
-  %855 = phi ptr [ %852, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i ], [ null, %.thread507.i.i ]
+.noexc159.i.i:                                    ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i, %.thread506.i.i
+  %.pre-phi500.i.i = phi i64 [ %.pre499.i.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i ], [ %849, %.thread506.i.i ]
+  %853 = phi ptr [ %.pre463.i.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i ], [ %845, %.thread506.i.i ]
+  %854 = phi ptr [ %.pre462.i.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i ], [ %846, %.thread506.i.i ]
+  %855 = phi ptr [ %852, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edge.i.i ], [ null, %.thread506.i.i ]
   %.not.i.i.i.i.i.i.i.i.i156.i.i = icmp eq ptr %853, %854
-  br i1 %.not.i.i.i.i.i.i.i.i.i156.i.i, label %._crit_edge406.i.i, label %.thread512.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i156.i.i, label %._crit_edge405.i.i, label %.thread511.i.i
 
-.thread512.i.i:                                   ; preds = %.noexc159.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %855, ptr align 8 %854, i64 %.pre-phi501.i.i, i1 false), !noalias !16
-  %856 = getelementptr inbounds i8, ptr %855, i64 %.pre-phi501.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i511.i.i, label %._crit_edge406.i.i, label %.lr.ph400.i.i
+.thread511.i.i:                                   ; preds = %.noexc159.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %855, ptr align 8 %854, i64 %.pre-phi500.i.i, i1 false), !noalias !16
+  %856 = getelementptr inbounds i8, ptr %855, i64 %.pre-phi500.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i510.i.i, label %._crit_edge405.i.i, label %.lr.ph399.i.i
 
-.lr.ph400.i.i:                                    ; preds = %.thread512.i.i, %._crit_edge401.i.i
-  %.sroa.0228.0403.i.i = phi ptr [ %875, %._crit_edge401.i.i ], [ %842, %.thread512.i.i ]
-  %857 = load i64, ptr %.sroa.0228.0403.i.i, align 8, !noalias !16
+.lr.ph399.i.i:                                    ; preds = %.thread511.i.i, %._crit_edge400.i.i
+  %.sroa.0228.0402.i.i = phi ptr [ %875, %._crit_edge400.i.i ], [ %842, %.thread511.i.i ]
+  %857 = load i64, ptr %.sroa.0228.0402.i.i, align 8, !noalias !16
   %858 = trunc i64 %857 to i32
   br label %859
 
-859:                                              ; preds = %.loopexit.i73.i, %.lr.ph400.i.i
-  %.sroa.0224.0398.i.i = phi ptr [ %855, %.lr.ph400.i.i ], [ %874, %.loopexit.i73.i ]
-  %860 = load i64, ptr %.sroa.0224.0398.i.i, align 8, !noalias !16
+859:                                              ; preds = %.loopexit.i73.i, %.lr.ph399.i.i
+  %.sroa.0224.0397.i.i = phi ptr [ %855, %.lr.ph399.i.i ], [ %874, %.loopexit.i73.i ]
+  %860 = load i64, ptr %.sroa.0224.0397.i.i, align 8, !noalias !16
   %861 = trunc i64 %860 to i32
   %862 = sub nsw i32 %858, %861
   %863 = call i32 @llvm.abs.i32(i32 %862, i1 true)
@@ -3893,12 +3893,12 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edg
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %858, i32 %861)
   %spec.select306.i.i = call i32 @llvm.smax.i32(i32 %858, i32 %861)
   %866 = sext i32 %spec.select306.i.i to i64
-  %.not79392.i.i = icmp ugt i32 %spec.select.i.i, %spec.select306.i.i
-  br i1 %.not79392.i.i, label %.preheader313.i.i.preheader, label %.lr.ph395.preheader.i.i
+  %.not79391.i.i = icmp ugt i32 %spec.select.i.i, %spec.select306.i.i
+  br i1 %.not79391.i.i, label %.preheader313.i.i.preheader, label %.lr.ph394.preheader.i.i
 
-.lr.ph395.preheader.i.i:                          ; preds = %865
+.lr.ph394.preheader.i.i:                          ; preds = %865
   %867 = sext i32 %spec.select.i.i to i64
-  br label %.lr.ph395.i.i
+  br label %.lr.ph394.i.i
 
 .loopexit315.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155.i.i
   %lpad.loopexit.i71.i = landingpad { ptr, i32 }
@@ -3915,47 +3915,47 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i155..noexc159_crit_edg
   %.not.i.i.i.i72.i = icmp eq ptr %842, null
   br i1 %.not.i.i.i.i72.i, label %common.resume, label %common.resume.sink.split.i
 
-.lr.ph395.i.i:                                    ; preds = %.lr.ph395.i.i, %.lr.ph395.preheader.i.i
-  %.069393.i.i = phi i64 [ %870, %.lr.ph395.i.i ], [ %867, %.lr.ph395.preheader.i.i ]
+.lr.ph394.i.i:                                    ; preds = %.lr.ph394.i.i, %.lr.ph394.preheader.i.i
+  %.069392.i.i = phi i64 [ %870, %.lr.ph394.i.i ], [ %867, %.lr.ph394.preheader.i.i ]
   %.val98.i.i = load ptr, ptr %21, align 8, !noalias !16
-  %869 = getelementptr inbounds %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val98.i.i, i64 %.069393.i.i, i32 3
+  %869 = getelementptr inbounds %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val98.i.i, i64 %.069392.i.i, i32 3
   store i64 7, ptr %869, align 8, !noalias !16
-  %870 = add i64 %.069393.i.i, 1
+  %870 = add i64 %.069392.i.i, 1
   %.not79.i.i = icmp ugt i64 %870, %866
-  br i1 %.not79.i.i, label %.preheader313.i.i.preheader, label %.lr.ph395.i.i, !llvm.loop !35
+  br i1 %.not79.i.i, label %.preheader313.i.i.preheader, label %.lr.ph394.i.i, !llvm.loop !35
 
-.preheader313.i.i.preheader:                      ; preds = %.lr.ph395.i.i, %865
+.preheader313.i.i.preheader:                      ; preds = %.lr.ph394.i.i, %865
   br label %.preheader313.i.i
 
 .preheader313.i.i:                                ; preds = %.preheader313.i.i.preheader, %.preheader313.i.i
-  %.068396.i.i = phi i64 [ %873, %.preheader313.i.i ], [ 0, %.preheader313.i.i.preheader ]
+  %.068395.i.i = phi i64 [ %873, %.preheader313.i.i ], [ 0, %.preheader313.i.i.preheader ]
   %.val99.i.i = load ptr, ptr %21, align 8, !noalias !16
-  %871 = getelementptr %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val99.i.i, i64 %.072429.i.i
-  %872 = getelementptr %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %871, i64 %.068396.i.i, i32 3
+  %871 = getelementptr %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val99.i.i, i64 %.072428.i.i
+  %872 = getelementptr %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %871, i64 %.068395.i.i, i32 3
   store i64 7, ptr %872, align 8, !noalias !16
-  %873 = add nuw nsw i64 %.068396.i.i, 1
+  %873 = add nuw nsw i64 %.068395.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %873, %indvars.iv.i.i
   br i1 %exitcond.not.i.i, label %.loopexit.i73.i, label %.preheader313.i.i, !llvm.loop !36
 
 .loopexit.i73.i:                                  ; preds = %.preheader313.i.i, %859
-  %874 = getelementptr inbounds i8, ptr %.sroa.0224.0398.i.i, i64 8
+  %874 = getelementptr inbounds i8, ptr %.sroa.0224.0397.i.i, i64 8
   %.not312.i.i = icmp eq ptr %874, %856
-  br i1 %.not312.i.i, label %._crit_edge401.i.i, label %859
+  br i1 %.not312.i.i, label %._crit_edge400.i.i, label %859
 
-._crit_edge401.i.i:                               ; preds = %.loopexit.i73.i
-  %875 = getelementptr inbounds i8, ptr %.sroa.0228.0403.i.i, i64 8
+._crit_edge400.i.i:                               ; preds = %.loopexit.i73.i
+  %875 = getelementptr inbounds i8, ptr %.sroa.0228.0402.i.i, i64 8
   %.not311.i.i = icmp eq ptr %875, %843
-  br i1 %.not311.i.i, label %._crit_edge406.i.i, label %.lr.ph400.i.i
+  br i1 %.not311.i.i, label %._crit_edge405.i.i, label %.lr.ph399.i.i
 
-._crit_edge406.i.i:                               ; preds = %._crit_edge401.i.i, %.thread512.i.i, %.noexc159.i.i
+._crit_edge405.i.i:                               ; preds = %._crit_edge400.i.i, %.thread511.i.i, %.noexc159.i.i
   %.not.i.i.i161.i.i = icmp eq ptr %855, null
   br i1 %.not.i.i.i161.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit162.i.i, label %876
 
-876:                                              ; preds = %._crit_edge406.i.i
+876:                                              ; preds = %._crit_edge405.i.i
   call void @_ZdlPv(ptr noundef nonnull %855) #30, !noalias !16
   br label %_ZNSt6vectorImSaImEED2Ev.exit162.i.i
 
-_ZNSt6vectorImSaImEED2Ev.exit162.i.i:             ; preds = %876, %._crit_edge406.i.i
+_ZNSt6vectorImSaImEED2Ev.exit162.i.i:             ; preds = %876, %._crit_edge405.i.i
   %.not.i.i.i163.i.i = icmp eq ptr %842, null
   br i1 %.not.i.i.i163.i.i, label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetweenEmm.exit.i.i, label %877
 
@@ -3964,45 +3964,45 @@ _ZNSt6vectorImSaImEED2Ev.exit162.i.i:             ; preds = %876, %._crit_edge40
   br label %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetweenEmm.exit.i.i
 
 _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetweenEmm.exit.i.i: ; preds = %811, %824, %877, %_ZNSt6vectorImSaImEED2Ev.exit162.i.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10hasBridgesENS1_11BridgeTypesE.exit134.i.i, %_ZNK3gmx15analysismodules12_GLOBAL__N_123SecondaryStructuresData10hasBridgesENS1_11BridgeTypesE.exit.i.i
-  %.074.add.i.i = add nuw nsw i64 %.074.idx413.i.i, 8
+  %.074.add.i.i = add nuw nsw i64 %.074.idx412.i.i, 8
   %.not.i74.i = icmp eq i64 %.074.add.i.i, 16
   br i1 %.not.i74.i, label %878, label %789
 
 878:                                              ; preds = %_ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetweenEmm.exit.i.i
-  %879 = add nuw nsw i64 %.073420.i.i, 1
+  %879 = add nuw nsw i64 %.073419.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond450.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond450.not.i.i, label %..critedge_crit_edge.i.i, label %779, !llvm.loop !37
+  %exitcond449.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
+  br i1 %exitcond449.not.i.i, label %..critedge_crit_edge.i.i, label %779, !llvm.loop !37
 
 ..critedge_crit_edge.i.i:                         ; preds = %878
   %.val84.pre.i.i = load ptr, ptr %21, align 8, !noalias !16
   %.val85.pre.i.i = load ptr, ptr %420, align 8, !noalias !16
-  %.pre480.i.i = ptrtoint ptr %.val85.pre.i.i to i64
-  %.pre482.i.i = ptrtoint ptr %.val84.pre.i.i to i64
-  %.pre484.i.i = sub i64 %.pre480.i.i, %.pre482.i.i
-  %.pre486.i.i = sdiv exact i64 %.pre484.i.i, 112
+  %.pre479.i.i = ptrtoint ptr %.val85.pre.i.i to i64
+  %.pre481.i.i = ptrtoint ptr %.val84.pre.i.i to i64
+  %.pre483.i.i = sub i64 %.pre479.i.i, %.pre481.i.i
+  %.pre485.i.i = sdiv exact i64 %.pre483.i.i, 112
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %779, %..critedge_crit_edge.i.i
-  %.pre-phi487.i.i = phi i64 [ %.pre486.i.i, %..critedge_crit_edge.i.i ], [ %784, %779 ]
+  %.pre-phi486.i.i = phi i64 [ %.pre485.i.i, %..critedge_crit_edge.i.i ], [ %784, %779 ]
   %.val85.i.i = phi ptr [ %.val85.pre.i.i, %..critedge_crit_edge.i.i ], [ %.val87.i.i, %779 ]
   %.val84.i.i = phi ptr [ %.val84.pre.i.i, %..critedge_crit_edge.i.i ], [ %.val86.i.i, %779 ]
   %880 = add nuw i64 %776, 1
-  %881 = icmp ult i64 %880, %.pre-phi487.i.i
+  %881 = icmp ult i64 %880, %.pre-phi486.i.i
   br i1 %881, label %.preheader316.i.i, label %.preheader.i70.i, !llvm.loop !38
 
-.lr.ph434.i.i:                                    ; preds = %.preheader.i70.i, %897
-  %.val89471.i.i = phi ptr [ %.val89.i.i, %897 ], [ %.val85.i.i, %.preheader.i70.i ]
-  %.val88469.i.i = phi ptr [ %.val88.i.i, %897 ], [ %.val84.i.i, %.preheader.i70.i ]
+.lr.ph433.i.i:                                    ; preds = %.preheader.i70.i, %897
+  %.val89470.i.i = phi ptr [ %.val89.i.i, %897 ], [ %.val85.i.i, %.preheader.i70.i ]
+  %.val88468.i.i = phi ptr [ %.val88.i.i, %897 ], [ %.val84.i.i, %.preheader.i70.i ]
   %882 = phi i64 [ %898, %897 ], [ 2, %.preheader.i70.i ]
-  %.0432.i.i = phi i64 [ %882, %897 ], [ 1, %.preheader.i70.i ]
-  %883 = getelementptr inbounds %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val88469.i.i, i64 %.0432.i.i
+  %.0431.i.i = phi i64 [ %882, %897 ], [ 1, %.preheader.i70.i ]
+  %883 = getelementptr inbounds %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %.val88468.i.i, i64 %.0431.i.i
   %884 = getelementptr i8, ptr %883, i64 64
   %.val109.i.i = load i64, ptr %884, align 8, !noalias !16
   %885 = icmp eq i64 %.val109.i.i, 7
   br i1 %885, label %897, label %886
 
-886:                                              ; preds = %.lr.ph434.i.i
+886:                                              ; preds = %.lr.ph433.i.i
   %887 = getelementptr inbounds i8, ptr %883, i64 16
   %888 = load ptr, ptr %887, align 8, !noalias !16
   %889 = getelementptr inbounds i8, ptr %883, i64 24
@@ -4024,16 +4024,16 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetwe
   %.val89.pre.i.i = load ptr, ptr %420, align 8, !noalias !16
   br label %897
 
-897:                                              ; preds = %896, %891, %.lr.ph434.i.i
-  %.val89.i.i = phi ptr [ %.val89471.i.i, %.lr.ph434.i.i ], [ %.val89471.i.i, %891 ], [ %.val89.pre.i.i, %896 ]
-  %.val88.i.i = phi ptr [ %.val88469.i.i, %.lr.ph434.i.i ], [ %.val88469.i.i, %891 ], [ %.val88.pre.i.i, %896 ]
+897:                                              ; preds = %896, %891, %.lr.ph433.i.i
+  %.val89.i.i = phi ptr [ %.val89470.i.i, %.lr.ph433.i.i ], [ %.val89470.i.i, %891 ], [ %.val89.pre.i.i, %896 ]
+  %.val88.i.i = phi ptr [ %.val88468.i.i, %.lr.ph433.i.i ], [ %.val88468.i.i, %891 ], [ %.val88.pre.i.i, %896 ]
   %898 = add nuw i64 %882, 1
   %899 = ptrtoint ptr %.val89.i.i to i64
   %900 = ptrtoint ptr %.val88.i.i to i64
   %901 = sub i64 %899, %900
   %902 = sdiv exact i64 %901, 112
   %903 = icmp ult i64 %898, %902
-  br i1 %903, label %.lr.ph434.i.i, label %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures32analyzeBridgesAndStrandsPatternsEv.exit.i, !llvm.loop !39
+  br i1 %903, label %.lr.ph433.i.i, label %_ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures32analyzeBridgesAndStrandsPatternsEv.exit.i, !llvm.loop !39
 
 _ZN3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures32analyzeBridgesAndStrandsPatternsEv.exit.i: ; preds = %897, %.preheader.i70.i, %.preheader317.i.i
   %.val121178.pre.i.i = phi ptr [ %.val121178.pre.i233.i, %.preheader317.i.i ], [ %.val85.i.i, %.preheader.i70.i ], [ %.val89.i.i, %897 ]
