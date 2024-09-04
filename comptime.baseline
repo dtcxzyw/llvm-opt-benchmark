@@ -22029,7 +22029,7 @@ opencv/goturnTracker.cpp.ll 223502789
 opencv/govbackend.cpp.ll 39225680
 opencv/gpc_evaluate.cpp.ll 1160192753
 opencv/gpc_train.cpp.ll 414132517
-opencv/gplaidmlcore.cpp.ll 39381315
+opencv/gplaidmlcore.cpp.ll 39341821
 opencv/gproto.cpp.ll 1149136631
 opencv/gpythonbackend.cpp.ll 4317931566
 opencv/gr_chalearn.cpp.ll 749971335
