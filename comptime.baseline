@@ -2180,7 +2180,7 @@ bullet3/btOptimizedBvh.ll 420634273
 bullet3/btOverlappingPairCache.ll 609791546
 bullet3/btPersistentManifold.ll 410542890
 bullet3/btPoint2PointConstraint.ll 238823723
-bullet3/btPolarDecomposition.ll 207226820
+bullet3/btPolarDecomposition.ll 207015279
 bullet3/btPolyhedralContactClipping.ll 606296685
 bullet3/btPolyhedralConvexShape.ll 704734824
 bullet3/btQuantizedBvh.ll 1258914375
@@ -8547,7 +8547,7 @@ gromacs/gmx_densorder.cpp.ll 844327286
 gromacs/gmx_dielectric.cpp.ll 414944397
 gromacs/gmx_dipoles.cpp.ll 1582653350
 gromacs/gmx_disre.cpp.ll 2417909207
-gromacs/gmx_dos.cpp.ll 472576969
+gromacs/gmx_dos.cpp.ll 472103359
 gromacs/gmx_dyecoupl.cpp.ll 430003868
 gromacs/gmx_enemat.cpp.ll 535570406
 gromacs/gmx_energy.cpp.ll 2123238758
@@ -18191,7 +18191,7 @@ minetest/CXMeshFileLoader.cpp.ll 2858513269
 minetest/CZipReader.cpp.ll 395021548
 minetest/Driver.cpp.ll 205551308
 minetest/ExtensionHandler.cpp.ll 247577085
-minetest/FixedPipelineRenderer.cpp.ll 218962614
+minetest/FixedPipelineRenderer.cpp.ll 218734472
 minetest/Irrlicht.cpp.ll 90330435
 minetest/MaterialRenderer.cpp.ll 334069218
 minetest/Renderer2D.cpp.ll 88978336
@@ -18668,7 +18668,7 @@ mitsuba3/point.cpp.ll 915230357
 mitsuba3/polarizer.cpp.ll 1273926016
 mitsuba3/pplastic.cpp.ll 2499993826
 mitsuba3/principled.cpp.ll 2406499548
-mitsuba3/principledthin.cpp.ll 2212273213
+mitsuba3/principledthin.cpp.ll 2210035656
 mitsuba3/profiler.cpp.ll 37647135
 mitsuba3/progress.cpp.ll 183594982
 mitsuba3/projector.cpp.ll 1414859129
@@ -26901,7 +26901,7 @@ openssl/libcrypto-lib-ct_b64.ll 65438298
 openssl/libcrypto-lib-ct_err.ll 36035399
 openssl/libcrypto-lib-ct_log.ll 95575297
 openssl/libcrypto-lib-ct_oct.ll 165880649
-openssl/libcrypto-lib-ct_policy.ll 58450304
+openssl/libcrypto-lib-ct_policy.ll 58391758
 openssl/libcrypto-lib-ct_prn.ll 65760072
 openssl/libcrypto-lib-ct_sct.ll 111752547
 openssl/libcrypto-lib-ct_sct_ctx.ll 84303819
@@ -29959,7 +29959,7 @@ postgres/stem_UTF_8_lithuanian.ll 122123668
 postgres/stem_UTF_8_nepali.ll 92692872
 postgres/stem_UTF_8_norwegian.ll 93671681
 postgres/stem_UTF_8_porter.ll 215263643
-postgres/stem_UTF_8_portuguese.ll 233497835
+postgres/stem_UTF_8_portuguese.ll 233732083
 postgres/stem_UTF_8_romanian.ll 197386873
 postgres/stem_UTF_8_russian.ll 136079640
 postgres/stem_UTF_8_serbian.ll 696076722
@@ -34848,7 +34848,7 @@ spike/ursub32.ll 472951525
 spike/ursub64.ll 547719684
 spike/ursub8.ll 608650714
 spike/ursubw.ll 472471620
-spike/vaadd_vv.ll 1131747876
+spike/vaadd_vv.ll 1132879682
 spike/vaadd_vx.ll 1160517254
 spike/vaaddu_vv.ll 1233594095
 spike/vaaddu_vx.ll 1265033031
