@@ -27183,7 +27183,7 @@ openssl/libcrypto-lib-rsa_err.ll 39556533
 openssl/libcrypto-lib-rsa_gen.ll 188335045
 openssl/libcrypto-lib-rsa_lib.ll 327138279
 openssl/libcrypto-lib-rsa_meth.ll 68930428
-openssl/libcrypto-lib-rsa_mp.ll 58734490
+openssl/libcrypto-lib-rsa_mp.ll 58675755
 openssl/libcrypto-lib-rsa_none.ll 41168841
 openssl/libcrypto-lib-rsa_oaep.ll 179609767
 openssl/libcrypto-lib-rsa_ossl.ll 303724877
@@ -36376,7 +36376,7 @@ wasmtime-rs/1k3l0zfp48nircvk.ll 35847727
 wasmtime-rs/1k3lz8or62l2l18p.ll 163653140
 wasmtime-rs/1k6rst80h7ky8ubc.ll 35199097
 wasmtime-rs/1kan0u7yfu7u6hal.ll 3805373889
-wasmtime-rs/1kbx45vk8r0v0j11.ll 52312551
+wasmtime-rs/1kbx45vk8r0v0j11.ll 52260219
 wasmtime-rs/1kzxwcli27ht1701.ll 36432482
 wasmtime-rs/1l4d79e6nzulcsk2.ll 55115948
 wasmtime-rs/1l7vvy5g6vlq5vfq.ll 63376455
