@@ -30431,7 +30431,7 @@ protobuf/message_field_lite.cc.ll 2172467596
 protobuf/message_lite.cc.ll 898251199
 protobuf/message_serialization.cc.ll 774444611
 protobuf/name_resolver.cc.ll 654444444
-protobuf/names.cc.ll 694098254
+protobuf/names.cc.ll 694792448
 protobuf/naming.cc.ll 1071626504
 protobuf/oneof.cc.ll 1662895241
 protobuf/open_enum.cc.ll 127596998
@@ -38825,7 +38825,7 @@ wolfssl/benchmark.c.ll 1342065574
 wolfssl/chacha.c.ll 287752416
 wolfssl/chacha20_poly1305.c.ll 129291782
 wolfssl/client.c.ll 1051820386
-wolfssl/coding.c.ll 396731939
+wolfssl/coding.c.ll 397128719
 wolfssl/dh.c.ll 324290189
 wolfssl/ecc.c.ll 1320708278
 wolfssl/echoclient.c.ll 114978150
