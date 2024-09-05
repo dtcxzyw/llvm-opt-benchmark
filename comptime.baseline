@@ -7514,7 +7514,7 @@ git/commit.ll 861095952
 git/common-main.ll 44567617
 git/config.ll 384731139
 git/connect.ll 749190395
-git/connected.ll 102027555
+git/connected.ll 102129899
 git/convert.ll 963032089
 git/copy.ll 55950236
 git/count-objects.ll 81067898
@@ -27121,7 +27121,7 @@ openssl/libcrypto-lib-p_legacy.ll 51576046
 openssl/libcrypto-lib-p_lib.ll 610423989
 openssl/libcrypto-lib-p_open.ll 46933652
 openssl/libcrypto-lib-p_seal.ll 60976031
-openssl/libcrypto-lib-p_sign.ll 46942349
+openssl/libcrypto-lib-p_sign.ll 46989315
 openssl/libcrypto-lib-packet.ll 277256455
 openssl/libcrypto-lib-param_build.ll 164980842
 openssl/libcrypto-lib-param_build_set.ll 70544453
