@@ -21178,7 +21178,7 @@ openblas/dtrevc3.c.ll 629772128
 openblas/dtrmm_ilnncopy.c.ll 437496303
 openblas/dtrmm_ilnucopy.c.ll 424339505
 openblas/dtrmm_iltncopy.c.ll 403053450
-openblas/dtrmm_iltucopy.c.ll 389830352
+openblas/dtrmm_iltucopy.c.ll 390220201
 openblas/dtrmm_iunncopy.c.ll 442611251
 openblas/dtrmm_iunucopy.c.ll 429940844
 openblas/dtrmm_iutncopy.c.ll 391318479
