@@ -19646,7 +19646,7 @@ if.end3:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end3, %if.end24
   %cmp6 = phi i1 [ true, %if.end3 ], [ false, %if.end24 ]
-  %i.051 = phi i1 [ false, %if.end3 ], [ true, %if.end24 ]
+  %i.051 = phi ptr [ %call, %if.end3 ], [ %appendonly, %if.end24 ]
   %reply.050 = phi ptr [ null, %if.end3 ], [ %0, %if.end24 ]
   %call7 = call i32 @redisGetReply(ptr noundef nonnull %call1, ptr noundef nonnull %r) #22
   %tobool8.not = icmp eq ptr %reply.050, null
@@ -19684,8 +19684,7 @@ if.end24:                                         ; preds = %lor.lhs.false21
   %tobool25.not = icmp eq ptr %5, null
   %spec.store.select = select i1 %tobool25.not, ptr @.str.16420, ptr %5
   %call30 = call ptr @hi_sdsnew(ptr noundef nonnull %spec.store.select) #22
-  %appendonly.call = select i1 %i.051, ptr %appendonly, ptr %call
-  store ptr %call30, ptr %appendonly.call, align 8
+  store ptr %call30, ptr %i.051, align 8
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %if.end24

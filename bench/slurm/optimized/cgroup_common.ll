@@ -202,9 +202,9 @@ define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr nocapture noundef 
   store ptr %9, ptr %3, align 8
   br label %.outer
 
-.outer:                                           ; preds = %23, %8
-  %.024.ph = phi i32 [ %27, %23 ], [ 0, %8 ]
-  %.0.ph = phi i64 [ %24, %23 ], [ 0, %8 ]
+.outer:                                           ; preds = %24, %8
+  %.024.ph = phi i32 [ %28, %24 ], [ 0, %8 ]
+  %.0.ph = phi i64 [ %25, %24 ], [ 0, %8 ]
   br label %10
 
 10:                                               ; preds = %.outer, %16
@@ -216,7 +216,7 @@ define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr nocapture noundef 
 
 14:                                               ; preds = %10
   %15 = icmp slt i64 %13, 0
-  br i1 %15, label %16, label %23
+  br i1 %15, label %16, label %24
 
 16:                                               ; preds = %14
   %17 = tail call ptr @__errno_location() #9
@@ -228,44 +228,44 @@ define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr nocapture noundef 
   %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, ptr noundef %0) #8
   call void @slurm_xfree(ptr noundef nonnull %3) #8
   %22 = icmp eq i64 %13, -1
+  %23 = select i1 %22, i64 -1, i64 %.0.ph
   br label %.loopexit
 
-23:                                               ; preds = %14
-  %24 = add nuw nsw i64 %13, %.0.ph
-  %25 = add nuw i64 %24, 4092
-  %26 = call ptr @slurm_xrecalloc(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %25, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @__func__._read_cg_file) #8
-  %27 = add nuw nsw i32 %.024.ph, 1
+24:                                               ; preds = %14
+  %25 = add nuw nsw i64 %13, %.0.ph
+  %26 = add nuw i64 %25, 4092
+  %27 = call ptr @slurm_xrecalloc(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %26, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @__func__._read_cg_file) #8
+  %28 = add nuw nsw i32 %.024.ph, 1
   br label %.outer, !llvm.loop !10
 
 .loopexit:                                        ; preds = %10, %20
-  %28 = phi i1 [ %22, %20 ], [ false, %10 ]
-  %29 = icmp ugt i32 %.024.ph, 1
-  br i1 %29, label %30, label %37
+  %29 = phi i64 [ %23, %20 ], [ %.0.ph, %10 ]
+  %30 = icmp ugt i32 %.024.ph, 1
+  br i1 %30, label %31, label %38
 
-30:                                               ; preds = %.loopexit
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %32 = and i64 %31, 36028797018963968
-  %.not27 = icmp eq i64 %32, 0
-  br i1 %.not27, label %37, label %33
+31:                                               ; preds = %.loopexit
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %33 = and i64 %32, 36028797018963968
+  %.not27 = icmp eq i64 %33, 0
+  br i1 %.not27, label %38, label %34
 
-33:                                               ; preds = %30
-  %34 = call i32 @get_log_level() #8
-  %35 = icmp sgt i32 %34, 3
-  br i1 %35, label %36, label %37
+34:                                               ; preds = %31
+  %35 = call i32 @get_log_level() #8
+  %36 = icmp sgt i32 %35, 3
+  br i1 %36, label %37, label %38
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.39, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._read_cg_file, ptr noundef %0, i64 noundef %.0.ph, i32 noundef %.024.ph) #8
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %33, %30, %.loopexit
-  %38 = call i32 @close(i32 noundef %4) #8
-  %39 = load ptr, ptr %3, align 8
-  store ptr %39, ptr %1, align 8
-  %40 = select i1 %28, i64 -1, i64 %.0.ph
+38:                                               ; preds = %37, %34, %31, %.loopexit
+  %39 = call i32 @close(i32 noundef %4) #8
+  %40 = load ptr, ptr %3, align 8
+  store ptr %40, ptr %1, align 8
   br label %41
 
-41:                                               ; preds = %37, %6
-  %.023 = phi i64 [ -1, %6 ], [ %40, %37 ]
+41:                                               ; preds = %38, %6
+  %.023 = phi i64 [ -1, %6 ], [ %29, %38 ]
   ret i64 %.023
 }
 

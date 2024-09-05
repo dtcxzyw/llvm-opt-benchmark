@@ -389,7 +389,7 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8pr
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %26
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %26 ], [ 1, %.preheader.i.i.i ]
-  %19 = phi i64 [ %.reass.i.i, %26 ], [ %18, %.preheader.i.i.i ]
+  %19 = phi i64 [ %.reass.i.i.i, %26 ], [ %18, %.preheader.i.i.i ]
   %20 = getelementptr inbounds i8, ptr %11, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
@@ -403,8 +403,8 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8pr
 
 26:                                               ; preds = %23
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %.reass.i.i = add i64 %indvars.iv.i.i.i, %18
-  %or.cond24.not.i.i.i = icmp ult i64 %17, %.reass.i.i
+  %.reass.i.i.i = add i64 %indvars.iv.i.i.i, %18
+  %or.cond24.not.i.i.i = icmp ult i64 %17, %.reass.i.i.i
   br i1 %or.cond24.not.i.i.i, label %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !13
 
 _ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit: ; preds = %10

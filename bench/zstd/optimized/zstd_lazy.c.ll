@@ -54801,29 +54801,29 @@ ZSTD_hashPtr.exit:                                ; preds = %sw.bb3.i, %sw.bb1.i
   %searchLog = getelementptr inbounds i8, ptr %ms, i64 268
   %9 = load i32, ptr %searchLog, align 4
   %shl20 = shl nuw i32 1, %9
-  %matchIndex.0216 = load i32, ptr %arrayidx, align 4
-  %cmp21222 = icmp ugt i32 %matchIndex.0216, %cond14
-  br i1 %cmp21222, label %land.lhs.true, label %while.end52
+  %matchIndex.0215 = load i32, ptr %arrayidx, align 4
+  %cmp21221 = icmp ugt i32 %matchIndex.0215, %cond14
+  br i1 %cmp21221, label %land.lhs.true, label %while.end52
 
 land.lhs.true:                                    ; preds = %ZSTD_hashPtr.exit, %do.end28
-  %matchIndex.0225 = phi i32 [ %matchIndex.0, %do.end28 ], [ %matchIndex.0216, %ZSTD_hashPtr.exit ]
-  %nbCandidates.0224 = phi i32 [ %dec, %do.end28 ], [ %shl20, %ZSTD_hashPtr.exit ]
-  %previousCandidate.0223 = phi i32 [ %matchIndex.0225, %do.end28 ], [ 0, %ZSTD_hashPtr.exit ]
-  %idx.ext.pn.pn.in.in = and i32 %matchIndex.0225, %sub6
+  %matchIndex.0224 = phi i32 [ %matchIndex.0, %do.end28 ], [ %matchIndex.0215, %ZSTD_hashPtr.exit ]
+  %nbCandidates.0223 = phi i32 [ %dec, %do.end28 ], [ %shl20, %ZSTD_hashPtr.exit ]
+  %previousCandidate.0222 = phi i32 [ %matchIndex.0224, %do.end28 ], [ 0, %ZSTD_hashPtr.exit ]
+  %idx.ext.pn.pn.in.in = and i32 %matchIndex.0224, %sub6
   %idx.ext.pn.pn.in = shl nuw i32 %idx.ext.pn.pn.in.in, 1
   %idx.ext.pn.pn = zext i32 %idx.ext.pn.pn.in to i64
-  %nextCandidate.0226 = getelementptr inbounds i32, ptr %7, i64 %idx.ext.pn.pn
-  %unsortedMark.0227 = getelementptr inbounds i8, ptr %nextCandidate.0226, i64 4
-  %10 = load i32, ptr %unsortedMark.0227, align 4
+  %nextCandidate.0225 = getelementptr inbounds i32, ptr %7, i64 %idx.ext.pn.pn
+  %unsortedMark.0226 = getelementptr inbounds i8, ptr %nextCandidate.0225, i64 4
+  %10 = load i32, ptr %unsortedMark.0226, align 4
   %cmp23 = icmp eq i32 %10, 1
-  %cmp25 = icmp ugt i32 %nbCandidates.0224, 1
+  %cmp25 = icmp ugt i32 %nbCandidates.0223, 1
   %or.cond1 = select i1 %cmp23, i1 %cmp25, i1 false
   br i1 %or.cond1, label %do.end28, label %land.lhs.true40
 
 do.end28:                                         ; preds = %land.lhs.true
-  store i32 %previousCandidate.0223, ptr %unsortedMark.0227, align 4
-  %dec = add i32 %nbCandidates.0224, -1
-  %matchIndex.0 = load i32, ptr %nextCandidate.0226, align 4
+  store i32 %previousCandidate.0222, ptr %unsortedMark.0226, align 4
+  %dec = add i32 %nbCandidates.0223, -1
+  %matchIndex.0 = load i32, ptr %nextCandidate.0225, align 4
   %cmp21 = icmp ugt i32 %matchIndex.0, %cond14
   br i1 %cmp21, label %land.lhs.true, label %while.body46.lr.ph, !llvm.loop !42
 
@@ -54831,30 +54831,30 @@ land.lhs.true40:                                  ; preds = %land.lhs.true
   br i1 %cmp23, label %do.end44, label %if.end
 
 do.end44:                                         ; preds = %land.lhs.true40
-  store i32 0, ptr %unsortedMark.0227, align 4
-  store i32 0, ptr %nextCandidate.0226, align 4
+  store i32 0, ptr %unsortedMark.0226, align 4
+  store i32 0, ptr %nextCandidate.0225, align 4
   br label %if.end
 
 if.end:                                           ; preds = %do.end44, %land.lhs.true40
-  %tobool.not229 = icmp eq i32 %previousCandidate.0223, 0
-  br i1 %tobool.not229, label %while.end52, label %while.body46.lr.ph
+  %tobool.not228 = icmp eq i32 %previousCandidate.0222, 0
+  br i1 %tobool.not228, label %while.end52, label %while.body46.lr.ph
 
 while.body46.lr.ph:                               ; preds = %do.end28, %if.end
-  %nbCandidates.0213279 = phi i32 [ %nbCandidates.0224, %if.end ], [ %dec, %do.end28 ]
-  %previousCandidate.0215278 = phi i32 [ %previousCandidate.0223, %if.end ], [ %matchIndex.0225, %do.end28 ]
-  %invariant.gep280 = getelementptr inbounds i8, ptr %7, i64 4
+  %nbCandidates.0212278 = phi i32 [ %nbCandidates.0223, %if.end ], [ %dec, %do.end28 ]
+  %previousCandidate.0214277 = phi i32 [ %previousCandidate.0222, %if.end ], [ %matchIndex.0224, %do.end28 ]
+  %invariant.gep279 = getelementptr inbounds i8, ptr %7, i64 4
   %dictBase5.i = getelementptr inbounds i8, ptr %ms, i64 16
   %dictLimit7.i = getelementptr inbounds i8, ptr %ms, i64 24
   %cmp43.not.i = icmp eq i32 %dictMode, 1
   br label %while.body46
 
 while.body46:                                     ; preds = %while.body46.lr.ph, %ZSTD_insertDUBT1.exit
-  %matchIndex.1231 = phi i32 [ %previousCandidate.0215278, %while.body46.lr.ph ], [ %11, %ZSTD_insertDUBT1.exit ]
-  %nbCandidates.1230 = phi i32 [ %nbCandidates.0213279, %while.body46.lr.ph ], [ %inc, %ZSTD_insertDUBT1.exit ]
-  %and47 = and i32 %matchIndex.1231, %sub6
+  %matchIndex.1230 = phi i32 [ %previousCandidate.0214277, %while.body46.lr.ph ], [ %11, %ZSTD_insertDUBT1.exit ]
+  %nbCandidates.1229 = phi i32 [ %nbCandidates.0212278, %while.body46.lr.ph ], [ %inc, %ZSTD_insertDUBT1.exit ]
+  %and47 = and i32 %matchIndex.1230, %sub6
   %mul48 = shl nuw i32 %and47, 1
   %idx.ext49 = zext i32 %mul48 to i64
-  %gep = getelementptr inbounds i32, ptr %invariant.gep280, i64 %idx.ext49
+  %gep = getelementptr inbounds i32, ptr %invariant.gep279, i64 %idx.ext49
   %11 = load i32, ptr %gep, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dummy32.i)
   %12 = load ptr, ptr %chainTable, align 8
@@ -54865,15 +54865,15 @@ while.body46:                                     ; preds = %while.body46.lr.ph,
   %14 = load ptr, ptr %base4, align 8
   %15 = load ptr, ptr %dictBase5.i, align 8
   %16 = load i32, ptr %dictLimit7.i, align 8
-  %cmp.not.i = icmp ult i32 %matchIndex.1231, %16
-  %idx.ext.i = zext i32 %matchIndex.1231 to i64
+  %cmp.not.i = icmp ult i32 %matchIndex.1230, %16
+  %idx.ext.i = zext i32 %matchIndex.1230 to i64
   %cond.v.i = select i1 %cmp.not.i, ptr %15, ptr %14
   %cond.i = getelementptr inbounds i8, ptr %cond.v.i, i64 %idx.ext.i
   %idx.ext13.i = zext i32 %16 to i64
   %add.ptr14.i = getelementptr inbounds i8, ptr %15, i64 %idx.ext13.i
   %cond16.i = select i1 %cmp.not.i, ptr %add.ptr14.i, ptr %iend
   %add.ptr20.i = getelementptr inbounds i8, ptr %14, i64 %idx.ext13.i
-  %and.i = and i32 %matchIndex.1231, %sub2.i
+  %and.i = and i32 %matchIndex.1230, %sub2.i
   %mul.i = shl nuw i32 %and.i, 1
   %idx.ext21.i = zext i32 %mul.i to i64
   %add.ptr22.i = getelementptr inbounds i32, ptr %12, i64 %idx.ext21.i
@@ -54881,12 +54881,12 @@ while.body46:                                     ; preds = %while.body46.lr.ph,
   %17 = load i32, ptr %4, align 4
   %18 = load i32, ptr %cParams1, align 4
   %shl25.i = shl nuw i32 1, %18
-  %sub26.i = sub i32 %matchIndex.1231, %17
+  %sub26.i = sub i32 %matchIndex.1230, %17
   %cmp27.i = icmp ugt i32 %sub26.i, %shl25.i
-  %sub29.i = sub i32 %matchIndex.1231, %shl25.i
+  %sub29.i = sub i32 %matchIndex.1230, %shl25.i
   %cond32.i = select i1 %cmp27.i, i32 %sub29.i, i32 %17
   %matchIndex.080.i = load i32, ptr %add.ptr22.i, align 4
-  %tobool81.i = icmp ne i32 %nbCandidates.1230, 0
+  %tobool81.i = icmp ne i32 %nbCandidates.1229, 0
   %cmp3382.i = icmp ugt i32 %matchIndex.080.i, %cond32.i
   %19 = select i1 %tobool81.i, i1 %cmp3382.i, i1 false
   br i1 %19, label %for.body.lr.ph.i, label %ZSTD_insertDUBT1.exit
@@ -54899,7 +54899,7 @@ for.body.lr.ph.i:                                 ; preds = %while.body46
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %matchIndex.088.i = phi i32 [ %matchIndex.080.i, %for.body.lr.ph.i ], [ %matchIndex.0.i, %for.inc.i ]
-  %nbCompares.addr.087.i = phi i32 [ %nbCandidates.1230, %for.body.lr.ph.i ], [ %dec.i, %for.inc.i ]
+  %nbCompares.addr.087.i = phi i32 [ %nbCandidates.1229, %for.body.lr.ph.i ], [ %dec.i, %for.inc.i ]
   %commonLengthSmaller.086.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %commonLengthSmaller.1.i, %for.inc.i ]
   %commonLengthLarger.085.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %commonLengthLarger.1.i, %for.inc.i ]
   %smallerPtr.084.i = phi ptr [ %add.ptr22.i, %for.body.lr.ph.i ], [ %smallerPtr.2.i, %for.inc.i ]
@@ -55085,7 +55085,7 @@ ZSTD_insertDUBT1.exit:                            ; preds = %do.end83.i, %if.the
   store i32 0, ptr %largerPtr.1.i, align 4
   store i32 0, ptr %smallerPtr.1.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %dummy32.i)
-  %inc = add i32 %nbCandidates.1230, 1
+  %inc = add i32 %nbCandidates.1229, 1
   %tobool.not = icmp eq i32 %11, 0
   br i1 %tobool.not, label %while.end52, label %while.body46, !llvm.loop !44
 
@@ -55105,8 +55105,8 @@ while.end52:                                      ; preds = %ZSTD_insertDUBT1.ex
   %add70 = add i32 %conv, 9
   %29 = load i32, ptr %arrayidx, align 4
   store i32 %conv, ptr %arrayidx, align 4
-  %cmp75232 = icmp ugt i32 %29, %cond6.i
-  br i1 %cmp75232, label %for.body.lr.ph, label %for.end
+  %cmp75231 = icmp ugt i32 %29, %cond6.i
+  br i1 %cmp75231, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %while.end52
   %cmp88.not = icmp eq i32 %dictMode, 1
@@ -55116,25 +55116,25 @@ for.body.lr.ph:                                   ; preds = %while.end52
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %matchIndex.2240 = phi i32 [ %29, %for.body.lr.ph ], [ %matchIndex.3, %for.inc ]
-  %bestLength.0239 = phi i64 [ 0, %for.body.lr.ph ], [ %bestLength.2, %for.inc ]
-  %matchEndIdx.0238 = phi i32 [ %add70, %for.body.lr.ph ], [ %matchEndIdx.2, %for.inc ]
-  %largerPtr.0237 = phi ptr [ %add.ptr69, %for.body.lr.ph ], [ %largerPtr.2, %for.inc ]
-  %smallerPtr.0236 = phi ptr [ %add.ptr64, %for.body.lr.ph ], [ %smallerPtr.2, %for.inc ]
-  %nbCompares.0235 = phi i32 [ %shl20, %for.body.lr.ph ], [ %dec175, %for.inc ]
-  %commonLengthLarger.0234 = phi i64 [ 0, %for.body.lr.ph ], [ %commonLengthLarger.1, %for.inc ]
-  %commonLengthSmaller.0233 = phi i64 [ 0, %for.body.lr.ph ], [ %commonLengthSmaller.1, %for.inc ]
-  %and78 = and i32 %matchIndex.2240, %sub6
+  %matchIndex.2239 = phi i32 [ %29, %for.body.lr.ph ], [ %matchIndex.3, %for.inc ]
+  %bestLength.0238 = phi i64 [ 0, %for.body.lr.ph ], [ %bestLength.2, %for.inc ]
+  %matchEndIdx.0237 = phi i32 [ %add70, %for.body.lr.ph ], [ %matchEndIdx.2, %for.inc ]
+  %largerPtr.0236 = phi ptr [ %add.ptr69, %for.body.lr.ph ], [ %largerPtr.2, %for.inc ]
+  %smallerPtr.0235 = phi ptr [ %add.ptr64, %for.body.lr.ph ], [ %smallerPtr.2, %for.inc ]
+  %nbCompares.0234 = phi i32 [ %shl20, %for.body.lr.ph ], [ %dec175, %for.inc ]
+  %commonLengthLarger.0233 = phi i64 [ 0, %for.body.lr.ph ], [ %commonLengthLarger.1, %for.inc ]
+  %commonLengthSmaller.0232 = phi i64 [ 0, %for.body.lr.ph ], [ %commonLengthSmaller.1, %for.inc ]
+  %and78 = and i32 %matchIndex.2239, %sub6
   %mul79 = shl nuw i32 %and78, 1
   %idx.ext80 = zext i32 %mul79 to i64
   %add.ptr81 = getelementptr inbounds i32, ptr %7, i64 %idx.ext80
-  %cond87 = tail call i64 @llvm.umin.i64(i64 %commonLengthSmaller.0233, i64 %commonLengthLarger.0234)
-  %conv90 = zext i32 %matchIndex.2240 to i64
+  %cond87 = tail call i64 @llvm.umin.i64(i64 %commonLengthSmaller.0232, i64 %commonLengthLarger.0233)
+  %conv90 = zext i32 %matchIndex.2239 to i64
   %add91 = add i64 %cond87, %conv90
   %cmp93.not = icmp ult i64 %add91, %idx.ext57
-  %or.cond294 = select i1 %cmp88.not, i1 %cmp93.not, i1 false
+  %or.cond293 = select i1 %cmp88.not, i1 %cmp93.not, i1 false
   %add.ptr104 = getelementptr inbounds i8, ptr %ip, i64 %cond87
-  br i1 %or.cond294, label %if.else, label %if.then95
+  br i1 %or.cond293, label %if.else, label %if.then95
 
 if.then95:                                        ; preds = %for.body
   %add.ptr97 = getelementptr inbounds i8, ptr %2, i64 %conv90
@@ -55252,20 +55252,20 @@ if.else:                                          ; preds = %for.body
 if.end117:                                        ; preds = %if.else, %ZSTD_count.exit
   %matchLength.0 = phi i64 [ %add101, %ZSTD_count.exit ], [ %add107, %if.else ]
   %match.0 = phi ptr [ %add.ptr97, %ZSTD_count.exit ], [ %spec.select, %if.else ]
-  %cmp118 = icmp ugt i64 %matchLength.0, %bestLength.0239
+  %cmp118 = icmp ugt i64 %matchLength.0, %bestLength.0238
   br i1 %cmp118, label %if.then120, label %if.end154
 
 if.then120:                                       ; preds = %if.end117
-  %sub121 = sub i32 %matchEndIdx.0238, %matchIndex.2240
+  %sub121 = sub i32 %matchEndIdx.0237, %matchIndex.2239
   %conv122 = zext i32 %sub121 to i64
   %cmp123 = icmp ugt i64 %matchLength.0, %conv122
   %conv126 = trunc i64 %matchLength.0 to i32
-  %add127 = add i32 %matchIndex.2240, %conv126
-  %matchEndIdx.3 = select i1 %cmp123, i32 %add127, i32 %matchEndIdx.0238
-  %sub129 = sub nuw i64 %matchLength.0, %bestLength.0239
+  %add127 = add i32 %matchIndex.2239, %conv126
+  %matchEndIdx.3 = select i1 %cmp123, i32 %add127, i32 %matchEndIdx.0237
+  %sub129 = sub nuw i64 %matchLength.0, %bestLength.0238
   %conv130 = trunc i64 %sub129 to i32
   %mul131 = shl nsw i32 %conv130, 2
-  %sub132 = sub i32 %conv, %matchIndex.2240
+  %sub132 = sub i32 %conv, %matchIndex.2239
   %add133 = add i32 %sub132, 1
   %34 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add133, i1 true)
   %sub.i168 = xor i32 %34, 31
@@ -55284,29 +55284,29 @@ if.then140:                                       ; preds = %if.then120
   br label %if.end144
 
 if.end144:                                        ; preds = %if.then140, %if.then120
-  %bestLength.3 = phi i64 [ %matchLength.0, %if.then140 ], [ %bestLength.0239, %if.then120 ]
+  %bestLength.3 = phi i64 [ %matchLength.0, %if.then140 ], [ %bestLength.0238, %if.then120 ]
   %add.ptr145 = getelementptr inbounds i8, ptr %ip, i64 %matchLength.0
   %cmp146 = icmp eq ptr %add.ptr145, %iend
   br i1 %cmp146, label %if.then148, label %if.end154
 
 if.then148:                                       ; preds = %if.end144
   %cmp149 = icmp eq i32 %dictMode, 2
-  %spec.select150 = select i1 %cmp149, i32 0, i32 %nbCompares.0235
+  %spec.select150 = select i1 %cmp149, i32 0, i32 %nbCompares.0234
   br label %for.end
 
 if.end154:                                        ; preds = %if.end144, %if.end117
-  %matchEndIdx.2 = phi i32 [ %matchEndIdx.3, %if.end144 ], [ %matchEndIdx.0238, %if.end117 ]
-  %bestLength.2 = phi i64 [ %bestLength.3, %if.end144 ], [ %bestLength.0239, %if.end117 ]
+  %matchEndIdx.2 = phi i32 [ %matchEndIdx.3, %if.end144 ], [ %matchEndIdx.0237, %if.end117 ]
+  %bestLength.2 = phi i64 [ %bestLength.3, %if.end144 ], [ %bestLength.0238, %if.end117 ]
   %arrayidx155 = getelementptr inbounds i8, ptr %match.0, i64 %matchLength.0
   %37 = load i8, ptr %arrayidx155, align 1
   %arrayidx157 = getelementptr inbounds i8, ptr %ip, i64 %matchLength.0
   %38 = load i8, ptr %arrayidx157, align 1
   %cmp159 = icmp ult i8 %37, %38
-  %cmp162.not = icmp ugt i32 %matchIndex.2240, %cond
+  %cmp162.not = icmp ugt i32 %matchIndex.2239, %cond
   br i1 %cmp159, label %if.then161, label %if.else168
 
 if.then161:                                       ; preds = %if.end154
-  store i32 %matchIndex.2240, ptr %smallerPtr.0236, align 4
+  store i32 %matchIndex.2239, ptr %smallerPtr.0235, align 4
   br i1 %cmp162.not, label %if.end165, label %for.end
 
 if.end165:                                        ; preds = %if.then161
@@ -55314,26 +55314,26 @@ if.end165:                                        ; preds = %if.then161
   br label %for.inc
 
 if.else168:                                       ; preds = %if.end154
-  store i32 %matchIndex.2240, ptr %largerPtr.0237, align 4
+  store i32 %matchIndex.2239, ptr %largerPtr.0236, align 4
   br i1 %cmp162.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %if.else168, %if.end165
-  %commonLengthSmaller.1 = phi i64 [ %matchLength.0, %if.end165 ], [ %commonLengthSmaller.0233, %if.else168 ]
-  %commonLengthLarger.1 = phi i64 [ %commonLengthLarger.0234, %if.end165 ], [ %matchLength.0, %if.else168 ]
-  %smallerPtr.2 = phi ptr [ %add.ptr166, %if.end165 ], [ %smallerPtr.0236, %if.else168 ]
-  %largerPtr.2 = phi ptr [ %largerPtr.0237, %if.end165 ], [ %add.ptr81, %if.else168 ]
+  %commonLengthSmaller.1 = phi i64 [ %matchLength.0, %if.end165 ], [ %commonLengthSmaller.0232, %if.else168 ]
+  %commonLengthLarger.1 = phi i64 [ %commonLengthLarger.0233, %if.end165 ], [ %matchLength.0, %if.else168 ]
+  %smallerPtr.2 = phi ptr [ %add.ptr166, %if.end165 ], [ %smallerPtr.0235, %if.else168 ]
+  %largerPtr.2 = phi ptr [ %largerPtr.0236, %if.end165 ], [ %add.ptr81, %if.else168 ]
   %matchIndex.3.in = phi ptr [ %add.ptr166, %if.end165 ], [ %add.ptr81, %if.else168 ]
   %matchIndex.3 = load i32, ptr %matchIndex.3.in, align 4
-  %dec175 = add i32 %nbCompares.0235, -1
+  %dec175 = add i32 %nbCompares.0234, -1
   %tobool73 = icmp ne i32 %dec175, 0
   %cmp75 = icmp ugt i32 %matchIndex.3, %cond6.i
   %39 = select i1 %tobool73, i1 %cmp75, i1 false
   br i1 %39, label %for.body, label %for.end, !llvm.loop !45
 
 for.end:                                          ; preds = %for.inc, %if.then161, %if.else168, %while.end52, %if.then148
-  %nbCompares.1 = phi i32 [ %spec.select150, %if.then148 ], [ %shl20, %while.end52 ], [ %dec175, %for.inc ], [ %nbCompares.0235, %if.then161 ], [ %nbCompares.0235, %if.else168 ]
-  %smallerPtr.1 = phi ptr [ %smallerPtr.0236, %if.then148 ], [ %add.ptr64, %while.end52 ], [ %smallerPtr.2, %for.inc ], [ %dummy32, %if.then161 ], [ %smallerPtr.0236, %if.else168 ]
-  %largerPtr.1 = phi ptr [ %largerPtr.0237, %if.then148 ], [ %add.ptr69, %while.end52 ], [ %largerPtr.2, %for.inc ], [ %largerPtr.0237, %if.then161 ], [ %dummy32, %if.else168 ]
+  %nbCompares.1 = phi i32 [ %spec.select150, %if.then148 ], [ %shl20, %while.end52 ], [ %dec175, %for.inc ], [ %nbCompares.0234, %if.then161 ], [ %nbCompares.0234, %if.else168 ]
+  %smallerPtr.1 = phi ptr [ %smallerPtr.0235, %if.then148 ], [ %add.ptr64, %while.end52 ], [ %smallerPtr.2, %for.inc ], [ %dummy32, %if.then161 ], [ %smallerPtr.0235, %if.else168 ]
+  %largerPtr.1 = phi ptr [ %largerPtr.0236, %if.then148 ], [ %add.ptr69, %while.end52 ], [ %largerPtr.2, %for.inc ], [ %largerPtr.0236, %if.then161 ], [ %dummy32, %if.else168 ]
   %matchEndIdx.1 = phi i32 [ %matchEndIdx.3, %if.then148 ], [ %add70, %while.end52 ], [ %matchEndIdx.2, %if.else168 ], [ %matchEndIdx.2, %if.then161 ], [ %matchEndIdx.2, %for.inc ]
   %bestLength.1 = phi i64 [ %bestLength.3, %if.then148 ], [ 0, %while.end52 ], [ %bestLength.2, %if.else168 ], [ %bestLength.2, %if.then161 ], [ %bestLength.2, %for.inc ]
   store i32 0, ptr %largerPtr.1, align 4
@@ -55359,8 +55359,8 @@ sw.bb.i.i:                                        ; preds = %if.then180
   %ip.val.i = load i32, ptr %ip, align 1
   %mul.i.i.i = mul i32 %ip.val.i, -1640531535
   %sub.i.i.i = sub i32 32, %42
-  %shr.i.i.i202 = lshr i32 %mul.i.i.i, %sub.i.i.i
-  %conv.i.i = zext i32 %shr.i.i.i202 to i64
+  %shr.i.i.i201 = lshr i32 %mul.i.i.i, %sub.i.i.i
+  %conv.i.i = zext i32 %shr.i.i.i201 to i64
   br label %ZSTD_hashPtr.exit.i
 
 sw.bb1.i.i:                                       ; preds = %if.then180
@@ -55419,6 +55419,9 @@ for.body.lr.ph.i179:                              ; preds = %ZSTD_hashPtr.exit.i
   %conv40.i = and i64 %sub.ptr.sub13.i, 4294967295
   %idx.ext45.i = zext i32 %sub.i180 to i64
   %invariant.gep.i = getelementptr inbounds i8, ptr %43, i64 %idx.ext45.i
+  %add50.neg.i = sub i32 %conv.i184, %sub.i180
+  %invariant.op.i = add i32 %add50.neg.i, 1
+  %invariant.op88.i = add i32 %add50.neg.i, 3
   br label %for.body.i185
 
 for.body.i185:                                    ; preds = %for.inc.i193, %for.body.lr.ph.i179
@@ -55449,23 +55452,21 @@ if.then49.i:                                      ; preds = %for.body.i185
   %sub51.i = sub nuw i64 %add.i190, %bestLength.addr.083.i
   %conv52.i = trunc i64 %sub51.i to i32
   %mul53.i = shl nsw i32 %conv52.i, 2
-  %51 = add i32 %sub.i180, %dictMatchIndex.084.i
-  %sub54.i = sub i32 %conv.i184, %51
-  %add55.i = add i32 %sub54.i, 1
-  %52 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add55.i, i1 true)
-  %sub.i.i199 = xor i32 %52, 31
-  %53 = load i64, ptr %offBasePtr, align 8
-  %conv58.i = trunc i64 %53 to i32
+  %add55.reass.i = sub i32 %invariant.op.i, %dictMatchIndex.084.i
+  %51 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add55.reass.i, i1 true)
+  %sub.i.i199 = xor i32 %51, 31
+  %52 = load i64, ptr %offBasePtr, align 8
+  %conv58.i = trunc i64 %52 to i32
   %add59.i = add i32 %conv58.i, 1
-  %54 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add59.i, i1 true)
-  %sub.i76.i = xor i32 %54, 31
+  %53 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %add59.i, i1 true)
+  %sub.i76.i = xor i32 %53, 31
   %sub61.i = sub nsw i32 %sub.i.i199, %sub.i76.i
   %cmp62.i = icmp sgt i32 %mul53.i, %sub61.i
   br i1 %cmp62.i, label %do.end.i, label %if.end68.i
 
 do.end.i:                                         ; preds = %if.then49.i
-  %add66.i201 = add i32 %sub54.i, 3
-  %conv67.i = zext i32 %add66.i201 to i64
+  %add66.reass.i = sub i32 %invariant.op88.i, %dictMatchIndex.084.i
+  %conv67.i = zext i32 %add66.reass.i to i64
   store i64 %conv67.i, ptr %offBasePtr, align 8
   br label %if.end68.i
 
@@ -55478,10 +55479,10 @@ if.end68.i:                                       ; preds = %do.end.i, %if.then4
 if.end74.i:                                       ; preds = %if.end68.i, %for.body.i185
   %bestLength.addr.2.i = phi i64 [ %bestLength.addr.3.i, %if.end68.i ], [ %bestLength.addr.083.i, %for.body.i185 ]
   %arrayidx75.i = getelementptr inbounds i8, ptr %match.0.i191, i64 %add.i190
-  %55 = load i8, ptr %arrayidx75.i, align 1
+  %54 = load i8, ptr %arrayidx75.i, align 1
   %arrayidx77.i = getelementptr inbounds i8, ptr %ip, i64 %add.i190
-  %56 = load i8, ptr %arrayidx77.i, align 1
-  %cmp79.i = icmp ult i8 %55, %56
+  %55 = load i8, ptr %arrayidx77.i, align 1
+  %cmp79.i = icmp ult i8 %54, %55
   %cmp82.not.i = icmp ugt i32 %dictMatchIndex.084.i, %cond.i178
   br i1 %cmp79.i, label %if.then81.i, label %if.else.i192
 
@@ -55503,8 +55504,8 @@ for.inc.i193:                                     ; preds = %if.else.i192, %if.e
   %dictMatchIndex.0.i = load i32, ptr %dictMatchIndex.1.in.i, align 4
   %tobool.i197 = icmp ne i32 %dec.i196, 0
   %cmp23.i198 = icmp ugt i32 %dictMatchIndex.0.i, %47
-  %57 = select i1 %tobool.i197, i1 %cmp23.i198, i1 false
-  br i1 %57, label %for.body.i185, label %if.end182, !llvm.loop !46
+  %56 = select i1 %tobool.i197, i1 %cmp23.i198, i1 false
+  br i1 %56, label %for.body.i185, label %if.end182, !llvm.loop !46
 
 if.end182:                                        ; preds = %for.inc.i193, %if.else.i192, %if.then81.i, %if.end68.i, %ZSTD_hashPtr.exit.i, %for.end
   %bestLength.4 = phi i64 [ %bestLength.1, %for.end ], [ %bestLength.1, %ZSTD_hashPtr.exit.i ], [ %bestLength.addr.2.i, %for.inc.i193 ], [ %bestLength.addr.3.i, %if.end68.i ], [ %bestLength.addr.2.i, %if.then81.i ], [ %bestLength.addr.2.i, %if.else.i192 ]

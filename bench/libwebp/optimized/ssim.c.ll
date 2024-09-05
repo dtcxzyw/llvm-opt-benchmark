@@ -207,121 +207,121 @@ define internal double @SSIMGetClipped_C(ptr nocapture noundef readonly %0, i32 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %indvars.iv110 = phi i64 [ %31, %.preheader.preheader ], [ %indvars.iv.next111, %._crit_edge ]
-  %.090 = phi ptr [ %23, %.preheader.preheader ], [ %62, %._crit_edge ]
-  %.05189 = phi ptr [ %26, %.preheader.preheader ], [ %63, %._crit_edge ]
-  %.sroa.16.087 = phi i32 [ 0, %.preheader.preheader ], [ %61, %._crit_edge ]
-  %.sroa.13.086 = phi i32 [ 0, %.preheader.preheader ], [ %59, %._crit_edge ]
-  %.sroa.10.085 = phi i32 [ 0, %.preheader.preheader ], [ %57, %._crit_edge ]
-  %.sroa.7.084 = phi i32 [ 0, %.preheader.preheader ], [ %55, %._crit_edge ]
-  %.sroa.4.083 = phi i32 [ 0, %.preheader.preheader ], [ %53, %._crit_edge ]
-  %.sroa.0.082 = phi i32 [ 0, %.preheader.preheader ], [ %51, %._crit_edge ]
-  %33 = trunc i64 %indvars.iv110 to i32
-  %34 = add i32 %33, 3
-  %.reass = sub i32 %34, %5
-  %35 = sext i32 %.reass to i64
-  %36 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4
-  br label %38
+  %indvars.iv112 = phi i64 [ %31, %.preheader.preheader ], [ %indvars.iv.next113, %._crit_edge ]
+  %.090 = phi ptr [ %23, %.preheader.preheader ], [ %61, %._crit_edge ]
+  %.05189 = phi ptr [ %26, %.preheader.preheader ], [ %62, %._crit_edge ]
+  %.sroa.16.087 = phi i32 [ 0, %.preheader.preheader ], [ %60, %._crit_edge ]
+  %.sroa.13.086 = phi i32 [ 0, %.preheader.preheader ], [ %58, %._crit_edge ]
+  %.sroa.10.085 = phi i32 [ 0, %.preheader.preheader ], [ %56, %._crit_edge ]
+  %.sroa.7.084 = phi i32 [ 0, %.preheader.preheader ], [ %54, %._crit_edge ]
+  %.sroa.4.083 = phi i32 [ 0, %.preheader.preheader ], [ %52, %._crit_edge ]
+  %.sroa.0.082 = phi i32 [ 0, %.preheader.preheader ], [ %50, %._crit_edge ]
+  %33 = trunc nuw nsw i64 %indvars.iv112 to i32
+  %reass.sub = sub i32 %33, %5
+  %.reass.reass = add i32 %reass.sub, 3
+  %34 = sext i32 %.reass.reass to i64
+  %35 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %34
+  %36 = load i32, ptr %35, align 4
+  br label %37
 
-38:                                               ; preds = %.preheader, %38
-  %indvars.iv = phi i64 [ %28, %.preheader ], [ %indvars.iv.next, %38 ]
-  %.sroa.16.174 = phi i32 [ %.sroa.16.087, %.preheader ], [ %61, %38 ]
-  %.sroa.13.173 = phi i32 [ %.sroa.13.086, %.preheader ], [ %59, %38 ]
-  %.sroa.10.172 = phi i32 [ %.sroa.10.085, %.preheader ], [ %57, %38 ]
-  %.sroa.7.171 = phi i32 [ %.sroa.7.084, %.preheader ], [ %55, %38 ]
-  %.sroa.4.170 = phi i32 [ %.sroa.4.083, %.preheader ], [ %53, %38 ]
-  %.sroa.0.169 = phi i32 [ %.sroa.0.082, %.preheader ], [ %51, %38 ]
-  %39 = trunc nuw nsw i64 %indvars.iv to i32
-  %reass.sub = sub i32 %39, %4
-  %40 = add i32 %reass.sub, 3
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = mul i32 %37, %43
-  %45 = getelementptr inbounds i8, ptr %.090, i64 %indvars.iv
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %.05189, i64 %indvars.iv
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = add i32 %44, %.sroa.0.169
-  %52 = mul i32 %44, %47
-  %53 = add i32 %52, %.sroa.4.170
-  %54 = mul i32 %44, %50
-  %55 = add i32 %54, %.sroa.7.171
-  %56 = mul i32 %52, %47
-  %57 = add i32 %56, %.sroa.10.172
-  %58 = mul i32 %52, %50
-  %59 = add i32 %58, %.sroa.13.173
-  %60 = mul i32 %54, %50
-  %61 = add i32 %60, %.sroa.16.174
+37:                                               ; preds = %.preheader, %37
+  %indvars.iv = phi i64 [ %28, %.preheader ], [ %indvars.iv.next, %37 ]
+  %.sroa.16.174 = phi i32 [ %.sroa.16.087, %.preheader ], [ %60, %37 ]
+  %.sroa.13.173 = phi i32 [ %.sroa.13.086, %.preheader ], [ %58, %37 ]
+  %.sroa.10.172 = phi i32 [ %.sroa.10.085, %.preheader ], [ %56, %37 ]
+  %.sroa.7.171 = phi i32 [ %.sroa.7.084, %.preheader ], [ %54, %37 ]
+  %.sroa.4.170 = phi i32 [ %.sroa.4.083, %.preheader ], [ %52, %37 ]
+  %.sroa.0.169 = phi i32 [ %.sroa.0.082, %.preheader ], [ %50, %37 ]
+  %38 = trunc nuw nsw i64 %indvars.iv to i32
+  %reass.sub104 = sub i32 %38, %4
+  %39 = add i32 %reass.sub104, 3
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %43 = mul i32 %36, %42
+  %44 = getelementptr inbounds i8, ptr %.090, i64 %indvars.iv
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i32
+  %47 = getelementptr inbounds i8, ptr %.05189, i64 %indvars.iv
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = add i32 %43, %.sroa.0.169
+  %51 = mul i32 %43, %46
+  %52 = add i32 %51, %.sroa.4.170
+  %53 = mul i32 %43, %49
+  %54 = add i32 %53, %.sroa.7.171
+  %55 = mul i32 %51, %46
+  %56 = add i32 %55, %.sroa.10.172
+  %57 = mul i32 %51, %49
+  %58 = add i32 %57, %.sroa.13.173
+  %59 = mul i32 %53, %49
+  %60 = add i32 %59, %.sroa.16.174
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %29, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %38
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %62 = getelementptr inbounds i8, ptr %.090, i64 %19
-  %63 = getelementptr inbounds i8, ptr %.05189, i64 %20
-  %.not.not = icmp slt i64 %indvars.iv110, %32
-  br i1 %.not.not, label %.preheader, label %._crit_edge91.loopexit103, !llvm.loop !6
+._crit_edge:                                      ; preds = %37
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %61 = getelementptr inbounds i8, ptr %.090, i64 %19
+  %62 = getelementptr inbounds i8, ptr %.05189, i64 %20
+  %.not.not = icmp slt i64 %indvars.iv112, %32
+  br i1 %.not.not, label %.preheader, label %._crit_edge91.loopexit105, !llvm.loop !6
 
-._crit_edge91.loopexit103:                        ; preds = %._crit_edge
-  %64 = zext i32 %53 to i64
-  %65 = zext i32 %55 to i64
-  %66 = zext i32 %59 to i64
-  %67 = zext i32 %57 to i64
-  %68 = zext i32 %61 to i64
+._crit_edge91.loopexit105:                        ; preds = %._crit_edge
+  %63 = zext i32 %52 to i64
+  %64 = zext i32 %54 to i64
+  %65 = zext i32 %58 to i64
+  %66 = zext i32 %56 to i64
+  %67 = zext i32 %60 to i64
   br label %._crit_edge91
 
-._crit_edge91:                                    ; preds = %.preheader.lr.ph, %._crit_edge91.loopexit103, %8
-  %.sroa.0.0.lcssa = phi i32 [ 0, %8 ], [ %51, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.4.0.lcssa = phi i64 [ 0, %8 ], [ %64, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.7.0.lcssa = phi i64 [ 0, %8 ], [ %65, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.10.0.lcssa = phi i64 [ 0, %8 ], [ %67, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.13.0.lcssa = phi i64 [ 0, %8 ], [ %66, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.16.0.lcssa = phi i64 [ 0, %8 ], [ %68, %._crit_edge91.loopexit103 ], [ 0, %.preheader.lr.ph ]
-  %69 = mul i32 %.sroa.0.0.lcssa, %.sroa.0.0.lcssa
-  %70 = shl i32 %69, 6
-  %71 = mul nuw i64 %.sroa.4.0.lcssa, %.sroa.4.0.lcssa
-  %72 = mul nuw i64 %.sroa.7.0.lcssa, %.sroa.7.0.lcssa
-  %73 = add i64 %72, %71
-  %74 = zext i32 %70 to i64
-  %.not.i.i = icmp ult i64 %73, %74
-  br i1 %.not.i.i, label %VP8SSIMFromStatsClipped.exit, label %75
+._crit_edge91:                                    ; preds = %.preheader.lr.ph, %._crit_edge91.loopexit105, %8
+  %.sroa.0.0.lcssa = phi i32 [ 0, %8 ], [ %50, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.4.0.lcssa = phi i64 [ 0, %8 ], [ %63, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.7.0.lcssa = phi i64 [ 0, %8 ], [ %64, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.10.0.lcssa = phi i64 [ 0, %8 ], [ %66, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.13.0.lcssa = phi i64 [ 0, %8 ], [ %65, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.16.0.lcssa = phi i64 [ 0, %8 ], [ %67, %._crit_edge91.loopexit105 ], [ 0, %.preheader.lr.ph ]
+  %68 = mul i32 %.sroa.0.0.lcssa, %.sroa.0.0.lcssa
+  %69 = shl i32 %68, 6
+  %70 = mul nuw i64 %.sroa.4.0.lcssa, %.sroa.4.0.lcssa
+  %71 = mul nuw i64 %.sroa.7.0.lcssa, %.sroa.7.0.lcssa
+  %72 = add i64 %71, %70
+  %73 = zext i32 %69 to i64
+  %.not.i.i = icmp ult i64 %72, %73
+  br i1 %.not.i.i, label %VP8SSIMFromStatsClipped.exit, label %74
 
-75:                                               ; preds = %._crit_edge91
-  %76 = mul i32 %69, 60
-  %77 = mul i32 %69, 20
-  %78 = mul nuw nsw i64 %.sroa.7.0.lcssa, %.sroa.4.0.lcssa
-  %79 = zext i32 %.sroa.0.0.lcssa to i64
-  %80 = mul nuw nsw i64 %.sroa.13.0.lcssa, %79
-  %81 = sub nsw i64 %80, %78
-  %82 = tail call i64 @llvm.smax.i64(i64 %81, i64 0)
-  %83 = shl nuw i64 %82, 1
-  %84 = zext i32 %76 to i64
-  %85 = add i64 %83, %84
-  %86 = lshr i64 %85, 8
+74:                                               ; preds = %._crit_edge91
+  %75 = mul i32 %68, 60
+  %76 = mul i32 %68, 20
+  %77 = mul nuw nsw i64 %.sroa.7.0.lcssa, %.sroa.4.0.lcssa
+  %78 = zext i32 %.sroa.0.0.lcssa to i64
+  %79 = mul nuw nsw i64 %.sroa.13.0.lcssa, %78
+  %80 = sub nsw i64 %79, %77
+  %81 = tail call i64 @llvm.smax.i64(i64 %80, i64 0)
+  %82 = shl nuw i64 %81, 1
+  %83 = zext i32 %75 to i64
+  %84 = add i64 %82, %83
+  %85 = lshr i64 %84, 8
   %reass.add.i.i = add nuw nsw i64 %.sroa.16.0.lcssa, %.sroa.10.0.lcssa
-  %reass.mul.i.i = mul i64 %reass.add.i.i, %79
-  %87 = sub i64 %84, %73
-  %88 = add i64 %87, %reass.mul.i.i
-  %89 = lshr i64 %88, 8
-  %90 = shl nuw nsw i64 %78, 1
-  %91 = zext i32 %77 to i64
-  %92 = add nuw nsw i64 %90, %91
-  %93 = mul i64 %86, %92
-  %94 = add i64 %73, %91
-  %95 = mul i64 %89, %94
-  %96 = uitofp i64 %93 to double
-  %97 = uitofp i64 %95 to double
-  %98 = fdiv double %96, %97
+  %reass.mul.i.i = mul i64 %reass.add.i.i, %78
+  %86 = sub i64 %83, %72
+  %87 = add i64 %86, %reass.mul.i.i
+  %88 = lshr i64 %87, 8
+  %89 = shl nuw nsw i64 %77, 1
+  %90 = zext i32 %76 to i64
+  %91 = add nuw nsw i64 %89, %90
+  %92 = mul i64 %85, %91
+  %93 = add i64 %72, %90
+  %94 = mul i64 %88, %93
+  %95 = uitofp i64 %92 to double
+  %96 = uitofp i64 %94 to double
+  %97 = fdiv double %95, %96
   br label %VP8SSIMFromStatsClipped.exit
 
-VP8SSIMFromStatsClipped.exit:                     ; preds = %._crit_edge91, %75
-  %.0.i.i = phi double [ %98, %75 ], [ 1.000000e+00, %._crit_edge91 ]
+VP8SSIMFromStatsClipped.exit:                     ; preds = %._crit_edge91, %74
+  %.0.i.i = phi double [ %97, %74 ], [ 1.000000e+00, %._crit_edge91 ]
   ret double %.0.i.i
 }
 

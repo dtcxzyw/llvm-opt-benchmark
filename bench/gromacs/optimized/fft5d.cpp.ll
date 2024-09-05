@@ -2182,19 +2182,19 @@ define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8
   %17 = sext i32 %2 to i64
-  %switch.gep60 = getelementptr inbounds [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6, i64 0, i64 %17
-  %switch.load61 = load i32, ptr %switch.gep60, align 4
+  %switch.gep61 = getelementptr inbounds [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6, i64 0, i64 %17
+  %switch.load62 = load i32, ptr %switch.gep61, align 4
   %18 = sext i32 %2 to i64
-  %switch.gep62 = getelementptr inbounds [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7, i64 0, i64 %18
-  %switch.load63 = load i32, ptr %switch.gep62, align 4
+  %switch.gep63 = getelementptr inbounds [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7, i64 0, i64 %18
+  %switch.load64 = load i32, ptr %switch.gep63, align 4
   %19 = sext i32 %2 to i64
-  %switch.gep64 = getelementptr inbounds [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8, i64 0, i64 %19
-  %switch.load65 = load i32, ptr %switch.gep64, align 4
-  store i32 %switch.load61, ptr %5, align 4
+  %switch.gep65 = getelementptr inbounds [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8, i64 0, i64 %19
+  %switch.load66 = load i32, ptr %switch.gep65, align 4
+  store i32 %switch.load62, ptr %5, align 4
   %20 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %switch.load63, ptr %20, align 4
+  store i32 %switch.load64, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %switch.load65, ptr %21, align 4
+  store i32 %switch.load66, ptr %21, align 4
   %22 = zext nneg i32 %2 to i64
   %23 = getelementptr inbounds i32, ptr %14, i64 %22
   %24 = getelementptr inbounds i32, ptr %12, i64 %22
@@ -2307,100 +2307,100 @@ _ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit: ; preds = %53, %56, %59
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, 0
   %73 = load i32, ptr %7, align 4
-  %.fr45 = freeze i32 %73
+  %.fr46 = freeze i32 %73
   %74 = getelementptr inbounds i8, ptr %6, i64 8
   %75 = load i32, ptr %74, align 4
-  %factor.op.mul40 = shl i32 %75, 1
+  %factor.op.mul41 = shl i32 %75, 1
   %76 = getelementptr inbounds i8, ptr %6, i64 4
   %77 = load i32, ptr %76, align 4
-  %factor.op.mul38 = shl i32 %77, 1
+  %factor.op.mul39 = shl i32 %77, 1
   %78 = load i32, ptr %6, align 4
   %.lobit = lshr exact i32 %11, 2
   %79 = xor i32 %.lobit, 1
   br i1 %72, label %.preheader31.lr.ph.split.us, label %._crit_edge
 
 .preheader31.lr.ph.split.us:                      ; preds = %.preheader31.lr.ph
-  %80 = icmp sgt i32 %.fr45, 0
+  %80 = icmp sgt i32 %.fr46, 0
   br i1 %80, label %.preheader31.us.us, label %.preheader31.us
 
-.preheader31.us.us:                               ; preds = %.preheader31.lr.ph.split.us, %._crit_edge37.split.us.us.us
-  %.02539.us.us = phi i32 [ %105, %._crit_edge37.split.us.us.us ], [ 0, %.preheader31.lr.ph.split.us ]
-  %factor.op.mul.reass.us.us = mul i32 %.02539.us.us, %factor.op.mul40
+.preheader31.us.us:                               ; preds = %.preheader31.lr.ph.split.us, %._crit_edge38.split.us.us.us
+  %.02540.us.us = phi i32 [ %103, %._crit_edge38.split.us.us.us ], [ 0, %.preheader31.lr.ph.split.us ]
+  %factor.op.mul.reass.us.us = mul i32 %.02540.us.us, %factor.op.mul41
   br label %.preheader.lr.ph.us.us.us
 
 .preheader.lr.ph.us.us.us:                        ; preds = %._crit_edge.us.us.us, %.preheader31.us.us
-  %.02336.us.us.us = phi i32 [ 0, %.preheader31.us.us ], [ %104, %._crit_edge.us.us.us ]
+  %.02337.us.us.us = phi i32 [ 0, %.preheader31.us.us ], [ %102, %._crit_edge.us.us.us ]
   %81 = load ptr, ptr @debug, align 8
   %82 = load i32, ptr %8, align 4
   %83 = load i32, ptr %64, align 4
   %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.15, i32 noundef %82, i32 noundef %83) #11
-  %factor.op.mul33.reass.us.us.us = mul i32 %.02336.us.us.us, %factor.op.mul38
-  %85 = add i32 %factor.op.mul33.reass.us.us.us, %factor.op.mul.reass.us.us
+  %factor.op.mul34.reass.us.us.us = mul i32 %.02337.us.us.us, %factor.op.mul39
+  %85 = add i32 %factor.op.mul34.reass.us.us.us, %factor.op.mul.reass.us.us
   br label %.preheader.us.us.us
 
 86:                                               ; preds = %89
   %87 = load ptr, ptr @debug, align 8
   %fputc27.us.us.us = tail call i32 @fputc(i32 44, ptr %87)
-  %88 = add nuw nsw i32 %.035.us.us.us, 1
-  %exitcond50.not = icmp eq i32 %88, %.fr45
-  br i1 %exitcond50.not, label %._crit_edge.us.us.us, label %.preheader.us.us.us, !llvm.loop !32
+  %88 = add nuw nsw i32 %.036.us.us.us, 1
+  %exitcond51.not = icmp eq i32 %88, %.fr46
+  br i1 %exitcond51.not, label %._crit_edge.us.us.us, label %.preheader.us.us.us, !llvm.loop !32
 
 89:                                               ; preds = %.preheader.us.us.us, %89
   %indvars.iv = phi i64 [ 0, %.preheader.us.us.us ], [ %indvars.iv.next, %89 ]
   %90 = load ptr, ptr @debug, align 8
   %91 = trunc nuw nsw i64 %indvars.iv to i32
-  %92 = add i32 %102, %91
-  %93 = add i32 %92, %85
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds float, ptr %0, i64 %94
-  %96 = load float, ptr %95, align 4
-  %97 = fpext float %96 to double
-  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.16, double noundef %97) #11
+  %.reass.us.us.us = add i32 %invariant.op.us.us.us, %91
+  %92 = sext i32 %.reass.us.us.us to i64
+  %93 = getelementptr inbounds float, ptr %0, i64 %92
+  %94 = load float, ptr %93, align 4
+  %95 = fpext float %94 to double
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.16, double noundef %95) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = or i32 %11, %91
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %89, label %86, !llvm.loop !33
+  %97 = or i32 %11, %91
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %89, label %86, !llvm.loop !33
 
 .preheader.us.us.us:                              ; preds = %86, %.preheader.lr.ph.us.us.us
-  %.035.us.us.us = phi i32 [ 0, %.preheader.lr.ph.us.us.us ], [ %88, %86 ]
-  %101 = mul nsw i32 %78, %.035.us.us.us
-  %102 = shl i32 %101, %79
+  %.036.us.us.us = phi i32 [ 0, %.preheader.lr.ph.us.us.us ], [ %88, %86 ]
+  %99 = mul nsw i32 %78, %.036.us.us.us
+  %100 = shl i32 %99, %79
+  %invariant.op.us.us.us = add i32 %100, %85
   br label %89
 
 ._crit_edge.us.us.us:                             ; preds = %86
-  %103 = load ptr, ptr @debug, align 8
-  %fputc.us.us.us = tail call i32 @fputc(i32 10, ptr %103)
-  %104 = add nuw nsw i32 %.02336.us.us.us, 1
-  %exitcond51.not = icmp eq i32 %104, %71
-  br i1 %exitcond51.not, label %._crit_edge37.split.us.us.us, label %.preheader.lr.ph.us.us.us, !llvm.loop !34
+  %101 = load ptr, ptr @debug, align 8
+  %fputc.us.us.us = tail call i32 @fputc(i32 10, ptr %101)
+  %102 = add nuw nsw i32 %.02337.us.us.us, 1
+  %exitcond52.not = icmp eq i32 %102, %71
+  br i1 %exitcond52.not, label %._crit_edge38.split.us.us.us, label %.preheader.lr.ph.us.us.us, !llvm.loop !34
 
-._crit_edge37.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %105 = add nuw nsw i32 %.02539.us.us, 1
-  %exitcond52.not = icmp eq i32 %105, %68
-  br i1 %exitcond52.not, label %._crit_edge, label %.preheader31.us.us, !llvm.loop !35
+._crit_edge38.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
+  %103 = add nuw nsw i32 %.02540.us.us, 1
+  %exitcond53.not = icmp eq i32 %103, %68
+  br i1 %exitcond53.not, label %._crit_edge, label %.preheader31.us.us, !llvm.loop !35
 
-.preheader31.us:                                  ; preds = %.preheader31.lr.ph.split.us, %._crit_edge37.split.us43
-  %.02539.us = phi i32 [ %113, %._crit_edge37.split.us43 ], [ 0, %.preheader31.lr.ph.split.us ]
-  br label %106
+.preheader31.us:                                  ; preds = %.preheader31.lr.ph.split.us, %._crit_edge38.split.us44
+  %.02540.us = phi i32 [ %111, %._crit_edge38.split.us44 ], [ 0, %.preheader31.lr.ph.split.us ]
+  br label %104
 
-106:                                              ; preds = %.preheader31.us, %106
-  %.02336.us41 = phi i32 [ 0, %.preheader31.us ], [ %112, %106 ]
-  %107 = load ptr, ptr @debug, align 8
-  %108 = load i32, ptr %8, align 4
-  %109 = load i32, ptr %64, align 4
-  %110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.15, i32 noundef %108, i32 noundef %109) #11
-  %111 = load ptr, ptr @debug, align 8
-  %fputc.us42 = tail call i32 @fputc(i32 10, ptr %111)
-  %112 = add nuw nsw i32 %.02336.us41, 1
-  %exitcond.not = icmp eq i32 %112, %71
-  br i1 %exitcond.not, label %._crit_edge37.split.us43, label %106, !llvm.loop !34
+104:                                              ; preds = %.preheader31.us, %104
+  %.02337.us42 = phi i32 [ 0, %.preheader31.us ], [ %110, %104 ]
+  %105 = load ptr, ptr @debug, align 8
+  %106 = load i32, ptr %8, align 4
+  %107 = load i32, ptr %64, align 4
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.15, i32 noundef %106, i32 noundef %107) #11
+  %109 = load ptr, ptr @debug, align 8
+  %fputc.us43 = tail call i32 @fputc(i32 10, ptr %109)
+  %110 = add nuw nsw i32 %.02337.us42, 1
+  %exitcond.not = icmp eq i32 %110, %71
+  br i1 %exitcond.not, label %._crit_edge38.split.us44, label %104, !llvm.loop !34
 
-._crit_edge37.split.us43:                         ; preds = %106
-  %113 = add nuw nsw i32 %.02539.us, 1
-  %exitcond48.not = icmp eq i32 %113, %68
-  br i1 %exitcond48.not, label %._crit_edge, label %.preheader31.us, !llvm.loop !35
+._crit_edge38.split.us44:                         ; preds = %104
+  %111 = add nuw nsw i32 %.02540.us, 1
+  %exitcond49.not = icmp eq i32 %111, %68
+  br i1 %exitcond49.not, label %._crit_edge, label %.preheader31.us, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %._crit_edge37.split.us43, %._crit_edge37.split.us.us.us, %.preheader31.lr.ph, %_ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit
+._crit_edge:                                      ; preds = %._crit_edge38.split.us44, %._crit_edge38.split.us.us.us, %.preheader31.lr.ph, %_ZL15compute_offsetsP12fft5d_plan_tPiS1_S1_S1_i.exit
   ret void
 }
 

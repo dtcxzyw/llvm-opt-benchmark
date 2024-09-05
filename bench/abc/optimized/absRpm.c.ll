@@ -1972,6 +1972,7 @@ define void @Gia_ManCountFanoutlessFlops(ptr noundef %0) local_unnamed_addr #1 {
   %.val19.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %.val21, i64 4
   %.val21.val = load i32, ptr %8, align 4
+  %invariant.op = sub i32 %.val21.val, %.val22
   %.val17 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %.val22 to i64
   br label %9
@@ -1979,38 +1980,37 @@ define void @Gia_ManCountFanoutlessFlops(ptr noundef %0) local_unnamed_addr #1 {
 9:                                                ; preds = %.lr.ph.split, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %9 ]
   %.024 = phi i32 [ 0, %.lr.ph.split ], [ %spec.select, %9 ]
-  %10 = trunc i64 %indvars.iv to i32
-  %11 = sub i32 %10, %.val22
-  %12 = add i32 %11, %.val21.val
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %.val19.val, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %16 = zext i32 %15 to i64
-  %sext.i = shl nuw i64 %16, 32
-  %17 = ashr exact i64 %sext.i, 30
-  %18 = getelementptr inbounds i8, ptr %.val17, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, 0
-  %21 = zext i1 %20 to i32
-  %spec.select = add nuw nsw i32 %.024, %21
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
+  %.reass = add i32 %invariant.op, %10
+  %11 = sext i32 %.reass to i64
+  %12 = getelementptr inbounds i32, ptr %.val19.val, i64 %11
+  %13 = load i32, ptr %12, align 4
+  %14 = zext i32 %13 to i64
+  %sext.i = shl nuw i64 %14, 32
+  %15 = ashr exact i64 %sext.i, 30
+  %16 = getelementptr inbounds i8, ptr %.val17, i64 %15
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %17, 0
+  %19 = zext i1 %18 to i32
+  %spec.select = add nuw nsw i32 %.024, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !27
 
 .critedge:                                        ; preds = %9, %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %spec.select, %9 ]
-  %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0.lcssa)
-  %23 = getelementptr inbounds i8, ptr %0, i64 144
-  %24 = load ptr, ptr %23, align 8
-  %.not16 = icmp eq ptr %24, null
-  br i1 %.not16, label %26, label %25
+  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0.lcssa)
+  %21 = getelementptr inbounds i8, ptr %0, i64 144
+  %22 = load ptr, ptr %21, align 8
+  %.not16 = icmp eq ptr %22, null
+  br i1 %.not16, label %24, label %23
 
-25:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %24) #25
-  store ptr null, ptr %23, align 8
-  br label %26
+23:                                               ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %22) #25
+  store ptr null, ptr %21, align 8
+  br label %24
 
-26:                                               ; preds = %.critedge, %25
+24:                                               ; preds = %.critedge, %23
   ret void
 }
 

@@ -87,8 +87,8 @@ do.end11:                                         ; preds = %entry
   br label %do.body3.outer.i
 
 do.body3.outer.i:                                 ; preds = %do.end46.i, %do.end11
-  %writeLitEntropy.0.ph.i = phi i32 [ %spec.select.i, %do.end46.i ], [ %conv.i13, %do.end11 ]
-  %writeSeqEntropy.0.ph.i = phi i32 [ %spec.select83.i, %do.end46.i ], [ 1, %do.end11 ]
+  %writeLitEntropy.0.ph.i = phi i32 [ %tobool54.not.i, %do.end46.i ], [ %conv.i13, %do.end11 ]
+  %writeSeqEntropy.0.ph.i = phi i32 [ %tobool57.not.i, %do.end46.i ], [ 1, %do.end11 ]
   %ofCodePtr.0.ph.i = phi ptr [ %add.ptr53.i, %do.end46.i ], [ %13, %do.end11 ]
   %mlCodePtr.0.ph.i = phi ptr [ %add.ptr52.i, %do.end46.i ], [ %12, %do.end11 ]
   %llCodePtr.0.ph.i = phi ptr [ %add.ptr51.i, %do.end46.i ], [ %11, %do.end11 ]
@@ -149,13 +149,13 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.el
   %retval.sroa.0.0.insert.ext.i.i = zext nneg i32 %retval.sroa.0.0.i.i to i64
   %add.i = add i64 %litSize.0.i, %retval.sroa.0.0.insert.ext.i.i
   %inc.i = add i64 %seqCount.0.i, 1
-  %spec.select253.i = select i1 %cond.fr.i, i64 %sub.ptr.sub.i, i64 %add.i
+  %spec.select.i = select i1 %cond.fr.i, i64 %sub.ptr.sub.i, i64 %add.i
   br label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %if.end.i, %do.body3.i
   %seqCount.1215.i = phi i64 [ %seqCount.0.i, %do.body3.i ], [ %inc.i, %if.end.i ]
   %lastSequence.0212.i = phi i1 [ true, %do.body3.i ], [ %cond.fr.i, %if.end.i ]
-  %21 = phi i64 [ %sub.ptr.sub.i, %do.body3.i ], [ %spec.select253.i, %if.end.i ]
+  %21 = phi i64 [ %sub.ptr.sub.i, %do.body3.i ], [ %spec.select.i, %if.end.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxSymbolValue.i.i.i)
   store i32 255, ptr %maxSymbolValue.i.i.i, align 4
   %22 = load i32, ptr %entropyMetadata, align 8
@@ -580,7 +580,7 @@ sw.epilog.i.i.i:                                  ; preds = %sw.bb105.i.i.i, %sw
   br label %ZSTD_compressSubBlock_literal.exit.i.i
 
 ZSTD_compressSubBlock_literal.exit.i.i:           ; preds = %sw.epilog.i.i.i, %do.end83.i.i.i, %do.end69.i.i.i, %do.end25.i.i.i, %do.end19.i.i.i
-  %tobool54.not.i = phi i1 [ true, %do.end19.i.i.i ], [ true, %do.end83.i.i.i ], [ false, %sw.epilog.i.i.i ], [ true, %do.end69.i.i.i ], [ true, %do.end25.i.i.i ]
+  %tobool54.not.i = phi i32 [ %writeLitEntropy.0.ph.i, %do.end19.i.i.i ], [ %writeLitEntropy.0.ph.i, %do.end83.i.i.i ], [ 0, %sw.epilog.i.i.i ], [ 0, %do.end69.i.i.i ], [ %writeLitEntropy.0.ph.i, %do.end25.i.i.i ]
   %retval.0.i.i96.i = phi i64 [ %call.i.i108.i, %do.end19.i.i.i ], [ %call84.i.i.i, %do.end83.i.i.i ], [ %sub.ptr.sub119.i.i.i, %sw.epilog.i.i.i ], [ %call70.i.i.i, %do.end69.i.i.i ], [ %call26.i.i.i, %do.end25.i.i.i ]
   %cmp.i.i97.i = icmp ult i64 %retval.0.i.i96.i, -119
   br i1 %cmp.i.i97.i, label %do.end12.i.i, label %ZSTD_compressSubBlock_multi.exit
@@ -698,7 +698,7 @@ do.end34.i.i:                                     ; preds = %ZSTD_compressSubBlo
   br i1 %cmp35.i.i, label %do.cond.i, label %ZSTD_compressSubBlock.exit.i
 
 ZSTD_compressSubBlock.exit.i:                     ; preds = %do.end34.i.i, %if.end30.i.i.i
-  %tobool57.not.i = phi i1 [ true, %if.end30.i.i.i ], [ false, %do.end34.i.i ]
+  %tobool57.not.i = phi i32 [ %writeSeqEntropy.0.ph.i, %if.end30.i.i.i ], [ 0, %do.end34.i.i ]
   %retval.0.i284760.i.i = phi i64 [ 1, %if.end30.i.i.i ], [ %sub.ptr.sub100.i.i.i, %do.end34.i.i ]
   %add.ptr38.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 %retval.0.i284760.i.i
   %sub.ptr.lhs.cast39.i.i = ptrtoint ptr %add.ptr38.i.i to i64
@@ -727,8 +727,6 @@ do.end46.i:                                       ; preds = %do.end39.i
   %add.ptr51.i = getelementptr inbounds i8, ptr %llCodePtr.0.ph.i, i64 %seqCount.1215.i
   %add.ptr52.i = getelementptr inbounds i8, ptr %mlCodePtr.0.ph.i, i64 %seqCount.1215.i
   %add.ptr53.i = getelementptr inbounds i8, ptr %ofCodePtr.0.ph.i, i64 %seqCount.1215.i
-  %spec.select.i = select i1 %tobool54.not.i, i32 %writeLitEntropy.0.ph.i, i32 0
-  %spec.select83.i = select i1 %tobool57.not.i, i32 %writeSeqEntropy.0.ph.i, i32 0
   br i1 %lastSequence.0212.i, label %do.end63.i, label %do.body3.outer.i, !llvm.loop !7
 
 do.cond.i:                                        ; preds = %do.end39.i, %do.end34.i.i, %do.end88.i.i.i, %land.lhs.true.i.i.i, %do.end12.i.i, %cond.end50.i.i.i, %ZSTD_estimateSubBlockSize.exit.thread.i, %ZSTD_estimateSubBlockSize_symbolType.exit76.i.i.i
@@ -738,8 +736,8 @@ do.end63.i:                                       ; preds = %do.end46.i, %do.con
   %sp.1222.i = phi ptr [ %sp.0.ph.i, %do.cond.i ], [ %add.ptr.i165.i, %do.end46.i ]
   %ip.1221.i = phi ptr [ %ip.0.ph.i, %do.cond.i ], [ %add.ptr47.i, %do.end46.i ]
   %op.1220.i = phi ptr [ %op.0.ph.i, %do.cond.i ], [ %add.ptr38.i.i, %do.end46.i ]
-  %writeSeqEntropy.1219.i = phi i32 [ %writeSeqEntropy.0.ph.i, %do.cond.i ], [ %spec.select83.i, %do.end46.i ]
-  %writeLitEntropy.2218.i = phi i32 [ %writeLitEntropy.0.ph.i, %do.cond.i ], [ %spec.select.i, %do.end46.i ]
+  %writeSeqEntropy.1219.i = phi i32 [ %writeSeqEntropy.0.ph.i, %do.cond.i ], [ %tobool57.not.i, %do.end46.i ]
+  %writeLitEntropy.2218.i = phi i32 [ %writeLitEntropy.0.ph.i, %do.cond.i ], [ %tobool54.not.i, %do.end46.i ]
   %tobool64.not.i = icmp eq i32 %writeLitEntropy.2218.i, 0
   br i1 %tobool64.not.i, label %if.end72.i, label %do.end68.i
 

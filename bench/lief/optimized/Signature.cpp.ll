@@ -4359,10 +4359,11 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i40.i.i.i: ; preds = %131, %130, %11
 151:                                              ; preds = %150
   %bcmp.i.i.i.i.i.i.i49.i.i.i = call i32 @bcmp(ptr %139, ptr %145, i64 %142)
   %.not7.i.i.i.i.i.i.i50.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i49.i.i.i, 0
+  %152 = select i1 %.not7.i.i.i.i.i.i.i50.i.i.i, ptr %.sroa.061.2.i.i.i, ptr %13
   br label %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
 
 _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i: ; preds = %151, %150, %136
-  %152 = phi i1 [ false, %136 ], [ %.not7.i.i.i.i.i.i.i50.i.i.i, %151 ], [ true, %150 ]
+  %spec.select.i.i.i = phi ptr [ %13, %136 ], [ %152, %151 ], [ %.sroa.061.2.i.i.i, %150 ]
   %.not.i.i.i.i.i47.i.i.i = icmp eq ptr %139, null
   br i1 %.not.i.i.i.i.i47.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i", label %153
 
@@ -4372,7 +4373,6 @@ _ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i: ; preds = %151, %150, %13
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i": ; preds = %153, %_ZSteqIhSaIhEEbRKSt6vectorIT_T0_ES6_.exit.i.i46.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %spec.select.i.i.i = select i1 %152, ptr %.sroa.061.2.i.i.i, ptr %13
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit"
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN4LIEF2PE4x509ESt6vectorIS4_SaIS4_EEEEZNKS3_9Signature8find_crtERKS7_IhSaIhEEE3$_0ET_SH_SH_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit21.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit27.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit33.i.i.i", %._crit_edge.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit39.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit45.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4LIEF2PE9Signature8find_crtERKSt6vectorIhSaIhEEE3$_0EclINS_17__normal_iteratorIPKNS3_4x509ES5_ISE_SaISE_EEEEEEbT_.exit51.i.i.i"

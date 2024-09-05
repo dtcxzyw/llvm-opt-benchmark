@@ -2056,30 +2056,30 @@ define internal i32 @intel_uncore_init() #9 section ".init.text" align 16 {
   %39 = phi i1 [ true, %32 ], [ %37, %35 ], [ false, %.thread5 ]
   %40 = load ptr, ptr %28, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %45, label %42
+  br i1 %41, label %46, label %42
 
 42:                                               ; preds = %38
   tail call void %40() #19
   %43 = tail call fastcc i32 @uncore_cpu_init() #23
   %44 = icmp ne i32 %43, 0
-  br label %45
+  %45 = select i1 %44, i1 %39, i1 false
+  br label %46
 
-45:                                               ; preds = %42, %38
-  %46 = phi i1 [ %44, %42 ], [ false, %38 ]
-  %47 = getelementptr inbounds i8, ptr %28, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread, label %50
+46:                                               ; preds = %42, %38
+  %47 = phi i1 [ %45, %42 ], [ false, %38 ]
+  %48 = getelementptr inbounds i8, ptr %28, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %.thread, label %51
 
-50:                                               ; preds = %45
-  tail call void %48() #19
-  %51 = tail call fastcc i32 @uncore_mmio_init() #23
-  %52 = icmp ne i32 %51, 0
-  %53 = select i1 %46, i1 %39, i1 false
-  %54 = select i1 %53, i1 %52, i1 false
+51:                                               ; preds = %46
+  tail call void %49() #19
+  %52 = tail call fastcc i32 @uncore_mmio_init() #23
+  %53 = icmp ne i32 %52, 0
+  %54 = select i1 %47, i1 %53, i1 false
   br i1 %54, label %60, label %.thread
 
-.thread:                                          ; preds = %45, %50
+.thread:                                          ; preds = %46, %51
   %55 = tail call i32 @__cpuhp_setup_state(i32 noundef 154, ptr noundef nonnull @.str.7, i1 noundef zeroext true, ptr noundef nonnull @uncore_event_cpu_online, ptr noundef nonnull @uncore_event_cpu_offline, i1 noundef zeroext false) #19
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %62, label %57
@@ -2092,8 +2092,8 @@ define internal i32 @intel_uncore_init() #9 section ".init.text" align 16 {
   tail call fastcc void @uncore_pci_exit()
   br label %60
 
-60:                                               ; preds = %57, %50
-  %61 = phi i32 [ %55, %57 ], [ -19, %50 ]
+60:                                               ; preds = %57, %51
+  %61 = phi i32 [ %55, %57 ], [ -19, %51 ]
   tail call void @intel_uncore_clear_discovery_tables() #19
   br label %62
 

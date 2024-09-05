@@ -784,6 +784,7 @@ define i32 @Gia_GlaCountFlops(ptr nocapture noundef readonly %0, ptr nocapture n
   %.val17.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val15, i64 4
   %.val15.val = load i32, ptr %9, align 4
+  %invariant.op = sub i32 %.val15.val, %.val18
   %.val = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %.val18 to i64
   br label %10
@@ -791,18 +792,17 @@ define i32 @Gia_GlaCountFlops(ptr nocapture noundef readonly %0, ptr nocapture n
 10:                                               ; preds = %.lr.ph.split, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %10 ]
   %.020 = phi i32 [ 0, %.lr.ph.split ], [ %spec.select, %10 ]
-  %11 = trunc i64 %indvars.iv to i32
-  %12 = sub i32 %11, %.val18
-  %13 = add i32 %12, %.val15.val
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %.val17.val, i64 %14
-  %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %.val, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %.not12 = icmp ne i32 %19, 0
-  %20 = zext i1 %.not12 to i32
-  %spec.select = add nuw nsw i32 %.020, %20
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
+  %.reass = add i32 %invariant.op, %11
+  %12 = sext i32 %.reass to i64
+  %13 = getelementptr inbounds i32, ptr %.val17.val, i64 %12
+  %14 = load i32, ptr %13, align 4
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i32, ptr %.val, i64 %15
+  %17 = load i32, ptr %16, align 4
+  %.not12 = icmp ne i32 %17, 0
+  %18 = zext i1 %.not12 to i32
+  %spec.select = add nuw nsw i32 %.020, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !17

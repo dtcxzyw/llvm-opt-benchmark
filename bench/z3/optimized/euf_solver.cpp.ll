@@ -4560,19 +4560,19 @@ if.then.i61:                                      ; preds = %_ZN6vectorIN3sat7li
   %43 = load i32, ptr %arrayidx.i58, align 4
   %cmp58 = icmp ult i32 %j.0.lcssa85, %43
   store i32 %j.0.lcssa85, ptr %arrayidx.i58, align 4
+  %44 = select i1 %cmp58, i1 true, i1 %multiple_theories.0
   br label %_ZN6vectorIN3sat7literalELb0EjE6shrinkEj.exit
 
 _ZN6vectorIN3sat7literalELb0EjE6shrinkEj.exit:    ; preds = %for.end, %for.end56, %if.then.i61
-  %cmp5872 = phi i1 [ %cmp58, %if.then.i61 ], [ false, %for.end56 ], [ false, %for.end ]
+  %cmp5872 = phi i1 [ %44, %if.then.i61 ], [ %multiple_theories.0, %for.end56 ], [ %multiple_theories.0, %for.end ]
   br i1 %12, label %if.then61, label %if.end72
 
 if.then61:                                        ; preds = %_ZN6vectorIN3sat7literalELb0EjE6shrinkEj.exit
   tail call void @_ZN3euf6solver18log_justificationsEN3sat7literalEjb(ptr noundef nonnull align 8 dereferenceable(9136) %this, i32 %l.coerce, i32 noundef %retval.0.i, i1 noundef zeroext %cmp)
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %44 = select i1 %.b, i32 -2, i32 0
-  %cmp.i64.not = icmp ne i32 %l.coerce, %44
-  %brmerge = select i1 %cmp5872, i1 true, i1 %multiple_theories.0
-  %or.cond = select i1 %cmp.i64.not, i1 %brmerge, i1 false
+  %45 = select i1 %.b, i32 -2, i32 0
+  %cmp.i64.not = icmp ne i32 %l.coerce, %45
+  %or.cond = select i1 %cmp.i64.not, i1 %cmp5872, i1 false
   br i1 %or.cond, label %if.then68, label %if.end72
 
 if.then68:                                        ; preds = %if.then61

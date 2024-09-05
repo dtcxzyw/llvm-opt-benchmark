@@ -21103,12 +21103,13 @@ _ZN6vectorISt4pairIjN3sat7literalEELb0EjE5resetEv.exit: ; preds = %_ZN6vectorIN3
   store i32 2, ptr %k, align 4
   %mul.i = mul i32 %retval.0.i79109112, 400
   %cmp1793.not95 = icmp eq i32 %retval.0.i79109112, 0
-  %wide.trip.count = zext i32 %retval.0.i79109112 to i64
+  %umax = tail call i32 @llvm.umax.i32(i32 %retval.0.i79109112, i32 1)
+  %wide.trip.count = zext i32 %umax to i64
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit47, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE5resetEv.exit
   %sz.0 = phi i32 [ 0, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE5resetEv.exit ], [ %retval.0.i46, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit47 ]
-  %first.0.not = phi i1 [ false, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE5resetEv.exit ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit47 ]
+  %first.0.not = phi i1 [ %cmp1793.not95, %_ZN6vectorISt4pairIjN3sat7literalEELb0EjE5resetEv.exit ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit47 ]
   %16 = load ptr, ptr %m_covered_clause, align 8
   %cmp.i25 = icmp eq ptr %16, null
   br i1 %cmp.i25, label %return, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit29
@@ -21124,8 +21125,7 @@ _ZNK3sat10simplifier19blocked_clause_elim15above_thresholdEj.exit: ; preds = %_Z
   br i1 %cmp.i34, label %for.body.i69.preheader, label %while.body
 
 while.body:                                       ; preds = %_ZNK3sat10simplifier19blocked_clause_elim15above_thresholdEj.exit
-  %brmerge = or i1 %first.0.not, %cmp1793.not95
-  br i1 %brmerge, label %if.end.i44, label %for.body18
+  br i1 %first.0.not, label %if.end.i44, label %for.body18
 
 for.cond16:                                       ; preds = %for.body18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -28696,6 +28696,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #21

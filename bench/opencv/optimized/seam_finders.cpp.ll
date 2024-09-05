@@ -1460,21 +1460,21 @@ define void @_ZN2cv6detail17VoronoiSeamFinder10findInPairEmmNS_5Rect_IiEE(ptr no
 .preheader133.us.preheader:                       ; preds = %.preheader133.lr.ph
   %67 = add i32 %.sroa.9.8.extract.trunc, 10
   %smax = call i32 @llvm.smax.i32(i32 %67, i32 -9)
-  %smax163 = call i32 @llvm.smax.i32(i32 %52, i32 -9)
-  %wide.trip.count164 = sext i32 %smax163 to i64
+  %smax164 = call i32 @llvm.smax.i32(i32 %52, i32 -9)
+  %wide.trip.count165 = sext i32 %smax164 to i64
   %.sroa.249.0.copyload.fr = freeze i32 %.sroa.249.0.copyload
   %wide.trip.count = sext i32 %smax to i64
-  %wide.trip.count158 = sext i32 %smax to i64
+  %wide.trip.count159 = sext i32 %smax to i64
   br label %.preheader133.us
 
 .preheader133.us:                                 ; preds = %.preheader133.us.preheader, %._crit_edge.us
-  %indvars.iv160 = phi i64 [ -10, %.preheader133.us.preheader ], [ %indvars.iv.next161, %._crit_edge.us ]
-  %68 = trunc nsw i64 %indvars.iv160 to i32
+  %indvars.iv161 = phi i64 [ -10, %.preheader133.us.preheader ], [ %indvars.iv.next162, %._crit_edge.us ]
+  %68 = trunc nsw i64 %indvars.iv161 to i32
   %69 = add nsw i32 %55, %68
   %.fr = freeze i32 %69
   %70 = icmp sgt i32 %.fr, -1
   %71 = icmp slt i32 %.fr, %.sroa.249.0.copyload.fr
-  %72 = add nsw i64 %indvars.iv160, 10
+  %72 = add nsw i64 %indvars.iv161, 10
   %73 = zext nneg i32 %.fr to i64
   %74 = add nsw i32 %61, %68
   %75 = icmp sgt i32 %74, -1
@@ -1484,8 +1484,8 @@ define void @_ZN2cv6detail17VoronoiSeamFinder10findInPairEmmNS_5Rect_IiEE(ptr no
   br i1 %78, label %.lr.ph.split.us143, label %.lr.ph.split.us.us
 
 .lr.ph.split.us143:                               ; preds = %.preheader133.us, %112
-  %indvars.iv154 = phi i64 [ %indvars.iv.next155, %112 ], [ -10, %.preheader133.us ]
-  %79 = trunc nsw i64 %indvars.iv154 to i32
+  %indvars.iv155 = phi i64 [ %indvars.iv.next156, %112 ], [ -10, %.preheader133.us ]
+  %79 = trunc nsw i64 %indvars.iv155 to i32
   %80 = add nsw i32 %56, %79
   %81 = icmp sgt i32 %80, -1
   %82 = icmp slt i32 %80, %.sroa.048.0.copyload
@@ -1510,7 +1510,7 @@ define void @_ZN2cv6detail17VoronoiSeamFinder10findInPairEmmNS_5Rect_IiEE(ptr no
   %95 = load i64, ptr %94, align 8
   %96 = mul i64 %95, %72
   %97 = getelementptr inbounds i8, ptr %93, i64 %96
-  %98 = getelementptr i8, ptr %97, i64 %indvars.iv154
+  %98 = getelementptr i8, ptr %97, i64 %indvars.iv155
   %99 = getelementptr i8, ptr %98, i64 10
   store i8 %.sink, ptr %99, align 1
   %100 = add nsw i32 %62, %79
@@ -1533,23 +1533,23 @@ define void @_ZN2cv6detail17VoronoiSeamFinder10findInPairEmmNS_5Rect_IiEE(ptr no
   br label %112
 
 112:                                              ; preds = %92, %103
-  %.sink184 = phi i8 [ %111, %103 ], [ 0, %92 ]
+  %.sink185 = phi i8 [ %111, %103 ], [ 0, %92 ]
   %113 = load ptr, ptr %63, align 8
   %114 = load ptr, ptr %64, align 8
   %115 = load i64, ptr %114, align 8
   %116 = mul i64 %115, %72
   %117 = getelementptr inbounds i8, ptr %113, i64 %116
-  %118 = getelementptr i8, ptr %117, i64 %indvars.iv154
+  %118 = getelementptr i8, ptr %117, i64 %indvars.iv155
   %119 = getelementptr i8, ptr %118, i64 10
-  store i8 %.sink184, ptr %119, align 1
-  %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
-  %exitcond159.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count158
-  br i1 %exitcond159.not, label %._crit_edge.us, label %.lr.ph.split.us143, !llvm.loop !36
+  store i8 %.sink185, ptr %119, align 1
+  %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
+  %exitcond160.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count159
+  br i1 %exitcond160.not, label %._crit_edge.us, label %.lr.ph.split.us143, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %140, %112
-  %indvars.iv.next161 = add nsw i64 %indvars.iv160, 1
-  %exitcond165.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count164
-  br i1 %exitcond165.not, label %._crit_edge137, label %.preheader133.us, !llvm.loop !37
+  %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
+  %exitcond166.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count165
+  br i1 %exitcond166.not, label %._crit_edge137, label %.preheader133.us, !llvm.loop !37
 
 .lr.ph.split.us.us:                               ; preds = %.preheader133.us, %140
   %indvars.iv = phi i64 [ %indvars.iv.next, %140 ], [ -10, %.preheader133.us ]
@@ -1582,7 +1582,7 @@ define void @_ZN2cv6detail17VoronoiSeamFinder10findInPairEmmNS_5Rect_IiEE(ptr no
   br label %140
 
 140:                                              ; preds = %.lr.ph.split.us.us, %131
-  %.sink192 = phi i8 [ %139, %131 ], [ 0, %.lr.ph.split.us.us ]
+  %.sink193 = phi i8 [ %139, %131 ], [ 0, %.lr.ph.split.us.us ]
   %141 = load ptr, ptr %63, align 8
   %142 = load ptr, ptr %64, align 8
   %143 = load i64, ptr %142, align 8
@@ -1590,7 +1590,7 @@ define void @_ZN2cv6detail17VoronoiSeamFinder10findInPairEmmNS_5Rect_IiEE(ptr no
   %145 = getelementptr inbounds i8, ptr %141, i64 %144
   %146 = getelementptr i8, ptr %145, i64 %indvars.iv
   %147 = getelementptr i8, ptr %146, i64 10
-  store i8 %.sink192, ptr %147, align 1
+  store i8 %.sink193, ptr %147, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !36
@@ -1818,53 +1818,53 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit132:              ; preds = %217
   br i1 %227, label %.preheader.us.preheader, label %._crit_edge148
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %wide.trip.count169 = and i64 %4, 2147483647
+  %wide.trip.count170 = and i64 %4, 2147483647
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us149
-  %indvars.iv171 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next172, %._crit_edge.us149 ]
-  %230 = trunc nuw nsw i64 %indvars.iv171 to i32
-  %invariant.op.us = add i32 %230, %.sroa.5.0.extract.trunc
-  %231 = add nuw nsw i64 %indvars.iv171, 10
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us150
+  %indvars.iv172 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next173, %._crit_edge.us150 ]
+  %230 = add nuw nsw i64 %indvars.iv172, 10
+  %231 = trunc nuw nsw i64 %indvars.iv172 to i32
   br label %232
 
 232:                                              ; preds = %.preheader.us, %232
-  %indvars.iv166 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next167, %232 ]
+  %indvars.iv167 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next168, %232 ]
   %233 = load ptr, ptr %228, align 8
   %234 = load ptr, ptr %229, align 8
   %235 = load i64, ptr %234, align 8
-  %236 = mul i64 %235, %231
+  %236 = mul i64 %235, %230
   %237 = getelementptr inbounds i8, ptr %233, i64 %236
-  %238 = getelementptr inbounds i8, ptr %237, i64 %indvars.iv166
+  %238 = getelementptr inbounds i8, ptr %237, i64 %indvars.iv167
   %239 = getelementptr inbounds i8, ptr %238, i64 10
   %240 = load i8, ptr %239, align 1
   %.not.us = icmp eq i8 %240, 0
   %..v.sroa.sel.v = select i1 %.not.us, ptr %8, ptr %9
   %..v.sroa.sel = getelementptr inbounds i8, ptr %..v.sroa.sel.v, i64 16
-  %.211.v.sroa.sel.v = select i1 %.not.us, ptr %8, ptr %9
-  %.211.v.sroa.sel = getelementptr inbounds i8, ptr %.211.v.sroa.sel.v, i64 72
-  %.212.v.v = select i1 %.not.us, i32 %.sroa.345.0.copyload, i32 %.sroa.3.0.copyload
-  %.212.v = sub i32 %invariant.op.us, %.212.v.v
-  %.212 = sext i32 %.212.v to i64
-  %.213.v.v = select i1 %.not.us, i32 %.sroa.043.0.copyload, i32 %.sroa.0.0.copyload
-  %.213.v = sub i32 %.sroa.058.0.extract.trunc, %.213.v.v
+  %.212.v.sroa.sel.v = select i1 %.not.us, ptr %8, ptr %9
+  %.212.v.sroa.sel = getelementptr inbounds i8, ptr %.212.v.sroa.sel.v, i64 72
+  %.213.v.v.v = select i1 %.not.us, i32 %.sroa.345.0.copyload, i32 %.sroa.3.0.copyload
+  %.213.v.v = sub i32 %.sroa.5.0.extract.trunc, %.213.v.v.v
+  %.213.v = add i32 %.213.v.v, %231
   %.213 = sext i32 %.213.v to i64
+  %.214.v.v = select i1 %.not.us, i32 %.sroa.043.0.copyload, i32 %.sroa.0.0.copyload
+  %.214.v = sub i32 %.sroa.058.0.extract.trunc, %.214.v.v
+  %.214 = sext i32 %.214.v to i64
   %241 = load ptr, ptr %..v.sroa.sel, align 8
-  %242 = load ptr, ptr %.211.v.sroa.sel, align 8
+  %242 = load ptr, ptr %.212.v.sroa.sel, align 8
   %243 = load i64, ptr %242, align 8
-  %244 = mul i64 %243, %.212
+  %244 = mul i64 %243, %.213
   %245 = getelementptr inbounds i8, ptr %241, i64 %244
-  %246 = getelementptr i8, ptr %245, i64 %indvars.iv166
-  %247 = getelementptr i8, ptr %246, i64 %.213
+  %246 = getelementptr i8, ptr %245, i64 %indvars.iv167
+  %247 = getelementptr i8, ptr %246, i64 %.214
   store i8 0, ptr %247, align 1
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
-  br i1 %exitcond170.not, label %._crit_edge.us149, label %232, !llvm.loop !50
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
+  br i1 %exitcond171.not, label %._crit_edge.us150, label %232, !llvm.loop !50
 
-._crit_edge.us149:                                ; preds = %232
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %.sroa.14.8.extract.shift
-  br i1 %exitcond175.not, label %._crit_edge148, label %.preheader.us, !llvm.loop !51
+._crit_edge.us150:                                ; preds = %232
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %exitcond176.not = icmp eq i64 %indvars.iv.next173, %.sroa.14.8.extract.shift
+  br i1 %exitcond176.not, label %._crit_edge148, label %.preheader.us, !llvm.loop !51
 
 248:                                              ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
   %249 = landingpad { ptr, i32 }
@@ -1943,7 +1943,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit132:              ; preds = %217
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %30) #28
   br label %272
 
-._crit_edge148:                                   ; preds = %._crit_edge.us149, %.preheader.lr.ph, %_ZNK2cv7MatExprcvNS_3MatEEv.exit132
+._crit_edge148:                                   ; preds = %._crit_edge.us150, %.preheader.lr.ph, %_ZNK2cv7MatExprcvNS_3MatEEv.exit132
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #28
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #28
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #28

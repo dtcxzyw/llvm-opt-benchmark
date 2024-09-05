@@ -1894,8 +1894,8 @@ sub_1194:                                         ; preds = %.tail
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %.backedge, label %.tail192.thread
 
-.backedge:                                        ; preds = %184, %.critedge180, %238, %240, %.thread189, %204, %226, %123, %121, %117, %115, %102, %104, %.tail, %.tail192, %convert_link_to_directory.exit182, %.tail192.thread, %72, %125, %130, %153
-  %.0132.be = phi i64 [ %.0132223, %.tail192.thread ], [ %.0132223, %72 ], [ %.0132223, %125 ], [ %.0132223, %130 ], [ %154, %153 ], [ %164, %convert_link_to_directory.exit182 ], [ %.0132223, %.tail192 ], [ %.0132223, %.tail ], [ %.0132223, %104 ], [ %.0132223, %102 ], [ %.0132223, %115 ], [ %.0132223, %117 ], [ %.0132223, %121 ], [ %.0132223, %123 ], [ %186, %184 ], [ %190, %.thread189 ], [ %206, %204 ], [ %237, %.critedge180 ], [ %.0132223, %240 ], [ %.0132223, %238 ], [ %.0132223, %226 ]
+.backedge:                                        ; preds = %184, %.critedge180, %238, %240, %.thread189, %204, %227, %123, %121, %117, %115, %102, %104, %.tail, %.tail192, %convert_link_to_directory.exit182, %.tail192.thread, %72, %125, %130, %153
+  %.0132.be = phi i64 [ %.0132223, %.tail192.thread ], [ %.0132223, %72 ], [ %.0132223, %125 ], [ %.0132223, %130 ], [ %154, %153 ], [ %164, %convert_link_to_directory.exit182 ], [ %.0132223, %.tail192 ], [ %.0132223, %.tail ], [ %.0132223, %104 ], [ %.0132223, %102 ], [ %.0132223, %115 ], [ %.0132223, %117 ], [ %.0132223, %121 ], [ %.0132223, %123 ], [ %186, %184 ], [ %190, %.thread189 ], [ %206, %204 ], [ %237, %.critedge180 ], [ %.0132223, %240 ], [ %.0132223, %238 ], [ %.0132223, %227 ]
   %69 = call ptr @ReadDir(ptr noundef %50, ptr noundef %1) #18
   %.not159 = icmp eq ptr %69, null
   br i1 %.not159, label %._crit_edge, label %sub_0, !llvm.loop !10
@@ -2201,7 +2201,7 @@ convert_link_to_directory.exit182:                ; preds = %157, %161
   store i32 0, ptr %17, align 4
   store i32 0, ptr %18, align 4
   %brmerge.not = and i1 %.not, %.0140185
-  br i1 %brmerge.not, label %208, label %225
+  br i1 %brmerge.not, label %208, label %226
 
 208:                                              ; preds = %207
   br i1 %.not169, label %211, label %209
@@ -2233,25 +2233,25 @@ convert_link_to_directory.exit182:                ; preds = %157, %161
   br label %224
 
 224:                                              ; preds = %220, %213
+  %225 = phi ptr [ %.0146, %220 ], [ null, %213 ]
   %.1130 = phi ptr [ %19, %220 ], [ %gep, %213 ]
   call void @pfree(ptr noundef %.0) #18
-  br label %225
+  br label %226
 
-225:                                              ; preds = %207, %224
+226:                                              ; preds = %207, %224
   %.0129 = phi ptr [ %.1130, %224 ], [ %gep, %207 ]
-  %.0128 = phi i1 [ %219, %224 ], [ false, %207 ]
-  br i1 %3, label %.critedge180, label %226
+  %.0128 = phi ptr [ %225, %224 ], [ null, %207 ]
+  br i1 %3, label %.critedge180, label %227
 
-226:                                              ; preds = %225
-  %227 = load i32, ptr %12, align 4
-  %228 = load i32, ptr %14, align 4
-  %229 = load i32, ptr %17, align 4
-  %230 = select i1 %.0128, ptr %.0146, ptr null
+227:                                              ; preds = %226
+  %228 = load i32, ptr %12, align 4
+  %229 = load i32, ptr %14, align 4
+  %230 = load i32, ptr %17, align 4
   %231 = load i32, ptr %18, align 4
-  %232 = call fastcc zeroext i1 @sendFile(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.0129, ptr noundef nonnull %11, i1 noundef zeroext true, i32 noundef %.0145, i32 noundef %7, i32 noundef %227, i32 noundef %228, ptr noundef %6, i32 noundef %229, ptr noundef %230, i32 noundef %231)
+  %232 = call fastcc zeroext i1 @sendFile(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %.0129, ptr noundef nonnull %11, i1 noundef zeroext true, i32 noundef %.0145, i32 noundef %7, i32 noundef %228, i32 noundef %229, ptr noundef %6, i32 noundef %230, ptr noundef %.0128, i32 noundef %231)
   br i1 %232, label %.critedge180, label %.backedge
 
-.critedge180:                                     ; preds = %225, %226
+.critedge180:                                     ; preds = %226, %227
   %233 = load i64, ptr %54, align 8
   %234 = add i64 %233, 511
   %235 = and i64 %234, -512

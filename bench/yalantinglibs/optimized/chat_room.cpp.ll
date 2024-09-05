@@ -55780,11 +55780,7 @@ if.end.i12:                                       ; preds = %_ZN4asio16buffers_i
 
 if.then5.i:                                       ; preds = %if.end.i12
   %cmp.i4.i = icmp eq ptr %test_iter2.sroa.0.080.i, %13
-  br i1 %cmp.i4.i, label %for.inc17.i, label %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit.thread
-
-_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit.thread: ; preds = %if.then5.i
-  %cmp.i.i13.not141 = icmp ne i64 %iter1.sroa.19.095.i, %sub.ptr.sub.i.i
-  br label %if.else
+  br i1 %cmp.i4.i, label %for.inc17.i, label %if.else
 
 if.end9.i:                                        ; preds = %if.end.i12
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %test_iter1.sroa.0.079.i, i64 %test_iter1.sroa.5.077.i
@@ -55868,17 +55864,16 @@ _ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i: ; preds = %_ZN4
 
 _ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit: ; preds = %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i, %for.cond2.preheader.lr.ph.i
   %result.sroa.13.0 = phi i64 [ %start_pos.sroa.21.0, %for.cond2.preheader.lr.ph.i ], [ %iter1.sroa.19.095.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit.i ]
-  %cmp.i.i13.not.not = icmp eq i64 %result.sroa.13.0, %sub.ptr.sub.i.i
-  br i1 %cmp.i.i13.not.not, label %if.else, label %if.then
+  %cmp.i.i13.not = icmp eq i64 %result.sroa.13.0, %sub.ptr.sub.i.i
+  br i1 %cmp.i.i13.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit
   %add = add i64 %result.sroa.13.0, %14
   store i64 %add, ptr %search_position_, align 8
   br label %if.end50
 
-if.else:                                          ; preds = %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit.thread, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit
-  %cmp.i.i13108 = phi i1 [ false, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit ], [ false, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit ], [ %cmp.i.i13.not141, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit.thread ], [ false, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ]
-  %result.sroa.13.0107 = phi i64 [ %result.sroa.13.0, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit ], [ %sub.ptr.sub.i.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit ], [ %iter1.sroa.19.095.i, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit.thread ], [ %sub.ptr.sub.i.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ]
+if.else:                                          ; preds = %if.then5.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit
+  %cmp.i.i13108 = phi i64 [ %result.sroa.13.0, %_ZN4asio6detail14partial_searchINS_16buffers_iteratorINS_15const_buffers_1EcEEN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEESt4pairIT_bESG_SG_T0_SI_.exit ], [ %sub.ptr.sub.i.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcE7advanceEl.exit ], [ %iter1.sroa.19.095.i, %if.then5.i ], [ %sub.ptr.sub.i.i, %_ZN4asio16buffers_iteratorINS_15const_buffers_1EcEppEv.exit25.i ]
   %17 = load ptr, ptr %buffers_, align 8
   %call.i.i16 = invoke noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE4pptrEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
           to label %invoke.cont.i.i18 unwind label %terminate.lpad.i.i17
@@ -55909,8 +55904,7 @@ if.then22:                                        ; preds = %_ZNK4asio19basic_st
   br label %if.end50
 
 if.else24:                                        ; preds = %_ZNK4asio19basic_streambuf_refISaIcEE4sizeEv.exit
-  %spec.select110 = select i1 %cmp.i.i13108, i64 %result.sroa.13.0107, i64 %sub.ptr.sub.i.i
-  store i64 %spec.select110, ptr %search_position_, align 8
+  store i64 %cmp.i.i13108, ptr %search_position_, align 8
   %buffer_.i.i = getelementptr inbounds i8, ptr %20, i64 72
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %20, i64 88
   %22 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8

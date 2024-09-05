@@ -44175,8 +44175,8 @@ _ZN4llvm5APIntD2Ev.exit299:                       ; preds = %286, %_ZN4llvm5APIn
   %335 = icmp ult i32 %334, 65
   %336 = load ptr, ptr %38, align 8
   %337 = icmp eq ptr %336, null
-  %or.cond566 = select i1 %335, i1 true, i1 %337
-  br i1 %or.cond566, label %_ZN4llvm5APIntD2Ev.exit300, label %_ZN4llvm5APIntD2Ev.exit300.sink.split
+  %or.cond565 = select i1 %335, i1 true, i1 %337
+  br i1 %or.cond565, label %_ZN4llvm5APIntD2Ev.exit300, label %_ZN4llvm5APIntD2Ev.exit300.sink.split
 
 338:                                              ; preds = %_ZNK4llvm15ScalarEvolution17getTypeSizeInBitsEPNS_4TypeE.exit
   %339 = call noundef i32 @_ZN4llvm15ScalarEvolution19getMinTrailingZerosEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef nonnull %1)
@@ -44459,8 +44459,8 @@ _ZN4llvm5APIntD2Ev.exit323:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %462 = icmp ult i32 %461, 65
   %463 = load ptr, ptr %47, align 8
   %464 = icmp eq ptr %463, null
-  %or.cond568 = select i1 %462, i1 true, i1 %464
-  br i1 %or.cond568, label %_ZN4llvm5APIntD2Ev.exit300, label %_ZN4llvm5APIntD2Ev.exit300.sink.split
+  %or.cond567 = select i1 %462, i1 true, i1 %464
+  br i1 %or.cond567, label %_ZN4llvm5APIntD2Ev.exit300, label %_ZN4llvm5APIntD2Ev.exit300.sink.split
 
 _ZN4llvm5APIntD2Ev.exit300.sink.split:            ; preds = %_ZN4llvm5APIntD2Ev.exit323, %_ZN4llvm5APIntD2Ev.exit299
   %.sink = phi ptr [ %336, %_ZN4llvm5APIntD2Ev.exit299 ], [ %463, %_ZN4llvm5APIntD2Ev.exit323 ]
@@ -44991,31 +44991,34 @@ _ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit: ; preds = %645, 
   br i1 %.not.i.i, label %680, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit
 
 680:                                              ; preds = %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit
-  br i1 %673, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread, label %682
+  br i1 %673, label %681, label %683
 
-_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread: ; preds = %680
-  %681 = icmp eq ptr %674, null
-  br label %_ZN4llvm5APIntD2Ev.exit434
+681:                                              ; preds = %680
+  %682 = icmp eq ptr %674, null
+  br label %_ZNK4llvm5APInt6isZeroEv.exit.i
 
-682:                                              ; preds = %680
-  %683 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %14) #29
-  %684 = icmp eq i32 %683, %668
+683:                                              ; preds = %680
+  %684 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %14) #29
+  %685 = icmp eq i32 %684, %668
+  br label %_ZNK4llvm5APInt6isZeroEv.exit.i
+
+_ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %683, %681
+  %.0.i.i435 = phi i1 [ %682, %681 ], [ %685, %683 ]
+  %686 = select i1 %.0.i.i435, i1 %.0260503, i1 false
   br label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit
 
-_ZNK4llvm5APInt18isStrictlyPositiveEv.exit:       ; preds = %682, %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit
-  %685 = phi i1 [ true, %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit ], [ %684, %682 ]
-  %686 = icmp eq ptr %674, null
-  %or.cond481 = select i1 %673, i1 true, i1 %686
-  br i1 %or.cond481, label %_ZN4llvm5APIntD2Ev.exit434, label %687
+_ZNK4llvm5APInt18isStrictlyPositiveEv.exit:       ; preds = %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit, %_ZNK4llvm5APInt6isZeroEv.exit.i
+  %.1261 = phi i1 [ %.0260503, %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit ], [ %686, %_ZNK4llvm5APInt6isZeroEv.exit.i ]
+  %687 = icmp eq ptr %674, null
+  %or.cond481 = select i1 %673, i1 true, i1 %687
+  br i1 %or.cond481, label %_ZN4llvm5APIntD2Ev.exit434, label %688
 
-687:                                              ; preds = %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit
+688:                                              ; preds = %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit
   call void @_ZdaPv(ptr noundef nonnull %674) #31
   br label %_ZN4llvm5APIntD2Ev.exit434
 
-_ZN4llvm5APIntD2Ev.exit434:                       ; preds = %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit, %687
-  %688 = phi i1 [ %681, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread ], [ %685, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit ], [ %685, %687 ]
+_ZN4llvm5APIntD2Ev.exit434:                       ; preds = %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit, %688
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %.1261 = select i1 %688, i1 %.0260503, i1 false
   %689 = add i32 %.0262502, 1
   %.not279 = icmp eq i32 %689, %641
   %indvars.iv.next534 = add nuw nsw i64 %indvars.iv533, 1
@@ -45055,8 +45058,8 @@ _ZN4llvm5APIntD2Ev.exit354:                       ; preds = %._crit_edge507.thre
   %703 = icmp ult i32 %702, 65
   %704 = load ptr, ptr %81, align 8
   %705 = icmp eq ptr %704, null
-  %or.cond570 = select i1 %703, i1 true, i1 %705
-  br i1 %or.cond570, label %_ZN4llvm5APIntD2Ev.exit355, label %_ZN4llvm5APIntD2Ev.exit355.sink.split
+  %or.cond569 = select i1 %703, i1 true, i1 %705
+  br i1 %or.cond569, label %_ZN4llvm5APIntD2Ev.exit355, label %_ZN4llvm5APIntD2Ev.exit355.sink.split
 
 706:                                              ; preds = %._crit_edge507
   br i1 %.1261, label %707, label %_ZN4llvm5APIntD2Ev.exit355
@@ -45114,12 +45117,12 @@ _ZN4llvm5APIntD2Ev.exit357:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %731 = icmp ult i32 %730, 65
   %732 = load ptr, ptr %85, align 8
   %733 = icmp eq ptr %732, null
-  %or.cond572 = select i1 %731, i1 true, i1 %733
-  br i1 %or.cond572, label %_ZN4llvm5APIntD2Ev.exit355, label %_ZN4llvm5APIntD2Ev.exit355.sink.split
+  %or.cond571 = select i1 %731, i1 true, i1 %733
+  br i1 %or.cond571, label %_ZN4llvm5APIntD2Ev.exit355, label %_ZN4llvm5APIntD2Ev.exit355.sink.split
 
 _ZN4llvm5APIntD2Ev.exit355.sink.split:            ; preds = %_ZN4llvm5APIntD2Ev.exit357, %_ZN4llvm5APIntD2Ev.exit354
-  %.sink555 = phi ptr [ %704, %_ZN4llvm5APIntD2Ev.exit354 ], [ %732, %_ZN4llvm5APIntD2Ev.exit357 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink555) #31
+  %.sink554 = phi ptr [ %704, %_ZN4llvm5APIntD2Ev.exit354 ], [ %732, %_ZN4llvm5APIntD2Ev.exit357 ]
+  call void @_ZdaPv(ptr noundef nonnull %.sink554) #31
   br label %_ZN4llvm5APIntD2Ev.exit355
 
 _ZN4llvm5APIntD2Ev.exit355:                       ; preds = %_ZN4llvm5APIntD2Ev.exit355.sink.split, %_ZN4llvm5APIntD2Ev.exit357, %_ZN4llvm5APIntD2Ev.exit354, %706, %_ZN4llvm5APIntD2Ev.exit352
@@ -45192,8 +45195,8 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %760, %765
   %770 = icmp ult i32 %769, 65
   %771 = load ptr, ptr %88, align 8
   %772 = icmp eq ptr %771, null
-  %or.cond574 = select i1 %770, i1 true, i1 %772
-  br i1 %or.cond574, label %.sink.split, label %.sink.split.sink.split
+  %or.cond573 = select i1 %770, i1 true, i1 %772
+  br i1 %or.cond573, label %.sink.split, label %.sink.split.sink.split
 
 773:                                              ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit, %_ZN4llvm5APIntC2ERKS0_.exit359
   %774 = icmp ult i32 %756, %266
@@ -45205,20 +45208,20 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %760, %765
   %777 = icmp ult i32 %776, 65
   %778 = load ptr, ptr %88, align 8
   %779 = icmp eq ptr %778, null
-  %or.cond576 = select i1 %777, i1 true, i1 %779
-  br i1 %or.cond576, label %.sink.split, label %.sink.split.sink.split
+  %or.cond575 = select i1 %777, i1 true, i1 %779
+  br i1 %or.cond575, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %775, %768
-  %.sink564 = phi ptr [ %771, %768 ], [ %778, %775 ]
-  %.sink561.ph = phi ptr [ %89, %768 ], [ %90, %775 ]
-  call void @_ZdaPv(ptr noundef nonnull %.sink564) #31
+  %.sink563 = phi ptr [ %771, %768 ], [ %778, %775 ]
+  %.sink560.ph = phi ptr [ %89, %768 ], [ %90, %775 ]
+  call void @_ZdaPv(ptr noundef nonnull %.sink563) #31
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %775, %768
-  %.sink561 = phi ptr [ %89, %768 ], [ %90, %775 ], [ %.sink561.ph, %.sink.split.sink.split ]
-  %780 = load i64, ptr %.sink561, align 8
+  %.sink560 = phi ptr [ %89, %768 ], [ %90, %775 ], [ %.sink560.ph, %.sink.split.sink.split ]
+  %780 = load i64, ptr %.sink560, align 8
   store i64 %780, ptr %88, align 8
-  %781 = getelementptr inbounds nuw i8, ptr %.sink561, i64 8
+  %781 = getelementptr inbounds nuw i8, ptr %.sink560, i64 8
   %782 = load i32, ptr %781, align 8
   store i32 %782, ptr %749, align 8
   store i32 0, ptr %781, align 8
@@ -45815,8 +45818,8 @@ _ZNK4llvm5APIntneERKS0_.exit:                     ; preds = %1054, %1057
   %.0.i.i390 = phi i1 [ %1056, %1054 ], [ %1058, %1057 ]
   %1059 = icmp ult i32 %1049, 65
   %1060 = icmp eq i64 %1050, 0
-  %or.cond562 = select i1 %1059, i1 true, i1 %1060
-  br i1 %or.cond562, label %_ZN4llvm5APIntD2Ev.exit392, label %_ZN4llvm5APIntD2Ev.exit391
+  %or.cond561 = select i1 %1059, i1 true, i1 %1060
+  br i1 %or.cond561, label %_ZN4llvm5APIntD2Ev.exit392, label %_ZN4llvm5APIntD2Ev.exit391
 
 _ZN4llvm5APIntD2Ev.exit391:                       ; preds = %_ZNK4llvm5APIntneERKS0_.exit
   call void @_ZdaPv(ptr noundef nonnull %1053) #31
@@ -46548,8 +46551,8 @@ _ZN4llvm5APIntD2Ev.exit.i425:                     ; preds = %1372, %1369, %_ZN4l
 _ZN4llvm13ConstantRangeD2Ev.exit426:              ; preds = %_ZN4llvm5APIntD2Ev.exit.i425, %1375, %1378
   %1379 = getelementptr inbounds i8, ptr %.0256522, i64 32
   %.not286 = icmp eq ptr %1379, %1278
-  %or.cond563 = select i1 %1366, i1 true, i1 %.not286
-  br i1 %or.cond563, label %_ZN4llvm13ConstantRangeD2Ev.exit426._crit_edge, label %1292
+  %or.cond562 = select i1 %1366, i1 true, i1 %.not286
+  br i1 %or.cond562, label %_ZN4llvm13ConstantRangeD2Ev.exit426._crit_edge, label %1292
 
 _ZN4llvm13ConstantRangeD2Ev.exit426._crit_edge:   ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit426, %_ZN4llvm4User8operandsEv.exit
   call void @_ZNK4llvm13ConstantRange13intersectWithERKS0_NS0_18PreferredRangeTypeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %142, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %139, i32 noundef %150) #28

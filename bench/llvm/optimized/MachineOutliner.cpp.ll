@@ -9895,25 +9895,25 @@ _ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEO
 define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEEvT_SQ_SQ_T0_SR_T1_"(ptr %0, ptr %1, ptr %2, i64 noundef %3, i64 noundef %4) unnamed_addr #14 {
   %6 = icmp eq i64 %3, 0
   %7 = icmp eq i64 %4, 0
-  %or.cond99 = or i1 %6, %7
-  br i1 %or.cond99, label %.loopexit, label %.lr.ph
+  %or.cond101 = or i1 %6, %7
+  br i1 %or.cond101, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = ptrtoint ptr %2 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit
-  %.tr89103 = phi i64 [ %4, %.lr.ph ], [ %214, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit ]
-  %.tr88102 = phi i64 [ %3, %.lr.ph ], [ %213, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit ]
-  %.tr86101 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit ]
-  %.tr100 = phi ptr [ %0, %.lr.ph ], [ %.sroa.012.0.i.i, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit ]
-  %10 = add nsw i64 %.tr89103, %.tr88102
+  %.tr91105 = phi i64 [ %4, %.lr.ph ], [ %212, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit ]
+  %.tr90104 = phi i64 [ %3, %.lr.ph ], [ %211, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit ]
+  %.tr88103 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit ]
+  %.tr102 = phi ptr [ %0, %.lr.ph ], [ %.sroa.012.0.i.i, %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit ]
+  %10 = add nsw i64 %.tr91105, %.tr90104
   %11 = icmp eq i64 %10, 2
   br i1 %11, label %12, label %55
 
 12:                                               ; preds = %9
-  %.val.i = load ptr, ptr %.tr86101, align 8
-  %.val1.i = load ptr, ptr %.tr100, align 8
+  %.val.i = load ptr, ptr %.tr88103, align 8
+  %.val1.i = load ptr, ptr %.tr102, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %.val.i, align 8
@@ -9980,18 +9980,18 @@ _ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i: ; preds = %.l
   br i1 %53, label %54, label %.loopexit
 
 54:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EESP_EEbT_T0_.exit"
-  store ptr %.val.i, ptr %.tr100, align 8
-  store ptr %.val1.i, ptr %.tr86101, align 8
+  store ptr %.val.i, ptr %.tr102, align 8
+  store ptr %.val1.i, ptr %.tr88103, align 8
   br label %.loopexit
 
 55:                                               ; preds = %9
-  %56 = icmp sgt i64 %.tr88102, %.tr89103
-  %57 = ptrtoint ptr %.tr86101 to i64
+  %56 = icmp sgt i64 %.tr90104, %.tr91105
+  %57 = ptrtoint ptr %.tr88103 to i64
   br i1 %56, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit54
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit: ; preds = %55
-  %58 = sdiv i64 %.tr88102, 2
-  %59 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.tr100, i64 %58
+  %58 = sdiv i64 %.tr90104, 2
+  %59 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.tr102, i64 %58
   %60 = sub i64 %8, %57
   %61 = ashr exact i64 %60, 3
   %62 = icmp sgt i64 %61, 0
@@ -10013,70 +10013,70 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16Out
   %73 = sdiv exact i64 %72, 224
   %74 = trunc i64 %73 to i32
   %75 = mul i32 %67, %74
-  %76 = add i32 %69, %67
+  %invariant.op.i = add i32 %69, %67
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i
   %.05.i = phi i64 [ %61, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ]
-  %.sroa.02.04.i = phi ptr [ %.tr86101, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ]
-  %77 = lshr i64 %.05.i, 1
-  %78 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.02.04.i, i64 %77
-  %.val.i.i = load ptr, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %.val.i.i, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
-  %83 = load i32, ptr %82, align 8
+  %.sroa.02.04.i = phi ptr [ %.tr88103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ]
+  %76 = lshr i64 %.05.i, 1
+  %77 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.02.04.i, i64 %76
+  %.val.i.i = load ptr, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = load ptr, ptr %.val.i.i, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
+  %82 = load i32, ptr %81, align 8
   br i1 %.not8.i.i.i.i, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i, %.lr.ph.i.i.i.i
-  %.010.i.i.i.i = phi i32 [ %86, %.lr.ph.i.i.i.i ], [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ]
-  %.sroa.05.09.i.i.i.i = phi ptr [ %87, %.lr.ph.i.i.i.i ], [ %63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i, i64 32
-  %85 = load i32, ptr %84, align 8
-  %86 = add i32 %85, %.010.i.i.i.i
-  %87 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i, i64 224
-  %.not.i.i.i.i = icmp eq ptr %87, %65
+  %.010.i.i.i.i = phi i32 [ %85, %.lr.ph.i.i.i.i ], [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ]
+  %.sroa.05.09.i.i.i.i = phi ptr [ %86, %.lr.ph.i.i.i.i ], [ %63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i, i64 32
+  %84 = load i32, ptr %83, align 8
+  %85 = add i32 %84, %.010.i.i.i.i
+  %86 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i, i64 224
+  %.not.i.i.i.i = icmp eq ptr %86, %65
   br i1 %.not.i.i.i.i, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 _ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i
-  %.0.lcssa.i.i.i.i = phi i32 [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ], [ %86, %.lr.ph.i.i.i.i ]
-  %.not8.i4.i.i.i = icmp eq ptr %81, %80
+  %.0.lcssa.i.i.i.i = phi i32 [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ], [ %85, %.lr.ph.i.i.i.i ]
+  %.not8.i4.i.i.i = icmp eq ptr %80, %79
   br i1 %.not8.i4.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", label %.lr.ph.i5.i.i.i
 
 .lr.ph.i5.i.i.i:                                  ; preds = %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i, %.lr.ph.i5.i.i.i
-  %.010.i6.i.i.i = phi i32 [ %90, %.lr.ph.i5.i.i.i ], [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i ]
-  %.sroa.05.09.i7.i.i.i = phi ptr [ %91, %.lr.ph.i5.i.i.i ], [ %81, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i7.i.i.i, i64 32
-  %89 = load i32, ptr %88, align 8
-  %90 = add i32 %89, %.010.i6.i.i.i
-  %91 = getelementptr inbounds i8, ptr %.sroa.05.09.i7.i.i.i, i64 224
-  %.not.i8.i.i.i = icmp eq ptr %91, %80
+  %.010.i6.i.i.i = phi i32 [ %89, %.lr.ph.i5.i.i.i ], [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i ]
+  %.sroa.05.09.i7.i.i.i = phi ptr [ %90, %.lr.ph.i5.i.i.i ], [ %80, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i ]
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i7.i.i.i, i64 32
+  %88 = load i32, ptr %87, align 8
+  %89 = add i32 %88, %.010.i6.i.i.i
+  %90 = getelementptr inbounds i8, ptr %.sroa.05.09.i7.i.i.i, i64 224
+  %.not.i8.i.i.i = icmp eq ptr %90, %79
   br i1 %.not.i8.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", label %.lr.ph.i5.i.i.i
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i": ; preds = %.lr.ph.i5.i.i.i, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i
-  %.0.lcssa.i9.i.i.i = phi i32 [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i ], [ %90, %.lr.ph.i5.i.i.i ]
+  %.0.lcssa.i9.i.i.i = phi i32 [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i ], [ %89, %.lr.ph.i5.i.i.i ]
+  %91 = ptrtoint ptr %79 to i64
   %92 = ptrtoint ptr %80 to i64
-  %93 = ptrtoint ptr %81 to i64
-  %94 = sub i64 %92, %93
-  %95 = sdiv exact i64 %94, 224
-  %96 = trunc i64 %95 to i32
-  %97 = mul i32 %83, %96
-  %98 = add i32 %76, %.0.lcssa.i.i.i.i
-  %99 = mul i32 %97, %98
-  %100 = add i32 %.0.lcssa.i9.i.i.i, %83
-  %101 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 36
-  %102 = load i32, ptr %101, align 4
-  %103 = add i32 %100, %102
-  %104 = mul i32 %75, %103
-  %105 = icmp ugt i32 %99, %104
-  %106 = getelementptr inbounds i8, ptr %78, i64 8
-  %107 = xor i64 %77, -1
-  %108 = add nsw i64 %.05.i, %107
-  %.sroa.02.1.i = select i1 %105, ptr %106, ptr %.sroa.02.04.i
-  %.1.i = select i1 %105, i64 %108, i64 %77
-  %109 = icmp sgt i64 %.1.i, 0
-  br i1 %109, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", !llvm.loop !111
+  %93 = sub i64 %91, %92
+  %94 = sdiv exact i64 %93, 224
+  %95 = trunc i64 %94 to i32
+  %96 = mul i32 %82, %95
+  %.reass.i = add i32 %invariant.op.i, %.0.lcssa.i.i.i.i
+  %97 = mul i32 %96, %.reass.i
+  %98 = add i32 %.0.lcssa.i9.i.i.i, %82
+  %99 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 36
+  %100 = load i32, ptr %99, align 4
+  %101 = add i32 %98, %100
+  %102 = mul i32 %75, %101
+  %103 = icmp ugt i32 %97, %102
+  %104 = getelementptr inbounds i8, ptr %77, i64 8
+  %105 = xor i64 %76, -1
+  %106 = add nsw i64 %.05.i, %105
+  %.sroa.02.1.i = select i1 %103, ptr %104, ptr %.sroa.02.04.i
+  %.1.i = select i1 %103, i64 %106, i64 %76
+  %107 = icmp sgt i64 %.1.i, 0
+  br i1 %107, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", !llvm.loop !111
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i"
   %.pre = ptrtoint ptr %.sroa.02.1.i to i64
@@ -10084,234 +10084,234 @@ _ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i: ; preds = %
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
-  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %.tr86101, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
-  %110 = sub i64 %.pre-phi, %57
-  %111 = ashr exact i64 %110, 3
-  br label %165
+  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %.tr88103, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
+  %108 = sub i64 %.pre-phi, %57
+  %109 = ashr exact i64 %108, 3
+  br label %163
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit54: ; preds = %55
-  %112 = sdiv i64 %.tr89103, 2
-  %113 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.tr86101, i64 %112
-  %114 = ptrtoint ptr %.tr100 to i64
-  %115 = sub i64 %57, %114
-  %116 = ashr exact i64 %115, 3
-  %117 = icmp sgt i64 %116, 0
-  br i1 %117, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i56, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit"
+  %110 = sdiv i64 %.tr91105, 2
+  %111 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.tr88103, i64 %110
+  %112 = ptrtoint ptr %.tr102 to i64
+  %113 = sub i64 %57, %112
+  %114 = ashr exact i64 %113, 3
+  %115 = icmp sgt i64 %114, 0
+  br i1 %115, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i56, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i56: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit54
-  %.val50 = load ptr, ptr %113, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %.val50, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %.val50, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %.val50, i64 32
-  %122 = load i32, ptr %121, align 8
-  %.not8.i4.i.i.i57 = icmp eq ptr %120, %119
-  %123 = ptrtoint ptr %119 to i64
-  %124 = ptrtoint ptr %120 to i64
-  %125 = sub i64 %123, %124
-  %126 = sdiv exact i64 %125, 224
-  %127 = trunc i64 %126 to i32
-  %128 = mul i32 %122, %127
-  %129 = getelementptr inbounds nuw i8, ptr %.val50, i64 36
-  %130 = load i32, ptr %129, align 4
-  %invariant.op.i = add i32 %130, %122
-  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i58
+  %.val50 = load ptr, ptr %111, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %.val50, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = load ptr, ptr %.val50, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %.val50, i64 32
+  %120 = load i32, ptr %119, align 8
+  %.not8.i4.i.i.i57 = icmp eq ptr %118, %117
+  %121 = ptrtoint ptr %117 to i64
+  %122 = ptrtoint ptr %118 to i64
+  %123 = sub i64 %121, %122
+  %124 = sdiv exact i64 %123, 224
+  %125 = trunc i64 %124 to i32
+  %126 = mul i32 %120, %125
+  %127 = getelementptr inbounds nuw i8, ptr %.val50, i64 36
+  %128 = load i32, ptr %127, align 4
+  %invariant.op.i58 = add i32 %128, %120
+  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i59
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i58: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i56
-  %.05.i59 = phi i64 [ %116, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i56 ], [ %.1.i76, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ]
-  %.sroa.02.04.i60 = phi ptr [ %.tr100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i56 ], [ %.sroa.02.1.i75, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ]
-  %131 = lshr i64 %.05.i59, 1
-  %132 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.02.04.i60, i64 %131
-  %.val2.i.i = load ptr, ptr %132, align 8
-  %133 = load ptr, ptr %.val2.i.i, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %.not8.i.i.i.i63 = icmp eq ptr %133, %135
-  br i1 %.not8.i.i.i.i63, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i68, label %.lr.ph.i.i.i.i64
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i59: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i56
+  %.05.i60 = phi i64 [ %114, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i56 ], [ %.1.i78, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ]
+  %.sroa.02.04.i61 = phi ptr [ %.tr102, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i56 ], [ %.sroa.02.1.i77, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ]
+  %129 = lshr i64 %.05.i60, 1
+  %130 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.02.04.i61, i64 %129
+  %.val2.i.i = load ptr, ptr %130, align 8
+  %131 = load ptr, ptr %.val2.i.i, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %.not8.i.i.i.i64 = icmp eq ptr %131, %133
+  br i1 %.not8.i.i.i.i64, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i69, label %.lr.ph.i.i.i.i65
 
-.lr.ph.i.i.i.i64:                                 ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i58, %.lr.ph.i.i.i.i64
-  %.010.i.i.i.i65 = phi i32 [ %138, %.lr.ph.i.i.i.i64 ], [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i58 ]
-  %.sroa.05.09.i.i.i.i66 = phi ptr [ %139, %.lr.ph.i.i.i.i64 ], [ %133, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i58 ]
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i66, i64 32
-  %137 = load i32, ptr %136, align 8
-  %138 = add i32 %137, %.010.i.i.i.i65
-  %139 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i66, i64 224
-  %.not.i.i.i.i67 = icmp eq ptr %139, %135
-  br i1 %.not.i.i.i.i67, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i68, label %.lr.ph.i.i.i.i64
+.lr.ph.i.i.i.i65:                                 ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i59, %.lr.ph.i.i.i.i65
+  %.010.i.i.i.i66 = phi i32 [ %136, %.lr.ph.i.i.i.i65 ], [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i59 ]
+  %.sroa.05.09.i.i.i.i67 = phi ptr [ %137, %.lr.ph.i.i.i.i65 ], [ %131, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i59 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i67, i64 32
+  %135 = load i32, ptr %134, align 8
+  %136 = add i32 %135, %.010.i.i.i.i66
+  %137 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i67, i64 224
+  %.not.i.i.i.i68 = icmp eq ptr %137, %133
+  br i1 %.not.i.i.i.i68, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i69, label %.lr.ph.i.i.i.i65
 
-_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i68: ; preds = %.lr.ph.i.i.i.i64, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i58
-  %.0.lcssa.i.i.i.i69 = phi i32 [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i58 ], [ %138, %.lr.ph.i.i.i.i64 ]
-  %140 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 32
-  %141 = load i32, ptr %140, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 36
-  %143 = load i32, ptr %142, align 4
-  br i1 %.not8.i4.i.i.i57, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", label %.lr.ph.i5.i.i.i70
+_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i69: ; preds = %.lr.ph.i.i.i.i65, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i59
+  %.0.lcssa.i.i.i.i70 = phi i32 [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i59 ], [ %136, %.lr.ph.i.i.i.i65 ]
+  %138 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 32
+  %139 = load i32, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 36
+  %141 = load i32, ptr %140, align 4
+  br i1 %.not8.i4.i.i.i57, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", label %.lr.ph.i5.i.i.i71
 
-.lr.ph.i5.i.i.i70:                                ; preds = %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i68, %.lr.ph.i5.i.i.i70
-  %.010.i6.i.i.i71 = phi i32 [ %146, %.lr.ph.i5.i.i.i70 ], [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i68 ]
-  %.sroa.05.09.i7.i.i.i72 = phi ptr [ %147, %.lr.ph.i5.i.i.i70 ], [ %120, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i68 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i7.i.i.i72, i64 32
-  %145 = load i32, ptr %144, align 8
-  %146 = add i32 %145, %.010.i6.i.i.i71
-  %147 = getelementptr inbounds i8, ptr %.sroa.05.09.i7.i.i.i72, i64 224
-  %.not.i8.i.i.i73 = icmp eq ptr %147, %119
-  br i1 %.not.i8.i.i.i73, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", label %.lr.ph.i5.i.i.i70
+.lr.ph.i5.i.i.i71:                                ; preds = %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i69, %.lr.ph.i5.i.i.i71
+  %.010.i6.i.i.i72 = phi i32 [ %144, %.lr.ph.i5.i.i.i71 ], [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i69 ]
+  %.sroa.05.09.i7.i.i.i73 = phi ptr [ %145, %.lr.ph.i5.i.i.i71 ], [ %118, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i69 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i7.i.i.i73, i64 32
+  %143 = load i32, ptr %142, align 8
+  %144 = add i32 %143, %.010.i6.i.i.i72
+  %145 = getelementptr inbounds i8, ptr %.sroa.05.09.i7.i.i.i73, i64 224
+  %.not.i8.i.i.i74 = icmp eq ptr %145, %117
+  br i1 %.not.i8.i.i.i74, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", label %.lr.ph.i5.i.i.i71
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i": ; preds = %.lr.ph.i5.i.i.i70, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i68
-  %.0.lcssa.i9.i.i.i74 = phi i32 [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i68 ], [ %146, %.lr.ph.i5.i.i.i70 ]
-  %148 = ptrtoint ptr %135 to i64
-  %149 = ptrtoint ptr %133 to i64
-  %150 = sub i64 %148, %149
-  %151 = sdiv exact i64 %150, 224
-  %152 = trunc i64 %151 to i32
-  %153 = mul i32 %141, %152
-  %154 = add i32 %141, %.0.lcssa.i.i.i.i69
-  %155 = add i32 %154, %143
-  %156 = mul i32 %128, %155
-  %.reass.i = add i32 %invariant.op.i, %.0.lcssa.i9.i.i.i74
-  %157 = mul i32 %153, %.reass.i
-  %158 = icmp ugt i32 %156, %157
-  %159 = getelementptr inbounds i8, ptr %132, i64 8
-  %160 = xor i64 %131, -1
-  %161 = add nsw i64 %.05.i59, %160
-  %.sroa.02.1.i75 = select i1 %158, ptr %.sroa.02.04.i60, ptr %159
-  %.1.i76 = select i1 %158, i64 %131, i64 %161
-  %162 = icmp sgt i64 %.1.i76, 0
-  br i1 %162, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i58, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", !llvm.loop !112
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i": ; preds = %.lr.ph.i5.i.i.i71, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i69
+  %.0.lcssa.i9.i.i.i75 = phi i32 [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i69 ], [ %144, %.lr.ph.i5.i.i.i71 ]
+  %146 = ptrtoint ptr %133 to i64
+  %147 = ptrtoint ptr %131 to i64
+  %148 = sub i64 %146, %147
+  %149 = sdiv exact i64 %148, 224
+  %150 = trunc i64 %149 to i32
+  %151 = mul i32 %139, %150
+  %152 = add i32 %139, %.0.lcssa.i.i.i.i70
+  %153 = add i32 %152, %141
+  %154 = mul i32 %126, %153
+  %.reass.i76 = add i32 %invariant.op.i58, %.0.lcssa.i9.i.i.i75
+  %155 = mul i32 %151, %.reass.i76
+  %156 = icmp ugt i32 %154, %155
+  %157 = getelementptr inbounds i8, ptr %130, i64 8
+  %158 = xor i64 %129, -1
+  %159 = add nsw i64 %.05.i60, %158
+  %.sroa.02.1.i77 = select i1 %156, ptr %.sroa.02.04.i61, ptr %157
+  %.1.i78 = select i1 %156, i64 %129, i64 %159
+  %160 = icmp sgt i64 %.1.i78, 0
+  br i1 %160, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i59, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", !llvm.loop !112
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i"
-  %.pre113 = ptrtoint ptr %.sroa.02.1.i75 to i64
+  %.pre115 = ptrtoint ptr %.sroa.02.1.i77 to i64
   br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit54
-  %.pre-phi114 = phi i64 [ %.pre113, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %114, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit54 ]
-  %.sroa.02.0.lcssa.i55 = phi ptr [ %.sroa.02.1.i75, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %.tr100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit54 ]
-  %163 = sub i64 %.pre-phi114, %114
-  %164 = ashr exact i64 %163, 3
-  br label %165
+  %.pre-phi116 = phi i64 [ %.pre115, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %112, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit54 ]
+  %.sroa.02.0.lcssa.i55 = phi ptr [ %.sroa.02.1.i77, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %.tr102, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit54 ]
+  %161 = sub i64 %.pre-phi116, %112
+  %162 = ashr exact i64 %161, 3
+  br label %163
 
-165:                                              ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit"
-  %.sroa.081.0 = phi ptr [ %59, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i55, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %113, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
-  %.047 = phi i64 [ %111, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %112, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %58, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %164, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
-  %166 = icmp eq ptr %.sroa.081.0, %.tr86101
+163:                                              ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit"
+  %.sroa.083.0 = phi ptr [ %59, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i55, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %111, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
+  %.047 = phi i64 [ %109, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %110, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %58, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %162, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
+  %164 = icmp eq ptr %.sroa.083.0, %.tr88103
+  br i1 %164, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %165
+
+165:                                              ; preds = %163
+  %166 = icmp eq ptr %.sroa.0.0, %.tr88103
   br i1 %166, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %167
 
 167:                                              ; preds = %165
-  %168 = icmp eq ptr %.sroa.0.0, %.tr86101
-  br i1 %168, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %169
+  %168 = ptrtoint ptr %.sroa.0.0 to i64
+  %169 = ptrtoint ptr %.sroa.083.0 to i64
+  %170 = sub i64 %168, %169
+  %171 = ashr exact i64 %170, 3
+  %172 = ptrtoint ptr %.tr88103 to i64
+  %173 = sub i64 %172, %169
+  %174 = ashr exact i64 %173, 3
+  %175 = sub nsw i64 %171, %174
+  %176 = icmp eq i64 %174, %175
+  br i1 %176, label %.lr.ph.i.i.i79, label %181
 
-169:                                              ; preds = %167
-  %170 = ptrtoint ptr %.sroa.0.0 to i64
-  %171 = ptrtoint ptr %.sroa.081.0 to i64
-  %172 = sub i64 %170, %171
-  %173 = ashr exact i64 %172, 3
-  %174 = ptrtoint ptr %.tr86101 to i64
-  %175 = sub i64 %174, %171
-  %176 = ashr exact i64 %175, 3
-  %177 = sub nsw i64 %173, %176
-  %178 = icmp eq i64 %176, %177
-  br i1 %178, label %.lr.ph.i.i.i77, label %183
+.lr.ph.i.i.i79:                                   ; preds = %167, %.lr.ph.i.i.i79
+  %.sroa.0.08.i.i.i = phi ptr [ %180, %.lr.ph.i.i.i79 ], [ %.tr88103, %167 ]
+  %.sroa.04.07.i.i.i = phi ptr [ %179, %.lr.ph.i.i.i79 ], [ %.sroa.083.0, %167 ]
+  %177 = load ptr, ptr %.sroa.04.07.i.i.i, align 8
+  %178 = load ptr, ptr %.sroa.0.08.i.i.i, align 8
+  store ptr %178, ptr %.sroa.04.07.i.i.i, align 8
+  store ptr %177, ptr %.sroa.0.08.i.i.i, align 8
+  %179 = getelementptr inbounds i8, ptr %.sroa.04.07.i.i.i, i64 8
+  %180 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i, i64 8
+  %.not.i.i.i80 = icmp eq ptr %179, %.tr88103
+  br i1 %.not.i.i.i80, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %.lr.ph.i.i.i79, !llvm.loop !113
 
-.lr.ph.i.i.i77:                                   ; preds = %169, %.lr.ph.i.i.i77
-  %.sroa.0.08.i.i.i = phi ptr [ %182, %.lr.ph.i.i.i77 ], [ %.tr86101, %169 ]
-  %.sroa.04.07.i.i.i = phi ptr [ %181, %.lr.ph.i.i.i77 ], [ %.sroa.081.0, %169 ]
-  %179 = load ptr, ptr %.sroa.04.07.i.i.i, align 8
-  %180 = load ptr, ptr %.sroa.0.08.i.i.i, align 8
-  store ptr %180, ptr %.sroa.04.07.i.i.i, align 8
-  store ptr %179, ptr %.sroa.0.08.i.i.i, align 8
-  %181 = getelementptr inbounds i8, ptr %.sroa.04.07.i.i.i, i64 8
-  %182 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i.i, i64 8
-  %.not.i.i.i78 = icmp eq ptr %181, %.tr86101
-  br i1 %.not.i.i.i78, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %.lr.ph.i.i.i77, !llvm.loop !113
+181:                                              ; preds = %167
+  %182 = sub i64 %168, %172
+  %183 = getelementptr inbounds i8, ptr %.sroa.083.0, i64 %182
+  br label %184
 
-183:                                              ; preds = %169
-  %184 = sub i64 %170, %174
-  %185 = getelementptr inbounds i8, ptr %.sroa.081.0, i64 %184
-  br label %186
+184:                                              ; preds = %.backedge, %181
+  %.050.i.i = phi i64 [ %171, %181 ], [ %.050.i.i.be, %.backedge ]
+  %.049.i.i = phi i64 [ %174, %181 ], [ %.049.i.i.be, %.backedge ]
+  %.sroa.020.0.i.i = phi ptr [ %.sroa.083.0, %181 ], [ %.sroa.020.0.i.i.be, %.backedge ]
+  %185 = sub nsw i64 %.050.i.i, %.049.i.i
+  %186 = icmp slt i64 %.049.i.i, %185
+  br i1 %186, label %187, label %199
 
-186:                                              ; preds = %.backedge, %183
-  %.050.i.i = phi i64 [ %173, %183 ], [ %.050.i.i.be, %.backedge ]
-  %.049.i.i = phi i64 [ %176, %183 ], [ %.049.i.i.be, %.backedge ]
-  %.sroa.020.0.i.i = phi ptr [ %.sroa.081.0, %183 ], [ %.sroa.020.0.i.i.be, %.backedge ]
-  %187 = sub nsw i64 %.050.i.i, %.049.i.i
-  %188 = icmp slt i64 %.049.i.i, %187
-  br i1 %188, label %189, label %201
+187:                                              ; preds = %184
+  %188 = icmp sgt i64 %185, 0
+  br i1 %188, label %.lr.ph60.preheader.i.i, label %._crit_edge61.i.i
 
-189:                                              ; preds = %186
-  %190 = icmp sgt i64 %187, 0
-  br i1 %190, label %.lr.ph60.preheader.i.i, label %._crit_edge61.i.i
-
-.lr.ph60.preheader.i.i:                           ; preds = %189
-  %191 = getelementptr %"class.std::unique_ptr.475", ptr %.sroa.020.0.i.i, i64 %.049.i.i
+.lr.ph60.preheader.i.i:                           ; preds = %187
+  %189 = getelementptr %"class.std::unique_ptr.475", ptr %.sroa.020.0.i.i, i64 %.049.i.i
   br label %.lr.ph60.i.i
 
 .lr.ph60.i.i:                                     ; preds = %.lr.ph60.i.i, %.lr.ph60.preheader.i.i
-  %.058.i.i = phi i64 [ %196, %.lr.ph60.i.i ], [ 0, %.lr.ph60.preheader.i.i ]
-  %.sroa.019.057.i.i = phi ptr [ %195, %.lr.ph60.i.i ], [ %191, %.lr.ph60.preheader.i.i ]
-  %.sroa.020.156.i.i = phi ptr [ %194, %.lr.ph60.i.i ], [ %.sroa.020.0.i.i, %.lr.ph60.preheader.i.i ]
-  %192 = load ptr, ptr %.sroa.020.156.i.i, align 8
-  %193 = load ptr, ptr %.sroa.019.057.i.i, align 8
-  store ptr %193, ptr %.sroa.020.156.i.i, align 8
-  store ptr %192, ptr %.sroa.019.057.i.i, align 8
-  %194 = getelementptr inbounds i8, ptr %.sroa.020.156.i.i, i64 8
-  %195 = getelementptr inbounds i8, ptr %.sroa.019.057.i.i, i64 8
-  %196 = add nuw nsw i64 %.058.i.i, 1
-  %exitcond65.not.i.i = icmp eq i64 %196, %187
+  %.058.i.i = phi i64 [ %194, %.lr.ph60.i.i ], [ 0, %.lr.ph60.preheader.i.i ]
+  %.sroa.019.057.i.i = phi ptr [ %193, %.lr.ph60.i.i ], [ %189, %.lr.ph60.preheader.i.i ]
+  %.sroa.020.156.i.i = phi ptr [ %192, %.lr.ph60.i.i ], [ %.sroa.020.0.i.i, %.lr.ph60.preheader.i.i ]
+  %190 = load ptr, ptr %.sroa.020.156.i.i, align 8
+  %191 = load ptr, ptr %.sroa.019.057.i.i, align 8
+  store ptr %191, ptr %.sroa.020.156.i.i, align 8
+  store ptr %190, ptr %.sroa.019.057.i.i, align 8
+  %192 = getelementptr inbounds i8, ptr %.sroa.020.156.i.i, i64 8
+  %193 = getelementptr inbounds i8, ptr %.sroa.019.057.i.i, i64 8
+  %194 = add nuw nsw i64 %.058.i.i, 1
+  %exitcond65.not.i.i = icmp eq i64 %194, %185
   br i1 %exitcond65.not.i.i, label %._crit_edge61.i.i, label %.lr.ph60.i.i, !llvm.loop !114
 
-._crit_edge61.i.i:                                ; preds = %.lr.ph60.i.i, %189
-  %.sroa.020.1.lcssa.i.i = phi ptr [ %.sroa.020.0.i.i, %189 ], [ %194, %.lr.ph60.i.i ]
-  %197 = srem i64 %.050.i.i, %.049.i.i
-  %198 = icmp eq i64 %197, 0
-  br i1 %198, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %199
+._crit_edge61.i.i:                                ; preds = %.lr.ph60.i.i, %187
+  %.sroa.020.1.lcssa.i.i = phi ptr [ %.sroa.020.0.i.i, %187 ], [ %192, %.lr.ph60.i.i ]
+  %195 = srem i64 %.050.i.i, %.049.i.i
+  %196 = icmp eq i64 %195, 0
+  br i1 %196, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %197
 
-199:                                              ; preds = %._crit_edge61.i.i
-  %200 = sub nsw i64 %.049.i.i, %197
+197:                                              ; preds = %._crit_edge61.i.i
+  %198 = sub nsw i64 %.049.i.i, %195
   br label %.backedge
 
-201:                                              ; preds = %186
-  %202 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.020.0.i.i, i64 %.050.i.i
-  %203 = sub i64 0, %187
-  %204 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %202, i64 %203
-  %205 = icmp sgt i64 %.049.i.i, 0
-  br i1 %205, label %.lr.ph.i.i, label %._crit_edge.i.i
+199:                                              ; preds = %184
+  %200 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.020.0.i.i, i64 %.050.i.i
+  %201 = sub i64 0, %185
+  %202 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %200, i64 %201
+  %203 = icmp sgt i64 %.049.i.i, 0
+  br i1 %203, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %201, %.lr.ph.i.i
-  %.01555.i.i = phi i64 [ %210, %.lr.ph.i.i ], [ 0, %201 ]
-  %.sroa.0.054.i.i = phi ptr [ %207, %.lr.ph.i.i ], [ %202, %201 ]
-  %.sroa.020.353.i.i = phi ptr [ %206, %.lr.ph.i.i ], [ %204, %201 ]
-  %206 = getelementptr inbounds i8, ptr %.sroa.020.353.i.i, i64 -8
-  %207 = getelementptr inbounds i8, ptr %.sroa.0.054.i.i, i64 -8
-  %208 = load ptr, ptr %206, align 8
-  %209 = load ptr, ptr %207, align 8
-  store ptr %209, ptr %206, align 8
-  store ptr %208, ptr %207, align 8
-  %210 = add nuw nsw i64 %.01555.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %210, %.049.i.i
+.lr.ph.i.i:                                       ; preds = %199, %.lr.ph.i.i
+  %.01555.i.i = phi i64 [ %208, %.lr.ph.i.i ], [ 0, %199 ]
+  %.sroa.0.054.i.i = phi ptr [ %205, %.lr.ph.i.i ], [ %200, %199 ]
+  %.sroa.020.353.i.i = phi ptr [ %204, %.lr.ph.i.i ], [ %202, %199 ]
+  %204 = getelementptr inbounds i8, ptr %.sroa.020.353.i.i, i64 -8
+  %205 = getelementptr inbounds i8, ptr %.sroa.0.054.i.i, i64 -8
+  %206 = load ptr, ptr %204, align 8
+  %207 = load ptr, ptr %205, align 8
+  store ptr %207, ptr %204, align 8
+  store ptr %206, ptr %205, align 8
+  %208 = add nuw nsw i64 %.01555.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %208, %.049.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !115
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %201
-  %.sroa.020.3.lcssa.i.i = phi ptr [ %204, %201 ], [ %.sroa.020.0.i.i, %.lr.ph.i.i ]
-  %211 = srem i64 %.050.i.i, %187
-  %212 = icmp eq i64 %211, 0
-  br i1 %212, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %.backedge
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %199
+  %.sroa.020.3.lcssa.i.i = phi ptr [ %202, %199 ], [ %.sroa.020.0.i.i, %.lr.ph.i.i ]
+  %209 = srem i64 %.050.i.i, %185
+  %210 = icmp eq i64 %209, 0
+  br i1 %210, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %.backedge
 
-.backedge:                                        ; preds = %._crit_edge.i.i, %199
-  %.050.i.i.be = phi i64 [ %.049.i.i, %199 ], [ %187, %._crit_edge.i.i ]
-  %.049.i.i.be = phi i64 [ %200, %199 ], [ %211, %._crit_edge.i.i ]
-  %.sroa.020.0.i.i.be = phi ptr [ %.sroa.020.1.lcssa.i.i, %199 ], [ %.sroa.020.3.lcssa.i.i, %._crit_edge.i.i ]
-  br label %186, !llvm.loop !116
+.backedge:                                        ; preds = %._crit_edge.i.i, %197
+  %.050.i.i.be = phi i64 [ %.049.i.i, %197 ], [ %185, %._crit_edge.i.i ]
+  %.049.i.i.be = phi i64 [ %198, %197 ], [ %209, %._crit_edge.i.i ]
+  %.sroa.020.0.i.i.be = phi ptr [ %.sroa.020.1.lcssa.i.i, %197 ], [ %.sroa.020.3.lcssa.i.i, %._crit_edge.i.i ]
+  br label %184, !llvm.loop !116
 
-_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit: ; preds = %._crit_edge61.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i77, %165, %167
-  %.sroa.012.0.i.i = phi ptr [ %.sroa.0.0, %165 ], [ %.sroa.081.0, %167 ], [ %.tr86101, %.lr.ph.i.i.i77 ], [ %185, %._crit_edge.i.i ], [ %185, %._crit_edge61.i.i ]
-  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEEvT_SQ_SQ_T0_SR_T1_"(ptr %.tr100, ptr %.sroa.081.0, ptr %.sroa.012.0.i.i, i64 noundef %.0, i64 noundef %.047)
-  %213 = sub nsw i64 %.tr88102, %.0
-  %214 = sub nsw i64 %.tr89103, %.047
-  %215 = icmp eq i64 %213, 0
-  %216 = icmp eq i64 %214, 0
-  %or.cond = or i1 %215, %216
+_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit: ; preds = %._crit_edge61.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i79, %163, %165
+  %.sroa.012.0.i.i = phi ptr [ %.sroa.0.0, %163 ], [ %.sroa.083.0, %165 ], [ %.tr88103, %.lr.ph.i.i.i79 ], [ %183, %._crit_edge.i.i ], [ %183, %._crit_edge61.i.i ]
+  tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEEvT_SQ_SQ_T0_SR_T1_"(ptr %.tr102, ptr %.sroa.083.0, ptr %.sroa.012.0.i.i, i64 noundef %.0, i64 noundef %.047)
+  %211 = sub nsw i64 %.tr90104, %.0
+  %212 = sub nsw i64 %.tr91105, %.047
+  %213 = icmp eq i64 %211, 0
+  %214 = icmp eq i64 %212, 0
+  %or.cond = or i1 %213, %214
   br i1 %or.cond, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, %5, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EESP_EEbT_T0_.exit", %54
@@ -11207,19 +11207,19 @@ _ZSt4moveIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEEvT_SQ_SQ_T0_SR_T1_SR_T2_"(ptr %0, ptr %1, ptr %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
-  %.not188 = icmp sgt i64 %3, %4
-  %.not80189 = icmp sgt i64 %3, %6
-  %or.cond190 = or i1 %.not80189, %.not188
-  br i1 %or.cond190, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not190 = icmp sgt i64 %3, %4
+  %.not80191 = icmp sgt i64 %3, %6
+  %or.cond192 = or i1 %.not80191, %.not190
+  br i1 %or.cond192, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
   br label %85
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
-  %.tr.lcssa = phi ptr [ %0, %7 ], [ %292, %tailrecurse ]
-  %.tr162.lcssa = phi ptr [ %1, %7 ], [ %.sroa.0.0, %tailrecurse ]
-  %9 = ptrtoint ptr %.tr162.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %7 ], [ %290, %tailrecurse ]
+  %.tr164.lcssa = phi ptr [ %1, %7 ], [ %.sroa.0.0, %tailrecurse ]
+  %9 = ptrtoint ptr %.tr164.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
@@ -11251,7 +11251,7 @@ _ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEO
 .lr.ph.i:                                         ; preds = %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i, %71
   %.030.i = phi ptr [ %.1.i, %71 ], [ %5, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ]
   %.sroa.0.028.i = phi ptr [ %72, %71 ], [ %.tr.lcssa, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ]
-  %.sroa.018.027.i = phi ptr [ %.sroa.018.1.i, %71 ], [ %.tr162.lcssa, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ]
+  %.sroa.018.027.i = phi ptr [ %.sroa.018.1.i, %71 ], [ %.tr164.lcssa, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ]
   %.not21.i = icmp eq ptr %.sroa.018.027.i, %2
   br i1 %.not21.i, label %.critedge.i, label %21
 
@@ -11391,13 +11391,13 @@ _ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEO
   br i1 %84, label %.lr.ph.i.i.i.i.i.i, label %"_ZSt21__move_merge_adaptiveIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEESD_NS8_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS1_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEEvT_SQ_T0_SR_T1_T2_.exit", !llvm.loop !119
 
 85:                                               ; preds = %.lr.ph, %tailrecurse
-  %.not195 = phi i1 [ %.not188, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr165194 = phi i64 [ %4, %.lr.ph ], [ %293, %tailrecurse ]
-  %.tr164193 = phi i64 [ %3, %.lr.ph ], [ %291, %tailrecurse ]
-  %.tr162192 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %tailrecurse ]
-  %.tr191 = phi ptr [ %0, %.lr.ph ], [ %292, %tailrecurse ]
-  %.not81 = icmp sgt i64 %.tr165194, %6
-  %86 = ptrtoint ptr %.tr162192 to i64
+  %.not197 = phi i1 [ %.not190, %.lr.ph ], [ %.not, %tailrecurse ]
+  %.tr167196 = phi i64 [ %4, %.lr.ph ], [ %291, %tailrecurse ]
+  %.tr166195 = phi i64 [ %3, %.lr.ph ], [ %289, %tailrecurse ]
+  %.tr164194 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.0, %tailrecurse ]
+  %.tr193 = phi ptr [ %0, %.lr.ph ], [ %290, %tailrecurse ]
+  %.not81 = icmp sgt i64 %.tr167196, %6
+  %86 = ptrtoint ptr %.tr164194 to i64
   br i1 %.not81, label %183, label %87
 
 87:                                               ; preds = %85
@@ -11409,7 +11409,7 @@ _ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEO
 .lr.ph.i.i.i.i.i84:                               ; preds = %87, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i89
   %.012.i.i.i.i.i85 = phi i64 [ %96, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i89 ], [ %89, %87 ]
   %.0811.i.i.i.i.i86 = phi ptr [ %95, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i89 ], [ %5, %87 ]
-  %.0910.i.i.i.i.i87 = phi ptr [ %94, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i89 ], [ %.tr162192, %87 ]
+  %.0910.i.i.i.i.i87 = phi ptr [ %94, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i89 ], [ %.tr164194, %87 ]
   %91 = load ptr, ptr %.0910.i.i.i.i.i87, align 8
   store ptr null, ptr %.0910.i.i.i.i.i87, align 8
   %92 = load ptr, ptr %.0811.i.i.i.i.i86, align 8
@@ -11430,7 +11430,7 @@ _ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEO
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit90: ; preds = %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i89, %87
   %.08.lcssa.i.i.i.i.i83 = phi ptr [ %5, %87 ], [ %95, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i89 ]
-  %98 = icmp eq ptr %.tr191, %.tr162192
+  %98 = icmp eq ptr %.tr193, %.tr164194
   br i1 %98, label %99, label %112
 
 99:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_ET0_T_SF_SE_.exit90
@@ -11472,7 +11472,7 @@ _ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEO
   br label %.outer
 
 .outer:                                           ; preds = %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i107, %114
-  %.sroa.031.0.i.ph.pn = phi ptr [ %.tr162192, %114 ], [ %.sroa.031.0.i.ph, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i107 ]
+  %.sroa.031.0.i.ph.pn = phi ptr [ %.tr164194, %114 ], [ %.sroa.031.0.i.ph, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i107 ]
   %.sroa.0.0.i.ph = phi ptr [ %2, %114 ], [ %158, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i107 ]
   %.0.i.ph = phi ptr [ %115, %114 ], [ %.0.i, %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i107 ]
   %.sroa.031.0.i.ph = getelementptr inbounds i8, ptr %.sroa.031.0.i.ph.pn, i64 -8
@@ -11561,7 +11561,7 @@ _ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i97: ; preds =
   br label %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i107
 
 _ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i107: ; preds = %161, %159
-  %162 = icmp eq ptr %.tr191, %.sroa.031.0.i.ph
+  %162 = icmp eq ptr %.tr193, %.sroa.031.0.i.ph
   br i1 %162, label %163, label %.outer, !llvm.loop !125
 
 163:                                              ; preds = %_ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEOS5_.exit.i107
@@ -11615,11 +11615,11 @@ _ZNSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS2_EEaSEO
   br label %116, !llvm.loop !125
 
 183:                                              ; preds = %85
-  br i1 %.not195, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit129
+  br i1 %.not197, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit129
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit: ; preds = %183
-  %184 = sdiv i64 %.tr164193, 2
-  %185 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.tr191, i64 %184
+  %184 = sdiv i64 %.tr166195, 2
+  %185 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.tr193, i64 %184
   %186 = sub i64 %8, %86
   %187 = ashr exact i64 %186, 3
   %188 = icmp sgt i64 %187, 0
@@ -11641,70 +11641,70 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16Out
   %199 = sdiv exact i64 %198, 224
   %200 = trunc i64 %199 to i32
   %201 = mul i32 %193, %200
-  %202 = add i32 %195, %193
+  %invariant.op.i = add i32 %195, %193
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i
   %.05.i = phi i64 [ %187, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i125, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ]
-  %.sroa.02.04.i = phi ptr [ %.tr162192, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ]
-  %203 = lshr i64 %.05.i, 1
-  %204 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.02.04.i, i64 %203
-  %.val.i.i112 = load ptr, ptr %204, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %.val.i.i112, i64 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = load ptr, ptr %.val.i.i112, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %.val.i.i112, i64 32
-  %209 = load i32, ptr %208, align 8
+  %.sroa.02.04.i = phi ptr [ %.tr164194, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i" ]
+  %202 = lshr i64 %.05.i, 1
+  %203 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.02.04.i, i64 %202
+  %.val.i.i112 = load ptr, ptr %203, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %.val.i.i112, i64 8
+  %205 = load ptr, ptr %204, align 8
+  %206 = load ptr, ptr %.val.i.i112, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %.val.i.i112, i64 32
+  %208 = load i32, ptr %207, align 8
   br i1 %.not8.i.i.i.i111, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117, label %.lr.ph.i.i.i.i113
 
 .lr.ph.i.i.i.i113:                                ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i, %.lr.ph.i.i.i.i113
-  %.010.i.i.i.i114 = phi i32 [ %212, %.lr.ph.i.i.i.i113 ], [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ]
-  %.sroa.05.09.i.i.i.i115 = phi ptr [ %213, %.lr.ph.i.i.i.i113 ], [ %189, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ]
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i115, i64 32
-  %211 = load i32, ptr %210, align 8
-  %212 = add i32 %211, %.010.i.i.i.i114
-  %213 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i115, i64 224
-  %.not.i.i.i.i116 = icmp eq ptr %213, %191
+  %.010.i.i.i.i114 = phi i32 [ %211, %.lr.ph.i.i.i.i113 ], [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ]
+  %.sroa.05.09.i.i.i.i115 = phi ptr [ %212, %.lr.ph.i.i.i.i113 ], [ %189, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ]
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i115, i64 32
+  %210 = load i32, ptr %209, align 8
+  %211 = add i32 %210, %.010.i.i.i.i114
+  %212 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i115, i64 224
+  %.not.i.i.i.i116 = icmp eq ptr %212, %191
   br i1 %.not.i.i.i.i116, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117, label %.lr.ph.i.i.i.i113
 
 _ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117: ; preds = %.lr.ph.i.i.i.i113, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i
-  %.0.lcssa.i.i.i.i118 = phi i32 [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ], [ %212, %.lr.ph.i.i.i.i113 ]
-  %.not8.i4.i.i.i119 = icmp eq ptr %207, %206
+  %.0.lcssa.i.i.i.i118 = phi i32 [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ], [ %211, %.lr.ph.i.i.i.i113 ]
+  %.not8.i4.i.i.i119 = icmp eq ptr %206, %205
   br i1 %.not8.i4.i.i.i119, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", label %.lr.ph.i5.i.i.i120
 
 .lr.ph.i5.i.i.i120:                               ; preds = %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117, %.lr.ph.i5.i.i.i120
-  %.010.i6.i.i.i121 = phi i32 [ %216, %.lr.ph.i5.i.i.i120 ], [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117 ]
-  %.sroa.05.09.i7.i.i.i122 = phi ptr [ %217, %.lr.ph.i5.i.i.i120 ], [ %207, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117 ]
-  %214 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i7.i.i.i122, i64 32
-  %215 = load i32, ptr %214, align 8
-  %216 = add i32 %215, %.010.i6.i.i.i121
-  %217 = getelementptr inbounds i8, ptr %.sroa.05.09.i7.i.i.i122, i64 224
-  %.not.i8.i.i.i123 = icmp eq ptr %217, %206
+  %.010.i6.i.i.i121 = phi i32 [ %215, %.lr.ph.i5.i.i.i120 ], [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117 ]
+  %.sroa.05.09.i7.i.i.i122 = phi ptr [ %216, %.lr.ph.i5.i.i.i120 ], [ %206, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117 ]
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i7.i.i.i122, i64 32
+  %214 = load i32, ptr %213, align 8
+  %215 = add i32 %214, %.010.i6.i.i.i121
+  %216 = getelementptr inbounds i8, ptr %.sroa.05.09.i7.i.i.i122, i64 224
+  %.not.i8.i.i.i123 = icmp eq ptr %216, %205
   br i1 %.not.i8.i.i.i123, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i", label %.lr.ph.i5.i.i.i120
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i": ; preds = %.lr.ph.i5.i.i.i120, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117
-  %.0.lcssa.i9.i.i.i124 = phi i32 [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117 ], [ %216, %.lr.ph.i5.i.i.i120 ]
+  %.0.lcssa.i9.i.i.i124 = phi i32 [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117 ], [ %215, %.lr.ph.i5.i.i.i120 ]
+  %217 = ptrtoint ptr %205 to i64
   %218 = ptrtoint ptr %206 to i64
-  %219 = ptrtoint ptr %207 to i64
-  %220 = sub i64 %218, %219
-  %221 = sdiv exact i64 %220, 224
-  %222 = trunc i64 %221 to i32
-  %223 = mul i32 %209, %222
-  %224 = add i32 %202, %.0.lcssa.i.i.i.i118
-  %225 = mul i32 %223, %224
-  %226 = add i32 %.0.lcssa.i9.i.i.i124, %209
-  %227 = getelementptr inbounds nuw i8, ptr %.val.i.i112, i64 36
-  %228 = load i32, ptr %227, align 4
-  %229 = add i32 %226, %228
-  %230 = mul i32 %201, %229
-  %231 = icmp ugt i32 %225, %230
-  %232 = getelementptr inbounds i8, ptr %204, i64 8
-  %233 = xor i64 %203, -1
-  %234 = add nsw i64 %.05.i, %233
-  %.sroa.02.1.i = select i1 %231, ptr %232, ptr %.sroa.02.04.i
-  %.1.i125 = select i1 %231, i64 %234, i64 %203
-  %235 = icmp sgt i64 %.1.i125, 0
-  br i1 %235, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", !llvm.loop !111
+  %219 = sub i64 %217, %218
+  %220 = sdiv exact i64 %219, 224
+  %221 = trunc i64 %220 to i32
+  %222 = mul i32 %208, %221
+  %.reass.i = add i32 %invariant.op.i, %.0.lcssa.i.i.i.i118
+  %223 = mul i32 %222, %.reass.i
+  %224 = add i32 %.0.lcssa.i9.i.i.i124, %208
+  %225 = getelementptr inbounds nuw i8, ptr %.val.i.i112, i64 36
+  %226 = load i32, ptr %225, align 4
+  %227 = add i32 %224, %226
+  %228 = mul i32 %201, %227
+  %229 = icmp ugt i32 %223, %228
+  %230 = getelementptr inbounds i8, ptr %203, i64 8
+  %231 = xor i64 %202, -1
+  %232 = add nsw i64 %.05.i, %231
+  %.sroa.02.1.i = select i1 %229, ptr %230, ptr %.sroa.02.04.i
+  %.1.i125 = select i1 %229, i64 %232, i64 %202
+  %233 = icmp sgt i64 %.1.i125, 0
+  br i1 %233, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", !llvm.loop !111
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclINS_17__normal_iteratorIPSD_SF_EEKSD_EEbT_RT0_.exit.i"
   %.pre = ptrtoint ptr %.sroa.02.1.i to i64
@@ -11712,123 +11712,123 @@ _ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i117: ; preds 
 
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %86, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
-  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %.tr162192, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
-  %236 = sub i64 %.pre-phi, %86
-  %237 = ashr exact i64 %236, 3
+  %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.1.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %.tr164194, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
+  %234 = sub i64 %.pre-phi, %86
+  %235 = ashr exact i64 %234, 3
   br label %tailrecurse
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit129: ; preds = %183
-  %238 = sdiv i64 %.tr165194, 2
-  %239 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.tr162192, i64 %238
-  %240 = ptrtoint ptr %.tr191 to i64
-  %241 = sub i64 %86, %240
-  %242 = ashr exact i64 %241, 3
-  %243 = icmp sgt i64 %242, 0
-  br i1 %243, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i131, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit"
+  %236 = sdiv i64 %.tr167196, 2
+  %237 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.tr164194, i64 %236
+  %238 = ptrtoint ptr %.tr193 to i64
+  %239 = sub i64 %86, %238
+  %240 = ashr exact i64 %239, 3
+  %241 = icmp sgt i64 %240, 0
+  br i1 %241, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i131, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i131: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit129
-  %.val82 = load ptr, ptr %239, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %.val82, i64 8
-  %245 = load ptr, ptr %244, align 8
-  %246 = load ptr, ptr %.val82, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %.val82, i64 32
-  %248 = load i32, ptr %247, align 8
-  %.not8.i4.i.i.i132 = icmp eq ptr %246, %245
-  %249 = ptrtoint ptr %245 to i64
-  %250 = ptrtoint ptr %246 to i64
-  %251 = sub i64 %249, %250
-  %252 = sdiv exact i64 %251, 224
-  %253 = trunc i64 %252 to i32
-  %254 = mul i32 %248, %253
-  %255 = getelementptr inbounds nuw i8, ptr %.val82, i64 36
-  %256 = load i32, ptr %255, align 4
-  %invariant.op.i = add i32 %256, %248
-  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i133
+  %.val82 = load ptr, ptr %237, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %.val82, i64 8
+  %243 = load ptr, ptr %242, align 8
+  %244 = load ptr, ptr %.val82, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %.val82, i64 32
+  %246 = load i32, ptr %245, align 8
+  %.not8.i4.i.i.i132 = icmp eq ptr %244, %243
+  %247 = ptrtoint ptr %243 to i64
+  %248 = ptrtoint ptr %244 to i64
+  %249 = sub i64 %247, %248
+  %250 = sdiv exact i64 %249, 224
+  %251 = trunc i64 %250 to i32
+  %252 = mul i32 %246, %251
+  %253 = getelementptr inbounds nuw i8, ptr %.val82, i64 36
+  %254 = load i32, ptr %253, align 4
+  %invariant.op.i133 = add i32 %254, %246
+  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i134
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i133: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i131
-  %.05.i134 = phi i64 [ %242, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i131 ], [ %.1.i152, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ]
-  %.sroa.02.04.i135 = phi ptr [ %.tr191, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i131 ], [ %.sroa.02.1.i151, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ]
-  %257 = lshr i64 %.05.i134, 1
-  %258 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.02.04.i135, i64 %257
-  %.val2.i.i138 = load ptr, ptr %258, align 8
-  %259 = load ptr, ptr %.val2.i.i138, align 8
-  %260 = getelementptr inbounds nuw i8, ptr %.val2.i.i138, i64 8
-  %261 = load ptr, ptr %260, align 8
-  %.not8.i.i.i.i139 = icmp eq ptr %259, %261
-  br i1 %.not8.i.i.i.i139, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i144, label %.lr.ph.i.i.i.i140
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i134: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i131
+  %.05.i135 = phi i64 [ %240, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i131 ], [ %.1.i154, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ]
+  %.sroa.02.04.i136 = phi ptr [ %.tr193, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.lr.ph.i131 ], [ %.sroa.02.1.i153, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i" ]
+  %255 = lshr i64 %.05.i135, 1
+  %256 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.02.04.i136, i64 %255
+  %.val2.i.i139 = load ptr, ptr %256, align 8
+  %257 = load ptr, ptr %.val2.i.i139, align 8
+  %258 = getelementptr inbounds nuw i8, ptr %.val2.i.i139, i64 8
+  %259 = load ptr, ptr %258, align 8
+  %.not8.i.i.i.i140 = icmp eq ptr %257, %259
+  br i1 %.not8.i.i.i.i140, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i145, label %.lr.ph.i.i.i.i141
 
-.lr.ph.i.i.i.i140:                                ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i133, %.lr.ph.i.i.i.i140
-  %.010.i.i.i.i141 = phi i32 [ %264, %.lr.ph.i.i.i.i140 ], [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i133 ]
-  %.sroa.05.09.i.i.i.i142 = phi ptr [ %265, %.lr.ph.i.i.i.i140 ], [ %259, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i133 ]
-  %262 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i142, i64 32
-  %263 = load i32, ptr %262, align 8
-  %264 = add i32 %263, %.010.i.i.i.i141
-  %265 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i142, i64 224
-  %.not.i.i.i.i143 = icmp eq ptr %265, %261
-  br i1 %.not.i.i.i.i143, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i144, label %.lr.ph.i.i.i.i140
+.lr.ph.i.i.i.i141:                                ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i134, %.lr.ph.i.i.i.i141
+  %.010.i.i.i.i142 = phi i32 [ %262, %.lr.ph.i.i.i.i141 ], [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i134 ]
+  %.sroa.05.09.i.i.i.i143 = phi ptr [ %263, %.lr.ph.i.i.i.i141 ], [ %257, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i134 ]
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i.i143, i64 32
+  %261 = load i32, ptr %260, align 8
+  %262 = add i32 %261, %.010.i.i.i.i142
+  %263 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i.i143, i64 224
+  %.not.i.i.i.i144 = icmp eq ptr %263, %259
+  br i1 %.not.i.i.i.i144, label %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i145, label %.lr.ph.i.i.i.i141
 
-_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i144: ; preds = %.lr.ph.i.i.i.i140, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i133
-  %.0.lcssa.i.i.i.i145 = phi i32 [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i133 ], [ %264, %.lr.ph.i.i.i.i140 ]
-  %266 = getelementptr inbounds nuw i8, ptr %.val2.i.i138, i64 32
-  %267 = load i32, ptr %266, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %.val2.i.i138, i64 36
-  %269 = load i32, ptr %268, align 4
-  br i1 %.not8.i4.i.i.i132, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", label %.lr.ph.i5.i.i.i146
+_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i145: ; preds = %.lr.ph.i.i.i.i141, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i134
+  %.0.lcssa.i.i.i.i146 = phi i32 [ 0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i134 ], [ %262, %.lr.ph.i.i.i.i141 ]
+  %264 = getelementptr inbounds nuw i8, ptr %.val2.i.i139, i64 32
+  %265 = load i32, ptr %264, align 8
+  %266 = getelementptr inbounds nuw i8, ptr %.val2.i.i139, i64 36
+  %267 = load i32, ptr %266, align 4
+  br i1 %.not8.i4.i.i.i132, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", label %.lr.ph.i5.i.i.i147
 
-.lr.ph.i5.i.i.i146:                               ; preds = %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i144, %.lr.ph.i5.i.i.i146
-  %.010.i6.i.i.i147 = phi i32 [ %272, %.lr.ph.i5.i.i.i146 ], [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i144 ]
-  %.sroa.05.09.i7.i.i.i148 = phi ptr [ %273, %.lr.ph.i5.i.i.i146 ], [ %246, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i144 ]
-  %270 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i7.i.i.i148, i64 32
-  %271 = load i32, ptr %270, align 8
-  %272 = add i32 %271, %.010.i6.i.i.i147
-  %273 = getelementptr inbounds i8, ptr %.sroa.05.09.i7.i.i.i148, i64 224
-  %.not.i8.i.i.i149 = icmp eq ptr %273, %245
-  br i1 %.not.i8.i.i.i149, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", label %.lr.ph.i5.i.i.i146
+.lr.ph.i5.i.i.i147:                               ; preds = %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i145, %.lr.ph.i5.i.i.i147
+  %.010.i6.i.i.i148 = phi i32 [ %270, %.lr.ph.i5.i.i.i147 ], [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i145 ]
+  %.sroa.05.09.i7.i.i.i149 = phi ptr [ %271, %.lr.ph.i5.i.i.i147 ], [ %244, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i145 ]
+  %268 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i7.i.i.i149, i64 32
+  %269 = load i32, ptr %268, align 8
+  %270 = add i32 %269, %.010.i6.i.i.i148
+  %271 = getelementptr inbounds i8, ptr %.sroa.05.09.i7.i.i.i149, i64 224
+  %.not.i8.i.i.i150 = icmp eq ptr %271, %243
+  br i1 %.not.i8.i.i.i150, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i", label %.lr.ph.i5.i.i.i147
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i": ; preds = %.lr.ph.i5.i.i.i146, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i144
-  %.0.lcssa.i9.i.i.i150 = phi i32 [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i144 ], [ %272, %.lr.ph.i5.i.i.i146 ]
-  %274 = ptrtoint ptr %261 to i64
-  %275 = ptrtoint ptr %259 to i64
-  %276 = sub i64 %274, %275
-  %277 = sdiv exact i64 %276, 224
-  %278 = trunc i64 %277 to i32
-  %279 = mul i32 %267, %278
-  %280 = add i32 %267, %.0.lcssa.i.i.i.i145
-  %281 = add i32 %280, %269
-  %282 = mul i32 %254, %281
-  %.reass.i = add i32 %invariant.op.i, %.0.lcssa.i9.i.i.i150
-  %283 = mul i32 %279, %.reass.i
-  %284 = icmp ugt i32 %282, %283
-  %285 = getelementptr inbounds i8, ptr %258, i64 8
-  %286 = xor i64 %257, -1
-  %287 = add nsw i64 %.05.i134, %286
-  %.sroa.02.1.i151 = select i1 %284, ptr %.sroa.02.04.i135, ptr %285
-  %.1.i152 = select i1 %284, i64 %257, i64 %287
-  %288 = icmp sgt i64 %.1.i152, 0
-  br i1 %288, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i133, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", !llvm.loop !112
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i": ; preds = %.lr.ph.i5.i.i.i147, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i145
+  %.0.lcssa.i9.i.i.i151 = phi i32 [ 0, %_ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i145 ], [ %270, %.lr.ph.i5.i.i.i147 ]
+  %272 = ptrtoint ptr %259 to i64
+  %273 = ptrtoint ptr %257 to i64
+  %274 = sub i64 %272, %273
+  %275 = sdiv exact i64 %274, 224
+  %276 = trunc i64 %275 to i32
+  %277 = mul i32 %265, %276
+  %278 = add i32 %265, %.0.lcssa.i.i.i.i146
+  %279 = add i32 %278, %267
+  %280 = mul i32 %252, %279
+  %.reass.i152 = add i32 %invariant.op.i133, %.0.lcssa.i9.i.i.i151
+  %281 = mul i32 %277, %.reass.i152
+  %282 = icmp ugt i32 %280, %281
+  %283 = getelementptr inbounds i8, ptr %256, i64 8
+  %284 = xor i64 %255, -1
+  %285 = add nsw i64 %.05.i135, %284
+  %.sroa.02.1.i153 = select i1 %282, ptr %.sroa.02.04.i136, ptr %283
+  %.1.i154 = select i1 %282, i64 %255, i64 %285
+  %286 = icmp sgt i64 %.1.i154, 0
+  br i1 %286, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i134, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", !llvm.loop !112
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERN4llvm6ModuleERSt6vectorISt10unique_ptrINS4_8outliner16OutlinedFunctionESt14default_deleteISA_EESaISD_EERNS2_17InstructionMapperERjE3$_0EclIKSD_NS_17__normal_iteratorIPSD_SF_EEEEbRT_T0_.exit.i"
-  %.pre218 = ptrtoint ptr %.sroa.02.1.i151 to i64
+  %.pre220 = ptrtoint ptr %.sroa.02.1.i153 to i64
   br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit129
-  %.pre-phi219 = phi i64 [ %.pre218, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %240, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit129 ]
-  %.sroa.02.0.lcssa.i130 = phi ptr [ %.sroa.02.1.i151, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %.tr191, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit129 ]
-  %289 = sub i64 %.pre-phi219, %240
-  %290 = ashr exact i64 %289, 3
+  %.pre-phi221 = phi i64 [ %.pre220, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %238, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit129 ]
+  %.sroa.02.0.lcssa.i130 = phi ptr [ %.sroa.02.1.i153, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit.loopexit" ], [ %.tr193, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit129 ]
+  %287 = sub i64 %.pre-phi221, %238
+  %288 = ashr exact i64 %287, 3
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit", %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit"
-  %.sroa.0155.0 = phi ptr [ %185, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i130, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %239, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
-  %.076 = phi i64 [ %237, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %238, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
-  %.0 = phi i64 [ %184, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %290, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
-  %291 = sub nsw i64 %.tr164193, %.0
-  %292 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lET_SE_SE_SE_T1_SF_T0_SF_(ptr %.sroa.0155.0, ptr %.tr162192, ptr %.sroa.0.0, i64 noundef %291, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
-  tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEEvT_SQ_SQ_T0_SR_T1_SR_T2_"(ptr %.tr191, ptr %.sroa.0155.0, ptr %292, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
-  %293 = sub nsw i64 %.tr165194, %.076
-  %.not = icmp sgt i64 %291, %293
-  %.not80 = icmp sgt i64 %291, %6
+  %.sroa.0157.0 = phi ptr [ %185, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %.sroa.02.0.lcssa.i130, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.02.0.lcssa.i, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %237, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
+  %.076 = phi i64 [ %235, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %236, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
+  %.0 = phi i64 [ %184, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Iter_comp_valIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ], [ %288, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES8_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEET_SQ_SQ_RKT0_T1_.exit" ]
+  %289 = sub nsw i64 %.tr166195, %.0
+  %290 = tail call ptr @_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lET_SE_SE_SE_T1_SF_T0_SF_(ptr %.sroa.0157.0, ptr %.tr164194, ptr %.sroa.0.0, i64 noundef %289, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
+  tail call fastcc void @"_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_115MachineOutliner7outlineERNS3_6ModuleERSC_RNSG_17InstructionMapperERjE3$_0EEEvT_SQ_SQ_T0_SR_T1_SR_T2_"(ptr %.tr193, ptr %.sroa.0157.0, ptr %290, i64 noundef %.0, i64 noundef %.076, ptr noundef %5, i64 noundef %6)
+  %291 = sub nsw i64 %.tr167196, %.076
+  %.not = icmp sgt i64 %289, %291
+  %.not80 = icmp sgt i64 %289, %6
   %or.cond = or i1 %.not80, %.not
   br i1 %or.cond, label %85, label %tailrecurse._crit_edge
 

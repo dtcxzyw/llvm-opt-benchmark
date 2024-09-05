@@ -2430,36 +2430,39 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %55 = add nsw i32 %14, %54
   tail call void @sat_solver_setnvars(ptr noundef %6, i32 noundef %55) #17
   %56 = icmp sgt i32 %.val.val, 0
-  br i1 %56, label %.preheader49.lr.ph, label %._crit_edge55
+  br i1 %56, label %.preheader49.lr.ph, label %._crit_edge57
 
 .preheader49.lr.ph:                               ; preds = %._crit_edge
-  %factor.op.mul52 = shl nuw i32 %.val.val, 1
+  %factor.op.mul53 = shl nuw i32 %.val.val, 1
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %.preheader49
 
 .preheader49:                                     ; preds = %.preheader49.lr.ph, %77
-  %indvars.iv61 = phi i64 [ 0, %.preheader49.lr.ph ], [ %indvars.iv.next62, %77 ]
-  %57 = shl nuw nsw i64 %indvars.iv61, 1
-  %58 = trunc nuw nsw i64 %indvars.iv61 to i32
+  %indvars.iv63 = phi i64 [ 0, %.preheader49.lr.ph ], [ %indvars.iv.next64, %77 ]
+  %57 = shl nuw nsw i64 %indvars.iv63, 1
+  %58 = trunc nuw i64 %57 to i32
+  %invariant.op54 = add i32 %14, %58
+  %59 = trunc nuw nsw i64 %indvars.iv63 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader49, %76
-  %59 = phi i1 [ true, %.preheader49 ], [ false, %76 ]
-  %indvars.iv57 = phi i64 [ 0, %.preheader49 ], [ 1, %76 ]
-  %60 = trunc nuw nsw i64 %indvars.iv57 to i32
-  %61 = mul nuw nsw i32 %factor.op.mul52, %60
-  %62 = add nsw i32 %61, %14
+  %60 = phi i1 [ true, %.preheader49 ], [ false, %76 ]
+  %indvars.iv59 = phi i64 [ 0, %.preheader49 ], [ 1, %76 ]
+  %61 = trunc nuw nsw i64 %indvars.iv59 to i32
+  %62 = mul nuw nsw i32 %factor.op.mul53, %61
+  %invariant.op.reass = add i32 %62, %invariant.op54
   br label %63
 
 63:                                               ; preds = %.preheader, %71
   %.not = phi i1 [ true, %.preheader ], [ false, %71 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %71 ]
   %64 = select i1 %.not, ptr @.str.23, ptr @.str.22
-  %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %58, ptr noundef nonnull %64)
+  %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %59, ptr noundef nonnull %64)
   %66 = or disjoint i64 %indvars.iv, %57
-  %67 = trunc nuw i64 %66 to i32
-  %68 = add nsw i32 %62, %67
-  %69 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null)
+  %67 = trunc nuw nsw i64 %indvars.iv to i32
+  %.reass52 = add i32 %invariant.op.reass, %67
+  %68 = trunc nuw i64 %66 to i32
+  %69 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %68, i32 noundef %.reass52, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null)
   switch i32 %69, label %71 [
     i32 0, label %.sink.split
     i32 -1, label %70
@@ -2475,30 +2478,30 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 71:                                               ; preds = %.sink.split, %63
   %72 = load i32, ptr %2, align 4
-  %73 = getelementptr inbounds [2 x [2 x i32]], ptr %3, i64 0, i64 %indvars.iv57, i64 %indvars.iv
+  %73 = getelementptr inbounds [2 x [2 x i32]], ptr %3, i64 0, i64 %indvars.iv59, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4
   %75 = add nsw i32 %74, %72
   store i32 %75, ptr %73, align 4
   br i1 %.not, label %63, label %76, !llvm.loop !29
 
 76:                                               ; preds = %71
-  br i1 %59, label %.preheader, label %77, !llvm.loop !30
+  br i1 %60, label %.preheader, label %77, !llvm.loop !30
 
 77:                                               ; preds = %76
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond64.not, label %._crit_edge55, label %.preheader49, !llvm.loop !31
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
+  br i1 %exitcond66.not, label %._crit_edge57, label %.preheader49, !llvm.loop !31
 
-._crit_edge55:                                    ; preds = %77, %._crit_edge
+._crit_edge57:                                    ; preds = %77, %._crit_edge
   %78 = load ptr, ptr %23, align 8
   %.not.i48 = icmp eq ptr %78, null
   br i1 %.not.i48, label %Vec_IntFree.exit, label %79
 
-79:                                               ; preds = %._crit_edge55
+79:                                               ; preds = %._crit_edge57
   call void @free(ptr noundef nonnull %78) #17
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %._crit_edge55, %79
+Vec_IntFree.exit:                                 ; preds = %._crit_edge57, %79
   call void @free(ptr noundef nonnull %15) #17
   call void @sat_solver_delete(ptr noundef %6) #17
   call void @Cnf_DataFree(ptr noundef %5) #17

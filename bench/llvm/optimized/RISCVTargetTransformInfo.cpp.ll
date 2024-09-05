@@ -4459,7 +4459,7 @@ _ZN4llvm5APInt7getZeroEj.exit:                    ; preds = %136, %144
   %168 = load i32, ptr %167, align 8
   %169 = and i32 %168, 255
   %170 = icmp eq i32 %169, 18
-  br i1 %166, label %171, label %223
+  br i1 %166, label %171, label %224
 
 171:                                              ; preds = %._crit_edge311
   br i1 %170, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit, label %172
@@ -4507,293 +4507,293 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.us.i:      ; preds = %.lr.ph.split.us.i
 
 _ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit.loopexit: ; preds = %189
   %191 = icmp eq i32 %.sroa.7.2.us.i, 1
+  %192 = select i1 %191, i32 1, i32 %.sroa.19.2
   br label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit
 
 _ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit: ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit.loopexit, %171, %172
   %.sroa.027.0.i = phi i64 [ 0, %171 ], [ 0, %172 ], [ %.sroa.027.2.us.i, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit.loopexit ]
-  %.sroa.7.0.i = phi i1 [ true, %171 ], [ false, %172 ], [ %191, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit.loopexit ]
-  %192 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %5, i64 %.sroa.027.0.i)
-  %193 = extractvalue { i64, i1 } %192, 1
-  %194 = extractvalue { i64, i1 } %192, 0
-  br i1 %193, label %195, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
+  %.sroa.7.0.i = phi i32 [ 1, %171 ], [ %.sroa.19.2, %172 ], [ %192, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit.loopexit ]
+  %193 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %5, i64 %.sroa.027.0.i)
+  %194 = extractvalue { i64, i1 } %193, 1
+  %195 = extractvalue { i64, i1 } %193, 0
+  br i1 %194, label %196, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
 
-195:                                              ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit
-  %196 = icmp sgt i64 %5, 0
-  %197 = icmp sgt i64 %.sroa.027.0.i, 0
-  %or.cond.i.i = select i1 %196, i1 %197, i1 false
-  br i1 %or.cond.i.i, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit, label %198
+196:                                              ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit
+  %197 = icmp sgt i64 %5, 0
+  %198 = icmp sgt i64 %.sroa.027.0.i, 0
+  %or.cond.i.i = select i1 %197, i1 %198, i1 false
+  br i1 %or.cond.i.i, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit, label %199
 
-198:                                              ; preds = %195
-  %199 = icmp slt i64 %5, 0
-  %200 = icmp slt i64 %.sroa.027.0.i, 0
-  %or.cond7.i.i = select i1 %199, i1 %200, i1 false
+199:                                              ; preds = %196
+  %200 = icmp slt i64 %5, 0
+  %201 = icmp slt i64 %.sroa.027.0.i, 0
+  %or.cond7.i.i = select i1 %200, i1 %201, i1 false
   %spec.select.i.i = select i1 %or.cond7.i.i, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit, %195, %198
-  %.0.i.i = phi i64 [ %194, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit ], [ 9223372036854775807, %195 ], [ %spec.select.i.i, %198 ]
-  %spec.select = select i1 %.sroa.7.0.i, i32 1, i32 %.sroa.19.2
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit, %196, %199
+  %.0.i.i = phi i64 [ %195, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit ], [ 9223372036854775807, %196 ], [ %spec.select.i.i, %199 ]
   %.0.i = call i64 @llvm.sadd.sat.i64(i64 %.sroa.0262.2, i64 %.0.i.i)
-  %201 = load i32, ptr %20, align 8
-  %202 = and i32 %201, 255
-  %203 = icmp eq i32 %202, 18
-  br i1 %203, label %_ZN4llvm15InstructionCostpLERKS0_.exit161, label %204
+  %202 = load i32, ptr %20, align 8
+  %203 = and i32 %202, 255
+  %204 = icmp eq i32 %203, 18
+  br i1 %204, label %_ZN4llvm15InstructionCostpLERKS0_.exit161, label %205
 
-204:                                              ; preds = %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
-  %205 = load i32, ptr %25, align 8
-  %206 = icmp sgt i32 %205, 0
-  br i1 %206, label %.lr.ph.split.split.us.i, label %_ZN4llvm15InstructionCostpLERKS0_.exit161
+205:                                              ; preds = %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
+  %206 = load i32, ptr %25, align 8
+  %207 = icmp sgt i32 %206, 0
+  br i1 %207, label %.lr.ph.split.split.us.i, label %_ZN4llvm15InstructionCostpLERKS0_.exit161
 
-.lr.ph.split.split.us.i:                          ; preds = %204, %220
-  %.033.us36.i = phi i32 [ %221, %220 ], [ 0, %204 ]
-  %.sroa.7.132.us37.i = phi i32 [ %.sroa.7.2.us47.i, %220 ], [ 0, %204 ]
-  %.sroa.027.131.us38.i = phi i64 [ %.sroa.027.2.us46.i, %220 ], [ 0, %204 ]
-  %207 = and i32 %.033.us36.i, 63
-  %208 = zext nneg i32 %207 to i64
-  %209 = shl nuw i64 1, %208
-  %210 = load i32, ptr %146, align 8
-  %211 = icmp ult i32 %210, 65
-  %212 = load ptr, ptr %18, align 8
-  %213 = lshr i32 %.033.us36.i, 6
-  %214 = zext nneg i32 %213 to i64
-  %215 = getelementptr inbounds i64, ptr %212, i64 %214
-  %.in.i.i.us39.i = select i1 %211, ptr %18, ptr %215
-  %216 = load i64, ptr %.in.i.i.us39.i, align 8
-  %217 = and i64 %216, %209
-  %.not.us40.i = icmp eq i64 %217, 0
-  br i1 %.not.us40.i, label %220, label %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i
+.lr.ph.split.split.us.i:                          ; preds = %205, %221
+  %.033.us36.i = phi i32 [ %222, %221 ], [ 0, %205 ]
+  %.sroa.7.132.us37.i = phi i32 [ %.sroa.7.2.us47.i, %221 ], [ 0, %205 ]
+  %.sroa.027.131.us38.i = phi i64 [ %.sroa.027.2.us46.i, %221 ], [ 0, %205 ]
+  %208 = and i32 %.033.us36.i, 63
+  %209 = zext nneg i32 %208 to i64
+  %210 = shl nuw i64 1, %209
+  %211 = load i32, ptr %146, align 8
+  %212 = icmp ult i32 %211, 65
+  %213 = load ptr, ptr %18, align 8
+  %214 = lshr i32 %.033.us36.i, 6
+  %215 = zext nneg i32 %214 to i64
+  %216 = getelementptr inbounds i64, ptr %213, i64 %215
+  %.in.i.i.us39.i = select i1 %212, ptr %18, ptr %216
+  %217 = load i64, ptr %.in.i.i.us39.i, align 8
+  %218 = and i64 %217, %210
+  %.not.us40.i = icmp eq i64 %218, 0
+  br i1 %.not.us40.i, label %221, label %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i
 
 _ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i:  ; preds = %.lr.ph.split.split.us.i
-  %218 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl18getVectorInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEjPNS_5ValueES6_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 61, ptr noundef nonnull %2, i32 noundef %8, i32 noundef %.033.us36.i, ptr poison, ptr poison) #24
-  %.fca.0.extract.us42.i = extractvalue { i64, i32 } %218, 0
-  %.fca.1.extract.us43.i = extractvalue { i64, i32 } %218, 1
-  %219 = icmp eq i32 %.fca.1.extract.us43.i, 1
-  %spec.select30.us44.i = select i1 %219, i32 1, i32 %.sroa.7.132.us37.i
+  %219 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl18getVectorInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEjPNS_5ValueES6_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 61, ptr noundef nonnull %2, i32 noundef %8, i32 noundef %.033.us36.i, ptr poison, ptr poison) #24
+  %.fca.0.extract.us42.i = extractvalue { i64, i32 } %219, 0
+  %.fca.1.extract.us43.i = extractvalue { i64, i32 } %219, 1
+  %220 = icmp eq i32 %.fca.1.extract.us43.i, 1
+  %spec.select30.us44.i = select i1 %220, i32 1, i32 %.sroa.7.132.us37.i
   %.0.i22.us45.i = call i64 @llvm.sadd.sat.i64(i64 %.sroa.027.131.us38.i, i64 %.fca.0.extract.us42.i)
-  br label %220
+  br label %221
 
-220:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i, %.lr.ph.split.split.us.i
+221:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i, %.lr.ph.split.split.us.i
   %.sroa.027.2.us46.i = phi i64 [ %.0.i22.us45.i, %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i ], [ %.sroa.027.131.us38.i, %.lr.ph.split.split.us.i ]
   %.sroa.7.2.us47.i = phi i32 [ %spec.select30.us44.i, %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i ], [ %.sroa.7.132.us37.i, %.lr.ph.split.split.us.i ]
-  %221 = add nuw nsw i32 %.033.us36.i, 1
-  %exitcond.not.i = icmp eq i32 %221, %205
+  %222 = add nuw nsw i32 %.033.us36.i, 1
+  %exitcond.not.i = icmp eq i32 %222, %206
   br i1 %exitcond.not.i, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit159, label %.lr.ph.split.split.us.i, !llvm.loop !66
 
-_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit159: ; preds = %220
-  %222 = icmp eq i32 %.sroa.7.2.us47.i, 1
-  %spec.select294 = select i1 %222, i32 1, i32 %spec.select
+_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit159: ; preds = %221
+  %223 = icmp eq i32 %.sroa.7.2.us47.i, 1
+  %spec.select294 = select i1 %223, i32 1, i32 %.sroa.7.0.i
   br label %_ZN4llvm15InstructionCostpLERKS0_.exit161
 
-_ZN4llvm15InstructionCostpLERKS0_.exit161:        ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit159, %204, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
-  %.sroa.027.0.i154276 = phi i64 [ 0, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ 0, %204 ], [ %.sroa.027.2.us46.i, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit159 ]
-  %.sroa.19.6 = phi i32 [ 1, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ %spec.select, %204 ], [ %spec.select294, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit159 ]
+_ZN4llvm15InstructionCostpLERKS0_.exit161:        ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit159, %205, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit
+  %.sroa.027.0.i154276 = phi i64 [ 0, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ 0, %205 ], [ %.sroa.027.2.us46.i, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit159 ]
+  %.sroa.19.6 = phi i32 [ 1, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit ], [ %.sroa.7.0.i, %205 ], [ %spec.select294, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit159 ]
   %.0.i160 = call i64 @llvm.sadd.sat.i64(i64 %.0.i, i64 %.sroa.027.0.i154276)
-  br label %275
+  br label %277
 
-223:                                              ; preds = %._crit_edge311
-  br i1 %170, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181, label %224
+224:                                              ; preds = %._crit_edge311
+  br i1 %170, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181, label %225
 
-224:                                              ; preds = %223
-  %225 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %226 = load i32, ptr %225, align 8
-  %227 = icmp sgt i32 %226, 0
-  br i1 %227, label %.lr.ph.split.split.us.i167, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181
+225:                                              ; preds = %224
+  %226 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %227 = load i32, ptr %226, align 8
+  %228 = icmp sgt i32 %227, 0
+  br i1 %228, label %.lr.ph.split.split.us.i167, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181
 
-.lr.ph.split.split.us.i167:                       ; preds = %224, %241
-  %.033.us36.i168 = phi i32 [ %242, %241 ], [ 0, %224 ]
-  %.sroa.7.132.us37.i169 = phi i32 [ %.sroa.7.2.us47.i179, %241 ], [ 0, %224 ]
-  %.sroa.027.131.us38.i170 = phi i64 [ %.sroa.027.2.us46.i178, %241 ], [ 0, %224 ]
-  %228 = and i32 %.033.us36.i168, 63
-  %229 = zext nneg i32 %228 to i64
-  %230 = shl nuw i64 1, %229
-  %231 = load i32, ptr %124, align 8
-  %232 = icmp ult i32 %231, 65
-  %233 = load ptr, ptr %16, align 8
-  %234 = lshr i32 %.033.us36.i168, 6
-  %235 = zext nneg i32 %234 to i64
-  %236 = getelementptr inbounds i64, ptr %233, i64 %235
-  %.in.i.i.us39.i171 = select i1 %232, ptr %16, ptr %236
-  %237 = load i64, ptr %.in.i.i.us39.i171, align 8
-  %238 = and i64 %237, %230
-  %.not.us40.i172 = icmp eq i64 %238, 0
-  br i1 %.not.us40.i172, label %241, label %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i173
+.lr.ph.split.split.us.i167:                       ; preds = %225, %242
+  %.033.us36.i168 = phi i32 [ %243, %242 ], [ 0, %225 ]
+  %.sroa.7.132.us37.i169 = phi i32 [ %.sroa.7.2.us47.i179, %242 ], [ 0, %225 ]
+  %.sroa.027.131.us38.i170 = phi i64 [ %.sroa.027.2.us46.i178, %242 ], [ 0, %225 ]
+  %229 = and i32 %.033.us36.i168, 63
+  %230 = zext nneg i32 %229 to i64
+  %231 = shl nuw i64 1, %230
+  %232 = load i32, ptr %124, align 8
+  %233 = icmp ult i32 %232, 65
+  %234 = load ptr, ptr %16, align 8
+  %235 = lshr i32 %.033.us36.i168, 6
+  %236 = zext nneg i32 %235 to i64
+  %237 = getelementptr inbounds i64, ptr %234, i64 %236
+  %.in.i.i.us39.i171 = select i1 %233, ptr %16, ptr %237
+  %238 = load i64, ptr %.in.i.i.us39.i171, align 8
+  %239 = and i64 %238, %231
+  %.not.us40.i172 = icmp eq i64 %239, 0
+  br i1 %.not.us40.i172, label %242, label %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i173
 
 _ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i173: ; preds = %.lr.ph.split.split.us.i167
-  %239 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl18getVectorInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEjPNS_5ValueES6_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 61, ptr noundef nonnull %30, i32 noundef %8, i32 noundef %.033.us36.i168, ptr poison, ptr poison) #24
-  %.fca.0.extract.us42.i174 = extractvalue { i64, i32 } %239, 0
-  %.fca.1.extract.us43.i175 = extractvalue { i64, i32 } %239, 1
-  %240 = icmp eq i32 %.fca.1.extract.us43.i175, 1
-  %spec.select30.us44.i176 = select i1 %240, i32 1, i32 %.sroa.7.132.us37.i169
+  %240 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl18getVectorInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEjPNS_5ValueES6_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 61, ptr noundef nonnull %30, i32 noundef %8, i32 noundef %.033.us36.i168, ptr poison, ptr poison) #24
+  %.fca.0.extract.us42.i174 = extractvalue { i64, i32 } %240, 0
+  %.fca.1.extract.us43.i175 = extractvalue { i64, i32 } %240, 1
+  %241 = icmp eq i32 %.fca.1.extract.us43.i175, 1
+  %spec.select30.us44.i176 = select i1 %241, i32 1, i32 %.sroa.7.132.us37.i169
   %.0.i22.us45.i177 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.027.131.us38.i170, i64 %.fca.0.extract.us42.i174)
-  br label %241
+  br label %242
 
-241:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i173, %.lr.ph.split.split.us.i167
+242:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i173, %.lr.ph.split.split.us.i167
   %.sroa.027.2.us46.i178 = phi i64 [ %.0.i22.us45.i177, %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i173 ], [ %.sroa.027.131.us38.i170, %.lr.ph.split.split.us.i167 ]
   %.sroa.7.2.us47.i179 = phi i32 [ %spec.select30.us44.i176, %_ZN4llvm15InstructionCostpLERKS0_.exit23.us41.i173 ], [ %.sroa.7.132.us37.i169, %.lr.ph.split.split.us.i167 ]
-  %242 = add nuw nsw i32 %.033.us36.i168, 1
-  %exitcond.not.i180 = icmp eq i32 %242, %226
+  %243 = add nuw nsw i32 %.033.us36.i168, 1
+  %exitcond.not.i180 = icmp eq i32 %243, %227
   br i1 %exitcond.not.i180, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181.loopexit, label %.lr.ph.split.split.us.i167, !llvm.loop !66
 
-_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181.loopexit: ; preds = %241
-  %243 = icmp eq i32 %.sroa.7.2.us47.i179, 1
+_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181.loopexit: ; preds = %242
+  %244 = icmp eq i32 %.sroa.7.2.us47.i179, 1
+  %245 = select i1 %244, i32 1, i32 %.sroa.19.2
   br label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181
 
-_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181: ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181.loopexit, %223, %224
-  %.sroa.027.0.i162 = phi i64 [ 0, %223 ], [ 0, %224 ], [ %.sroa.027.2.us46.i178, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181.loopexit ]
-  %.sroa.7.0.i163 = phi i1 [ true, %223 ], [ false, %224 ], [ %243, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181.loopexit ]
-  %244 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.027.0.i162, i64 %5)
-  %245 = extractvalue { i64, i1 } %244, 1
-  %246 = extractvalue { i64, i1 } %244, 0
-  br i1 %245, label %247, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192
+_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181: ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181.loopexit, %224, %225
+  %.sroa.027.0.i162 = phi i64 [ 0, %224 ], [ 0, %225 ], [ %.sroa.027.2.us46.i178, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181.loopexit ]
+  %.sroa.7.0.i163 = phi i32 [ 1, %224 ], [ %.sroa.19.2, %225 ], [ %245, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181.loopexit ]
+  %246 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.027.0.i162, i64 %5)
+  %247 = extractvalue { i64, i1 } %246, 1
+  %248 = extractvalue { i64, i1 } %246, 0
+  br i1 %247, label %249, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192
 
-247:                                              ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181
-  %248 = icmp sgt i64 %.sroa.027.0.i162, 0
-  %249 = icmp sgt i64 %5, 0
-  %or.cond.i.i189 = select i1 %248, i1 %249, i1 false
-  br i1 %or.cond.i.i189, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192, label %250
+249:                                              ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181
+  %250 = icmp sgt i64 %.sroa.027.0.i162, 0
+  %251 = icmp sgt i64 %5, 0
+  %or.cond.i.i189 = select i1 %250, i1 %251, i1 false
+  br i1 %or.cond.i.i189, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192, label %252
 
-250:                                              ; preds = %247
-  %251 = icmp slt i64 %.sroa.027.0.i162, 0
-  %252 = icmp slt i64 %5, 0
-  %or.cond7.i.i190 = select i1 %251, i1 %252, i1 false
+252:                                              ; preds = %249
+  %253 = icmp slt i64 %.sroa.027.0.i162, 0
+  %254 = icmp slt i64 %5, 0
+  %or.cond7.i.i190 = select i1 %253, i1 %254, i1 false
   %spec.select.i.i191 = select i1 %or.cond7.i.i190, i64 9223372036854775807, i64 -9223372036854775808
   br label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit192:    ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181, %247, %250
-  %.0.i.i185 = phi i64 [ %246, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181 ], [ 9223372036854775807, %247 ], [ %spec.select.i.i191, %250 ]
-  %spec.select295 = select i1 %.sroa.7.0.i163, i32 1, i32 %.sroa.19.2
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit192:    ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181, %249, %252
+  %.0.i.i185 = phi i64 [ %248, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit181 ], [ 9223372036854775807, %249 ], [ %spec.select.i.i191, %252 ]
   %.0.i193 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.0262.2, i64 %.0.i.i185)
-  %253 = load i32, ptr %20, align 8
-  %254 = and i32 %253, 255
-  %255 = icmp eq i32 %254, 18
-  br i1 %255, label %_ZN4llvm15InstructionCostpLERKS0_.exit216, label %256
+  %255 = load i32, ptr %20, align 8
+  %256 = and i32 %255, 255
+  %257 = icmp eq i32 %256, 18
+  br i1 %257, label %_ZN4llvm15InstructionCostpLERKS0_.exit216, label %258
 
-256:                                              ; preds = %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192
-  %257 = load i32, ptr %25, align 8
-  %258 = icmp sgt i32 %257, 0
-  br i1 %258, label %.lr.ph.split.us.i200, label %_ZN4llvm15InstructionCostpLERKS0_.exit216
+258:                                              ; preds = %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192
+  %259 = load i32, ptr %25, align 8
+  %260 = icmp sgt i32 %259, 0
+  br i1 %260, label %.lr.ph.split.us.i200, label %_ZN4llvm15InstructionCostpLERKS0_.exit216
 
-.lr.ph.split.us.i200:                             ; preds = %256, %272
-  %.033.us.i201 = phi i32 [ %273, %272 ], [ 0, %256 ]
-  %.sroa.7.132.us.i202 = phi i32 [ %.sroa.7.2.us.i212, %272 ], [ 0, %256 ]
-  %.sroa.027.131.us.i203 = phi i64 [ %.sroa.027.2.us.i211, %272 ], [ 0, %256 ]
-  %259 = and i32 %.033.us.i201, 63
-  %260 = zext nneg i32 %259 to i64
-  %261 = shl nuw i64 1, %260
-  %262 = load i32, ptr %146, align 8
-  %263 = icmp ult i32 %262, 65
-  %264 = load ptr, ptr %18, align 8
-  %265 = lshr i32 %.033.us.i201, 6
-  %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds i64, ptr %264, i64 %266
-  %.in.i.i.us.i204 = select i1 %263, ptr %18, ptr %267
-  %268 = load i64, ptr %.in.i.i.us.i204, align 8
-  %269 = and i64 %268, %261
-  %.not.us.i205 = icmp eq i64 %269, 0
-  br i1 %.not.us.i205, label %272, label %_ZN4llvm15InstructionCostpLERKS0_.exit.us.i206
+.lr.ph.split.us.i200:                             ; preds = %258, %274
+  %.033.us.i201 = phi i32 [ %275, %274 ], [ 0, %258 ]
+  %.sroa.7.132.us.i202 = phi i32 [ %.sroa.7.2.us.i212, %274 ], [ 0, %258 ]
+  %.sroa.027.131.us.i203 = phi i64 [ %.sroa.027.2.us.i211, %274 ], [ 0, %258 ]
+  %261 = and i32 %.033.us.i201, 63
+  %262 = zext nneg i32 %261 to i64
+  %263 = shl nuw i64 1, %262
+  %264 = load i32, ptr %146, align 8
+  %265 = icmp ult i32 %264, 65
+  %266 = load ptr, ptr %18, align 8
+  %267 = lshr i32 %.033.us.i201, 6
+  %268 = zext nneg i32 %267 to i64
+  %269 = getelementptr inbounds i64, ptr %266, i64 %268
+  %.in.i.i.us.i204 = select i1 %265, ptr %18, ptr %269
+  %270 = load i64, ptr %.in.i.i.us.i204, align 8
+  %271 = and i64 %270, %263
+  %.not.us.i205 = icmp eq i64 %271, 0
+  br i1 %.not.us.i205, label %274, label %_ZN4llvm15InstructionCostpLERKS0_.exit.us.i206
 
 _ZN4llvm15InstructionCostpLERKS0_.exit.us.i206:   ; preds = %.lr.ph.split.us.i200
-  %270 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl18getVectorInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEjPNS_5ValueES6_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 62, ptr noundef nonnull %2, i32 noundef %8, i32 noundef %.033.us.i201, ptr poison, ptr poison) #24
-  %.fca.0.extract1.us.i207 = extractvalue { i64, i32 } %270, 0
-  %.fca.1.extract2.us.i208 = extractvalue { i64, i32 } %270, 1
-  %271 = icmp eq i32 %.fca.1.extract2.us.i208, 1
-  %spec.select.us.i209 = select i1 %271, i32 1, i32 %.sroa.7.132.us.i202
+  %272 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl18getVectorInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindEjPNS_5ValueES6_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 62, ptr noundef nonnull %2, i32 noundef %8, i32 noundef %.033.us.i201, ptr poison, ptr poison) #24
+  %.fca.0.extract1.us.i207 = extractvalue { i64, i32 } %272, 0
+  %.fca.1.extract2.us.i208 = extractvalue { i64, i32 } %272, 1
+  %273 = icmp eq i32 %.fca.1.extract2.us.i208, 1
+  %spec.select.us.i209 = select i1 %273, i32 1, i32 %.sroa.7.132.us.i202
   %.0.i.us.i210 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.027.131.us.i203, i64 %.fca.0.extract1.us.i207)
-  br label %272
+  br label %274
 
-272:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit.us.i206, %.lr.ph.split.us.i200
+274:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit.us.i206, %.lr.ph.split.us.i200
   %.sroa.027.2.us.i211 = phi i64 [ %.0.i.us.i210, %_ZN4llvm15InstructionCostpLERKS0_.exit.us.i206 ], [ %.sroa.027.131.us.i203, %.lr.ph.split.us.i200 ]
   %.sroa.7.2.us.i212 = phi i32 [ %spec.select.us.i209, %_ZN4llvm15InstructionCostpLERKS0_.exit.us.i206 ], [ %.sroa.7.132.us.i202, %.lr.ph.split.us.i200 ]
-  %273 = add nuw nsw i32 %.033.us.i201, 1
-  %exitcond62.not.i213 = icmp eq i32 %273, %257
+  %275 = add nuw nsw i32 %.033.us.i201, 1
+  %exitcond62.not.i213 = icmp eq i32 %275, %259
   br i1 %exitcond62.not.i213, label %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit214, label %.lr.ph.split.us.i200, !llvm.loop !66
 
-_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit214: ; preds = %272
-  %274 = icmp eq i32 %.sroa.7.2.us.i212, 1
-  %spec.select296 = select i1 %274, i32 1, i32 %spec.select295
+_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit214: ; preds = %274
+  %276 = icmp eq i32 %.sroa.7.2.us.i212, 1
+  %spec.select296 = select i1 %276, i32 1, i32 %.sroa.7.0.i163
   br label %_ZN4llvm15InstructionCostpLERKS0_.exit216
 
-_ZN4llvm15InstructionCostpLERKS0_.exit216:        ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit214, %256, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192
-  %.sroa.027.0.i195287 = phi i64 [ 0, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192 ], [ 0, %256 ], [ %.sroa.027.2.us.i211, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit214 ]
-  %.sroa.19.8 = phi i32 [ 1, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192 ], [ %spec.select295, %256 ], [ %spec.select296, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit214 ]
+_ZN4llvm15InstructionCostpLERKS0_.exit216:        ; preds = %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit214, %258, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192
+  %.sroa.027.0.i195287 = phi i64 [ 0, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192 ], [ 0, %258 ], [ %.sroa.027.2.us.i211, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit214 ]
+  %.sroa.19.8 = phi i32 [ 1, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit192 ], [ %.sroa.7.0.i163, %258 ], [ %spec.select296, %_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE24getScalarizationOverheadEPNS_10VectorTypeERKNS_5APIntEbbNS_19TargetTransformInfo14TargetCostKindE.exit214 ]
   %.0.i215 = call i64 @llvm.sadd.sat.i64(i64 %.0.i193, i64 %.sroa.027.0.i195287)
-  br label %275
+  br label %277
 
-275:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit216, %_ZN4llvm15InstructionCostpLERKS0_.exit161
+277:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit216, %_ZN4llvm15InstructionCostpLERKS0_.exit161
   %.sroa.0262.3 = phi i64 [ %.0.i160, %_ZN4llvm15InstructionCostpLERKS0_.exit161 ], [ %.0.i215, %_ZN4llvm15InstructionCostpLERKS0_.exit216 ]
   %.sroa.19.3 = phi i32 [ %.sroa.19.6, %_ZN4llvm15InstructionCostpLERKS0_.exit161 ], [ %.sroa.19.8, %_ZN4llvm15InstructionCostpLERKS0_.exit216 ]
-  br i1 %9, label %_ZN4llvm15InstructionCostpLERKS0_.exit218, label %283
+  br i1 %9, label %_ZN4llvm15InstructionCostpLERKS0_.exit218, label %285
 
-_ZN4llvm15InstructionCostpLERKS0_.exit218:        ; preds = %275
-  %276 = load ptr, ptr %2, align 8
-  %277 = call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %276) #21
+_ZN4llvm15InstructionCostpLERKS0_.exit218:        ; preds = %277
+  %278 = load ptr, ptr %2, align 8
+  %279 = call noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %278) #21
   %. = select i1 %10, ptr %18, ptr %17
-  %278 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE25getReplicationShuffleCostEPNS_4TypeEiiRKNS_5APIntENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %277, i32 noundef %3, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(12) %., i32 noundef %8)
-  %.fca.0.extract5 = extractvalue { i64, i32 } %278, 0
-  %.fca.1.extract6 = extractvalue { i64, i32 } %278, 1
-  %279 = icmp eq i32 %.fca.1.extract6, 1
-  %spec.select297 = select i1 %279, i32 1, i32 %.sroa.19.3
+  %280 = call { i64, i32 } @_ZN4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE25getReplicationShuffleCostEPNS_4TypeEiiRKNS_5APIntENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %279, i32 noundef %3, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(12) %., i32 noundef %8)
+  %.fca.0.extract5 = extractvalue { i64, i32 } %280, 0
+  %.fca.1.extract6 = extractvalue { i64, i32 } %280, 1
+  %281 = icmp eq i32 %.fca.1.extract6, 1
+  %spec.select297 = select i1 %281, i32 1, i32 %.sroa.19.3
   %.0.i217 = call i64 @llvm.sadd.sat.i64(i64 %.sroa.0262.3, i64 %.fca.0.extract5)
-  br i1 %10, label %_ZN4llvm15InstructionCostpLERKS0_.exit220, label %283
+  br i1 %10, label %_ZN4llvm15InstructionCostpLERKS0_.exit220, label %285
 
 _ZN4llvm15InstructionCostpLERKS0_.exit220:        ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit218
-  %280 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %277, i32 noundef %26) #21
+  %282 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %279, i32 noundef %26) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %281 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS3_16OperandValueInfoES5_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 28, ptr noundef %280, i32 noundef %8, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.78") align 8 %19, ptr noundef null)
-  %.fca.0.extract = extractvalue { i64, i32 } %281, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %281, 1
-  %282 = icmp eq i32 %.fca.1.extract, 1
-  %spec.select298 = select i1 %282, i32 1, i32 %spec.select297
+  %283 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl22getArithmeticInstrCostEjPNS_4TypeENS_19TargetTransformInfo14TargetCostKindENS3_16OperandValueInfoES5_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 28, ptr noundef %282, i32 noundef %8, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.78") align 8 %19, ptr noundef null)
+  %.fca.0.extract = extractvalue { i64, i32 } %283, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %283, 1
+  %284 = icmp eq i32 %.fca.1.extract, 1
+  %spec.select298 = select i1 %284, i32 1, i32 %spec.select297
   %.0.i219 = call i64 @llvm.sadd.sat.i64(i64 %.0.i217, i64 %.fca.0.extract)
-  br label %283
+  br label %285
 
-283:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit218, %_ZN4llvm15InstructionCostpLERKS0_.exit220, %275
-  %.sroa.0262.4 = phi i64 [ %.0.i219, %_ZN4llvm15InstructionCostpLERKS0_.exit220 ], [ %.0.i217, %_ZN4llvm15InstructionCostpLERKS0_.exit218 ], [ %.sroa.0262.3, %275 ]
-  %.sroa.19.4 = phi i32 [ %spec.select298, %_ZN4llvm15InstructionCostpLERKS0_.exit220 ], [ %spec.select297, %_ZN4llvm15InstructionCostpLERKS0_.exit218 ], [ %.sroa.19.3, %275 ]
-  %284 = load i32, ptr %146, align 8
-  %285 = icmp ugt i32 %284, 64
-  br i1 %285, label %286, label %_ZN4llvm5APIntD2Ev.exit
+285:                                              ; preds = %_ZN4llvm15InstructionCostpLERKS0_.exit218, %_ZN4llvm15InstructionCostpLERKS0_.exit220, %277
+  %.sroa.0262.4 = phi i64 [ %.0.i219, %_ZN4llvm15InstructionCostpLERKS0_.exit220 ], [ %.0.i217, %_ZN4llvm15InstructionCostpLERKS0_.exit218 ], [ %.sroa.0262.3, %277 ]
+  %.sroa.19.4 = phi i32 [ %spec.select298, %_ZN4llvm15InstructionCostpLERKS0_.exit220 ], [ %spec.select297, %_ZN4llvm15InstructionCostpLERKS0_.exit218 ], [ %.sroa.19.3, %277 ]
+  %286 = load i32, ptr %146, align 8
+  %287 = icmp ugt i32 %286, 64
+  br i1 %287, label %288, label %_ZN4llvm5APIntD2Ev.exit
 
-286:                                              ; preds = %283
-  %287 = load ptr, ptr %18, align 8
-  %288 = icmp eq ptr %287, null
-  br i1 %288, label %_ZN4llvm5APIntD2Ev.exit, label %289
+288:                                              ; preds = %285
+  %289 = load ptr, ptr %18, align 8
+  %290 = icmp eq ptr %289, null
+  br i1 %290, label %_ZN4llvm5APIntD2Ev.exit, label %291
 
-289:                                              ; preds = %286
-  call void @_ZdaPv(ptr noundef nonnull %287) #23
+291:                                              ; preds = %288
+  call void @_ZdaPv(ptr noundef nonnull %289) #23
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %283, %286, %289
-  %290 = load i32, ptr %134, align 8
-  %291 = icmp ugt i32 %290, 64
-  br i1 %291, label %292, label %_ZN4llvm5APIntD2Ev.exit221
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %285, %288, %291
+  %292 = load i32, ptr %134, align 8
+  %293 = icmp ugt i32 %292, 64
+  br i1 %293, label %294, label %_ZN4llvm5APIntD2Ev.exit221
 
-292:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit
-  %293 = load ptr, ptr %17, align 8
-  %294 = icmp eq ptr %293, null
-  br i1 %294, label %_ZN4llvm5APIntD2Ev.exit221, label %295
+294:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit
+  %295 = load ptr, ptr %17, align 8
+  %296 = icmp eq ptr %295, null
+  br i1 %296, label %_ZN4llvm5APIntD2Ev.exit221, label %297
 
-295:                                              ; preds = %292
-  call void @_ZdaPv(ptr noundef nonnull %293) #23
+297:                                              ; preds = %294
+  call void @_ZdaPv(ptr noundef nonnull %295) #23
   br label %_ZN4llvm5APIntD2Ev.exit221
 
-_ZN4llvm5APIntD2Ev.exit221:                       ; preds = %_ZN4llvm5APIntD2Ev.exit, %292, %295
-  %296 = load i32, ptr %124, align 8
-  %297 = icmp ugt i32 %296, 64
-  br i1 %297, label %298, label %_ZN4llvm5APIntD2Ev.exit222
+_ZN4llvm5APIntD2Ev.exit221:                       ; preds = %_ZN4llvm5APIntD2Ev.exit, %294, %297
+  %298 = load i32, ptr %124, align 8
+  %299 = icmp ugt i32 %298, 64
+  br i1 %299, label %300, label %_ZN4llvm5APIntD2Ev.exit222
 
-298:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit221
-  %299 = load ptr, ptr %16, align 8
-  %300 = icmp eq ptr %299, null
-  br i1 %300, label %_ZN4llvm5APIntD2Ev.exit222, label %301
+300:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit221
+  %301 = load ptr, ptr %16, align 8
+  %302 = icmp eq ptr %301, null
+  br i1 %302, label %_ZN4llvm5APIntD2Ev.exit222, label %303
 
-301:                                              ; preds = %298
-  call void @_ZdaPv(ptr noundef nonnull %299) #23
+303:                                              ; preds = %300
+  call void @_ZdaPv(ptr noundef nonnull %301) #23
   br label %_ZN4llvm5APIntD2Ev.exit222
 
-_ZN4llvm5APIntD2Ev.exit222:                       ; preds = %301, %298, %_ZN4llvm5APIntD2Ev.exit221, %11
-  %.sroa.0262.0 = phi i64 [ 0, %11 ], [ %.sroa.0262.4, %_ZN4llvm5APIntD2Ev.exit221 ], [ %.sroa.0262.4, %298 ], [ %.sroa.0262.4, %301 ]
-  %.sroa.19.0 = phi i32 [ 1, %11 ], [ %.sroa.19.4, %_ZN4llvm5APIntD2Ev.exit221 ], [ %.sroa.19.4, %298 ], [ %.sroa.19.4, %301 ]
+_ZN4llvm5APIntD2Ev.exit222:                       ; preds = %303, %300, %_ZN4llvm5APIntD2Ev.exit221, %11
+  %.sroa.0262.0 = phi i64 [ 0, %11 ], [ %.sroa.0262.4, %_ZN4llvm5APIntD2Ev.exit221 ], [ %.sroa.0262.4, %300 ], [ %.sroa.0262.4, %303 ]
+  %.sroa.19.0 = phi i32 [ 1, %11 ], [ %.sroa.19.4, %_ZN4llvm5APIntD2Ev.exit221 ], [ %.sroa.19.4, %300 ], [ %.sroa.19.4, %303 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0262.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.19.0, 1
   ret { i64, i32 } %.fca.1.insert

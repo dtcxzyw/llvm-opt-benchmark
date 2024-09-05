@@ -978,25 +978,25 @@ define i32 @FT_Stroker_ConicTo(ptr noundef %0, ptr noundef readonly %1, ptr noun
   %.not133 = phi i1 [ false, %36 ], [ true, %.outer ]
   %51 = load i64, ptr %0, align 8
   %52 = icmp ult i64 %.0109.idx.ph176, 480
-  br i1 %52, label %.lr.ph188, label %ft_conic_is_small_enough.exit._crit_edge
+  br i1 %52, label %.lr.ph190, label %ft_conic_is_small_enough.exit._crit_edge
 
-.lr.ph188:                                        ; preds = %.lr.ph, %90
+.lr.ph190:                                        ; preds = %.lr.ph, %90
   %53 = phi i64 [ %107, %90 ], [ %51, %.lr.ph ]
-  %.0109.idx171187 = phi i64 [ %.0109.add, %90 ], [ %.0109.idx.ph176, %.lr.ph ]
-  %.0109.ptr172186 = phi ptr [ %.0109.ptr, %90 ], [ %.0109.ptr169177, %.lr.ph ]
-  %54 = getelementptr inbounds i8, ptr %.0109.ptr172186, i64 16
+  %.0109.idx171189 = phi i64 [ %.0109.add, %90 ], [ %.0109.idx.ph176, %.lr.ph ]
+  %.0109.ptr172188 = phi ptr [ %.0109.ptr, %90 ], [ %.0109.ptr169177, %.lr.ph ]
+  %54 = getelementptr inbounds i8, ptr %.0109.ptr172188, i64 16
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.0109.ptr172186, i64 32
+  %56 = getelementptr inbounds i8, ptr %.0109.ptr172188, i64 32
   %57 = load i64, ptr %56, align 8
   %58 = sub nsw i64 %55, %57
-  %59 = getelementptr inbounds i8, ptr %.0109.ptr172186, i64 24
+  %59 = getelementptr inbounds i8, ptr %.0109.ptr172188, i64 24
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.0109.ptr172186, i64 40
+  %61 = getelementptr inbounds i8, ptr %.0109.ptr172188, i64 40
   %62 = load i64, ptr %61, align 8
   %63 = sub nsw i64 %60, %62
-  %64 = load i64, ptr %.0109.ptr172186, align 8
+  %64 = load i64, ptr %.0109.ptr172188, align 8
   %65 = sub nsw i64 %64, %55
-  %66 = getelementptr inbounds i8, ptr %.0109.ptr172186, i64 8
+  %66 = getelementptr inbounds i8, ptr %.0109.ptr172188, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = sub nsw i64 %67, %60
   %69 = add i64 %58, 1
@@ -1011,14 +1011,14 @@ define i32 @FT_Stroker_ConicTo(ptr noundef %0, ptr noundef readonly %1, ptr noun
   %76 = select i1 %or.cond5.i, i1 %75, i1 false
   br i1 %72, label %77, label %80
 
-77:                                               ; preds = %.lr.ph188
+77:                                               ; preds = %.lr.ph190
   br i1 %76, label %ft_conic_is_small_enough.exit, label %78
 
 78:                                               ; preds = %77
   %79 = call i64 @FT_Atan2(i64 noundef %65, i64 noundef %68) #11
   br label %ft_conic_is_small_enough.exit
 
-80:                                               ; preds = %.lr.ph188
+80:                                               ; preds = %.lr.ph190
   %81 = call i64 @FT_Atan2(i64 noundef %58, i64 noundef %63) #11
   br i1 %76, label %ft_conic_is_small_enough.exit, label %82
 
@@ -1044,39 +1044,39 @@ ft_conic_is_small_enough.exit:                    ; preds = %80, %77, %78, %82
   br label %90
 
 90:                                               ; preds = %89, %87
-  %91 = getelementptr inbounds i8, ptr %.0109.ptr172186, i64 64
+  %91 = getelementptr inbounds i8, ptr %.0109.ptr172188, i64 64
   store i64 %57, ptr %91, align 8
   %92 = add nsw i64 %64, %55
   %93 = add nsw i64 %57, %55
   %94 = ashr i64 %93, 1
-  %95 = getelementptr inbounds i8, ptr %.0109.ptr172186, i64 48
+  %95 = getelementptr inbounds i8, ptr %.0109.ptr172188, i64 48
   store i64 %94, ptr %95, align 8
   %96 = add nsw i64 %92, %93
   %97 = ashr i64 %96, 2
   store i64 %97, ptr %56, align 8
   %98 = ashr i64 %92, 1
   store i64 %98, ptr %54, align 8
-  %99 = getelementptr inbounds i8, ptr %.0109.ptr172186, i64 72
+  %99 = getelementptr inbounds i8, ptr %.0109.ptr172188, i64 72
   store i64 %62, ptr %99, align 8
   %100 = add nsw i64 %67, %60
   %101 = add nsw i64 %62, %60
   %102 = ashr i64 %101, 1
-  %103 = getelementptr inbounds i8, ptr %.0109.ptr172186, i64 56
+  %103 = getelementptr inbounds i8, ptr %.0109.ptr172188, i64 56
   store i64 %102, ptr %103, align 8
   %104 = add nsw i64 %100, %101
   %105 = ashr i64 %104, 2
   store i64 %105, ptr %61, align 8
   %106 = ashr i64 %100, 1
   store i64 %106, ptr %59, align 8
-  %.0109.add = add nuw nsw i64 %.0109.idx171187, 32
+  %.0109.add = add nuw nsw i64 %.0109.idx171189, 32
   %.0109.ptr = getelementptr inbounds i8, ptr %4, i64 %.0109.add
   %107 = load i64, ptr %0, align 8
-  %108 = icmp ult i64 %.0109.idx171187, 448
-  br i1 %108, label %.lr.ph188, label %ft_conic_is_small_enough.exit._crit_edge
+  %108 = icmp ult i64 %.0109.idx171189, 448
+  br i1 %108, label %.lr.ph190, label %ft_conic_is_small_enough.exit._crit_edge
 
 ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_small_enough.exit, %.lr.ph
-  %.0109.ptr172.lcssa = phi ptr [ %.0109.ptr169177, %.lr.ph ], [ %.0109.ptr, %90 ], [ %.0109.ptr172186, %ft_conic_is_small_enough.exit ]
-  %.0109.idx171.lcssa = phi i64 [ %.0109.idx.ph176, %.lr.ph ], [ %.0109.add, %90 ], [ %.0109.idx171187, %ft_conic_is_small_enough.exit ]
+  %.0109.ptr172.lcssa = phi ptr [ %.0109.ptr169177, %.lr.ph ], [ %.0109.ptr, %90 ], [ %.0109.ptr172188, %ft_conic_is_small_enough.exit ]
+  %.0109.idx171.lcssa = phi i64 [ %.0109.idx.ph176, %.lr.ph ], [ %.0109.add, %90 ], [ %.0109.idx171189, %ft_conic_is_small_enough.exit ]
   %.0159 = phi i64 [ %51, %.lr.ph ], [ %107, %90 ], [ %.1160, %ft_conic_is_small_enough.exit ]
   %.0158 = phi i64 [ %51, %.lr.ph ], [ %107, %90 ], [ %.1, %ft_conic_is_small_enough.exit ]
   br i1 %.not133, label %115, label %109
@@ -1148,120 +1148,120 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
   %146 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 8
   %147 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 32
   %148 = getelementptr inbounds i8, ptr %.0109.ptr172.lcssa, i64 40
-  %invariant.op = add i64 %.0158, 5898240
+  %invariant.op = add i64 %127, 5898240
+  %invariant.op185 = add i64 %.0158, 5898240
   br label %149
 
-149:                                              ; preds = %143, %219
-  %150 = phi i1 [ true, %143 ], [ false, %219 ]
-  %indvars.iv = phi i64 [ 0, %143 ], [ -11796480, %219 ]
-  %.0113174 = phi ptr [ %45, %143 ], [ %220, %219 ]
-  %151 = add nuw nsw i64 %indvars.iv, 5898240
-  %152 = add nsw i64 %127, %151
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %130, i64 noundef %152) #11
-  %153 = load i64, ptr %144, align 8
-  %154 = load i64, ptr %5, align 8
-  %155 = add nsw i64 %154, %153
-  store i64 %155, ptr %5, align 8
-  %156 = load i64, ptr %145, align 8
-  %157 = load i64, ptr %46, align 8
-  %158 = add nsw i64 %157, %156
-  store i64 %158, ptr %46, align 8
-  %159 = load i64, ptr %43, align 8
+149:                                              ; preds = %143, %217
+  %150 = phi i1 [ true, %143 ], [ false, %217 ]
+  %indvars.iv = phi i64 [ 0, %143 ], [ -11796480, %217 ]
+  %.0113174 = phi ptr [ %45, %143 ], [ %218, %217 ]
   %.reass = add i64 %indvars.iv, %invariant.op
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %159, i64 noundef %.reass) #11
-  %160 = load i64, ptr %.0109.ptr172.lcssa, align 8
-  %161 = load i64, ptr %6, align 8
-  %162 = add nsw i64 %161, %160
-  store i64 %162, ptr %6, align 8
-  %163 = load i64, ptr %146, align 8
-  %164 = load i64, ptr %47, align 8
-  %165 = add nsw i64 %164, %163
-  store i64 %165, ptr %47, align 8
-  %166 = load i8, ptr %44, align 8
-  %.not137 = icmp eq i8 %166, 0
-  br i1 %.not137, label %217, label %167
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %5, i64 noundef %130, i64 noundef %.reass) #11
+  %151 = load i64, ptr %144, align 8
+  %152 = load i64, ptr %5, align 8
+  %153 = add nsw i64 %152, %151
+  store i64 %153, ptr %5, align 8
+  %154 = load i64, ptr %145, align 8
+  %155 = load i64, ptr %46, align 8
+  %156 = add nsw i64 %155, %154
+  store i64 %156, ptr %46, align 8
+  %157 = load i64, ptr %43, align 8
+  %.reass186 = add i64 %indvars.iv, %invariant.op185
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %157, i64 noundef %.reass186) #11
+  %158 = load i64, ptr %.0109.ptr172.lcssa, align 8
+  %159 = load i64, ptr %6, align 8
+  %160 = add nsw i64 %159, %158
+  store i64 %160, ptr %6, align 8
+  %161 = load i64, ptr %146, align 8
+  %162 = load i64, ptr %47, align 8
+  %163 = add nsw i64 %162, %161
+  store i64 %163, ptr %47, align 8
+  %164 = load i8, ptr %44, align 8
+  %.not137 = icmp eq i8 %164, 0
+  br i1 %.not137, label %215, label %165
 
-167:                                              ; preds = %149
-  %168 = getelementptr inbounds i8, ptr %.0113174, i64 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = load i32, ptr %.0113174, align 8
-  %171 = add i32 %170, -1
-  %172 = zext i32 %171 to i64
-  %173 = getelementptr inbounds %struct.FT_Vector_, ptr %169, i64 %172
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %173, i64 16, i1 false)
-  %174 = load i64, ptr %7, align 8
-  %175 = sub nsw i64 %162, %174
-  %176 = load i64, ptr %48, align 8
-  %177 = sub nsw i64 %165, %176
-  %178 = call i64 @FT_Atan2(i64 noundef %175, i64 noundef %177) #11
-  %179 = call i64 @FT_Angle_Diff(i64 noundef %.0112, i64 noundef %178) #11
-  %180 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %179, i1 true)
-  %181 = icmp ugt i64 %180, 5898240
-  br i1 %181, label %182, label %217
+165:                                              ; preds = %149
+  %166 = getelementptr inbounds i8, ptr %.0113174, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = load i32, ptr %.0113174, align 8
+  %169 = add i32 %168, -1
+  %170 = zext i32 %169 to i64
+  %171 = getelementptr inbounds %struct.FT_Vector_, ptr %167, i64 %170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %171, i64 16, i1 false)
+  %172 = load i64, ptr %7, align 8
+  %173 = sub nsw i64 %160, %172
+  %174 = load i64, ptr %48, align 8
+  %175 = sub nsw i64 %163, %174
+  %176 = call i64 @FT_Atan2(i64 noundef %173, i64 noundef %175) #11
+  %177 = call i64 @FT_Angle_Diff(i64 noundef %.0112, i64 noundef %176) #11
+  %178 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %177, i1 true)
+  %179 = icmp ugt i64 %178, 5898240
+  br i1 %179, label %180, label %215
 
-182:                                              ; preds = %167
-  %183 = load i64, ptr %147, align 8
+180:                                              ; preds = %165
+  %181 = load i64, ptr %147, align 8
+  %182 = sub nsw i64 %181, %172
+  %183 = load i64, ptr %148, align 8
   %184 = sub nsw i64 %183, %174
-  %185 = load i64, ptr %148, align 8
-  %186 = sub nsw i64 %185, %176
-  %187 = call i64 @FT_Atan2(i64 noundef %184, i64 noundef %186) #11
-  %188 = load i64, ptr %6, align 8
-  %189 = sub nsw i64 %160, %188
-  %190 = load i64, ptr %47, align 8
-  %191 = sub nsw i64 %163, %190
-  %192 = call i64 @FT_Atan2(i64 noundef %189, i64 noundef %191) #11
-  %193 = load i64, ptr %6, align 8
+  %185 = call i64 @FT_Atan2(i64 noundef %182, i64 noundef %184) #11
+  %186 = load i64, ptr %6, align 8
+  %187 = sub nsw i64 %158, %186
+  %188 = load i64, ptr %47, align 8
+  %189 = sub nsw i64 %161, %188
+  %190 = call i64 @FT_Atan2(i64 noundef %187, i64 noundef %189) #11
+  %191 = load i64, ptr %6, align 8
+  %192 = sub nsw i64 %191, %172
+  store i64 %192, ptr %8, align 8
+  %193 = load i64, ptr %47, align 8
   %194 = sub nsw i64 %193, %174
-  store i64 %194, ptr %8, align 8
-  %195 = load i64, ptr %47, align 8
-  %196 = sub nsw i64 %195, %176
-  store i64 %196, ptr %49, align 8
-  %197 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #11
-  %198 = sub nsw i64 %178, %192
-  %199 = call i64 @FT_Sin(i64 noundef %198) #11
-  %200 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %199, i1 true)
-  %201 = sub nsw i64 %187, %192
-  %202 = call i64 @FT_Sin(i64 noundef %201) #11
-  %203 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %202, i1 true)
-  %204 = call i64 @FT_MulDiv(i64 noundef %197, i64 noundef %200, i64 noundef %203) #11
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %204, i64 noundef %187) #11
-  %205 = load i64, ptr %9, align 8
+  store i64 %194, ptr %49, align 8
+  %195 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #11
+  %196 = sub nsw i64 %176, %190
+  %197 = call i64 @FT_Sin(i64 noundef %196) #11
+  %198 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %197, i1 true)
+  %199 = sub nsw i64 %185, %190
+  %200 = call i64 @FT_Sin(i64 noundef %199) #11
+  %201 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %200, i1 true)
+  %202 = call i64 @FT_MulDiv(i64 noundef %195, i64 noundef %198, i64 noundef %201) #11
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %202, i64 noundef %185) #11
+  %203 = load i64, ptr %9, align 8
+  %204 = add nsw i64 %203, %172
+  store i64 %204, ptr %9, align 8
+  %205 = load i64, ptr %50, align 8
   %206 = add nsw i64 %205, %174
-  store i64 %206, ptr %9, align 8
-  %207 = load i64, ptr %50, align 8
-  %208 = add nsw i64 %207, %176
-  store i64 %208, ptr %50, align 8
-  %209 = getelementptr inbounds i8, ptr %.0113174, i64 24
-  store i8 0, ptr %209, align 8
-  %210 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %9, i8 noundef zeroext 0)
-  %.not139 = icmp eq i32 %210, 0
-  br i1 %.not139, label %211, label %.loopexit
+  store i64 %206, ptr %50, align 8
+  %207 = getelementptr inbounds i8, ptr %.0113174, i64 24
+  store i8 0, ptr %207, align 8
+  %208 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %9, i8 noundef zeroext 0)
+  %.not139 = icmp eq i32 %208, 0
+  br i1 %.not139, label %209, label %.loopexit
 
-211:                                              ; preds = %182
-  %212 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %6, i8 noundef zeroext 0)
-  %.not140 = icmp eq i32 %212, 0
-  br i1 %.not140, label %213, label %.loopexit
+209:                                              ; preds = %180
+  %210 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %.not140 = icmp eq i32 %210, 0
+  br i1 %.not140, label %211, label %.loopexit
+
+211:                                              ; preds = %209
+  %212 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0113174, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %.not141 = icmp eq i32 %212, 0
+  br i1 %.not141, label %213, label %.loopexit
 
 213:                                              ; preds = %211
-  %214 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0113174, ptr noundef nonnull %5, ptr noundef nonnull %7)
-  %.not141 = icmp eq i32 %214, 0
-  br i1 %.not141, label %215, label %.loopexit
+  %214 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %.not142 = icmp eq i32 %214, 0
+  br i1 %.not142, label %217, label %.loopexit
 
-215:                                              ; preds = %213
-  %216 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %6, i8 noundef zeroext 0)
-  %.not142 = icmp eq i32 %216, 0
-  br i1 %.not142, label %219, label %.loopexit
+215:                                              ; preds = %165, %149
+  %216 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0113174, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %.not138 = icmp eq i32 %216, 0
+  br i1 %.not138, label %217, label %.loopexit
 
-217:                                              ; preds = %167, %149
-  %218 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0113174, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %.not138 = icmp eq i32 %218, 0
-  br i1 %.not138, label %219, label %.loopexit
-
-219:                                              ; preds = %217, %215
-  %220 = getelementptr inbounds i8, ptr %.0113174, i64 48
+217:                                              ; preds = %215, %213
+  %218 = getelementptr inbounds i8, ptr %.0113174, i64 48
   br i1 %150, label %149, label %.outer, !llvm.loop !7
 
-.outer:                                           ; preds = %219
+.outer:                                           ; preds = %217
   %.0109.add129 = add nsw i64 %.0109.idx171.lcssa, -32
   store i64 %.0158, ptr %0, align 8
   %.0109.ptr169 = getelementptr inbounds i8, ptr %4, i64 %.0109.add129
@@ -1270,12 +1270,12 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
 
 .outer._crit_edge:                                ; preds = %.outer
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %221 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %221, align 8
+  %219 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %219, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %124, %217, %215, %213, %211, %182, %3, %.outer._crit_edge, %35
-  %.0 = phi i32 [ 0, %35 ], [ 0, %.outer._crit_edge ], [ 6, %3 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %182 ], [ %.2, %124 ]
+.loopexit:                                        ; preds = %124, %215, %213, %211, %209, %180, %3, %.outer._crit_edge, %35
+  %.0 = phi i32 [ 0, %35 ], [ 0, %.outer._crit_edge ], [ 6, %3 ], [ %216, %215 ], [ %214, %213 ], [ %212, %211 ], [ %210, %209 ], [ %208, %180 ], [ %.2, %124 ]
   ret i32 %.0
 }
 

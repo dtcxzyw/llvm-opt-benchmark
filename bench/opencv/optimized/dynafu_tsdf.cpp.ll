@@ -7102,7 +7102,7 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv6dynafu13TSDFVolumeCPU
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %37, i64 0
   %38 = load float, ptr getelementptr inbounds (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 4), align 4
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %38, i64 1
-  br label %127
+  br label %126
 
 39:                                               ; preds = %30
   %40 = tail call float @llvm.floor.f32(float %.sroa.048.0.vec.extract)
@@ -7133,10 +7133,11 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv6dynafu13TSDFVolumeCPU
   %64 = getelementptr inbounds i8, ptr %5, i64 28
   br label %65
 
-65:                                               ; preds = %39, %82
-  %indvars.iv74 = phi i64 [ 0, %39 ], [ %indvars.iv.next75, %82 ]
+65:                                               ; preds = %39, %81
+  %indvars.iv74 = phi i64 [ 0, %39 ], [ %indvars.iv.next75, %81 ]
   %66 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %indvars.iv74
   %67 = load i32, ptr %66, align 4
+  %invariant.op = add i32 %56, %67
   br label %68
 
 68:                                               ; preds = %65, %68
@@ -7144,101 +7145,101 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv6dynafu13TSDFVolumeCPU
   %69 = getelementptr inbounds [8 x i32], ptr %57, i64 0, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4
   %71 = add nsw i32 %56, %70
-  %72 = add nsw i32 %71, %67
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %"struct.cv::dynafu::Voxel", ptr %14, i64 %73
-  %75 = load float, ptr %74, align 4
-  %76 = sub nsw i32 %71, %67
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds %"struct.cv::dynafu::Voxel", ptr %14, i64 %77
-  %79 = load float, ptr %78, align 4
-  %80 = fsub float %75, %79
-  %81 = getelementptr inbounds [8 x float], ptr %5, i64 0, i64 %indvars.iv
-  store float %80, ptr %81, align 4
+  %.reass = add i32 %70, %invariant.op
+  %72 = sext i32 %.reass to i64
+  %73 = getelementptr inbounds %"struct.cv::dynafu::Voxel", ptr %14, i64 %72
+  %74 = load float, ptr %73, align 4
+  %75 = sub nsw i32 %71, %67
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %"struct.cv::dynafu::Voxel", ptr %14, i64 %76
+  %78 = load float, ptr %77, align 4
+  %79 = fsub float %74, %78
+  %80 = getelementptr inbounds [8 x float], ptr %5, i64 0, i64 %indvars.iv
+  store float %79, ptr %80, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %82, label %68, !llvm.loop !175
+  br i1 %exitcond.not, label %81, label %68, !llvm.loop !175
 
-82:                                               ; preds = %68
-  %83 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv74
-  %84 = load float, ptr %5, align 16
-  %85 = load float, ptr %58, align 4
-  %86 = fsub float %85, %84
-  %87 = tail call float @llvm.fmuladd.f32(float %51, float %86, float %84)
-  %88 = load float, ptr %59, align 8
-  %89 = load float, ptr %60, align 4
-  %90 = fsub float %89, %88
-  %91 = tail call float @llvm.fmuladd.f32(float %51, float %90, float %88)
-  %92 = load float, ptr %61, align 16
-  %93 = load float, ptr %62, align 4
-  %94 = fsub float %93, %92
-  %95 = tail call float @llvm.fmuladd.f32(float %51, float %94, float %92)
-  %96 = load float, ptr %63, align 8
-  %97 = load float, ptr %64, align 4
-  %98 = fsub float %97, %96
-  %99 = tail call float @llvm.fmuladd.f32(float %51, float %98, float %96)
-  %100 = fsub float %91, %87
-  %101 = tail call float @llvm.fmuladd.f32(float %49, float %100, float %87)
-  %102 = fsub float %99, %95
-  %103 = tail call float @llvm.fmuladd.f32(float %49, float %102, float %95)
-  %104 = fsub float %103, %101
-  %105 = tail call float @llvm.fmuladd.f32(float %47, float %104, float %101)
-  store float %105, ptr %83, align 4
+81:                                               ; preds = %68
+  %82 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv74
+  %83 = load float, ptr %5, align 16
+  %84 = load float, ptr %58, align 4
+  %85 = fsub float %84, %83
+  %86 = tail call float @llvm.fmuladd.f32(float %51, float %85, float %83)
+  %87 = load float, ptr %59, align 8
+  %88 = load float, ptr %60, align 4
+  %89 = fsub float %88, %87
+  %90 = tail call float @llvm.fmuladd.f32(float %51, float %89, float %87)
+  %91 = load float, ptr %61, align 16
+  %92 = load float, ptr %62, align 4
+  %93 = fsub float %92, %91
+  %94 = tail call float @llvm.fmuladd.f32(float %51, float %93, float %91)
+  %95 = load float, ptr %63, align 8
+  %96 = load float, ptr %64, align 4
+  %97 = fsub float %96, %95
+  %98 = tail call float @llvm.fmuladd.f32(float %51, float %97, float %95)
+  %99 = fsub float %90, %86
+  %100 = tail call float @llvm.fmuladd.f32(float %49, float %99, float %86)
+  %101 = fsub float %98, %94
+  %102 = tail call float @llvm.fmuladd.f32(float %49, float %101, float %94)
+  %103 = fsub float %102, %100
+  %104 = tail call float @llvm.fmuladd.f32(float %47, float %103, float %100)
+  store float %104, ptr %82, align 4
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 3
-  br i1 %exitcond77.not, label %106, label %65, !llvm.loop !176
+  br i1 %exitcond77.not, label %105, label %65, !llvm.loop !176
 
-106:                                              ; preds = %82
+105:                                              ; preds = %81
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  br label %107
+  br label %106
 
-107:                                              ; preds = %107, %106
-  %indvars.iv.i.i.i = phi i64 [ 0, %106 ], [ %indvars.iv.next.i.i.i, %107 ]
-  %.010.i.i.i = phi double [ 0.000000e+00, %106 ], [ %111, %107 ]
-  %108 = getelementptr inbounds float, ptr %4, i64 %indvars.iv.i.i.i
-  %109 = load float, ptr %108, align 4, !noalias !177
-  %110 = fpext float %109 to double
-  %111 = tail call double @llvm.fmuladd.f64(double %110, double %110, double %.010.i.i.i)
+106:                                              ; preds = %106, %105
+  %indvars.iv.i.i.i = phi i64 [ 0, %105 ], [ %indvars.iv.next.i.i.i, %106 ]
+  %.010.i.i.i = phi double [ 0.000000e+00, %105 ], [ %110, %106 ]
+  %107 = getelementptr inbounds float, ptr %4, i64 %indvars.iv.i.i.i
+  %108 = load float, ptr %107, align 4, !noalias !177
+  %109 = fpext float %108 to double
+  %110 = tail call double @llvm.fmuladd.f64(double %109, double %109, double %.010.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i, label %107, !llvm.loop !149
+  br i1 %exitcond.not.i.i.i, label %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i, label %106, !llvm.loop !149
 
-_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i: ; preds = %107
-  %112 = tail call noundef double @sqrt(double noundef %111) #26, !noalias !177
-  %113 = fcmp une double %112, 0.000000e+00
-  %114 = fdiv double 1.000000e+00, %112
-  %115 = select i1 %113, double %114, double 0.000000e+00
+_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i: ; preds = %106
+  %111 = tail call noundef double @sqrt(double noundef %110) #26, !noalias !177
+  %112 = fcmp une double %111, 0.000000e+00
+  %113 = fdiv double 1.000000e+00, %111
+  %114 = select i1 %112, double %113, double 0.000000e+00
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
-  br label %116
+  br label %115
 
-116:                                              ; preds = %116, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ], [ %indvars.iv.next.i.i.i.i, %116 ]
-  %117 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i
-  %118 = load float, ptr %117, align 4, !noalias !183
-  %119 = fpext float %118 to double
-  %120 = fmul double %115, %119
-  %121 = fptrunc double %120 to float
-  %122 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
-  store float %121, ptr %122, align 4, !alias.scope !183
+115:                                              ; preds = %115, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ], [ %indvars.iv.next.i.i.i.i, %115 ]
+  %116 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i
+  %117 = load float, ptr %116, align 4, !noalias !183
+  %118 = fpext float %117 to double
+  %119 = fmul double %114, %118
+  %120 = fptrunc double %119 to float
+  %121 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %indvars.iv.i.i.i.i
+  store float %120, ptr %121, align 4, !alias.scope !183
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3
-  br i1 %exitcond.not.i.i.i.i, label %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, label %116, !llvm.loop !154
+  br i1 %exitcond.not.i.i.i.i, label %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, label %115, !llvm.loop !154
 
-_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %116
-  %123 = load float, ptr %6, align 4
-  %.sroa.0.0.vec.insert68 = insertelement <2 x float> poison, float %123, i64 0
-  %124 = getelementptr inbounds i8, ptr %6, i64 4
-  %125 = load float, ptr %124, align 4
-  %.sroa.0.4.vec.insert70 = insertelement <2 x float> %.sroa.0.0.vec.insert68, float %125, i64 1
-  %126 = getelementptr inbounds i8, ptr %6, i64 8
-  br label %127
+_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit: ; preds = %115
+  %122 = load float, ptr %6, align 4
+  %.sroa.0.0.vec.insert68 = insertelement <2 x float> poison, float %122, i64 0
+  %123 = getelementptr inbounds i8, ptr %6, i64 4
+  %124 = load float, ptr %123, align 4
+  %.sroa.0.4.vec.insert70 = insertelement <2 x float> %.sroa.0.0.vec.insert68, float %124, i64 1
+  %125 = getelementptr inbounds i8, ptr %6, i64 8
+  br label %126
 
-127:                                              ; preds = %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, %36
-  %.sink = phi ptr [ %126, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ getelementptr inbounds (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 8), %36 ]
+126:                                              ; preds = %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit, %36
+  %.sink = phi ptr [ %125, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ getelementptr inbounds (i8, ptr @_ZN2cv5kinfuL4nan3E, i64 8), %36 ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert70, %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %.sroa.0.4.vec.insert, %36 ]
-  %128 = load float, ptr %.sink, align 4
+  %127 = load float, ptr %.sink, align 4
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %128, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %127, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 

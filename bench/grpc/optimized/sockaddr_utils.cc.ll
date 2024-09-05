@@ -186,33 +186,33 @@ define noundef range(i32 0, 2) i32 @_Z25grpc_sockaddr_is_wildcardPK21grpc_resolv
 entry:
   %addr4_normalized.sroa.0 = alloca i16, align 2
   %0 = load i16, ptr %resolved_addr, align 2
-  %tobool.not.sroa.gep22 = getelementptr inbounds i8, ptr %resolved_addr, i64 2
-  %tobool.not.sroa.gep30 = getelementptr inbounds i8, ptr %resolved_addr, i64 8
+  %tobool.not.sroa.gep26 = getelementptr inbounds i8, ptr %resolved_addr, i64 8
+  %tobool.not.sroa.gep30 = getelementptr inbounds i8, ptr %resolved_addr, i64 2
   switch i16 %0, label %return [
     i16 10, label %if.then6.i
     i16 2, label %if.then2thread-pre-split
   ]
 
 if.then6.i:                                       ; preds = %entry
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %tobool.not.sroa.gep30, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %tobool.not.sroa.gep26, ptr noundef nonnull dereferenceable(12) @_ZL15kV4MappedPrefix, i64 12)
   %cmp8.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp8.i, label %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread, label %for.body
 
 _Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread: ; preds = %if.then6.i
   %arrayidx.i = getelementptr inbounds i8, ptr %resolved_addr, i64 20
   %1 = load i32, ptr %arrayidx.i, align 4
-  %2 = load i16, ptr %tobool.not.sroa.gep22, align 2
+  %2 = load i16, ptr %tobool.not.sroa.gep30, align 2
   store i16 %2, ptr %addr4_normalized.sroa.0, align 2
   br label %if.then2
 
 if.then2thread-pre-split:                         ; preds = %entry
-  %tobool.not.sroa.gep26 = getelementptr inbounds i8, ptr %resolved_addr, i64 4
-  %.pr = load i32, ptr %tobool.not.sroa.gep26, align 4
+  %tobool.not.sroa.gep22 = getelementptr inbounds i8, ptr %resolved_addr, i64 4
+  %.pr = load i32, ptr %tobool.not.sroa.gep22, align 4
   br label %if.then2
 
 if.then2:                                         ; preds = %if.then2thread-pre-split, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread
   %3 = phi i32 [ %.pr, %if.then2thread-pre-split ], [ %1, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ]
-  %tobool.not.sroa.phi39 = phi ptr [ %tobool.not.sroa.gep22, %if.then2thread-pre-split ], [ %addr4_normalized.sroa.0, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ]
+  %tobool.not.sroa.phi2840 = phi ptr [ %tobool.not.sroa.gep30, %if.then2thread-pre-split ], [ %addr4_normalized.sroa.0, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ]
   %cmp3.not = icmp eq i32 %3, 0
   br i1 %cmp3.not, label %return.sink.split, label %return
 
@@ -223,14 +223,14 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.then6.i, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.then6.i ]
-  %arrayidx = getelementptr inbounds [16 x i8], ptr %tobool.not.sroa.gep30, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [16 x i8], ptr %tobool.not.sroa.gep26, i64 0, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
   %cmp14.not = icmp eq i8 %4, 0
   br i1 %cmp14.not, label %for.cond, label %return
 
 return.sink.split:                                ; preds = %for.cond, %if.then2
-  %tobool.not.sroa.gep22.sink = phi ptr [ %tobool.not.sroa.phi39, %if.then2 ], [ %tobool.not.sroa.gep22, %for.cond ]
-  %5 = load i16, ptr %tobool.not.sroa.gep22.sink, align 2
+  %tobool.not.sroa.gep30.sink = phi ptr [ %tobool.not.sroa.phi2840, %if.then2 ], [ %tobool.not.sroa.gep30, %for.cond ]
+  %5 = load i16, ptr %tobool.not.sroa.gep30.sink, align 2
   %call17 = tail call noundef zeroext i16 @_Z10grpc_ntohst(i16 noundef zeroext %5)
   %conv18 = zext i16 %call17 to i32
   store i32 %conv18, ptr %port_out, align 4

@@ -2647,8 +2647,8 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   store i8 2, ptr %40, align 8, !alias.scope !281
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 3, ptr %41, align 1, !alias.scope !281
-  %.sroa.0110.0.insert.ext = and i64 %31, 4294967295
-  %42 = inttoptr i64 %.sroa.0110.0.insert.ext to ptr
+  %.sroa.0111.0.insert.ext = and i64 %31, 4294967295
+  %42 = inttoptr i64 %.sroa.0111.0.insert.ext to ptr
   store ptr %6, ptr %5, align 8, !alias.scope !286
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %42, ptr %43, align 8, !alias.scope !286
@@ -2681,6 +2681,10 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.sroa.0.0.copyload.i.i52 = load i64, ptr %1, align 8
   br i1 %58, label %.preheader, label %59
 
+.preheader:                                       ; preds = %54
+  %invariant.op = add i64 %.sroa.0.0.copyload.i.i52, 17
+  br label %69
+
 59:                                               ; preds = %54
   %60 = zext i8 %17 to i64
   %61 = mul nuw nsw i64 %60, 18
@@ -2695,24 +2699,24 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   store ptr null, ptr %.sroa.289.0..sroa_idx, align 8
   br label %100
 
-67:                                               ; preds = %.preheader
+67:                                               ; preds = %69
   %68 = add i8 %.01299, -1
   %.not15 = icmp eq i8 %68, 0
-  br i1 %.not15, label %_ZN4llvm5ErrorD2Ev.exit84, label %.preheader, !llvm.loop !306
+  br i1 %.not15, label %_ZN4llvm5ErrorD2Ev.exit84, label %69, !llvm.loop !306
 
-.preheader:                                       ; preds = %54, %67
-  %.01299 = phi i8 [ %68, %67 ], [ %17, %54 ]
-  %69 = zext i8 %.01299 to i64
-  %70 = mul nuw nsw i64 %69, 18
-  %71 = add i64 %.sroa.0.0.copyload.i.i52, %70
-  %72 = add i64 %71, 17
-  %73 = inttoptr i64 %72 to ptr
-  %74 = load i8, ptr %73, align 1
-  %75 = icmp eq i8 %74, -5
-  br i1 %75, label %76, label %67
+69:                                               ; preds = %.preheader, %67
+  %.01299 = phi i8 [ %17, %.preheader ], [ %68, %67 ]
+  %70 = zext i8 %.01299 to i64
+  %71 = mul nuw nsw i64 %70, 18
+  %.reass = add i64 %71, %invariant.op
+  %72 = inttoptr i64 %.reass to ptr
+  %73 = load i8, ptr %72, align 1
+  %74 = icmp eq i8 %73, -5
+  br i1 %74, label %75, label %67
 
-76:                                               ; preds = %.preheader
-  %77 = inttoptr i64 %71 to ptr
+75:                                               ; preds = %69
+  %76 = add i64 %.sroa.0.0.copyload.i.i52, %71
+  %77 = inttoptr i64 %76 to ptr
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load i8, ptr %78, align 8
   %80 = and i8 %79, -2
@@ -2762,7 +2766,7 @@ _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %67
   store ptr %95, ptr %0, align 8, !alias.scope !328
   br label %100
 
-100:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit84, %76, %59, %_ZN4llvm5ErrorD2Ev.exit50
+100:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit84, %75, %59, %_ZN4llvm5ErrorD2Ev.exit50
   br i1 %20, label %101, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
 
 101:                                              ; preds = %.thread, %100

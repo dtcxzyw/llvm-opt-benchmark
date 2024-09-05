@@ -4701,7 +4701,7 @@ ehcleanup92:                                      ; preds = %ehcleanup91, %ehcle
   br label %ehcleanup723
 
 if.end95:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.else
-  %cond-lvalue = phi ptr [ %visited, %if.else ], [ %new_visited, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %use_new_visited.0 = phi ptr [ %visited, %if.else ], [ %new_visited, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children, i8 0, i64 24, i1 false)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %children, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %children, i64 16
@@ -4947,7 +4947,7 @@ if.then13.i.i.i710:                               ; preds = %if.else.i.i.i708
           to label %invoke.cont127 unwind label %lpad98.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont127:                                   ; preds = %if.else.i.i.i708, %if.then.i.i.i712, %if.then13.i.i.i710
-  %call134 = invoke noundef i32 @_ZN4cvc58internal6theory13SortInference7processENS0_12NodeTemplateILb1EEERSt3mapIS4_S4_St4lessIS4_ESaISt4pairIKS4_S4_EEERS5_IS4_iS7_SaIS8_IS9_iEEE(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull %agg.tmp125, ptr noundef nonnull align 8 dereferenceable(48) %var_bound, ptr noundef nonnull align 8 dereferenceable(48) %cond-lvalue)
+  %call134 = invoke noundef i32 @_ZN4cvc58internal6theory13SortInference7processENS0_12NodeTemplateILb1EEERSt3mapIS4_S4_St4lessIS4_ESaISt4pairIKS4_S4_EEERS5_IS4_iS7_SaIS8_IS9_iEEE(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull %agg.tmp125, ptr noundef nonnull align 8 dereferenceable(48) %var_bound, ptr noundef nonnull align 8 dereferenceable(48) %use_new_visited.0)
           to label %invoke.cont133 unwind label %lpad132.loopexit
 
 invoke.cont133:                                   ; preds = %invoke.cont127
@@ -11562,6 +11562,7 @@ ehcleanup136:                                     ; preds = %lpad24.loopexit, %l
   br label %ehcleanup847
 
 if.end:                                           ; preds = %cond.end, %if.then.i.i.i1025, %invoke.cont.i1024
+  %use_new_visited.0 = phi ptr [ %new_visited, %invoke.cont.i1024 ], [ %new_visited, %if.then.i.i.i1025 ], [ %visited, %cond.end ]
   %154 = load ptr, ptr %n, align 8
   %d_kind.i.i = getelementptr inbounds i8, ptr %154, i64 8
   %bf.load.i.i1026 = load i16, ptr %d_kind.i.i, align 8
@@ -11835,7 +11836,6 @@ _ZN4cvc58internal8TypeNodeC2Ev.exit:              ; preds = %if.end158, %init.ch
   %d_equality_types = getelementptr inbounds i8, ptr %this, i64 408
   %_M_parent.i.i.i.i.i1341 = getelementptr inbounds i8, ptr %this, i64 424
   %add.ptr.i.i.i.i1342 = getelementptr inbounds i8, ptr %this, i64 416
-  %cond-lvalue = select i1 %switch, ptr %new_visited, ptr %visited
   %_M_finish.i1788 = getelementptr inbounds i8, ptr %children, i64 8
   %_M_end_of_storage.i1789 = getelementptr inbounds i8, ptr %children, i64 16
   br label %for.cond161
@@ -12666,7 +12666,7 @@ if.then13.i.i1502:                                ; preds = %if.else.i.i1500
           to label %invoke.cont263 unwind label %lpad262
 
 invoke.cont263:                                   ; preds = %if.else.i.i1500, %if.then.i.i1504, %if.then13.i.i1502
-  invoke void @_ZN4cvc58internal6theory13SortInference12simplifyNodeENS0_12NodeTemplateILb1EEERSt3mapIS4_S4_St4lessIS4_ESaISt4pairIKS4_S4_EEENS0_8TypeNodeESD_RS5_IS4_S5_ISE_S4_S6_ISE_ESaIS8_IKSE_S4_EEES7_SaIS8_IS9_SJ_EEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %nc, ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull %agg.tmp258, ptr noundef nonnull align 8 dereferenceable(48) %var_bound, ptr noundef nonnull %agg.tmp261, ptr noundef nonnull align 8 dereferenceable(48) %model_replace_f, ptr noundef nonnull align 8 dereferenceable(48) %cond-lvalue)
+  invoke void @_ZN4cvc58internal6theory13SortInference12simplifyNodeENS0_12NodeTemplateILb1EEERSt3mapIS4_S4_St4lessIS4_ESaISt4pairIKS4_S4_EEENS0_8TypeNodeESD_RS5_IS4_S5_ISE_S4_S6_ISE_ESaIS8_IKSE_S4_EEES7_SaIS8_IS9_SJ_EEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %nc, ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull %agg.tmp258, ptr noundef nonnull align 8 dereferenceable(48) %var_bound, ptr noundef nonnull %agg.tmp261, ptr noundef nonnull align 8 dereferenceable(48) %model_replace_f, ptr noundef nonnull align 8 dereferenceable(48) %use_new_visited.0)
           to label %invoke.cont269 unwind label %lpad268
 
 invoke.cont269:                                   ; preds = %invoke.cont263

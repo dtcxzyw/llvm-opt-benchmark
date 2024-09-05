@@ -2549,31 +2549,31 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN2
 
 .preheader140.lr.ph.i:                            ; preds = %._crit_edge.i
   %.not143.i = icmp slt i32 %201, -1
+  %.neg.i = sdiv i32 %201, -4
+  %invariant.op158.i = add i32 %.neg.i, %201
   %269 = load i32, ptr %84, align 4
   %270 = icmp sgt i32 %269, 0
   br i1 %270, label %.preheader140.preheader.i, label %.loopexit176
 
 .preheader140.preheader.i:                        ; preds = %.preheader140.lr.ph.i
-  %.neg.i = sdiv i32 %201, -4
   %271 = sdiv i32 %201, 2
   %272 = load ptr, ptr %85, align 8
   %273 = load ptr, ptr %86, align 8
-  %invariant.op.i = add i32 %.neg.i, %201
   br label %.preheader140.i
 
 .preheader140.i:                                  ; preds = %._crit_edge156.i, %.preheader140.preheader.i
   %274 = phi i32 [ %267, %.preheader140.preheader.i ], [ %398, %._crit_edge156.i ]
   %275 = phi i32 [ %269, %.preheader140.preheader.i ], [ %399, %._crit_edge156.i ]
-  %indvars.iv168.i = phi i64 [ 0, %.preheader140.preheader.i ], [ %indvars.iv.next169.i, %._crit_edge156.i ]
-  %.0109159.i = phi ptr [ %273, %.preheader140.preheader.i ], [ %.1110.lcssa.i, %._crit_edge156.i ]
-  %.0111158.i = phi ptr [ %272, %.preheader140.preheader.i ], [ %.1112.lcssa.i, %._crit_edge156.i ]
+  %indvars.iv169.i = phi i64 [ 0, %.preheader140.preheader.i ], [ %indvars.iv.next170.i, %._crit_edge156.i ]
+  %.0109160.i = phi ptr [ %273, %.preheader140.preheader.i ], [ %.1110.lcssa.i, %._crit_edge156.i ]
+  %.0111159.i = phi ptr [ %272, %.preheader140.preheader.i ], [ %.1112.lcssa.i, %._crit_edge156.i ]
   %276 = icmp sgt i32 %275, 0
   br i1 %276, label %.lr.ph155.i, label %._crit_edge156.i
 
 .lr.ph155.i:                                      ; preds = %.preheader140.i, %.loopexit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ 0, %.preheader140.i ]
-  %.1110152.i = phi ptr [ %393, %.loopexit.i ], [ %.0109159.i, %.preheader140.i ]
-  %.1112151.i = phi ptr [ %394, %.loopexit.i ], [ %.0111158.i, %.preheader140.i ]
+  %.1110152.i = phi ptr [ %393, %.loopexit.i ], [ %.0109160.i, %.preheader140.i ]
+  %.1112151.i = phi ptr [ %394, %.loopexit.i ], [ %.0111159.i, %.preheader140.i ]
   %277 = load float, ptr %.1112151.i, align 4
   %278 = load float, ptr %.1110152.i, align 4
   %279 = fmul float %278, %278
@@ -2604,8 +2604,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN2
   br i1 %.not143.i, label %.loopexit.i, label %.lr.ph145.i
 
 .lr.ph145.i:                                      ; preds = %.preheader138.i
+  %.reass.reass.i = add i32 %291, %invariant.op158.i
   %292 = fpext float %sqrt.i to double
-  %.reass.i = add i32 %invariant.op.i, %291
   %.pre = load ptr, ptr %27, align 8
   br label %356
 
@@ -2613,7 +2613,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN2
   br i1 %.not143.i, label %.loopexit.i, label %.lr.ph150.i
 
 .lr.ph150.i:                                      ; preds = %.preheader.i
-  %.reass147.i = add i32 %invariant.op.i, %291
+  %.reass147.reass.i = add i32 %291, %invariant.op158.i
   %.pre239 = load ptr, ptr %27, align 8
   br label %330
 
@@ -2648,7 +2648,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN2
   %319 = getelementptr inbounds i8, ptr %316, i64 72
   %320 = load ptr, ptr %319, align 8
   %321 = load i64, ptr %320, align 8
-  %322 = mul i64 %321, %indvars.iv168.i
+  %322 = mul i64 %321, %indvars.iv169.i
   %323 = getelementptr inbounds i8, ptr %318, i64 %322
   %324 = getelementptr inbounds i8, ptr %323, i64 %indvars.iv.i
   store i8 %313, ptr %324, align 1
@@ -2661,7 +2661,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN2
 
 330:                                              ; preds = %330, %.lr.ph150.i
   %.0105149.i = phi i32 [ 0, %.lr.ph150.i ], [ %355, %330 ]
-  %331 = add i32 %.reass147.i, %.0105149.i
+  %331 = add i32 %.reass147.reass.i, %.0105149.i
   %332 = srem i32 %331, %201
   %333 = sitofp i32 %332 to float
   %334 = fadd float %333, 5.000000e-01
@@ -2682,17 +2682,17 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN2
   %349 = getelementptr inbounds i8, ptr %346, i64 72
   %350 = load ptr, ptr %349, align 8
   %351 = load i64, ptr %350, align 8
-  %352 = mul i64 %351, %indvars.iv168.i
+  %352 = mul i64 %351, %indvars.iv169.i
   %353 = getelementptr inbounds i8, ptr %348, i64 %352
   %354 = getelementptr inbounds i8, ptr %353, i64 %indvars.iv.i
   store i8 %344, ptr %354, align 1
   %355 = add nuw nsw i32 %.0105149.i, 1
-  %exitcond166.not.i = icmp eq i32 %.0105149.i, %271
-  br i1 %exitcond166.not.i, label %.loopexit.i, label %330, !llvm.loop !32
+  %exitcond167.not.i = icmp eq i32 %.0105149.i, %271
+  br i1 %exitcond167.not.i, label %.loopexit.i, label %330, !llvm.loop !32
 
 356:                                              ; preds = %356, %.lr.ph145.i
   %.0144.i = phi i32 [ 0, %.lr.ph145.i ], [ %381, %356 ]
-  %357 = add i32 %.reass.i, %.0144.i
+  %357 = add i32 %.reass.reass.i, %.0144.i
   %358 = srem i32 %357, %201
   %359 = sitofp i32 %358 to float
   %360 = fadd float %359, 5.000000e-01
@@ -2713,18 +2713,18 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN2
   %375 = getelementptr inbounds i8, ptr %372, i64 72
   %376 = load ptr, ptr %375, align 8
   %377 = load i64, ptr %376, align 8
-  %378 = mul i64 %377, %indvars.iv168.i
+  %378 = mul i64 %377, %indvars.iv169.i
   %379 = getelementptr inbounds i8, ptr %374, i64 %378
   %380 = getelementptr inbounds i8, ptr %379, i64 %indvars.iv.i
   store i8 %370, ptr %380, align 1
   %381 = add nuw nsw i32 %.0144.i, 1
-  %exitcond165.not.i = icmp eq i32 %.0144.i, %271
-  br i1 %exitcond165.not.i, label %.loopexit.i, label %356, !llvm.loop !33
+  %exitcond166.not.i = icmp eq i32 %.0144.i, %271
+  br i1 %exitcond166.not.i, label %.loopexit.i, label %356, !llvm.loop !33
 
 .loopexit.sink.split.i:                           ; preds = %297, %293, %282
-  %.sink186.i = phi i32 [ %291, %293 ], [ %301, %297 ], [ %291, %282 ]
+  %.sink187.i = phi i32 [ %291, %293 ], [ %301, %297 ], [ %291, %282 ]
   %.sink.i87 = phi i8 [ %296, %293 ], [ %329, %297 ], [ 1, %282 ]
-  %382 = sext i32 %.sink186.i to i64
+  %382 = sext i32 %.sink187.i to i64
   %383 = load ptr, ptr %27, align 8
   %384 = getelementptr inbounds %"class.cv::Mat", ptr %383, i64 %382
   %385 = getelementptr inbounds i8, ptr %384, i64 16
@@ -2732,7 +2732,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN2
   %387 = getelementptr inbounds i8, ptr %384, i64 72
   %388 = load ptr, ptr %387, align 8
   %389 = load i64, ptr %388, align 8
-  %390 = mul i64 %389, %indvars.iv168.i
+  %390 = mul i64 %389, %indvars.iv169.i
   %391 = getelementptr inbounds i8, ptr %386, i64 %390
   %392 = getelementptr inbounds i8, ptr %391, i64 %indvars.iv.i
   store i8 %.sink.i87, ptr %392, align 1
@@ -2754,11 +2754,11 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN2
 ._crit_edge156.i:                                 ; preds = %._crit_edge156.loopexit.i, %.preheader140.i
   %398 = phi i32 [ %274, %.preheader140.i ], [ %.pre.i, %._crit_edge156.loopexit.i ]
   %399 = phi i32 [ %275, %.preheader140.i ], [ %395, %._crit_edge156.loopexit.i ]
-  %.1112.lcssa.i = phi ptr [ %.0111158.i, %.preheader140.i ], [ %394, %._crit_edge156.loopexit.i ]
-  %.1110.lcssa.i = phi ptr [ %.0109159.i, %.preheader140.i ], [ %393, %._crit_edge156.loopexit.i ]
-  %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
+  %.1112.lcssa.i = phi ptr [ %.0111159.i, %.preheader140.i ], [ %394, %._crit_edge156.loopexit.i ]
+  %.1110.lcssa.i = phi ptr [ %.0109160.i, %.preheader140.i ], [ %393, %._crit_edge156.loopexit.i ]
+  %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
   %400 = sext i32 %398 to i64
-  %401 = icmp slt i64 %indvars.iv.next169.i, %400
+  %401 = icmp slt i64 %indvars.iv.next170.i, %400
   br i1 %401, label %.preheader140.i, label %.loopexit176, !llvm.loop !35
 
 402:                                              ; preds = %.body.i, %263, %261, %259

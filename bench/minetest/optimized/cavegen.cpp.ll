@@ -3986,6 +3986,8 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %div44.sext409.us = zext i16 %div44388.us to i32
   %div48.neg389.us = sdiv i16 %12, -7
   %div48.neg.sext.us = sext i16 %div48.neg389.us to i32
+  %invariant.op = add nsw i32 %div48.neg.sext.us, -1
+  %invariant.op5 = sub nsw i32 0, %div48.neg.sext.us
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.cond.cleanup74.us, %for.body.lr.ph.split.us
@@ -3993,10 +3995,9 @@ for.body.us:                                      ; preds = %for.cond.cleanup74.
   %z0.0408.us = phi i16 [ %d0.0, %for.body.lr.ph.split.us ], [ %inc234.us, %for.cond.cleanup74.us ]
   %18 = tail call i16 @llvm.abs.i16(i16 %z0.0408.us, i1 false)
   %19 = zext i16 %18 to i32
-  %sub49.us = add nsw i32 %div48.neg.sext.us, %19
-  %sub50.us = add nsw i32 %sub49.us, -1
-  %cmp51.inv.us = icmp sgt i32 %sub49.us, 0
-  %spec.select.us = select i1 %cmp51.inv.us, i32 %sub50.us, i32 0
+  %sub50.us.reass = add nsw i32 %invariant.op, %19
+  %cmp51.inv.us = icmp sgt i32 %19, %invariant.op5
+  %spec.select.us = select i1 %cmp51.inv.us, i32 %sub50.us.reass, i32 0
   %sub58.us = sub nsw i32 %div44.sext409.us, %spec.select.us
   %sext.us = shl i32 %sub58.us, 16
   %conv60.us = ashr exact i32 %sext.us, 16

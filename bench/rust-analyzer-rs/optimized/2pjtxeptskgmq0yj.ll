@@ -22022,7 +22022,7 @@ define hidden noundef i32 @"_ZN14ide_completion7context8analysis19pattern_contex
   %75 = getelementptr inbounds i8, ptr %7, i64 16
   %76 = getelementptr inbounds i8, ptr %7, i64 24
   %77 = add nuw nsw i64 %.val6.i.i.i, 63
-  %invariant.op.i.i.i.i.i = add nuw nsw i64 %.val6.i.i.i, 31
+  %invariant.op.i.i.i.i.i.i = add nuw nsw i64 %.val6.i.i.i, 31
   %78 = getelementptr inbounds i8, ptr %5, i64 8
   %79 = getelementptr inbounds i8, ptr %5, i64 16
   br label %80
@@ -22358,8 +22358,8 @@ define hidden noundef i32 @"_ZN14ide_completion7context8analysis19pattern_contex
 200:                                              ; preds = %203, %192
   %.5.i.i.i.i.i.i = phi i8 [ %.165145.i.i.i.i.i.i, %192 ], [ %205, %203 ]
   %201 = add i64 %.163146.i.i.i.i.i.i, 16
-  %.reass.i.i.i.i.i = add i64 %invariant.op.i.i.i.i.i, %.163146.i.i.i.i.i.i
-  %202 = icmp ult i64 %.reass.i.i.i.i.i, %108
+  %.reass.i.i.i.i.i.i = add i64 %invariant.op.i.i.i.i.i.i, %.163146.i.i.i.i.i.i
+  %202 = icmp ult i64 %.reass.i.i.i.i.i.i, %108
   br i1 %202, label %.lr.ph148.i.i.i.i.i.i, label %._crit_edge149.i.i.i.i.i.i
 
 203:                                              ; preds = %192

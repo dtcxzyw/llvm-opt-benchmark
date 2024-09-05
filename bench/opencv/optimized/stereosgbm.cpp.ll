@@ -1093,11 +1093,11 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %87 = add i32 %12, -1
   %.sroa.speculated412 = tail call i32 @llvm.smin.i32(i32 %87, i32 %85)
   %88 = icmp eq i32 %15, 0
-  %.not561 = icmp sgt i32 %86, %.sroa.speculated412
+  %.not562 = icmp sgt i32 %86, %.sroa.speculated412
   br i1 %88, label %.preheader541, label %.preheader542
 
 .preheader542:                                    ; preds = %59
-  br i1 %.not561, label %.loopexit, label %.lr.ph
+  br i1 %.not562, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader542
   %89 = mul nsw i32 %12, 3
@@ -1113,20 +1113,20 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %99 = sext i32 %89 to i64
   %100 = sext i32 %90 to i64
   %101 = sext i32 %91 to i64
-  %wide.trip.count567 = zext nneg i32 %.sroa.speculated412 to i64
-  %invariant.gep588 = getelementptr i8, ptr %62, i64 %94
-  %invariant.gep590 = getelementptr i8, ptr %62, i64 %95
-  %invariant.gep592 = getelementptr i8, ptr %44, i64 %50
-  %invariant.gep594 = getelementptr i8, ptr %44, i64 %98
-  %invariant.gep596 = getelementptr i8, ptr %63, i64 %96
-  %invariant.gep598 = getelementptr i8, ptr %63, i64 %97
-  %invariant.gep600 = getelementptr i8, ptr %44, i64 %99
-  %invariant.gep602 = getelementptr i8, ptr %44, i64 %100
-  %invariant.gep604 = getelementptr i8, ptr %44, i64 %101
+  %wide.trip.count568 = zext nneg i32 %.sroa.speculated412 to i64
+  %invariant.gep589 = getelementptr i8, ptr %62, i64 %94
+  %invariant.gep591 = getelementptr i8, ptr %62, i64 %95
+  %invariant.gep593 = getelementptr i8, ptr %44, i64 %50
+  %invariant.gep595 = getelementptr i8, ptr %44, i64 %98
+  %invariant.gep597 = getelementptr i8, ptr %63, i64 %96
+  %invariant.gep599 = getelementptr i8, ptr %63, i64 %97
+  %invariant.gep601 = getelementptr i8, ptr %44, i64 %99
+  %invariant.gep603 = getelementptr i8, ptr %44, i64 %100
+  %invariant.gep605 = getelementptr i8, ptr %44, i64 %101
   br label %175
 
 .preheader541:                                    ; preds = %59
-  br i1 %.not561, label %.loopexit, label %.lr.ph549
+  br i1 %.not562, label %.loopexit, label %.lr.ph549
 
 .lr.ph549:                                        ; preds = %.preheader541
   %102 = zext nneg i32 %86 to i64
@@ -1135,38 +1135,38 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %105 = sext i32 %74 to i64
   %106 = sext i32 %79 to i64
   %107 = sext i32 %84 to i64
-  %wide.trip.count572 = zext nneg i32 %.sroa.speculated412 to i64
-  %invariant.gep606 = getelementptr i8, ptr %62, i64 %104
-  %invariant.gep608 = getelementptr i8, ptr %62, i64 %105
-  %invariant.gep610 = getelementptr i8, ptr %63, i64 %106
-  %invariant.gep612 = getelementptr i8, ptr %63, i64 %107
-  %invariant.gep614 = getelementptr i8, ptr %44, i64 %50
+  %wide.trip.count573 = zext nneg i32 %.sroa.speculated412 to i64
+  %invariant.gep607 = getelementptr i8, ptr %62, i64 %104
+  %invariant.gep609 = getelementptr i8, ptr %62, i64 %105
+  %invariant.gep611 = getelementptr i8, ptr %63, i64 %106
+  %invariant.gep613 = getelementptr i8, ptr %63, i64 %107
+  %invariant.gep615 = getelementptr i8, ptr %44, i64 %50
   br label %108
 
 108:                                              ; preds = %.lr.ph549, %108
-  %indvars.iv569 = phi i64 [ %103, %.lr.ph549 ], [ %indvars.iv.next570, %108 ]
-  %indvars.iv.next570 = add nuw nsw i64 %indvars.iv569, 1
-  %109 = getelementptr inbounds i8, ptr %62, i64 %indvars.iv.next570
+  %indvars.iv570 = phi i64 [ %103, %.lr.ph549 ], [ %indvars.iv.next571, %108 ]
+  %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 1
+  %109 = getelementptr inbounds i8, ptr %62, i64 %indvars.iv.next571
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
-  %112 = add nsw i64 %indvars.iv569, -1
+  %112 = add nsw i64 %indvars.iv570, -1
   %113 = getelementptr inbounds i8, ptr %62, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = sub nsw i32 %111, %115
   %117 = shl nsw i32 %116, 1
-  %gep607 = getelementptr i8, ptr %invariant.gep606, i64 %indvars.iv569
-  %118 = getelementptr i8, ptr %gep607, i64 1
+  %gep608 = getelementptr i8, ptr %invariant.gep607, i64 %indvars.iv570
+  %118 = getelementptr i8, ptr %gep608, i64 1
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
-  %121 = getelementptr i8, ptr %gep607, i64 -1
+  %121 = getelementptr i8, ptr %gep608, i64 -1
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
-  %gep609 = getelementptr i8, ptr %invariant.gep608, i64 %indvars.iv569
-  %124 = getelementptr i8, ptr %gep609, i64 1
+  %gep610 = getelementptr i8, ptr %invariant.gep609, i64 %indvars.iv570
+  %124 = getelementptr i8, ptr %gep610, i64 1
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
-  %127 = getelementptr i8, ptr %gep609, i64 -1
+  %127 = getelementptr i8, ptr %gep610, i64 -1
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
   %.neg537 = add nsw i32 %117, %120
@@ -1176,9 +1176,9 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds i8, ptr %7, i64 %133
   %135 = load i8, ptr %134, align 1
-  %136 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv569
+  %136 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv570
   store i8 %135, ptr %136, align 1
-  %137 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv.next570
+  %137 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv.next571
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = getelementptr inbounds i8, ptr %63, i64 %112
@@ -1186,18 +1186,18 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %142 = zext i8 %141 to i32
   %143 = sub nsw i32 %139, %142
   %144 = shl nsw i32 %143, 1
-  %gep611 = getelementptr i8, ptr %invariant.gep610, i64 %indvars.iv569
-  %145 = getelementptr i8, ptr %gep611, i64 1
+  %gep612 = getelementptr i8, ptr %invariant.gep611, i64 %indvars.iv570
+  %145 = getelementptr i8, ptr %gep612, i64 1
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
-  %148 = getelementptr i8, ptr %gep611, i64 -1
+  %148 = getelementptr i8, ptr %gep612, i64 -1
   %149 = load i8, ptr %148, align 1
   %150 = zext i8 %149 to i32
-  %gep613 = getelementptr i8, ptr %invariant.gep612, i64 %indvars.iv569
-  %151 = getelementptr i8, ptr %gep613, i64 1
+  %gep614 = getelementptr i8, ptr %invariant.gep613, i64 %indvars.iv570
+  %151 = getelementptr i8, ptr %gep614, i64 1
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
-  %154 = getelementptr i8, ptr %gep613, i64 -1
+  %154 = getelementptr i8, ptr %gep614, i64 -1
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %.neg540 = add nsw i32 %144, %147
@@ -1207,28 +1207,28 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds i8, ptr %7, i64 %160
   %162 = load i8, ptr %161, align 1
-  %163 = trunc nuw nsw i64 %indvars.iv569 to i32
+  %163 = trunc nuw nsw i64 %indvars.iv570 to i32
   %164 = xor i32 %163, -1
   %165 = add i32 %12, %164
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i8, ptr %48, i64 %166
   store i8 %162, ptr %167, align 1
-  %168 = getelementptr inbounds i8, ptr %62, i64 %indvars.iv569
+  %168 = getelementptr inbounds i8, ptr %62, i64 %indvars.iv570
   %169 = load i8, ptr %168, align 1
-  %gep615 = getelementptr i8, ptr %invariant.gep614, i64 %indvars.iv569
-  store i8 %169, ptr %gep615, align 1
-  %170 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv569
+  %gep616 = getelementptr i8, ptr %invariant.gep615, i64 %indvars.iv570
+  store i8 %169, ptr %gep616, align 1
+  %170 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv570
   %171 = load i8, ptr %170, align 1
   %172 = add i32 %45, %164
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i8, ptr %48, i64 %173
   store i8 %171, ptr %174, align 1
-  %exitcond573.not = icmp eq i64 %indvars.iv.next570, %wide.trip.count572
-  br i1 %exitcond573.not, label %.loopexit, label %108, !llvm.loop !18
+  %exitcond574.not = icmp eq i64 %indvars.iv.next571, %wide.trip.count573
+  br i1 %exitcond574.not, label %.loopexit, label %108, !llvm.loop !18
 
 175:                                              ; preds = %.lr.ph, %175
-  %indvars.iv564 = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next565, %175 ]
-  %176 = mul nsw i64 %indvars.iv564, 3
+  %indvars.iv565 = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next566, %175 ]
+  %176 = mul nsw i64 %indvars.iv565, 3
   %177 = add nuw nsw i64 %176, 3
   %178 = getelementptr inbounds i8, ptr %62, i64 %177
   %179 = load i8, ptr %178, align 1
@@ -1239,18 +1239,18 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %184 = zext i8 %183 to i32
   %185 = sub nsw i32 %180, %184
   %186 = shl nsw i32 %185, 1
-  %gep589 = getelementptr i8, ptr %invariant.gep588, i64 %176
-  %187 = getelementptr i8, ptr %gep589, i64 3
+  %gep590 = getelementptr i8, ptr %invariant.gep589, i64 %176
+  %187 = getelementptr i8, ptr %gep590, i64 3
   %188 = load i8, ptr %187, align 1
   %189 = zext i8 %188 to i32
-  %190 = getelementptr i8, ptr %gep589, i64 -3
+  %190 = getelementptr i8, ptr %gep590, i64 -3
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
-  %gep591 = getelementptr i8, ptr %invariant.gep590, i64 %176
-  %193 = getelementptr i8, ptr %gep591, i64 3
+  %gep592 = getelementptr i8, ptr %invariant.gep591, i64 %176
+  %193 = getelementptr i8, ptr %gep592, i64 3
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
-  %196 = getelementptr i8, ptr %gep591, i64 -3
+  %196 = getelementptr i8, ptr %gep592, i64 -3
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i32
   %.neg519 = add nsw i32 %186, %189
@@ -1260,7 +1260,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds i8, ptr %7, i64 %202
   %204 = load i8, ptr %203, align 1
-  %205 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv564
+  %205 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv565
   store i8 %204, ptr %205, align 1
   %206 = add nuw nsw i64 %176, 4
   %207 = getelementptr inbounds i8, ptr %62, i64 %206
@@ -1272,16 +1272,16 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %213 = zext i8 %212 to i32
   %214 = sub nsw i32 %209, %213
   %215 = shl nsw i32 %214, 1
-  %216 = getelementptr i8, ptr %gep589, i64 4
+  %216 = getelementptr i8, ptr %gep590, i64 4
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
-  %219 = getelementptr i8, ptr %gep589, i64 -2
+  %219 = getelementptr i8, ptr %gep590, i64 -2
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
-  %222 = getelementptr i8, ptr %gep591, i64 4
+  %222 = getelementptr i8, ptr %gep592, i64 4
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i32
-  %225 = getelementptr i8, ptr %gep591, i64 -2
+  %225 = getelementptr i8, ptr %gep592, i64 -2
   %226 = load i8, ptr %225, align 1
   %227 = zext i8 %226 to i32
   %.neg522 = add nsw i32 %215, %218
@@ -1291,8 +1291,8 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %231 = sext i32 %230 to i64
   %232 = getelementptr inbounds i8, ptr %7, i64 %231
   %233 = load i8, ptr %232, align 1
-  %gep593 = getelementptr i8, ptr %invariant.gep592, i64 %indvars.iv564
-  store i8 %233, ptr %gep593, align 1
+  %gep594 = getelementptr i8, ptr %invariant.gep593, i64 %indvars.iv565
+  store i8 %233, ptr %gep594, align 1
   %234 = add nuw nsw i64 %176, 5
   %235 = getelementptr inbounds i8, ptr %62, i64 %234
   %236 = load i8, ptr %235, align 1
@@ -1303,16 +1303,16 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %241 = zext i8 %240 to i32
   %242 = sub nsw i32 %237, %241
   %243 = shl nsw i32 %242, 1
-  %244 = getelementptr i8, ptr %gep589, i64 5
+  %244 = getelementptr i8, ptr %gep590, i64 5
   %245 = load i8, ptr %244, align 1
   %246 = zext i8 %245 to i32
-  %247 = getelementptr i8, ptr %gep589, i64 -1
+  %247 = getelementptr i8, ptr %gep590, i64 -1
   %248 = load i8, ptr %247, align 1
   %249 = zext i8 %248 to i32
-  %250 = getelementptr i8, ptr %gep591, i64 5
+  %250 = getelementptr i8, ptr %gep592, i64 5
   %251 = load i8, ptr %250, align 1
   %252 = zext i8 %251 to i32
-  %253 = getelementptr i8, ptr %gep591, i64 -1
+  %253 = getelementptr i8, ptr %gep592, i64 -1
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i32
   %.neg525 = add nsw i32 %243, %246
@@ -1322,8 +1322,8 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %259 = sext i32 %258 to i64
   %260 = getelementptr inbounds i8, ptr %7, i64 %259
   %261 = load i8, ptr %260, align 1
-  %gep595 = getelementptr i8, ptr %invariant.gep594, i64 %indvars.iv564
-  store i8 %261, ptr %gep595, align 1
+  %gep596 = getelementptr i8, ptr %invariant.gep595, i64 %indvars.iv565
+  store i8 %261, ptr %gep596, align 1
   %262 = getelementptr inbounds i8, ptr %63, i64 %177
   %263 = load i8, ptr %262, align 1
   %264 = zext i8 %263 to i32
@@ -1332,18 +1332,18 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %267 = zext i8 %266 to i32
   %268 = sub nsw i32 %264, %267
   %269 = shl nsw i32 %268, 1
-  %gep597 = getelementptr i8, ptr %invariant.gep596, i64 %176
-  %270 = getelementptr i8, ptr %gep597, i64 3
+  %gep598 = getelementptr i8, ptr %invariant.gep597, i64 %176
+  %270 = getelementptr i8, ptr %gep598, i64 3
   %271 = load i8, ptr %270, align 1
   %272 = zext i8 %271 to i32
-  %273 = getelementptr i8, ptr %gep597, i64 -3
+  %273 = getelementptr i8, ptr %gep598, i64 -3
   %274 = load i8, ptr %273, align 1
   %275 = zext i8 %274 to i32
-  %gep599 = getelementptr i8, ptr %invariant.gep598, i64 %176
-  %276 = getelementptr i8, ptr %gep599, i64 3
+  %gep600 = getelementptr i8, ptr %invariant.gep599, i64 %176
+  %276 = getelementptr i8, ptr %gep600, i64 3
   %277 = load i8, ptr %276, align 1
   %278 = zext i8 %277 to i32
-  %279 = getelementptr i8, ptr %gep599, i64 -3
+  %279 = getelementptr i8, ptr %gep600, i64 -3
   %280 = load i8, ptr %279, align 1
   %281 = zext i8 %280 to i32
   %.neg528 = add nsw i32 %269, %272
@@ -1353,7 +1353,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %285 = sext i32 %284 to i64
   %286 = getelementptr inbounds i8, ptr %7, i64 %285
   %287 = load i8, ptr %286, align 1
-  %288 = trunc nuw nsw i64 %indvars.iv564 to i32
+  %288 = trunc nuw nsw i64 %indvars.iv565 to i32
   %289 = xor i32 %288, -1
   %290 = add i32 %12, %289
   %291 = sext i32 %290 to i64
@@ -1367,16 +1367,16 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %298 = zext i8 %297 to i32
   %299 = sub nsw i32 %295, %298
   %300 = shl nsw i32 %299, 1
-  %301 = getelementptr i8, ptr %gep597, i64 4
+  %301 = getelementptr i8, ptr %gep598, i64 4
   %302 = load i8, ptr %301, align 1
   %303 = zext i8 %302 to i32
-  %304 = getelementptr i8, ptr %gep597, i64 -2
+  %304 = getelementptr i8, ptr %gep598, i64 -2
   %305 = load i8, ptr %304, align 1
   %306 = zext i8 %305 to i32
-  %307 = getelementptr i8, ptr %gep599, i64 4
+  %307 = getelementptr i8, ptr %gep600, i64 4
   %308 = load i8, ptr %307, align 1
   %309 = zext i8 %308 to i32
-  %310 = getelementptr i8, ptr %gep599, i64 -2
+  %310 = getelementptr i8, ptr %gep600, i64 -2
   %311 = load i8, ptr %310, align 1
   %312 = zext i8 %311 to i32
   %.neg531 = add nsw i32 %300, %303
@@ -1398,16 +1398,16 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %327 = zext i8 %326 to i32
   %328 = sub nsw i32 %324, %327
   %329 = shl nsw i32 %328, 1
-  %330 = getelementptr i8, ptr %gep597, i64 5
+  %330 = getelementptr i8, ptr %gep598, i64 5
   %331 = load i8, ptr %330, align 1
   %332 = zext i8 %331 to i32
-  %333 = getelementptr i8, ptr %gep597, i64 -1
+  %333 = getelementptr i8, ptr %gep598, i64 -1
   %334 = load i8, ptr %333, align 1
   %335 = zext i8 %334 to i32
-  %336 = getelementptr i8, ptr %gep599, i64 5
+  %336 = getelementptr i8, ptr %gep600, i64 5
   %337 = load i8, ptr %336, align 1
   %338 = zext i8 %337 to i32
-  %339 = getelementptr i8, ptr %gep599, i64 -1
+  %339 = getelementptr i8, ptr %gep600, i64 -1
   %340 = load i8, ptr %339, align 1
   %341 = zext i8 %340 to i32
   %.neg534 = add nsw i32 %329, %332
@@ -1423,18 +1423,18 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   store i8 %347, ptr %350, align 1
   %351 = getelementptr inbounds i8, ptr %62, i64 %176
   %352 = load i8, ptr %351, align 1
-  %gep601 = getelementptr i8, ptr %invariant.gep600, i64 %indvars.iv564
-  store i8 %352, ptr %gep601, align 1
+  %gep602 = getelementptr i8, ptr %invariant.gep601, i64 %indvars.iv565
+  store i8 %352, ptr %gep602, align 1
   %353 = add nuw nsw i64 %176, 1
   %354 = getelementptr inbounds i8, ptr %62, i64 %353
   %355 = load i8, ptr %354, align 1
-  %gep603 = getelementptr i8, ptr %invariant.gep602, i64 %indvars.iv564
-  store i8 %355, ptr %gep603, align 1
+  %gep604 = getelementptr i8, ptr %invariant.gep603, i64 %indvars.iv565
+  store i8 %355, ptr %gep604, align 1
   %356 = add nuw nsw i64 %176, 2
   %357 = getelementptr inbounds i8, ptr %62, i64 %356
   %358 = load i8, ptr %357, align 1
-  %gep605 = getelementptr i8, ptr %invariant.gep604, i64 %indvars.iv564
-  store i8 %358, ptr %gep605, align 1
+  %gep606 = getelementptr i8, ptr %invariant.gep605, i64 %indvars.iv565
+  store i8 %358, ptr %gep606, align 1
   %359 = getelementptr inbounds i8, ptr %63, i64 %176
   %360 = load i8, ptr %359, align 1
   %361 = add nsw i32 %290, %89
@@ -1453,9 +1453,9 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %372 = sext i32 %371 to i64
   %373 = getelementptr inbounds i8, ptr %48, i64 %372
   store i8 %370, ptr %373, align 1
-  %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
-  %exitcond568.not = icmp eq i64 %indvars.iv.next565, %wide.trip.count567
-  br i1 %exitcond568.not, label %.loopexit, label %175, !llvm.loop !19
+  %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 1
+  %exitcond569.not = icmp eq i64 %indvars.iv.next566, %wide.trip.count568
+  br i1 %exitcond569.not, label %.loopexit, label %175, !llvm.loop !19
 
 .loopexit:                                        ; preds = %175, %108, %.preheader542, %.preheader541
   %374 = mul nsw i32 %20, %60
@@ -1476,6 +1476,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %388 = getelementptr inbounds i16, ptr %5, i64 %387
   %389 = sub nsw i32 %12, %.sroa.speculated440
   %390 = icmp slt i32 %.sroa.speculated440, %.sroa.speculated427
+  %invariant.op554 = add i32 %12, %28
   %391 = icmp slt i32 %20, %23
   %392 = icmp slt i32 %3, %4
   %393 = sext i32 %87 to i64
@@ -1485,33 +1486,32 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %397 = sext i32 %25 to i64
   %398 = sext i32 %60 to i64
   %399 = sext i32 %24 to i64
-  %invariant.gep616 = getelementptr i8, ptr %383, i64 %394
-  %wide.trip.count580 = sext i32 %4 to i64
-  %invariant.gep618 = getelementptr i8, ptr %383, i64 %394
+  %invariant.gep617 = getelementptr i8, ptr %383, i64 %394
+  %wide.trip.count581 = sext i32 %4 to i64
   br label %400
 
-400:                                              ; preds = %.loopexit, %._crit_edge556
-  %.1297559 = phi i32 [ 0, %.loopexit ], [ %473, %._crit_edge556 ]
-  %.0298558 = phi ptr [ %44, %.loopexit ], [ %474, %._crit_edge556 ]
-  %.0299557 = phi ptr [ %48, %.loopexit ], [ %475, %._crit_edge556 ]
-  %.not = icmp ugt i32 %.1297559, %15
+400:                                              ; preds = %.loopexit, %._crit_edge557
+  %.1297560 = phi i32 [ 0, %.loopexit ], [ %476, %._crit_edge557 ]
+  %.0298559 = phi ptr [ %44, %.loopexit ], [ %477, %._crit_edge557 ]
+  %.0299558 = phi ptr [ %48, %.loopexit ], [ %478, %._crit_edge557 ]
+  %.not = icmp ugt i32 %.1297560, %15
   %401 = select i1 %.not, i32 2, i32 0
   br i1 %390, label %.lr.ph551, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge586, %400
-  br i1 %391, label %.lr.ph555, label %._crit_edge556
+.preheader:                                       ; preds = %._crit_edge587, %400
+  br i1 %391, label %.lr.ph556, label %._crit_edge557
 
-.lr.ph551:                                        ; preds = %400, %._crit_edge586
-  %indvars.iv574 = phi i64 [ %416, %._crit_edge586 ], [ %381, %400 ]
-  %402 = getelementptr inbounds i8, ptr %.0299557, i64 %indvars.iv574
+.lr.ph551:                                        ; preds = %400, %._crit_edge587
+  %indvars.iv575 = phi i64 [ %416, %._crit_edge587 ], [ %381, %400 ]
+  %402 = getelementptr inbounds i8, ptr %.0299558, i64 %indvars.iv575
   %403 = load i8, ptr %402, align 1
   %404 = zext i8 %403 to i32
-  %405 = icmp sgt i64 %indvars.iv574, 0
+  %405 = icmp sgt i64 %indvars.iv575, 0
   br i1 %405, label %406, label %413
 
 406:                                              ; preds = %.lr.ph551
-  %407 = add nsw i64 %indvars.iv574, -1
-  %408 = getelementptr inbounds i8, ptr %.0299557, i64 %407
+  %407 = add nsw i64 %indvars.iv575, -1
+  %408 = getelementptr inbounds i8, ptr %.0299558, i64 %407
   %409 = load i8, ptr %408, align 1
   %410 = zext i8 %409 to i32
   %411 = add nuw nsw i32 %410, %404
@@ -1520,58 +1520,58 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
 
 413:                                              ; preds = %.lr.ph551, %406
   %414 = phi i32 [ %412, %406 ], [ %404, %.lr.ph551 ]
-  %415 = icmp slt i64 %indvars.iv574, %393
-  %416 = add nsw i64 %indvars.iv574, 1
-  br i1 %415, label %417, label %._crit_edge586
+  %415 = icmp slt i64 %indvars.iv575, %393
+  %416 = add nsw i64 %indvars.iv575, 1
+  br i1 %415, label %417, label %._crit_edge587
 
 417:                                              ; preds = %413
-  %418 = getelementptr inbounds i8, ptr %.0299557, i64 %416
+  %418 = getelementptr inbounds i8, ptr %.0299558, i64 %416
   %419 = load i8, ptr %418, align 1
   %420 = zext i8 %419 to i32
   %421 = add nuw nsw i32 %420, %404
   %.zext = lshr i32 %421, 1
-  br label %._crit_edge586
+  br label %._crit_edge587
 
-._crit_edge586:                                   ; preds = %413, %417
+._crit_edge587:                                   ; preds = %413, %417
   %422 = phi i32 [ %.zext, %417 ], [ %404, %413 ]
   %.sroa.speculated397 = tail call i32 @llvm.umin.i32(i32 %422, i32 %414)
   %.sroa.speculated388 = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated397, i32 %404)
   %.sroa.speculated394 = tail call i32 @llvm.umax.i32(i32 %414, i32 %422)
   %.sroa.speculated383 = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated394, i32 %404)
   %423 = trunc nuw i32 %.sroa.speculated388 to i8
-  %424 = getelementptr inbounds i8, ptr %383, i64 %indvars.iv574
+  %424 = getelementptr inbounds i8, ptr %383, i64 %indvars.iv575
   store i8 %423, ptr %424, align 1
   %425 = trunc nuw i32 %.sroa.speculated383 to i8
-  %gep617 = getelementptr i8, ptr %invariant.gep616, i64 %indvars.iv574
-  store i8 %425, ptr %gep617, align 1
+  %gep618 = getelementptr i8, ptr %invariant.gep617, i64 %indvars.iv575
+  store i8 %425, ptr %gep618, align 1
   %426 = icmp slt i64 %416, %395
   br i1 %426, label %.lr.ph551, label %.preheader, !llvm.loop !20
 
-.lr.ph555:                                        ; preds = %.preheader, %._crit_edge
-  %indvars.iv582 = phi i64 [ %indvars.iv.next583, %._crit_edge ], [ %397, %.preheader ]
-  %427 = getelementptr inbounds i8, ptr %.0298558, i64 %indvars.iv582
+.lr.ph556:                                        ; preds = %.preheader, %._crit_edge
+  %indvars.iv583 = phi i64 [ %indvars.iv.next584, %._crit_edge ], [ %397, %.preheader ]
+  %427 = getelementptr inbounds i8, ptr %.0298559, i64 %indvars.iv583
   %428 = load i8, ptr %427, align 1
   %429 = zext i8 %428 to i32
-  %430 = icmp eq i64 %indvars.iv582, 0
+  %430 = icmp eq i64 %indvars.iv583, 0
   br i1 %430, label %438, label %431
 
-431:                                              ; preds = %.lr.ph555
-  %432 = add nsw i64 %indvars.iv582, -1
-  %433 = getelementptr inbounds i8, ptr %.0298558, i64 %432
+431:                                              ; preds = %.lr.ph556
+  %432 = add nsw i64 %indvars.iv583, -1
+  %433 = getelementptr inbounds i8, ptr %.0298559, i64 %432
   %434 = load i8, ptr %433, align 1
   %435 = zext i8 %434 to i32
   %436 = add nuw nsw i32 %435, %429
   %437 = lshr i32 %436, 1
   br label %438
 
-438:                                              ; preds = %.lr.ph555, %431
-  %439 = phi i32 [ %437, %431 ], [ %429, %.lr.ph555 ]
-  %440 = icmp slt i64 %indvars.iv582, %393
+438:                                              ; preds = %.lr.ph556, %431
+  %439 = phi i32 [ %437, %431 ], [ %429, %.lr.ph556 ]
+  %440 = icmp slt i64 %indvars.iv583, %393
   br i1 %440, label %441, label %447
 
 441:                                              ; preds = %438
-  %442 = add nuw nsw i64 %indvars.iv582, 1
-  %443 = getelementptr inbounds i8, ptr %.0298558, i64 %442
+  %442 = add nuw nsw i64 %indvars.iv583, 1
+  %443 = getelementptr inbounds i8, ptr %.0298559, i64 %442
   %444 = load i8, ptr %443, align 1
   %445 = zext i8 %444 to i32
   %446 = add nuw nsw i32 %445, %429
@@ -1587,58 +1587,62 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   br i1 %392, label %.lr.ph553, label %._crit_edge
 
 .lr.ph553:                                        ; preds = %447
-  %449 = trunc nsw i64 %indvars.iv582 to i32
+  %449 = trunc nsw i64 %indvars.iv583 to i32
   %450 = xor i32 %449, -1
   %451 = add i32 %12, %450
-  %452 = mul nsw i64 %indvars.iv582, %398
+  %invariant.op.reass = add i32 %invariant.op554, %450
+  %452 = mul nsw i64 %indvars.iv583, %398
   %453 = sext i32 %451 to i64
-  %invariant.gep620 = getelementptr i16, ptr %388, i64 %452
+  %invariant.gep619 = getelementptr i16, ptr %388, i64 %452
   br label %454
 
 454:                                              ; preds = %.lr.ph553, %454
-  %indvars.iv577 = phi i64 [ %396, %.lr.ph553 ], [ %indvars.iv.next578, %454 ]
-  %455 = add nsw i64 %indvars.iv577, %453
-  %456 = getelementptr inbounds i8, ptr %.0299557, i64 %455
+  %indvars.iv578 = phi i64 [ %396, %.lr.ph553 ], [ %indvars.iv.next579, %454 ]
+  %455 = add nsw i64 %indvars.iv578, %453
+  %456 = getelementptr inbounds i8, ptr %.0299558, i64 %455
   %457 = load i8, ptr %456, align 1
   %458 = zext i8 %457 to i32
   %459 = getelementptr inbounds i8, ptr %383, i64 %455
   %460 = load i8, ptr %459, align 1
   %461 = zext i8 %460 to i32
-  %gep619 = getelementptr i8, ptr %invariant.gep618, i64 %455
-  %462 = load i8, ptr %gep619, align 1
-  %463 = zext i8 %462 to i32
-  %464 = sub nsw i32 %429, %463
-  %465 = sub nsw i32 %461, %429
-  %.sroa.speculated341 = tail call i32 @llvm.smax.i32(i32 %464, i32 %465)
+  %462 = trunc nsw i64 %indvars.iv578 to i32
+  %.reass = add i32 %invariant.op.reass, %462
+  %463 = sext i32 %.reass to i64
+  %464 = getelementptr inbounds i8, ptr %383, i64 %463
+  %465 = load i8, ptr %464, align 1
+  %466 = zext i8 %465 to i32
+  %467 = sub nsw i32 %429, %466
+  %468 = sub nsw i32 %461, %429
+  %.sroa.speculated341 = tail call i32 @llvm.smax.i32(i32 %467, i32 %468)
   %.sroa.speculated337 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated341, i32 0)
-  %466 = sub nsw i32 %458, %.sroa.speculated351
-  %467 = sub nsw i32 %.sroa.speculated357, %458
-  %.sroa.speculated325 = tail call i32 @llvm.smax.i32(i32 %466, i32 %467)
+  %469 = sub nsw i32 %458, %.sroa.speculated351
+  %470 = sub nsw i32 %.sroa.speculated357, %458
+  %.sroa.speculated325 = tail call i32 @llvm.smax.i32(i32 %469, i32 %470)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated325, i32 0)
-  %gep621 = getelementptr i16, ptr %invariant.gep620, i64 %indvars.iv577
-  %468 = load i16, ptr %gep621, align 2
+  %gep620 = getelementptr i16, ptr %invariant.gep619, i64 %indvars.iv578
+  %471 = load i16, ptr %gep620, align 2
   %.sroa.speculated332 = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 %.sroa.speculated337)
-  %469 = lshr i32 %.sroa.speculated332, %401
-  %470 = trunc nuw nsw i32 %469 to i16
-  %471 = add i16 %468, %470
-  store i16 %471, ptr %gep621, align 2
-  %indvars.iv.next578 = add nsw i64 %indvars.iv577, 1
-  %exitcond581.not = icmp eq i64 %indvars.iv.next578, %wide.trip.count580
-  br i1 %exitcond581.not, label %._crit_edge, label %454, !llvm.loop !21
+  %472 = lshr i32 %.sroa.speculated332, %401
+  %473 = trunc nuw nsw i32 %472 to i16
+  %474 = add i16 %471, %473
+  store i16 %474, ptr %gep620, align 2
+  %indvars.iv.next579 = add nsw i64 %indvars.iv578, 1
+  %exitcond582.not = icmp eq i64 %indvars.iv.next579, %wide.trip.count581
+  br i1 %exitcond582.not, label %._crit_edge, label %454, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %454, %447
-  %indvars.iv.next583 = add nuw nsw i64 %indvars.iv582, 1
-  %472 = icmp slt i64 %indvars.iv.next583, %399
-  br i1 %472, label %.lr.ph555, label %._crit_edge556, !llvm.loop !22
+  %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
+  %475 = icmp slt i64 %indvars.iv.next584, %399
+  br i1 %475, label %.lr.ph556, label %._crit_edge557, !llvm.loop !22
 
-._crit_edge556:                                   ; preds = %._crit_edge, %.preheader
-  %473 = add nuw nsw i32 %.1297559, 1
-  %474 = getelementptr inbounds i8, ptr %.0298558, i64 %50
-  %475 = getelementptr inbounds i8, ptr %.0299557, i64 %50
-  %exitcond585.not = icmp eq i32 %473, %49
-  br i1 %exitcond585.not, label %476, label %400, !llvm.loop !23
+._crit_edge557:                                   ; preds = %._crit_edge, %.preheader
+  %476 = add nuw nsw i32 %.1297560, 1
+  %477 = getelementptr inbounds i8, ptr %.0298559, i64 %50
+  %478 = getelementptr inbounds i8, ptr %.0299558, i64 %50
+  %exitcond586.not = icmp eq i32 %476, %49
+  br i1 %exitcond586.not, label %479, label %400, !llvm.loop !23
 
-476:                                              ; preds = %._crit_edge556
+479:                                              ; preds = %._crit_edge557
   ret void
 }
 

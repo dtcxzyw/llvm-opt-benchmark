@@ -4511,7 +4511,7 @@ if.else.i:                                        ; preds = %out
   br label %tran_finalize.exit
 
 tran_finalize.exit:                               ; preds = %if.then.i, %if.else.i
-  %cmp.i10 = phi i1 [ true, %if.then.i ], [ false, %if.else.i ]
+  %cmp.i10 = phi ptr [ null, %if.then.i ], [ %call2, %if.else.i ]
   %tobool.not.i = icmp eq ptr %child_bs, null
   br i1 %tobool.not.i, label %bdrv_schedule_unref.exit, label %if.end.i
 
@@ -4521,8 +4521,7 @@ if.end.i:                                         ; preds = %tran_finalize.exit
   br label %bdrv_schedule_unref.exit
 
 bdrv_schedule_unref.exit:                         ; preds = %tran_finalize.exit, %if.end.i
-  %cond = select i1 %cmp.i10, ptr null, ptr %call2
-  ret ptr %cond
+  ret ptr %cmp.i10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -4750,7 +4749,7 @@ if.else.i:                                        ; preds = %out
   br label %tran_finalize.exit
 
 tran_finalize.exit:                               ; preds = %if.then.i, %if.else.i
-  %cmp.i10 = phi i1 [ true, %if.then.i ], [ false, %if.else.i ]
+  %cmp.i10 = phi ptr [ null, %if.then.i ], [ %call2, %if.else.i ]
   %tobool.not.i = icmp eq ptr %child_bs, null
   br i1 %tobool.not.i, label %bdrv_schedule_unref.exit, label %if.end.i
 
@@ -4760,8 +4759,7 @@ if.end.i:                                         ; preds = %tran_finalize.exit
   br label %bdrv_schedule_unref.exit
 
 bdrv_schedule_unref.exit:                         ; preds = %tran_finalize.exit, %if.end.i
-  %cond = select i1 %cmp.i10, ptr null, ptr %call2
-  ret ptr %cond
+  ret ptr %cmp.i10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

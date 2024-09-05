@@ -477,6 +477,7 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture n
   %..i.i = select i1 %145, i64 -3523014627193847808, i64 -3523014627327384477
   %148 = zext i32 %142 to i64
   %149 = add nuw nsw i64 %148, 1
+  %invariant.op.i = add nuw nsw i64 %149, %144
   br label %152
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
@@ -512,9 +513,9 @@ define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture n
   %166 = load i32, ptr %165, align 4
   %167 = add i32 %166, 1
   store i32 %167, ptr %165, align 4
-  %168 = add i64 %149, %.02224.i
-  %169 = add i64 %168, %144
-  %.not.i = icmp ugt i64 %169, %159
+  %168 = add i64 %.02224.i, %149
+  %.reass.i = add i64 %invariant.op.i, %.02224.i
+  %.not.i = icmp ugt i64 %.reass.i, %159
   br i1 %.not.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 FASTCOVER_computeFrequency.exit:                  ; preds = %.loopexit.i, %136, %51, %54, %41, %44, %29, %32, %126, %100

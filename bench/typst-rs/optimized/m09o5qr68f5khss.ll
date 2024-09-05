@@ -67829,23 +67829,21 @@ define hidden noundef double @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$G
 .lr.ph:                                           ; preds = %4
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !18251, !noundef !4
+  %invariant.op = add i64 %16, %19
   %20 = getelementptr inbounds i8, ptr %2, i64 152
   %21 = load i8, ptr %20, align 8, !range !731, !noalias !18258, !noundef !4
   %22 = trunc nuw i8 %21 to i1
   %23 = getelementptr inbounds i8, ptr %3, i64 192
   %24 = getelementptr inbounds i8, ptr %3, i64 48
   %25 = load double, ptr %24, align 8
-  br i1 %22, label %.lr.ph.split, label %.lr.ph.split.us.preheader
+  %invariant.gep20 = getelementptr { i64, [3 x i64] }, ptr %10, i64 %16
+  br i1 %22, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %invariant.gep = getelementptr { i64, [3 x i64] }, ptr %10, i64 %16
-  br label %.lr.ph.split.us
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i.us"
-  %.016.us = phi double [ %41, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i.us" ], [ %1, %.lr.ph.split.us.preheader ]
-  %.sroa.02.015.us = phi i64 [ %26, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i.us" ], [ 0, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i.us"
+  %.016.us = phi double [ %41, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i.us" ], [ %1, %.lr.ph ]
+  %.sroa.02.015.us = phi i64 [ %26, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i.us" ], [ 0, %.lr.ph ]
   %26 = add nuw i64 %.sroa.02.015.us, 1
-  %gep = getelementptr { i64, [3 x i64] }, ptr %invariant.gep, i64 %.sroa.02.015.us
+  %gep = getelementptr { i64, [3 x i64] }, ptr %invariant.gep20, i64 %.sroa.02.015.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18258)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18261)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18264)
@@ -67891,51 +67889,50 @@ define hidden noundef double @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$G
   %.016 = phi double [ %.0.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2f1b70e5ff6e93a6E.exit" ], [ %1, %.lr.ph ]
   %.sroa.02.015 = phi i64 [ %42, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2f1b70e5ff6e93a6E.exit" ], [ 0, %.lr.ph ]
   %42 = add nuw i64 %.sroa.02.015, 1
-  %43 = add i64 %.sroa.02.015, %16
-  %44 = getelementptr inbounds { i64, [3 x i64] }, ptr %10, i64 %43
-  %45 = add i64 %19, %43
+  %gep21 = getelementptr { i64, [3 x i64] }, ptr %invariant.gep20, i64 %.sroa.02.015
+  %.reass = add i64 %.sroa.02.015, %invariant.op
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18258)
-  %46 = trunc i64 %45 to i1
-  br i1 %46, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2f1b70e5ff6e93a6E.exit", label %47
+  %43 = trunc i64 %.reass to i1
+  br i1 %43, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2f1b70e5ff6e93a6E.exit", label %44
 
-47:                                               ; preds = %.lr.ph.split
+44:                                               ; preds = %.lr.ph.split
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18261)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18264)
-  %48 = load i64, ptr %44, align 8, !range !97, !alias.scope !18267, !noundef !4
-  %49 = icmp eq i64 %48, 1
-  br i1 %49, label %50, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i"
+  %45 = load i64, ptr %gep21, align 8, !range !97, !alias.scope !18267, !noundef !4
+  %46 = icmp eq i64 %45, 1
+  br i1 %46, label %47, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i"
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %44, i64 8
-  %52 = getelementptr inbounds i8, ptr %44, i64 24
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %gep21, i64 8
+  %49 = getelementptr inbounds i8, ptr %gep21, i64 24
+  %50 = load double, ptr %49, align 8, !alias.scope !18267, !noundef !4
+  %51 = load double, ptr %48, align 8, !alias.scope !18267, !noundef !4
+  %52 = getelementptr inbounds i8, ptr %gep21, i64 16
   %53 = load double, ptr %52, align 8, !alias.scope !18267, !noundef !4
-  %54 = load double, ptr %51, align 8, !alias.scope !18267, !noundef !4
-  %55 = getelementptr inbounds i8, ptr %44, i64 16
-  %56 = load double, ptr %55, align 8, !alias.scope !18267, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !18267
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !18267
-  %57 = call noundef double @"_ZN85_$LT$typst..layout..length..Length$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17hd2482b2e081d5c8fE"(double noundef %54, double noundef %56, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !18267
+  %54 = call noundef double @"_ZN85_$LT$typst..layout..length..Length$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17hd2482b2e081d5c8fE"(double noundef %51, double noundef %53, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5), !noalias !18267
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !18267
-  %.0.i.inv.i.i.i.i.i.i.i.i.i.i = fcmp ord double %53, 0.000000e+00
-  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i, double %53, double 0.000000e+00
-  %58 = fmul double %.0.i.i.i.i.i.i.i.i.i.i, %25
-  %.0.i.inv.i.i.i.i.i.i.i.i = fcmp uno double %58, 0.000000e+00
-  %59 = tail call double @llvm.fabs.f64(double %58)
-  %60 = fcmp one double %59, 0x7FF0000000000000
-  %.0.i.i.i.i.i.i.i.i = select i1 %60, double %58, double 0.000000e+00
+  %.0.i.inv.i.i.i.i.i.i.i.i.i.i = fcmp ord double %50, 0.000000e+00
+  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i.i.i, double %50, double 0.000000e+00
+  %55 = fmul double %.0.i.i.i.i.i.i.i.i.i.i, %25
+  %.0.i.inv.i.i.i.i.i.i.i.i = fcmp uno double %55, 0.000000e+00
+  %56 = tail call double @llvm.fabs.f64(double %55)
+  %57 = fcmp one double %56, 0x7FF0000000000000
+  %.0.i.i.i.i.i.i.i.i = select i1 %57, double %55, double 0.000000e+00
   %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i.i.i.i.i
-  %61 = fadd double %57, %.0.i.i.i.i.i
-  %.0.i.inv.i.i.i.i.i.i.i = fcmp ord double %61, 0.000000e+00
-  %.0.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i, double %61, double 0.000000e+00
+  %58 = fadd double %54, %.0.i.i.i.i.i
+  %.0.i.inv.i.i.i.i.i.i.i = fcmp ord double %58, 0.000000e+00
+  %.0.i.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i.i, double %58, double 0.000000e+00
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i": ; preds = %50, %47
-  %.0.i.i.i = phi double [ %.0.i.i.i.i.i.i.i, %50 ], [ 0.000000e+00, %47 ]
-  %62 = fadd double %.016, %.0.i.i.i
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i": ; preds = %47, %44
+  %.0.i.i.i = phi double [ %.0.i.i.i.i.i.i.i, %47 ], [ 0.000000e+00, %44 ]
+  %59 = fadd double %.016, %.0.i.i.i
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2f1b70e5ff6e93a6E.exit"
 
 "_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2f1b70e5ff6e93a6E.exit": ; preds = %.lr.ph.split, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i"
-  %.0.i = phi double [ %62, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i" ], [ %.016, %.lr.ph.split ]
+  %.0.i = phi double [ %59, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha02ce86f9207f28aE.exit.i" ], [ %.016, %.lr.ph.split ]
   %exitcond18.not = icmp eq i64 %42, %.0.sroa.speculated.i
   br i1 %exitcond18.not, label %._crit_edge, label %.lr.ph.split
 }

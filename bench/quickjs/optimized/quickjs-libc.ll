@@ -9133,6 +9133,7 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef %1, ptr noun
   %.not36 = icmp eq ptr %14, null
   %spec.select = select i1 %.not36, ptr @.str.207, ptr %14
   %15 = add i64 %5, 1
+  %invariant.op = add i64 %5, -4095
   %invariant.gep = getelementptr inbounds i8, ptr %4, i64 1
   br label %.outer
 
@@ -9161,45 +9162,45 @@ define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef %1, ptr noun
 25:                                               ; preds = %20, %18
   %.033 = phi ptr [ %21, %20 ], [ null, %18 ]
   %.030 = phi i64 [ %24, %20 ], [ %19, %18 ]
-  %26 = add i64 %15, %.030
-  %27 = add i64 %26, -4096
-  %28 = icmp ult i64 %27, -4097
-  br i1 %28, label %select.unfold, label %29
+  %.reass = add i64 %.030, %invariant.op
+  %26 = icmp ult i64 %.reass, -4097
+  br i1 %26, label %select.unfold, label %27
 
-29:                                               ; preds = %25
+27:                                               ; preds = %25
+  %28 = add i64 %15, %.030
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.03241, i64 %.030, i1 false)
-  %30 = getelementptr [4096 x i8], ptr %4, i64 0, i64 %.030
-  store i8 47, ptr %30, align 1
+  %29 = getelementptr [4096 x i8], ptr %4, i64 0, i64 %.030
+  store i8 47, ptr %29, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.030
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %gep, ptr align 1 %0, i64 %5, i1 false)
-  %31 = getelementptr [4096 x i8], ptr %4, i64 0, i64 %26
-  store i8 0, ptr %31, align 1
-  %32 = call i32 @execve(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #30
-  %33 = tail call ptr @__errno_location() #29
-  %34 = load i32, ptr %33, align 4
-  switch i32 %34, label %.loopexit [
+  %30 = getelementptr [4096 x i8], ptr %4, i64 0, i64 %28
+  store i8 0, ptr %30, align 1
+  %31 = call i32 @execve(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #30
+  %32 = tail call ptr @__errno_location() #29
+  %33 = load i32, ptr %32, align 4
+  switch i32 %33, label %.loopexit [
     i32 13, label %select.unfold.thread
     i32 2, label %select.unfold
     i32 20, label %select.unfold
   ]
 
-select.unfold:                                    ; preds = %29, %29, %25
+select.unfold:                                    ; preds = %27, %27, %25
   %.not37 = icmp eq ptr %.033, null
-  br i1 %.not37, label %35, label %16, !llvm.loop !47
+  br i1 %.not37, label %34, label %16, !llvm.loop !47
 
-select.unfold.thread:                             ; preds = %29
+select.unfold.thread:                             ; preds = %27
   %.not3744 = icmp eq ptr %.033, null
   br i1 %.not3744, label %.thread, label %.outer, !llvm.loop !47
 
-35:                                               ; preds = %select.unfold
+34:                                               ; preds = %select.unfold
   br i1 %.not38, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %select.unfold.thread, %35
-  %36 = tail call ptr @__errno_location() #29
-  store i32 13, ptr %36, align 4
+.thread:                                          ; preds = %select.unfold.thread, %34
+  %35 = tail call ptr @__errno_location() #29
+  store i32 13, ptr %35, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %29, %35, %.thread, %11, %7
+.loopexit:                                        ; preds = %27, %34, %.thread, %11, %7
   ret void
 }
 

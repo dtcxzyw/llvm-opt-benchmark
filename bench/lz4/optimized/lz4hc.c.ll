@@ -12337,7 +12337,7 @@ for.body47.lr.ph:                                 ; preds = %for.cond44.preheade
   %add1.i.i2945 = add nuw nsw i32 %add.i.i2944, %div.i.i2943
   %spec.select2968 = select i1 %cmp.i.i2931, i32 %add1.i.i2945, i32 %conv.le
   %add.i2933 = add nsw i32 %spec.select2968, 3
-  %invariant.op = add i32 %spec.select2968, 4
+  %invariant.op.reass = add i32 %spec.select2968, 4
   br label %for.body47
 
 for.body:                                         ; preds = %for.body.preheader, %LZ4HC_literalsPrice.exit2891
@@ -12384,7 +12384,7 @@ if.then.i2936:                                    ; preds = %for.body47
   %95 = trunc i64 %indvars.iv3082 to i32
   %96 = add i32 %95, -19
   %div.i2938 = udiv i32 %96, 255
-  %add2.i2940.reass = add i32 %div.i2938, %invariant.op
+  %add2.i2940.reass = add i32 %div.i2938, %invariant.op.reass
   br label %LZ4HC_sequencePrice.exit2946
 
 LZ4HC_sequencePrice.exit2946:                     ; preds = %if.then.i2936, %for.body47
@@ -14891,7 +14891,7 @@ for.body209.lr.ph:                                ; preds = %for.cond206.prehead
   %arrayidx228 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %idxprom227
   %spec.select3304 = select i1 %cmp.i2864, i32 %add1.i2870, i32 %236
   %add.i2912 = add nsw i32 %spec.select3304, 3
-  %invariant.op3635 = add i32 1, %add.i2912
+  %invariant.op.reass3635 = add i32 %spec.select3304, 4
   br label %for.body209
 
 for.body170:                                      ; preds = %if.end162, %for.inc201
@@ -14963,7 +14963,7 @@ if.then.i2915:                                    ; preds = %cond.end
   %250 = trunc i64 %indvars.iv3106 to i32
   %251 = add i32 %250, -19
   %div.i2917 = udiv i32 %251, 255
-  %add2.i2919.reass = add i32 %div.i2917, %invariant.op3635
+  %add2.i2919.reass = add i32 %div.i2917, %invariant.op.reass3635
   br label %LZ4HC_sequencePrice.exit2925
 
 LZ4HC_sequencePrice.exit2925:                     ; preds = %if.then.i2915, %cond.end

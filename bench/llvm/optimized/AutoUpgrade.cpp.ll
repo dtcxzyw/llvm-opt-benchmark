@@ -29254,7 +29254,7 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSLLDQIntrinsicsRN4llvm9IRBui
   %19 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef %1, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(34) %4)
   %20 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %16) #20
   %21 = icmp ult i32 %2, 16
-  br i1 %21, label %.preheader39, label %35
+  br i1 %21, label %.preheader39, label %34
 
 .preheader39:                                     ; preds = %3
   %.not41 = icmp eq i32 %12, 0
@@ -29265,48 +29265,49 @@ define internal fastcc noundef ptr @_ZL26upgradeX86PSLLDQIntrinsicsRN4llvm9IRBui
   %.neg = sub i32 16, %12
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %31
-  %indvars.iv45 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next46, %31 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %30
+  %indvars.iv45 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next46, %30 ]
   %23 = trunc nuw i64 %indvars.iv45 to i32
+  %invariant.op = add i32 %22, %23
   br label %24
 
 24:                                               ; preds = %.preheader, %24
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %24 ]
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
-  %26 = add i32 %22, %25
-  %27 = icmp ult i32 %26, %12
-  %.neg43 = select i1 %27, i32 %.neg, i32 0
-  %.0 = add i32 %26, %23
-  %28 = add i32 %.0, %.neg43
-  %29 = add nuw nsw i64 %indvars.iv, %indvars.iv45
-  %30 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %29
-  store i32 %28, ptr %30, align 4
+  %indvars44 = trunc i64 %indvars.iv to i32
+  %25 = add i32 %22, %indvars44
+  %26 = icmp ult i32 %25, %12
+  %.neg43 = select i1 %26, i32 %.neg, i32 0
+  %.0.reass = add i32 %invariant.op, %indvars44
+  %27 = add i32 %.0.reass, %.neg43
+  %28 = add nuw nsw i64 %indvars.iv, %indvars.iv45
+  %29 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %28
+  store i32 %27, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not37 = icmp eq i64 %indvars.iv.next, 16
-  br i1 %.not37, label %31, label %24, !llvm.loop !138
+  br i1 %.not37, label %30, label %24, !llvm.loop !138
 
-31:                                               ; preds = %24
+30:                                               ; preds = %24
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 16
   %indvars = trunc i64 %indvars.iv.next46 to i32
   %.not = icmp eq i32 %12, %indvars
   br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !139
 
-._crit_edge:                                      ; preds = %31, %.preheader39
-  %32 = zext i32 %12 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i16 257, ptr %33, align 8
-  %34 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %20, ptr noundef %19, ptr nonnull %5, i64 %32, ptr noundef nonnull align 8 dereferenceable(34) %6)
-  br label %35
+._crit_edge:                                      ; preds = %30, %.preheader39
+  %31 = zext i32 %12 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i16 257, ptr %32, align 8
+  %33 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %20, ptr noundef %19, ptr nonnull %5, i64 %31, ptr noundef nonnull align 8 dereferenceable(34) %6)
+  br label %34
 
-35:                                               ; preds = %._crit_edge, %3
-  %.033 = phi ptr [ %34, %._crit_edge ], [ %20, %3 ]
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %37, align 1
+34:                                               ; preds = %._crit_edge, %3
+  %.033 = phi ptr [ %33, %._crit_edge ], [ %20, %3 ]
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %36, align 1
   store ptr @.str.53, ptr %7, align 8
-  store i8 3, ptr %36, align 8
-  %38 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef %.033, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(34) %7)
-  ret ptr %38
+  store i8 3, ptr %35, align 8
+  %37 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef %.033, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(34) %7)
+  ret ptr %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

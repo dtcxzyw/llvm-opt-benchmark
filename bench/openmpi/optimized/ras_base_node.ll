@@ -391,7 +391,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %166
 
 .lr.ph155:                                        ; preds = %183, %187
   %.086153 = phi i32 [ %196, %187 ], [ 1, %183 ]
-  %186 = call i32 @prte_node_copy(ptr noundef nonnull %3, ptr noundef nonnull %.0.i129) #11
+  %186 = call i32 @prte_node_copy(ptr noundef nonnull %3, ptr noundef %.0.i129) #11
   %.not119 = icmp eq i32 %186, 0
   br i1 %.not119, label %187, label %pmix_list_remove_first.exit.thread
 

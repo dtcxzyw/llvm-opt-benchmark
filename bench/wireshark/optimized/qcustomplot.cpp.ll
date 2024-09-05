@@ -34659,7 +34659,7 @@ _ZN4QMapId7QStringE10upperBoundERKd.exit.thread:  ; preds = %_ZN4QMapId7QStringE
   br label %_ZNK4QMapId7QStringE10constBeginEv.exit
 
 _ZNK4QMapId7QStringE10constBeginEv.exit:          ; preds = %_ZN4QMapId7QStringE10upperBoundERKd.exit.thread, %_ZN4QMapId7QStringE10upperBoundERKd.exit
-  %.not.i.i2145 = phi i1 [ false, %_ZN4QMapId7QStringE10upperBoundERKd.exit.thread ], [ true, %_ZN4QMapId7QStringE10upperBoundERKd.exit ]
+  %.not.i.i2145 = phi ptr [ %37, %_ZN4QMapId7QStringE10upperBoundERKd.exit.thread ], [ null, %_ZN4QMapId7QStringE10upperBoundERKd.exit ]
   %.08.lcssa.i.i.i.i1743 = phi ptr [ %.08.lcssa.i.i.i.i1742, %_ZN4QMapId7QStringE10upperBoundERKd.exit.thread ], [ %.19.i.i.i.i12, %_ZN4QMapId7QStringE10upperBoundERKd.exit ]
   %.sroa.0.0.i.i = phi ptr [ %44, %_ZN4QMapId7QStringE10upperBoundERKd.exit.thread ], [ null, %_ZN4QMapId7QStringE10upperBoundERKd.exit ]
   %.not = icmp eq ptr %.08.lcssa.i.i.i.i38, %.sroa.0.0.i.i
@@ -34671,8 +34671,7 @@ _ZNK4QMapId7QStringE10constBeginEv.exit:          ; preds = %_ZN4QMapId7QStringE
 
 47:                                               ; preds = %_ZNK4QMapId7QStringE10constBeginEv.exit, %45
   %.sroa.034.0 = phi ptr [ %46, %45 ], [ %.08.lcssa.i.i.i.i38, %_ZNK4QMapId7QStringE10constBeginEv.exit ]
-  %.sroa.0.0.i.i23 = select i1 %.not.i.i2145, ptr null, ptr %37
-  %.not46 = icmp eq ptr %.08.lcssa.i.i.i.i1743, %.sroa.0.0.i.i23
+  %.not46 = icmp eq ptr %.08.lcssa.i.i.i.i1743, %.not.i.i2145
   br i1 %.not46, label %50, label %48
 
 48:                                               ; preds = %47
@@ -34680,7 +34679,7 @@ _ZNK4QMapId7QStringE10constBeginEv.exit:          ; preds = %_ZN4QMapId7QStringE
   br label %50
 
 50:                                               ; preds = %48, %47
-  %.sroa.030.0 = phi ptr [ %49, %48 ], [ %.08.lcssa.i.i.i.i1743, %47 ]
+  %.sroa.030.0 = phi ptr [ %49, %48 ], [ %.not.i.i2145, %47 ]
   %.not4748 = icmp eq ptr %.sroa.034.0, %.sroa.030.0
   br i1 %.not4748, label %_ZNK4QMapId7QStringE7isEmptyEv.exit.thread, label %.lr.ph
 

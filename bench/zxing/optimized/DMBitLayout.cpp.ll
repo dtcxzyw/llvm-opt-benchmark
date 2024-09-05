@@ -487,7 +487,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i117.i:          ; preds = %212
 244:                                              ; preds = %241
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !4
   %reass.sub = sub i32 %.147.i, %31
-  %reass.sub.reass.i.reass.i = add i32 %reass.sub, 4
+  %reass.sub.reass.i.reass.reass.i = add i32 %reass.sub, 4
   br label %245
 
 245:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i132.i", %244
@@ -498,7 +498,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i117.i:          ; preds = %212
   %249 = getelementptr inbounds i8, ptr %246, i64 4
   %250 = load i32, ptr %249, align 4, !noalias !25
   %251 = icmp slt i32 %248, 0
-  %.020.i.v.i = select i1 %251, i32 %reass.sub.reass.i.reass.i, i32 %.147.i
+  %.020.i.v.i = select i1 %251, i32 %reass.sub.reass.i.reass.reass.i, i32 %.147.i
   %.020.i.i = add i32 %.020.i.v.i, %250
   %252 = select i1 %251, i32 %3, i32 0
   %.019.i.i = add nsw i32 %252, %248
@@ -629,7 +629,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i140.i:          ; preds = %274
 316:                                              ; preds = %313
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !4
   %reass.sub116 = sub i32 %.248.i, %31
-  %reass.sub.reass.i166.reass.i = add i32 %reass.sub116, 4
+  %reass.sub.reass.i166.reass.reass.i = add i32 %reass.sub116, 4
   br label %317
 
 317:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i163.i", %316
@@ -640,7 +640,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i140.i:          ; preds = %274
   %321 = getelementptr inbounds i8, ptr %318, i64 4
   %322 = load i32, ptr %321, align 4, !noalias !31
   %323 = icmp slt i32 %320, 0
-  %.020.i150.v.i = select i1 %323, i32 %reass.sub.reass.i166.reass.i, i32 %.248.i
+  %.020.i150.v.i = select i1 %323, i32 %reass.sub.reass.i166.reass.reass.i, i32 %.248.i
   %.020.i150.i = add i32 %.020.i150.v.i, %322
   %324 = select i1 %323, i32 %3, i32 0
   %.019.i151.i = add nsw i32 %324, %320
@@ -1604,7 +1604,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i111.i:          ; preds = %295
 331:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !42
   %reass.sub = sub i32 %.147.i, %118
-  %reass.sub.reass.i.reass.i = add i32 %reass.sub, 4
+  %reass.sub.reass.i.reass.reass.i = add i32 %reass.sub, 4
   br label %332
 
 332:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i126.i", %331
@@ -1615,7 +1615,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i111.i:          ; preds = %295
   %336 = getelementptr inbounds i8, ptr %333, i64 4
   %337 = load i32, ptr %336, align 4, !noalias !62
   %338 = icmp slt i32 %335, 0
-  %.020.i.v.i = select i1 %338, i32 %reass.sub.reass.i.reass.i, i32 %.147.i
+  %.020.i.v.i = select i1 %338, i32 %reass.sub.reass.i.reass.reass.i, i32 %.147.i
   %.020.i.i = add i32 %.020.i.v.i, %337
   %339 = select i1 %338, i32 %86, i32 0
   %.019.i.i = add nsw i32 %339, %335
@@ -1741,7 +1741,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i132.i:          ; preds = %357
 403:                                              ; preds = %400
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !42
   %reass.sub137 = sub i32 %.248.i, %118
-  %reass.sub.reass.i158.reass.i = add i32 %reass.sub137, 4
+  %reass.sub.reass.i158.reass.reass.i = add i32 %reass.sub137, 4
   br label %404
 
 404:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i155.i", %403
@@ -1752,7 +1752,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i132.i:          ; preds = %357
   %408 = getelementptr inbounds i8, ptr %405, i64 4
   %409 = load i32, ptr %408, align 4, !noalias !68
   %410 = icmp slt i32 %407, 0
-  %.020.i142.v.i = select i1 %410, i32 %reass.sub.reass.i158.reass.i, i32 %.248.i
+  %.020.i142.v.i = select i1 %410, i32 %reass.sub.reass.i158.reass.reass.i, i32 %.248.i
   %.020.i142.i = add i32 %.020.i142.v.i, %409
   %411 = select i1 %410, i32 %86, i32 0
   %.019.i143.i = add nsw i32 %411, %407

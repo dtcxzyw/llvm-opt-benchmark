@@ -11837,7 +11837,7 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
   br label %.thread
 
 .thread:                                          ; preds = %44, %51, %39, %60, %54
-  %62 = phi i1 [ true, %60 ], [ false, %54 ], [ false, %39 ], [ false, %51 ], [ false, %44 ]
+  %62 = phi ptr [ %2, %60 ], [ @.str.85, %54 ], [ @.str.85, %39 ], [ @.str.85, %51 ], [ @.str.85, %44 ]
   %63 = zext i32 %0 to i64
   %64 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %63) #29, !srcloc !10
   %65 = icmp ult i8 %64, 2
@@ -11909,86 +11909,85 @@ define internal fastcc void @print_cpu_stall_info(i32 noundef %0) unnamed_addr #
   %122 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 3576), align 8
   %123 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 3640), align 8
   %124 = sub i64 %122, %123
-  %125 = select i1 %62, ptr %2, ptr @.str.85
-  %126 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.80, i32 noundef %0, i32 noundef %103, i32 noundef %102, i32 noundef %101, i32 noundef %100, i64 noundef %17, ptr noundef nonnull %18, i32 noundef %108, i64 noundef %113, i64 noundef %115, i32 noundef %117, i32 noundef %121, i64 noundef %124, ptr noundef nonnull %125, ptr noundef nonnull %40) #32
-  %127 = load i64, ptr %4, align 8
-  %128 = add i64 %127, ptrtoint (ptr @kernel_cpustat to i64)
-  %129 = inttoptr i64 %128 to ptr
-  %130 = load i32, ptr @rcu_cpu_stall_cputime, align 4
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %194, label %132
+  %125 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.80, i32 noundef %0, i32 noundef %103, i32 noundef %102, i32 noundef %101, i32 noundef %100, i64 noundef %17, ptr noundef nonnull %18, i32 noundef %108, i64 noundef %113, i64 noundef %115, i32 noundef %117, i32 noundef %121, i64 noundef %124, ptr noundef nonnull %62, ptr noundef nonnull %40) #32
+  %126 = load i64, ptr %4, align 8
+  %127 = add i64 %126, ptrtoint (ptr @kernel_cpustat to i64)
+  %128 = inttoptr i64 %127 to ptr
+  %129 = load i32, ptr @rcu_cpu_stall_cputime, align 4
+  %130 = icmp eq i32 %129, 0
+  br i1 %130, label %193, label %131
 
-132:                                              ; preds = %99
-  %133 = add i64 %127, ptrtoint (ptr @rcu_data to i64)
-  %134 = inttoptr i64 %133 to ptr
-  %135 = getelementptr inbounds i8, ptr %134, i64 440
-  %136 = load i64, ptr %135, align 8
-  %137 = load i64, ptr %134, align 8
-  %138 = icmp eq i64 %136, %137
-  br i1 %138, label %139, label %194
+131:                                              ; preds = %99
+  %132 = add i64 %126, ptrtoint (ptr @rcu_data to i64)
+  %133 = inttoptr i64 %132 to ptr
+  %134 = getelementptr inbounds i8, ptr %133, i64 440
+  %135 = load i64, ptr %134, align 8
+  %136 = load i64, ptr %133, align 8
+  %137 = icmp eq i64 %135, %136
+  br i1 %137, label %138, label %193
 
-139:                                              ; preds = %132
-  %140 = getelementptr i8, ptr %129, i64 32
-  %141 = load i64, ptr %140, align 8
-  %142 = getelementptr i8, ptr %129, i64 24
-  %143 = load i64, ptr %142, align 8
-  %144 = getelementptr i8, ptr %129, i64 16
-  %145 = load i64, ptr %144, align 8
-  %146 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.87) #32
-  %147 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %63
-  %148 = load i64, ptr %147, align 8
-  %149 = add i64 %148, ptrtoint (ptr @kstat to i64)
-  %150 = inttoptr i64 %149 to ptr
-  %151 = load i64, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %134, i64 472
-  %153 = load i64, ptr %152, align 8
-  %154 = load i64, ptr %4, align 8
-  %155 = add i64 %154, ptrtoint (ptr @kstat to i64)
-  %156 = inttoptr i64 %155 to ptr
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
-  br label %158
+138:                                              ; preds = %131
+  %139 = getelementptr i8, ptr %128, i64 32
+  %140 = load i64, ptr %139, align 8
+  %141 = getelementptr i8, ptr %128, i64 24
+  %142 = load i64, ptr %141, align 8
+  %143 = getelementptr i8, ptr %128, i64 16
+  %144 = load i64, ptr %143, align 8
+  %145 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.87) #32
+  %146 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %63
+  %147 = load i64, ptr %146, align 8
+  %148 = add i64 %147, ptrtoint (ptr @kstat to i64)
+  %149 = inttoptr i64 %148 to ptr
+  %150 = load i64, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %133, i64 472
+  %152 = load i64, ptr %151, align 8
+  %153 = load i64, ptr %4, align 8
+  %154 = add i64 %153, ptrtoint (ptr @kstat to i64)
+  %155 = inttoptr i64 %154 to ptr
+  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  br label %157
 
-158:                                              ; preds = %158, %139
-  %159 = phi i64 [ 0, %139 ], [ %164, %158 ]
-  %160 = phi i32 [ 0, %139 ], [ %163, %158 ]
-  %161 = getelementptr [10 x i32], ptr %157, i64 0, i64 %159
-  %162 = load i32, ptr %161, align 4
-  %163 = add i32 %162, %160
-  %164 = add nuw nsw i64 %159, 1
-  %165 = icmp eq i64 %164, 10
-  br i1 %165, label %166, label %158, !llvm.loop !414
+157:                                              ; preds = %157, %138
+  %158 = phi i64 [ 0, %138 ], [ %163, %157 ]
+  %159 = phi i32 [ 0, %138 ], [ %162, %157 ]
+  %160 = getelementptr [10 x i32], ptr %156, i64 0, i64 %158
+  %161 = load i32, ptr %160, align 4
+  %162 = add i32 %161, %159
+  %163 = add nuw nsw i64 %158, 1
+  %164 = icmp eq i64 %163, 10
+  br i1 %164, label %165, label %157, !llvm.loop !414
 
-166:                                              ; preds = %158
-  %167 = sub i64 %151, %153
-  %168 = getelementptr inbounds i8, ptr %134, i64 480
-  %169 = load i32, ptr %168, align 8
-  %170 = sub i32 %163, %169
-  %171 = call i64 @nr_context_switches_cpu(i32 noundef %0) #29
-  %172 = getelementptr inbounds i8, ptr %134, i64 488
-  %173 = load i64, ptr %172, align 8
-  %174 = sub i64 %171, %173
-  %175 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.88, i64 noundef %167, i32 noundef %170, i64 noundef %174) #32
-  %176 = getelementptr inbounds i8, ptr %134, i64 448
-  %177 = load i64, ptr %176, align 8
-  %178 = sub i64 %141, %177
-  %179 = udiv i64 %178, 1000000
-  %180 = getelementptr inbounds i8, ptr %134, i64 456
-  %181 = load i64, ptr %180, align 8
-  %182 = sub i64 %143, %181
-  %183 = udiv i64 %182, 1000000
-  %184 = getelementptr inbounds i8, ptr %134, i64 464
-  %185 = load i64, ptr %184, align 8
-  %186 = sub i64 %145, %185
-  %187 = udiv i64 %186, 1000000
-  %188 = load volatile i64, ptr @jiffies, align 64
-  %189 = getelementptr inbounds i8, ptr %134, i64 496
-  %190 = load i64, ptr %189, align 8
-  %191 = sub i64 %188, %190
-  %192 = call i32 @jiffies_to_msecs(i64 noundef %191) #29
-  %193 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.89, i64 noundef %179, i64 noundef %183, i64 noundef %187, i32 noundef %192) #32
-  br label %194
+165:                                              ; preds = %157
+  %166 = sub i64 %150, %152
+  %167 = getelementptr inbounds i8, ptr %133, i64 480
+  %168 = load i32, ptr %167, align 8
+  %169 = sub i32 %162, %168
+  %170 = call i64 @nr_context_switches_cpu(i32 noundef %0) #29
+  %171 = getelementptr inbounds i8, ptr %133, i64 488
+  %172 = load i64, ptr %171, align 8
+  %173 = sub i64 %170, %172
+  %174 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.88, i64 noundef %166, i32 noundef %169, i64 noundef %173) #32
+  %175 = getelementptr inbounds i8, ptr %133, i64 448
+  %176 = load i64, ptr %175, align 8
+  %177 = sub i64 %140, %176
+  %178 = udiv i64 %177, 1000000
+  %179 = getelementptr inbounds i8, ptr %133, i64 456
+  %180 = load i64, ptr %179, align 8
+  %181 = sub i64 %142, %180
+  %182 = udiv i64 %181, 1000000
+  %183 = getelementptr inbounds i8, ptr %133, i64 464
+  %184 = load i64, ptr %183, align 8
+  %185 = sub i64 %144, %184
+  %186 = udiv i64 %185, 1000000
+  %187 = load volatile i64, ptr @jiffies, align 64
+  %188 = getelementptr inbounds i8, ptr %133, i64 496
+  %189 = load i64, ptr %188, align 8
+  %190 = sub i64 %187, %189
+  %191 = call i32 @jiffies_to_msecs(i64 noundef %190) #29
+  %192 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.89, i64 noundef %178, i64 noundef %182, i64 noundef %186, i32 noundef %191) #32
+  br label %193
 
-194:                                              ; preds = %166, %132, %99
+193:                                              ; preds = %165, %131, %99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #29
   ret void
 }

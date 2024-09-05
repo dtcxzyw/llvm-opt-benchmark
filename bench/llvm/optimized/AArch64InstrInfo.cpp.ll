@@ -34741,9 +34741,9 @@ define linkonce_odr hidden void @_ZN4llvm21fullyRecomputeLiveInsENS_8ArrayRefIPN
   %.not9.i.i.i.i.i.i.i.us = icmp eq ptr %15, %14
   br i1 %.not9.i.i.i.i.i.i.i.us, label %_ZStneIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.us, label %.lr.ph.i.i.i.i.i.i.i.us
 
-.lr.ph.i.i.i.i.i.i.i.us:                          ; preds = %26, %.lr.ph.i.i.i.i.i.i.i.us
-  %.011.i.i.i.i.i.i.i.us = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i.i.us ], [ %21, %26 ]
-  %.0810.i.i.i.i.i.i.i.us = phi ptr [ %34, %.lr.ph.i.i.i.i.i.i.i.us ], [ %15, %26 ]
+.lr.ph.i.i.i.i.i.i.i.us:                          ; preds = %26, %34
+  %.011.i.i.i.i.i.i.i.us = phi ptr [ %36, %34 ], [ %21, %26 ]
+  %.0810.i.i.i.i.i.i.i.us = phi ptr [ %35, %34 ], [ %15, %26 ]
   %27 = load i16, ptr %.0810.i.i.i.i.i.i.i.us, align 8
   %28 = load i16, ptr %.011.i.i.i.i.i.i.i.us, align 8
   %29 = icmp ne i16 %27, %28
@@ -34753,14 +34753,16 @@ define linkonce_odr hidden void @_ZN4llvm21fullyRecomputeLiveInsENS_8ArrayRefIPN
   %32 = load i64, ptr %30, align 8
   %33 = icmp ne i64 %32, %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.us
   %.not3.i.i.us = select i1 %29, i1 true, i1 %33
-  %34 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i.i.us, i64 16
-  %35 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i.i.us, i64 16
-  %.not.i.i.i.i.i.i.i.us = icmp eq ptr %34, %14
-  %or.cond = select i1 %.not3.i.i.us, i1 true, i1 %.not.i.i.i.i.i.i.i.us
-  br i1 %or.cond, label %_ZStneIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.us, label %.lr.ph.i.i.i.i.i.i.i.us, !llvm.loop !1026
+  br i1 %.not3.i.i.us, label %_ZStneIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.us, label %34
 
-_ZStneIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.us, %26, %.lr.ph.us
-  %36 = phi i1 [ true, %.lr.ph.us ], [ false, %26 ], [ %.not3.i.i.us, %.lr.ph.i.i.i.i.i.i.i.us ]
+34:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.us
+  %35 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i.i.us, i64 16
+  %36 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i.i.us, i64 16
+  %.not.i.i.i.i.i.i.i.us = icmp eq ptr %35, %14
+  br i1 %.not.i.i.i.i.i.i.i.us, label %_ZStneIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.us, label %.lr.ph.i.i.i.i.i.i.i.us, !llvm.loop !1026
+
+_ZStneIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EEbRKSt6vectorIT_T0_ES9_.exit.i.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.us, %34, %26, %.lr.ph.us
+  %spec.select.us = phi i1 [ true, %.lr.ph.us ], [ %.056.us, %26 ], [ %.056.us, %34 ], [ true, %.lr.ph.i.i.i.i.i.i.i.us ]
   %.not.i.i.i.i.us = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.us, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EED2Ev.exit.i.us, label %37
 
@@ -34786,7 +34788,6 @@ _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EED2Ev.exit.i.us:
 _ZN4llvmL16recomputeLiveInsERNS_17MachineBasicBlockE.exit.us: ; preds = %45, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EED2Ev.exit.i.us
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %spec.select.us = select i1 %36, i1 true, i1 %.056.us
   %46 = add nuw i64 %.07.us, 1
   %exitcond.not = icmp ne i64 %46, %1
   %brmerge = select i1 %exitcond.not, i1 true, i1 %spec.select.us

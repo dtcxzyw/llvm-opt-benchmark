@@ -5283,14 +5283,14 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
   store double %141, ptr %142, align 8
   %143 = add nsw i64 %.383.us.i, 1
   %144 = add nuw nsw i64 %.084.us.i, 1
-  %exitcond96.not.i = icmp eq i64 %144, %.0258395
-  br i1 %exitcond96.not.i, label %._crit_edge.us90.i, label %138, !llvm.loop !82
+  %exitcond98.not.i = icmp eq i64 %144, %.0258395
+  br i1 %exitcond98.not.i, label %._crit_edge.us90.i, label %138, !llvm.loop !82
 
 ._crit_edge.us90.i:                               ; preds = %138
   %145 = add nsw i64 %143, %111
   %146 = add nsw i64 %.05786.us.i, 1
-  %exitcond97.not.i = icmp eq i64 %146, %.sroa.speculated341
-  br i1 %exitcond97.not.i, label %_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1ELb0ELb1EEclEPdRKS3_llll.exit, label %.lr.ph.us89.i, !llvm.loop !83
+  %exitcond99.not.i = icmp eq i64 %146, %.sroa.speculated341
+  br i1 %exitcond99.not.i, label %_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1ELb0ELb1EEclEPdRKS3_llll.exit, label %.lr.ph.us89.i, !llvm.loop !83
 
 _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1ELb0ELb1EEclEPdRKS3_llll.exit: ; preds = %._crit_edge.us90.i, %.preheader.i, %110
   %147 = add nuw nsw i64 %.0258395, 4
@@ -5480,8 +5480,8 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
   store <2 x double> %229, ptr %230, align 16
   %231 = add nsw i64 %.3120.us.i, 2
   %232 = add nuw nsw i64 %.086121.us.i, 1
-  %exitcond154.not.i = icmp eq i64 %232, %.sroa.speculated
-  br i1 %exitcond154.not.i, label %._crit_edge.us128.i, label %226, !llvm.loop !92
+  %exitcond156.not.i = icmp eq i64 %232, %.sroa.speculated
+  br i1 %exitcond156.not.i, label %._crit_edge.us128.i, label %226, !llvm.loop !92
 
 ._crit_edge.us128.i:                              ; preds = %226
   %233 = add nsw i64 %231, %223
@@ -5518,14 +5518,14 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
   %245 = getelementptr inbounds double, ptr %35, i64 %.5134.us.i
   store double %243, ptr %245, align 8
   %246 = add nuw nsw i64 %.0135.us.i, 1
-  %exitcond155.not.i = icmp eq i64 %246, %.sroa.speculated
-  br i1 %exitcond155.not.i, label %._crit_edge.us141.i, label %240, !llvm.loop !94
+  %exitcond157.not.i = icmp eq i64 %246, %.sroa.speculated
+  br i1 %exitcond157.not.i, label %._crit_edge.us141.i, label %240, !llvm.loop !94
 
 ._crit_edge.us141.i:                              ; preds = %240
   %247 = add nsw i64 %237, %244
   %248 = add nuw nsw i64 %.2137.us.i, 1
-  %exitcond156.not.i = icmp eq i64 %248, %.sroa.speculated334
-  br i1 %exitcond156.not.i, label %_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi2EDv2_dLi0ELb0ELb1EEclEPdRKS3_llll.exit, label %.lr.ph.us140.i, !llvm.loop !95
+  %exitcond158.not.i = icmp eq i64 %248, %.sroa.speculated334
+  br i1 %exitcond158.not.i, label %_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi2EDv2_dLi0ELb0ELb1EEclEPdRKS3_llll.exit, label %.lr.ph.us140.i, !llvm.loop !95
 
 _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi2EDv2_dLi0ELb0ELb1EEclEPdRKS3_llll.exit: ; preds = %._crit_edge.us141.i, %.lr.ph116.i, %.lr.ph124.i, %.preheader.i319
   %249 = add nuw nsw i64 %.0260409, 4
@@ -11929,14 +11929,14 @@ _ZN5Eigen8internal13gemm_pack_rhsIflNS0_22const_blas_data_mapperIflLi1EEELi4ELi1
   store float %126, ptr %127, align 4
   %128 = add nsw i64 %.365.us.i, 1
   %129 = add nuw nsw i64 %.066.us.i, 1
-  %exitcond78.not.i = icmp eq i64 %129, %.0258395
-  br i1 %exitcond78.not.i, label %._crit_edge.us72.i, label %123, !llvm.loop !285
+  %exitcond80.not.i = icmp eq i64 %129, %.0258395
+  br i1 %exitcond80.not.i, label %._crit_edge.us72.i, label %123, !llvm.loop !285
 
 ._crit_edge.us72.i:                               ; preds = %123
   %130 = add nsw i64 %128, %102
   %131 = add nsw i64 %.04268.us.i, 1
-  %exitcond79.not.i = icmp eq i64 %131, %.sroa.speculated341
-  br i1 %exitcond79.not.i, label %_ZN5Eigen8internal13gemm_pack_rhsIflNS0_22const_blas_data_mapperIflLi1EEELi4ELi1ELb0ELb1EEclEPfRKS3_llll.exit, label %.lr.ph.us71.i, !llvm.loop !286
+  %exitcond81.not.i = icmp eq i64 %131, %.sroa.speculated341
+  br i1 %exitcond81.not.i, label %_ZN5Eigen8internal13gemm_pack_rhsIflNS0_22const_blas_data_mapperIflLi1EEELi4ELi1ELb0ELb1EEclEPfRKS3_llll.exit, label %.lr.ph.us71.i, !llvm.loop !286
 
 _ZN5Eigen8internal13gemm_pack_rhsIflNS0_22const_blas_data_mapperIflLi1EEELi4ELi1ELb0ELb1EEclEPfRKS3_llll.exit: ; preds = %._crit_edge.us72.i, %.preheader.i, %101
   %132 = add nuw nsw i64 %.0258395, 8
@@ -12126,8 +12126,8 @@ _ZN5Eigen8internal13gemm_pack_rhsIflNS0_22const_blas_data_mapperIflLi1EEELi4ELi1
   store <4 x float> %214, ptr %215, align 16
   %216 = add nsw i64 %.3120.us.i, 4
   %217 = add nuw nsw i64 %.086121.us.i, 1
-  %exitcond154.not.i = icmp eq i64 %217, %.sroa.speculated
-  br i1 %exitcond154.not.i, label %._crit_edge.us128.i, label %211, !llvm.loop !294
+  %exitcond156.not.i = icmp eq i64 %217, %.sroa.speculated
+  br i1 %exitcond156.not.i, label %._crit_edge.us128.i, label %211, !llvm.loop !294
 
 ._crit_edge.us128.i:                              ; preds = %211
   %218 = add nsw i64 %216, %208
@@ -12164,14 +12164,14 @@ _ZN5Eigen8internal13gemm_pack_rhsIflNS0_22const_blas_data_mapperIflLi1EEELi4ELi1
   %230 = getelementptr inbounds float, ptr %35, i64 %.5134.us.i
   store float %228, ptr %230, align 4
   %231 = add nuw nsw i64 %.0135.us.i, 1
-  %exitcond155.not.i = icmp eq i64 %231, %.sroa.speculated
-  br i1 %exitcond155.not.i, label %._crit_edge.us141.i, label %225, !llvm.loop !296
+  %exitcond157.not.i = icmp eq i64 %231, %.sroa.speculated
+  br i1 %exitcond157.not.i, label %._crit_edge.us141.i, label %225, !llvm.loop !296
 
 ._crit_edge.us141.i:                              ; preds = %225
   %232 = add nsw i64 %222, %229
   %233 = add nuw nsw i64 %.2137.us.i, 1
-  %exitcond156.not.i = icmp eq i64 %233, %.sroa.speculated334
-  br i1 %exitcond156.not.i, label %_ZN5Eigen8internal13gemm_pack_lhsIflNS0_16blas_data_mapperIflLi0ELi0ELi1EEELi8ELi4EDv4_fLi0ELb0ELb1EEclEPfRKS3_llll.exit, label %.lr.ph.us140.i, !llvm.loop !297
+  %exitcond158.not.i = icmp eq i64 %233, %.sroa.speculated334
+  br i1 %exitcond158.not.i, label %_ZN5Eigen8internal13gemm_pack_lhsIflNS0_16blas_data_mapperIflLi0ELi0ELi1EEELi8ELi4EDv4_fLi0ELb0ELb1EEclEPfRKS3_llll.exit, label %.lr.ph.us140.i, !llvm.loop !297
 
 _ZN5Eigen8internal13gemm_pack_lhsIflNS0_16blas_data_mapperIflLi0ELi0ELi1EEELi8ELi4EDv4_fLi0ELb0ELb1EEclEPfRKS3_llll.exit: ; preds = %._crit_edge.us141.i, %.lr.ph116.i, %.lr.ph124.i, %.preheader.i319
   %234 = add nuw nsw i64 %.0260409, 8

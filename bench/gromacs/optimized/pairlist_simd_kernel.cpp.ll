@@ -27,40 +27,42 @@ define void @_ZN5Nbnxm26setICellCoordinatesSimd4xMEiRKN3gmx11BasicVectorIfEEiPKf
   %9 = shl i32 %0, 2
   %10 = and i32 %9, 4
   %11 = or disjoint i32 %8, %10
-  %12 = sext i32 %11 to i64
-  %invariant.gep.i = getelementptr float, ptr %3, i64 %12
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %23, %5
-  %indvars.iv4.i = phi i64 [ 0, %5 ], [ %indvars.iv.next5.i, %23 ]
-  %13 = mul nuw nsw i64 %indvars.iv4.i, 3
-  %invariant.gep9.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv4.i
-  br label %14
+.preheader.i:                                     ; preds = %27, %5
+  %indvars.iv4.i = phi i64 [ 0, %5 ], [ %indvars.iv.next5.i, %27 ]
+  %12 = mul nuw nsw i64 %indvars.iv4.i, 3
+  %13 = trunc i64 %indvars.iv4.i to i32
+  %14 = add i32 %11, %13
+  br label %15
 
-14:                                               ; preds = %14, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %14 ]
-  %15 = add nuw nsw i64 %indvars.iv.i, %13
-  %.idx.i = shl nsw i64 %15, 5
-  %16 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
-  %.idx8.i = shl i64 %indvars.iv.i, 5
-  %gep10.i = getelementptr i8, ptr %invariant.gep9.i, i64 %.idx8.i
-  %17 = load float, ptr %gep10.i, align 4
-  %18 = getelementptr inbounds [3 x float], ptr %1, i64 0, i64 %indvars.iv.i
-  %19 = load float, ptr %18, align 4
-  %20 = fadd float %17, %19
-  %21 = insertelement <8 x float> poison, float %20, i64 0
-  %22 = shufflevector <8 x float> %21, <8 x float> poison, <8 x i32> zeroinitializer
-  store <8 x float> %22, ptr %16, align 32
+15:                                               ; preds = %15, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %15 ]
+  %16 = add nuw nsw i64 %indvars.iv.i, %12
+  %.idx.i = shl nsw i64 %16, 5
+  %17 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
+  %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
+  %18 = shl i32 %indvars.iv.tr.i, 3
+  %.reass.i = add i32 %14, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds float, ptr %3, i64 %19
+  %21 = load float, ptr %20, align 4
+  %22 = getelementptr inbounds [3 x float], ptr %1, i64 0, i64 %indvars.iv.i
+  %23 = load float, ptr %22, align 4
+  %24 = fadd float %21, %23
+  %25 = insertelement <8 x float> poison, float %24, i64 0
+  %26 = shufflevector <8 x float> %25, <8 x float> poison, <8 x i32> zeroinitializer
+  store <8 x float> %26, ptr %17, align 32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %23, label %14, !llvm.loop !5
+  br i1 %exitcond.not.i, label %27, label %15, !llvm.loop !5
 
-23:                                               ; preds = %14
+27:                                               ; preds = %15
   %indvars.iv.next5.i = add nuw nsw i64 %indvars.iv4.i, 1
-  %exitcond7.not.i = icmp eq i64 %indvars.iv.next5.i, 4
-  br i1 %exitcond7.not.i, label %_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType1EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.exit, label %.preheader.i, !llvm.loop !7
+  %exitcond8.not.i = icmp eq i64 %indvars.iv.next5.i, 4
+  br i1 %exitcond8.not.i, label %_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType1EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.exit, label %.preheader.i, !llvm.loop !7
 
-_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType1EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.exit: ; preds = %23
+_ZN5NbnxmL23setICellCoordinatesSimdIL25ClusterDistanceKernelType1EEEviRKN3gmx11BasicVectorIfEEiPKfP20NbnxnPairlistCpuWork.exit: ; preds = %27
   ret void
 }
 

@@ -21433,22 +21433,25 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_
   %234 = sext i1 %2 to i64
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %239
-  %.sroa.0174.0193.us = phi ptr [ %240, %239 ], [ %231, %.lr.ph ]
-  %235 = load i64, ptr %.sroa.0174.0193.us, align 8
-  %236 = add nsw i64 %235, %234
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %invariant.op = add nuw nsw i64 %75, %234
+  br label %235
+
+235:                                              ; preds = %239, %.lr.ph.split.us
+  %.sroa.0174.0193.us = phi ptr [ %231, %.lr.ph.split.us ], [ %240, %239 ]
+  %236 = load i64, ptr %.sroa.0174.0193.us, align 8
   %237 = icmp slt i64 %236, 0
   br i1 %237, label %238, label %239
 
-238:                                              ; preds = %.lr.ph.split.us
-  %simplifycfg.merge.us = add nsw i64 %75, %236
-  store i64 %simplifycfg.merge.us, ptr %.sroa.0174.0193.us, align 8
+238:                                              ; preds = %235
+  %simplifycfg.merge.us.reass = add i64 %236, %invariant.op
+  store i64 %simplifycfg.merge.us.reass, ptr %.sroa.0174.0193.us, align 8
   br label %239
 
-239:                                              ; preds = %238, %.lr.ph.split.us
+239:                                              ; preds = %238, %235
   %240 = getelementptr inbounds i8, ptr %.sroa.0174.0193.us, i64 8
   %.not190.us = icmp eq ptr %240, %233
-  br i1 %.not190.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not190.us, label %._crit_edge, label %235
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %289
   %.sroa.0174.0193 = phi ptr [ %293, %289 ], [ %231, %.lr.ph ]
@@ -28611,22 +28614,25 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_
   %447 = sext i1 %2 to i64
   br i1 %2, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %452
-  %.sroa.0310.0343.us = phi ptr [ %453, %452 ], [ %444, %.lr.ph ]
-  %448 = load i64, ptr %.sroa.0310.0343.us, align 8
-  %449 = add nsw i64 %448, %447
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %invariant.op = add nuw nsw i64 %284, %447
+  br label %448
+
+448:                                              ; preds = %452, %.lr.ph.split.us
+  %.sroa.0310.0343.us = phi ptr [ %444, %.lr.ph.split.us ], [ %453, %452 ]
+  %449 = load i64, ptr %.sroa.0310.0343.us, align 8
   %450 = icmp slt i64 %449, 0
   br i1 %450, label %451, label %452
 
-451:                                              ; preds = %.lr.ph.split.us
-  %simplifycfg.merge.us = add nsw i64 %284, %449
-  store i64 %simplifycfg.merge.us, ptr %.sroa.0310.0343.us, align 8
+451:                                              ; preds = %448
+  %simplifycfg.merge.us.reass = add i64 %449, %invariant.op
+  store i64 %simplifycfg.merge.us.reass, ptr %.sroa.0310.0343.us, align 8
   br label %452
 
-452:                                              ; preds = %451, %.lr.ph.split.us
+452:                                              ; preds = %451, %448
   %453 = getelementptr inbounds i8, ptr %.sroa.0310.0343.us, i64 8
   %.not340.us = icmp eq ptr %453, %446
-  br i1 %.not340.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not340.us, label %._crit_edge, label %448
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %502
   %.sroa.0310.0343 = phi ptr [ %506, %502 ], [ %444, %.lr.ph ]

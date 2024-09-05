@@ -260,7 +260,6 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 1
   %.not147.not = icmp eq i32 %54, 0
-  %.163 = select i1 %.not147.not, i32 0, i32 %1
   %.b = load i1, ptr @uv__io_poll.no_epoll_pwait_cached, align 4
   %55 = zext i1 %.b to i32
   %.b145 = load i1, ptr @uv__io_poll.no_epoll_wait_cached, align 4
@@ -272,28 +271,26 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   %60 = getelementptr inbounds i8, ptr %0, i64 560
   br label %select.unfold.outer
 
-select.unfold.outer:                              ; preds = %48, %160
-  %.0133.ph = phi i32 [ %1, %48 ], [ %163, %160 ]
-  %.0127.ph = phi i32 [ 48, %48 ], [ %.0127.ph174, %160 ]
-  %.0124.ph = phi i32 [ %56, %48 ], [ %.1125, %160 ]
-  %.1117.ph = phi i1 [ %.not147.not, %48 ], [ true, %160 ]
-  %.0114.ph = phi i32 [ %55, %48 ], [ %.1115, %160 ]
-  %.1.ph = phi i32 [ %spec.select172, %48 ], [ %163, %160 ]
+select.unfold.outer:                              ; preds = %48, %159
+  %.0133.ph = phi i32 [ %1, %48 ], [ %162, %159 ]
+  %.0127.ph = phi i32 [ 48, %48 ], [ %.0127.ph174, %159 ]
+  %.0124.ph = phi i32 [ %56, %48 ], [ %.1125, %159 ]
+  %.0114.ph = phi i32 [ %55, %48 ], [ %.1115, %159 ]
+  %.1.ph = phi i32 [ %spec.select172, %48 ], [ %162, %159 ]
   br label %select.unfold.outer173
 
-select.unfold.outer173:                           ; preds = %select.unfold.outer, %156
-  %.0127.ph174 = phi i32 [ %.0127.ph, %select.unfold.outer ], [ %158, %156 ]
-  %.0124.ph175 = phi i32 [ %.0124.ph, %select.unfold.outer ], [ %.1125, %156 ]
-  %.1117.ph176 = phi i1 [ %.1117.ph, %select.unfold.outer ], [ true, %156 ]
-  %.0114.ph177 = phi i32 [ %.0114.ph, %select.unfold.outer ], [ %.1115, %156 ]
-  %.1.ph178 = phi i32 [ %.1.ph, %select.unfold.outer ], [ 0, %156 ]
+select.unfold.outer173:                           ; preds = %select.unfold.outer, %155
+  %.0127.ph174 = phi i32 [ %.0127.ph, %select.unfold.outer ], [ %157, %155 ]
+  %.0124.ph175 = phi i32 [ %.0124.ph, %select.unfold.outer ], [ %.1125, %155 ]
+  %.1117.ph176 = phi i32 [ %.0133.ph, %select.unfold.outer ], [ 0, %155 ]
+  %.0114.ph177 = phi i32 [ %.0114.ph, %select.unfold.outer ], [ %.1115, %155 ]
+  %.1.ph178 = phi i32 [ %.1.ph, %select.unfold.outer ], [ 0, %155 ]
   br label %select.unfold.outer179
 
 select.unfold.outer179:                           ; preds = %select.unfold.outer179.backedge, %select.unfold.outer173
   %.0124.ph180 = phi i32 [ %.0124.ph175, %select.unfold.outer173 ], [ %.1125, %select.unfold.outer179.backedge ]
-  %.1117.ph181 = phi i1 [ %.1117.ph176, %select.unfold.outer173 ], [ true, %select.unfold.outer179.backedge ]
   %.0114.ph182 = phi i32 [ %.0114.ph177, %select.unfold.outer173 ], [ %.1115, %select.unfold.outer179.backedge ]
-  %.1.ph183 = phi i32 [ %.1.ph178, %select.unfold.outer173 ], [ %.1.ph183.be, %select.unfold.outer179.backedge ]
+  %.1.ph183 = phi i32 [ %.1.ph178, %select.unfold.outer173 ], [ %.1117.ph176, %select.unfold.outer179.backedge ]
   %.not148 = icmp eq i32 %.1.ph183, 0
   br label %select.unfold
 
@@ -387,14 +384,12 @@ select.unfold:                                    ; preds = %select.unfold.outer
   ]
 
 94:                                               ; preds = %89
-  %spec.select = select i1 %.1117.ph181, i32 %.1.ph183, i32 %.163
-  switch i32 %spec.select, label %160 [
+  switch i32 %.1117.ph176, label %159 [
     i32 -1, label %select.unfold.outer179.backedge
     i32 0, label %.loopexit
   ]
 
-select.unfold.outer179.backedge:                  ; preds = %94, %97, %159
-  %.1.ph183.be = phi i32 [ %spec.select, %94 ], [ %spec.select167, %97 ], [ %spec.select168244, %159 ]
+select.unfold.outer179.backedge:                  ; preds = %94, %97, %158
   br label %select.unfold.outer179
 
 95:                                               ; preds = %89
@@ -408,8 +403,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %159
   unreachable
 
 97:                                               ; preds = %95
-  %spec.select167 = select i1 %.1117.ph181, i32 %.1.ph183, i32 %.163
-  switch i32 %spec.select167, label %160 [
+  switch i32 %.1117.ph176, label %159 [
     i32 -1, label %select.unfold.outer179.backedge
     i32 0, label %.loopexit
   ]
@@ -430,10 +424,6 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %159
   store ptr %104, ptr %109, align 8
   %110 = icmp sgt i32 %.0126, 0
   br i1 %110, label %.lr.ph212.preheader, label %._crit_edge213.thread
-
-._crit_edge213.thread:                            ; preds = %98
-  %spec.select168241 = select i1 %.1117.ph181, i32 %.1.ph183, i32 %.163
-  br label %145
 
 .lr.ph212.preheader:                              ; preds = %98
   %wide.trip.count = zext nneg i32 %.0126 to i64
@@ -508,57 +498,55 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %159
 ._crit_edge213:                                   ; preds = %140
   %141 = icmp eq i32 %.1131, 0
   %142 = icmp eq i32 %.1129, 0
-  %spec.select168 = select i1 %.1117.ph181, i32 %.1.ph183, i32 %.163
-  br i1 %141, label %145, label %143
+  br i1 %141, label %._crit_edge213.thread, label %143
 
 143:                                              ; preds = %._crit_edge213
   call void @uv__metrics_update_idle_time(ptr noundef %0) #7
   %144 = load ptr, ptr %60, align 8
   call void %144(ptr noundef %0, ptr noundef nonnull %60, i32 noundef 1) #7
-  br label %145
+  br label %._crit_edge213.thread
 
-145:                                              ; preds = %._crit_edge213.thread, %143, %._crit_edge213
-  %spec.select168244 = phi i32 [ %spec.select168241, %._crit_edge213.thread ], [ %spec.select168, %143 ], [ %spec.select168, %._crit_edge213 ]
-  %.0128.lcssa243 = phi i1 [ true, %._crit_edge213.thread ], [ %142, %143 ], [ %142, %._crit_edge213 ]
-  %.0130.lcssa242 = phi i1 [ true, %._crit_edge213.thread ], [ false, %143 ], [ true, %._crit_edge213 ]
-  %146 = load ptr, ptr %58, align 8
-  %147 = load i32, ptr %59, align 8
-  %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds ptr, ptr %146, i64 %148
-  store ptr null, ptr %149, align 8
-  %150 = load ptr, ptr %58, align 8
-  %151 = load i32, ptr %59, align 8
-  %152 = add i32 %151, 1
-  %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds ptr, ptr %150, i64 %153
-  store ptr null, ptr %154, align 8
-  br i1 %.0130.lcssa242, label %155, label %.loopexit
+._crit_edge213.thread:                            ; preds = %98, %143, %._crit_edge213
+  %.0128.lcssa242 = phi i1 [ %142, %143 ], [ %142, %._crit_edge213 ], [ true, %98 ]
+  %.0130.lcssa241 = phi i1 [ false, %143 ], [ true, %._crit_edge213 ], [ true, %98 ]
+  %145 = load ptr, ptr %58, align 8
+  %146 = load i32, ptr %59, align 8
+  %147 = zext i32 %146 to i64
+  %148 = getelementptr inbounds ptr, ptr %145, i64 %147
+  store ptr null, ptr %148, align 8
+  %149 = load ptr, ptr %58, align 8
+  %150 = load i32, ptr %59, align 8
+  %151 = add i32 %150, 1
+  %152 = zext i32 %151 to i64
+  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  store ptr null, ptr %153, align 8
+  br i1 %.0130.lcssa241, label %154, label %.loopexit
 
-155:                                              ; preds = %145
-  br i1 %.0128.lcssa243, label %159, label %156
+154:                                              ; preds = %._crit_edge213.thread
+  br i1 %.0128.lcssa242, label %158, label %155
 
-156:                                              ; preds = %155
-  %157 = icmp ne i32 %.0126, 1024
-  %158 = add nsw i32 %.0127.ph174, -1
-  %.not155 = icmp eq i32 %158, 0
-  %or.cond169 = select i1 %157, i1 true, i1 %.not155
+155:                                              ; preds = %154
+  %156 = icmp ne i32 %.0126, 1024
+  %157 = add nsw i32 %.0127.ph174, -1
+  %.not155 = icmp eq i32 %157, 0
+  %or.cond169 = select i1 %156, i1 true, i1 %.not155
   br i1 %or.cond169, label %.loopexit, label %select.unfold.outer173
 
-159:                                              ; preds = %155
-  switch i32 %spec.select168244, label %160 [
+158:                                              ; preds = %154
+  switch i32 %.1117.ph176, label %159 [
     i32 0, label %.loopexit
     i32 -1, label %select.unfold.outer179.backedge
   ]
 
-160:                                              ; preds = %159, %97, %94
-  %161 = load i64, ptr %49, align 8
-  %.neg = sub i64 %50, %161
-  %162 = trunc i64 %.neg to i32
-  %163 = add i32 %.0133.ph, %162
-  %164 = icmp slt i32 %163, 1
-  br i1 %164, label %.loopexit, label %select.unfold.outer
+159:                                              ; preds = %158, %97, %94
+  %160 = load i64, ptr %49, align 8
+  %.neg = sub i64 %50, %160
+  %161 = trunc i64 %.neg to i32
+  %162 = add i32 %.0133.ph, %161
+  %163 = icmp slt i32 %162, 1
+  br i1 %163, label %.loopexit, label %select.unfold.outer
 
-.loopexit:                                        ; preds = %160, %156, %159, %97, %94, %145, %2
+.loopexit:                                        ; preds = %159, %155, %158, %97, %94, %._crit_edge213.thread, %2
   ret void
 }
 

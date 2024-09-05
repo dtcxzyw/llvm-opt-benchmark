@@ -4914,7 +4914,7 @@ servercert.exit.thread12.i:                       ; preds = %472
   %484 = call ptr @BIO_s_mem() #13
   %485 = call ptr @BIO_new(ptr noundef %484) #13
   %.not.i205.i.i = icmp eq ptr %485, null
-  br i1 %.not.i205.i.i, label %495, label %486
+  br i1 %.not.i205.i.i, label %496, label %486
 
 486:                                              ; preds = %481
   %487 = call i32 @X509_NAME_print_ex(ptr noundef nonnull %485, ptr noundef %483, i32 noundef 0, i64 noundef 196608) #13
@@ -4928,23 +4928,23 @@ servercert.exit.thread12.i:                       ; preds = %472
   %493 = getelementptr inbounds i8, ptr %21, i64 %..i.i.i
   store i8 0, ptr %493, align 1
   %494 = call i32 @BIO_free(ptr noundef nonnull %485) #13
-  %.not16.i.i.i = icmp ne i32 %487, 0
-  br label %495
+  %.not16.i.not.i.i = icmp eq i32 %487, 0
+  %495 = select i1 %.not16.i.not.i.i, ptr @.str.182, ptr %21
+  br label %496
 
-495:                                              ; preds = %486, %481
-  %.0.i206.i.i = phi i1 [ %.not16.i.i.i, %486 ], [ false, %481 ]
+496:                                              ; preds = %486, %481
+  %.0.i206.i.i = phi ptr [ %495, %486 ], [ @.str.182, %481 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  %496 = load i64, ptr %293, align 2
-  %497 = and i64 %496, 268435456
-  %.not180.i.i = icmp eq i64 %497, 0
-  br i1 %.not180.i.i, label %500, label %498
+  %497 = load i64, ptr %293, align 2
+  %498 = and i64 %497, 268435456
+  %.not180.i.i = icmp eq i64 %498, 0
+  br i1 %.not180.i.i, label %500, label %499
 
-498:                                              ; preds = %495
-  %499 = select i1 %.0.i206.i.i, ptr %21, ptr @.str.182
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.181, ptr noundef nonnull %499) #13
+499:                                              ; preds = %496
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.181, ptr noundef nonnull %.0.i206.i.i) #13
   br label %500
 
-500:                                              ; preds = %498, %495
+500:                                              ; preds = %499, %496
   %501 = load ptr, ptr %471, align 8
   %502 = call ptr @X509_get0_notBefore(ptr noundef %501) #13
   %503 = call i32 @ASN1_TIME_print(ptr noundef nonnull %437, ptr noundef %502) #13

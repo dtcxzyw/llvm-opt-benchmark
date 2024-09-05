@@ -9665,24 +9665,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %base, %13
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %14 = add nuw nsw i64 %indvars.iv6, %13
-  %add30.us.i = add i64 %base, %14
+  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %add.ptr.i, align 1
+  store i8 %conv.i, ptr %gep, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %15 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %15, 1
+  %14 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %14, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -10109,24 +10110,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %base, %13
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %14 = add nuw nsw i64 %indvars.iv6, %13
-  %add30.us.i = add i64 %base, %14
+  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %add.ptr.i, align 1
+  store i8 %conv.i, ptr %gep, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %15 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %15, 1
+  %14 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %14, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -10553,24 +10555,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %base, %13
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %14 = add nuw nsw i64 %indvars.iv6, %13
-  %add30.us.i = add i64 %base, %14
+  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %add.ptr.i, align 1
+  store i8 %conv.i, ptr %gep, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %15 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %15, 1
+  %14 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %14, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -10997,24 +11000,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %13 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %base, %13
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %13
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %14 = add nuw nsw i64 %indvars.iv6, %13
-  %add30.us.i = add i64 %base, %14
+  %add30.us.i.reass = add i64 %indvars.iv6, %invariant.op
   %env.val37.us.i = load i64, ptr %10, align 16
   %env.val38.us.i = load i64, ptr %11, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %14
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv6
   %call.i = tail call i32 @cpu_ldsb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i64 noundef %1) #10
   %conv.i = trunc i32 %call.i to i8
-  store i8 %conv.i, ptr %add.ptr.i, align 1
+  store i8 %conv.i, ptr %gep, align 1
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
-  %15 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %15, 1
+  %14 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %14, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next7, %12
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11441,24 +11445,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %base, %14
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %15 = add nuw nsw i64 %indvars.iv5, %14
-  %add30.us.i = add i64 %base, %15
+  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
-  %16 = load i8, ptr %add.ptr.i, align 1
-  %conv.i = sext i8 %16 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
+  %15 = load i8, ptr %gep, align 1
+  %conv.i = sext i8 %15 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %17 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %17, 1
+  %16 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %16, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11550,24 +11555,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %base, %14
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %15 = add nuw nsw i64 %indvars.iv5, %14
-  %add30.us.i = add i64 %base, %15
+  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
-  %16 = load i8, ptr %add.ptr.i, align 1
-  %conv.i = sext i8 %16 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
+  %15 = load i8, ptr %gep, align 1
+  %conv.i = sext i8 %15 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %17 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %17, 1
+  %16 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %16, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11659,24 +11665,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %base, %14
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %15 = add nuw nsw i64 %indvars.iv5, %14
-  %add30.us.i = add i64 %base, %15
+  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
-  %16 = load i8, ptr %add.ptr.i, align 1
-  %conv.i = sext i8 %16 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
+  %15 = load i8, ptr %gep, align 1
+  %conv.i = sext i8 %15 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %17 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %17, 1
+  %16 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %16, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19
@@ -11768,24 +11775,25 @@ for.cond21.preheader.us.i:                        ; preds = %for.cond21.preheade
   %k.147.us.i = phi i32 [ %inc40.us.i, %for.cond21.for.inc39_crit_edge.us.i ], [ %k.0.i, %for.cond21.preheader.us.i.preheader ]
   %mul26.us.i = mul nuw nsw i32 %k.147.us.i, %shr.i
   %14 = zext i32 %mul26.us.i to i64
+  %invariant.op = add i64 %base, %14
+  %invariant.gep = getelementptr i8, ptr %vd, i64 %14
   br label %for.body24.us.i
 
 for.body24.us.i:                                  ; preds = %for.body24.us.i, %for.cond21.preheader.us.i
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %for.body24.us.i ], [ 0, %for.cond21.preheader.us.i ]
-  %15 = add nuw nsw i64 %indvars.iv5, %14
-  %add30.us.i = add i64 %base, %15
+  %add30.us.i.reass = add i64 %indvars.iv5, %invariant.op
   %env.val37.us.i = load i64, ptr %11, align 16
   %env.val38.us.i = load i64, ptr %12, align 8
   %not.i39.us.i = xor i64 %env.val37.us.i, -1
-  %and.i40.us.i = and i64 %add30.us.i, %not.i39.us.i
+  %and.i40.us.i = and i64 %add30.us.i.reass, %not.i39.us.i
   %or.i41.us.i = or i64 %and.i40.us.i, %env.val38.us.i
-  %add.ptr.i = getelementptr i8, ptr %vd, i64 %15
-  %16 = load i8, ptr %add.ptr.i, align 1
-  %conv.i = sext i8 %16 to i32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv5
+  %15 = load i8, ptr %gep, align 1
+  %conv.i = sext i8 %15 to i32
   tail call void @cpu_stb_data_ra(ptr noundef nonnull %env, i64 noundef %or.i41.us.i, i32 noundef %conv.i, i64 noundef %1) #10
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
-  %17 = load i64, ptr %vstart.i, align 8
-  %inc37.us.i = add i64 %17, 1
+  %16 = load i64, ptr %vstart.i, align 8
+  %inc37.us.i = add i64 %16, 1
   store i64 %inc37.us.i, ptr %vstart.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next6, %13
   br i1 %exitcond.not.i, label %for.cond21.for.inc39_crit_edge.us.i, label %for.body24.us.i, !llvm.loop !19

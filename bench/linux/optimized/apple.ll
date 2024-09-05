@@ -40,7 +40,7 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   %14 = getelementptr inbounds i8, ptr %7, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %180, label %17
+  br i1 %16, label %179, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %7, i64 8
@@ -52,7 +52,7 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
 22:                                               ; preds = %17
   %23 = load ptr, ptr %5, align 8
   tail call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %23, ptr noundef nonnull @.str.1, i32 noundef %15, ptr noundef %19) #6
-  br label %180
+  br label %179
 
 24:                                               ; preds = %17
   tail call void @kfree(ptr noundef nonnull %7) #6
@@ -75,12 +75,12 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   %34 = load i32, ptr %33, align 4
   %35 = lshr i32 %34, 1
   %36 = icmp ult i32 %34, 2
-  br i1 %36, label %180, label %37
+  br i1 %36, label %179, label %37
 
 37:                                               ; preds = %32
   %38 = tail call ptr @bitmap_zalloc(i32 noundef %35, i32 noundef 3264) #6
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %180, label %40
+  br i1 %39, label %179, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds i8, ptr %26, i64 8
@@ -149,7 +149,7 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
 
 82:                                               ; preds = %79, %76
   %83 = icmp eq i32 %77, 0
-  br i1 %83, label %180, label %84
+  br i1 %83, label %179, label %84
 
 84:                                               ; preds = %82
   %85 = mul i32 %77, 3
@@ -159,7 +159,7 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   %89 = zext i32 %88 to i64
   %90 = tail call fastcc ptr @acpi_os_allocate_zeroed(i64 noundef %89)
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %180, label %92
+  br i1 %91, label %179, label %92
 
 92:                                               ; preds = %84
   %93 = zext i32 %86 to i64
@@ -171,16 +171,17 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   store ptr %95, ptr %96, align 8
   %97 = getelementptr %union.acpi_object, ptr %90, i64 %93
   %98 = add i32 %77, 1
+  %invariant.op = add i32 %77, 2
   %99 = tail call i64 @_find_next_bit(ptr noundef nonnull %38, i64 noundef %42, i64 noundef 0) #6
   %100 = trunc i64 %99 to i32
   %101 = icmp ugt i32 %35, %100
   br i1 %101, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %92, %167
-  %102 = phi i32 [ %172, %167 ], [ %100, %92 ]
-  %103 = phi i64 [ %171, %167 ], [ %99, %92 ]
-  %104 = phi i32 [ %116, %167 ], [ 0, %92 ]
-  %105 = phi ptr [ %168, %167 ], [ %97, %92 ]
+.lr.ph:                                           ; preds = %92, %166
+  %102 = phi i32 [ %171, %166 ], [ %100, %92 ]
+  %103 = phi i64 [ %170, %166 ], [ %99, %92 ]
+  %104 = phi i32 [ %115, %166 ], [ 0, %92 ]
+  %105 = phi ptr [ %167, %166 ], [ %97, %92 ]
   %106 = load ptr, ptr %41, align 8
   %107 = shl nuw i32 %102, 1
   %108 = zext i32 %107 to i64
@@ -190,119 +191,119 @@ define dso_local void @acpi_extract_apple_properties(ptr noundef %0) local_unnam
   %112 = getelementptr %union.acpi_object, ptr %106, i64 %111
   %113 = shl i32 %104, 1
   %114 = add i32 %98, %113
-  %115 = add i32 %114, 1
-  %116 = add i32 %104, 1
-  %117 = zext i32 %116 to i64
-  %118 = getelementptr %union.acpi_object, ptr %90, i64 %117
-  store i32 4, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
-  store i32 2, ptr %119, align 4
-  %120 = zext i32 %114 to i64
-  %121 = getelementptr %union.acpi_object, ptr %90, i64 %120
-  %122 = getelementptr inbounds i8, ptr %118, i64 8
-  store ptr %121, ptr %122, align 8
-  store i32 2, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %109, i64 4
-  %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %121, i64 4
-  store i32 %124, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %121, i64 8
-  store ptr %105, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %109, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = load i32, ptr %123, align 4
-  %130 = zext i32 %129 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %128, i64 %130, i1 false)
-  %131 = load i32, ptr %123, align 4
-  %132 = add i32 %131, 1
-  %133 = zext i32 %132 to i64
-  %134 = getelementptr i8, ptr %105, i64 %133
-  %135 = load i32, ptr %112, align 8
-  %136 = zext i32 %115 to i64
-  %137 = getelementptr %union.acpi_object, ptr %90, i64 %136
-  store i32 %135, ptr %137, align 8
-  switch i32 %135, label %155 [
-    i32 1, label %138
-    i32 2, label %142
+  %.reass = add i32 %113, %invariant.op
+  %115 = add i32 %104, 1
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr %union.acpi_object, ptr %90, i64 %116
+  store i32 4, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 4
+  store i32 2, ptr %118, align 4
+  %119 = zext i32 %114 to i64
+  %120 = getelementptr %union.acpi_object, ptr %90, i64 %119
+  %121 = getelementptr inbounds i8, ptr %117, i64 8
+  store ptr %120, ptr %121, align 8
+  store i32 2, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %109, i64 4
+  %123 = load i32, ptr %122, align 4
+  %124 = getelementptr inbounds i8, ptr %120, i64 4
+  store i32 %123, ptr %124, align 4
+  %125 = getelementptr inbounds i8, ptr %120, i64 8
+  store ptr %105, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %109, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = load i32, ptr %122, align 4
+  %129 = zext i32 %128 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %127, i64 %129, i1 false)
+  %130 = load i32, ptr %122, align 4
+  %131 = add i32 %130, 1
+  %132 = zext i32 %131 to i64
+  %133 = getelementptr i8, ptr %105, i64 %132
+  %134 = load i32, ptr %112, align 8
+  %135 = zext i32 %.reass to i64
+  %136 = getelementptr %union.acpi_object, ptr %90, i64 %135
+  store i32 %134, ptr %136, align 8
+  switch i32 %134, label %154 [
+    i32 1, label %137
+    i32 2, label %141
   ]
 
-138:                                              ; preds = %.lr.ph
-  %139 = getelementptr inbounds i8, ptr %112, i64 8
-  %140 = load i64, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %137, i64 8
-  store i64 %140, ptr %141, align 8
-  br label %167
+137:                                              ; preds = %.lr.ph
+  %138 = getelementptr inbounds i8, ptr %112, i64 8
+  %139 = load i64, ptr %138, align 8
+  %140 = getelementptr inbounds i8, ptr %136, i64 8
+  store i64 %139, ptr %140, align 8
+  br label %166
 
-142:                                              ; preds = %.lr.ph
-  %143 = getelementptr inbounds i8, ptr %112, i64 4
-  %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %137, i64 4
-  store i32 %144, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %137, i64 8
-  store ptr %134, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %112, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = load i32, ptr %143, align 4
-  %150 = zext i32 %149 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 1 %148, i64 %150, i1 false)
-  %151 = load i32, ptr %143, align 4
-  %152 = add i32 %151, 1
-  %153 = zext i32 %152 to i64
-  %154 = getelementptr i8, ptr %134, i64 %153
-  br label %167
+141:                                              ; preds = %.lr.ph
+  %142 = getelementptr inbounds i8, ptr %112, i64 4
+  %143 = load i32, ptr %142, align 4
+  %144 = getelementptr inbounds i8, ptr %136, i64 4
+  store i32 %143, ptr %144, align 4
+  %145 = getelementptr inbounds i8, ptr %136, i64 8
+  store ptr %133, ptr %145, align 8
+  %146 = getelementptr inbounds i8, ptr %112, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = load i32, ptr %142, align 4
+  %149 = zext i32 %148 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr align 1 %147, i64 %149, i1 false)
+  %150 = load i32, ptr %142, align 4
+  %151 = add i32 %150, 1
+  %152 = zext i32 %151 to i64
+  %153 = getelementptr i8, ptr %133, i64 %152
+  br label %166
 
-155:                                              ; preds = %.lr.ph
-  %156 = getelementptr inbounds i8, ptr %112, i64 4
-  %157 = load i32, ptr %156, align 4
-  %158 = getelementptr inbounds i8, ptr %137, i64 4
-  store i32 %157, ptr %158, align 4
-  %159 = getelementptr inbounds i8, ptr %137, i64 8
-  store ptr %134, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %112, i64 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = load i32, ptr %156, align 4
-  %163 = zext i32 %162 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 1 %161, i64 %163, i1 false)
-  %164 = load i32, ptr %156, align 4
-  %165 = zext i32 %164 to i64
-  %166 = getelementptr i8, ptr %134, i64 %165
-  br label %167
+154:                                              ; preds = %.lr.ph
+  %155 = getelementptr inbounds i8, ptr %112, i64 4
+  %156 = load i32, ptr %155, align 4
+  %157 = getelementptr inbounds i8, ptr %136, i64 4
+  store i32 %156, ptr %157, align 4
+  %158 = getelementptr inbounds i8, ptr %136, i64 8
+  store ptr %133, ptr %158, align 8
+  %159 = getelementptr inbounds i8, ptr %112, i64 8
+  %160 = load ptr, ptr %159, align 8
+  %161 = load i32, ptr %155, align 4
+  %162 = zext i32 %161 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr align 1 %160, i64 %162, i1 false)
+  %163 = load i32, ptr %155, align 4
+  %164 = zext i32 %163 to i64
+  %165 = getelementptr i8, ptr %133, i64 %164
+  br label %166
 
-167:                                              ; preds = %155, %142, %138
-  %168 = phi ptr [ %134, %138 ], [ %154, %142 ], [ %166, %155 ]
-  %169 = add i64 %103, 1
-  %170 = and i64 %169, 4294967295
-  %171 = tail call i64 @_find_next_bit(ptr noundef nonnull %38, i64 noundef %42, i64 noundef %170) #6
-  %172 = trunc i64 %171 to i32
-  %173 = icmp ugt i32 %35, %172
-  br i1 %173, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+166:                                              ; preds = %154, %141, %137
+  %167 = phi ptr [ %133, %137 ], [ %153, %141 ], [ %165, %154 ]
+  %168 = add i64 %103, 1
+  %169 = and i64 %168, 4294967295
+  %170 = tail call i64 @_find_next_bit(ptr noundef nonnull %38, i64 noundef %42, i64 noundef %169) #6
+  %171 = trunc i64 %170 to i32
+  %172 = icmp ugt i32 %35, %171
+  br i1 %172, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %167, %92
-  %.lcssa = phi ptr [ %97, %92 ], [ %168, %167 ]
-  %174 = getelementptr i8, ptr %90, i64 %89
-  %175 = icmp eq ptr %.lcssa, %174
-  br i1 %175, label %177, label %176, !prof !12
+._crit_edge:                                      ; preds = %166, %92
+  %.lcssa = phi ptr [ %97, %92 ], [ %167, %166 ]
+  %173 = getelementptr i8, ptr %90, i64 %89
+  %174 = icmp eq ptr %.lcssa, %173
+  br i1 %174, label %176, label %175, !prof !12
 
-176:                                              ; preds = %._crit_edge
+175:                                              ; preds = %._crit_edge
   tail call void asm sideeffect "317: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 317b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 317) #6, !srcloc !13
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 140, i32 2305, i64 12) #6, !srcloc !14
   tail call void asm sideeffect "318: nop\0A\09.pushsection .discard.instr_end\0A\09.long 318b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 318) #6, !srcloc !15
-  br label %177
+  br label %176
 
-177:                                              ; preds = %176, %._crit_edge
-  %178 = getelementptr inbounds i8, ptr %0, i64 528
-  store ptr %90, ptr %178, align 8
-  %179 = tail call ptr @acpi_data_add_props(ptr noundef %178, ptr noundef nonnull @apple_prp_guid, ptr noundef nonnull %90) #6
-  br label %180
+176:                                              ; preds = %175, %._crit_edge
+  %177 = getelementptr inbounds i8, ptr %0, i64 528
+  store ptr %90, ptr %177, align 8
+  %178 = tail call ptr @acpi_data_add_props(ptr noundef %177, ptr noundef nonnull @apple_prp_guid, ptr noundef nonnull %90) #6
+  br label %179
 
-180:                                              ; preds = %177, %84, %82, %37, %32, %22, %13
-  %181 = phi ptr [ %7, %22 ], [ %26, %82 ], [ %26, %177 ], [ %26, %84 ], [ %26, %37 ], [ %26, %32 ], [ %7, %13 ]
-  %182 = phi ptr [ null, %22 ], [ %38, %82 ], [ %38, %177 ], [ %38, %84 ], [ null, %37 ], [ null, %32 ], [ null, %13 ]
-  tail call void @kfree(ptr noundef nonnull %181) #6
-  tail call void @bitmap_free(ptr noundef %182) #6
+179:                                              ; preds = %176, %84, %82, %37, %32, %22, %13
+  %180 = phi ptr [ %7, %22 ], [ %26, %82 ], [ %26, %176 ], [ %26, %84 ], [ %26, %37 ], [ %26, %32 ], [ %7, %13 ]
+  %181 = phi ptr [ null, %22 ], [ %38, %82 ], [ %38, %176 ], [ %38, %84 ], [ null, %37 ], [ null, %32 ], [ null, %13 ]
+  tail call void @kfree(ptr noundef nonnull %180) #6
+  tail call void @bitmap_free(ptr noundef %181) #6
   br label %.thread
 
-.thread:                                          ; preds = %24, %31, %4, %12, %180, %1
+.thread:                                          ; preds = %24, %31, %4, %12, %179, %1
   ret void
 }
 

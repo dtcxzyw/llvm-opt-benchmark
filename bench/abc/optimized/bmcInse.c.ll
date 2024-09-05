@@ -404,6 +404,7 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
   %.val56.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %.val54, i64 4
   %.val54.val = load i32, ptr %17, align 4
+  %invariant.op = sub i32 %.val54.val, %.val52
   %.val58 = load ptr, ptr %14, align 8
   br i1 %13, label %.preheader.lr.ph.us.preheader, label %._crit_edge
 
@@ -414,58 +415,57 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
 
 .preheader.lr.ph.us:                              ; preds = %.preheader.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv78 = phi i64 [ 0, %.preheader.lr.ph.us.preheader ], [ %indvars.iv.next79, %._crit_edge.us ]
-  %18 = trunc i64 %indvars.iv78 to i32
-  %19 = sub i32 %18, %.val52
-  %20 = add i32 %19, %.val54.val
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %.val56.val, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = mul nsw i32 %11, %23
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i64, ptr %.val58, i64 %25
-  %27 = getelementptr inbounds i64, ptr %26, i64 %12
+  %18 = trunc nuw nsw i64 %indvars.iv78 to i32
+  %.reass.us = add i32 %invariant.op, %18
+  %19 = sext i32 %.reass.us to i64
+  %20 = getelementptr inbounds i32, ptr %.val56.val, i64 %19
+  %21 = load i32, ptr %20, align 4
+  %22 = mul nsw i32 %11, %21
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i64, ptr %.val58, i64 %23
+  %25 = getelementptr inbounds i64, ptr %24, i64 %12
   br label %.preheader.us
 
-28:                                               ; preds = %37
+26:                                               ; preds = %35
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
   br i1 %exitcond77.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !14
 
-29:                                               ; preds = %.preheader.us, %37
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %37 ]
-  %30 = shl nuw i64 1, %indvars.iv
-  %31 = and i64 %42, %30
-  %.not50.us = icmp eq i64 %31, 0
-  br i1 %.not50.us, label %32, label %37
+27:                                               ; preds = %.preheader.us, %35
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %35 ]
+  %28 = shl nuw i64 1, %indvars.iv
+  %29 = and i64 %40, %28
+  %.not50.us = icmp eq i64 %29, 0
+  br i1 %.not50.us, label %30, label %35
 
-32:                                               ; preds = %29
-  %33 = load i64, ptr %43, align 8
-  %34 = lshr i64 %33, %indvars.iv
-  %35 = trunc i64 %34 to i32
-  %36 = and i32 %35, 1
-  br label %37
+30:                                               ; preds = %27
+  %31 = load i64, ptr %41, align 8
+  %32 = lshr i64 %31, %indvars.iv
+  %33 = trunc i64 %32 to i32
+  %34 = and i32 %33, 1
+  br label %35
 
-37:                                               ; preds = %32, %29
-  %38 = phi i32 [ 1, %29 ], [ %36, %32 ]
+35:                                               ; preds = %30, %27
+  %36 = phi i32 [ 1, %27 ], [ %34, %30 ]
   %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
-  %39 = load i32, ptr %gep, align 4
-  %40 = add nsw i32 %39, %38
-  store i32 %40, ptr %gep, align 4
+  %37 = load i32, ptr %gep, align 4
+  %38 = add nsw i32 %37, %36
+  store i32 %38, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %28, label %29, !llvm.loop !15
+  br i1 %exitcond.not, label %26, label %27, !llvm.loop !15
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph.us, %28
-  %indvars.iv74 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next75, %28 ]
-  %41 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv74
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv74
-  %44 = shl i64 %indvars.iv74, 6
-  %45 = and i64 %44, 4294967232
-  %invariant.gep = getelementptr inbounds i32, ptr %7, i64 %45
-  br label %29
+.preheader.us:                                    ; preds = %.preheader.lr.ph.us, %26
+  %indvars.iv74 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next75, %26 ]
+  %39 = getelementptr inbounds i64, ptr %24, i64 %indvars.iv74
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i64, ptr %25, i64 %indvars.iv74
+  %42 = shl i64 %indvars.iv74, 6
+  %43 = and i64 %42, 4294967232
+  %invariant.gep = getelementptr inbounds i32, ptr %7, i64 %43
+  br label %27
 
-._crit_edge.us:                                   ; preds = %28
+._crit_edge.us:                                   ; preds = %26
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
   br i1 %exitcond82.not, label %.critedge.loopexit, label %.preheader.lr.ph.us, !llvm.loop !16
@@ -475,9 +475,9 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph, %2
-  %46 = phi i32 [ %.pre, %.critedge.loopexit ], [ 0, %.lr.ph ], [ 0, %2 ]
-  %47 = icmp sgt i32 %4, 0
-  br i1 %47, label %.lr.ph69.preheader, label %._crit_edge
+  %44 = phi i32 [ %.pre, %.critedge.loopexit ], [ 0, %.lr.ph ], [ 0, %2 ]
+  %45 = icmp sgt i32 %4, 0
+  br i1 %45, label %.lr.ph69.preheader, label %._crit_edge
 
 .lr.ph69.preheader:                               ; preds = %.critedge
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 2)
@@ -487,22 +487,22 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv83 = phi i64 [ 1, %.lr.ph69.preheader ], [ %indvars.iv.next84, %.lr.ph69 ]
   %.068 = phi i32 [ 0, %.lr.ph69.preheader ], [ %spec.select51, %.lr.ph69 ]
-  %.04666 = phi i32 [ %46, %.lr.ph69.preheader ], [ %spec.select, %.lr.ph69 ]
-  %48 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv83
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp slt i32 %.04666, %49
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.04666, i32 %49)
-  %51 = trunc nuw nsw i64 %indvars.iv83 to i32
-  %spec.select51 = select i1 %50, i32 %51, i32 %.068
+  %.04666 = phi i32 [ %44, %.lr.ph69.preheader ], [ %spec.select, %.lr.ph69 ]
+  %46 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv83
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp slt i32 %.04666, %47
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.04666, i32 %47)
+  %49 = trunc nuw nsw i64 %indvars.iv83 to i32
+  %spec.select51 = select i1 %48, i32 %49, i32 %.068
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
   br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph69, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph69, %.lr.ph.split, %.critedge
-  %.046.lcssa = phi i32 [ %46, %.critedge ], [ 0, %.lr.ph.split ], [ %spec.select, %.lr.ph69 ]
+  %.046.lcssa = phi i32 [ %44, %.critedge ], [ 0, %.lr.ph.split ], [ %spec.select, %.lr.ph69 ]
   %.0.lcssa = phi i32 [ 0, %.critedge ], [ 0, %.lr.ph.split ], [ %spec.select51, %.lr.ph69 ]
-  %52 = sub nsw i32 %.val52, %.046.lcssa
-  store i32 %52, ptr %1, align 4
+  %50 = sub nsw i32 %.val52, %.046.lcssa
+  store i32 %50, ptr %1, align 4
   tail call void @free(ptr noundef nonnull %7) #14
   ret i32 %.0.lcssa
 }

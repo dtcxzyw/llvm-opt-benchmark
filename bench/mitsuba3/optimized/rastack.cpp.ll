@@ -361,7 +361,7 @@ split:                                            ; preds = %109, %._crit_edge
   %172 = zext i32 %171 to i64
   %173 = getelementptr inbounds ptr, ptr %170, i64 %172
   %174 = icmp eq i32 %171, 0
-  br i1 %174, label %324, label %.preheader32
+  br i1 %174, label %323, label %.preheader32
 
 .preheader35:                                     ; preds = %42, %220
   %175 = phi ptr [ %225, %220 ], [ %43, %42 ]
@@ -432,15 +432,15 @@ split:                                            ; preds = %109, %._crit_edge
   %226 = icmp eq ptr %225, %9
   br i1 %226, label %.loopexit36, label %.preheader35
 
-.preheader32:                                     ; preds = %169, %318
-  %227 = phi i32 [ %319, %318 ], [ 0, %169 ]
-  %228 = phi ptr [ %320, %318 ], [ %170, %169 ]
+.preheader32:                                     ; preds = %169, %317
+  %227 = phi i32 [ %318, %317 ], [ 0, %169 ]
+  %228 = phi ptr [ %319, %317 ], [ %170, %169 ]
   %229 = load ptr, ptr %228, align 8, !tbaa !27
   %230 = getelementptr inbounds i8, ptr %229, i64 2
   %231 = load i16, ptr %230, align 2, !tbaa !19
   %232 = and i16 %231, 2
   %233 = icmp eq i16 %232, 0
-  br i1 %233, label %234, label %318
+  br i1 %233, label %234, label %317
 
 234:                                              ; preds = %.preheader32
   %235 = getelementptr inbounds i8, ptr %229, i64 1
@@ -466,7 +466,7 @@ split:                                            ; preds = %109, %._crit_edge
   %251 = getelementptr inbounds i8, ptr %250, i64 8
   %252 = load i32, ptr %251, align 8, !tbaa !9
   %253 = icmp eq i32 %252, 0
-  br i1 %253, label %254, label %259
+  br i1 %253, label %254, label %260
 
 254:                                              ; preds = %248
   %255 = add nuw nsw i64 %249, 1
@@ -476,119 +476,118 @@ split:                                            ; preds = %109, %._crit_edge
 .loopexit31:                                      ; preds = %254, %234
   %257 = icmp eq i32 %227, %241
   %258 = sub i32 %241, %227
-  br label %271
+  %259 = select i1 %257, i32 0, i32 %241
+  br label %272
 
-259:                                              ; preds = %248
-  %260 = getelementptr inbounds i8, ptr %250, i64 8
-  %261 = add i32 %252, -1
-  store i32 %261, ptr %260, align 8, !tbaa !9, !noalias !37
-  %262 = load ptr, ptr %250, align 8, !tbaa !26, !noalias !37
-  %263 = zext i32 %261 to i64
-  %264 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RAStackGap", ptr %262, i64 %263
-  %265 = load i32, ptr %264, align 4, !tbaa !40, !noalias !37
-  %266 = getelementptr inbounds i8, ptr %264, i64 4
-  %267 = load i32, ptr %266, align 4, !tbaa !42, !noalias !37
-  %268 = getelementptr inbounds i8, ptr %229, i64 16
-  store i32 %265, ptr %268, align 4, !tbaa !23
-  %269 = sub i32 %267, %243
-  %270 = sub i32 %265, %243
-  br label %271
+260:                                              ; preds = %248
+  %261 = getelementptr inbounds i8, ptr %250, i64 8
+  %262 = add i32 %252, -1
+  store i32 %262, ptr %261, align 8, !tbaa !9, !noalias !37
+  %263 = load ptr, ptr %250, align 8, !tbaa !26, !noalias !37
+  %264 = zext i32 %262 to i64
+  %265 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RAStackGap", ptr %263, i64 %264
+  %266 = load i32, ptr %265, align 4, !tbaa !40, !noalias !37
+  %267 = getelementptr inbounds i8, ptr %265, i64 4
+  %268 = load i32, ptr %267, align 4, !tbaa !42, !noalias !37
+  %269 = getelementptr inbounds i8, ptr %229, i64 16
+  store i32 %266, ptr %269, align 4, !tbaa !23
+  %270 = sub i32 %268, %243
+  %271 = sub i32 %266, %243
+  br label %272
 
-271:                                              ; preds = %259, %.loopexit31
-  %272 = phi i32 [ %269, %259 ], [ %258, %.loopexit31 ]
-  %273 = phi i1 [ true, %259 ], [ %257, %.loopexit31 ]
-  %274 = phi i32 [ %270, %259 ], [ 0, %.loopexit31 ]
-  %275 = phi i1 [ true, %259 ], [ false, %.loopexit31 ]
-  %276 = phi i32 [ %227, %259 ], [ %241, %.loopexit31 ]
-  %277 = icmp eq i32 %272, 0
+272:                                              ; preds = %260, %.loopexit31
+  %273 = phi i32 [ %270, %260 ], [ %258, %.loopexit31 ]
+  %274 = phi i32 [ %271, %260 ], [ %259, %.loopexit31 ]
+  %275 = phi i1 [ true, %260 ], [ false, %.loopexit31 ]
+  %276 = phi i32 [ %227, %260 ], [ %241, %.loopexit31 ]
+  %277 = icmp eq i32 %273, 0
   br i1 %277, label %.loopexit, label %278
 
-278:                                              ; preds = %271
-  %279 = select i1 %273, i32 %274, i32 %241
-  %280 = add i32 %279, %272
-  %281 = icmp ult i32 %279, %280
-  br i1 %281, label %.preheader, label %.loopexit
+278:                                              ; preds = %272
+  %279 = add i32 %274, %273
+  %280 = icmp ult i32 %274, %279
+  br i1 %280, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %278, %301
-  %282 = phi i32 [ %312, %301 ], [ %279, %278 ]
-  %283 = call noundef i32 @llvm.cttz.i32(i32 %282, i1 true), !range !35
-  %284 = shl nuw i32 1, %283
-  %285 = sub i32 %280, %282
-  %286 = icmp ult i32 %285, %284
-  br i1 %286, label %.loopexit, label %287
+.preheader:                                       ; preds = %278, %300
+  %281 = phi i32 [ %311, %300 ], [ %274, %278 ]
+  %282 = call noundef i32 @llvm.cttz.i32(i32 %281, i1 true), !range !35
+  %283 = shl nuw i32 1, %282
+  %284 = sub i32 %279, %281
+  %285 = icmp ult i32 %284, %283
+  br i1 %285, label %.loopexit, label %286
 
-287:                                              ; preds = %.preheader
-  %288 = zext nneg i32 %283 to i64
-  %289 = getelementptr inbounds [6 x %"class.asmjit::_abi_1_10::ZoneVector.0"], ptr %3, i64 0, i64 %288
-  %290 = getelementptr inbounds i8, ptr %289, i64 8
-  %291 = load i32, ptr %290, align 8, !tbaa !9
-  %292 = getelementptr inbounds i8, ptr %289, i64 12
-  %293 = load i32, ptr %292, align 4, !tbaa !3
-  %294 = icmp eq i32 %291, %293
-  br i1 %294, label %295, label %301, !prof !14
+286:                                              ; preds = %.preheader
+  %287 = zext nneg i32 %282 to i64
+  %288 = getelementptr inbounds [6 x %"class.asmjit::_abi_1_10::ZoneVector.0"], ptr %3, i64 0, i64 %287
+  %289 = getelementptr inbounds i8, ptr %288, i64 8
+  %290 = load i32, ptr %289, align 8, !tbaa !9
+  %291 = getelementptr inbounds i8, ptr %288, i64 12
+  %292 = load i32, ptr %291, align 4, !tbaa !3
+  %293 = icmp eq i32 %290, %292
+  br i1 %293, label %294, label %300, !prof !14
 
-295:                                              ; preds = %287
-  %296 = load ptr, ptr %0, align 8, !tbaa !10
-  %297 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %289, ptr noundef %296, i32 noundef 8, i32 noundef 1) #6
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %299, label %.loopexit30
+294:                                              ; preds = %286
+  %295 = load ptr, ptr %0, align 8, !tbaa !10
+  %296 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef %295, i32 noundef 8, i32 noundef 1) #6
+  %297 = icmp eq i32 %296, 0
+  br i1 %297, label %298, label %.loopexit30
 
-299:                                              ; preds = %295
-  %300 = load i32, ptr %290, align 8, !tbaa !9
-  br label %301
+298:                                              ; preds = %294
+  %299 = load i32, ptr %289, align 8, !tbaa !9
+  br label %300
 
-301:                                              ; preds = %299, %287
-  %302 = phi i32 [ %300, %299 ], [ %291, %287 ]
-  %303 = load ptr, ptr %289, align 16, !tbaa !26
-  %304 = zext i32 %302 to i64
-  %305 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RAStackGap", ptr %303, i64 %304
-  %306 = zext i32 %284 to i64
-  %307 = shl nuw i64 %306, 32
-  %308 = zext i32 %282 to i64
-  %309 = or disjoint i64 %307, %308
-  store i64 %309, ptr %305, align 4
-  %310 = load i32, ptr %290, align 8, !tbaa !9
-  %311 = add i32 %310, 1
-  store i32 %311, ptr %290, align 8, !tbaa !9
-  %312 = add i32 %284, %282
-  %313 = icmp ult i32 %312, %280
-  br i1 %313, label %.preheader, label %.loopexit
+300:                                              ; preds = %298, %286
+  %301 = phi i32 [ %299, %298 ], [ %290, %286 ]
+  %302 = load ptr, ptr %288, align 16, !tbaa !26
+  %303 = zext i32 %301 to i64
+  %304 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RAStackGap", ptr %302, i64 %303
+  %305 = zext i32 %283 to i64
+  %306 = shl nuw i64 %305, 32
+  %307 = zext i32 %281 to i64
+  %308 = or disjoint i64 %306, %307
+  store i64 %308, ptr %304, align 4
+  %309 = load i32, ptr %289, align 8, !tbaa !9
+  %310 = add i32 %309, 1
+  store i32 %310, ptr %289, align 8, !tbaa !9
+  %311 = add i32 %283, %281
+  %312 = icmp ult i32 %311, %279
+  br i1 %312, label %.preheader, label %.loopexit
 
-.loopexit:                                        ; preds = %301, %.preheader, %278, %271
-  br i1 %275, label %318, label %314
+.loopexit:                                        ; preds = %300, %.preheader, %278, %272
+  br i1 %275, label %317, label %313
 
-314:                                              ; preds = %.loopexit
-  %315 = getelementptr inbounds i8, ptr %229, i64 16
-  store i32 %276, ptr %315, align 4, !tbaa !23
-  %316 = load i32, ptr %242, align 4, !tbaa !21
-  %317 = add i32 %316, %276
-  br label %318
+313:                                              ; preds = %.loopexit
+  %314 = getelementptr inbounds i8, ptr %229, i64 16
+  store i32 %276, ptr %314, align 4, !tbaa !23
+  %315 = load i32, ptr %242, align 4, !tbaa !21
+  %316 = add i32 %315, %276
+  br label %317
 
-318:                                              ; preds = %314, %.loopexit, %.preheader32
-  %319 = phi i32 [ %317, %314 ], [ %276, %.loopexit ], [ %227, %.preheader32 ]
-  %320 = getelementptr inbounds i8, ptr %228, i64 8
-  %321 = icmp eq ptr %320, %173
-  br i1 %321, label %322, label %.preheader32
+317:                                              ; preds = %313, %.loopexit, %.preheader32
+  %318 = phi i32 [ %316, %313 ], [ %276, %.loopexit ], [ %227, %.preheader32 ]
+  %319 = getelementptr inbounds i8, ptr %228, i64 8
+  %320 = icmp eq ptr %319, %173
+  br i1 %320, label %321, label %.preheader32
 
-322:                                              ; preds = %318
-  %323 = add i32 %319, -1
-  br label %324
+321:                                              ; preds = %317
+  %322 = add i32 %318, -1
+  br label %323
 
-324:                                              ; preds = %322, %169
-  %325 = phi i32 [ -1, %169 ], [ %323, %322 ]
-  %326 = getelementptr inbounds i8, ptr %0, i64 16
-  %327 = load i32, ptr %326, align 8, !tbaa !25
-  %328 = add i32 %327, %325
-  %329 = sub i32 0, %327
-  %330 = and i32 %328, %329
-  %331 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %330, ptr %331, align 4, !tbaa !43
+323:                                              ; preds = %321, %169
+  %324 = phi i32 [ -1, %169 ], [ %322, %321 ]
+  %325 = getelementptr inbounds i8, ptr %0, i64 16
+  %326 = load i32, ptr %325, align 8, !tbaa !25
+  %327 = add i32 %326, %324
+  %328 = sub i32 0, %326
+  %329 = and i32 %327, %328
+  %330 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %329, ptr %330, align 4, !tbaa !43
   br label %.loopexit30
 
-.loopexit30:                                      ; preds = %295, %324
-  %332 = phi i32 [ 0, %324 ], [ %297, %295 ]
+.loopexit30:                                      ; preds = %294, %323
+  %331 = phi i32 [ 0, %323 ], [ %296, %294 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
-  ret i32 %332
+  ret i32 %331
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

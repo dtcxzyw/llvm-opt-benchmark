@@ -1410,6 +1410,7 @@ for.cond185.preheader.for.end217_crit_edge:       ; preds = %for.cond185.prehead
   br label %for.end217
 
 for.body187.lr.ph:                                ; preds = %for.cond185.preheader
+  %invariant.op = add nsw i64 %conv226.phi.trans.insert, %conv192
   %conv204 = sext i16 %.pre444 to i64
   %77 = getelementptr %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %.pre445, i64 %conv204
   %add.ptr.i101 = getelementptr %"struct.OpenImageIO_v2_6_0::TypeDesc", ptr %77, i64 %conv226.phi.trans.insert
@@ -1419,12 +1420,11 @@ for.body187.lr.ph:                                ; preds = %for.cond185.prehead
   %arraylen13.i.i114 = getelementptr inbounds i8, ptr %add.ptr.i101, i64 4
   %79 = add nuw i32 %remaining.2, 1
   %wide.trip.count440 = zext i32 %79 to i64
-  %invariant.op = add nsw i64 %conv226.phi.trans.insert, %conv192
   br label %for.body187
 
 for.body187:                                      ; preds = %for.body187.lr.ph, %for.inc214
   %indvars.iv437 = phi i64 [ 1, %for.body187.lr.ph ], [ %indvars.iv.next438, %for.inc214 ]
-  %add197.reass = add i64 %indvars.iv437, %invariant.op
+  %add197.reass = add i64 %invariant.op, %indvars.iv437
   %sext = shl i64 %add197.reass, 32
   %80 = ashr exact i64 %sext, 29
   %add.ptr.i100 = getelementptr inbounds i8, ptr %.pre445, i64 %80

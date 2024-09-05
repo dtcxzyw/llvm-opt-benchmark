@@ -1743,11 +1743,11 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.41.0.copyload = load i64, ptr %.sroa.41.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %invariant.op.i.i = add i64 %.sroa.41.0.copyload, %.sroa.6.0.copyload
   %7 = getelementptr inbounds i8, ptr %.sroa.5.0.copyload, i64 64
   %.sroa.415.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.516.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %invariant.op.i = add i64 %.sroa.41.0.copyload, %.sroa.6.0.copyload
-  %invariant.gep.i = getelementptr { i8, [15 x i8] }, ptr %.sroa.0.0.copyload, i64 %.sroa.6.0.copyload
+  %invariant.gep.i.i = getelementptr { i8, [15 x i8] }, ptr %.sroa.0.0.copyload, i64 %.sroa.6.0.copyload
   br label %11
 
 8:                                                ; preds = %11
@@ -1762,13 +1762,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val12.i.i = phi i64 [ %.sroa.53.0.copyload, %.lr.ph.i.i ], [ %17, %14 ]
   %.sroa.01.019.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %15, %14 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !539
-  %gep.i = getelementptr { i8, [15 x i8] }, ptr %invariant.gep.i, i64 %.sroa.01.019.i.i
-  %.reass.i = add i64 %invariant.op.i, %.sroa.01.019.i.i
+  %gep.i.i = getelementptr { i8, [15 x i8] }, ptr %invariant.gep.i.i, i64 %.sroa.01.019.i.i
+  %.reass.i.i = add i64 %invariant.op.i.i, %.sroa.01.019.i.i
   %12 = load i32, ptr %7, align 8, !noalias !540, !noundef !4
   %13 = zext i32 %12 to i64
-  store ptr %gep.i, ptr %3, align 8, !noalias !539
+  store ptr %gep.i.i, ptr %3, align 8, !noalias !539
   store i64 %13, ptr %.sroa.415.0..sroa_idx.i.i, align 8, !noalias !539
-  store i64 %.reass.i, ptr %.sroa.516.0..sroa_idx.i.i, align 8, !noalias !539
+  store i64 %.reass.i.i, ptr %.sroa.516.0..sroa_idx.i.i, align 8, !noalias !539
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i), !noalias !546
   invoke fastcc void @"_ZN11chalk_solve7display5state28InternalWriterState$LT$I$GT$18binder_var_display28_$u7b$$u7b$closure$u7d$$u7d$17h5a5097b0e6bf8f27E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, ptr nonnull %5, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %3)
           to label %14 unwind label %8, !noalias !539
@@ -12598,6 +12598,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %.val1.i.i.i = load i64, ptr %8, align 8, !alias.scope !5494, !noalias !5492, !noundef !4
+  %invariant.op.i = add i64 %.val1.i.i.i, %.val.i
   %.val2.i.i.i = load ptr, ptr %7, align 8, !alias.scope !5494, !noalias !5492, !nonnull !4, !align !76, !noundef !4
   %9 = getelementptr inbounds i8, ptr %.val2.i.i.i, i64 64
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -12608,8 +12609,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %12 = load ptr, ptr %11, align 8, !alias.scope !5482, !noalias !5479
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %.promoted.i = load i64, ptr %13, align 8, !alias.scope !5482, !noalias !5479
-  %invariant.op = add i64 %.val.i, %.val1.i.i.i
-  %invariant.gep = getelementptr { i8, [15 x i8] }, ptr %.val.i.i, i64 %.val.i
+  %invariant.gep.i = getelementptr { i8, [15 x i8] }, ptr %.val.i.i, i64 %.val.i
   br label %16
 
 14:                                               ; preds = %16
@@ -12624,14 +12624,14 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %.sroa.01.019.i = phi i64 [ 0, %.lr.ph.i ], [ %20, %19 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !5507
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5508)
-  %gep = getelementptr { i8, [15 x i8] }, ptr %invariant.gep, i64 %.sroa.01.019.i
+  %gep.i = getelementptr { i8, [15 x i8] }, ptr %invariant.gep.i, i64 %.sroa.01.019.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5509)
-  %.reass = add i64 %.sroa.01.019.i, %invariant.op
+  %.reass.i = add i64 %invariant.op.i, %.sroa.01.019.i
   %17 = load i32, ptr %9, align 8, !noalias !5510, !noundef !4
   %18 = zext i32 %17 to i64
-  store ptr %gep, ptr %3, align 8, !noalias !5507
+  store ptr %gep.i, ptr %3, align 8, !noalias !5507
   store i64 %18, ptr %.sroa.415.0..sroa_idx.i, align 8, !noalias !5507
-  store i64 %.reass, ptr %.sroa.516.0..sroa_idx.i, align 8, !noalias !5507
+  store i64 %.reass.i, ptr %.sroa.516.0..sroa_idx.i, align 8, !noalias !5507
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5511)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i), !noalias !5512
   invoke fastcc void @"_ZN11chalk_solve7display5state28InternalWriterState$LT$I$GT$18binder_var_display28_$u7b$$u7b$closure$u7d$$u7d$17h5a5097b0e6bf8f27E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, ptr %.val.i13.i, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %3)
@@ -22851,6 +22851,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %.val1.i.i = load i64, ptr %8, align 8, !alias.scope !9901, !noalias !9899, !noundef !4
+  %invariant.op = add i64 %.val, %.val1.i.i
   %.val2.i.i = load ptr, ptr %7, align 8, !alias.scope !9901, !noalias !9899, !nonnull !4, !align !76, !noundef !4
   %9 = getelementptr inbounds i8, ptr %.val2.i.i, i64 64
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
@@ -22861,10 +22862,11 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %.promoted = load i64, ptr %13, align 8
+  %invariant.gep = getelementptr { i8, [15 x i8] }, ptr %.val.i, i64 %.val
   br label %16
 
-._crit_edge:                                      ; preds = %22, %.._crit_edge_crit_edge
-  %.val10 = phi i64 [ %.val10.pre, %.._crit_edge_crit_edge ], [ %25, %22 ]
+._crit_edge:                                      ; preds = %19, %.._crit_edge_crit_edge
+  %.val10 = phi i64 [ %.val10.pre, %.._crit_edge_crit_edge ], [ %22, %19 ]
   %.val9 = load ptr, ptr %1, align 8, !alias.scope !9891, !nonnull !4, !align !76, !noundef !4
   store i64 %.val10, ptr %.val9, align 8, !noalias !9909
   ret void
@@ -22876,36 +22878,35 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   store i64 %.val12, ptr %.val11, align 8, !noalias !9914
   resume { ptr, i32 } %15
 
-16:                                               ; preds = %.lr.ph, %22
-  %.val12 = phi i64 [ %.promoted, %.lr.ph ], [ %25, %22 ]
-  %.sroa.01.019 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
+16:                                               ; preds = %.lr.ph, %19
+  %.val12 = phi i64 [ %.promoted, %.lr.ph ], [ %22, %19 ]
+  %.sroa.01.019 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9896)
-  %17 = add i64 %.sroa.01.019, %.val
-  %18 = getelementptr inbounds { i8, [15 x i8] }, ptr %.val.i, i64 %17
+  %gep = getelementptr { i8, [15 x i8] }, ptr %invariant.gep, i64 %.sroa.01.019
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9919)
-  %19 = add i64 %.val1.i.i, %17
-  %20 = load i32, ptr %9, align 8, !noalias !9920, !noundef !4
-  %21 = zext i32 %20 to i64
-  store ptr %18, ptr %3, align 8
-  store i64 %21, ptr %.sroa.415.0..sroa_idx, align 8
-  store i64 %19, ptr %.sroa.516.0..sroa_idx, align 8
+  %.reass = add i64 %.sroa.01.019, %invariant.op
+  %17 = load i32, ptr %9, align 8, !noalias !9920, !noundef !4
+  %18 = zext i32 %17 to i64
+  store ptr %gep, ptr %3, align 8
+  store i64 %18, ptr %.sroa.415.0..sroa_idx, align 8
+  store i64 %.reass, ptr %.sroa.516.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9904)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !9921
   invoke fastcc void @"_ZN11chalk_solve7display5state28InternalWriterState$LT$I$GT$18binder_var_display28_$u7b$$u7b$closure$u7d$$u7d$17h5a5097b0e6bf8f27E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr %.val.i13, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %3)
-          to label %22 unwind label %14
+          to label %19 unwind label %14
 
-22:                                               ; preds = %16
-  %23 = add nuw i64 %.sroa.01.019, 1
+19:                                               ; preds = %16
+  %20 = add nuw i64 %.sroa.01.019, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9922)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9925)
-  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %12, i64 %.val12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !9928
-  %25 = add i64 %.val12, 1
-  store i64 %25, ptr %13, align 8, !alias.scope !9929, !noalias !9930
+  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %12, i64 %.val12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false), !noalias !9928
+  %22 = add i64 %.val12, 1
+  store i64 %22, ptr %13, align 8, !alias.scope !9929, !noalias !9930
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !9921
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %exitcond.not = icmp eq i64 %23, %6
+  %exitcond.not = icmp eq i64 %20, %6
   br i1 %exitcond.not, label %._crit_edge, label %16
 }
 

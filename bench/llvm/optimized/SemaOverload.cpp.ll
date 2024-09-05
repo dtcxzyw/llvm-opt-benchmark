@@ -50329,22 +50329,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang12FunctionDeclELb1EE9push_backES3_.exi
   br label %.loopexit
 
 .loopexit:                                        ; preds = %88, %._crit_edge91
-  %.not2572 = phi i1 [ true, %._crit_edge91 ], [ false, %88 ]
+  %.not2572 = phi ptr [ %.167, %._crit_edge91 ], [ null, %88 ]
   %92 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   %93 = load ptr, ptr %5, align 8
   %94 = icmp eq ptr %93, %70
-  br i1 %94, label %_ZN4llvm11SmallVectorIPKN5clang4ExprELj1EED2Ev.exit, label %95
+  br i1 %94, label %.loopexit70, label %95
 
 95:                                               ; preds = %.loopexit
   call void @free(ptr noundef %93) #26
-  br label %_ZN4llvm11SmallVectorIPKN5clang4ExprELj1EED2Ev.exit
-
-_ZN4llvm11SmallVectorIPKN5clang4ExprELj1EED2Ev.exit: ; preds = %.loopexit, %95
-  %spec.select = select i1 %.not2572, ptr %.167, ptr null
   br label %.loopexit70
 
-.loopexit70:                                      ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit, %_ZN5clang12OverloadExpr4findEPNS_4ExprE.exit, %_ZN4llvm11SmallVectorIPKN5clang4ExprELj1EED2Ev.exit, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %spec.select, %_ZN4llvm11SmallVectorIPKN5clang4ExprELj1EED2Ev.exit ], [ null, %_ZN5clang12OverloadExpr4findEPNS_4ExprE.exit ], [ null, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit ]
+.loopexit70:                                      ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit, %_ZN5clang12OverloadExpr4findEPNS_4ExprE.exit, %95, %.loopexit, %._crit_edge
+  %.0 = phi ptr [ null, %._crit_edge ], [ %.not2572, %.loopexit ], [ %.not2572, %95 ], [ null, %_ZN5clang12OverloadExpr4findEPNS_4ExprE.exit ], [ null, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit ]
   %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %97 = load ptr, ptr %4, align 8
   %98 = icmp eq ptr %97, %13

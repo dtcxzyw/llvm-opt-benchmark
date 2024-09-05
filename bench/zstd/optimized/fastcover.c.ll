@@ -485,6 +485,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end139
   %..i.i = select i1 %cmp.i.i, i64 -3523014627193847808, i64 -3523014627327384477
   %conv11.i = zext i32 %37 to i64
   %add12.i = add nuw nsw i64 %conv11.i, 1
+  %invariant.op.i = add nuw nsw i64 %add12.i, %conv.i
   br label %for.body.i
 
 for.cond.loopexit.loopexit.i:                     ; preds = %while.body.i
@@ -520,9 +521,9 @@ while.body.i:                                     ; preds = %for.body.i, %while.
   %45 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %45, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
-  %add13.i = add i64 %add12.i, %start.016.i
-  %add7.i = add i64 %add13.i, %conv.i
-  %cmp8.not.i = icmp ugt i64 %add7.i, %43
+  %add13.i = add i64 %start.016.i, %add12.i
+  %add7.reass.i = add i64 %invariant.op.i, %start.016.i
+  %cmp8.not.i = icmp ugt i64 %add7.reass.i, %43
   br i1 %cmp8.not.i, label %for.cond.loopexit.loopexit.i, label %while.body.i, !llvm.loop !7
 
 return:                                           ; preds = %for.cond.loopexit.i, %if.end139, %if.then53, %if.then56, %if.then43, %if.then46, %if.then, %if.then36, %if.end132, %if.end107

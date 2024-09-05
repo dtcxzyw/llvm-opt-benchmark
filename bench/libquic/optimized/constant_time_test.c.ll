@@ -238,13 +238,13 @@ if.then.i235:                                     ; preds = %test_binary_op_8.ex
   %call3.i209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.6, i32 noundef %2, i32 noundef %2, i32 noundef 255, i32 noundef %shr.i.i.i284) #3
   %26 = load ptr, ptr @stderr, align 8
   %call1.i222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.5, i32 noundef %2, i32 noundef %2, i32 noundef -1, i32 noundef %shr.i.i.i284) #3
-  %add56441 = add nsw i32 %add44, 3
+  %add56441.reass = add i32 %add44, 3
   %27 = load ptr, ptr @stderr, align 8
   %call3.i236 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.6, i32 noundef %3, i32 noundef %2, i32 noundef 255, i32 noundef %shr.i.i.i284) #3
   br label %test_binary_op_8.exit237
 
 test_binary_op_8.exit237:                         ; preds = %test_binary_op_8.exit183, %if.then.i235
-  %add56443 = phi i32 [ %add56441, %if.then.i235 ], [ %add44, %test_binary_op_8.exit183 ]
+  %add56443 = phi i32 [ %add56441.reass, %if.then.i235 ], [ %add44, %test_binary_op_8.exit183 ]
   %retval.0.i232 = phi i32 [ 1, %if.then.i235 ], [ 0, %test_binary_op_8.exit183 ]
   %add60 = add nsw i32 %add56443, %retval.0.i232
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

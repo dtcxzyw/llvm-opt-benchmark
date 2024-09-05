@@ -4635,7 +4635,7 @@ for.end219:                                       ; preds = %for.end, %invoke.co
           to label %if.end319 unwind label %lpad66
 
 if.else225:                                       ; preds = %_ZN7rocksdb6StatusD2Ev.exit99, %invoke.cont65, %if.end106, %if.end120, %if.end158
-  %cmp.i177347355 = phi i1 [ true, %if.end158 ], [ false, %if.end120 ], [ false, %if.end106 ], [ false, %invoke.cont65 ], [ false, %_ZN7rocksdb6StatusD2Ev.exit99 ]
+  %cmp.i177347355 = phi ptr [ %export_dir, %if.end158 ], [ %tmp_export_dir, %if.end120 ], [ %tmp_export_dir, %if.end106 ], [ %tmp_export_dir, %invoke.cont65 ], [ %tmp_export_dir, %_ZN7rocksdb6StatusD2Ev.exit99 ]
   %call229 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %cf_name) #20
   invoke void @_ZNK7rocksdb6Status8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp230, ptr noundef nonnull align 8 dereferenceable(16) %s)
           to label %invoke.cont231 unwind label %lpad66
@@ -4648,8 +4648,7 @@ invoke.cont231:                                   ; preds = %if.else225
 invoke.cont234:                                   ; preds = %invoke.cont231
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp230) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subchildren, i8 0, i64 24, i1 false)
-  %cond-lvalue = select i1 %cmp.i177347355, ptr %export_dir, ptr %tmp_export_dir
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %cleanup_dir, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %cleanup_dir, ptr noundef nonnull align 8 dereferenceable(32) %cmp.i177347355)
           to label %invoke.cont237 unwind label %lpad236
 
 invoke.cont237:                                   ; preds = %invoke.cont234

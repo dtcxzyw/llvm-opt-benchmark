@@ -2673,9 +2673,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i:      ; preds = %.noexc19.i.i.i, %_Z
   br i1 %.not60.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %253
+  %invariant.op.i.i.i = mul nsw i64 %247, %242
   %262 = getelementptr inbounds i8, ptr %176, i64 8
   %263 = getelementptr inbounds i8, ptr %176, i64 16
-  %invariant.op.i.i.i = mul nsw i64 %247, %242
   br label %264
 
 264:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %.lr.ph.i.i.i
@@ -2964,9 +2964,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i:    ; preds = %.noexc19.i.i65.i, %
   br i1 %.not57.i.i.i, label %._crit_edge.i.i86.i, label %.lr.ph.i.i75.i
 
 .lr.ph.i.i75.i:                                   ; preds = %339
+  %invariant.op.i.i76.i = mul nsw i64 %333, %328
   %348 = getelementptr inbounds i8, ptr %164, i64 8
   %349 = getelementptr inbounds i8, ptr %164, i64 16
-  %invariant.op.i.i76.i = mul nsw i64 %333, %328
   br label %350
 
 350:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %.lr.ph.i.i75.i
@@ -3245,9 +3245,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i117.i:   ; preds = %.noexc19.i.i116.i, 
   br i1 %.not60.i.i127.i, label %._crit_edge.i.i140.i, label %.lr.ph.i.i128.i
 
 .lr.ph.i.i128.i:                                  ; preds = %425
+  %invariant.op.i.i129.i = mul nsw i64 %419, %414
   %434 = getelementptr inbounds i8, ptr %152, i64 8
   %435 = getelementptr inbounds i8, ptr %152, i64 16
-  %invariant.op.i.i129.i = mul nsw i64 %419, %414
   br label %436
 
 436:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %.lr.ph.i.i128.i
@@ -3532,9 +3532,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i171.i:   ; preds = %.noexc19.i.i170.i, 
   br i1 %.not65.i.i.i, label %._crit_edge.i.i191.i, label %.lr.ph.i.i180.i
 
 .lr.ph.i.i180.i:                                  ; preds = %513
+  %invariant.op.i.i181.i = mul nsw i64 %507, %502
   %522 = getelementptr inbounds i8, ptr %140, i64 8
   %523 = getelementptr inbounds i8, ptr %140, i64 16
-  %invariant.op.i.i181.i = mul nsw i64 %507, %502
   br label %524
 
 524:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %.lr.ph.i.i180.i
@@ -3826,9 +3826,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i220.i:   ; preds = %.noexc19.i.i219.i, 
   br i1 %.not64.i.i.i, label %._crit_edge.i.i242.i, label %.lr.ph.i.i229.i
 
 .lr.ph.i.i229.i:                                  ; preds = %604
+  %invariant.op.i.i230.i = mul nsw i64 %598, %593
   %613 = getelementptr inbounds i8, ptr %128, i64 8
   %614 = getelementptr inbounds i8, ptr %128, i64 16
-  %invariant.op.i.i230.i = mul nsw i64 %598, %593
   br label %615
 
 615:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %.lr.ph.i.i229.i
@@ -4125,9 +4125,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i274.i:   ; preds = %.noexc19.i.i273.i, 
   br i1 %.not72.i.i.i, label %._crit_edge.i.i297.i, label %.lr.ph.i.i283.i
 
 .lr.ph.i.i283.i:                                  ; preds = %696
+  %invariant.op.i.i284.i = mul nsw i64 %690, %685
   %705 = getelementptr inbounds i8, ptr %116, i64 8
   %706 = getelementptr inbounds i8, ptr %116, i64 16
-  %invariant.op.i.i284.i = mul nsw i64 %690, %685
   br label %707
 
 707:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE9push_backEOS3_.exit.i.i.i, %.lr.ph.i.i283.i
@@ -4447,9 +4447,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i331.i:   ; preds = %.noexc19.i.i330.i, 
   br i1 %.not62.i.i.i, label %._crit_edge.i.i353.i, label %.lr.ph.i.i340.i
 
 .lr.ph.i.i340.i:                                  ; preds = %796
+  %invariant.op.i.i341.i = mul nsw i64 %790, %785
   %805 = getelementptr inbounds i8, ptr %104, i64 8
   %806 = getelementptr inbounds i8, ptr %104, i64 16
-  %invariant.op.i.i341.i = mul nsw i64 %790, %785
   br label %807
 
 807:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE9push_backEOS3_.exit.i.i.i, %.lr.ph.i.i340.i
@@ -4748,9 +4748,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i.i357:   ; preds = %.noexc19.i.i.i356, 
   br i1 %.not60.i.i.i366, label %._crit_edge.i.i.i380, label %.lr.ph.i.i.i367
 
 .lr.ph.i.i.i367:                                  ; preds = %885
+  %invariant.op.i.i.i368 = mul nsw i64 %879, %874
   %894 = getelementptr inbounds i8, ptr %92, i64 8
   %895 = getelementptr inbounds i8, ptr %92, i64 16
-  %invariant.op.i.i.i368 = mul nsw i64 %879, %874
   br label %896
 
 896:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE9push_backEOS3_.exit.i.i.i379, %.lr.ph.i.i.i367
@@ -5029,9 +5029,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i66.i299: ; preds = %.noexc19.i.i65.i298
   br i1 %.not57.i.i.i308, label %._crit_edge.i.i86.i322, label %.lr.ph.i.i75.i309
 
 .lr.ph.i.i75.i309:                                ; preds = %971
+  %invariant.op.i.i76.i310 = mul nsw i64 %965, %960
   %980 = getelementptr inbounds i8, ptr %80, i64 8
   %981 = getelementptr inbounds i8, ptr %80, i64 16
-  %invariant.op.i.i76.i310 = mul nsw i64 %965, %960
   br label %982
 
 982:                                              ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE9push_backEOS3_.exit.i.i.i321, %.lr.ph.i.i75.i309
@@ -5310,9 +5310,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i117.i239: ; preds = %.noexc19.i.i116.i2
   br i1 %.not60.i.i127.i248, label %._crit_edge.i.i140.i263, label %.lr.ph.i.i128.i249
 
 .lr.ph.i.i128.i249:                               ; preds = %1057
+  %invariant.op.i.i129.i250 = mul nsw i64 %1051, %1046
   %1066 = getelementptr inbounds i8, ptr %68, i64 8
   %1067 = getelementptr inbounds i8, ptr %68, i64 16
-  %invariant.op.i.i129.i250 = mul nsw i64 %1051, %1046
   br label %1068
 
 1068:                                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE9push_backEOS3_.exit.i.i.i262, %.lr.ph.i.i128.i249
@@ -5597,9 +5597,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i171.i177: ; preds = %.noexc19.i.i170.i1
   br i1 %.not65.i.i.i186, label %._crit_edge.i.i191.i202, label %.lr.ph.i.i180.i187
 
 .lr.ph.i.i180.i187:                               ; preds = %1145
+  %invariant.op.i.i181.i188 = mul nsw i64 %1139, %1134
   %1154 = getelementptr inbounds i8, ptr %56, i64 8
   %1155 = getelementptr inbounds i8, ptr %56, i64 16
-  %invariant.op.i.i181.i188 = mul nsw i64 %1139, %1134
   br label %1156
 
 1156:                                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE9push_backEOS3_.exit.i.i.i201, %.lr.ph.i.i180.i187
@@ -5891,9 +5891,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i220.i113: ; preds = %.noexc19.i.i219.i1
   br i1 %.not64.i.i.i122, label %._crit_edge.i.i242.i139, label %.lr.ph.i.i229.i123
 
 .lr.ph.i.i229.i123:                               ; preds = %1236
+  %invariant.op.i.i230.i124 = mul nsw i64 %1230, %1225
   %1245 = getelementptr inbounds i8, ptr %44, i64 8
   %1246 = getelementptr inbounds i8, ptr %44, i64 16
-  %invariant.op.i.i230.i124 = mul nsw i64 %1230, %1225
   br label %1247
 
 1247:                                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE9push_backEOS3_.exit.i.i.i138, %.lr.ph.i.i229.i123
@@ -6190,9 +6190,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i274.i36: ; preds = %.noexc19.i.i273.i35
   br i1 %.not72.i.i.i50, label %._crit_edge.i.i297.i71, label %.lr.ph.i.i283.i51
 
 .lr.ph.i.i283.i51:                                ; preds = %1328
+  %invariant.op.i.i284.i52 = mul nsw i64 %1322, %1317
   %1337 = getelementptr inbounds i8, ptr %32, i64 8
   %1338 = getelementptr inbounds i8, ptr %32, i64 16
-  %invariant.op.i.i284.i52 = mul nsw i64 %1322, %1317
   br label %1339
 
 1339:                                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE9push_backEOS3_.exit.i.i.i70, %.lr.ph.i.i283.i51
@@ -6512,9 +6512,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i331.i415: ; preds = %.noexc19.i.i330.i4
   br i1 %.not62.i.i.i424, label %._crit_edge.i.i353.i440, label %.lr.ph.i.i340.i425
 
 .lr.ph.i.i340.i425:                               ; preds = %1428
+  %invariant.op.i.i341.i426 = mul nsw i64 %1422, %1417
   %1437 = getelementptr inbounds i8, ptr %20, i64 8
   %1438 = getelementptr inbounds i8, ptr %20, i64 16
-  %invariant.op.i.i341.i426 = mul nsw i64 %1422, %1417
   br label %1439
 
 1439:                                             ; preds = %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE9push_backEOS3_.exit.i.i.i439, %.lr.ph.i.i340.i425

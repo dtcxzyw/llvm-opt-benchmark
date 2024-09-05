@@ -527,7 +527,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noca
   br label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %._crit_edge.i.us, %.preheader.preheader.i.us
-  %indvars.iv110.i.us = phi i64 [ %46, %.preheader.preheader.i.us ], [ %indvars.iv.next111.i.us, %._crit_edge.i.us ]
+  %indvars.iv112.i.us = phi i64 [ %46, %.preheader.preheader.i.us ], [ %indvars.iv.next113.i.us, %._crit_edge.i.us ]
   %.090.i.us = phi ptr [ %43, %.preheader.preheader.i.us ], [ %85, %._crit_edge.i.us ]
   %.05189.i.us = phi ptr [ %44, %.preheader.preheader.i.us ], [ %86, %._crit_edge.i.us ]
   %.sroa.16.087.i.us = phi i32 [ 0, %.preheader.preheader.i.us ], [ %84, %._crit_edge.i.us ]
@@ -536,9 +536,9 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noca
   %.sroa.7.084.i.us = phi i32 [ 0, %.preheader.preheader.i.us ], [ %78, %._crit_edge.i.us ]
   %.sroa.4.083.i.us = phi i32 [ 0, %.preheader.preheader.i.us ], [ %76, %._crit_edge.i.us ]
   %.sroa.0.082.i.us = phi i32 [ 0, %.preheader.preheader.i.us ], [ %74, %._crit_edge.i.us ]
-  %reass.sub = sub i64 %indvars.iv110.i.us, %indvars.iv115
-  %.reass.i.us = shl i64 %reass.sub, 32
-  %sext = add i64 %.reass.i.us, 12884901888
+  %reass.sub = sub i64 %indvars.iv112.i.us, %indvars.iv115
+  %.reass.reass.i.us = shl i64 %reass.sub, 32
+  %sext = add i64 %.reass.reass.i.us, 12884901888
   %59 = ashr exact i64 %sext, 32
   %60 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
@@ -582,13 +582,13 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noca
   br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %62, !llvm.loop !10
 
 ._crit_edge.i.us:                                 ; preds = %62
-  %indvars.iv.next111.i.us = add nuw nsw i64 %indvars.iv110.i.us, 1
+  %indvars.iv.next113.i.us = add nuw nsw i64 %indvars.iv112.i.us, 1
   %85 = getelementptr inbounds i8, ptr %.090.i.us, i64 %33
   %86 = getelementptr inbounds i8, ptr %.05189.i.us, i64 %33
-  %.not.not.i.us = icmp ult i64 %indvars.iv110.i.us, %47
-  br i1 %.not.not.i.us, label %.preheader.i.us, label %._crit_edge91.loopexit103.i.us, !llvm.loop !11
+  %.not.not.i.us = icmp ult i64 %indvars.iv112.i.us, %47
+  br i1 %.not.not.i.us, label %.preheader.i.us, label %._crit_edge91.loopexit105.i.us, !llvm.loop !11
 
-._crit_edge91.loopexit103.i.us:                   ; preds = %._crit_edge.i.us
+._crit_edge91.loopexit105.i.us:                   ; preds = %._crit_edge.i.us
   %87 = zext i32 %76 to i64
   %88 = zext i32 %78 to i64
   %89 = zext i32 %82 to i64
@@ -596,13 +596,13 @@ define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr noca
   %91 = zext i32 %84 to i64
   br label %._crit_edge91.i.us
 
-._crit_edge91.i.us:                               ; preds = %._crit_edge91.loopexit103.i.us, %49
-  %.sroa.0.0.lcssa.i.us = phi i32 [ 0, %49 ], [ %74, %._crit_edge91.loopexit103.i.us ]
-  %.sroa.4.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %87, %._crit_edge91.loopexit103.i.us ]
-  %.sroa.7.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %88, %._crit_edge91.loopexit103.i.us ]
-  %.sroa.10.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %90, %._crit_edge91.loopexit103.i.us ]
-  %.sroa.13.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %89, %._crit_edge91.loopexit103.i.us ]
-  %.sroa.16.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %91, %._crit_edge91.loopexit103.i.us ]
+._crit_edge91.i.us:                               ; preds = %._crit_edge91.loopexit105.i.us, %49
+  %.sroa.0.0.lcssa.i.us = phi i32 [ 0, %49 ], [ %74, %._crit_edge91.loopexit105.i.us ]
+  %.sroa.4.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %87, %._crit_edge91.loopexit105.i.us ]
+  %.sroa.7.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %88, %._crit_edge91.loopexit105.i.us ]
+  %.sroa.10.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %90, %._crit_edge91.loopexit105.i.us ]
+  %.sroa.13.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %89, %._crit_edge91.loopexit105.i.us ]
+  %.sroa.16.0.lcssa.i.us = phi i64 [ 0, %49 ], [ %91, %._crit_edge91.loopexit105.i.us ]
   %92 = mul i32 %.sroa.0.0.lcssa.i.us, %.sroa.0.0.lcssa.i.us
   %93 = shl i32 %92, 6
   %94 = mul nuw i64 %.sroa.4.0.lcssa.i.us, %.sroa.4.0.lcssa.i.us

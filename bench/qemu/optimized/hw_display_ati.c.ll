@@ -446,6 +446,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   %mul12 = add nuw nsw i32 %add11, 8
   %7 = getelementptr i8, ptr %vga, i64 8
   %8 = getelementptr i8, ptr %vga, i64 300
+  %invariant.op = add i32 %add8, 8
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc57
@@ -458,8 +459,8 @@ for.body:                                         ; preds = %if.end, %for.inc57
   %idxprom.i = zext i32 %and.i to i64
   %arrayidx.i = getelementptr i8, ptr %vga.val, i64 %idxprom.i
   %10 = load i8, ptr %arrayidx.i, align 1
-  %add16 = add i32 %add14, 8
-  %and.i35 = and i32 %vga.val32, %add16
+  %add16.reass = add i32 %invariant.op, %9
+  %and.i35 = and i32 %vga.val32, %add16.reass
   %idxprom.i36 = zext i32 %and.i35 to i64
   %arrayidx.i37 = getelementptr i8, ptr %vga.val, i64 %idxprom.i36
   %11 = load i8, ptr %arrayidx.i37, align 1
@@ -3094,17 +3095,19 @@ if.end:                                           ; preds = %lor.lhs.false
   %vga.val24 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %s, i64 2908
   %vga.val25 = load i32, ptr %5, align 4
+  %invariant.op31 = add i32 %sub9, 8
   br label %for.cond11.preheader
 
 for.cond11.preheader:                             ; preds = %if.end, %for.inc27
-  %idx.032 = phi i32 [ 0, %if.end ], [ %inc26, %for.inc27 ]
-  %i.031 = phi i32 [ 0, %if.end ], [ %inc28, %for.inc27 ]
-  %mul15 = shl nuw nsw i32 %i.031, 4
+  %idx.033 = phi i32 [ 0, %if.end ], [ %inc26, %for.inc27 ]
+  %i.032 = phi i32 [ 0, %if.end ], [ %inc28, %for.inc27 ]
+  %mul15 = shl nuw nsw i32 %i.032, 4
   %add = add i32 %sub9, %mul15
+  %invariant.op.reass = add i32 %mul15, %invariant.op31
   br label %for.body14
 
 for.body14:                                       ; preds = %for.cond11.preheader, %for.body14
-  %idx.130 = phi i32 [ %idx.032, %for.cond11.preheader ], [ %inc26, %for.body14 ]
+  %idx.130 = phi i32 [ %idx.033, %for.cond11.preheader ], [ %inc26, %for.body14 ]
   %j.029 = phi i32 [ 0, %for.cond11.preheader ], [ %inc, %for.body14 ]
   %add16 = add i32 %add, %j.029
   %and.i = and i32 %vga.val25, %add16
@@ -3114,8 +3117,8 @@ for.body14:                                       ; preds = %for.cond11.preheade
   %idxprom = sext i32 %idx.130 to i64
   %arrayidx = getelementptr [1024 x i8], ptr %data, i64 0, i64 %idxprom
   store i8 %6, ptr %arrayidx, align 1
-  %add21 = add i32 %add16, 8
-  %and.i26 = and i32 %vga.val25, %add21
+  %add21.reass = add i32 %j.029, %invariant.op.reass
+  %and.i26 = and i32 %vga.val25, %add21.reass
   %idxprom.i27 = zext i32 %and.i26 to i64
   %arrayidx.i28 = getelementptr i8, ptr %vga.val24, i64 %idxprom.i27
   %7 = load i8, ptr %arrayidx.i28, align 1
@@ -3129,9 +3132,9 @@ for.body14:                                       ; preds = %for.cond11.preheade
   br i1 %exitcond.not, label %for.inc27, label %for.body14, !llvm.loop !9
 
 for.inc27:                                        ; preds = %for.body14
-  %inc28 = add nuw nsw i32 %i.031, 1
-  %exitcond33.not = icmp eq i32 %inc28, 64
-  br i1 %exitcond33.not, label %for.end29, label %for.cond11.preheader, !llvm.loop !10
+  %inc28 = add nuw nsw i32 %i.032, 1
+  %exitcond34.not = icmp eq i32 %inc28, 64
+  br i1 %exitcond34.not, label %for.end29, label %for.cond11.preheader, !llvm.loop !10
 
 for.end29:                                        ; preds = %for.inc27
   %cursor = getelementptr inbounds i8, ptr %s, i64 70744

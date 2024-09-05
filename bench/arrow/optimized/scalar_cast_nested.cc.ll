@@ -32525,19 +32525,19 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i
   %20 = load i64, ptr %offset.i.i, align 8, !noalias !428
-  %sub.us.i = add i64 %20, -1
+  %invariant.op.i = add i64 %20, -1
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %for.body.lr.ph.split.us.i
   %i.068.us.i = phi i64 [ 1, %for.body.lr.ph.split.us.i ], [ %inc.us.i, %for.inc.us.i ]
   %expected_offset.067.us.i = phi i32 [ %add.i, %for.body.lr.ph.split.us.i ], [ %expected_offset.1.us.i, %for.inc.us.i ]
   %nulls_have_correct_length.066.us.i = phi i8 [ 1, %for.body.lr.ph.split.us.i ], [ %nulls_have_correct_length.2.us.i, %for.inc.us.i ]
-  %add.i.i.us.i = add i64 %sub.us.i, %i.068.us.i
-  %shr.i.i.i.us.i = lshr i64 %add.i.i.us.i, 3
+  %add.i.i.us.reass.i = add i64 %invariant.op.i, %i.068.us.i
+  %shr.i.i.i.us.i = lshr i64 %add.i.i.us.reass.i, 3
   %arrayidx.i.i.i.us.i = getelementptr inbounds i8, ptr %18, i64 %shr.i.i.i.us.i
   %21 = load i8, ptr %arrayidx.i.i.i.us.i, align 1, !noalias !428
   %conv.i.i.i.us.i = zext i8 %21 to i32
-  %22 = trunc i64 %add.i.i.us.i to i32
+  %22 = trunc i64 %add.i.i.us.reass.i to i32
   %sh_prom.i.i.i.us.i = and i32 %22, 7
   %23 = shl nuw nsw i32 1, %sh_prom.i.i.i.us.i
   %24 = and i32 %23, %conv.i.i.i.us.i
@@ -39623,19 +39623,19 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i
   %20 = load i64, ptr %offset.i.i, align 8, !noalias !640
-  %sub.us.i = add i64 %20, -1
+  %invariant.op.i = add i64 %20, -1
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %for.body.lr.ph.split.us.i
   %i.068.us.i = phi i64 [ 1, %for.body.lr.ph.split.us.i ], [ %inc.us.i, %for.inc.us.i ]
   %expected_offset.067.us.i = phi i64 [ %add.i, %for.body.lr.ph.split.us.i ], [ %expected_offset.1.us.i, %for.inc.us.i ]
   %nulls_have_correct_length.066.us.i = phi i8 [ 1, %for.body.lr.ph.split.us.i ], [ %nulls_have_correct_length.2.us.i, %for.inc.us.i ]
-  %add.i.i.us.i = add i64 %sub.us.i, %i.068.us.i
-  %shr.i.i.i.us.i = lshr i64 %add.i.i.us.i, 3
+  %add.i.i.us.reass.i = add i64 %invariant.op.i, %i.068.us.i
+  %shr.i.i.i.us.i = lshr i64 %add.i.i.us.reass.i, 3
   %arrayidx.i.i.i.us.i = getelementptr inbounds i8, ptr %18, i64 %shr.i.i.i.us.i
   %21 = load i8, ptr %arrayidx.i.i.i.us.i, align 1, !noalias !640
   %conv.i.i.i.us.i = zext i8 %21 to i32
-  %22 = trunc i64 %add.i.i.us.i to i32
+  %22 = trunc i64 %add.i.i.us.reass.i to i32
   %sh_prom.i.i.i.us.i = and i32 %22, 7
   %23 = shl nuw nsw i32 1, %sh_prom.i.i.i.us.i
   %24 = and i32 %23, %conv.i.i.i.us.i
