@@ -10361,7 +10361,7 @@ hwloc/lstopo_no_graphics-lstopo-ascii.ll 264821816
 hwloc/lstopo_no_graphics-lstopo-draw.ll 1202314613
 hwloc/lstopo_no_graphics-lstopo-fig.ll 73321552
 hwloc/lstopo_no_graphics-lstopo-shmem.ll 73379001
-hwloc/lstopo_no_graphics-lstopo-svg.ll 70371631
+hwloc/lstopo_no_graphics-lstopo-svg.ll 70301222
 hwloc/lstopo_no_graphics-lstopo-text.ll 501230212
 hwloc/lstopo_no_graphics-lstopo-tikz.ll 85286266
 hwloc/lstopo_no_graphics-lstopo-xml.ll 42990466
