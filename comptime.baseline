@@ -5757,7 +5757,7 @@ cvc5/soi_simplex.cpp.ll 2654994125
 cvc5/solution_filter.cpp.ll 767790546
 cvc5/solver_engine.cpp.ll 6423708995
 cvc5/solver_engine_state.cpp.ll 108934595
-cvc5/solver_state.cpp.ll 2246803495
+cvc5/solver_state.cpp.ll 2249051639
 cvc5/sort_infer.cpp.ll 382289720
 cvc5/sort_inference.cpp.ll 6344398804
 cvc5/sort_type_size.cpp.ll 292633628
@@ -15597,7 +15597,7 @@ llvm/ExprEngineCXX.cpp.ll 2869942620
 llvm/ExprEngineCallAndReturn.cpp.ll 4076795545
 llvm/ExprEngineObjC.cpp.ll 1075209310
 llvm/ExprInspectionChecker.cpp.ll 4179864008
-llvm/ExprMutationAnalyzer.cpp.ll 16737952136
+llvm/ExprMutationAnalyzer.cpp.ll 16721200394
 llvm/ExprObjC.cpp.ll 605822047
 llvm/ExpressionTraits.cpp.ll 36145590
 llvm/ExtensibleRTTI.cpp.ll 38099666
@@ -15805,7 +15805,7 @@ llvm/InstCombinePHI.cpp.ll 6175007254
 llvm/InstCombineSelect.cpp.ll 9377780174
 llvm/InstCombineShifts.cpp.ll 4676937075
 llvm/InstCombineSimplifyDemanded.cpp.ll 5603504564
-llvm/InstCombineVectorOps.cpp.ll 6072007669
+llvm/InstCombineVectorOps.cpp.ll 6078083805
 llvm/InstCount.cpp.ll 218653837
 llvm/InstSimplifyPass.cpp.ll 656074542
 llvm/InstrDocsEmitter.cpp.ll 1766581897
