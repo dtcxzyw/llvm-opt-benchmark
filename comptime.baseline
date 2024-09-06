@@ -6044,7 +6044,7 @@ darktable/export_metadata.c.ll 166510517
 darktable/exr.cc.ll 422534005
 darktable/filmstrip.c.ll 53770481
 darktable/filter.c.ll 61097572
-darktable/filtering.c.ll 1632123173
+darktable/filtering.c.ll 1634572589
 darktable/gallery.c.ll 160413084
 darktable/gamepad.c.ll 151355993
 darktable/geotagging.c.ll 388055063
@@ -6068,7 +6068,7 @@ darktable/introspection_cacorrect.c.ll 3996263739
 darktable/introspection_cacorrectrgb.c.ll 988858899
 darktable/introspection_censorize.c.ll 306047010
 darktable/introspection_channelmixer.c.ll 301577693
-darktable/introspection_channelmixerrgb.c.ll 2750627380
+darktable/introspection_channelmixerrgb.c.ll 2754033409
 darktable/introspection_clahe.c.ll 532194825
 darktable/introspection_clipping.c.ll 1216034430
 darktable/introspection_colisa.c.ll 158839526
@@ -6095,7 +6095,7 @@ darktable/introspection_enlargecanvas.c.ll 170149494
 darktable/introspection_equalizer.c.ll 572973862
 darktable/introspection_exposure.c.ll 380589172
 darktable/introspection_filmic.c.ll 564237342
-darktable/introspection_filmicrgb.c.ll 2496564483
+darktable/introspection_filmicrgb.c.ll 2494055404
 darktable/introspection_finalscale.c.ll 76419828
 darktable/introspection_flip.c.ll 361697845
 darktable/introspection_gamma.c.ll 621156086
@@ -6545,7 +6545,7 @@ diesel-rs/gepqftqgym352s.ll 714220376
 diesel-rs/hcabtpzc2789gsv.ll 166407064
 diesel-rs/hznnvx0rqzdhedj.ll 506483679
 diesel-rs/hzs18qosoh3soq6.ll 675631897
-diesel-rs/ivb4nc5xs1gnmkx.ll 4712879330
+diesel-rs/ivb4nc5xs1gnmkx.ll 4707024650
 diesel-rs/j37a14ywgmm1lay.ll 296069703
 diesel-rs/jrwozg4p14xnxt2.ll 199852670
 diesel-rs/kfsmzrv9s6bcc4a.ll 356937461
@@ -6954,7 +6954,7 @@ entt/meta_any.cpp.ll 16050099147
 entt/meta_base.cpp.ll 2551735985
 entt/meta_container.cpp.ll 13406955349
 entt/meta_context.cpp.ll 7580368861
-entt/meta_conv.cpp.ll 1338870194
+entt/meta_conv.cpp.ll 1340329220
 entt/meta_ctor.cpp.ll 4119336063
 entt/meta_data.cpp.ll 9283668639
 entt/meta_dtor.cpp.ll 1252313391
@@ -7322,7 +7322,7 @@ folly/MaxConcurrentRateLimiter.cpp.ll 868631115
 folly/MemoryIdler.cpp.ll 114925297
 folly/MemoryMapping.cpp.ll 328297859
 folly/MicroLock.cpp.ll 52763589
-folly/MuxIOThreadPoolExecutor.cpp.ll 2408802649
+folly/MuxIOThreadPoolExecutor.cpp.ll 2411387314
 folly/NestedCommandLineApp.cpp.ll 1640333176
 folly/NetOps.cpp.ll 82634222
 folly/NetOpsDispatcher.cpp.ll 64503806
@@ -10461,8 +10461,8 @@ hyperscan/limex_64.c.ll 2110435491
 hyperscan/limex_compile.cpp.ll 28126377150
 hyperscan/limex_native.c.ll 2004005582
 hyperscan/limex_simd128.c.ll 2723450184
-hyperscan/limex_simd256.c.ll 4287282756
-hyperscan/limex_simd384.c.ll 5584550898
+hyperscan/limex_simd256.c.ll 4293213457
+hyperscan/limex_simd384.c.ll 5590387519
 hyperscan/limex_simd512.c.ll 7592503525
 hyperscan/literals.cpp.ll 1653749640
 hyperscan/logical_combination.cpp.ll 4770461980
@@ -17773,7 +17773,7 @@ meilisearch-rs/1cgo24wrkn2cjv53.ll 25360841832
 meilisearch-rs/1f5rio4m04ghssoy.ll 586768264
 meilisearch-rs/1onj4gqrvchfzpwo.ll 846135839
 meilisearch-rs/1rhts6w5jqfcprz6.ll 571413237
-meilisearch-rs/1wnbkg3u8l6dyln4.ll 14996060330
+meilisearch-rs/1wnbkg3u8l6dyln4.ll 15013621367
 meilisearch-rs/2bqmf34tdvo23w8l.ll 25413259622
 meilisearch-rs/2cgldv3iwsojn360.ll 1354773715
 meilisearch-rs/2d8gq047pqsnm94t.ll 1333544785
@@ -18363,7 +18363,7 @@ minetest/mod_configuration.cpp.ll 1440668511
 minetest/modalMenu.cpp.ll 404852337
 minetest/modchannels.cpp.ll 347670978
 minetest/mods.cpp.ll 1351395968
-minetest/mt_opengl_loader.cpp.ll 4769706525
+minetest/mt_opengl_loader.cpp.ll 4777496895
 minetest/nameidmapping.cpp.ll 174267346
 minetest/networkpacket.cpp.ll 354755123
 minetest/nodedef.cpp.ll 4726274181
@@ -18642,7 +18642,7 @@ mitsuba3/measured.cpp.ll 3237895866
 mitsuba3/measured_polarized.cpp.ll 2816960204
 mitsuba3/medium.cpp.ll 626163806
 mitsuba3/merge.cpp.ll 1299394812
-mitsuba3/mesh.cpp.ll 6022214597
+mitsuba3/mesh.cpp.ll 6029877978
 mitsuba3/mesh_attribute.cpp.ll 532542035
 mitsuba3/microfacet.cpp.ll 1104308521
 mitsuba3/mitchell.cpp.ll 456212571
@@ -20509,7 +20509,7 @@ ockam-rs/36lcwcq3u7eyf4mj.ll 509726988
 ockam-rs/371lbzotxaob5lvd.ll 44754853288
 ockam-rs/37pfoqtlnttaeb5z.ll 1818700300
 ockam-rs/37q648fnmlksdgjw.ll 35327213515
-ockam-rs/37wpz1tx0oad4jej.ll 25748610359
+ockam-rs/37wpz1tx0oad4jej.ll 25721018590
 ockam-rs/3814z5tzzmmk2te1.ll 2944210424
 ockam-rs/38dsvl86wvgjj4p9.ll 555505040
 ockam-rs/38s5hbhbeh1uyvuz.ll 1883176529
@@ -20577,7 +20577,7 @@ ockam-rs/4h15go5rbmdr09f8.ll 60027985421
 ockam-rs/4i2q0c0wyur8autb.ll 985271534
 ockam-rs/4i4les6ijtr4jgtl.ll 7240767980
 ockam-rs/4ie0aygpnuk5bzdx.ll 649376994
-ockam-rs/4j4a1v5i1sqbggrm.ll 5289208346
+ockam-rs/4j4a1v5i1sqbggrm.ll 5283805438
 ockam-rs/4jyxbm4i1a8dsfue.ll 484941445
 ockam-rs/4kvhnp2ywtthbq6d.ll 3731111563
 ockam-rs/4muscr8i25faa6zl.ll 5879936461
@@ -32932,7 +32932,7 @@ rust-analyzer-rs/1vaa8kjyoji1xf61.ll 207078463
 rust-analyzer-rs/1vusu8wmsvgoe4xf.ll 521374586
 rust-analyzer-rs/1vx00lq5wtnxtv17.ll 1002613931
 rust-analyzer-rs/1wws471dcmaaem6a.ll 15614224140
-rust-analyzer-rs/1x0y9zi6lpw009zm.ll 3422273972
+rust-analyzer-rs/1x0y9zi6lpw009zm.ll 3425840671
 rust-analyzer-rs/1x49zfabvca0zorz.ll 12505023572
 rust-analyzer-rs/1xvtipc3qgm9lwx0.ll 1082094045
 rust-analyzer-rs/1yf6pyfk8ihkfv63.ll 22583908829
@@ -33054,7 +33054,7 @@ rust-analyzer-rs/34iz1ce50suppavh.ll 515846814
 rust-analyzer-rs/34mt038wmdb51tcz.ll 826803716
 rust-analyzer-rs/34o0k5fwqjwjv8eq.ll 100122678
 rust-analyzer-rs/34ze0f0ocdzocujf.ll 51459853
-rust-analyzer-rs/357j944nkpwuonjr.ll 25304584511
+rust-analyzer-rs/357j944nkpwuonjr.ll 25335401912
 rust-analyzer-rs/35xql9rmx256nioy.ll 164594444
 rust-analyzer-rs/3617desu5431r5eq.ll 72499047
 rust-analyzer-rs/36cskjvhktchzlnh.ll 4482666981
@@ -33353,7 +33353,7 @@ rust-analyzer-rs/q700fp62atfpstf.ll 57347295
 rust-analyzer-rs/q9awrviuvcs0ebr.ll 323811954
 rust-analyzer-rs/qze3ila40ubn46f.ll 158693531
 rust-analyzer-rs/ri7xfiosbc1bsgh.ll 14035927902
-rust-analyzer-rs/rilullg9p294yp1.ll 12400857828
+rust-analyzer-rs/rilullg9p294yp1.ll 12388082978
 rust-analyzer-rs/sa24v3l2255jmvb.ll 894940486
 rust-analyzer-rs/sdlo5r5xb34d3pv.ll 7972432839
 rust-analyzer-rs/sjwv4e3g2r9o4x0.ll 990596654
@@ -35431,7 +35431,7 @@ syn/1isw8n6q6q0tgdaq.ll 4366716704
 syn/2i67i8azb4r5b3mw.ll 3414781243
 syn/2khi0xu1ufmhwoo.ll 2689578444
 syn/2tga7oe2tfdpj05w.ll 2834746846
-syn/3e28wvtnspuupgei.ll 3282260587
+syn/3e28wvtnspuupgei.ll 3277884505
 syn/3r5osr990qsnm7hf.ll 3877984249
 syn/4dl8yvgrwkkcv6u.ll 1879208389
 syn/4llvvcm7ykus6q9g.ll 2523596556
@@ -35544,7 +35544,7 @@ tokenizers-rs/2mot01sr7ebui81b.ll 9478514984
 tokenizers-rs/2w5yihn8z6xjncvn.ll 4604478738
 tokenizers-rs/3yaq830kuxi6xpg5.ll 3533723363
 tokenizers-rs/40hmx6rev8evi2bx.ll 6328948091
-tokenizers-rs/4hn9gefsll13qr1r.ll 18091625668
+tokenizers-rs/4hn9gefsll13qr1r.ll 18176535593
 tokenizers-rs/4vpw5vpiz5qnu5om.ll 12202306772
 tokenizers-rs/58hth72z9dib25am.ll 10279214095
 tokenizers-rs/5e69nv5s2wu1vtyr.ll 7113334376
@@ -35595,7 +35595,7 @@ tokio-rs/k2uhbjhe54a6089.ll 44599483
 tokio-rs/qqq7nw5h0oohsoh.ll 57077800
 tokio-rs/r9h5225tdo2hxm6.ll 2119973623
 tokio-rs/rq81hdouiclvz49.ll 64483933
-tokio-rs/um69cc05lgsv45r.ll 2512443602
+tokio-rs/um69cc05lgsv45r.ll 2515296951
 tomlplusplus/toml.cpp.ll 8581066679
 tree-sitter-rs/17726xlgti4t7vk.ll 41047029
 tree-sitter-rs/18icl7374jy052bn.ll 115863076
@@ -35618,7 +35618,7 @@ tree-sitter-rs/2fq1z2kxn3lpndsy.ll 11909448464
 tree-sitter-rs/2fss1z2ap28jxkt4.ll 179065405
 tree-sitter-rs/2ihg39n1dg1po2l8.ll 4677243444
 tree-sitter-rs/2iveef60mgth46fw.ll 723963393
-tree-sitter-rs/2jber9b3bsvatks5.ll 10595206570
+tree-sitter-rs/2jber9b3bsvatks5.ll 10606524737
 tree-sitter-rs/2nyb27tvwtmdn06o.ll 3593835390
 tree-sitter-rs/2qhtbpqvpvignqt5.ll 515270174
 tree-sitter-rs/2qo7ovyi3xaeita9.ll 641210930
@@ -35661,7 +35661,7 @@ tree-sitter-rs/4vicx9ad9hu1yr3g.ll 151342580
 tree-sitter-rs/4x681obl3opoh1yx.ll 422364573
 tree-sitter-rs/4x741xowia4bwziy.ll 1009647570
 tree-sitter-rs/4zakogfbfa4d80x8.ll 188862838
-tree-sitter-rs/50gi8jfmf82cuy8e.ll 6523366600
+tree-sitter-rs/50gi8jfmf82cuy8e.ll 6514697418
 tree-sitter-rs/51rc99d4jdw1knkd.ll 370984349
 tree-sitter-rs/55e7aotywrgrb7st.ll 14966328073
 tree-sitter-rs/55tkq5cs30ym226o.ll 206520592
