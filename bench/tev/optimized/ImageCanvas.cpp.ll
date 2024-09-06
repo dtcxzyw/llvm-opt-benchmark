@@ -14551,41 +14551,51 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNS
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %28, i64 %15)
   %29 = tail call noundef i32 @memcmp(ptr noundef %10, ptr noundef %23, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #35
   %30 = icmp eq i32 %29, 0
-  %31 = icmp slt i32 %29, 0
-  %32 = icmp ult i64 %15, %28
-  %33 = select i1 %30, i1 %32, i1 %31
-  br i1 %33, label %34, label %36
+  br i1 %30, label %31, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.i
 
-34:                                               ; preds = %16
-  %35 = load ptr, ptr %.pr, align 8
-  %.not31.i = icmp eq ptr %35, null
+31:                                               ; preds = %16
+  %32 = icmp ult i64 %15, %28
+  br i1 %32, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.i: ; preds = %16
+  %33 = icmp slt i32 %29, 0
+  br i1 %33, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.i, %31
+  %34 = load ptr, ptr %.pr, align 8
+  %.not31.i = icmp eq ptr %34, null
   br i1 %.not31.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread, label %.backedge
 
-36:                                               ; preds = %16
-  %37 = tail call noundef i32 @memcmp(ptr noundef %23, ptr noundef %10, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #35
-  %38 = icmp eq i32 %37, 0
-  %39 = icmp slt i32 %37, 0
-  %40 = icmp ult i64 %28, %15
-  %41 = select i1 %38, i1 %40, i1 %39
-  br i1 %41, label %42, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.i, %31
+  %35 = tail call noundef i32 @memcmp(ptr noundef %23, ptr noundef %10, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #35
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %.pr, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %.not30.i = icmp eq ptr %44, null
+37:                                               ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i
+  %38 = icmp ult i64 %28, %15
+  br i1 %38, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i
+  %39 = icmp slt i32 %35, 0
+  br i1 %39, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i, %37
+  %40 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %.not30.i = icmp eq ptr %41, null
   br i1 %.not30.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread, label %.backedge
 
-.backedge:                                        ; preds = %42, %34
-  %.pr.be = phi ptr [ %35, %34 ], [ %44, %42 ]
+.backedge:                                        ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i
+  %.pr.be = phi ptr [ %34, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i ], [ %41, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i ]
   br label %16, !llvm.loop !444
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread: ; preds = %42, %34, %2
+_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i, %2
   tail call void @_ZNSt3__120__throw_out_of_rangeB8ne190000EPKc(ptr noundef nonnull @.str.121) #38
   unreachable
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit: ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %.pr, i64 56
-  ret ptr %45
+_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i, %37
+  %42 = getelementptr inbounds i8, ptr %.pr, i64 56
+  ret ptr %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -61481,9 +61491,9 @@ define linkonce_odr dso_local ptr @_ZNSt3__16__treeINS_12__value_typeINS_12basic
   %15 = select i1 %.not.i.i.i5.i.i.i.i, i64 %14, i64 %12
   br label %16
 
-16:                                               ; preds = %16, %.lr.ph.i
-  %.012.i = phi ptr [ %3, %.lr.ph.i ], [ %.1.i, %16 ]
-  %.0811.i = phi ptr [ %4, %.lr.ph.i ], [ %.19.i, %16 ]
+16:                                               ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread.i, %.lr.ph.i
+  %.012.i = phi ptr [ %3, %.lr.ph.i ], [ %spec.select25.i, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread.i ]
+  %.0811.i = phi ptr [ %4, %.lr.ph.i ], [ %.19.i, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread.i ]
   %17 = getelementptr inbounds i8, ptr %.0811.i, i64 32
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
@@ -61500,47 +61510,65 @@ define linkonce_odr dso_local ptr @_ZNSt3__16__treeINS_12__value_typeINS_12basic
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %28)
   %29 = tail call noundef i32 @memcmp(ptr noundef %23, ptr noundef %10, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #35
   %30 = icmp eq i32 %29, 0
-  %31 = icmp slt i32 %29, 0
+  br i1 %30, label %31, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i
+
+31:                                               ; preds = %16
   %32 = icmp ult i64 %28, %15
-  %33 = select i1 %30, i1 %32, i1 %31
-  %.19.in.idx.i = select i1 %33, i64 8, i64 0
-  %.19.in.i = getelementptr inbounds i8, ptr %.0811.i, i64 %.19.in.idx.i
-  %.1.i = select i1 %33, ptr %.012.i, ptr %.0811.i
-  %.19.i = load ptr, ptr %.19.in.i, align 8
+  %spec.select24.idx.i = select i1 %32, i64 8, i64 0
+  br label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread.i
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i: ; preds = %16
+  %33 = icmp slt i32 %29, 0
+  %34 = lshr i32 %29, 28
+  %35 = and i32 %34, 8
+  %.19.in.idx.i = zext nneg i32 %35 to i64
+  br label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread.i
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread.i: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i, %31
+  %or.cond.sink.i = phi i1 [ %32, %31 ], [ %33, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i ]
+  %.19.in.idx.pn.i = phi i64 [ %spec.select24.idx.i, %31 ], [ %.19.in.idx.i, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i ]
+  %.19.in17.i = getelementptr inbounds i8, ptr %.0811.i, i64 %.19.in.idx.pn.i
+  %spec.select25.i = select i1 %or.cond.sink.i, ptr %.012.i, ptr %.0811.i
+  %.19.i = load ptr, ptr %.19.in17.i, align 8
   %.not.i = icmp eq ptr %.19.i, null
   br i1 %.not.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE13__lower_boundIS7_EENS_15__tree_iteratorISF_PNS_11__tree_nodeISF_PvEElEERKT_SR_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISP_EEEE.exit, label %16, !llvm.loop !1095
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE13__lower_boundIS7_EENS_15__tree_iteratorISF_PNS_11__tree_nodeISF_PvEElEERKT_SR_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISP_EEEE.exit: ; preds = %16
-  %.not = icmp eq ptr %.1.i, %3
-  br i1 %.not, label %.critedge, label %34
+_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE13__lower_boundIS7_EENS_15__tree_iteratorISF_PNS_11__tree_nodeISF_PvEElEERKT_SR_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISP_EEEE.exit: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread.i
+  %.not = icmp eq ptr %spec.select25.i, %3
+  br i1 %.not, label %.critedge, label %36
 
-34:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE13__lower_boundIS7_EENS_15__tree_iteratorISF_PNS_11__tree_nodeISF_PvEElEERKT_SR_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISP_EEEE.exit
-  %35 = getelementptr inbounds i8, ptr %.1.i, i64 32
-  %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, 1
-  %.not.i.i.i5.i.i.i = icmp eq i8 %37, 0
-  %38 = getelementptr inbounds i8, ptr %.1.i, i64 48
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.1.i, i64 33
-  %41 = select i1 %.not.i.i.i5.i.i.i, ptr %40, ptr %39
-  %42 = getelementptr inbounds i8, ptr %.1.i, i64 40
-  %43 = load i64, ptr %42, align 8
-  %44 = lshr i8 %36, 1
-  %45 = zext nneg i8 %44 to i64
-  %46 = select i1 %.not.i.i.i5.i.i.i, i64 %45, i64 %43
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %15)
-  %47 = tail call noundef i32 @memcmp(ptr noundef %10, ptr noundef %41, i64 noundef %.sroa.speculated.i.i.i.i.i) #35
-  %48 = icmp eq i32 %47, 0
-  %49 = icmp slt i32 %47, 0
-  %50 = icmp ult i64 %15, %46
-  %51 = select i1 %48, i1 %50, i1 %49
-  br i1 %51, label %.critedge, label %52
+36:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE13__lower_boundIS7_EENS_15__tree_iteratorISF_PNS_11__tree_nodeISF_PvEElEERKT_SR_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISP_EEEE.exit
+  %37 = getelementptr inbounds i8, ptr %spec.select25.i, i64 32
+  %38 = load i8, ptr %37, align 8
+  %39 = and i8 %38, 1
+  %.not.i.i.i5.i.i.i = icmp eq i8 %39, 0
+  %40 = getelementptr inbounds i8, ptr %spec.select25.i, i64 48
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %spec.select25.i, i64 33
+  %43 = select i1 %.not.i.i.i5.i.i.i, ptr %42, ptr %41
+  %44 = getelementptr inbounds i8, ptr %spec.select25.i, i64 40
+  %45 = load i64, ptr %44, align 8
+  %46 = lshr i8 %38, 1
+  %47 = zext nneg i8 %46 to i64
+  %48 = select i1 %.not.i.i.i5.i.i.i, i64 %47, i64 %45
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %48, i64 %15)
+  %49 = tail call noundef i32 @memcmp(ptr noundef %10, ptr noundef %43, i64 noundef %.sroa.speculated.i.i.i.i.i) #35
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit
 
-.critedge:                                        ; preds = %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE13__lower_boundIS7_EENS_15__tree_iteratorISF_PNS_11__tree_nodeISF_PvEElEERKT_SR_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISP_EEEE.exit, %34
-  br label %52
+51:                                               ; preds = %36
+  %52 = icmp ult i64 %15, %48
+  br i1 %52, label %.critedge, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread
 
-52:                                               ; preds = %34, %.critedge
-  %.sroa.0.0 = phi ptr [ %3, %.critedge ], [ %.1.i, %34 ]
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit: ; preds = %36
+  %53 = icmp slt i32 %49, 0
+  br i1 %53, label %.critedge, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread
+
+.critedge:                                        ; preds = %51, %2, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE13__lower_boundIS7_EENS_15__tree_iteratorISF_PNS_11__tree_nodeISF_PvEElEERKT_SR_PNS_15__tree_end_nodeIPNS_16__tree_node_baseISP_EEEE.exit, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit
+  br label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread: ; preds = %51, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit, %.critedge
+  %.sroa.0.0 = phi ptr [ %3, %.critedge ], [ %spec.select25.i, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit ], [ %spec.select25.i, %51 ]
   ret ptr %.sroa.0.0
 }
 
@@ -61754,81 +61782,91 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt3__16__treeINS_12__value_typeINS
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %29, i64 %16)
   %30 = tail call noundef i32 @memcmp(ptr noundef %11, ptr noundef %24, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #35
   %31 = icmp eq i32 %30, 0
-  %32 = icmp slt i32 %30, 0
-  %33 = icmp ult i64 %16, %29
-  %34 = select i1 %31, i1 %33, i1 %32
-  br i1 %34, label %35, label %37
+  br i1 %31, label %32, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.i
 
-35:                                               ; preds = %17
-  %36 = load ptr, ptr %.pr, align 8
-  %.not31.i = icmp eq ptr %36, null
+32:                                               ; preds = %17
+  %33 = icmp ult i64 %16, %29
+  br i1 %33, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.i: ; preds = %17
+  %34 = icmp slt i32 %30, 0
+  br i1 %34, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.i, %32
+  %35 = load ptr, ptr %.pr, align 8
+  %.not31.i = icmp eq ptr %35, null
   br i1 %.not31.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread, label %.backedge
 
-37:                                               ; preds = %17
-  %38 = tail call noundef i32 @memcmp(ptr noundef %24, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #35
-  %39 = icmp eq i32 %38, 0
-  %40 = icmp slt i32 %38, 0
-  %41 = icmp ult i64 %29, %16
-  %42 = select i1 %39, i1 %41, i1 %40
-  br i1 %42, label %43, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.i, %32
+  %36 = tail call noundef i32 @memcmp(ptr noundef %24, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #35
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i
 
-43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %.pr, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %.not30.i = icmp eq ptr %45, null
+38:                                               ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i
+  %39 = icmp ult i64 %29, %16
+  br i1 %39, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread.i
+  %40 = icmp slt i32 %36, 0
+  br i1 %40, label %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit
+
+_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i, %38
+  %41 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %.not30.i = icmp eq ptr %42, null
   br i1 %.not30.i, label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread.loopexit.split.loop.exit23, label %.backedge
 
-.backedge:                                        ; preds = %43, %35
-  %.pr.be = phi ptr [ %36, %35 ], [ %45, %43 ]
+.backedge:                                        ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i
+  %.pr.be = phi ptr [ %35, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i ], [ %42, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i ]
   br label %17, !llvm.loop !444
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread.loopexit.split.loop.exit23: ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.pr, i64 8
+_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread.loopexit.split.loop.exit23: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.thread41.i
+  %43 = getelementptr inbounds i8, ptr %.pr, i64 8
   br label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread: ; preds = %35, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread.loopexit.split.loop.exit23, %3
-  %.026.i17 = phi ptr [ %4, %3 ], [ %46, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread.loopexit.split.loop.exit23 ], [ %.pr, %35 ]
-  %.sink.i16 = phi ptr [ %4, %3 ], [ %.pr, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread.loopexit.split.loop.exit23 ], [ %.pr, %35 ]
-  %47 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #37, !noalias !1096
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !1096
+_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread.loopexit.split.loop.exit23, %3
+  %.026.i17 = phi ptr [ %4, %3 ], [ %43, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread.loopexit.split.loop.exit23 ], [ %.pr, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i ]
+  %.sink.i16 = phi ptr [ %4, %3 ], [ %.pr, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread.loopexit.split.loop.exit23 ], [ %.pr, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKS6_RKSF_.exit.thread37.i ]
+  %44 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #37, !noalias !1096
+  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !1096
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !noalias !1096
-  %49 = getelementptr inbounds i8, ptr %47, i64 56
-  %50 = getelementptr inbounds i8, ptr %2, i64 24
+  %46 = getelementptr inbounds i8, ptr %44, i64 56
+  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %48 = load ptr, ptr %47, align 8, !noalias !1096
+  store ptr %48, ptr %46, align 8, !noalias !1096
+  %49 = getelementptr inbounds i8, ptr %44, i64 64
+  %50 = getelementptr inbounds i8, ptr %2, i64 32
   %51 = load ptr, ptr %50, align 8, !noalias !1096
   store ptr %51, ptr %49, align 8, !noalias !1096
-  %52 = getelementptr inbounds i8, ptr %47, i64 64
-  %53 = getelementptr inbounds i8, ptr %2, i64 32
-  %54 = load ptr, ptr %53, align 8, !noalias !1096
-  store ptr %54, ptr %52, align 8, !noalias !1096
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false), !noalias !1096
-  %55 = getelementptr inbounds i8, ptr %47, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
-  store ptr %.sink.i16, ptr %55, align 8
-  store ptr %47, ptr %.026.i17, align 8
-  %56 = load ptr, ptr %0, align 8
-  %57 = load ptr, ptr %56, align 8
-  %.not.i7 = icmp eq ptr %57, null
-  br i1 %.not.i7, label %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit, label %58
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !noalias !1096
+  %52 = getelementptr inbounds i8, ptr %44, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
+  store ptr %.sink.i16, ptr %52, align 8
+  store ptr %44, ptr %.026.i17, align 8
+  %53 = load ptr, ptr %0, align 8
+  %54 = load ptr, ptr %53, align 8
+  %.not.i7 = icmp eq ptr %54, null
+  br i1 %.not.i7, label %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit, label %55
 
-58:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread
-  store ptr %57, ptr %0, align 8
+55:                                               ; preds = %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread
+  store ptr %54, ptr %0, align 8
   %.pre.i = load ptr, ptr %.026.i17, align 8
   br label %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit
 
-_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit: ; preds = %58, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread
-  %59 = phi ptr [ %.pre.i, %58 ], [ %47, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread ]
-  %60 = load ptr, ptr %4, align 8
-  tail call void @_ZNSt3__127__tree_balance_after_insertB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %60, ptr noundef %59) #35
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
-  %62 = load i64, ptr %61, align 8
-  %63 = add i64 %62, 1
-  store i64 %63, ptr %61, align 8
+_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit: ; preds = %55, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread
+  %56 = phi ptr [ %.pre.i, %55 ], [ %44, %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit.thread ]
+  %57 = load ptr, ptr %4, align 8
+  tail call void @_ZNSt3__127__tree_balance_after_insertB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %57, ptr noundef %56) #35
+  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %58, align 8
   br label %_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit
 
-_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit: ; preds = %37, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit
-  %.013 = phi i8 [ 1, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit ], [ 0, %37 ]
-  %.0 = phi ptr [ %47, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit ], [ %.pr, %37 ]
+_ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_19__map_value_compareIS7_SF_NS_4lessIS7_EELb1EEENS5_ISF_EEE12__find_equalIS7_EERPNS_16__tree_node_baseIPvEERPNS_15__tree_end_nodeISQ_EERKT_.exit: ; preds = %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i, %38, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit
+  %.013 = phi i8 [ 1, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit ], [ 0, %38 ], [ 0, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i ]
+  %.0 = phi ptr [ %44, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_10shared_ptrIN3tev4LazyINS9_INSA_16CanvasStatisticsEEEEEEEEEPvEENS_22__tree_node_destructorINS6_ISI_EEEEED2B8ne190000Ev.exit ], [ %.pr, %38 ], [ %.pr, %_ZNKSt3__119__map_value_compareINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12__value_typeIS6_NS_10shared_ptrIN3tev4LazyINS8_INS9_16CanvasStatisticsEEEEEEEEENS_4lessIS6_EELb1EEclB8ne190000ERKSF_RKS6_.exit.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.013, 1
   ret { ptr, i8 } %.fca.1.insert

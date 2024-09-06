@@ -27145,7 +27145,7 @@ define internal range(i32 -1, 2) i32 @php_array_user_compare_unstable(ptr nocapt
   %29 = select i1 %25, i1 true, i1 %28
   call void @zval_ptr_dtor(ptr noundef nonnull %14) #18
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #18
-  br i1 %29, label %82, label %30
+  br i1 %29, label %80, label %30
 
 30:                                               ; preds = %23
   %31 = load i8, ptr %26, align 8
@@ -27207,7 +27207,7 @@ define internal range(i32 -1, 2) i32 @php_array_user_compare_unstable(ptr nocapt
   %59 = select i1 %56, i1 true, i1 %58
   call void @zval_ptr_dtor(ptr noundef nonnull %14) #18
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #18
-  br i1 %59, label %82, label %60
+  br i1 %59, label %80, label %60
 
 60:                                               ; preds = %54
   %61 = load i8, ptr %26, align 8
@@ -27225,11 +27225,8 @@ define internal range(i32 -1, 2) i32 @php_array_user_compare_unstable(ptr nocapt
 67:                                               ; preds = %65, %63
   %68 = phi i64 [ %64, %63 ], [ %66, %65 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #18
-  %.not64 = icmp eq i64 %68, 0
-  %69 = icmp slt i64 %68, 0
-  %.neg = select i1 %69, i32 1, i32 -1
-  %.neg65 = select i1 %.not64, i32 0, i32 %.neg
-  br label %82
+  %69 = call i32 @llvm.scmp.i32.i64(i64 0, i64 %68)
+  br label %80
 
 70:                                               ; preds = %30, %37
   %71 = phi i8 [ %31, %30 ], [ %38, %37 ]
@@ -27247,14 +27244,11 @@ define internal range(i32 -1, 2) i32 @php_array_user_compare_unstable(ptr nocapt
 77:                                               ; preds = %75, %73
   %78 = phi i64 [ %74, %73 ], [ %76, %75 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #18
-  %.not61 = icmp eq i64 %78, 0
-  %79 = icmp slt i64 %78, 0
-  %80 = select i1 %79, i32 -1, i32 1
-  %81 = select i1 %.not61, i32 0, i32 %80
-  br label %82
+  %79 = call i32 @llvm.scmp.i32.i64(i64 %78, i64 0)
+  br label %80
 
-82:                                               ; preds = %54, %23, %77, %67
-  %.0 = phi i32 [ %.neg65, %67 ], [ %81, %77 ], [ 0, %23 ], [ 0, %54 ]
+80:                                               ; preds = %54, %23, %77, %67
+  %.0 = phi i32 [ %69, %67 ], [ %79, %77 ], [ 0, %23 ], [ 0, %54 ]
   ret i32 %.0
 }
 
@@ -27318,9 +27312,9 @@ define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr no
   br label %34
 
 34:                                               ; preds = %27, %31, %24
-  %.sink83 = phi i32 [ 262, %31 ], [ 4, %24 ], [ 6, %27 ]
+  %.sink82 = phi i32 [ 262, %31 ], [ 4, %24 ], [ 6, %27 ]
   %35 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 %.sink83, ptr %35, align 8
+  store i32 %.sink82, ptr %35, align 8
   store i32 2, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 408), align 8
   store ptr %3, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 392), align 8
   store ptr %4, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 384), align 8
@@ -27333,7 +27327,7 @@ define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr no
   %42 = getelementptr inbounds i8, ptr %3, i64 16
   call void @zval_ptr_dtor(ptr noundef nonnull %42) #18
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #18
-  br i1 %41, label %109, label %43
+  br i1 %41, label %107, label %43
 
 43:                                               ; preds = %34
   %44 = load i8, ptr %38, align 8
@@ -27383,9 +27377,9 @@ define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr no
   br label %66
 
 66:                                               ; preds = %59, %63, %56
-  %.sink85 = phi i32 [ 262, %63 ], [ 4, %56 ], [ 6, %59 ]
+  %.sink84 = phi i32 [ 262, %63 ], [ 4, %56 ], [ 6, %59 ]
   %67 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %.sink85, ptr %67, align 8
+  store i32 %.sink84, ptr %67, align 8
   %68 = load ptr, ptr %5, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %73
@@ -27411,9 +27405,9 @@ define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr no
   br label %80
 
 80:                                               ; preds = %73, %77, %70
-  %.sink87 = phi i32 [ 262, %77 ], [ 4, %70 ], [ 6, %73 ]
+  %.sink86 = phi i32 [ 262, %77 ], [ 4, %70 ], [ 6, %73 ]
   %81 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 %.sink87, ptr %81, align 8
+  store i32 %.sink86, ptr %81, align 8
   %82 = call i32 @zend_call_function(ptr noundef nonnull getelementptr inbounds (i8, ptr @basic_globals, i64 360), ptr noundef nonnull getelementptr inbounds (i8, ptr @basic_globals, i64 424)) #18
   %83 = icmp eq i32 %82, -1
   %84 = load i8, ptr %38, align 8
@@ -27421,7 +27415,7 @@ define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr no
   %86 = select i1 %83, i1 true, i1 %85
   call void @zval_ptr_dtor(ptr noundef nonnull %42) #18
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #18
-  br i1 %86, label %109, label %87
+  br i1 %86, label %107, label %87
 
 87:                                               ; preds = %80
   %88 = load i8, ptr %38, align 8
@@ -27439,11 +27433,8 @@ define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr no
 94:                                               ; preds = %92, %90
   %95 = phi i64 [ %91, %90 ], [ %93, %92 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #18
-  %.not80 = icmp eq i64 %95, 0
-  %96 = icmp slt i64 %95, 0
-  %.neg = select i1 %96, i32 1, i32 -1
-  %.neg81 = select i1 %.not80, i32 0, i32 %.neg
-  br label %109
+  %96 = call i32 @llvm.scmp.i32.i64(i64 0, i64 %95)
+  br label %107
 
 97:                                               ; preds = %43, %50
   %98 = phi i8 [ %44, %43 ], [ %51, %50 ]
@@ -27461,14 +27452,11 @@ define internal range(i32 -1, 2) i32 @php_array_user_key_compare_unstable(ptr no
 104:                                              ; preds = %102, %100
   %105 = phi i64 [ %101, %100 ], [ %103, %102 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #18
-  %.not77 = icmp eq i64 %105, 0
-  %106 = icmp slt i64 %105, 0
-  %107 = select i1 %106, i32 -1, i32 1
-  %108 = select i1 %.not77, i32 0, i32 %107
-  br label %109
+  %106 = call i32 @llvm.scmp.i32.i64(i64 %105, i64 0)
+  br label %107
 
-109:                                              ; preds = %80, %34, %104, %94
-  %.0 = phi i32 [ %.neg81, %94 ], [ %108, %104 ], [ 0, %34 ], [ 0, %80 ]
+107:                                              ; preds = %80, %34, %104, %94
+  %.0 = phi i32 [ %96, %94 ], [ %106, %104 ], [ 0, %34 ], [ 0, %80 ]
   ret i32 %.0
 }
 
@@ -27570,13 +27558,13 @@ define internal range(i32 -1, 2) i32 @zval_user_compare(ptr nocapture noundef re
   store ptr %4, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 384), align 8
   %14 = call i32 @zend_call_function(ptr noundef nonnull getelementptr inbounds (i8, ptr @basic_globals, i64 360), ptr noundef nonnull getelementptr inbounds (i8, ptr @basic_globals, i64 424)) #18
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %28
+  br i1 %15, label %16, label %26
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   %18 = load i8, ptr %17, align 8
   switch i8 %18, label %21 [
-    i8 0, label %28
+    i8 0, label %26
     i8 4, label %19
   ]
 
@@ -27591,14 +27579,11 @@ define internal range(i32 -1, 2) i32 @zval_user_compare(ptr nocapture noundef re
 23:                                               ; preds = %21, %19
   %24 = phi i64 [ %20, %19 ], [ %22, %21 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #18
-  %.not22 = icmp eq i64 %24, 0
-  %25 = icmp slt i64 %24, 0
-  %26 = select i1 %25, i32 -1, i32 1
-  %27 = select i1 %.not22, i32 0, i32 %26
-  br label %28
+  %25 = call i32 @llvm.scmp.i32.i64(i64 %24, i64 0)
+  br label %26
 
-28:                                               ; preds = %2, %16, %23
-  %.0 = phi i32 [ %27, %23 ], [ 0, %16 ], [ 0, %2 ]
+26:                                               ; preds = %2, %16, %23
+  %.0 = phi i32 [ %25, %23 ], [ 0, %16 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -27629,6 +27614,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17

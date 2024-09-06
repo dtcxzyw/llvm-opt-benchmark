@@ -212,36 +212,36 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff131lookup_expert_charset_
   br label %2
 
 2:                                                ; preds = %15, %.lr.ph.i.i.i.i
-  %.0196.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %15 ]
-  %.0205.i.i.i.i = phi i32 [ 164, %.lr.ph.i.i.i.i ], [ %.121.i.i.i.i, %15 ]
-  %3 = add i32 %.0205.i.i.i.i, %.0196.i.i.i.i
+  %.0193.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %15 ]
+  %.0202.i.i.i.i = phi i32 [ 164, %.lr.ph.i.i.i.i ], [ %.121.i.i.i.i, %15 ]
+  %3 = add i32 %.0202.i.i.i.i, %.0193.i.i.i.i
   %4 = lshr i32 %3, 1
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 2
   %7 = getelementptr inbounds i8, ptr @_ZL25expert_charset_sid_to_gid, i64 %6
   %8 = load i16, ptr %7, align 4
-  %.not3.i.i.i.i = icmp ugt i16 %8, %1
-  br i1 %.not3.i.i.i.i, label %9, label %11
+  %9 = icmp ugt i16 %8, %1
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %2
-  %10 = add nsw i32 %4, -1
+10:                                               ; preds = %2
+  %11 = add nsw i32 %4, -1
   br label %15
 
-11:                                               ; preds = %2
-  %12 = icmp eq i16 %8, %1
-  br i1 %12, label %16, label %13
+12:                                               ; preds = %2
+  %.not23.i.i.i.i = icmp eq i16 %8, %1
+  br i1 %.not23.i.i.i.i, label %16, label %13
 
-13:                                               ; preds = %11
+13:                                               ; preds = %12
   %14 = add nuw nsw i32 %4, 1
   br label %15
 
-15:                                               ; preds = %13, %9
-  %.121.i.i.i.i = phi i32 [ %10, %9 ], [ %.0205.i.i.i.i, %13 ]
-  %.1.i.i.i.i = phi i32 [ %.0196.i.i.i.i, %9 ], [ %14, %13 ]
+15:                                               ; preds = %13, %10
+  %.121.i.i.i.i = phi i32 [ %11, %10 ], [ %.0202.i.i.i.i, %13 ]
+  %.1.i.i.i.i = phi i32 [ %.0193.i.i.i.i, %10 ], [ %14, %13 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.1.i.i.i.i, %.121.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread, label %2, !llvm.loop !6
 
-16:                                               ; preds = %11
+16:                                               ; preds = %12
   %17 = getelementptr inbounds %struct.sid_to_gid_t, ptr @_ZL25expert_charset_sid_to_gid, i64 %5, i32 1
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i32
@@ -259,36 +259,36 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff138lookup_expert_subset_c
   br label %2
 
 2:                                                ; preds = %15, %.lr.ph.i.i.i.i
-  %.0196.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %15 ]
-  %.0205.i.i.i.i = phi i32 [ 85, %.lr.ph.i.i.i.i ], [ %.121.i.i.i.i, %15 ]
-  %3 = add i32 %.0205.i.i.i.i, %.0196.i.i.i.i
+  %.0193.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %15 ]
+  %.0202.i.i.i.i = phi i32 [ 85, %.lr.ph.i.i.i.i ], [ %.121.i.i.i.i, %15 ]
+  %3 = add i32 %.0202.i.i.i.i, %.0193.i.i.i.i
   %4 = lshr i32 %3, 1
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 2
   %7 = getelementptr inbounds i8, ptr @_ZL32expert_subset_charset_sid_to_gid, i64 %6
   %8 = load i16, ptr %7, align 4
-  %.not3.i.i.i.i = icmp ugt i16 %8, %1
-  br i1 %.not3.i.i.i.i, label %9, label %11
+  %9 = icmp ugt i16 %8, %1
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %2
-  %10 = add nsw i32 %4, -1
+10:                                               ; preds = %2
+  %11 = add nsw i32 %4, -1
   br label %15
 
-11:                                               ; preds = %2
-  %12 = icmp eq i16 %8, %1
-  br i1 %12, label %16, label %13
+12:                                               ; preds = %2
+  %.not23.i.i.i.i = icmp eq i16 %8, %1
+  br i1 %.not23.i.i.i.i, label %16, label %13
 
-13:                                               ; preds = %11
+13:                                               ; preds = %12
   %14 = add nuw nsw i32 %4, 1
   br label %15
 
-15:                                               ; preds = %13, %9
-  %.121.i.i.i.i = phi i32 [ %10, %9 ], [ %.0205.i.i.i.i, %13 ]
-  %.1.i.i.i.i = phi i32 [ %.0196.i.i.i.i, %9 ], [ %14, %13 ]
+15:                                               ; preds = %13, %10
+  %.121.i.i.i.i = phi i32 [ %11, %10 ], [ %.0202.i.i.i.i, %13 ]
+  %.1.i.i.i.i = phi i32 [ %.0193.i.i.i.i, %10 ], [ %14, %13 ]
   %.not.not.i.i.i.i = icmp sgt i32 %.1.i.i.i.i, %.121.i.i.i.i
   br i1 %.not.not.i.i.i.i, label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread, label %2, !llvm.loop !6
 
-16:                                               ; preds = %11
+16:                                               ; preds = %12
   %17 = getelementptr inbounds %struct.sid_to_gid_t, ptr @_ZL32expert_subset_charset_sid_to_gid, i64 %5, i32 1
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i32

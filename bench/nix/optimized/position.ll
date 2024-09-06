@@ -294,7 +294,7 @@ define noundef zeroext i1 @_ZNK3nix3PosltERKS0_(ptr noundef nonnull align 8 dere
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load i32, ptr %0, align 8
   %10 = load i32, ptr %1, align 8
-  %11 = icmp ult i32 %9, %10
+  %11 = tail call i8 @llvm.ucmp.i8.i32(i32 %9, i32 %10)
   %12 = icmp eq i32 %9, %10
   br i1 %12, label %13, label %_ZStssIJRKjS1_RKSt7variantIJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEEEJS1_S1_SB_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpSE_EERKSM_IJDpSG_EE.exit
 
@@ -303,7 +303,7 @@ define noundef zeroext i1 @_ZNK3nix3PosltERKS0_(ptr noundef nonnull align 8 dere
   %15 = getelementptr inbounds i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %14, align 4
-  %18 = icmp ult i32 %16, %17
+  %18 = tail call i8 @llvm.ucmp.i8.i32(i32 %16, i32 %17)
   %19 = icmp eq i32 %16, %17
   br i1 %19, label %20, label %_ZStssIJRKjS1_RKSt7variantIJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEEEJS1_S1_SB_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpSE_EERKSM_IJDpSG_EE.exit
 
@@ -329,13 +329,16 @@ _ZNKSt8__detail10_Synth3wayclISt7variantIJSt9monostateN3nix3Pos5StdinENS5_6Strin
   %24 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %8, ptr %24, align 8
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZStltIJSt9monostateN3nix3Pos5StdinENS6_6StringENS5_10SourcePathEEEbRKSt7variantIJDpT_EESF_EUlOT_T0_E_JRKSA_IJS4_S7_S8_S9_EEEEDcOSI_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(49) %7)
+  %25 = load i8, ptr %3, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  %..i.i.i.i.i = and i8 %25, 1
   br label %_ZStssIJRKjS1_RKSt7variantIJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEEEJS1_S1_SB_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpSE_EERKSM_IJDpSG_EE.exit
 
 _ZStssIJRKjS1_RKSt7variantIJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEEEJS1_S1_SB_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpSE_EERKSM_IJDpSG_EE.exit: ; preds = %2, %13, %20, %_ZNKSt8__detail10_Synth3wayclISt7variantIJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEES9_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i
-  %.sroa.04.0.i.i = phi i1 [ %11, %2 ], [ %18, %13 ], [ true, %20 ], [ false, %_ZNKSt8__detail10_Synth3wayclISt7variantIJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEES9_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i ]
-  ret i1 %.sroa.04.0.i.i
+  %.sroa.04.0.i.i = phi i8 [ %11, %2 ], [ %18, %13 ], [ -1, %20 ], [ %..i.i.i.i.i, %_ZNKSt8__detail10_Synth3wayclISt7variantIJSt9monostateN3nix3Pos5StdinENS5_6StringENS4_10SourcePathEEES9_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i ]
+  %26 = icmp slt i8 %.sroa.04.0.i.i, 0
+  ret i1 %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2672,23 +2675,26 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #18
+declare i64 @llvm.smax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #18
+declare i64 @llvm.smin.i64(i64, i64) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2707,8 +2713,8 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nosync nounwind memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #20 = { nounwind }
 attributes #21 = { noreturn nounwind }

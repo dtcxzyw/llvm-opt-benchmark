@@ -10366,11 +10366,11 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_13b
   %.lobit.i.i.i.i = and i16 %23, 1
   %24 = lshr i16 %.val8.i.i.i, 12
   %.lobit8.i.i.i.i = and i16 %24, 1
-  %.not.i.i.i.i = icmp eq i16 %.lobit.i.i.i.i, %.lobit8.i.i.i.i
-  br i1 %.not.i.i.i.i, label %27, label %25
+  %.not.i.i.i = icmp eq i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
+  br i1 %.not.i.i.i, label %27, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp ult i16 %.lobit.i.i.i.i, %.lobit8.i.i.i.i
+  %26 = icmp ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
   br label %_ZNK12_GLOBAL__N_113bu_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i
 
 27:                                               ; preds = %.lr.ph.i.i
@@ -13109,17 +13109,17 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_14s
   %.lobit.i.i.i.i = and i16 %23, 1
   %24 = lshr i16 %.val23.i.i.i, 12
   %.lobit8.i.i.i.i = and i16 %24, 1
-  %.not.i.i.i.i = icmp eq i16 %.lobit.i.i.i.i, %.lobit8.i.i.i.i
-  br i1 %.not.i.i.i.i, label %27, label %25
+  %.not.i.i.i = icmp eq i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
+  br i1 %.not.i.i.i, label %27, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp ult i16 %.lobit.i.i.i.i, %.lobit8.i.i.i.i
+  %26 = icmp ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
   br label %_ZNK12_GLOBAL__N_114src_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i
 
 27:                                               ; preds = %.lr.ph.i.i
   %.val25.i.i.i = load ptr, ptr %17, align 8
-  %.not.i26.i.i.i = icmp eq ptr %.val25.i.i.i, null
-  br i1 %.not.i26.i.i.i, label %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit.i.i.i, label %28
+  %.not.i.i.i.i = icmp eq ptr %.val25.i.i.i, null
+  br i1 %.not.i.i.i.i, label %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit.i.i.i, label %28
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %.val25.i.i.i, i64 68
@@ -13127,31 +13127,31 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_14s
   br label %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit.i.i.i
 
 _ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit.i.i.i: ; preds = %28, %27
-  %.0.i27.i.i.i = phi i32 [ %30, %28 ], [ 0, %27 ]
+  %.0.i26.i.i.i = phi i32 [ %30, %28 ], [ 0, %27 ]
   %.val24.i.i.i = load ptr, ptr %20, align 8
-  %.not.i28.i.i.i = icmp eq ptr %.val24.i.i.i, null
-  br i1 %.not.i28.i.i.i, label %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit30.i.i.i, label %31
+  %.not.i27.i.i.i = icmp eq ptr %.val24.i.i.i, null
+  br i1 %.not.i27.i.i.i, label %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit29.i.i.i, label %31
 
 31:                                               ; preds = %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %.val24.i.i.i, i64 68
   %33 = load i32, ptr %32, align 4
-  br label %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit30.i.i.i
+  br label %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit29.i.i.i
 
-_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit30.i.i.i: ; preds = %31, %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit.i.i.i
-  %.0.i29.i.i.i = phi i32 [ %33, %31 ], [ 0, %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit.i.i.i ]
-  %34 = or i32 %.0.i29.i.i.i, %.0.i27.i.i.i
+_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit29.i.i.i: ; preds = %31, %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit.i.i.i
+  %.0.i28.i.i.i = phi i32 [ %33, %31 ], [ 0, %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit.i.i.i ]
+  %34 = or i32 %.0.i28.i.i.i, %.0.i26.i.i.i
   %or.cond.not.i.i.i = icmp eq i32 %34, 0
-  %.not22.i.i.i = icmp eq i32 %.0.i27.i.i.i, %.0.i29.i.i.i
+  %.not22.i.i.i = icmp eq i32 %.0.i26.i.i.i, %.0.i28.i.i.i
   %or.cond.i.i.i = or i1 %.not22.i.i.i, %or.cond.not.i.i.i
   br i1 %or.cond.i.i.i, label %39, label %35
 
-35:                                               ; preds = %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit30.i.i.i
-  %36 = add i32 %.0.i29.i.i.i, -1
-  %37 = add i32 %.0.i27.i.i.i, -1
+35:                                               ; preds = %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit29.i.i.i
+  %36 = add i32 %.0.i28.i.i.i, -1
+  %37 = add i32 %.0.i26.i.i.i, -1
   %38 = icmp ult i32 %37, %36
   br label %_ZNK12_GLOBAL__N_114src_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i
 
-39:                                               ; preds = %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit30.i.i.i
+39:                                               ; preds = %_ZNK12_GLOBAL__N_118RegReductionPQBase15getNodeOrderingEPKN4llvm5SUnitE.exit29.i.i.i
   %40 = tail call fastcc noundef zeroext i1 @_ZL8BURRSortPN4llvm5SUnitES1_PN12_GLOBAL__N_118RegReductionPQBaseE(ptr noundef nonnull %17, ptr noundef nonnull %20, ptr noundef readonly %.val.i.i)
   br label %_ZNK12_GLOBAL__N_114src_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i
 
@@ -13386,11 +13386,11 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_17h
   %.lobit.i.i.i.i = and i16 %23, 1
   %24 = lshr i16 %.val32.i.i.i, 12
   %.lobit8.i.i.i.i = and i16 %24, 1
-  %.not.i.i.i.i = icmp eq i16 %.lobit.i.i.i.i, %.lobit8.i.i.i.i
-  br i1 %.not.i.i.i.i, label %27, label %25
+  %.not.i.i.i = icmp eq i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
+  br i1 %.not.i.i.i, label %27, label %25
 
 25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp ult i16 %.lobit.i.i.i.i, %.lobit8.i.i.i.i
+  %26 = icmp ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
   %cond.fr28.i.i = freeze i1 %26
   br i1 %cond.fr28.i.i, label %_ZNK12_GLOBAL__N_117hybrid_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread.i.i, label %_ZNK12_GLOBAL__N_117hybrid_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i
 
@@ -13850,11 +13850,11 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_14i
   %.lobit.i.i.i.i = and i16 %25, 1
   %26 = lshr i16 %.val61.i.i.i, 12
   %.lobit8.i.i.i.i = and i16 %26, 1
-  %.not.i.i.i.i = icmp eq i16 %.lobit.i.i.i.i, %.lobit8.i.i.i.i
-  br i1 %.not.i.i.i.i, label %29, label %27
+  %.not.i.i.i = icmp eq i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
+  br i1 %.not.i.i.i, label %29, label %27
 
 27:                                               ; preds = %.lr.ph.i.i
-  %28 = icmp ult i16 %.lobit.i.i.i.i, %.lobit8.i.i.i.i
+  %28 = icmp ugt i16 %.lobit8.i.i.i.i, %.lobit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %cond.fr28.i.i = freeze i1 %28
@@ -13863,8 +13863,8 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_14i
 29:                                               ; preds = %.lr.ph.i.i
   %30 = or i16 %.val61.i.i.i, %.val.i.i.i
   %31 = and i16 %30, 2
-  %or.cond114.i.i.i = icmp eq i16 %31, 0
-  br i1 %or.cond114.i.i.i, label %35, label %32
+  %or.cond113.i.i.i = icmp eq i16 %31, 0
+  br i1 %or.cond113.i.i.i, label %35, label %32
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %10, align 8
@@ -13883,7 +13883,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_14i
 38:                                               ; preds = %35
   %39 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20DisableSchedLiveUses, i64 128), align 8
   %40 = trunc i8 %39 to i1
-  br i1 %40, label %.thread110.i.i.i, label %41
+  br i1 %40, label %.thread109.i.i.i, label %41
 
 41:                                               ; preds = %38, %35
   %42 = load ptr, ptr %10, align 8
@@ -13897,18 +13897,18 @@ define internal noundef ptr @_ZN12_GLOBAL__N_125RegReductionPriorityQueueINS_14i
   br i1 %or.cond57.i.i.i, label %48, label %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i
 
 48:                                               ; preds = %41
-  br i1 %47, label %.thread110.i.i.i, label %49
+  br i1 %47, label %.thread109.i.i.i, label %49
 
 49:                                               ; preds = %48
   %50 = icmp sgt i32 %43, 0
   %51 = icmp sgt i32 %45, 0
   %or.cond.i.i.i = or i1 %50, %51
-  br i1 %or.cond.i.i.i, label %52, label %.thread110.i.i.i
+  br i1 %or.cond.i.i.i, label %52, label %.thread109.i.i.i
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %19, align 8
-  %.not.i62.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i62.i.i.i, label %.thread.i.i.i.i, label %54
+  %.not.i.i.i.i = icmp eq ptr %53, null
+  br i1 %.not.i.i.i.i, label %.thread.i.i.i.i, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
@@ -13939,15 +13939,15 @@ switch.hole_check:                                ; preds = %54
   br i1 %switch.lobit, label %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit.i.i.i, label %.thread.i.i.i.i
 
 _ZL19canEnableCoalescingPN4llvm5SUnitE.exit.i.i.i: ; preds = %switch.hole_check, %64, %61
-  %.0.i63.i.i.i = phi i1 [ false, %64 ], [ true, %61 ], [ true, %switch.hole_check ]
+  %.0.i62.i.i.i = phi i1 [ false, %64 ], [ true, %61 ], [ true, %switch.hole_check ]
   %65 = load ptr, ptr %22, align 8
-  %.not.i64.i.i.i = icmp eq ptr %65, null
-  br i1 %.not.i64.i.i.i, label %.thread.i66.i.i.i, label %66
+  %.not.i63.i.i.i = icmp eq ptr %65, null
+  br i1 %.not.i63.i.i.i, label %.thread.i65.i.i.i, label %66
 
 66:                                               ; preds = %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit.i.i.i
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %68 = load i32, ptr %67, align 8
-  switch i32 %68, label %.thread.i66.i.i.i [
+  switch i32 %68, label %.thread.i65.i.i.i [
     i32 49, label %75
     i32 2, label %75
     i32 11, label %75
@@ -13955,40 +13955,40 @@ _ZL19canEnableCoalescingPN4llvm5SUnitE.exit.i.i.i: ; preds = %switch.hole_check,
     i32 8, label %75
   ]
 
-.thread.i66.i.i.i:                                ; preds = %66, %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit.i.i.i
+.thread.i65.i.i.i:                                ; preds = %66, %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit.i.i.i
   %69 = getelementptr inbounds nuw i8, ptr %22, i64 208
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit68.i.i.i
+  br i1 %71, label %72, label %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit67.i.i.i
 
-72:                                               ; preds = %.thread.i66.i.i.i
+72:                                               ; preds = %.thread.i65.i.i.i
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 212
   %74 = load i32, ptr %73, align 4
-  %.not15.i67.i.i.i = icmp eq i32 %74, 0
-  br i1 %.not15.i67.i.i.i, label %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit68.i.i.i, label %75
+  %.not15.i66.i.i.i = icmp eq i32 %74, 0
+  br i1 %.not15.i66.i.i.i, label %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit67.i.i.i, label %75
 
-_ZL19canEnableCoalescingPN4llvm5SUnitE.exit68.i.i.i: ; preds = %72, %.thread.i66.i.i.i
-  br i1 %.0.i63.i.i.i, label %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i, label %.thread110.i.i.i
+_ZL19canEnableCoalescingPN4llvm5SUnitE.exit67.i.i.i: ; preds = %72, %.thread.i65.i.i.i
+  br i1 %.0.i62.i.i.i, label %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i, label %.thread109.i.i.i
 
-_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i: ; preds = %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit68.i.i.i
+_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i: ; preds = %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit67.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %205
 
 75:                                               ; preds = %72, %66, %66, %66, %66, %66
-  br i1 %.0.i63.i.i.i, label %.thread110.i.i.i, label %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread.i.i
+  br i1 %.0.i62.i.i.i, label %.thread109.i.i.i, label %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread.i.i
 
 _ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread.i.i: ; preds = %75
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %204
 
-.thread110.i.i.i:                                 ; preds = %75, %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit68.i.i.i, %49, %48, %38
+.thread109.i.i.i:                                 ; preds = %75, %_ZL19canEnableCoalescingPN4llvm5SUnitE.exit67.i.i.i, %49, %48, %38
   %76 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20DisableSchedLiveUses, i64 128), align 8
   %77 = trunc i8 %76 to i1
   br i1 %77, label %83, label %78
 
-78:                                               ; preds = %.thread110.i.i.i
+78:                                               ; preds = %.thread109.i.i.i
   %79 = load i32, ptr %2, align 4
   %80 = load i32, ptr %3, align 4
   %.not54.i.i.i = icmp eq i32 %79, %80
@@ -14001,7 +14001,7 @@ _ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread.i.i: ; preds 
   %cond.fr32.i.i = freeze i1 %82
   br i1 %cond.fr32.i.i, label %204, label %205
 
-83:                                               ; preds = %78, %.thread110.i.i.i
+83:                                               ; preds = %78, %.thread109.i.i.i
   %84 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18DisableSchedStalls, i64 128), align 8
   %85 = trunc i8 %84 to i1
   br i1 %85, label %131, label %86
@@ -14010,8 +14010,8 @@ _ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread.i.i: ; preds 
   %87 = getelementptr inbounds nuw i8, ptr %19, i64 254
   %88 = load i8, ptr %87, align 2
   %89 = and i8 %88, 2
-  %.not.i69.i.i.i = icmp eq i8 %89, 0
-  br i1 %.not.i69.i.i.i, label %90, label %_ZNK4llvm5SUnit9getHeightEv.exit.i.i.i
+  %.not.i68.i.i.i = icmp eq i8 %89, 0
+  br i1 %.not.i68.i.i.i, label %90, label %_ZNK4llvm5SUnit9getHeightEv.exit.i.i.i
 
 90:                                               ; preds = %86
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %19) #24
@@ -14035,68 +14035,68 @@ _ZNK4llvm5SUnit9getHeightEv.exit.i.i.i:           ; preds = %90, %86
   %101 = getelementptr inbounds i8, ptr %100, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = tail call noundef i32 %102(ptr noundef nonnull align 8 dereferenceable(12) %.val.val.i.i.i.i, ptr noundef nonnull %19, i32 noundef 0) #24
-  %.not.i70.i.i.i = icmp ne i32 %103, 0
+  %.not.i69.i.i.i = icmp ne i32 %103, 0
   br label %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit.i.i.i
 
 _ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit.i.i.i: ; preds = %97, %_ZNK4llvm5SUnit9getHeightEv.exit.i.i.i
-  %.0.i71.i.i.i = phi i1 [ true, %_ZNK4llvm5SUnit9getHeightEv.exit.i.i.i ], [ %.not.i70.i.i.i, %97 ]
+  %.0.i70.i.i.i = phi i1 [ true, %_ZNK4llvm5SUnit9getHeightEv.exit.i.i.i ], [ %.not.i69.i.i.i, %97 ]
   %104 = getelementptr inbounds nuw i8, ptr %22, i64 254
   %105 = load i8, ptr %104, align 2
   %106 = and i8 %105, 2
-  %.not.i72.i.i.i = icmp eq i8 %106, 0
-  br i1 %.not.i72.i.i.i, label %107, label %_ZNK4llvm5SUnit9getHeightEv.exit73.i.i.i
+  %.not.i71.i.i.i = icmp eq i8 %106, 0
+  br i1 %.not.i71.i.i.i, label %107, label %_ZNK4llvm5SUnit9getHeightEv.exit72.i.i.i
 
 107:                                              ; preds = %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit.i.i.i
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %22) #24
-  br label %_ZNK4llvm5SUnit9getHeightEv.exit73.i.i.i
+  br label %_ZNK4llvm5SUnit9getHeightEv.exit72.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit73.i.i.i:         ; preds = %107, %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit.i.i.i
+_ZNK4llvm5SUnit9getHeightEv.exit72.i.i.i:         ; preds = %107, %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit.i.i.i
   %108 = getelementptr inbounds nuw i8, ptr %22, i64 244
   %109 = load i32, ptr %108, align 4
   %110 = load ptr, ptr %10, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i32, ptr %111, align 8
   %113 = icmp slt i32 %112, %109
-  br i1 %113, label %_ZNK4llvm5SUnit9getHeightEv.exit73._ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit78_crit_edge.i.i.i, label %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit78.i.i.i
+  br i1 %113, label %_ZNK4llvm5SUnit9getHeightEv.exit72._ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit77_crit_edge.i.i.i, label %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit77.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit73._ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit78_crit_edge.i.i.i: ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit73.i.i.i
-  br i1 %.0.i71.i.i.i, label %131, label %121
+_ZNK4llvm5SUnit9getHeightEv.exit72._ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit77_crit_edge.i.i.i: ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit72.i.i.i
+  br i1 %.0.i70.i.i.i, label %131, label %121
 
-_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit78.i.i.i: ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit73.i.i.i
+_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit77.i.i.i: ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit72.i.i.i
   %114 = getelementptr i8, ptr %110, i64 88
-  %.val.i74.i.i.i = load ptr, ptr %114, align 8
-  %115 = getelementptr i8, ptr %.val.i74.i.i.i, i64 672
-  %.val.val.i75.i.i.i = load ptr, ptr %115, align 8
-  %116 = load ptr, ptr %.val.val.i75.i.i.i, align 8
+  %.val.i73.i.i.i = load ptr, ptr %114, align 8
+  %115 = getelementptr i8, ptr %.val.i73.i.i.i, i64 672
+  %.val.val.i74.i.i.i = load ptr, ptr %115, align 8
+  %116 = load ptr, ptr %.val.val.i74.i.i.i, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
-  %119 = tail call noundef i32 %118(ptr noundef nonnull align 8 dereferenceable(12) %.val.val.i75.i.i.i, ptr noundef nonnull %22, i32 noundef 0) #24
-  %.not.i76.i.i.i = icmp ne i32 %119, 0
-  %120 = xor i1 %.0.i71.i.i.i, %.not.i76.i.i.i
+  %119 = tail call noundef i32 %118(ptr noundef nonnull align 8 dereferenceable(12) %.val.val.i74.i.i.i, ptr noundef nonnull %22, i32 noundef 0) #24
+  %.not.i75.i.i.i = icmp ne i32 %119, 0
+  %120 = xor i1 %.0.i70.i.i.i, %.not.i75.i.i.i
   br i1 %120, label %121, label %131
 
-121:                                              ; preds = %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit78.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit73._ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit78_crit_edge.i.i.i
+121:                                              ; preds = %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit77.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit72._ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit77_crit_edge.i.i.i
   %122 = load i8, ptr %87, align 2
   %123 = and i8 %122, 2
-  %.not.i79.i.i.i = icmp eq i8 %123, 0
-  br i1 %.not.i79.i.i.i, label %124, label %_ZNK4llvm5SUnit9getHeightEv.exit80.i.i.i
+  %.not.i78.i.i.i = icmp eq i8 %123, 0
+  br i1 %.not.i78.i.i.i, label %124, label %_ZNK4llvm5SUnit9getHeightEv.exit79.i.i.i
 
 124:                                              ; preds = %121
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %19) #24
-  br label %_ZNK4llvm5SUnit9getHeightEv.exit80.i.i.i
+  br label %_ZNK4llvm5SUnit9getHeightEv.exit79.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit80.i.i.i:         ; preds = %124, %121
+_ZNK4llvm5SUnit9getHeightEv.exit79.i.i.i:         ; preds = %124, %121
   %125 = load i32, ptr %91, align 4
   %126 = load i8, ptr %104, align 2
   %127 = and i8 %126, 2
-  %.not.i81.i.i.i = icmp eq i8 %127, 0
-  br i1 %.not.i81.i.i.i, label %128, label %_ZNK4llvm5SUnit9getHeightEv.exit82.i.i.i
+  %.not.i80.i.i.i = icmp eq i8 %127, 0
+  br i1 %.not.i80.i.i.i, label %128, label %_ZNK4llvm5SUnit9getHeightEv.exit81.i.i.i
 
-128:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit80.i.i.i
+128:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit79.i.i.i
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %22) #24
-  br label %_ZNK4llvm5SUnit9getHeightEv.exit82.i.i.i
+  br label %_ZNK4llvm5SUnit9getHeightEv.exit81.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit82.i.i.i:         ; preds = %128, %_ZNK4llvm5SUnit9getHeightEv.exit80.i.i.i
+_ZNK4llvm5SUnit9getHeightEv.exit81.i.i.i:         ; preds = %128, %_ZNK4llvm5SUnit9getHeightEv.exit79.i.i.i
   %129 = load i32, ptr %108, align 4
   %130 = icmp ugt i32 %125, %129
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -14104,7 +14104,7 @@ _ZNK4llvm5SUnit9getHeightEv.exit82.i.i.i:         ; preds = %128, %_ZNK4llvm5SUn
   %cond.fr31.i.i = freeze i1 %130
   br i1 %cond.fr31.i.i, label %204, label %205
 
-131:                                              ; preds = %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit78.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit73._ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit78_crit_edge.i.i.i, %83
+131:                                              ; preds = %_ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit77.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit72._ZL10BUHasStallPN4llvm5SUnitEiPN12_GLOBAL__N_118RegReductionPQBaseE.exit77_crit_edge.i.i.i, %83
   %132 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL24DisableSchedCriticalPath, i64 128), align 8
   %133 = trunc i8 %132 to i1
   br i1 %133, label %161, label %134
@@ -14125,13 +14125,13 @@ _ZNK4llvm5SUnit8getDepthEv.exit.i.i.i:            ; preds = %138, %134
   %141 = getelementptr inbounds nuw i8, ptr %22, i64 254
   %142 = load i8, ptr %141, align 2
   %143 = trunc i8 %142 to i1
-  br i1 %143, label %_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i, label %144
+  br i1 %143, label %_ZNK4llvm5SUnit8getDepthEv.exit82.i.i.i, label %144
 
 144:                                              ; preds = %_ZNK4llvm5SUnit8getDepthEv.exit.i.i.i
   tail call void @_ZN4llvm5SUnit12ComputeDepthEv(ptr noundef nonnull align 8 dereferenceable(255) %22) #24
-  br label %_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i
+  br label %_ZNK4llvm5SUnit8getDepthEv.exit82.i.i.i
 
-_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i:          ; preds = %144, %_ZNK4llvm5SUnit8getDepthEv.exit.i.i.i
+_ZNK4llvm5SUnit8getDepthEv.exit82.i.i.i:          ; preds = %144, %_ZNK4llvm5SUnit8getDepthEv.exit.i.i.i
   %145 = getelementptr inbounds nuw i8, ptr %22, i64 240
   %146 = load i32, ptr %145, align 8
   %147 = sub nsw i32 %140, %146
@@ -14140,26 +14140,26 @@ _ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i:          ; preds = %144, %_ZNK4llvm5SUn
   %150 = icmp sgt i32 %148, %149
   br i1 %150, label %151, label %161
 
-151:                                              ; preds = %_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i
+151:                                              ; preds = %_ZNK4llvm5SUnit8getDepthEv.exit82.i.i.i
   %152 = load i8, ptr %135, align 2
   %153 = trunc i8 %152 to i1
-  br i1 %153, label %_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i, label %154
+  br i1 %153, label %_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i, label %154
 
 154:                                              ; preds = %151
   tail call void @_ZN4llvm5SUnit12ComputeDepthEv(ptr noundef nonnull align 8 dereferenceable(255) %19) #24
-  br label %_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i
+  br label %_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i
 
-_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i:          ; preds = %154, %151
+_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i:          ; preds = %154, %151
   %155 = load i32, ptr %139, align 8
   %156 = load i8, ptr %141, align 2
   %157 = trunc i8 %156 to i1
-  br i1 %157, label %_ZNK4llvm5SUnit8getDepthEv.exit85.i.i.i, label %158
+  br i1 %157, label %_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i, label %158
 
-158:                                              ; preds = %_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i
+158:                                              ; preds = %_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i
   tail call void @_ZN4llvm5SUnit12ComputeDepthEv(ptr noundef nonnull align 8 dereferenceable(255) %22) #24
-  br label %_ZNK4llvm5SUnit8getDepthEv.exit85.i.i.i
+  br label %_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i
 
-_ZNK4llvm5SUnit8getDepthEv.exit85.i.i.i:          ; preds = %158, %_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i
+_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i:          ; preds = %158, %_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i
   %159 = load i32, ptr %145, align 8
   %160 = icmp ult i32 %155, %159
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -14167,7 +14167,7 @@ _ZNK4llvm5SUnit8getDepthEv.exit85.i.i.i:          ; preds = %158, %_ZNK4llvm5SUn
   %cond.fr30.i.i = freeze i1 %160
   br i1 %cond.fr30.i.i, label %204, label %205
 
-161:                                              ; preds = %_ZNK4llvm5SUnit8getDepthEv.exit83.i.i.i, %131
+161:                                              ; preds = %_ZNK4llvm5SUnit8getDepthEv.exit82.i.i.i, %131
   %162 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18DisableSchedHeight, i64 128), align 8
   %163 = trunc i8 %162 to i1
   br i1 %163, label %200, label %164
@@ -14176,54 +14176,54 @@ _ZNK4llvm5SUnit8getDepthEv.exit85.i.i.i:          ; preds = %158, %_ZNK4llvm5SUn
   %165 = getelementptr inbounds nuw i8, ptr %19, i64 254
   %166 = load i8, ptr %165, align 2
   %167 = and i8 %166, 2
-  %.not.i86.i.i.i = icmp eq i8 %167, 0
-  br i1 %.not.i86.i.i.i, label %168, label %_ZNK4llvm5SUnit9getHeightEv.exit87.i.i.i
+  %.not.i85.i.i.i = icmp eq i8 %167, 0
+  br i1 %.not.i85.i.i.i, label %168, label %_ZNK4llvm5SUnit9getHeightEv.exit86.i.i.i
 
 168:                                              ; preds = %164
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %19) #24
-  br label %_ZNK4llvm5SUnit9getHeightEv.exit87.i.i.i
+  br label %_ZNK4llvm5SUnit9getHeightEv.exit86.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit87.i.i.i:         ; preds = %168, %164
+_ZNK4llvm5SUnit9getHeightEv.exit86.i.i.i:         ; preds = %168, %164
   %169 = getelementptr inbounds nuw i8, ptr %19, i64 244
   %170 = load i32, ptr %169, align 4
   %171 = getelementptr inbounds nuw i8, ptr %22, i64 254
   %172 = load i8, ptr %171, align 2
   %173 = and i8 %172, 2
-  %.not.i88.i.i.i = icmp eq i8 %173, 0
-  br i1 %.not.i88.i.i.i, label %174, label %_ZNK4llvm5SUnit9getHeightEv.exit89.i.i.i
+  %.not.i87.i.i.i = icmp eq i8 %173, 0
+  br i1 %.not.i87.i.i.i, label %174, label %_ZNK4llvm5SUnit9getHeightEv.exit88.i.i.i
 
-174:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit87.i.i.i
+174:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit86.i.i.i
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %22) #24
-  br label %_ZNK4llvm5SUnit9getHeightEv.exit89.i.i.i
+  br label %_ZNK4llvm5SUnit9getHeightEv.exit88.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit89.i.i.i:         ; preds = %174, %_ZNK4llvm5SUnit9getHeightEv.exit87.i.i.i
+_ZNK4llvm5SUnit9getHeightEv.exit88.i.i.i:         ; preds = %174, %_ZNK4llvm5SUnit9getHeightEv.exit86.i.i.i
   %175 = getelementptr inbounds nuw i8, ptr %22, i64 244
   %176 = load i32, ptr %175, align 4
   %.not56.i.i.i = icmp eq i32 %170, %176
   br i1 %.not56.i.i.i, label %200, label %177
 
-177:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit89.i.i.i
+177:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit88.i.i.i
   %178 = load i8, ptr %165, align 2
   %179 = and i8 %178, 2
-  %.not.i90.i.i.i = icmp eq i8 %179, 0
-  br i1 %.not.i90.i.i.i, label %180, label %_ZNK4llvm5SUnit9getHeightEv.exit91.i.i.i
+  %.not.i89.i.i.i = icmp eq i8 %179, 0
+  br i1 %.not.i89.i.i.i, label %180, label %_ZNK4llvm5SUnit9getHeightEv.exit90.i.i.i
 
 180:                                              ; preds = %177
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %19) #24
-  br label %_ZNK4llvm5SUnit9getHeightEv.exit91.i.i.i
+  br label %_ZNK4llvm5SUnit9getHeightEv.exit90.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit91.i.i.i:         ; preds = %180, %177
+_ZNK4llvm5SUnit9getHeightEv.exit90.i.i.i:         ; preds = %180, %177
   %181 = load i32, ptr %169, align 4
   %182 = load i8, ptr %171, align 2
   %183 = and i8 %182, 2
-  %.not.i92.i.i.i = icmp eq i8 %183, 0
-  br i1 %.not.i92.i.i.i, label %184, label %_ZNK4llvm5SUnit9getHeightEv.exit93.i.i.i
+  %.not.i91.i.i.i = icmp eq i8 %183, 0
+  br i1 %.not.i91.i.i.i, label %184, label %_ZNK4llvm5SUnit9getHeightEv.exit92.i.i.i
 
-184:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit91.i.i.i
+184:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit90.i.i.i
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %22) #24
-  br label %_ZNK4llvm5SUnit9getHeightEv.exit93.i.i.i
+  br label %_ZNK4llvm5SUnit9getHeightEv.exit92.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit93.i.i.i:         ; preds = %184, %_ZNK4llvm5SUnit9getHeightEv.exit91.i.i.i
+_ZNK4llvm5SUnit9getHeightEv.exit92.i.i.i:         ; preds = %184, %_ZNK4llvm5SUnit9getHeightEv.exit90.i.i.i
   %185 = load i32, ptr %175, align 4
   %186 = sub nsw i32 %181, %185
   %187 = tail call i32 @llvm.abs.i32(i32 %186, i1 true)
@@ -14231,28 +14231,28 @@ _ZNK4llvm5SUnit9getHeightEv.exit93.i.i.i:         ; preds = %184, %_ZNK4llvm5SUn
   %189 = icmp sgt i32 %187, %188
   br i1 %189, label %190, label %200
 
-190:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit93.i.i.i
+190:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit92.i.i.i
   %191 = load i8, ptr %165, align 2
   %192 = and i8 %191, 2
-  %.not.i94.i.i.i = icmp eq i8 %192, 0
-  br i1 %.not.i94.i.i.i, label %193, label %_ZNK4llvm5SUnit9getHeightEv.exit95.i.i.i
+  %.not.i93.i.i.i = icmp eq i8 %192, 0
+  br i1 %.not.i93.i.i.i, label %193, label %_ZNK4llvm5SUnit9getHeightEv.exit94.i.i.i
 
 193:                                              ; preds = %190
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %19) #24
-  br label %_ZNK4llvm5SUnit9getHeightEv.exit95.i.i.i
+  br label %_ZNK4llvm5SUnit9getHeightEv.exit94.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit95.i.i.i:         ; preds = %193, %190
+_ZNK4llvm5SUnit9getHeightEv.exit94.i.i.i:         ; preds = %193, %190
   %194 = load i32, ptr %169, align 4
   %195 = load i8, ptr %171, align 2
   %196 = and i8 %195, 2
-  %.not.i96.i.i.i = icmp eq i8 %196, 0
-  br i1 %.not.i96.i.i.i, label %197, label %_ZNK4llvm5SUnit9getHeightEv.exit97.i.i.i
+  %.not.i95.i.i.i = icmp eq i8 %196, 0
+  br i1 %.not.i95.i.i.i, label %197, label %_ZNK4llvm5SUnit9getHeightEv.exit96.i.i.i
 
-197:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit95.i.i.i
+197:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit94.i.i.i
   tail call void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255) %22) #24
-  br label %_ZNK4llvm5SUnit9getHeightEv.exit97.i.i.i
+  br label %_ZNK4llvm5SUnit9getHeightEv.exit96.i.i.i
 
-_ZNK4llvm5SUnit9getHeightEv.exit97.i.i.i:         ; preds = %197, %_ZNK4llvm5SUnit9getHeightEv.exit95.i.i.i
+_ZNK4llvm5SUnit9getHeightEv.exit96.i.i.i:         ; preds = %197, %_ZNK4llvm5SUnit9getHeightEv.exit94.i.i.i
   %198 = load i32, ptr %175, align 4
   %199 = icmp ugt i32 %194, %198
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -14260,7 +14260,7 @@ _ZNK4llvm5SUnit9getHeightEv.exit97.i.i.i:         ; preds = %197, %_ZNK4llvm5SUn
   %cond.fr29.i.i = freeze i1 %199
   br i1 %cond.fr29.i.i, label %204, label %205
 
-200:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit93.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit89.i.i.i, %161
+200:                                              ; preds = %_ZNK4llvm5SUnit9getHeightEv.exit92.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit88.i.i.i, %161
   %201 = load ptr, ptr %10, align 8
   %202 = tail call fastcc noundef zeroext i1 @_ZL8BURRSortPN4llvm5SUnitES1_PN12_GLOBAL__N_118RegReductionPQBaseE(ptr noundef nonnull %19, ptr noundef nonnull %22, ptr noundef %201)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -14273,11 +14273,11 @@ _ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i: ; preds = %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br i1 %203, label %204, label %205
 
-204:                                              ; preds = %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i, %200, %_ZNK4llvm5SUnit9getHeightEv.exit97.i.i.i, %_ZNK4llvm5SUnit8getDepthEv.exit85.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit82.i.i.i, %81, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread.i.i, %32, %27
+204:                                              ; preds = %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i, %200, %_ZNK4llvm5SUnit9getHeightEv.exit96.i.i.i, %_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit81.i.i.i, %81, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread.i.i, %32, %27
   br label %205
 
-205:                                              ; preds = %204, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i, %200, %_ZNK4llvm5SUnit9getHeightEv.exit97.i.i.i, %_ZNK4llvm5SUnit8getDepthEv.exit85.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit82.i.i.i, %81, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i, %32, %27
-  %206 = phi i32 [ %.01834.i.i, %204 ], [ %.035.i.i, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i ], [ %.035.i.i, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i ], [ %.035.i.i, %27 ], [ %.035.i.i, %32 ], [ %.035.i.i, %200 ], [ %.035.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit97.i.i.i ], [ %.035.i.i, %_ZNK4llvm5SUnit8getDepthEv.exit85.i.i.i ], [ %.035.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit82.i.i.i ], [ %.035.i.i, %81 ]
+205:                                              ; preds = %204, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i, %200, %_ZNK4llvm5SUnit9getHeightEv.exit96.i.i.i, %_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit81.i.i.i, %81, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i, %32, %27
+  %206 = phi i32 [ %.01834.i.i, %204 ], [ %.035.i.i, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.i.i ], [ %.035.i.i, %_ZNK12_GLOBAL__N_114ilp_ls_rr_sortclEPN4llvm5SUnitES3_.exit.thread25.i.i ], [ %.035.i.i, %27 ], [ %.035.i.i, %32 ], [ %.035.i.i, %200 ], [ %.035.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit96.i.i.i ], [ %.035.i.i, %_ZNK4llvm5SUnit8getDepthEv.exit84.i.i.i ], [ %.035.i.i, %_ZNK4llvm5SUnit9getHeightEv.exit81.i.i.i ], [ %.035.i.i, %81 ]
   %207 = add i32 %.01834.i.i, 1
   %.not.i.i = icmp eq i32 %207, %15
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !67
