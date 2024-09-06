@@ -32661,7 +32661,7 @@ ruby/eval.ll 1298408714
 ruby/eventids1.ll 150636295
 ruby/eventids2.ll 86227720
 ruby/extension.ll 401295269
-ruby/fiddle.ll 104466049
+ruby/fiddle.ll 104361429
 ruby/file.ll 1638141817
 ruby/foreach.ll 91568236
 ruby/fs.ll 47819643
