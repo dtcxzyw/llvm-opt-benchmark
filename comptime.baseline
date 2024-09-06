@@ -6523,7 +6523,7 @@ diesel-rs/5adr4b1vt9d36mr4.ll 1452294771
 diesel-rs/5ae9g3v8s5vb9wv8.ll 147996889
 diesel-rs/5ced59ru0k2b91x9.ll 2010358158
 diesel-rs/5ck5f2s0unrfdip0.ll 456489724
-diesel-rs/5dsc9udfp7q2e4sk.ll 1632847538
+diesel-rs/5dsc9udfp7q2e4sk.ll 1634480884
 diesel-rs/5ejp0bt5ilhaioh2.ll 464444645
 diesel-rs/5fhz1ik63zop0ca7.ll 39528035
 diesel-rs/5fkixlzdmcnhldqw.ll 487770337
@@ -11574,7 +11574,7 @@ libjpeg-turbo/jclhuff.c.ll 260399669
 libjpeg-turbo/jclossls.c.ll 141702499
 libjpeg-turbo/jcmainct.c.ll 62401324
 libjpeg-turbo/jcmarker.c.ll 524851954
-libjpeg-turbo/jcmaster.c.ll 393763492
+libjpeg-turbo/jcmaster.c.ll 394157641
 libjpeg-turbo/jcomapi.c.ll 42151441
 libjpeg-turbo/jcparam.c.ll 318392686
 libjpeg-turbo/jcphuff.c.ll 487825974
@@ -22083,7 +22083,7 @@ opencv/has_non_zero.dispatch.cpp.ll 139391305
 opencv/hash_samples.cpp.ll 451669846
 opencv/hash_tsdf.cpp.ll 4741363019
 opencv/haus_dis.cpp.ll 210777582
-opencv/hdr_common.cpp.ll 222015282
+opencv/hdr_common.cpp.ll 222237308
 opencv/hdr_imaging.cpp.ll 368634091
 opencv/helpers.cpp.ll 1116576202
 opencv/hfs.cpp.ll 220750822
@@ -23576,7 +23576,7 @@ openjdk/cmstypes.ll 1997409847
 openjdk/cmsvirt.ll 326482832
 openjdk/cmswtpnt.ll 91847536
 openjdk/cmsxform.ll 411548496
-openjdk/coalesce.ll 907262964
+openjdk/coalesce.ll 908170340
 openjdk/codeBehaviours.ll 41586445
 openjdk/codeBlob.ll 541637751
 openjdk/codeBuffer.ll 1018822925
@@ -25346,7 +25346,7 @@ openmpi/libmpi_c_profile_la-alltoall.ll 105757629
 openmpi/libmpi_c_profile_la-alltoall_init.ll 96324713
 openmpi/libmpi_c_profile_la-alltoallv.ll 128108964
 openmpi/libmpi_c_profile_la-alltoallv_init.ll 124411399
-openmpi/libmpi_c_profile_la-alltoallw.ll 128564147
+openmpi/libmpi_c_profile_la-alltoallw.ll 128693188
 openmpi/libmpi_c_profile_la-alltoallw_init.ll 124382528
 openmpi/libmpi_c_profile_la-attr_delete.ll 47778595
 openmpi/libmpi_c_profile_la-attr_get.ll 65335909
@@ -31450,7 +31450,7 @@ qemu/migration_qemu-file.c.ll 339724948
 qemu/migration_ram-compress.c.ll 199883087
 qemu/migration_ram.c.ll 1788554897
 qemu/migration_savevm.c.ll 1462475228
-qemu/migration_socket.c.ll 91789160
+qemu/migration_socket.c.ll 91881256
 qemu/migration_tls.c.ll 108483597
 qemu/migration_vmstate-types.c.ll 320202724
 qemu/migration_vmstate.c.ll 396062874
@@ -38921,7 +38921,7 @@ xgboost/multi_target_tree_model.cc.ll 2291062231
 xgboost/multiclass_metric.cc.ll 1546940156
 xgboost/multiclass_obj.cc.ll 2438075397
 xgboost/numeric.cc.ll 355434437
-xgboost/objective.cc.ll 477260405
+xgboost/objective.cc.ll 477738209
 xgboost/param.cc.ll 1772007628
 xgboost/predictor.cc.ll 520577401
 xgboost/proxy_dmatrix.cc.ll 2863724067
@@ -39654,7 +39654,7 @@ z3/hnf_cutter.cpp.ll 3134040479
 z3/horn_subsume_model_converter.cpp.ll 1155213697
 z3/horn_tactic.cpp.ll 1481086270
 z3/horner.cpp.ll 2145237228
-z3/hwf.cpp.ll 346760785
+z3/hwf.cpp.ll 347108028
 z3/inc_sat_solver.cpp.ll 4835320530
 z3/indexed_vector.cpp.ll 501440520
 z3/inf_int_rational.cpp.ll 93459211
