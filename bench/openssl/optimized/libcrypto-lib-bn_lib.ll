@@ -144,61 +144,57 @@ entry:
 if.then:                                          ; preds = %entry
   %dmax.i = getelementptr inbounds i8, ptr %a, i64 12
   %2 = load i32, ptr %dmax.i, align 4
-  %cmp18.i = icmp sgt i32 %2, 0
-  br i1 %cmp18.i, label %for.body.lr.ph.i, label %bn_num_bits_consttime.exit
+  %cmp14.i = icmp sgt i32 %2, 0
+  br i1 %cmp14.i, label %for.body.lr.ph.i, label %bn_num_bits_consttime.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %not.i.i.i.i = sub i32 0, %0
   %3 = load ptr, ptr %a, align 8
+  %4 = zext i32 %sub to i64
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %past_i.020.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %and.demorgan.i, %for.body.i ]
-  %ret.019.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add5.i, %for.body.i ]
-  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %xor.i.i.i = xor i32 %sub, %4
-  %sub.i.i.i.i = add i32 %xor.i.i.i, -1
-  %and.i.i.i.i = and i32 %sub.i.i.i.i, %not.i.i.i.i
-  %shr.neg.i.i.i.i.i = ashr i32 %and.i.i.i.i, 31
-  %and.demorgan.i = or i32 %shr.neg.i.i.i.i.i, %past_i.020.i
+  %past_i.016.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %and.demorgan.i, %for.body.i ]
+  %ret.015.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %add5.i, %for.body.i ]
+  %5 = icmp eq i64 %indvars.iv.i, %4
+  %and.demorgan.i = select i1 %5, i32 -1, i32 %past_i.016.i
   %and.i = and i32 %and.demorgan.i, 64
   %and2.i = xor i32 %and.i, 64
-  %add.i = add i32 %and2.i, %ret.019.i
+  %add.i = add i32 %and2.i, %ret.015.i
   %arrayidx.i = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.i
-  %5 = load i64, ptr %arrayidx.i, align 8
-  %cmp.i.i = icmp ne i64 %5, 0
-  %shr.i.i = lshr i64 %5, 32
-  %6 = icmp ugt i64 %5, 4294967295
-  %and3.i.i = select i1 %6, i32 32, i32 0
+  %6 = load i64, ptr %arrayidx.i, align 8
+  %cmp.i.i = icmp ne i64 %6, 0
+  %shr.i.i = lshr i64 %6, 32
+  %7 = icmp ugt i64 %6, 4294967295
+  %and3.i.i = select i1 %7, i32 32, i32 0
   %conv4.i.i = zext i1 %cmp.i.i to i32
   %add.i.i = or disjoint i32 %and3.i.i, %conv4.i.i
-  %xor7.i.i = select i1 %6, i64 %shr.i.i, i64 %5
+  %xor7.i.i = select i1 %7, i64 %shr.i.i, i64 %6
   %shr8.i.i = lshr i64 %xor7.i.i, 16
-  %7 = icmp ugt i64 %xor7.i.i, 65535
-  %and13.i.i = select i1 %7, i32 16, i32 0
+  %8 = icmp ugt i64 %xor7.i.i, 65535
+  %and13.i.i = select i1 %8, i32 16, i32 0
   %add15.i.i = or disjoint i32 %add.i.i, %and13.i.i
-  %xor19.i.i = select i1 %7, i64 %shr8.i.i, i64 %xor7.i.i
+  %xor19.i.i = select i1 %8, i64 %shr8.i.i, i64 %xor7.i.i
   %shr20.i.i = lshr i64 %xor19.i.i, 8
-  %8 = icmp ugt i64 %xor19.i.i, 255
-  %and25.i.i = select i1 %8, i32 8, i32 0
+  %9 = icmp ugt i64 %xor19.i.i, 255
+  %and25.i.i = select i1 %9, i32 8, i32 0
   %add27.i.i = or disjoint i32 %add15.i.i, %and25.i.i
-  %xor31.i.i = select i1 %8, i64 %shr20.i.i, i64 %xor19.i.i
+  %xor31.i.i = select i1 %9, i64 %shr20.i.i, i64 %xor19.i.i
   %shr32.i.i = lshr i64 %xor31.i.i, 4
-  %9 = icmp ugt i64 %xor31.i.i, 15
-  %and37.i.i = select i1 %9, i32 4, i32 0
+  %10 = icmp ugt i64 %xor31.i.i, 15
+  %and37.i.i = select i1 %10, i32 4, i32 0
   %add39.i.i = or disjoint i32 %add27.i.i, %and37.i.i
-  %xor43.i.i = select i1 %9, i64 %shr32.i.i, i64 %xor31.i.i
+  %xor43.i.i = select i1 %10, i64 %shr32.i.i, i64 %xor31.i.i
   %shr44.i.i = lshr i64 %xor43.i.i, 2
-  %10 = icmp ugt i64 %xor43.i.i, 3
-  %and49.i.i = select i1 %10, i32 2, i32 0
+  %11 = icmp ugt i64 %xor43.i.i, 3
+  %and49.i.i = select i1 %11, i32 2, i32 0
   %add51.i.i = or disjoint i32 %add39.i.i, %and49.i.i
-  %xor55.i.i = select i1 %10, i64 %shr44.i.i, i64 %xor43.i.i
-  %11 = icmp ugt i64 %xor55.i.i, 1
-  %shr59.neg.i.i = zext i1 %11 to i32
+  %xor55.i.i = select i1 %11, i64 %shr44.i.i, i64 %xor43.i.i
+  %12 = icmp ugt i64 %xor55.i.i, 1
+  %shr59.neg.i.i = zext i1 %12 to i32
   %add63.i.i = add nuw nsw i32 %add51.i.i, %shr59.neg.i.i
-  %and4.i = and i32 %add63.i.i, %shr.neg.i.i.i.i.i
+  %and4.i = select i1 %5, i32 %add63.i.i, i32 0
   %add5.i = add i32 %add.i, %and4.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -206,8 +202,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 bn_num_bits_consttime.exit:                       ; preds = %for.body.i, %if.then
   %ret.0.lcssa.i = phi i32 [ 0, %if.then ], [ %add5.i, %for.body.i ]
-  %isnotneg.not.i = icmp eq i32 %0, 0
-  %and8.i = select i1 %isnotneg.not.i, i32 0, i32 %ret.0.lcssa.i
+  %.not.i = icmp eq i32 %0, 0
+  %and8.i = select i1 %.not.i, i32 0, i32 %ret.0.lcssa.i
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -216,34 +212,34 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %mul = shl nsw i32 %sub, 6
-  %12 = load ptr, ptr %a, align 8
+  %13 = load ptr, ptr %a, align 8
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds i64, ptr %12, i64 %idxprom
-  %13 = load i64, ptr %arrayidx, align 8
-  %cmp.i7 = icmp ne i64 %13, 0
-  %shr.i = lshr i64 %13, 32
-  %14 = icmp ugt i64 %13, 4294967295
-  %and3.i = select i1 %14, i32 32, i32 0
+  %arrayidx = getelementptr inbounds i64, ptr %13, i64 %idxprom
+  %14 = load i64, ptr %arrayidx, align 8
+  %cmp.i7 = icmp ne i64 %14, 0
+  %shr.i = lshr i64 %14, 32
+  %15 = icmp ugt i64 %14, 4294967295
+  %and3.i = select i1 %15, i32 32, i32 0
   %conv4.i = zext i1 %cmp.i7 to i32
-  %xor7.i = select i1 %14, i64 %shr.i, i64 %13
+  %xor7.i = select i1 %15, i64 %shr.i, i64 %14
   %shr8.i = lshr i64 %xor7.i, 16
-  %15 = icmp ugt i64 %xor7.i, 65535
-  %and13.i = select i1 %15, i32 16, i32 0
-  %xor19.i = select i1 %15, i64 %shr8.i, i64 %xor7.i
+  %16 = icmp ugt i64 %xor7.i, 65535
+  %and13.i = select i1 %16, i32 16, i32 0
+  %xor19.i = select i1 %16, i64 %shr8.i, i64 %xor7.i
   %shr20.i = lshr i64 %xor19.i, 8
-  %16 = icmp ugt i64 %xor19.i, 255
-  %and25.i = select i1 %16, i32 8, i32 0
-  %xor31.i = select i1 %16, i64 %shr20.i, i64 %xor19.i
+  %17 = icmp ugt i64 %xor19.i, 255
+  %and25.i = select i1 %17, i32 8, i32 0
+  %xor31.i = select i1 %17, i64 %shr20.i, i64 %xor19.i
   %shr32.i = lshr i64 %xor31.i, 4
-  %17 = icmp ugt i64 %xor31.i, 15
-  %and37.i = select i1 %17, i32 4, i32 0
-  %xor43.i = select i1 %17, i64 %shr32.i, i64 %xor31.i
+  %18 = icmp ugt i64 %xor31.i, 15
+  %and37.i = select i1 %18, i32 4, i32 0
+  %xor43.i = select i1 %18, i64 %shr32.i, i64 %xor31.i
   %shr44.i = lshr i64 %xor43.i, 2
-  %18 = icmp ugt i64 %xor43.i, 3
-  %and49.i = select i1 %18, i32 2, i32 0
-  %xor55.i = select i1 %18, i64 %shr44.i, i64 %xor43.i
-  %19 = icmp ugt i64 %xor55.i, 1
-  %shr59.neg.i = zext i1 %19 to i32
+  %19 = icmp ugt i64 %xor43.i, 3
+  %and49.i = select i1 %19, i32 2, i32 0
+  %xor55.i = select i1 %19, i64 %shr44.i, i64 %xor43.i
+  %20 = icmp ugt i64 %xor55.i, 1
+  %shr59.neg.i = zext i1 %20 to i32
   %add.i8 = or disjoint i32 %mul, %conv4.i
   %add15.i = or disjoint i32 %add.i8, %and3.i
   %add27.i = or disjoint i32 %add15.i, %and13.i
@@ -2013,48 +2009,44 @@ return:                                           ; preds = %for.body, %for.body
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @BN_consttime_swap(i64 noundef %condition, ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %nwords) local_unnamed_addr #12 {
 entry:
-  %not = xor i64 %condition, -1
-  %sub = add i64 %condition, -1
-  %and = and i64 %sub, %not
-  %shr = lshr i64 %and, 63
-  %sub1 = add nsw i64 %shr, -1
+  %.not = icmp eq i64 %condition, 0
   %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %top2 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i32, ptr %top2, align 8
   %xor = xor i32 %1, %0
-  %2 = trunc nsw i64 %sub1 to i32
-  %3 = and i32 %xor, %2
-  %conv7 = xor i32 %3, %0
+  %2 = select i1 %.not, i32 0, i32 %xor
+  %conv7 = xor i32 %2, %0
   store i32 %conv7, ptr %top, align 8
-  %4 = load i32, ptr %top2, align 8
-  %conv11 = xor i32 %4, %3
+  %3 = load i32, ptr %top2, align 8
+  %conv11 = xor i32 %3, %2
   store i32 %conv11, ptr %top2, align 8
   %neg = getelementptr inbounds i8, ptr %a, i64 16
-  %5 = load i32, ptr %neg, align 8
+  %4 = load i32, ptr %neg, align 8
   %neg12 = getelementptr inbounds i8, ptr %b, i64 16
-  %6 = load i32, ptr %neg12, align 8
-  %xor13 = xor i32 %6, %5
-  %7 = and i32 %xor13, %2
-  %conv19 = xor i32 %7, %5
+  %5 = load i32, ptr %neg12, align 8
+  %xor13 = xor i32 %5, %4
+  %6 = select i1 %.not, i32 0, i32 %xor13
+  %conv19 = xor i32 %6, %4
   store i32 %conv19, ptr %neg, align 8
-  %8 = load i32, ptr %neg12, align 8
-  %conv23 = xor i32 %8, %7
+  %7 = load i32, ptr %neg12, align 8
+  %conv23 = xor i32 %7, %6
   store i32 %conv23, ptr %neg12, align 8
   %flags = getelementptr inbounds i8, ptr %a, i64 20
-  %9 = load i32, ptr %flags, align 4
+  %8 = load i32, ptr %flags, align 4
   %flags24 = getelementptr inbounds i8, ptr %b, i64 20
-  %10 = load i32, ptr %flags24, align 4
-  %xor25 = xor i32 %10, %9
-  %and26 = and i32 %2, 4
-  %11 = and i32 %and26, %xor25
-  %conv32 = xor i32 %11, %9
+  %9 = load i32, ptr %flags24, align 4
+  %xor25 = xor i32 %9, %8
+  %and26 = and i32 %xor25, 4
+  %10 = select i1 %.not, i32 0, i32 %and26
+  %conv32 = xor i32 %10, %8
   store i32 %conv32, ptr %flags, align 4
-  %12 = load i32, ptr %flags24, align 4
-  %conv36 = xor i32 %11, %12
+  %11 = load i32, ptr %flags24, align 4
+  %conv36 = xor i32 %10, %11
   store i32 %conv36, ptr %flags24, align 4
-  %cmp32 = icmp sgt i32 %nwords, 0
-  br i1 %cmp32, label %for.body.preheader, label %for.end
+  %cmp32 = icmp slt i32 %nwords, 1
+  %brmerge = or i1 %cmp32, %.not
+  br i1 %brmerge, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %nwords to i64
@@ -2062,20 +2054,18 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %13 = load ptr, ptr %a, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %13, i64 %indvars.iv
-  %14 = load i64, ptr %arrayidx, align 8
-  %15 = load ptr, ptr %b, align 8
-  %arrayidx40 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv
-  %16 = load i64, ptr %arrayidx40, align 8
-  %xor41 = xor i64 %16, %14
-  %and42 = and i64 %xor41, %sub1
-  %xor46 = xor i64 %and42, %14
-  store i64 %xor46, ptr %arrayidx, align 8
-  %17 = load ptr, ptr %b, align 8
-  %arrayidx49 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv
-  %18 = load i64, ptr %arrayidx49, align 8
-  %xor50 = xor i64 %18, %and42
+  %12 = load ptr, ptr %a, align 8
+  %arrayidx = getelementptr inbounds i64, ptr %12, i64 %indvars.iv
+  %13 = load i64, ptr %arrayidx, align 8
+  %14 = load ptr, ptr %b, align 8
+  %arrayidx40 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv
+  %15 = load i64, ptr %arrayidx40, align 8
+  store i64 %15, ptr %arrayidx, align 8
+  %16 = load ptr, ptr %b, align 8
+  %arrayidx49 = getelementptr inbounds i64, ptr %16, i64 %indvars.iv
+  %17 = load i64, ptr %arrayidx49, align 8
+  %18 = xor i64 %13, %17
+  %xor50 = xor i64 %18, %15
   store i64 %xor50, ptr %arrayidx49, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2397,18 +2387,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %entry
   %atop.0.lcssa = phi i32 [ 0, %entry ], [ %or.i.i, %for.body ]
-  %not.i.i.i = xor i32 %atop.0.lcssa, -1
-  %sub.i.i.i = add i32 %atop.0.lcssa, -1
-  %and.i.i.i = and i32 %sub.i.i.i, %not.i.i.i
-  %shr.neg.i.i.i.i = ashr i32 %and.i.i.i, 31
+  %9 = icmp eq i32 %atop.0.lcssa, 0
+  %shr.neg.i.i.i.i = sext i1 %9 to i32
   %top5 = getelementptr inbounds i8, ptr %a, i64 8
   store i32 %atop.0.lcssa, ptr %top5, align 8
   %neg = getelementptr inbounds i8, ptr %a, i64 16
-  %9 = load i32, ptr %neg, align 8
-  %10 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #18, !srcloc !18
+  %10 = load i32, ptr %neg, align 8
+  %11 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #18, !srcloc !18
   %not.i.i20 = xor i32 %shr.neg.i.i.i.i, -1
-  %11 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i20) #18, !srcloc !18
-  %and2.i.i21 = and i32 %11, %9
+  %12 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i20) #18, !srcloc !18
+  %and2.i.i21 = and i32 %12, %10
   store i32 %and2.i.i21, ptr %neg, align 8
   ret void
 }

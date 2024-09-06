@@ -111,95 +111,91 @@ if.end50:                                         ; preds = %if.end45
   %add54 = or disjoint i64 %mac_size, 256
   %spec.select = call i64 @llvm.usub.sat.i64(i64 %origreclen, i64 %add54)
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %add.ptr, i8 0, i64 %mac_size, i1 false)
-  %cmp6281 = icmp ult i64 %spec.select, %origreclen
-  br i1 %cmp6281, label %for.body, label %for.cond79.preheader
+  %cmp6275 = icmp ult i64 %spec.select, %origreclen
+  br i1 %cmp6275, label %for.body, label %for.cond79.preheader
 
 for.cond79.preheader:                             ; preds = %for.body, %if.end50
   %rotate_offset.0.lcssa = phi i64 [ 0, %if.end50 ], [ %or69, %for.body ]
   %conv94 = trunc i64 %good to i32
-  %conv.i62 = and i32 %conv94, 255
-  %not.i.i66 = xor i32 %conv.i62, -1
+  %conv.i59 = and i32 %conv94, 255
+  %not.i.i63 = xor i32 %conv.i59, -1
   %umax = call i64 @llvm.umax.i64(i64 %mac_size, i64 1)
   br label %for.body82
 
 for.body:                                         ; preds = %if.end50, %for.body
-  %in_mac.085 = phi i64 [ %and67, %for.body ], [ 0, %if.end50 ]
-  %rotate_offset.084 = phi i64 [ %or69, %for.body ], [ 0, %if.end50 ]
-  %j.083 = phi i64 [ %and77, %for.body ], [ 0, %if.end50 ]
-  %i.082 = phi i64 [ %inc78, %for.body ], [ %spec.select, %if.end50 ]
-  %xor.i = xor i64 %i.082, %sub
-  %not.i.i = xor i64 %xor.i, -1
-  %sub.i.i = add i64 %xor.i, -1
-  %and.i.i = and i64 %sub.i.i, %not.i.i
-  %shr.neg.i.i.i = ashr i64 %and.i.i, 63
-  %xor.i52 = xor i64 %i.082, %0
-  %sub.i = sub i64 %i.082, %0
+  %in_mac.079 = phi i8 [ %and67, %for.body ], [ 0, %if.end50 ]
+  %rotate_offset.078 = phi i64 [ %or69, %for.body ], [ 0, %if.end50 ]
+  %j.077 = phi i64 [ %and77, %for.body ], [ 0, %if.end50 ]
+  %i.076 = phi i64 [ %inc78, %for.body ], [ %spec.select, %if.end50 ]
+  %4 = icmp eq i64 %i.076, %sub
+  %xor.i = xor i64 %i.076, %0
+  %sub.i = sub i64 %i.076, %0
   %xor1.i = xor i64 %sub.i, %0
-  %or.i = or i64 %xor1.i, %xor.i52
-  %xor2.i = xor i64 %or.i, %i.082
-  %arrayidx66 = getelementptr inbounds i8, ptr %recdata, i64 %i.082
-  %4 = load i8, ptr %arrayidx66, align 1
-  %or = or i64 %shr.neg.i.i.i, %in_mac.085
-  %isneg79 = icmp slt i64 %xor2.i, 0
-  %and67 = select i1 %isneg79, i64 %or, i64 0
-  %and68 = and i64 %shr.neg.i.i.i, %j.083
-  %or69 = or i64 %and68, %rotate_offset.084
-  %inc = add i64 %j.083, 1
-  %arrayidx72 = getelementptr inbounds i8, ptr %add.ptr, i64 %j.083
-  %5 = load i8, ptr %arrayidx72, align 1
-  %6 = trunc i64 %and67 to i8
-  %7 = and i8 %4, %6
-  %conv75 = or i8 %7, %5
+  %or.i = or i64 %xor1.i, %xor.i
+  %xor2.i = xor i64 %or.i, %i.076
+  %arrayidx66 = getelementptr inbounds i8, ptr %recdata, i64 %i.076
+  %5 = load i8, ptr %arrayidx66, align 1
+  %or = select i1 %4, i8 -1, i8 %in_mac.079
+  %isneg73 = icmp slt i64 %xor2.i, 0
+  %and67 = select i1 %isneg73, i8 %or, i8 0
+  %and68 = select i1 %4, i64 %j.077, i64 0
+  %or69 = or i64 %rotate_offset.078, %and68
+  %inc = add i64 %j.077, 1
+  %arrayidx72 = getelementptr inbounds i8, ptr %add.ptr, i64 %j.077
+  %6 = load i8, ptr %arrayidx72, align 1
+  %7 = and i8 %5, %and67
+  %conv75 = or i8 %7, %6
   store i8 %conv75, ptr %arrayidx72, align 1
-  %sub.i54 = sub i64 %inc, %mac_size
-  %8 = sub i64 -2, %j.083
-  %xor2.i57 = and i64 %sub.i54, %8
-  %isneg80 = icmp slt i64 %xor2.i57, 0
-  %and77 = select i1 %isneg80, i64 %inc, i64 0
-  %inc78 = add nuw i64 %i.082, 1
+  %sub.i53 = sub i64 %inc, %mac_size
+  %8 = sub i64 -2, %j.077
+  %xor2.i56 = and i64 %sub.i53, %8
+  %isneg74 = icmp slt i64 %xor2.i56, 0
+  %and77 = select i1 %isneg74, i64 %inc, i64 0
+  %inc78 = add nuw i64 %i.076, 1
   %exitcond.not = icmp eq i64 %inc78, %origreclen
   br i1 %exitcond.not, label %for.cond79.preheader, label %for.body, !llvm.loop !4
 
 for.body82:                                       ; preds = %for.cond79.preheader, %for.body82
-  %rotate_offset.188 = phi i64 [ %rotate_offset.0.lcssa, %for.cond79.preheader ], [ %and100, %for.body82 ]
-  %j.187 = phi i64 [ 0, %for.cond79.preheader ], [ %inc97, %for.body82 ]
-  %and83 = and i64 %rotate_offset.188, -33
+  %rotate_offset.182 = phi i64 [ %rotate_offset.0.lcssa, %for.cond79.preheader ], [ %and100, %for.body82 ]
+  %j.181 = phi i64 [ 0, %for.cond79.preheader ], [ %inc97, %for.body82 ]
+  %and83 = and i64 %rotate_offset.182, -33
   %arrayidx84 = getelementptr inbounds i8, ptr %add.ptr, i64 %and83
   %9 = load i8, ptr %arrayidx84, align 1
-  %or85 = or i64 %rotate_offset.188, 32
+  %or85 = or i64 %rotate_offset.182, 32
   %arrayidx86 = getelementptr inbounds i8, ptr %add.ptr, i64 %or85
   %10 = load i8, ptr %arrayidx86, align 1
-  %xor.i.i77 = and i64 %rotate_offset.188, 32
-  %isneg = icmp eq i64 %xor.i.i77, 0
-  %conv.i59 = select i1 %isneg, i32 255, i32 0
+  %conv88 = trunc i64 %and83 to i32
+  %conv89 = trunc i64 %rotate_offset.182 to i32
+  %11 = icmp eq i32 %conv88, %conv89
+  %conv.i58 = select i1 %11, i32 255, i32 0
   %conv1.i = zext i8 %9 to i32
   %conv2.i = zext i8 %10 to i32
-  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i59) #5, !srcloc !6
-  %and.i.i60 = and i32 %11, %conv1.i
-  %not.i.i61 = xor i32 %conv.i59, -1
-  %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i61) #5, !srcloc !6
-  %and2.i.i = and i32 %12, %conv2.i
-  %or.i.i = or i32 %and2.i.i, %and.i.i60
-  %inc92 = add i64 %rotate_offset.188, 1
-  %arrayidx95 = getelementptr inbounds [64 x i8], ptr %randmac, i64 0, i64 %j.187
-  %13 = load i8, ptr %arrayidx95, align 1
-  %conv2.i64 = zext i8 %13 to i32
-  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i62) #5, !srcloc !6
-  %and.i.i65 = and i32 %14, %or.i.i
-  %15 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i66) #5, !srcloc !6
-  %and2.i.i67 = and i32 %15, %conv2.i64
-  %or.i.i68 = or i32 %and2.i.i67, %and.i.i65
-  %conv3.i69 = trunc nuw i32 %or.i.i68 to i8
-  %inc97 = add nuw i64 %j.187, 1
-  %arrayidx98 = getelementptr inbounds i8, ptr %call46, i64 %j.187
-  store i8 %conv3.i69, ptr %arrayidx98, align 1
-  %sub.i71 = sub i64 %inc92, %mac_size
-  %16 = sub i64 -2, %rotate_offset.188
-  %xor2.i74 = and i64 %sub.i71, %16
-  %isneg78 = icmp slt i64 %xor2.i74, 0
-  %and100 = select i1 %isneg78, i64 %inc92, i64 0
-  %exitcond89.not = icmp eq i64 %inc97, %umax
-  br i1 %exitcond89.not, label %return, label %for.body82, !llvm.loop !7
+  %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i58) #5, !srcloc !6
+  %and.i.i = and i32 %12, %conv1.i
+  %not.i.i = xor i32 %conv.i58, -1
+  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #5, !srcloc !6
+  %and2.i.i = and i32 %13, %conv2.i
+  %or.i.i = or i32 %and2.i.i, %and.i.i
+  %inc92 = add i64 %rotate_offset.182, 1
+  %arrayidx95 = getelementptr inbounds [64 x i8], ptr %randmac, i64 0, i64 %j.181
+  %14 = load i8, ptr %arrayidx95, align 1
+  %conv2.i61 = zext i8 %14 to i32
+  %15 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i59) #5, !srcloc !6
+  %and.i.i62 = and i32 %15, %or.i.i
+  %16 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i63) #5, !srcloc !6
+  %and2.i.i64 = and i32 %16, %conv2.i61
+  %or.i.i65 = or i32 %and2.i.i64, %and.i.i62
+  %conv3.i66 = trunc nuw i32 %or.i.i65 to i8
+  %inc97 = add nuw i64 %j.181, 1
+  %arrayidx98 = getelementptr inbounds i8, ptr %call46, i64 %j.181
+  store i8 %conv3.i66, ptr %arrayidx98, align 1
+  %sub.i68 = sub i64 %inc92, %mac_size
+  %17 = sub i64 -2, %rotate_offset.182
+  %xor2.i71 = and i64 %sub.i68, %17
+  %isneg = icmp slt i64 %xor2.i71, 0
+  %and100 = select i1 %isneg, i64 %inc92, i64 0
+  %exitcond83.not = icmp eq i64 %inc97, %umax
+  br i1 %exitcond83.not, label %return, label %for.body82, !llvm.loop !7
 
 return:                                           ; preds = %for.body82, %if.end45, %if.end28, %if.end24, %if.end19, %if.then22, %if.then6, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %., %if.then6 ], [ 1, %if.then22 ], [ 1, %if.end19 ], [ 0, %if.end24 ], [ 0, %if.end28 ], [ 0, %if.end45 ], [ 1, %for.body82 ]
@@ -274,22 +270,22 @@ if.end11:                                         ; preds = %if.then5
   %isnotneg.i = icmp sgt i64 %xor2.i.i, -1
   %not.i = sext i1 %isnotneg.i to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %0, i64 256)
-  %cmp1733.not = icmp eq i64 %0, 0
-  br i1 %cmp1733.not, label %for.end, label %for.body
+  %cmp1732.not = icmp eq i64 %0, 0
+  br i1 %cmp1732.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end11, %for.body
-  %good.135 = phi i64 [ %and25, %for.body ], [ %not.i, %if.end11 ]
-  %i.034 = phi i64 [ %inc, %for.body ], [ 0, %if.end11 ]
-  %isnotneg.i.i.not = icmp ugt i64 %i.034, %conv6
-  %4 = xor i64 %i.034, -1
+  %good.134 = phi i64 [ %and25, %for.body ], [ %not.i, %if.end11 ]
+  %i.033 = phi i64 [ %inc, %for.body ], [ 0, %if.end11 ]
+  %isnotneg.i.i.not = icmp ugt i64 %i.033, %conv6
+  %4 = xor i64 %i.033, -1
   %arrayidx22 = getelementptr i8, ptr %2, i64 %4
   %5 = load i8, ptr %arrayidx22, align 1
   %xor30 = xor i8 %5, %3
   %6 = zext i8 %xor30 to i64
   %7 = xor i64 %6, -1
   %not = select i1 %isnotneg.i.i.not, i64 -1, i64 %7
-  %and25 = and i64 %not, %good.135
-  %inc = add nuw nsw i64 %i.034, 1
+  %and25 = and i64 %not, %good.134
+  %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %spec.select
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 

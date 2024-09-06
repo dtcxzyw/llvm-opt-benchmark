@@ -30,7 +30,7 @@ abc/abcCollapse.c.ll 782928766
 abc/abcCut.c.ll 315944411
 abc/abcDar.c.ll 2025448723
 abc/abcDebug.c.ll 158864489
-abc/abcDec.c.ll 421035915
+abc/abcDec.c.ll 421458891
 abc/abcDetect.c.ll 1699599658
 abc/abcDfs.c.ll 1588861969
 abc/abcDress.c.ll 95446643
@@ -210,7 +210,7 @@ abc/bdcDec.c.ll 552189437
 abc/bdcSpfd.c.ll 1100907453
 abc/bdcTable.c.ll 126379368
 abc/blocksort.c.ll 1175120683
-abc/bmcBCore.c.ll 302222637
+abc/bmcBCore.c.ll 302525160
 abc/bmcBmc.c.ll 282165119
 abc/bmcBmc2.c.ll 622506452
 abc/bmcBmc3.c.ll 1563322537
@@ -5600,7 +5600,7 @@ cvc5/nl_ext_purify.cpp.ll 778462168
 cvc5/nl_lemma_utils.cpp.ll 392940314
 cvc5/nl_model.cpp.ll 4996412883
 cvc5/node.cpp.ll 714311913
-cvc5/node_algorithm.cpp.ll 3762463964
+cvc5/node_algorithm.cpp.ll 3766226846
 cvc5/node_bitblaster.cpp.ll 4591475279
 cvc5/node_builder.cpp.ll 739939341
 cvc5/node_converter.cpp.ll 2229109865
@@ -6695,7 +6695,7 @@ duckdb/ub_duckdb_aggr_distr.cpp.ll 10461665271
 duckdb/ub_duckdb_aggr_distributive.cpp.ll 36948201919
 duckdb/ub_duckdb_aggr_holistic.cpp.ll 52966876204
 duckdb/ub_duckdb_aggr_nested.cpp.ll 10416862887
-duckdb/ub_duckdb_aggr_regr.cpp.ll 2035405095
+duckdb/ub_duckdb_aggr_regr.cpp.ll 2037440967
 duckdb/ub_duckdb_arrow_conversion.cpp.ll 443143305
 duckdb/ub_duckdb_bind_expression.cpp.ll 6446862849
 duckdb/ub_duckdb_bind_query_node.cpp.ll 5288292608
@@ -10615,7 +10615,7 @@ icu/brktrans.ll 192455117
 icu/buddhcal.ll 83981101
 icu/bytesinkutil.ll 153608831
 icu/bytestream.ll 57666672
-icu/bytestrie.ll 342538951
+icu/bytestrie.ll 342882020
 icu/bytestriebuilder.ll 339852319
 icu/bytestrieiterator.ll 196776982
 icu/cal.ll 539411194
@@ -11773,7 +11773,7 @@ libquic/command_line.cc.ll 1264550775
 libquic/common_cert_set.cc.ll 138925183
 libquic/conf.c.ll 386389227
 libquic/connect.c.ll 133341997
-libquic/constant_time_test.c.ll 182501722
+libquic/constant_time_test.c.ll 152041175
 libquic/convert.c.ll 291999089
 libquic/cpu-intel.c.ll 70644344
 libquic/crc32.c.ll 265521071
@@ -11812,7 +11812,7 @@ libquic/e_aes.c.ll 376526229
 libquic/e_chacha20poly1305.c.ll 93566975
 libquic/e_rc2.c.ll 276855065
 libquic/e_ssl3.c.ll 112046840
-libquic/e_tls.c.ll 142681060
+libquic/e_tls.c.ll 138624091
 libquic/ec.c.ll 236395696
 libquic/ec_asn1.c.ll 237506082
 libquic/ec_key.c.ll 128712986
@@ -11831,7 +11831,7 @@ libquic/evp_extra_test.cc.ll 441697964
 libquic/evp_test.cc.ll 501248386
 libquic/ex_data.c.ll 87948742
 libquic/example_mul.c.ll 51481703
-libquic/exponentiation.c.ll 859125760
+libquic/exponentiation.c.ll 828854765
 libquic/f_enum.c.ll 110564542
 libquic/f_int.c.ll 112226093
 libquic/f_string.c.ll 109646588
@@ -11921,7 +11921,7 @@ libquic/p_rsa.c.ll 161681578
 libquic/p_rsa_asn1.c.ll 67253878
 libquic/pacing_sender.cc.ll 86676152
 libquic/packeted_bio.cc.ll 127097444
-libquic/padding.c.ll 256441227
+libquic/padding.c.ll 251096952
 libquic/pair.c.ll 174556834
 libquic/params.c.ll 61089180
 libquic/pbkdf.c.ll 84815435
@@ -12019,7 +12019,7 @@ libquic/s3_clnt.c.ll 476172108
 libquic/s3_enc.c.ll 96334598
 libquic/s3_lib.c.ll 160970256
 libquic/s3_pkt.c.ll 202624186
-libquic/s3_srvr.c.ll 559607217
+libquic/s3_srvr.c.ll 549423304
 libquic/sample_map.cc.ll 281833360
 libquic/sample_vector.cc.ll 250711010
 libquic/secure_hash.cc.ll 101700151
@@ -12101,7 +12101,7 @@ libquic/thread_test.c.ll 68227301
 libquic/time.cc.ll 231002777
 libquic/time_posix.cc.ll 190053273
 libquic/time_support.c.ll 119039279
-libquic/tls_cbc.c.ll 221458110
+libquic/tls_cbc.c.ll 216412387
 libquic/tls_record.c.ll 112197470
 libquic/tool.cc.ll 160918572
 libquic/transport_common.cc.ll 112446755
@@ -14757,7 +14757,7 @@ linux/virtgpu_trace_points.ll 75423911
 linux/virtgpu_vq.ll 345406760
 linux/virtgpu_vram.ll 83781164
 linux/virtio.ll 153005635
-linux/virtio_blk.ll 360981911
+linux/virtio_blk.ll 361343836
 linux/virtio_console.ll 544246409
 linux/virtio_dma_buf.ll 48467597
 linux/virtio_input.ll 192938353
@@ -16923,7 +16923,7 @@ llvm/SymbolicFile.cpp.ll 476552180
 llvm/SymbolizableObjectFile.cpp.ll 1637879612
 llvm/Symbolize.cpp.ll 3458661832
 llvm/SyntheticCountsPropagation.cpp.ll 837194666
-llvm/SyntheticCountsUtils.cpp.ll 3745080763
+llvm/SyntheticCountsUtils.cpp.ll 3748828843
 llvm/SystemUtils.cpp.ll 48425388
 llvm/SystemZ.cpp.ll 636556407
 llvm/TCE.cpp.ll 356743047
@@ -20682,7 +20682,7 @@ ockam-rs/y9mp3cipt8wluu6.ll 1437122331
 ockam-rs/z0rkq6s90lca7cm.ll 1613409511
 ockam-rs/zoffpo3ld8myn2r.ll 1245909744
 oiio/CineonHeader.cpp.ll 5824860804
-oiio/Codec.cpp.ll 1298223067
+oiio/Codec.cpp.ll 1299535442
 oiio/DPXColorConverter.cpp.ll 719129865
 oiio/DPXHeader.cpp.ll 465529084
 oiio/ElementReadStream.cpp.ll 97084049
@@ -21058,7 +21058,7 @@ openblas/dsbevd.c.ll 68221723
 openblas/dsbgst.c.ll 1552341136
 openblas/dsbgvd.c.ll 65643705
 openblas/dsbmv_thread_L.c.ll 87179415
-openblas/dsbmv_thread_U.c.ll 87429331
+openblas/dsbmv_thread_U.c.ll 87516818
 openblas/dsbtrd.c.ll 317220133
 openblas/dscal_k.c.ll 68384140
 openblas/dsdot_k.c.ll 64156970
@@ -21424,7 +21424,7 @@ opencv/CmShow.cpp.ll 441546464
 opencv/CsvReader.cpp.ll 327161793
 opencv/CsvWriter.cpp.ll 83462853
 opencv/Drawing_1.cpp.ll 137667398
-opencv/Drawing_2.cpp.ll 374250221
+opencv/Drawing_2.cpp.ll 374626853
 opencv/EqualizeHist_Demo.cpp.ll 74882858
 opencv/FilterTIG.cpp.ll 233829514
 opencv/Geometric_Transforms_Demo.cpp.ll 132686133
@@ -25910,7 +25910,7 @@ openmpi/odls_base_default_fns.ll 1016178375
 openmpi/odls_base_frame.ll 176259496
 openmpi/odls_base_select.ll 37370083
 openmpi/odls_default_module.ll 199043271
-openmpi/ompi_datatype_args.ll 377187043
+openmpi/ompi_datatype_args.ll 377566261
 openmpi/ompi_datatype_create.ll 81598101
 openmpi/ompi_datatype_create_darray.ll 164600900
 openmpi/ompi_datatype_create_indexed.ll 109424992
@@ -26634,7 +26634,7 @@ openssl/cmsapitest-bin-cmsapitest.ll 95347119
 openssl/conf-test-bin-conf.ll 40329071
 openssl/conf_include_test-bin-conf_include_test.ll 92972225
 openssl/confdump-bin-confdump.ll 52145593
-openssl/constant_time_test-bin-constant_time_test.ll 269404374
+openssl/constant_time_test-bin-constant_time_test.ll 253342243
 openssl/context_internal_test-bin-context_internal_test.ll 44096140
 openssl/crl-test-bin-crl.ll 39761487
 openssl/crltest-bin-crltest.ll 103786888
@@ -26731,7 +26731,7 @@ openssl/libcommon-lib-der_ecx_key.ll 44565075
 openssl/libcommon-lib-der_rsa_key.ll 62912608
 openssl/libcommon-lib-digestcommon.ll 44433246
 openssl/libcommon-lib-provider_err.ll 42561817
-openssl/libcommon-lib-tls_pad.ll 127526837
+openssl/libcommon-lib-tls_pad.ll 120803313
 openssl/libcrypto-lib-a_bitstr.ll 103124904
 openssl/libcrypto-lib-a_d2i_fp.ll 111436323
 openssl/libcrypto-lib-a_digest.ll 48487951
@@ -26796,13 +26796,13 @@ openssl/libcrypto-lib-bn_conv.ll 152857687
 openssl/libcrypto-lib-bn_depr.ll 41142164
 openssl/libcrypto-lib-bn_div.ll 99131635
 openssl/libcrypto-lib-bn_err.ll 36754073
-openssl/libcrypto-lib-bn_exp.ll 767293727
+openssl/libcrypto-lib-bn_exp.ll 737118384
 openssl/libcrypto-lib-bn_exp2.ll 128528039
 openssl/libcrypto-lib-bn_gcd.ll 211206452
 openssl/libcrypto-lib-bn_gf2m.ll 610755385
 openssl/libcrypto-lib-bn_intern.ll 104045302
-openssl/libcrypto-lib-bn_lib.ll 493046099
-openssl/libcrypto-lib-bn_mod.ll 149588047
+openssl/libcrypto-lib-bn_lib.ll 484131131
+openssl/libcrypto-lib-bn_mod.ll 149737853
 openssl/libcrypto-lib-bn_mont.ll 129926366
 openssl/libcrypto-lib-bn_mpi.ll 59142968
 openssl/libcrypto-lib-bn_mul.ll 237482287
@@ -26912,7 +26912,7 @@ openssl/libcrypto-lib-ctrl_params_translate.ll 637079305
 openssl/libcrypto-lib-cts128.ll 105012177
 openssl/libcrypto-lib-ctype.ll 46368537
 openssl/libcrypto-lib-curve25519.ll 2862924621
-openssl/libcrypto-lib-curve448.ll 649668300
+openssl/libcrypto-lib-curve448.ll 645480192
 openssl/libcrypto-lib-cversion.ll 41835471
 openssl/libcrypto-lib-decoder_err.ll 35789960
 openssl/libcrypto-lib-decoder_lib.ll 278203139
@@ -26988,7 +26988,7 @@ openssl/libcrypto-lib-ecdsa_ossl.ll 174054872
 openssl/libcrypto-lib-eck_prn.ll 95819389
 openssl/libcrypto-lib-ecp_mont.ll 79888465
 openssl/libcrypto-lib-ecp_nist.ll 64262589
-openssl/libcrypto-lib-ecp_nistz256.ll 437632556
+openssl/libcrypto-lib-ecp_nistz256.ll 430841932
 openssl/libcrypto-lib-ecp_oct.ll 135623499
 openssl/libcrypto-lib-ecp_smpl.ll 489719981
 openssl/libcrypto-lib-ecx_backend.ll 93590718
@@ -27010,7 +27010,7 @@ openssl/libcrypto-lib-eng_list.ll 151244099
 openssl/libcrypto-lib-eng_openssl.ll 104298488
 openssl/libcrypto-lib-eng_rdrand.ll 50924881
 openssl/libcrypto-lib-eng_table.ll 115208212
-openssl/libcrypto-lib-err.ll 282944178
+openssl/libcrypto-lib-err.ll 281618682
 openssl/libcrypto-lib-err_all.ll 55392155
 openssl/libcrypto-lib-err_blocks.ll 89673491
 openssl/libcrypto-lib-err_mark.ll 72213505
@@ -27031,7 +27031,7 @@ openssl/libcrypto-lib-evp_pkey.ll 81412956
 openssl/libcrypto-lib-evp_rand.ll 306902525
 openssl/libcrypto-lib-ex_data.ll 183046271
 openssl/libcrypto-lib-exchange.ll 192792820
-openssl/libcrypto-lib-f_generic.ll 272525292
+openssl/libcrypto-lib-f_generic.ll 270567376
 openssl/libcrypto-lib-f_impl64.ll 274076339
 openssl/libcrypto-lib-f_int.ll 102659144
 openssl/libcrypto-lib-f_string.ll 96711779
@@ -27185,9 +27185,9 @@ openssl/libcrypto-lib-rsa_lib.ll 327569026
 openssl/libcrypto-lib-rsa_meth.ll 69364824
 openssl/libcrypto-lib-rsa_mp.ll 59116015
 openssl/libcrypto-lib-rsa_none.ll 41516280
-openssl/libcrypto-lib-rsa_oaep.ll 180038540
+openssl/libcrypto-lib-rsa_oaep.ll 174162650
 openssl/libcrypto-lib-rsa_ossl.ll 304092312
-openssl/libcrypto-lib-rsa_pk1.ll 257286539
+openssl/libcrypto-lib-rsa_pk1.ll 242047391
 openssl/libcrypto-lib-rsa_pmeth.ll 231909744
 openssl/libcrypto-lib-rsa_pss.ll 138982959
 openssl/libcrypto-lib-rsa_saos.ll 48748995
@@ -27198,10 +27198,10 @@ openssl/libcrypto-lib-rsa_x931.ll 57189538
 openssl/libcrypto-lib-rsa_x931g.ll 74162891
 openssl/libcrypto-lib-rsaz_exp.ll 99500513
 openssl/libcrypto-lib-rsaz_exp_x2.ll 398414295
-openssl/libcrypto-lib-scalar.ll 244957206
+openssl/libcrypto-lib-scalar.ll 244205035
 openssl/libcrypto-lib-seed.ll 1482465029
 openssl/libcrypto-lib-self_test_core.ll 73714684
-openssl/libcrypto-lib-set_key.ll 179254456
+openssl/libcrypto-lib-set_key.ll 173674455
 openssl/libcrypto-lib-sha1_one.ll 46373927
 openssl/libcrypto-lib-sha1dgst.ll 105502700
 openssl/libcrypto-lib-sha256.ll 103642470
@@ -27386,12 +27386,12 @@ openssl/libcrypto-shlib-bn_conv.ll 152951941
 openssl/libcrypto-shlib-bn_depr.ll 41133346
 openssl/libcrypto-shlib-bn_div.ll 99221380
 openssl/libcrypto-shlib-bn_err.ll 36753197
-openssl/libcrypto-shlib-bn_exp.ll 767488876
+openssl/libcrypto-shlib-bn_exp.ll 737091152
 openssl/libcrypto-shlib-bn_exp2.ll 128463756
 openssl/libcrypto-shlib-bn_gcd.ll 211163111
 openssl/libcrypto-shlib-bn_gf2m.ll 610786115
 openssl/libcrypto-shlib-bn_intern.ll 104045558
-openssl/libcrypto-shlib-bn_lib.ll 493718307
+openssl/libcrypto-shlib-bn_lib.ll 484377411
 openssl/libcrypto-shlib-bn_mod.ll 149757022
 openssl/libcrypto-shlib-bn_mont.ll 129852894
 openssl/libcrypto-shlib-bn_mpi.ll 59143340
@@ -27502,7 +27502,7 @@ openssl/libcrypto-shlib-ctrl_params_translate.ll 637080023
 openssl/libcrypto-shlib-cts128.ll 105060105
 openssl/libcrypto-shlib-ctype.ll 46369068
 openssl/libcrypto-shlib-curve25519.ll 2862924180
-openssl/libcrypto-shlib-curve448.ll 649668712
+openssl/libcrypto-shlib-curve448.ll 645480593
 openssl/libcrypto-shlib-cversion.ll 41835866
 openssl/libcrypto-shlib-decoder_err.ll 35790649
 openssl/libcrypto-shlib-decoder_lib.ll 278203494
@@ -27578,7 +27578,7 @@ openssl/libcrypto-shlib-ecdsa_ossl.ll 174055077
 openssl/libcrypto-shlib-eck_prn.ll 95855531
 openssl/libcrypto-shlib-ecp_mont.ll 79888689
 openssl/libcrypto-shlib-ecp_nist.ll 64263021
-openssl/libcrypto-shlib-ecp_nistz256.ll 437632864
+openssl/libcrypto-shlib-ecp_nistz256.ll 430842488
 openssl/libcrypto-shlib-ecp_oct.ll 135616553
 openssl/libcrypto-shlib-ecp_smpl.ll 489720527
 openssl/libcrypto-shlib-ecx_backend.ll 93591099
@@ -27600,7 +27600,7 @@ openssl/libcrypto-shlib-eng_list.ll 151245272
 openssl/libcrypto-shlib-eng_openssl.ll 104299231
 openssl/libcrypto-shlib-eng_rdrand.ll 50924817
 openssl/libcrypto-shlib-eng_table.ll 115208889
-openssl/libcrypto-shlib-err.ll 282944230
+openssl/libcrypto-shlib-err.ll 281618782
 openssl/libcrypto-shlib-err_all.ll 55392545
 openssl/libcrypto-shlib-err_blocks.ll 89673988
 openssl/libcrypto-shlib-err_mark.ll 72213866
@@ -27621,7 +27621,7 @@ openssl/libcrypto-shlib-evp_pkey.ll 81413392
 openssl/libcrypto-shlib-evp_rand.ll 306904744
 openssl/libcrypto-shlib-ex_data.ll 182787606
 openssl/libcrypto-shlib-exchange.ll 192792621
-openssl/libcrypto-shlib-f_generic.ll 272525830
+openssl/libcrypto-shlib-f_generic.ll 270567912
 openssl/libcrypto-shlib-f_impl64.ll 274076704
 openssl/libcrypto-shlib-f_int.ll 102658698
 openssl/libcrypto-shlib-f_string.ll 96712123
@@ -27775,9 +27775,9 @@ openssl/libcrypto-shlib-rsa_lib.ll 327678787
 openssl/libcrypto-shlib-rsa_meth.ll 69365288
 openssl/libcrypto-shlib-rsa_mp.ll 59116319
 openssl/libcrypto-shlib-rsa_none.ll 41516906
-openssl/libcrypto-shlib-rsa_oaep.ll 180038902
+openssl/libcrypto-shlib-rsa_oaep.ll 174162971
 openssl/libcrypto-shlib-rsa_ossl.ll 304093887
-openssl/libcrypto-shlib-rsa_pk1.ll 257338936
+openssl/libcrypto-shlib-rsa_pk1.ll 242111083
 openssl/libcrypto-shlib-rsa_pmeth.ll 231907343
 openssl/libcrypto-shlib-rsa_pss.ll 139057597
 openssl/libcrypto-shlib-rsa_saos.ll 48756072
@@ -27788,10 +27788,10 @@ openssl/libcrypto-shlib-rsa_x931.ll 57189936
 openssl/libcrypto-shlib-rsa_x931g.ll 74163423
 openssl/libcrypto-shlib-rsaz_exp.ll 99501214
 openssl/libcrypto-shlib-rsaz_exp_x2.ll 398414735
-openssl/libcrypto-shlib-scalar.ll 244984047
+openssl/libcrypto-shlib-scalar.ll 244096059
 openssl/libcrypto-shlib-seed.ll 1482465551
 openssl/libcrypto-shlib-self_test_core.ll 73727749
-openssl/libcrypto-shlib-set_key.ll 179130628
+openssl/libcrypto-shlib-set_key.ll 173631822
 openssl/libcrypto-shlib-sha1_one.ll 46374344
 openssl/libcrypto-shlib-sha1dgst.ll 105503119
 openssl/libcrypto-shlib-sha256.ll 103573899
@@ -28019,7 +28019,7 @@ openssl/libdefault-lib-sm2_sig.ll 138303212
 openssl/libdefault-lib-sm3_prov.ll 46434733
 openssl/libdefault-lib-sshkdf.ll 110320288
 openssl/libdefault-lib-sskdf.ll 202439327
-openssl/libdefault-lib-ssl3_cbc.ll 208716268
+openssl/libdefault-lib-ssl3_cbc.ll 203703754
 openssl/libdefault-lib-test_rng.ll 97560975
 openssl/libdefault-lib-tls1_prf.ll 131849196
 openssl/libdefault-lib-x942kdf.ll 178277623
@@ -28167,7 +28167,7 @@ openssl/libssl-shlib-rec_layer_s3.ll 519673495
 openssl/libssl-shlib-s3_enc.ll 191978088
 openssl/libssl-shlib-s3_lib.ll 532764698
 openssl/libssl-shlib-s3_msg.ll 76204598
-openssl/libssl-shlib-ssl3_cbc.ll 208700537
+openssl/libssl-shlib-ssl3_cbc.ll 203522050
 openssl/libssl-shlib-ssl3_meth.ll 94231427
 openssl/libssl-shlib-ssl_asn1.ll 151780219
 openssl/libssl-shlib-ssl_cert.ll 401314634
@@ -28196,7 +28196,7 @@ openssl/libssl-shlib-tls1_meth.ll 214687381
 openssl/libssl-shlib-tls_common.ll 613450029
 openssl/libssl-shlib-tls_depr.ll 62263040
 openssl/libssl-shlib-tls_multib.ll 101052518
-openssl/libssl-shlib-tls_pad.ll 127525878
+openssl/libssl-shlib-tls_pad.ll 120802666
 openssl/libssl-shlib-tls_srp.ll 179067871
 openssl/libssl-shlib-tlsany_meth.ll 62021748
 openssl/libssl-shlib-uint_set.ll 157125756
@@ -39519,7 +39519,7 @@ z3/dl_interval_relation.cpp.ll 2066500042
 z3/dl_lazy_table.cpp.ll 955611872
 z3/dl_mk_array_blast.cpp.ll 1305060152
 z3/dl_mk_array_eq_rewrite.cpp.ll 646300141
-z3/dl_mk_array_instantiation.cpp.ll 1978368996
+z3/dl_mk_array_instantiation.cpp.ll 1980348024
 z3/dl_mk_backwards.cpp.ll 434543883
 z3/dl_mk_bit_blast.cpp.ll 2866934796
 z3/dl_mk_coalesce.cpp.ll 846228463
@@ -39979,7 +39979,7 @@ z3/smt_strategic_solver.cpp.ll 260944405
 z3/smt_tactic_core.cpp.ll 1275198248
 z3/smt_theory.cpp.ll 622413669
 z3/smt_value_sort.cpp.ll 159754377
-z3/smtfd_solver.cpp.ll 5118851351
+z3/smtfd_solver.cpp.ll 5123971625
 z3/smtlib_frontend.cpp.ll 1385614618
 z3/solve_context_eqs.cpp.ll 1939705786
 z3/solve_eqs.cpp.ll 2461383264

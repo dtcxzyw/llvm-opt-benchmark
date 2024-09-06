@@ -1711,18 +1711,16 @@ entry:
 if.end:                                           ; preds = %entry
   %top1 = getelementptr inbounds i8, ptr %call, i64 896
   %0 = load i32, ptr %top1, align 8
-  %not.i.i.i = xor i32 %clear, -1
-  %sub.i.i.i = add i32 %clear, -1
-  %and.i.i.i = and i32 %sub.i.i.i, %not.i.i.i
-  %shr.neg.i.i.i.i = ashr i32 %and.i.i.i, 31
-  %1 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #11, !srcloc !12
+  %1 = icmp eq i32 %clear, 0
+  %shr.neg.i.i.i.i = sext i1 %1 to i32
+  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #11, !srcloc !12
   %not.i.i = xor i32 %shr.neg.i.i.i.i, -1
-  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #11, !srcloc !12
-  %and2.i.i = and i32 %2, 2
+  %3 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #11, !srcloc !12
+  %and2.i.i = and i32 %3, 2
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [16 x i32], ptr %call, i64 0, i64 %idxprom
-  %3 = load i32, ptr %arrayidx, align 4
-  %or = or i32 %3, %and2.i.i
+  %4 = load i32, ptr %arrayidx, align 4
+  %or = or i32 %4, %and2.i.i
   store i32 %or, ptr %arrayidx, align 4
   br label %return
 

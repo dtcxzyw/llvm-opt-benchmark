@@ -403,6 +403,7 @@ if.then43:                                        ; preds = %if.end36
 
 if.then43.if.end56_crit_edge:                     ; preds = %if.then43
   %.pre = load i32, ptr %data_plus_mac_len, align 4
+  %6 = icmp ne i32 %call50, 1
   br label %if.end56
 
 if.then53:                                        ; preds = %if.then43
@@ -414,11 +415,11 @@ if.else:                                          ; preds = %if.end36
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then43.if.end56_crit_edge, %if.else
-  %6 = phi i32 [ %.pre, %if.then43.if.end56_crit_edge ], [ %conv44, %if.else ]
-  %padding_ok.0 = phi i32 [ %call50, %if.then43.if.end56_crit_edge ], [ 1, %if.else ]
+  %7 = phi i32 [ %.pre, %if.then43.if.end56_crit_edge ], [ %conv44, %if.else ]
+  %padding_ok.0 = phi i1 [ %6, %if.then43.if.end56_crit_edge ], [ false, %if.else ]
   %call59 = call i64 @HMAC_size(ptr noundef nonnull %hmac_ctx) #7
-  %7 = trunc i64 %call59 to i32
-  %conv60 = sub i32 %6, %7
+  %8 = trunc i64 %call59 to i32
+  %conv60 = sub i32 %7, %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %ad_fixed, ptr noundef nonnull align 1 dereferenceable(11) %ad, i64 11, i1 false)
   %shr = lshr i32 %conv60, 8
   %conv61 = trunc i32 %shr to i8
@@ -432,20 +433,20 @@ if.end56:                                         ; preds = %if.then43.if.end56_
   br i1 %cmp67, label %land.lhs.true69, label %if.else88
 
 land.lhs.true69:                                  ; preds = %if.end56
-  %8 = load ptr, ptr %hmac_ctx, align 8
-  %call71 = call i32 @EVP_tls_cbc_record_digest_supported(ptr noundef %8) #7
+  %9 = load ptr, ptr %hmac_ctx, align 8
+  %call71 = call i32 @EVP_tls_cbc_record_digest_supported(ptr noundef %9) #7
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %if.else88, label %if.then73
 
 if.then73:                                        ; preds = %land.lhs.true69
-  %9 = load ptr, ptr %hmac_ctx, align 8
-  %10 = load i32, ptr %data_plus_mac_len, align 4
-  %conv78 = zext i32 %10 to i64
+  %10 = load ptr, ptr %hmac_ctx, align 8
+  %11 = load i32, ptr %data_plus_mac_len, align 4
+  %conv78 = zext i32 %11 to i64
   %mac_key = getelementptr inbounds i8, ptr %0, i64 256
   %mac_key_len = getelementptr inbounds i8, ptr %0, i64 320
-  %11 = load i8, ptr %mac_key_len, align 8
-  %conv80 = zext i8 %11 to i32
-  %call81 = call i32 @EVP_tls_cbc_digest_record(ptr noundef %9, ptr noundef nonnull %mac, ptr noundef nonnull %mac_len, ptr noundef nonnull %ad_fixed, ptr noundef %out, i64 noundef %conv78, i64 noundef %add38, ptr noundef nonnull %mac_key, i32 noundef %conv80) #7
+  %12 = load i8, ptr %mac_key_len, align 8
+  %conv80 = zext i8 %12 to i32
+  %call81 = call i32 @EVP_tls_cbc_digest_record(ptr noundef %10, ptr noundef nonnull %mac, ptr noundef nonnull %mac_len, ptr noundef nonnull %ad_fixed, ptr noundef %out, i64 noundef %conv78, i64 noundef %add38, ptr noundef nonnull %mac_key, i32 noundef %conv80) #7
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %if.then83, label %if.end84
 
@@ -454,12 +455,12 @@ if.then83:                                        ; preds = %if.then73
   br label %return
 
 if.end84:                                         ; preds = %if.then73
-  %12 = load i64, ptr %mac_len, align 8
-  %conv86 = trunc i64 %12 to i32
-  %13 = load i32, ptr %data_plus_mac_len, align 4
+  %13 = load i64, ptr %mac_len, align 8
+  %conv86 = trunc i64 %13 to i32
+  %14 = load i32, ptr %data_plus_mac_len, align 4
   %conv87 = trunc i64 %add38 to i32
-  call void @EVP_tls_cbc_copy_mac(ptr noundef nonnull %record_mac_tmp, i32 noundef %conv86, ptr noundef %out, i32 noundef %13, i32 noundef %conv87) #7
-  %.pre50 = load i64, ptr %mac_len, align 8
+  call void @EVP_tls_cbc_copy_mac(ptr noundef nonnull %record_mac_tmp, i32 noundef %conv86, ptr noundef %out, i32 noundef %14, i32 noundef %conv87) #7
+  %.pre48 = load i64, ptr %mac_len, align 8
   br label %if.end110
 
 if.else88:                                        ; preds = %land.lhs.true69, %if.end56
@@ -484,24 +485,19 @@ lor.lhs.false101:                                 ; preds = %lor.lhs.false96
   br i1 %tobool105.not, label %return, label %if.end107
 
 if.end107:                                        ; preds = %lor.lhs.false101
-  %14 = load i32, ptr %mac_len_u, align 4
-  %conv108 = zext i32 %14 to i64
+  %15 = load i32, ptr %mac_len_u, align 4
+  %conv108 = zext i32 %15 to i64
   store i64 %conv108, ptr %mac_len, align 8
   %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 %conv98
   br label %if.end110
 
 if.end110:                                        ; preds = %if.end107, %if.end84
-  %15 = phi i64 [ %.pre50, %if.end84 ], [ %conv108, %if.end107 ]
+  %16 = phi i64 [ %.pre48, %if.end84 ], [ %conv108, %if.end107 ]
   %record_mac.0 = phi ptr [ %record_mac_tmp, %if.end84 ], [ %arrayidx109, %if.end107 ]
-  %call112 = call i32 @CRYPTO_memcmp(ptr noundef %record_mac.0, ptr noundef nonnull %mac, i64 noundef %15) #7
-  %16 = xor i32 %padding_ok.0, -2
-  %xor.i.i.neg = add i32 %16, 1
-  %17 = sub i32 0, %call112
-  %18 = or i32 %xor.i.i.neg, %17
-  %19 = or i32 %18, %padding_ok.0
-  %20 = or i32 %19, %call112
-  %tobool116.not = icmp slt i32 %20, 0
-  br i1 %tobool116.not, label %if.then117, label %if.end118
+  %call112 = call i32 @CRYPTO_memcmp(ptr noundef %record_mac.0, ptr noundef nonnull %mac, i64 noundef %16) #7
+  %17 = icmp ne i32 %call112, 0
+  %and11546.not = or i1 %padding_ok.0, %17
+  br i1 %and11546.not, label %if.then117, label %if.end118
 
 if.then117:                                       ; preds = %if.end110
   call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 101, ptr noundef nonnull @.str, i32 noundef 343) #7
