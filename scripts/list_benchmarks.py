@@ -24,6 +24,9 @@ def get_url(name, dir):
 filters = ['third-party','third_party','thirdparty','deps']
 
 def guess_language(dir):
+    if '/llvm' in dir:
+        return ('llvm-project', 'C++', 'https://github.com/llvm/llvm-project')
+
     for subdir in os.listdir(dir):
         if subdir == 'original' or subdir == 'optimized' or subdir == 'contrib' or subdir == 'build.sh':
             continue

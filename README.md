@@ -88,6 +88,7 @@ Currently, this repository contains the following libraries/applications:
 |[openssl](https://github.com/openssl/openssl)|C|![stars](https://img.shields.io/github/stars/openssl/openssl?style=flat)|
 |[osqp](https://github.com/osqp/osqp)|C|![stars](https://img.shields.io/github/stars/osqp/osqp?style=flat)|
 |[php-src](https://github.com/php/php-src)|C|![stars](https://img.shields.io/github/stars/php/php-src?style=flat)|
+|[portaudio](https://github.com/PortAudio/portaudio)|C|![stars](https://img.shields.io/github/stars/PortAudio/portaudio?style=flat)|
 |[postgres](https://github.com/postgres/postgres)|C|![stars](https://img.shields.io/github/stars/postgres/postgres?style=flat)|
 |[qemu](https://gitlab.com/qemu-project/qemu)|C|![stars](https://img.shields.io/gitlab/stars/qemu-project/qemu?style=flat)|
 |[qoi](https://github.com/phoboslab/qoi)|C|![stars](https://img.shields.io/github/stars/phoboslab/qoi?style=flat)|
@@ -128,6 +129,7 @@ Currently, this repository contains the following libraries/applications:
 |[flatbuffers](https://github.com/google/flatbuffers)|C++|![stars](https://img.shields.io/github/stars/google/flatbuffers?style=flat)|
 |[fmt](https://github.com/fmtlib/fmt)|C++|![stars](https://img.shields.io/github/stars/fmtlib/fmt?style=flat)|
 |[folly](https://github.com/facebook/folly)|C++|![stars](https://img.shields.io/github/stars/facebook/folly?style=flat)|
+|[g2o](https://github.com/RainerKuemmerle/g2o)|C++|![stars](https://img.shields.io/github/stars/RainerKuemmerle/g2o?style=flat)|
 |[glog](https://github.com/google/glog)|C++|![stars](https://img.shields.io/github/stars/google/glog?style=flat)|
 |[glslang](https://github.com/KhronosGroup/glslang)|C++|![stars](https://img.shields.io/github/stars/KhronosGroup/glslang?style=flat)|
 |[gromacs](https://github.com/gromacs/gromacs)|C++|![stars](https://img.shields.io/github/stars/gromacs/gromacs?style=flat)|
@@ -146,6 +148,7 @@ Currently, this repository contains the following libraries/applications:
 |[lief](https://github.com/lief-project/LIEF)|C++|![stars](https://img.shields.io/github/stars/lief-project/LIEF?style=flat)|
 |[lightgbm](https://github.com/microsoft/LightGBM)|C++|![stars](https://img.shields.io/github/stars/microsoft/LightGBM?style=flat)|
 |[llama.cpp](https://github.com/ggerganov/llama.cpp)|C++|![stars](https://img.shields.io/github/stars/ggerganov/llama.cpp?style=flat)|
+|[llvm-project](https://github.com/llvm/llvm-project)|C++|![stars](https://img.shields.io/github/stars/llvm/llvm-project?style=flat)|
 |[lodepng](https://github.com/lvandeve/lodepng)|C++|![stars](https://img.shields.io/github/stars/lvandeve/lodepng?style=flat)|
 |[luau](https://github.com/luau-lang/luau)|C++|![stars](https://img.shields.io/github/stars/luau-lang/luau?style=flat)|
 |[meshlab](https://github.com/cnr-isti-vclab/meshlab)|C++|![stars](https://img.shields.io/github/stars/cnr-isti-vclab/meshlab?style=flat)|
@@ -157,17 +160,20 @@ Currently, this repository contains the following libraries/applications:
 |[msdfgen](https://github.com/Chlumsky/msdfgen)|C++|![stars](https://img.shields.io/github/stars/Chlumsky/msdfgen?style=flat)|
 |[msgpack-c](https://github.com/msgpack/msgpack-c)|C++|![stars](https://img.shields.io/github/stars/msgpack/msgpack-c?style=flat)|
 |[nanobind](https://github.com/wjakob/nanobind)|C++|![stars](https://img.shields.io/github/stars/wjakob/nanobind?style=flat)|
+|[ncnn](https://github.com/Tencent/ncnn)|C++|![stars](https://img.shields.io/github/stars/Tencent/ncnn?style=flat)|
 |[nghttp2](https://github.com/nghttp2/nghttp2)|C++|![stars](https://img.shields.io/github/stars/nghttp2/nghttp2?style=flat)|
 |[ninja](https://github.com/ninja-build/ninja)|C++|![stars](https://img.shields.io/github/stars/ninja-build/ninja?style=flat)|
 |[nix](https://github.com/NixOS/nix)|C++|![stars](https://img.shields.io/github/stars/NixOS/nix?style=flat)|
 |[node](https://github.com/nodejs/node)|C++|![stars](https://img.shields.io/github/stars/nodejs/node?style=flat)|
 |[nori](https://github.com/wjakob/nori)|C++|![stars](https://img.shields.io/github/stars/wjakob/nori?style=flat)|
+|[open_spiel](https://github.com/google-deepmind/open_spiel)|C++|![stars](https://img.shields.io/github/stars/google-deepmind/open_spiel?style=flat)|
 |[opencc](https://github.com/BYVoid/OpenCC)|C++|![stars](https://img.shields.io/github/stars/BYVoid/OpenCC?style=flat)|
 |[opencolorio](https://github.com/AcademySoftwareFoundation/OpenColorIO)|C++|![stars](https://img.shields.io/github/stars/AcademySoftwareFoundation/OpenColorIO?style=flat)|
 |[opencv](https://github.com/opencv/opencv)|C++|![stars](https://img.shields.io/github/stars/opencv/opencv?style=flat)|
 |[openexr](https://github.com/AcademySoftwareFoundation/openexr)|C++|![stars](https://img.shields.io/github/stars/AcademySoftwareFoundation/openexr?style=flat)|
 |[openimageio](https://github.com/AcademySoftwareFoundation/OpenImageIO)|C++|![stars](https://img.shields.io/github/stars/AcademySoftwareFoundation/OpenImageIO?style=flat)|
 |[openjdk](https://github.com/openjdk/jdk)|C++|![stars](https://img.shields.io/github/stars/openjdk/jdk?style=flat)|
+|[openusd](https://github.com/PixarAnimationStudios/OpenUSD)|C++|![stars](https://img.shields.io/github/stars/PixarAnimationStudios/OpenUSD?style=flat)|
 |[openvdb](https://github.com/AcademySoftwareFoundation/openvdb)|C++|![stars](https://img.shields.io/github/stars/AcademySoftwareFoundation/openvdb?style=flat)|
 |[ozz-animation](https://github.com/guillaumeblanc/ozz-animation)|C++|![stars](https://img.shields.io/github/stars/guillaumeblanc/ozz-animation?style=flat)|
 |[pbrt-v4](https://github.com/mmp/pbrt-v4)|C++|![stars](https://img.shields.io/github/stars/mmp/pbrt-v4?style=flat)|
