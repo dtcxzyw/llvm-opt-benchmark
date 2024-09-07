@@ -341,7 +341,7 @@ abc/cuddLinear.c.ll 466435526
 abc/cuddLiteral.c.ll 75727852
 abc/cuddMatMult.c.ll 189680727
 abc/cuddPriority.c.ll 558264331
-abc/cuddRead.c.ll 208350043
+abc/cuddRead.c.ll 208558530
 abc/cuddRef.c.ll 214494675
 abc/cuddReorder.c.ll 642156757
 abc/cuddSat.c.ll 295193485
