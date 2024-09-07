@@ -18657,7 +18657,7 @@ mitsuba3/obj.cpp.ll 1553233127
 mitsuba3/object.cpp.ll 190337104
 mitsuba3/orthogonal.cpp.ll 849043966
 mitsuba3/orthographic.cpp.ll 895869629
-mitsuba3/osutils.cpp.ll 41449992
+mitsuba3/osutils.cpp.ll 41408402
 mitsuba3/path.cpp.ll 1341225257
 mitsuba3/perspective.cpp.ll 1330053387
 mitsuba3/phase.cpp.ll 127442353
