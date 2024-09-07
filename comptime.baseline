@@ -15413,7 +15413,7 @@ llvm/DWARFDie.cpp.ll 2019133654
 llvm/DWARFExpression.cpp.ll 1517327907
 llvm/DWARFFormValue.cpp.ll 1030599309
 llvm/DWARFGdbIndex.cpp.ll 812807574
-llvm/DWARFListTable.cpp.ll 540279294
+llvm/DWARFListTable.cpp.ll 540819620
 llvm/DWARFLocationExpression.cpp.ll 237255221
 llvm/DWARFTypePrinter.cpp.ll 1356794521
 llvm/DWARFTypeUnit.cpp.ll 303565039
