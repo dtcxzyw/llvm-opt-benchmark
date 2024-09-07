@@ -642,3 +642,6 @@
 [submodule "bench/openusd/contrib/OpenSubdiv"]
 	path = bench/openusd/contrib/OpenSubdiv
 	url = https://github.com/PixarAnimationStudios/OpenSubdiv.git
+[submodule "bench/openspiel/open_spiel"]
+	path = bench/openspiel/open_spiel
+	url = https://github.com/google-deepmind/open_spiel.git
