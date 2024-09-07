@@ -1,0 +1,12412 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.g2o::HyperGraph::Data" = type { %"struct.g2o::HyperGraph::HyperGraphElement", ptr, ptr }
+%"struct.g2o::HyperGraph::HyperGraphElement" = type { ptr }
+%"class.g2o::HyperGraph::Vertex" = type { %"struct.g2o::HyperGraph::HyperGraphElement", i32, %"class.std::set" }
+%"class.std::set" = type { %"class.std::_Rb_tree" }
+%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<g2o::HyperGraph::Edge *, g2o::HyperGraph::Edge *, std::_Identity<g2o::HyperGraph::Edge *>, std::less<g2o::HyperGraph::Edge *>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<g2o::HyperGraph::Edge *, g2o::HyperGraph::Edge *, std::_Identity<g2o::HyperGraph::Edge *>, std::less<g2o::HyperGraph::Edge *>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"class.g2o::HyperGraph::Edge" = type <{ %"struct.g2o::HyperGraph::HyperGraphElement", %"class.std::vector", i32, [4 x i8] }>
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl" }
+%"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl" = type { %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.__gnu_cxx::__normal_iterator" = type { ptr }
+%"class.__gnu_cxx::__normal_iterator.12" = type { ptr }
+%"struct.std::__detail::_Node_iterator" = type { %"struct.std::__detail::_Node_iterator_base" }
+%"struct.std::__detail::_Node_iterator_base" = type { ptr }
+%"class.g2o::HyperGraph" = type { ptr, %"class.std::unordered_map", %"class.std::set" }
+%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
+%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"struct.std::__detail::_Hash_node_base" = type { ptr }
+%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
+%"struct.std::pair" = type { i32, ptr }
+%"struct.std::__detail::_Node_const_iterator" = type { %"struct.std::__detail::_Node_iterator_base" }
+%"struct.std::pair.8" = type <{ %"struct.std::__detail::_Node_iterator", i8, [7 x i8] }>
+%"struct.std::pair.10" = type { i32, ptr }
+%"class.std::unordered_set" = type { %"class.std::_Hashtable.13" }
+%"class.std::_Hashtable.13" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"class.std::insert_iterator" = type { ptr, %"struct.std::__detail::_Node_iterator.32" }
+%"struct.std::__detail::_Node_iterator.32" = type { %"struct.std::__detail::_Node_iterator_base.33" }
+%"struct.std::__detail::_Node_iterator_base.33" = type { ptr }
+%"struct.std::pair.34" = type <{ %"struct.std::_Rb_tree_const_iterator", i8, [7 x i8] }>
+%"struct.std::_Rb_tree_const_iterator" = type { ptr }
+%"struct.std::pair.53" = type <{ %"struct.std::_Rb_tree_iterator", i8, [7 x i8] }>
+%"struct.std::_Rb_tree_iterator" = type { ptr }
+%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
+%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
+%"struct.std::__detail::_Hash_node_value_base" = type { %"struct.__gnu_cxx::__aligned_buffer" }
+%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<8, 8>::type" }
+%"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
+%"class.std::allocator.38" = type { i8 }
+%"class.std::allocator" = type { i8 }
+%"struct.std::_Rb_tree<g2o::HyperGraph::Edge *, g2o::HyperGraph::Edge *, std::_Identity<g2o::HyperGraph::Edge *>, std::less<g2o::HyperGraph::Edge *>>::_Alloc_node" = type { ptr }
+%"struct.std::__detail::_Hash_node_value_base.43" = type { %"struct.__gnu_cxx::__aligned_buffer.44" }
+%"struct.__gnu_cxx::__aligned_buffer.44" = type { %"union.std::aligned_storage<16, 8>::type" }
+%"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
+%"struct.__gnu_cxx::__ops::_Iter_pred" = type { i8 }
+%"struct.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value" = type { ptr, %"union.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value::_Storage" }
+%"union.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value::_Storage" = type { ptr }
+%"class.std::move_iterator" = type { ptr }
+%"struct.std::__detail::_Select1st" = type { i8 }
+%"struct.std::__detail::_Mod_range_hashing" = type { i8 }
+%"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
+%"struct.std::pair.47" = type { i8, i64 }
+%"struct.std::__detail::_Node_const_iterator.49" = type { %"struct.std::__detail::_Node_iterator_base.33" }
+%"struct.std::__detail::_AllocNode" = type { ptr }
+%"struct.std::pair.50" = type <{ %"struct.std::__detail::_Node_iterator.32", i8, [7 x i8] }>
+%"struct.std::__detail::_Identity" = type { i8 }
+%"struct.std::_Hashtable<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>, std::__detail::_Identity, std::equal_to<g2o::HyperGraph::Vertex *>, std::hash<g2o::HyperGraph::Vertex *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true>>::_Scoped_node" = type { ptr, ptr }
+%"struct.std::pair.56" = type { ptr, ptr }
+%"struct.std::_Identity" = type { i8 }
+%"struct.std::pair.58" = type { %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator" }
+
+$_ZN3g2o10HyperGraph17HyperGraphElementC2Ev = comdat any
+
+$_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2Ev = comdat any
+
+$_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEC2Ev = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev = comdat any
+
+$_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE5beginEv = comdat any
+
+$_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE6resizeEmRKS3_ = comdat any
+
+$_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_ = comdat any
+
+$_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_ = comdat any
+
+$_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv = comdat any
+
+$_ZNKSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEptEv = comdat any
+
+$_ZNKSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_ = comdat any
+
+$_ZNKSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv = comdat any
+
+$_ZNKSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEptEv = comdat any
+
+$_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE6insertIS8_IiS3_EEENSt9enable_ifIXsr16is_constructibleISA_OT_EE5valueES8_INSt8__detail14_Node_iteratorISA_Lb0ELb0EEEbEE4typeESH_ = comdat any
+
+$_ZSt9make_pairIiRPN3g2o10HyperGraph6VertexEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_ = comdat any
+
+$_ZNK3g2o10HyperGraph6Vertex2idEv = comdat any
+
+$_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseERS9_ = comdat any
+
+$_ZN3g2o10HyperGraph4Edge8verticesEv = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE5beginEv = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv = comdat any
+
+$_ZN9__gnu_cxxneIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEdeEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEppEv = comdat any
+
+$_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm = comdat any
+
+$_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2Ev = comdat any
+
+$_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_ = comdat any
+
+$_ZSt8inserterISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEESt15insert_iteratorIT_ERSC_NSC_8iteratorE = comdat any
+
+$_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5beginEv = comdat any
+
+$_ZNKSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4sizeEv = comdat any
+
+$_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev = comdat any
+
+$_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_ = comdat any
+
+$_ZN3g2o10HyperGraph6Vertex5edgesEv = comdat any
+
+$_ZN3g2o10HyperGraph4Edge6vertexEm = comdat any
+
+$_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5eraseERKS3_ = comdat any
+
+$_ZN3g2o10HyperGraph4Edge9setVertexEmPNS0_6VertexE = comdat any
+
+$_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_ = comdat any
+
+$_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5beginEv = comdat any
+
+$_ZStneRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_ = comdat any
+
+$_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE3endEv = comdat any
+
+$_ZNKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEdeEv = comdat any
+
+$_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEv = comdat any
+
+$_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE = comdat any
+
+$_ZN3g2o7releaseINS_10HyperGraph6VertexEEEvPT_ = comdat any
+
+$_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE4findERKS3_ = comdat any
+
+$_ZSteqRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_ = comdat any
+
+$_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS3_E = comdat any
+
+$_ZN3g2o7releaseINS_10HyperGraph4EdgeEEEvPT_ = comdat any
+
+$_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEEC2Ev = comdat any
+
+$_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5beginEv = comdat any
+
+$_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_ = comdat any
+
+$_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEppEv = comdat any
+
+$_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5clearEv = comdat any
+
+$_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5clearEv = comdat any
+
+$_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEED2Ev = comdat any
+
+$_ZNK3g2o10HyperGraph4Data11elementTypeEv = comdat any
+
+$_ZNK3g2o10HyperGraph6Vertex11elementTypeEv = comdat any
+
+$_ZN3g2o10HyperGraph6Vertex5setIdEi = comdat any
+
+$_ZNK3g2o10HyperGraph4Edge11elementTypeEv = comdat any
+
+$_ZN3g2o10HyperGraph17HyperGraphElementD2Ev = comdat any
+
+$_ZN3g2o10HyperGraph17HyperGraphElementD0Ev = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EEC2Ev = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEC2Ev = comdat any
+
+$_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2Ev = comdat any
+
+$_ZNSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEEC2Ev = comdat any
+
+$_ZNSt15_Rb_tree_headerC2Ev = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2Ev = comdat any
+
+$_ZNSt15_Rb_tree_header8_M_resetEv = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EED2Ev = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_beginEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EED2Ev = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS3_E = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS3_E = comdat any
+
+$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE7destroyIS4_EEvRS6_PT_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE21_M_get_Node_allocatorEv = comdat any
+
+$_ZNSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEE9_M_valptrEv = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE7destroyIS4_EEvPT_ = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE6_M_ptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE7_M_addrEv = comdat any
+
+$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE10deallocateERS6_PS5_m = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE10deallocateEPS5_m = comdat any
+
+$_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE9_M_mbeginEv = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEED2Ev = comdat any
+
+$_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EEC2Ev = comdat any
+
+$_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE12_Vector_implC2Ev = comdat any
+
+$_ZNSaIPN3g2o10HyperGraph6VertexEEC2Ev = comdat any
+
+$_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE17_Vector_impl_dataC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEEC2Ev = comdat any
+
+$_ZNSt4pairIiPN3g2o10HyperGraph6VertexEEC2IiRS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_ = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEEC2Ev = comdat any
+
+$_ZNSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEEC2Ev = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEEC2Ev = comdat any
+
+$_ZNSt8__detail15_Hash_node_baseC2Ev = comdat any
+
+$_ZNSt8__detail20_Prime_rehash_policyC2Ef = comdat any
+
+$_ZNSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEC2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIPN3g2o10HyperGraph6VertexEELb1EEC2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIPN3g2o10HyperGraph6VertexEELb1EEC2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEELb1EEC2Ev = comdat any
+
+$_ZNSaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEC2Ev = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEED2Ev = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE19_M_deallocate_nodesEPS6_ = comdat any
+
+$_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_beginEv = comdat any
+
+$_ZNKSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EE7_M_nextEv = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE18_M_deallocate_nodeEPS6_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE7destroyIS5_EEvRS7_PT_ = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE17_M_node_allocatorEv = comdat any
+
+$_ZNSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE9_M_valptrEv = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE22_M_deallocate_node_ptrEPS6_ = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE7destroyIS5_EEvPT_ = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEELb1EE6_M_getEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE6_M_ptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE7_M_addrEv = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPNSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEES6_Lb0EE10pointer_toERS6_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE10deallocateERS7_PS6_m = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE10deallocateEPS6_m = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEPPNS5_15_Hash_node_baseEm = comdat any
+
+$_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_uses_single_bucketEPPNS5_15_Hash_node_baseE = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE21_M_deallocate_bucketsEPPNS_15_Hash_node_baseEm = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPPNSt8__detail15_Hash_node_baseES2_Lb0EE10pointer_toERS2_ = comdat any
+
+$_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEERKSaIT_E = comdat any
+
+$_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE10deallocateERS3_PS2_m = comdat any
+
+$_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE10deallocateEPS2_m = comdat any
+
+$_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEED2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEELb1EED2Ev = comdat any
+
+$_ZNSaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEED2Ev = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EEC2ERKS9_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEC2ERKSB_ = comdat any
+
+$_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_rootEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyERKS9_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_rootEv = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEES6_E17_S_select_on_copyERKS7_ = comdat any
+
+$_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEED2Ev = comdat any
+
+$_ZNSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEEC2ERKS5_ = comdat any
+
+$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE37select_on_container_copy_constructionERKS6_ = comdat any
+
+$_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2ERKS5_ = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2ERKS6_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeC2ERS9_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ERKS9_RT0_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_M_endEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_M_leftmostEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_maximumEPSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_rightmostEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_M_clone_nodeILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_ = comdat any
+
+$_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeclIRKS3_EEPSt13_Rb_tree_nodeIS3_EOT_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_create_nodeIJRKS3_EEEPSt13_Rb_tree_nodeIS3_EDpOT_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_M_get_nodeEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE17_M_construct_nodeIJRKS3_EEEvPSt13_Rb_tree_nodeIS3_EDpOT_ = comdat any
+
+$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE8allocateERS6_m = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE11_M_max_sizeEv = comdat any
+
+$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE9constructIS4_JRKS4_EEEvRS6_PT_DpOT0_ = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE9constructIS4_JRKS4_EEEvPT_DpOT0_ = comdat any
+
+$_ZNSt18_Rb_tree_node_base10_S_minimumEPS_ = comdat any
+
+$_ZNSt18_Rb_tree_node_base10_S_maximumEPS_ = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev = comdat any
+
+$_ZNSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEEC2Ev = comdat any
+
+$_ZNSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEC2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIiELb1EEC2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIiELb1EEC2Ev = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEELb1EEC2Ev = comdat any
+
+$_ZNSaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEC2Ev = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEED2Ev = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE19_M_deallocate_nodesEPS9_ = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv = comdat any
+
+$_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE18_M_deallocate_nodeEPS9_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE7destroyIS8_EEvRSA_PT_ = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE17_M_node_allocatorEv = comdat any
+
+$_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE22_M_deallocate_node_ptrEPS9_ = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE7destroyIS8_EEvPT_ = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEELb1EE6_M_getEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE6_M_ptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE7_M_addrEv = comdat any
+
+$_ZNSt19__ptr_traits_ptr_toIPNSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEES9_Lb0EE10pointer_toERS9_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE10deallocateERSA_PS9_m = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE10deallocateEPS9_m = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEPPNS8_15_Hash_node_baseEm = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_uses_single_bucketEPPNS8_15_Hash_node_baseE = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE21_M_deallocate_bucketsEPPNS_15_Hash_node_baseEm = comdat any
+
+$_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEERKSaIT_E = comdat any
+
+$_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEELb1EED2Ev = comdat any
+
+$_ZNSaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEED2Ev = comdat any
+
+$_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RSaIT0_E = comdat any
+
+$_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv = comdat any
+
+$_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev = comdat any
+
+$_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexEEvT_S5_ = comdat any
+
+$_ZNSt12_Destroy_auxILb1EE9__destroyIPPN3g2o10HyperGraph6VertexEEEvT_S7_ = comdat any
+
+$_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m = comdat any
+
+$_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE12_Vector_implD2Ev = comdat any
+
+$_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE10deallocateERS4_PS3_m = comdat any
+
+$_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE10deallocateEPS3_m = comdat any
+
+$_ZNSaIPN3g2o10HyperGraph6VertexEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEED2Ev = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEC2ERKS6_ = comdat any
+
+$_ZN9__gnu_cxxneIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_ = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEppEv = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEdeEv = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_ = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_erase_at_endEPS3_ = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_valueC2IJRKS3_EEEPS5_DpOT_ = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value6_M_valEv = comdat any
+
+$_ZN9__gnu_cxxmiIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_ = comdat any
+
+$_ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_ = comdat any
+
+$_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv = comdat any
+
+$_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_ = comdat any
+
+$_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_valueD2Ev = comdat any
+
+$_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc = comdat any
+
+$_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE11_M_allocateEm = comdat any
+
+$_ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_ = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value8_StorageC2Ev = comdat any
+
+$_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value6_M_ptrEv = comdat any
+
+$_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE9constructIS3_JRKS3_EEEvPT_DpOT0_ = comdat any
+
+$_ZSt22__uninitialized_copy_aISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_S4_ET0_T_S8_S7_RSaIT1_E = comdat any
+
+$_ZSt18make_move_iteratorIPPN3g2o10HyperGraph6VertexEESt13move_iteratorIT_ES6_ = comdat any
+
+$_ZSt18uninitialized_copyISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_ET0_T_S8_S7_ = comdat any
+
+$_ZNSt20__uninitialized_copyILb1EE13__uninit_copyISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES7_EET0_T_SA_S9_ = comdat any
+
+$_ZSt4copyISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_ET0_T_S8_S7_ = comdat any
+
+$_ZSt13__copy_move_aILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_ = comdat any
+
+$_ZSt12__miter_baseIPPN3g2o10HyperGraph6VertexEEDTcl12__miter_basecldtfp_4baseEEESt13move_iteratorIT_E = comdat any
+
+$_ZSt12__niter_wrapIPPN3g2o10HyperGraph6VertexEET_RKS5_S5_ = comdat any
+
+$_ZSt14__copy_move_a1ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_ = comdat any
+
+$_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexEET_S5_ = comdat any
+
+$_ZSt14__copy_move_a2ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_ = comdat any
+
+$_ZNSt11__copy_moveILb1ELb1ESt26random_access_iterator_tagE8__copy_mIPN3g2o10HyperGraph6VertexEEEPT_PKS7_SA_S8_ = comdat any
+
+$_ZSt12__miter_baseIPPN3g2o10HyperGraph6VertexEET_S5_ = comdat any
+
+$_ZNKSt13move_iteratorIPPN3g2o10HyperGraph6VertexEE4baseEv = comdat any
+
+$_ZNSt13move_iteratorIPPN3g2o10HyperGraph6VertexEEC2ES4_ = comdat any
+
+$_ZSt22__copy_move_backward_aILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_ = comdat any
+
+$_ZSt23__copy_move_backward_a1ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_ = comdat any
+
+$_ZSt23__copy_move_backward_a2ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_ = comdat any
+
+$_ZNSt20__copy_move_backwardILb1ELb1ESt26random_access_iterator_tagE13__copy_move_bIPN3g2o10HyperGraph6VertexEEEPT_PKS7_SA_S8_ = comdat any
+
+$_ZSt8__fill_aIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_ = comdat any
+
+$_ZSt9__fill_a1IPPN3g2o10HyperGraph6VertexES3_EN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_SA_RKS7_ = comdat any
+
+$_ZSt20uninitialized_fill_nIPPN3g2o10HyperGraph6VertexEmS3_ET_S5_T0_RKT1_ = comdat any
+
+$_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPPN3g2o10HyperGraph6VertexEmS5_EET_S7_T0_RKT1_ = comdat any
+
+$_ZSt6fill_nIPPN3g2o10HyperGraph6VertexEmS3_ET_S5_T0_RKT1_ = comdat any
+
+$_ZSt10__fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_ET_S5_T0_RKT1_St26random_access_iterator_tag = comdat any
+
+$_ZSt17__size_to_integerm = comdat any
+
+$_ZSt19__iterator_categoryIPPN3g2o10HyperGraph6VertexEENSt15iterator_traitsIT_E17iterator_categoryERKS6_ = comdat any
+
+$_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE7destroyIS3_EEvRS4_PT_ = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value8_StorageD2Ev = comdat any
+
+$_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE7destroyIS3_EEvPT_ = comdat any
+
+$_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE8max_sizeEv = comdat any
+
+$_ZSt3maxImERKT_S2_S2_ = comdat any
+
+$_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE11_S_max_sizeERKS4_ = comdat any
+
+$_ZNKSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv = comdat any
+
+$_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE8max_sizeERKS4_ = comdat any
+
+$_ZSt3minImERKT_S2_S2_ = comdat any
+
+$_ZNKSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE8max_sizeEv = comdat any
+
+$_ZNKSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE11_M_max_sizeEv = comdat any
+
+$_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE8allocateERS4_m = comdat any
+
+$_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE8allocateEmPKv = comdat any
+
+$_ZSt32__make_move_if_noexcept_iteratorIPN3g2o10HyperGraph6VertexESt13move_iteratorIPS3_EET0_PT_ = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_ = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv = comdat any
+
+$_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS7_Lb0EEE = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_ = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m = comdat any
+
+$_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE = comdat any
+
+$_ZNSt8__detail22_Hashtable_hash_traitsISt4hashIiEE22__small_size_thresholdEv = comdat any
+
+$_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE5_M_eqEv = comdat any
+
+$_ZNKSt8equal_toIiEclERKiS2_ = comdat any
+
+$_ZNKSt8__detail10_Select1stclIRKSt4pairIKiPN3g2o10HyperGraph6VertexEEEEONS0_10__1st_typeIT_E4typeEOSC_ = comdat any
+
+$_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE4_M_vEv = comdat any
+
+$_ZNKSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIiELb1EE7_M_cgetEv = comdat any
+
+$_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE6_M_ptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE7_M_addrEv = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv = comdat any
+
+$_ZNKSt4hashIiEclEi = comdat any
+
+$_ZNKSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIiELb1EE7_M_cgetEv = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexEmm = comdat any
+
+$_ZNKSt8__detail18_Mod_range_hashingclEmm = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m = comdat any
+
+$_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_equalsERS2_mRKNS_16_Hash_node_valueIS7_Lb0EEE = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE = comdat any
+
+$_ZNSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_S_equalsEmRKNS_21_Hash_node_code_cacheILb0EEE = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS7_Lb0EEEm = comdat any
+
+$_ZNSt8__detail19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_ = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv = comdat any
+
+$_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv = comdat any
+
+$_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEppEv = comdat any
+
+$_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE = comdat any
+
+$_ZNSt8__detail19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_incrEv = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE7emplaceIJS0_IiS5_EEEES0_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbEDpOT_ = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS0_IiS5_EEEES0_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_ = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJS0_IiS5_EEEEPNS8_16_Hashtable_allocISaINS8_10_Hash_nodeIS6_Lb0EEEEEEDpOT_ = comdat any
+
+$_ZNKSt8__detail10_Select1stclIRSt4pairIKiPN3g2o10HyperGraph6VertexEEEEONS0_10__1st_typeIT_E4typeEOSB_ = comdat any
+
+$_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE4_M_vEv = comdat any
+
+$_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKiPN3g2o10HyperGraph6VertexEELb0ELb0EEEbEC2IRS8_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_ = comdat any
+
+$_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKiPN3g2o10HyperGraph6VertexEELb0ELb0EEEbEC2IS8_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_ = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE16_M_allocate_nodeIJS2_IiS7_EEEEPS9_DpOT_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE8allocateERSA_m = comdat any
+
+$_ZSt12__to_addressINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEPT_SB_ = comdat any
+
+$_ZNSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEC2Ev = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE9constructIS8_JS2_IiS7_EEEEvRSA_PT_DpOT0_ = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE11_M_max_sizeEv = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE9constructIS8_JS2_IiS7_EEEEvPT_DpOT0_ = comdat any
+
+$_ZNSt4pairIKiPN3g2o10HyperGraph6VertexEEC2IiS4_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairIS8_S9_EEclsr6_PCCFPIS8_S9_EE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS_IS8_S9_E = comdat any
+
+$_ZNKSt8__detail20_Prime_rehash_policy8_M_stateEv = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE13_M_store_codeERNS_21_Hash_node_code_cacheILb0EEEm = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE = comdat any
+
+$_ZNSt8__detail20_Prime_rehash_policy8_M_resetEm = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE19_M_allocate_bucketsEm = comdat any
+
+$_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE8allocateERS3_m = comdat any
+
+$_ZSt12__to_addressIPNSt8__detail15_Hash_node_baseEEPT_S4_ = comdat any
+
+$_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE11_M_max_sizeEv = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseERS1_ = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_ = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_ = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEEm = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEC2ERKS5_ = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5beginEv = comdat any
+
+$_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE = comdat any
+
+$_ZNSt8__detail19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE = comdat any
+
+$_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEC2ERSA_NSt8__detail14_Node_iteratorIS4_Lb1ELb0EEE = comdat any
+
+$_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET1_T0_SK_SJ_ = comdat any
+
+$_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEEET_SB_ = comdat any
+
+$_ZSt12__niter_wrapISt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEEET_RKSD_SD_ = comdat any
+
+$_ZSt14__copy_move_a1ILb0EPPN3g2o10HyperGraph6VertexESt15insert_iteratorISt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEEET1_T0_SF_SE_ = comdat any
+
+$_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE = comdat any
+
+$_ZSt12__niter_baseISt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEEET_SD_ = comdat any
+
+$_ZSt14__copy_move_a2ILb0EPPN3g2o10HyperGraph6VertexESt15insert_iteratorISt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEEET1_T0_SF_SE_ = comdat any
+
+$_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPPN3g2o10HyperGraph6VertexESt15insert_iteratorISt13unordered_setIS6_St4hashIS6_ESt8equal_toIS6_ESaIS6_EEEEET0_T_SI_SH_ = comdat any
+
+$_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEdeEv = comdat any
+
+$_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEaSERKS4_ = comdat any
+
+$_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEppEv = comdat any
+
+$_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertENSt8__detail20_Node_const_iteratorIS3_Lb1ELb0EEERKS3_ = comdat any
+
+$_ZNSt8__detail20_Node_const_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEC2ERKNS_14_Node_iteratorIS4_Lb1ELb0EEE = comdat any
+
+$_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEppEv = comdat any
+
+$_ZNSt8__detail12_Insert_baseIPN3g2o10HyperGraph6VertexES4_SaIS4_ENS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb1ELb1EEEE6insertENS_20_Node_const_iteratorIS4_Lb1ELb0EEERKS4_ = comdat any
+
+$_ZNSt8__detail12_Insert_baseIPN3g2o10HyperGraph6VertexES4_SaIS4_ENS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb1ELb1EEEE20_M_conjure_hashtableEv = comdat any
+
+$_ZNSt8__detail10_AllocNodeISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEEC2ERNS_16_Hashtable_allocIS7_EE = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_insertIRKS3_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEENS5_14_Node_iteratorIS3_Lb1ELb0EEENS5_20_Node_const_iteratorIS3_Lb1ELb0EEEOT_RKT0_St17integral_constantIbLb1EE = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_insertIRKS3_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_RKT0_St17integral_constantIbLb1EE = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_ = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE14_S_forward_keyERKS3_ = comdat any
+
+$_ZNKSt8__detail9_IdentityclIRKPN3g2o10HyperGraph6VertexEEEOT_S9_ = comdat any
+
+$_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE4sizeEv = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22__small_size_thresholdEv = comdat any
+
+$_ZNSt8__detailneERKNS_19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EEES7_ = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE3endEv = comdat any
+
+$_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb0EEE = comdat any
+
+$_ZNSt4pairINSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEEbEC2IRS6_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_ = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_hash_code_trIS4_EEmRKT_ = comdat any
+
+$_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexEm = comdat any
+
+$_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb0EEEmRKT_m = comdat any
+
+$_ZNSt4pairINSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEEbEC2IS6_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_ = comdat any
+
+$_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKPN3g2o10HyperGraph6VertexES9_NS_10_AllocNodeISaINS_10_Hash_nodeIS7_Lb0EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSF_ = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeC2EPNS5_10_Hash_nodeIS3_Lb0EEEPNS5_16_Hashtable_allocISaISJ_EEE = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev = comdat any
+
+$_ZNSt8__detail22_Hashtable_hash_traitsISt4hashIPN3g2o10HyperGraph6VertexEEE22__small_size_thresholdEv = comdat any
+
+$_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE5_M_eqEv = comdat any
+
+$_ZNKSt8equal_toIPN3g2o10HyperGraph6VertexEEclERKS3_S6_ = comdat any
+
+$_ZNKSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE4_M_vEv = comdat any
+
+$_ZNKSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIPN3g2o10HyperGraph6VertexEELb1EE7_M_cgetEv = comdat any
+
+$_ZNKSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE9_M_valptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE6_M_ptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE7_M_addrEv = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv = comdat any
+
+$_ZNKSt4hashIPN3g2o10HyperGraph6VertexEEclES3_ = comdat any
+
+$_ZNKSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIPN3g2o10HyperGraph6VertexEELb1EE7_M_cgetEv = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexEmm = comdat any
+
+$_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_find_before_node_trIS3_EEPNS5_15_Hash_node_baseEmRKT_m = comdat any
+
+$_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb0EEE = comdat any
+
+$_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS5_16_Hash_node_valueIS3_Lb0EEE = comdat any
+
+$_ZNSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE9_S_equalsEmRKNS_21_Hash_node_code_cacheILb0EEE = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS4_Lb0EEEm = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERKS4_ = comdat any
+
+$_ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEEclIJRKS5_EEEPS6_DpOT_ = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE16_M_allocate_nodeIJRKS5_EEEPS6_DpOT_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE8allocateERS7_m = comdat any
+
+$_ZSt12__to_addressINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEPT_S8_ = comdat any
+
+$_ZNSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEC2Ev = comdat any
+
+$_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE9constructIS5_JRKS5_EEEvRS7_PT_DpOT0_ = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE11_M_max_sizeEv = comdat any
+
+$_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE9constructIS5_JRKS5_EEEvPT_DpOT0_ = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm = comdat any
+
+$_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE13_M_store_codeERNS_21_Hash_node_code_cacheILb0EEEm = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS5_10_Hash_nodeIS3_Lb0EEE = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE = comdat any
+
+$_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm = comdat any
+
+$_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE19_M_allocate_bucketsEm = comdat any
+
+$_ZNSt8__detail19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EE7_M_incrEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_ = comdat any
+
+$_ZNSt4pairISt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEbEC2IRSt17_Rb_tree_iteratorIS4_ERbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_ = comdat any
+
+$_ZNKSt9_IdentityIPN3g2o10HyperGraph4EdgeEEclERKS3_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_ = comdat any
+
+$_ZNSt4pairISt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEbEC2IS5_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_ = comdat any
+
+$_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base = comdat any
+
+$_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt13_Rb_tree_nodeIS3_E = comdat any
+
+$_ZSteqRKSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEES6_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5beginEv = comdat any
+
+$_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_ = comdat any
+
+$_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEmmEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_ = comdat any
+
+$_ZNKSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEE9_M_valptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE6_M_ptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE7_M_addrEv = comdat any
+
+$_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2ERKSt17_Rb_tree_iteratorIS3_E = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5eraseERKS3_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_ = comdat any
+
+$_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE4sizeEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS3_ESB_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_ = comdat any
+
+$_ZNSt4pairISt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEES5_EC2IS5_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE3endEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS3_E = comdat any
+
+$_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEi = comdat any
+
+$_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5beginEv = comdat any
+
+$_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPKSt18_Rb_tree_node_base = comdat any
+
+$_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE3endEv = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENS8_14_Node_iteratorIS6_Lb0ELb0EEE = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENS8_20_Node_const_iteratorIS6_Lb0ELb0EEE = comdat any
+
+$_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2ERKNS_14_Node_iteratorIS7_Lb0ELb0EEE = comdat any
+
+$_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE4findERKS3_ = comdat any
+
+$_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS3_E = comdat any
+
+$_ZNKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEE13_M_const_castEv = comdat any
+
+$_ZTSN3g2o10HyperGraph17HyperGraphElementE = comdat any
+
+$_ZTIN3g2o10HyperGraph17HyperGraphElementE = comdat any
+
+$_ZTVN3g2o10HyperGraph17HyperGraphElementE = comdat any
+
+@_ZTVN3g2o10HyperGraph4DataE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3g2o10HyperGraph4DataE, ptr @_ZN3g2o10HyperGraph4DataD1Ev, ptr @_ZN3g2o10HyperGraph4DataD0Ev, ptr @_ZNK3g2o10HyperGraph4Data11elementTypeEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTVN3g2o10HyperGraph6VertexE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o10HyperGraph6VertexE, ptr @_ZN3g2o10HyperGraph6VertexD1Ev, ptr @_ZN3g2o10HyperGraph6VertexD0Ev, ptr @_ZNK3g2o10HyperGraph6Vertex11elementTypeEv, ptr @_ZN3g2o10HyperGraph6Vertex5setIdEi] }, align 8
+@_ZTVN3g2o10HyperGraph4EdgeE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN3g2o10HyperGraph4EdgeE, ptr @_ZN3g2o10HyperGraph4EdgeD1Ev, ptr @_ZN3g2o10HyperGraph4EdgeD0Ev, ptr @_ZNK3g2o10HyperGraph4Edge11elementTypeEv, ptr @_ZN3g2o10HyperGraph4Edge6resizeEm] }, align 8
+@_ZTVN3g2o10HyperGraphE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN3g2o10HyperGraphE, ptr @_ZN3g2o10HyperGraphD1Ev, ptr @_ZN3g2o10HyperGraphD0Ev, ptr @_ZN3g2o10HyperGraph12removeVertexEPNS0_6VertexEb, ptr @_ZN3g2o10HyperGraph10removeEdgeEPNS0_4EdgeE, ptr @_ZN3g2o10HyperGraph5clearEv, ptr @_ZN3g2o10HyperGraph9addVertexEPNS0_6VertexE, ptr @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE, ptr @_ZN3g2o10HyperGraph13setEdgeVertexEPNS0_4EdgeEiPNS0_6VertexE, ptr @_ZN3g2o10HyperGraph13mergeVerticesEPNS0_6VertexES2_b, ptr @_ZN3g2o10HyperGraph12detachVertexEPNS0_6VertexE, ptr @_ZN3g2o10HyperGraph8changeIdEPNS0_6VertexEi] }, align 8
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSN3g2o10HyperGraphE = constant [19 x i8] c"N3g2o10HyperGraphE\00", align 1
+@_ZTIN3g2o10HyperGraphE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3g2o10HyperGraphE }, align 8
+@_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
+@_ZTSN3g2o10HyperGraph4DataE = constant [24 x i8] c"N3g2o10HyperGraph4DataE\00", align 1
+@_ZTSN3g2o10HyperGraph17HyperGraphElementE = linkonce_odr constant [38 x i8] c"N3g2o10HyperGraph17HyperGraphElementE\00", comdat, align 1
+@_ZTIN3g2o10HyperGraph17HyperGraphElementE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3g2o10HyperGraph17HyperGraphElementE }, comdat, align 8
+@_ZTIN3g2o10HyperGraph4DataE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o10HyperGraph4DataE, ptr @_ZTIN3g2o10HyperGraph17HyperGraphElementE }, align 8
+@_ZTSN3g2o10HyperGraph6VertexE = constant [26 x i8] c"N3g2o10HyperGraph6VertexE\00", align 1
+@_ZTIN3g2o10HyperGraph6VertexE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o10HyperGraph6VertexE, ptr @_ZTIN3g2o10HyperGraph17HyperGraphElementE }, align 8
+@_ZTSN3g2o10HyperGraph4EdgeE = constant [24 x i8] c"N3g2o10HyperGraph4EdgeE\00", align 1
+@_ZTIN3g2o10HyperGraph4EdgeE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3g2o10HyperGraph4EdgeE, ptr @_ZTIN3g2o10HyperGraph17HyperGraphElementE }, align 8
+@_ZTVN3g2o10HyperGraph17HyperGraphElementE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3g2o10HyperGraph17HyperGraphElementE, ptr @_ZN3g2o10HyperGraph17HyperGraphElementD2Ev, ptr @_ZN3g2o10HyperGraph17HyperGraphElementD0Ev, ptr @__cxa_pure_virtual] }, comdat, align 8
+@.str = private unnamed_addr constant [23 x i8] c"vector::_M_fill_insert\00", align 1
+
+@_ZN3g2o10HyperGraph4DataD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o10HyperGraph4DataD2Ev
+@_ZN3g2o10HyperGraph6VertexC1Ei = unnamed_addr alias void (ptr, i32), ptr @_ZN3g2o10HyperGraph6VertexC2Ei
+@_ZN3g2o10HyperGraph6VertexD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o10HyperGraph6VertexD2Ev
+@_ZN3g2o10HyperGraph4EdgeC1Ei = unnamed_addr alias void (ptr, i32), ptr @_ZN3g2o10HyperGraph4EdgeC2Ei
+@_ZN3g2o10HyperGraph4EdgeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o10HyperGraph4EdgeD2Ev
+@_ZN3g2o10HyperGraphC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o10HyperGraphC2Ev
+@_ZN3g2o10HyperGraphD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o10HyperGraphD2Ev
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph4DataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o10HyperGraph17HyperGraphElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3g2o10HyperGraph4DataE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %5, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o10HyperGraph17HyperGraphElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN3g2o10HyperGraph17HyperGraphElementE, i32 0, i32 0, i32 2), ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) ({ [7 x ptr] }, ptr @_ZTVN3g2o10HyperGraph4DataE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Data", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %11, label %7
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 1
+  %10 = load ptr, ptr %9, align 8
+  call void %10(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  br label %11
+
+11:                                               ; preds = %7, %1
+  call void @_ZN3g2o10HyperGraph17HyperGraphElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph4DataD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.trap() #13
+  unreachable
+}
+
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph6VertexC2Ei(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN3g2o10HyperGraph17HyperGraphElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o10HyperGraph6VertexE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Vertex", ptr %5, i32 0, i32 1
+  %7 = load i32, ptr %4, align 4
+  store i32 %7, ptr %6, align 8
+  %8 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Vertex", ptr %5, i32 0, i32 2
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::set", ptr %3, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o10HyperGraph6VertexE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Vertex", ptr %3, i32 0, i32 2
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #12
+  call void @_ZN3g2o10HyperGraph17HyperGraphElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::set", ptr %3, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph6VertexD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o10HyperGraph6VertexD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #12
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 64) #14
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph4EdgeC2Ei(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN3g2o10HyperGraph17HyperGraphElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o10HyperGraph4EdgeE, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %5, i32 0, i32 1
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %5, i32 0, i32 2
+  %8 = load i32, ptr %4, align 4
+  store i32 %8, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN3g2o10HyperGraph4EdgeE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  call void @_ZN3g2o10HyperGraph17HyperGraphElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  invoke void @_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %1
+  call void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  ret void
+
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph4EdgeD0Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o10HyperGraph4EdgeD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #12
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 40) #14
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #3 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %5, i32 0, i32 1
+  %7 = call ptr @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %5, i32 0, i32 1
+  %10 = call ptr @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %10, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef i64 @"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEEZNKS3_4Edge20numUndefinedVerticesEvE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_"(ptr %13, ptr %15)
+  %17 = trunc i64 %16 to i32
+  ret i32 %17
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i64 @"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEEZNKS3_4Edge20numUndefinedVerticesEvE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_"(ptr %0, ptr %1) #3 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %3, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 8, i1 false)
+  call void @"_ZN9__gnu_cxx5__ops11__pred_iterIZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEvE3$_0EENS0_10_Iter_predIT_EES7_"()
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = call noundef i64 @"_ZSt10__count_ifIN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNKS3_4Edge20numUndefinedVerticesEvE3$_0EEENSt15iterator_traitsIT_E15difference_typeESI_SI_T0_"(ptr %10, ptr %12)
+  ret i64 %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3g2o10HyperGraph4Edge6resizeEm(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %6, i32 0, i32 1
+  %8 = load i64, ptr %4, align 8
+  store ptr null, ptr %5, align 8
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE6resizeEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE6resizeEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i64, ptr %5, align 8
+  %10 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %11 = icmp ugt i64 %9, %10
+  br i1 %11, label %12, label %21
+
+12:                                               ; preds = %3
+  %13 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %7, i32 0, i32 0
+  store ptr %13, ptr %14, align 8
+  %15 = load i64, ptr %5, align 8
+  %16 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %17 = sub i64 %15, %16
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %7, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %20, i64 noundef %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  br label %32
+
+21:                                               ; preds = %3
+  %22 = load i64, ptr %5, align 8
+  %23 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
+  %24 = icmp ult i64 %22, %23
+  br i1 %24, label %25, label %31
+
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %8, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i64, ptr %5, align 8
+  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_erase_at_endEPS3_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %30) #12
+  br label %31
+
+31:                                               ; preds = %25, %21
+  br label %32
+
+32:                                               ; preds = %31, %12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph4Edge5setIdEi(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %5, i32 0, i32 2
+  store i32 %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %7 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %8, i32 0, i32 1
+  %10 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %6, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %11, i32 0, i32 0
+  store ptr %10, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %8, i32 0, i32 1
+  %14 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %13) #12
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %7, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8
+  %17 = call noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %23
+
+19:                                               ; preds = %2
+  %20 = call noundef ptr @_ZNKSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %3, align 8
+  br label %23
+
+23:                                               ; preds = %19, %18
+  %24 = load ptr, ptr %3, align 8
+  ret ptr %24
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8
+  %9 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %10, i32 0, i32 0
+  store ptr %9, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZNK3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %7 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %8, i32 0, i32 1
+  %10 = call ptr @_ZNKSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %6, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %11, i32 0, i32 0
+  store ptr %10, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %8, i32 0, i32 1
+  %14 = call ptr @_ZNKSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %13) #12
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %7, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8
+  %17 = call noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %23
+
+19:                                               ; preds = %2
+  %20 = call noundef ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %3, align 8
+  br label %23
+
+23:                                               ; preds = %19, %18
+  %24 = load ptr, ptr %3, align 8
+  ret ptr %24
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNKSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8
+  %9 = call ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %10, i32 0, i32 0
+  store ptr %9, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3g2o10HyperGraph9addVertexEPNS0_6VertexE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::pair.8", align 8
+  %6 = alloca %"struct.std::pair.10", align 8
+  %7 = alloca i32, align 4
+  %8 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef i32 @_ZNK3g2o10HyperGraph6Vertex2idEv(ptr noundef nonnull align 8 dereferenceable(64) %11)
+  store i32 %12, ptr %7, align 4
+  %13 = call { i32, ptr } @_ZSt9make_pairIiRPN3g2o10HyperGraph6VertexEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_(ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %14 = getelementptr inbounds nuw { i32, ptr }, ptr %6, i32 0, i32 0
+  %15 = extractvalue { i32, ptr } %13, 0
+  store i32 %15, ptr %14, align 8
+  %16 = getelementptr inbounds nuw { i32, ptr }, ptr %6, i32 0, i32 1
+  %17 = extractvalue { i32, ptr } %13, 1
+  store ptr %17, ptr %16, align 8
+  %18 = call { ptr, i8 } @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE6insertIS8_IiS3_EEENSt9enable_ifIXsr16is_constructibleISA_OT_EE5valueES8_INSt8__detail14_Node_iteratorISA_Lb0ELb0EEEbEE4typeESH_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  store { ptr, i8 } %18, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %8, i64 9, i1 false)
+  %19 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %5, i32 0, i32 1
+  %20 = load i8, ptr %19, align 8
+  %21 = trunc i8 %20 to i1
+  ret i1 %21
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, i8 } @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE6insertIS8_IiS3_EEENSt9enable_ifIXsr16is_constructibleISA_OT_EE5valueES8_INSt8__detail14_Node_iteratorISA_Lb0ELb0EEEbEE4typeESH_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::pair.8", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = call { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE7emplaceIJS0_IiS5_EEEES0_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  store { ptr, i8 } %10, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 9, i1 false)
+  %11 = load { ptr, i8 }, ptr %3, align 8
+  ret { ptr, i8 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { i32, ptr } @_ZSt9make_pairIiRPN3g2o10HyperGraph6VertexEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
+  %3 = alloca %"struct.std::pair.10", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZNSt4pairIiPN3g2o10HyperGraph6VertexEEC2IiRS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %8 = load { i32, ptr }, ptr %3, align 8
+  ret { i32, ptr } %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK3g2o10HyperGraph6Vertex2idEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Vertex", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8
+  ret i32 %5
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3g2o10HyperGraph8changeIdEPNS0_6VertexEi(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.std::pair.10", align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %"struct.std::pair.8", align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i32 %2, ptr %7, align 4
+  %13 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = call noundef i32 @_ZNK3g2o10HyperGraph6Vertex2idEv(ptr noundef nonnull align 8 dereferenceable(64) %14)
+  %16 = call noundef ptr @_ZN3g2o10HyperGraph6vertexEi(ptr noundef nonnull align 8 dereferenceable(112) %13, i32 noundef %15)
+  store ptr %16, ptr %8, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = icmp ne ptr %17, %18
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %3
+  store i1 false, ptr %4, align 1
+  br label %44
+
+21:                                               ; preds = %3
+  %22 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %13, i32 0, i32 1
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef i32 @_ZNK3g2o10HyperGraph6Vertex2idEv(ptr noundef nonnull align 8 dereferenceable(64) %23)
+  store i32 %24, ptr %9, align 4
+  %25 = call noundef i64 @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseERS9_(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %26 = load ptr, ptr %6, align 8
+  %27 = load i32, ptr %7, align 4
+  %28 = load ptr, ptr %26, align 8
+  %29 = getelementptr inbounds ptr, ptr %28, i64 3
+  %30 = load ptr, ptr %29, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(64) %26, i32 noundef %27)
+  %31 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %13, i32 0, i32 1
+  %32 = load ptr, ptr %6, align 8
+  %33 = call noundef i32 @_ZNK3g2o10HyperGraph6Vertex2idEv(ptr noundef nonnull align 8 dereferenceable(64) %32)
+  store i32 %33, ptr %11, align 4
+  %34 = call { i32, ptr } @_ZSt9make_pairIiRPN3g2o10HyperGraph6VertexEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_(ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %35 = getelementptr inbounds nuw { i32, ptr }, ptr %10, i32 0, i32 0
+  %36 = extractvalue { i32, ptr } %34, 0
+  store i32 %36, ptr %35, align 8
+  %37 = getelementptr inbounds nuw { i32, ptr }, ptr %10, i32 0, i32 1
+  %38 = extractvalue { i32, ptr } %34, 1
+  store ptr %38, ptr %37, align 8
+  %39 = call { ptr, i8 } @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE6insertIS8_IiS3_EEENSt9enable_ifIXsr16is_constructibleISA_OT_EE5valueES8_INSt8__detail14_Node_iteratorISA_Lb0ELb0EEEbEE4typeESH_(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %40 = getelementptr inbounds nuw { ptr, i8 }, ptr %12, i32 0, i32 0
+  %41 = extractvalue { ptr, i8 } %39, 0
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds nuw { ptr, i8 }, ptr %12, i32 0, i32 1
+  %43 = extractvalue { ptr, i8 } %39, 1
+  store i8 %43, ptr %42, align 8
+  store i1 true, ptr %4, align 1
+  br label %44
+
+44:                                               ; preds = %21, %20
+  %45 = load i1, ptr %4, align 1
+  ret i1 %45
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseERS9_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  ret i64 %8
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"class.std::unordered_set", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %15 = alloca %"class.std::insert_iterator", align 8
+  %16 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %17 = alloca %"class.std::insert_iterator", align 8
+  %18 = alloca i32, align 4
+  %19 = alloca %"struct.std::pair.34", align 8
+  %20 = alloca { ptr, i8 }, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %23 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca %"struct.std::pair.34", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = load ptr, ptr %5, align 8
+  %28 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %27)
+  store ptr %28, ptr %6, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %29) #12
+  %31 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %7, i32 0, i32 0
+  store ptr %30, ptr %31, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #12
+  %34 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %8, i32 0, i32 0
+  store ptr %33, ptr %34, align 8
+  br label %35
+
+35:                                               ; preds = %44, %2
+  %36 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  br i1 %36, label %37, label %46
+
+37:                                               ; preds = %35
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %9, align 8
+  %40 = load ptr, ptr %9, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %43, label %42
+
+42:                                               ; preds = %37
+  store i1 false, ptr %3, align 1
+  br label %190
+
+43:                                               ; preds = %37
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br label %35
+
+46:                                               ; preds = %35
+  %47 = load ptr, ptr %5, align 8
+  %48 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %47)
+  %49 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %48) #12
+  %50 = icmp eq i64 %49, 2
+  br i1 %50, label %51, label %63
+
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %5, align 8
+  %53 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %52)
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef 0) #12
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %56)
+  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 noundef 1) #12
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %55, %59
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %51
+  store i1 false, ptr %3, align 1
+  br label %190
+
+62:                                               ; preds = %51
+  br label %159
+
+63:                                               ; preds = %46
+  %64 = load ptr, ptr %5, align 8
+  %65 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %64)
+  %66 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %65) #12
+  %67 = icmp eq i64 %66, 3
+  br i1 %67, label %68, label %100
+
+68:                                               ; preds = %63
+  %69 = load ptr, ptr %5, align 8
+  %70 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %69)
+  %71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %70, i64 noundef 0) #12
+  %72 = load ptr, ptr %71, align 8
+  %73 = load ptr, ptr %5, align 8
+  %74 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %73)
+  %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %74, i64 noundef 1) #12
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq ptr %72, %76
+  br i1 %77, label %98, label %78
+
+78:                                               ; preds = %68
+  %79 = load ptr, ptr %5, align 8
+  %80 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %79)
+  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %80, i64 noundef 0) #12
+  %82 = load ptr, ptr %81, align 8
+  %83 = load ptr, ptr %5, align 8
+  %84 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %83)
+  %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %84, i64 noundef 2) #12
+  %86 = load ptr, ptr %85, align 8
+  %87 = icmp eq ptr %82, %86
+  br i1 %87, label %98, label %88
+
+88:                                               ; preds = %78
+  %89 = load ptr, ptr %5, align 8
+  %90 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %89)
+  %91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %90, i64 noundef 1) #12
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %5, align 8
+  %94 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %93)
+  %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %94, i64 noundef 2) #12
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %92, %96
+  br i1 %97, label %98, label %99
+
+98:                                               ; preds = %88, %78, %68
+  store i1 false, ptr %3, align 1
+  br label %190
+
+99:                                               ; preds = %88
+  br label %158
+
+100:                                              ; preds = %63
+  %101 = load ptr, ptr %5, align 8
+  %102 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %101)
+  %103 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %102) #12
+  %104 = icmp ugt i64 %103, 3
+  br i1 %104, label %105, label %157
+
+105:                                              ; preds = %100
+  call void @_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #12
+  %106 = load ptr, ptr %5, align 8
+  %107 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %106)
+          to label %108 unwind label %149
+
+108:                                              ; preds = %105
+  %109 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %107) #12
+  %110 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %11, i32 0, i32 0
+  store ptr %109, ptr %110, align 8
+  %111 = load ptr, ptr %5, align 8
+  %112 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %111)
+          to label %113 unwind label %149
+
+113:                                              ; preds = %108
+  %114 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %112) #12
+  %115 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %14, i32 0, i32 0
+  store ptr %114, ptr %115, align 8
+  %116 = call ptr @_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #12
+  %117 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %16, i32 0, i32 0
+  %118 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %117, i32 0, i32 0
+  store ptr %116, ptr %118, align 8
+  %119 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %16, i32 0, i32 0
+  %120 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %119, i32 0, i32 0
+  %121 = load ptr, ptr %120, align 8
+  %122 = invoke { ptr, ptr } @_ZSt8inserterISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEESt15insert_iteratorIT_ERSC_NSC_8iteratorE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr %121)
+          to label %123 unwind label %149
+
+123:                                              ; preds = %113
+  %124 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
+  %125 = extractvalue { ptr, ptr } %122, 0
+  store ptr %125, ptr %124, align 8
+  %126 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
+  %127 = extractvalue { ptr, ptr } %122, 1
+  store ptr %127, ptr %126, align 8
+  %128 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %11, i32 0, i32 0
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %14, i32 0, i32 0
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 0
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds nuw { ptr, ptr }, ptr %15, i32 0, i32 1
+  %135 = load ptr, ptr %134, align 8
+  %136 = invoke { ptr, ptr } @_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_(ptr %129, ptr %131, ptr %133, ptr %135)
+          to label %137 unwind label %149
+
+137:                                              ; preds = %123
+  %138 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 0
+  %139 = extractvalue { ptr, ptr } %136, 0
+  store ptr %139, ptr %138, align 8
+  %140 = getelementptr inbounds nuw { ptr, ptr }, ptr %17, i32 0, i32 1
+  %141 = extractvalue { ptr, ptr } %136, 1
+  store ptr %141, ptr %140, align 8
+  %142 = call noundef i64 @_ZNKSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #12
+  %143 = load ptr, ptr %5, align 8
+  %144 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %143)
+          to label %145 unwind label %149
+
+145:                                              ; preds = %137
+  %146 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %144) #12
+  %147 = icmp ne i64 %142, %146
+  br i1 %147, label %148, label %153
+
+148:                                              ; preds = %145
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %18, align 4
+  br label %154
+
+149:                                              ; preds = %137, %123, %113, %108, %105
+  %150 = landingpad { ptr, i32 }
+          cleanup
+  %151 = extractvalue { ptr, i32 } %150, 0
+  store ptr %151, ptr %12, align 8
+  %152 = extractvalue { ptr, i32 } %150, 1
+  store i32 %152, ptr %13, align 4
+  call void @_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #12
+  br label %192
+
+153:                                              ; preds = %145
+  store i32 0, ptr %18, align 4
+  br label %154
+
+154:                                              ; preds = %153, %148
+  call void @_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #12
+  %155 = load i32, ptr %18, align 4
+  switch i32 %155, label %197 [
+    i32 0, label %156
+    i32 1, label %190
+  ]
+
+156:                                              ; preds = %154
+  br label %157
+
+157:                                              ; preds = %156, %100
+  br label %158
+
+158:                                              ; preds = %157, %99
+  br label %159
+
+159:                                              ; preds = %158, %62
+  %160 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %26, i32 0, i32 2
+  %161 = call { ptr, i8 } @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  store { ptr, i8 } %161, ptr %20, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr align 8 %20, i64 9, i1 false)
+  %162 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %19, i32 0, i32 1
+  %163 = load i8, ptr %162, align 8
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %166, label %165
+
+165:                                              ; preds = %159
+  store i1 false, ptr %3, align 1
+  br label %190
+
+166:                                              ; preds = %159
+  %167 = load ptr, ptr %5, align 8
+  %168 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %167)
+  store ptr %168, ptr %21, align 8
+  %169 = load ptr, ptr %21, align 8
+  %170 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %169) #12
+  %171 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %22, i32 0, i32 0
+  store ptr %170, ptr %171, align 8
+  %172 = load ptr, ptr %21, align 8
+  %173 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %172) #12
+  %174 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %23, i32 0, i32 0
+  store ptr %173, ptr %174, align 8
+  br label %175
+
+175:                                              ; preds = %187, %166
+  %176 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23) #12
+  br i1 %176, label %177, label %189
+
+177:                                              ; preds = %175
+  %178 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #12
+  %179 = load ptr, ptr %178, align 8
+  store ptr %179, ptr %24, align 8
+  %180 = load ptr, ptr %24, align 8
+  %181 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3g2o10HyperGraph6Vertex5edgesEv(ptr noundef nonnull align 8 dereferenceable(64) %180)
+  %182 = call { ptr, i8 } @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %181, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %183 = getelementptr inbounds nuw { ptr, i8 }, ptr %25, i32 0, i32 0
+  %184 = extractvalue { ptr, i8 } %182, 0
+  store ptr %184, ptr %183, align 8
+  %185 = getelementptr inbounds nuw { ptr, i8 }, ptr %25, i32 0, i32 1
+  %186 = extractvalue { ptr, i8 } %182, 1
+  store i8 %186, ptr %185, align 8
+  br label %187
+
+187:                                              ; preds = %177
+  %188 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %22) #12
+  br label %175
+
+189:                                              ; preds = %175
+  store i1 true, ptr %3, align 1
+  br label %190
+
+190:                                              ; preds = %189, %165, %154, %98, %61, %42
+  %191 = load i1, ptr %3, align 1
+  ret i1 %191
+
+192:                                              ; preds = %149
+  %193 = load ptr, ptr %12, align 8
+  %194 = load i32, ptr %13, align 4
+  %195 = insertvalue { ptr, i32 } poison, ptr %193, 0
+  %196 = insertvalue { ptr, i32 } %195, i32 %194, 1
+  resume { ptr, i32 } %196
+
+197:                                              ; preds = %154
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds ptr, ptr %5, i32 1
+  store ptr %6, ptr %4, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %6 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 8
+  ret i64 %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unordered_set", ptr %3, i32 0, i32 0
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_(ptr %0, ptr %1, ptr %2, ptr %3) #3 comdat {
+  %5 = alloca %"class.std::insert_iterator", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %8 = alloca %"class.std::insert_iterator", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %12 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %13 = alloca %"class.std::insert_iterator", align 8
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %6, i32 0, i32 0
+  store ptr %0, ptr %14, align 8
+  %15 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %15, align 8
+  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  store ptr %2, ptr %16, align 8
+  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  store ptr %3, ptr %17, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false)
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %10, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEEET_SB_(ptr %19)
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %9, i32 0, i32 0
+  store ptr %20, ptr %21, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %7, i64 8, i1 false)
+  %22 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %12, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  %24 = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEEET_SB_(ptr %23)
+  %25 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %11, i32 0, i32 0
+  store ptr %24, ptr %25, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %8, i64 16, i1 false)
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %9, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %11, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = call { ptr, ptr } @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET1_T0_SK_SJ_(ptr %27, ptr %29, ptr %31, ptr %33)
+  %35 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
+  %36 = extractvalue { ptr, ptr } %34, 0
+  store ptr %36, ptr %35, align 8
+  %37 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
+  %38 = extractvalue { ptr, ptr } %34, 1
+  store ptr %38, ptr %37, align 8
+  %39 = load { ptr, ptr }, ptr %5, align 8
+  ret { ptr, ptr } %39
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZSt8inserterISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEESt15insert_iteratorIT_ERSC_NSC_8iteratorE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1) #3 comdat {
+  %3 = alloca %"class.std::insert_iterator", align 8
+  %4 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %4, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %8, align 8
+  store ptr %0, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 8, i1 false)
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  call void @_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEC2ERSA_NSt8__detail14_Node_iteratorIS4_Lb1ELb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(56) %9, ptr %12)
+  %13 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::unordered_set", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %2, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %2, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unordered_set", ptr %3, i32 0, i32 0
+  %5 = call noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unordered_set", ptr %3, i32 0, i32 0
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, i8 } @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::pair.34", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::pair.53", align 8
+  %7 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.std::set", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %5, align 8
+  %11 = call { ptr, i8 } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  store { ptr, i8 } %11, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 9, i1 false)
+  %12 = getelementptr inbounds nuw %"struct.std::pair.53", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::pair.53", ptr %6, i32 0, i32 1
+  call void @_ZNSt4pairISt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEbEC2IRSt17_Rb_tree_iteratorIS4_ERbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load { ptr, i8 }, ptr %3, align 8
+  ret { ptr, i8 } %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZN3g2o10HyperGraph6Vertex5edgesEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Vertex", ptr %3, i32 0, i32 2
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3g2o10HyperGraph13setEdgeVertexEPNS0_4EdgeEiPNS0_6VertexE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"struct.std::pair.34", align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i32 %2, ptr %7, align 4
+  store ptr %3, ptr %8, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i32, ptr %7, align 4
+  %13 = sext i32 %12 to i64
+  %14 = call noundef ptr @_ZN3g2o10HyperGraph4Edge6vertexEm(ptr noundef nonnull align 8 dereferenceable(36) %11, i64 noundef %13)
+  store ptr %14, ptr %9, align 8
+  %15 = load ptr, ptr %9, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %9, align 8
+  %19 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3g2o10HyperGraph6Vertex5edgesEv(ptr noundef nonnull align 8 dereferenceable(64) %18)
+  %20 = call noundef i64 @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br label %21
+
+21:                                               ; preds = %17, %4
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr %7, align 4
+  %24 = sext i32 %23 to i64
+  %25 = load ptr, ptr %8, align 8
+  call void @_ZN3g2o10HyperGraph4Edge9setVertexEmPNS0_6VertexE(ptr noundef nonnull align 8 dereferenceable(36) %22, i64 noundef %24, ptr noundef %25)
+  %26 = load ptr, ptr %8, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %36
+
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %8, align 8
+  %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3g2o10HyperGraph6Vertex5edgesEv(ptr noundef nonnull align 8 dereferenceable(64) %29)
+  %31 = call { ptr, i8 } @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %32 = getelementptr inbounds nuw { ptr, i8 }, ptr %10, i32 0, i32 0
+  %33 = extractvalue { ptr, i8 } %31, 0
+  store ptr %33, ptr %32, align 8
+  %34 = getelementptr inbounds nuw { ptr, i8 }, ptr %10, i32 0, i32 1
+  %35 = extractvalue { ptr, i8 } %31, 1
+  store i8 %35, ptr %34, align 8
+  br label %36
+
+36:                                               ; preds = %28, %21
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN3g2o10HyperGraph4Edge6vertexEm(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %5, i32 0, i32 1
+  %7 = load i64, ptr %4, align 8
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %7) #12
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::set", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef i64 @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  ret i64 %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o10HyperGraph4Edge9setVertexEmPNS0_6VertexE(ptr noundef nonnull align 8 dereferenceable(36) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Edge", ptr %7, i32 0, i32 1
+  %10 = load i64, ptr %5, align 8
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10) #12
+  store ptr %8, ptr %11, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3g2o10HyperGraph13mergeVerticesEPNS0_6VertexES2_b(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %11 = alloca i32, align 4
+  %12 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %13 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %16 = alloca %"class.std::set", align 8
+  %17 = alloca i8, align 1
+  %18 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %19 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  %25 = zext i1 %3 to i8
+  store i8 %25, ptr %9, align 1
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %7, align 8
+  %29 = call noundef i32 @_ZNK3g2o10HyperGraph6Vertex2idEv(ptr noundef nonnull align 8 dereferenceable(64) %28)
+  store i32 %29, ptr %11, align 4
+  %30 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %31 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %10, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %31, i32 0, i32 0
+  store ptr %30, ptr %32, align 8
+  %33 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %26, i32 0, i32 1
+  %34 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %33) #12
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %12, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  %37 = call noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  br label %120
+
+39:                                               ; preds = %4
+  %40 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %26, i32 0, i32 1
+  %41 = load ptr, ptr %8, align 8
+  %42 = call noundef i32 @_ZNK3g2o10HyperGraph6Vertex2idEv(ptr noundef nonnull align 8 dereferenceable(64) %41)
+  store i32 %42, ptr %14, align 4
+  %43 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  %44 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %13, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %44, i32 0, i32 0
+  store ptr %43, ptr %45, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %13, i64 8, i1 false)
+  %46 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %26, i32 0, i32 1
+  %47 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %46) #12
+  %48 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %15, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %48, i32 0, i32 0
+  store ptr %47, ptr %49, align 8
+  %50 = call noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %15) #12
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %39
+  store i1 false, ptr %5, align 1
+  br label %120
+
+52:                                               ; preds = %39
+  %53 = load ptr, ptr %8, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3g2o10HyperGraph6Vertex5edgesEv(ptr noundef nonnull align 8 dereferenceable(64) %53)
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %54)
+  store i8 1, ptr %17, align 1
+  %55 = call ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %16) #12
+  %56 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %18, i32 0, i32 0
+  store ptr %55, ptr %56, align 8
+  br label %57
+
+57:                                               ; preds = %105, %52
+  %58 = call ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %16) #12
+  %59 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %19, i32 0, i32 0
+  store ptr %58, ptr %59, align 8
+  %60 = call noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #12
+  br i1 %60, label %61, label %107
+
+61:                                               ; preds = %57
+  %62 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #12
+  %63 = load ptr, ptr %62, align 8
+  store ptr %63, ptr %20, align 8
+  store i64 0, ptr %21, align 8
+  br label %64
+
+64:                                               ; preds = %101, %61
+  %65 = load i64, ptr %21, align 8
+  %66 = load ptr, ptr %20, align 8
+  %67 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %66)
+          to label %68 unwind label %96
+
+68:                                               ; preds = %64
+  %69 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %67) #12
+  %70 = icmp ult i64 %65, %69
+  br i1 %70, label %71, label %104
+
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %20, align 8
+  %73 = load i64, ptr %21, align 8
+  %74 = invoke noundef ptr @_ZN3g2o10HyperGraph4Edge6vertexEm(ptr noundef nonnull align 8 dereferenceable(36) %72, i64 noundef %73)
+          to label %75 unwind label %96
+
+75:                                               ; preds = %71
+  store ptr %74, ptr %24, align 8
+  %76 = load ptr, ptr %24, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = icmp eq ptr %76, %77
+  br i1 %78, label %79, label %100
+
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %20, align 8
+  %81 = load i64, ptr %21, align 8
+  %82 = trunc i64 %81 to i32
+  %83 = load ptr, ptr %7, align 8
+  %84 = load ptr, ptr %26, align 8
+  %85 = getelementptr inbounds ptr, ptr %84, i64 7
+  %86 = load ptr, ptr %85, align 8
+  %87 = invoke noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef %80, i32 noundef %82, ptr noundef %83)
+          to label %88 unwind label %96
+
+88:                                               ; preds = %79
+  %89 = zext i1 %87 to i32
+  %90 = load i8, ptr %17, align 1
+  %91 = trunc i8 %90 to i1
+  %92 = zext i1 %91 to i32
+  %93 = and i32 %92, %89
+  %94 = icmp ne i32 %93, 0
+  %95 = zext i1 %94 to i8
+  store i8 %95, ptr %17, align 1
+  br label %100
+
+96:                                               ; preds = %110, %79, %71, %64
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  %98 = extractvalue { ptr, i32 } %97, 0
+  store ptr %98, ptr %22, align 8
+  %99 = extractvalue { ptr, i32 } %97, 1
+  store i32 %99, ptr %23, align 4
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #12
+  br label %122
+
+100:                                              ; preds = %88, %75
+  br label %101
+
+101:                                              ; preds = %100
+  %102 = load i64, ptr %21, align 8
+  %103 = add i64 %102, 1
+  store i64 %103, ptr %21, align 8
+  br label %64, !llvm.loop !4
+
+104:                                              ; preds = %68
+  br label %105
+
+105:                                              ; preds = %104
+  %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #12
+  br label %57, !llvm.loop !6
+
+107:                                              ; preds = %57
+  %108 = load i8, ptr %9, align 1
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %117
+
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %8, align 8
+  %112 = load ptr, ptr %26, align 8
+  %113 = getelementptr inbounds ptr, ptr %112, i64 2
+  %114 = load ptr, ptr %113, align 8
+  %115 = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(112) %26, ptr noundef %111, i1 noundef zeroext false)
+          to label %116 unwind label %96
+
+116:                                              ; preds = %110
+  br label %117
+
+117:                                              ; preds = %116, %107
+  %118 = load i8, ptr %17, align 1
+  %119 = trunc i8 %118 to i1
+  store i1 %119, ptr %5, align 1
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #12
+  br label %120
+
+120:                                              ; preds = %117, %51, %38
+  %121 = load i1, ptr %5, align 1
+  ret i1 %121
+
+122:                                              ; preds = %96
+  %123 = load ptr, ptr %22, align 8
+  %124 = load i32, ptr %23, align 4
+  %125 = insertvalue { ptr, i32 } poison, ptr %123, 0
+  %126 = insertvalue { ptr, i32 } %125, i32 %124, 1
+  resume { ptr, i32 } %126
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::set", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::set", ptr %7, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::set", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::set", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZNKSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %5) #15
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3g2o10HyperGraph12detachVertexEPNS0_6VertexE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %9 = alloca %"class.std::set", align 8
+  %10 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %11 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %5, align 8
+  %19 = call noundef i32 @_ZNK3g2o10HyperGraph6Vertex2idEv(ptr noundef nonnull align 8 dereferenceable(64) %18)
+  store i32 %19, ptr %7, align 4
+  %20 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  %21 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %6, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %21, i32 0, i32 0
+  store ptr %20, ptr %22, align 8
+  %23 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %16, i32 0, i32 1
+  %24 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #12
+  %25 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %8, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %25, i32 0, i32 0
+  store ptr %24, ptr %26, align 8
+  %27 = call noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %76
+
+29:                                               ; preds = %2
+  %30 = load ptr, ptr %5, align 8
+  %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3g2o10HyperGraph6Vertex5edgesEv(ptr noundef nonnull align 8 dereferenceable(64) %30)
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %31)
+  %32 = call ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #12
+  %33 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %10, i32 0, i32 0
+  store ptr %32, ptr %33, align 8
+  br label %34
+
+34:                                               ; preds = %73, %29
+  %35 = call ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #12
+  %36 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %11, i32 0, i32 0
+  store ptr %35, ptr %36, align 8
+  %37 = call noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  br i1 %37, label %38, label %75
+
+38:                                               ; preds = %34
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  %40 = load ptr, ptr %39, align 8
+  store ptr %40, ptr %12, align 8
+  store i64 0, ptr %13, align 8
+  br label %41
+
+41:                                               ; preds = %69, %38
+  %42 = load i64, ptr %13, align 8
+  %43 = load ptr, ptr %12, align 8
+  %44 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %43)
+          to label %45 unwind label %64
+
+45:                                               ; preds = %41
+  %46 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #12
+  %47 = icmp ult i64 %42, %46
+  br i1 %47, label %48, label %72
+
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %12, align 8
+  %51 = load i64, ptr %13, align 8
+  %52 = invoke noundef ptr @_ZN3g2o10HyperGraph4Edge6vertexEm(ptr noundef nonnull align 8 dereferenceable(36) %50, i64 noundef %51)
+          to label %53 unwind label %64
+
+53:                                               ; preds = %48
+  %54 = icmp eq ptr %49, %52
+  br i1 %54, label %55, label %68
+
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %12, align 8
+  %57 = load i64, ptr %13, align 8
+  %58 = trunc i64 %57 to i32
+  %59 = load ptr, ptr %16, align 8
+  %60 = getelementptr inbounds ptr, ptr %59, i64 7
+  %61 = load ptr, ptr %60, align 8
+  %62 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef %56, i32 noundef %58, ptr noundef null)
+          to label %63 unwind label %64
+
+63:                                               ; preds = %55
+  br label %68
+
+64:                                               ; preds = %55, %48, %41
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  %66 = extractvalue { ptr, i32 } %65, 0
+  store ptr %66, ptr %14, align 8
+  %67 = extractvalue { ptr, i32 } %65, 1
+  store i32 %67, ptr %15, align 4
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #12
+  br label %78
+
+68:                                               ; preds = %63, %53
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load i64, ptr %13, align 8
+  %71 = add i64 %70, 1
+  store i64 %71, ptr %13, align 8
+  br label %41, !llvm.loop !7
+
+72:                                               ; preds = %45
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  br label %34, !llvm.loop !8
+
+75:                                               ; preds = %34
+  store i1 true, ptr %3, align 1
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #12
+  br label %76
+
+76:                                               ; preds = %75, %28
+  %77 = load i1, ptr %3, align 1
+  ret i1 %77
+
+78:                                               ; preds = %64
+  %79 = load ptr, ptr %14, align 8
+  %80 = load i32, ptr %15, align 4
+  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
+  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
+  resume { ptr, i32 } %82
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3g2o10HyperGraph12removeVertexEPNS0_6VertexEb(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %10 = alloca i32, align 4
+  %11 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %12 = alloca %"class.std::set", align 8
+  %13 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %14 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %18 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %19 = zext i1 %2 to i8
+  store i8 %19, ptr %7, align 1
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i8, ptr %7, align 1
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %34
+
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %20, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 9
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(112) %20, ptr noundef %24)
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr %8, align 1
+  %30 = load i8, ptr %8, align 1
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %33, label %32
+
+32:                                               ; preds = %23
+  br label %33
+
+33:                                               ; preds = %32, %23
+  br label %34
+
+34:                                               ; preds = %33, %3
+  %35 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %20, i32 0, i32 1
+  %36 = load ptr, ptr %6, align 8
+  %37 = call noundef i32 @_ZNK3g2o10HyperGraph6Vertex2idEv(ptr noundef nonnull align 8 dereferenceable(64) %36)
+  store i32 %37, ptr %10, align 4
+  %38 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %9, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %39, i32 0, i32 0
+  store ptr %38, ptr %40, align 8
+  %41 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %20, i32 0, i32 1
+  %42 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %41) #12
+  %43 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %11, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %43, i32 0, i32 0
+  store ptr %42, ptr %44, align 8
+  %45 = call noundef zeroext i1 @_ZNSt8__detaileqERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %34
+  store i1 false, ptr %4, align 1
+  br label %83
+
+47:                                               ; preds = %34
+  %48 = load ptr, ptr %6, align 8
+  %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3g2o10HyperGraph6Vertex5edgesEv(ptr noundef nonnull align 8 dereferenceable(64) %48)
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %49)
+  %50 = call ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #12
+  %51 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %13, i32 0, i32 0
+  store ptr %50, ptr %51, align 8
+  br label %52
+
+52:                                               ; preds = %70, %47
+  %53 = call ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #12
+  %54 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %14, i32 0, i32 0
+  store ptr %53, ptr %54, align 8
+  %55 = call noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14) #12
+  br i1 %55, label %56, label %72
+
+56:                                               ; preds = %52
+  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %20, align 8
+  %60 = getelementptr inbounds ptr, ptr %59, i64 3
+  %61 = load ptr, ptr %60, align 8
+  %62 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(112) %20, ptr noundef %58)
+          to label %63 unwind label %65
+
+63:                                               ; preds = %56
+  br i1 %62, label %69, label %64
+
+64:                                               ; preds = %63
+  br label %69
+
+65:                                               ; preds = %78, %72, %56
+  %66 = landingpad { ptr, i32 }
+          cleanup
+  %67 = extractvalue { ptr, i32 } %66, 0
+  store ptr %67, ptr %15, align 8
+  %68 = extractvalue { ptr, i32 } %66, 1
+  store i32 %68, ptr %16, align 4
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #12
+  br label %85
+
+69:                                               ; preds = %64, %63
+  br label %70
+
+70:                                               ; preds = %69
+  %71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
+  br label %52, !llvm.loop !9
+
+72:                                               ; preds = %52
+  %73 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %20, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %9, i64 8, i1 false)
+  %74 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %17, i32 0, i32 0
+  %75 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8
+  %77 = invoke ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %73, ptr %76)
+          to label %78 unwind label %65
+
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %18, i32 0, i32 0
+  %80 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %79, i32 0, i32 0
+  store ptr %77, ptr %80, align 8
+  %81 = load ptr, ptr %6, align 8
+  invoke void @_ZN3g2o7releaseINS_10HyperGraph6VertexEEEvPT_(ptr noundef %81)
+          to label %82 unwind label %65
+
+82:                                               ; preds = %78
+  store i1 true, ptr %4, align 1
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #12
+  br label %83
+
+83:                                               ; preds = %82, %46
+  %84 = load i1, ptr %4, align 1
+  ret i1 %84
+
+85:                                               ; preds = %65
+  %86 = load ptr, ptr %15, align 8
+  %87 = load i32, ptr %16, align 4
+  %88 = insertvalue { ptr, i32 } poison, ptr %86, 0
+  %89 = insertvalue { ptr, i32 } %88, i32 %87, 1
+  resume { ptr, i32 } %89
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %4 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %4, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %8, align 8
+  store ptr %0, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %9, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 8, i1 false)
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %6, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENS8_14_Node_iteratorIS6_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr %13)
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8
+  %17 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o7releaseINS_10HyperGraph6VertexEEEvPT_(ptr noundef %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %9, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds ptr, ptr %6, i64 1
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(64) %3) #12
+  br label %9
+
+9:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef zeroext i1 @_ZN3g2o10HyperGraph10removeEdgeEPNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %7 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %8 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %9 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %14 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %15 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %16, i32 0, i32 2
+  %18 = call ptr @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %19 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %6, i32 0, i32 0
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %16, i32 0, i32 2
+  %21 = call ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %20) #12
+  %22 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %7, i32 0, i32 0
+  store ptr %21, ptr %22, align 8
+  %23 = call noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %62
+
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %16, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %6, i64 8, i1 false)
+  %27 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %8, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = call ptr @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr %28)
+  %30 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %9, i32 0, i32 0
+  store ptr %29, ptr %30, align 8
+  %31 = load ptr, ptr %5, align 8
+  %32 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %31)
+  %33 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #12
+  %34 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %10, i32 0, i32 0
+  store ptr %33, ptr %34, align 8
+  br label %35
+
+35:                                               ; preds = %58, %25
+  %36 = load ptr, ptr %5, align 8
+  %37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3g2o10HyperGraph4Edge8verticesEv(ptr noundef nonnull align 8 dereferenceable(36) %36)
+  %38 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #12
+  %39 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %11, i32 0, i32 0
+  store ptr %38, ptr %39, align 8
+  %40 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  br i1 %40, label %41, label %60
+
+41:                                               ; preds = %35
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %12, align 8
+  %44 = load ptr, ptr %12, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %47, label %46
+
+46:                                               ; preds = %41
+  br label %58
+
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %12, align 8
+  %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3g2o10HyperGraph6Vertex5edgesEv(ptr noundef nonnull align 8 dereferenceable(64) %48)
+  %50 = call ptr @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %51 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %13, i32 0, i32 0
+  store ptr %50, ptr %51, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %13, i64 8, i1 false)
+  %52 = load ptr, ptr %12, align 8
+  %53 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN3g2o10HyperGraph6Vertex5edgesEv(ptr noundef nonnull align 8 dereferenceable(64) %52)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %6, i64 8, i1 false)
+  %54 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %14, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8
+  %56 = call ptr @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr %55)
+  %57 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %15, i32 0, i32 0
+  store ptr %56, ptr %57, align 8
+  br label %58
+
+58:                                               ; preds = %47, %46
+  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  br label %35, !llvm.loop !10
+
+60:                                               ; preds = %35
+  %61 = load ptr, ptr %5, align 8
+  call void @_ZN3g2o7releaseINS_10HyperGraph4EdgeEEEvPT_(ptr noundef %61)
+  store i1 true, ptr %3, align 1
+  br label %62
+
+62:                                               ; preds = %60, %24
+  %63 = load i1, ptr %3, align 1
+  ret i1 %63
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::set", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %11 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %6, i32 0, i32 0
+  store ptr %10, ptr %11, align 8
+  call void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2ERKSt17_Rb_tree_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %12 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %4 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %7 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %8, align 8
+  store ptr %0, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"class.std::set", ptr %9, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  %11 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr %12)
+  %14 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %6, i32 0, i32 0
+  store ptr %13, ptr %14, align 8
+  call void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2ERKSt17_Rb_tree_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %15 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o7releaseINS_10HyperGraph4EdgeEEEvPT_(ptr noundef %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %9, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds ptr, ptr %6, i64 1
+  %8 = load ptr, ptr %7, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(36) %3) #12
+  br label %9
+
+9:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr] }, ptr @_ZTVN3g2o10HyperGraphE, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %3, i32 0, i32 1
+  call void @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  %5 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %3, i32 0, i32 2
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %3, i32 0, i32 0
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraph5clearEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %4 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %5 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %6 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  store ptr %0, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %7, i32 0, i32 1
+  %9 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #12
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %10, i32 0, i32 0
+  store ptr %9, ptr %11, align 8
+  br label %12
+
+12:                                               ; preds = %28, %1
+  %13 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %7, i32 0, i32 1
+  %14 = call ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %13) #12
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %4, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8
+  %17 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  br i1 %17, label %18, label %30
+
+18:                                               ; preds = %12
+  %19 = call noundef ptr @_ZNKSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  %20 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %27, label %23
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %21, align 8
+  %25 = getelementptr inbounds ptr, ptr %24, i64 1
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(64) %21) #12
+  br label %27
+
+27:                                               ; preds = %23, %18
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  br label %12, !llvm.loop !11
+
+30:                                               ; preds = %12
+  %31 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %7, i32 0, i32 2
+  %32 = call ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %31) #12
+  %33 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  store ptr %32, ptr %33, align 8
+  br label %34
+
+34:                                               ; preds = %48, %30
+  %35 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %7, i32 0, i32 2
+  %36 = call ptr @_ZNKSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %35) #12
+  %37 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %6, i32 0, i32 0
+  store ptr %36, ptr %37, align 8
+  %38 = call noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  br i1 %38, label %39, label %50
+
+39:                                               ; preds = %34
+  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %47, label %43
+
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %41, align 8
+  %45 = getelementptr inbounds ptr, ptr %44, i64 1
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(36) %41) #12
+  br label %47
+
+47:                                               ; preds = %43, %39
+  br label %48
+
+48:                                               ; preds = %47
+  %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  br label %34, !llvm.loop !12
+
+50:                                               ; preds = %34
+  %51 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %7, i32 0, i32 1
+  call void @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %51) #12
+  %52 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %7, i32 0, i32 2
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %52) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
+  store ptr %6, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %3, i32 0, i32 0
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::set", ptr %3, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 88) ({ [13 x ptr] }, ptr @_ZTVN3g2o10HyperGraphE, i32 0, i32 0, i32 2), ptr %3, align 8
+  call void @_ZN3g2o10HyperGraph5clearEv(ptr noundef nonnull align 8 dereferenceable(112) %3)
+  %4 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %3, i32 0, i32 2
+  call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #12
+  %5 = getelementptr inbounds nuw %"class.g2o::HyperGraph", ptr %3, i32 0, i32 1
+  call void @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %3, i32 0, i32 0
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN3g2o10HyperGraphD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN3g2o10HyperGraphD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #12
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 112) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK3g2o10HyperGraph4Data11elementTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i32 4
+}
+
+declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK3g2o10HyperGraph6Vertex11elementTypeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i32 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o10HyperGraph6Vertex5setIdEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4
+  %7 = getelementptr inbounds nuw %"class.g2o::HyperGraph::Vertex", ptr %5, i32 0, i32 1
+  store i32 %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK3g2o10HyperGraph4Edge11elementTypeEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i32 1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o10HyperGraph17HyperGraphElementD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3g2o10HyperGraph17HyperGraphElementD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @llvm.trap() #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %4, i32 0, i32 0
+  store i32 0, ptr %5, align 8
+  invoke void @_ZNSt15_Rb_tree_header8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret void
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Rb_tree_header8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %4, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %7, i32 0, i32 2
+  store ptr %6, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %10, i32 0, i32 3
+  store ptr %9, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 1
+  store i64 0, ptr %12, align 8
+  ret void
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #12
+  call void @_ZSt9terminatev() #13
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #12
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4)
+          to label %5 unwind label %7
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #12
+  ret void
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  br label %7
+
+7:                                                ; preds = %10, %2
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %17
+
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %11) #12
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %12)
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %13) #12
+  store ptr %14, ptr %5, align 8
+  %15 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %15) #12
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %4, align 8
+  br label %7, !llvm.loop !13
+
+17:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6) #12
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #12
+  %7 = load ptr, ptr %4, align 8
+  %8 = invoke noundef ptr @_ZNSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %2
+  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE7destroyIS4_EEvRS6_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8) #12
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #12
+  %7 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE10deallocateERS6_PS5_m(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7, i64 noundef 1)
+          to label %8 unwind label %9
+
+8:                                                ; preds = %2
+  ret void
+
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
+          catch ptr null
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE7destroyIS4_EEvRS6_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE7destroyIS4_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE10deallocateERS6_PS5_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE10deallocateEPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE10deallocateEPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 40
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaIPN3g2o10HyperGraph6VertexEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIPN3g2o10HyperGraph6VertexEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairIiPN3g2o10HyperGraph6VertexEEC2IiRS3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.10", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %9, align 4
+  store i32 %10, ptr %8, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::pair.10", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 5
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 1
+  store i64 1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 2
+  call void @_ZNSt8__detail15_Hash_node_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  %8 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 3
+  store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 4
+  call void @_ZNSt8__detail20_Prime_rehash_policyC2Ef(ptr noundef nonnull align 8 dereferenceable(16) %9, float noundef 1.000000e+00) #12
+  %10 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 5
+  store ptr null, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIPN3g2o10HyperGraph6VertexEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail15_Hash_node_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail20_Prime_rehash_policyC2Ef(ptr noundef nonnull align 8 dereferenceable(16) %0, float noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca float, align 4
+  store ptr %0, ptr %3, align 8
+  store float %1, ptr %4, align 4
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Prime_rehash_policy", ptr %5, i32 0, i32 0
+  %7 = load float, ptr %4, align 4
+  store float %7, ptr %6, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Prime_rehash_policy", ptr %5, i32 0, i32 1
+  store i64 0, ptr %8, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIPN3g2o10HyperGraph6VertexEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIPN3g2o10HyperGraph6VertexEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIPN3g2o10HyperGraph6VertexEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
+  invoke void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
+          to label %4 unwind label %5
+
+4:                                                ; preds = %1
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = invoke noundef ptr @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
+          to label %5 unwind label %15
+
+5:                                                ; preds = %1
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE19_M_deallocate_nodesEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4)
+          to label %6 unwind label %15
+
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = mul i64 %10, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %11, i1 false)
+  %12 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 3
+  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %13, i32 0, i32 0
+  store ptr null, ptr %14, align 8
+  ret void
+
+15:                                               ; preds = %5, %1
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEPPNS5_15_Hash_node_baseEm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %5, i64 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEELb1EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE19_M_deallocate_nodesEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  br label %7
+
+7:                                                ; preds = %10, %2
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %4, align 8
+  store ptr %11, ptr %5, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
+  store ptr %13, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE18_M_deallocate_nodeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %14)
+  br label %7, !llvm.loop !14
+
+15:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE18_M_deallocate_nodeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  call void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE7destroyIS5_EEvRS7_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %9) #12
+  %10 = load ptr, ptr %4, align 8
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE22_M_deallocate_node_ptrEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %10)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE7destroyIS5_EEvRS7_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEELb1EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_value_base", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE22_M_deallocate_node_ptrEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPNSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEES6_Lb0EE10pointer_toERS6_(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  store ptr %8, ptr %5, align 8
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %10 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE10deallocateERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, i64 noundef 1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEELb1EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPNSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEES6_Lb0EE10pointer_toERS6_(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE10deallocateERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE10deallocateEPS6_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 16
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #14
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEPPNS5_15_Hash_node_baseEm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef zeroext i1 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_uses_single_bucketEPPNS5_15_Hash_node_baseE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %8)
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %3
+  br label %14
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i64, ptr %6, align 8
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE21_M_deallocate_bucketsEPPNS_15_Hash_node_baseEm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %12, i64 noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_uses_single_bucketEPPNS5_15_Hash_node_baseE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %5, i32 0, i32 5
+  %8 = icmp eq ptr %6, %7
+  ret i1 %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE21_M_deallocate_bucketsEPPNS_15_Hash_node_baseEm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.std::allocator.38", align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPPNSt8__detail15_Hash_node_baseES2_Lb0EE10pointer_toERS2_(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  store ptr %13, ptr %7, align 8
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %14) #12
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i64, ptr %6, align 8
+  invoke void @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %15, i64 noundef %16)
+          to label %17 unwind label %18
+
+17:                                               ; preds = %3
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %9, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %10, align 4
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPPNSt8__detail15_Hash_node_baseES2_Lb0EE10pointer_toERS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 8
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEELb1EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %9, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %10)
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_rootEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #12
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %23
+
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8
+  %16 = invoke noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyERKS9_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %15)
+          to label %17 unwind label %19
+
+17:                                               ; preds = %14
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_rootEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #12
+  store ptr %16, ptr %18, align 8
+  br label %23
+
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = extractvalue { ptr, i32 } %20, 0
+  store ptr %21, ptr %5, align 8
+  %22 = extractvalue { ptr, i32 } %20, 1
+  store i32 %22, ptr %6, align 4
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  br label %24
+
+23:                                               ; preds = %17, %2
+  ret void
+
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEES6_E17_S_select_on_copyERKS7_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  call void @_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  call void @_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  %10 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %13
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  call void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #12
+  ret void
+
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
+  call void @_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_rootEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyERKS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::_Rb_tree<g2o::HyperGraph::Edge *, g2o::HyperGraph::Edge *, std::_Identity<g2o::HyperGraph::Edge *>, std::less<g2o::HyperGraph::Edge *>>::_Alloc_node", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeC2ERS9_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ERKS9_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_rootEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 1
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEES6_E17_S_select_on_copyERKS7_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE37select_on_container_copy_constructionERKS6_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE37select_on_container_copy_constructionERKS6_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2ERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEC2ERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeC2ERS9_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree<g2o::HyperGraph::Edge *, g2o::HyperGraph::Edge *, std::_Identity<g2o::HyperGraph::Edge *>, std::less<g2o::HyperGraph::Edge *>>::_Alloc_node", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ERKS9_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #12
+  %11 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  %12 = load ptr, ptr %6, align 8
+  %13 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  store ptr %13, ptr %7, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base(ptr noundef %14) #12
+  %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  store ptr %15, ptr %16, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_maximumEPSt18_Rb_tree_node_base(ptr noundef %17) #12
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  store ptr %18, ptr %19, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %22, i32 0, i32 1
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %8, i32 0, i32 0
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %26, i32 0, i32 1
+  store i64 %24, ptr %27, align 8
+  %28 = load ptr, ptr %7, align 8
+  ret ptr %28
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_M_clone_nodeILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  store ptr %16, ptr %9, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %9, align 8
+  %19 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %18, i32 0, i32 1
+  store ptr %17, ptr %19, align 8
+  %20 = load ptr, ptr %6, align 8
+  %21 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %20, i32 0, i32 3
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %42
+
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %6, align 8
+  %26 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %25) #12
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %8, align 8
+  %29 = invoke noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %26, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %30 unwind label %33
+
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %9, align 8
+  %32 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %31, i32 0, i32 3
+  store ptr %29, ptr %32, align 8
+  br label %42
+
+33:                                               ; preds = %64, %49, %24
+  %34 = landingpad { ptr, i32 }
+          catch ptr null
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %10, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %11, align 4
+  br label %37
+
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %10, align 8
+  %39 = call ptr @__cxa_begin_catch(ptr %38) #12
+  %40 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %40)
+          to label %41 unwind label %78
+
+41:                                               ; preds = %37
+  invoke void @__cxa_rethrow() #16
+          to label %93 unwind label %78
+
+42:                                               ; preds = %30, %4
+  %43 = load ptr, ptr %9, align 8
+  store ptr %43, ptr %7, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %44) #12
+  store ptr %45, ptr %6, align 8
+  br label %46
+
+46:                                               ; preds = %73, %42
+  %47 = load ptr, ptr %6, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %77
+
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %6, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = invoke noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_M_clone_nodeILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(8) %51)
+          to label %53 unwind label %33
+
+53:                                               ; preds = %49
+  store ptr %52, ptr %12, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %55, i32 0, i32 2
+  store ptr %54, ptr %56, align 8
+  %57 = load ptr, ptr %7, align 8
+  %58 = load ptr, ptr %12, align 8
+  %59 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %58, i32 0, i32 1
+  store ptr %57, ptr %59, align 8
+  %60 = load ptr, ptr %6, align 8
+  %61 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %60, i32 0, i32 3
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp ne ptr %62, null
+  br i1 %63, label %64, label %73
+
+64:                                               ; preds = %53
+  %65 = load ptr, ptr %6, align 8
+  %66 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %65) #12
+  %67 = load ptr, ptr %12, align 8
+  %68 = load ptr, ptr %8, align 8
+  %69 = invoke noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %66, ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(8) %68)
+          to label %70 unwind label %33
+
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %12, align 8
+  %72 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %71, i32 0, i32 3
+  store ptr %69, ptr %72, align 8
+  br label %73
+
+73:                                               ; preds = %70, %53
+  %74 = load ptr, ptr %12, align 8
+  store ptr %74, ptr %7, align 8
+  %75 = load ptr, ptr %6, align 8
+  %76 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %75) #12
+  store ptr %76, ptr %6, align 8
+  br label %46, !llvm.loop !15
+
+77:                                               ; preds = %46
+  br label %83
+
+78:                                               ; preds = %41, %37
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %10, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %11, align 4
+  invoke void @__cxa_end_catch()
+          to label %82 unwind label %90
+
+82:                                               ; preds = %78
+  br label %85
+
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %9, align 8
+  ret ptr %84
+
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %10, align 8
+  %87 = load i32, ptr %11, align 4
+  %88 = insertvalue { ptr, i32 } poison, ptr %86, 0
+  %89 = insertvalue { ptr, i32 } %88, i32 %87, 1
+  resume { ptr, i32 } %89
+
+90:                                               ; preds = %78
+  %91 = landingpad { ptr, i32 }
+          catch ptr null
+  %92 = extractvalue { ptr, i32 } %91, 0
+  call void @__clang_call_terminate(ptr %92) #13
+  unreachable
+
+93:                                               ; preds = %41
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt18_Rb_tree_node_base10_S_minimumEPS_(ptr noundef %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 2
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_S_maximumEPSt18_Rb_tree_node_base(ptr noundef %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt18_Rb_tree_node_base10_S_maximumEPS_(ptr noundef %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 3
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_M_clone_nodeILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_ZNSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
+  %11 = call noundef ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeclIRKS3_EEPSt13_Rb_tree_nodeIS3_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  store ptr %11, ptr %7, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %12, i32 0, i32 0
+  %14 = load i32, ptr %13, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %15, i32 0, i32 0
+  store i32 %14, ptr %16, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %17, i32 0, i32 2
+  store ptr null, ptr %18, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %19, i32 0, i32 3
+  store ptr null, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  ret ptr %21
+}
+
+declare void @__cxa_rethrow()
+
+declare void @__cxa_end_catch()
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeclIRKS3_EEPSt13_Rb_tree_nodeIS3_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree<g2o::HyperGraph::Edge *, g2o::HyperGraph::Edge *, std::_Identity<g2o::HyperGraph::Edge *>, std::less<g2o::HyperGraph::Edge *>>::_Alloc_node", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_create_nodeIJRKS3_EEEPSt13_Rb_tree_nodeIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_create_nodeIJRKS3_EEEPSt13_Rb_tree_nodeIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
+  store ptr %7, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE17_M_construct_nodeIJRKS3_EEEvPSt13_Rb_tree_nodeIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %10 = load ptr, ptr %5, align 8
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #12
+  %5 = call noundef ptr @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE8allocateERS6_m(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1)
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE17_M_construct_nodeIJRKS3_EEEvPSt13_Rb_tree_nodeIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #12
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_ZNSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE9constructIS4_JRKS4_EEEvRS6_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE8allocateERS6_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ugt i64 %12, 461168601842738790
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  unreachable
+
+15:                                               ; preds = %11
+  call void @_ZSt17__throw_bad_allocv() #16
+  unreachable
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %5, align 8
+  %18 = mul i64 %17, 40
+  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 230584300921369395
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt28__throw_bad_array_new_lengthv() #7
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #7
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #8
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEEE9constructIS4_JRKS4_EEEvRS6_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE9constructIS4_JRKS4_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEEE9constructIS4_JRKS4_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt18_Rb_tree_node_base10_S_minimumEPS_(ptr noundef %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  br label %3
+
+3:                                                ; preds = %8, %1
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %4, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %9, i32 0, i32 2
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %2, align 8
+  br label %3, !llvm.loop !16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %2, align 8
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt18_Rb_tree_node_base10_S_maximumEPS_(ptr noundef %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  br label %3
+
+3:                                                ; preds = %8, %1
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %4, i32 0, i32 3
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %2, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %9, i32 0, i32 3
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %2, align 8
+  br label %3, !llvm.loop !17
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %2, align 8
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 5
+  store ptr %5, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 1
+  store i64 1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 2
+  call void @_ZNSt8__detail15_Hash_node_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  %8 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 3
+  store i64 0, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 4
+  call void @_ZNSt8__detail20_Prime_rehash_policyC2Ef(ptr noundef nonnull align 8 dereferenceable(16) %9, float noundef 1.000000e+00) #12
+  %10 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 5
+  store ptr null, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIiELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIiELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIiELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIiELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEELb1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
+  invoke void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
+          to label %4 unwind label %5
+
+4:                                                ; preds = %1
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = invoke noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
+          to label %5 unwind label %15
+
+5:                                                ; preds = %1
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE19_M_deallocate_nodesEPS9_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4)
+          to label %6 unwind label %15
+
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = mul i64 %10, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %11, i1 false)
+  %12 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 3
+  store i64 0, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %13, i32 0, i32 0
+  store ptr null, ptr %14, align 8
+  ret void
+
+15:                                               ; preds = %5, %1
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEPPNS8_15_Hash_node_baseEm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %5, i64 noundef %7)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEELb1EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE19_M_deallocate_nodesEPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  br label %7
+
+7:                                                ; preds = %10, %2
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %4, align 8
+  store ptr %11, ptr %5, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #12
+  store ptr %13, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE18_M_deallocate_nodeEPS9_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %14)
+  br label %7, !llvm.loop !18
+
+15:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE18_M_deallocate_nodeEPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  call void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE7destroyIS8_EEvRSA_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %9) #12
+  %10 = load ptr, ptr %4, align 8
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE22_M_deallocate_node_ptrEPS9_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %10)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE7destroyIS8_EEvRSA_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE7destroyIS8_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEELb1EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_value_base.43", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE22_M_deallocate_node_ptrEPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPNSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEES9_Lb0EE10pointer_toERS9_(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
+  store ptr %8, ptr %5, align 8
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %10 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE10deallocateERSA_PS9_m(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %10, i64 noundef 1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE7destroyIS8_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEELb1EE6_M_getEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer.44", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt19__ptr_traits_ptr_toIPNSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEES9_Lb0EE10pointer_toERS9_(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE10deallocateERSA_PS9_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE10deallocateEPS9_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE10deallocateEPS9_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 24
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #14
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEPPNS8_15_Hash_node_baseEm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef zeroext i1 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_uses_single_bucketEPPNS8_15_Hash_node_baseE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %8)
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %3
+  br label %14
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i64, ptr %6, align 8
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE21_M_deallocate_bucketsEPPNS_15_Hash_node_baseEm(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %12, i64 noundef %13)
+  br label %14
+
+14:                                               ; preds = %11, %10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_uses_single_bucketEPPNS8_15_Hash_node_baseE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %5, i32 0, i32 5
+  %8 = icmp eq ptr %6, %7
+  ret i1 %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE21_M_deallocate_bucketsEPPNS_15_Hash_node_baseEm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.std::allocator.38", align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = call noundef ptr @_ZNSt19__ptr_traits_ptr_toIPPNSt8__detail15_Hash_node_baseES2_Lb0EE10pointer_toERS2_(ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  store ptr %13, ptr %7, align 8
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %14) #12
+  %15 = load ptr, ptr %7, align 8
+  %16 = load i64, ptr %6, align 8
+  invoke void @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef %15, i64 noundef %16)
+          to label %17 unwind label %18
+
+17:                                               ; preds = %3
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %9, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %10, align 4
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #12
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail21_Hashtable_ebo_helperILi0ESaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEELb1EED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexEEvT_S5_(ptr noundef %7, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = ptrtoint ptr %9 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 8
+  invoke void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %16)
+          to label %17 unwind label %19
+
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #12
+  ret void
+
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexEEvT_S5_(ptr noundef %0, ptr noundef %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPPN3g2o10HyperGraph6VertexEEEvT_S7_(ptr noundef %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Destroy_auxILb1EE9__destroyIPPN3g2o10HyperGraph6VertexEEEvT_S7_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i64, ptr %6, align 8
+  call void @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
+  br label %14
+
+14:                                               ; preds = %10, %3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaIPN3g2o10HyperGraph6VertexEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = mul i64 %8, 8
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIPN3g2o10HyperGraph6VertexEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i64 @"_ZSt10__count_ifIN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZNKS3_4Edge20numUndefinedVerticesEvE3$_0EEENSt15iterator_traitsIT_E15difference_typeESI_SI_T0_"(ptr %0, ptr %1) #3 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 1
+  %6 = alloca i64, align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %9, align 8
+  store i64 0, ptr %6, align 8
+  br label %10
+
+10:                                               ; preds = %20, %2
+  %11 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  br i1 %11, label %12, label %22
+
+12:                                               ; preds = %10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %3, i64 8, i1 false)
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEvE3$_0EclINS_17__normal_iteratorIPKPNS3_6VertexESt6vectorISA_SaISA_EEEEEEbT_"(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr %14)
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %12
+  %17 = load i64, ptr %6, align 8
+  %18 = add nsw i64 %17, 1
+  store i64 %18, ptr %6, align 8
+  br label %19
+
+19:                                               ; preds = %16, %12
+  br label %20
+
+20:                                               ; preds = %19
+  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  br label %10, !llvm.loop !19
+
+22:                                               ; preds = %10
+  %23 = load i64, ptr %6, align 8
+  ret i64 %23
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZN9__gnu_cxx5__ops11__pred_iterIZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEvE3$_0EENS0_10_Iter_predIT_EES7_"() #3 {
+  %1 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 1
+  call void @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEvE3$_0EC2ES5_"(ptr noundef nonnull align 1 dereferenceable(1) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEvE3$_0EclINS_17__normal_iteratorIPKPNS3_6VertexESt6vectorISA_SaISA_EEEEEEbT_"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1) #3 align 2 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  %8 = load ptr, ptr %7, align 8
+  %9 = call noundef zeroext i1 @"_ZZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEvENK3$_0clEPKNS0_6VertexE"(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8)
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds ptr, ptr %5, i32 1
+  store ptr %6, ptr %4, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @"_ZZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEvENK3$_0clEPKNS0_6VertexE"(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp eq ptr %5, null
+  ret i1 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK3g2o10HyperGraph4Edge20numUndefinedVerticesEvE3$_0EC2ES5_"(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"struct.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %23, align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i64, ptr %7, align 8
+  %26 = icmp ne i64 %25, 0
+  br i1 %26, label %27, label %221
+
+27:                                               ; preds = %4
+  %28 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr %30 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = sdiv exact i64 %36, 8
+  %38 = load i64, ptr %7, align 8
+  %39 = icmp uge i64 %37, %38
+  br i1 %39, label %40, label %119
+
+40:                                               ; preds = %27
+  %41 = load ptr, ptr %8, align 8
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_valueC2IJRKS3_EEEPS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value6_M_valEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  store ptr %42, ptr %10, align 8
+  %43 = call ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  %44 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %12, i32 0, i32 0
+  store ptr %43, ptr %44, align 8
+  %45 = call noundef i64 @_ZN9__gnu_cxxmiIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  store i64 %45, ptr %11, align 8
+  %46 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8
+  store ptr %48, ptr %13, align 8
+  %49 = load i64, ptr %11, align 8
+  %50 = load i64, ptr %7, align 8
+  %51 = icmp ugt i64 %49, %50
+  br i1 %51, label %52, label %88
+
+52:                                               ; preds = %40
+  %53 = load ptr, ptr %13, align 8
+  %54 = load i64, ptr %7, align 8
+  %55 = sub i64 0, %54
+  %56 = getelementptr inbounds ptr, ptr %53, i64 %55
+  %57 = load ptr, ptr %13, align 8
+  %58 = load ptr, ptr %13, align 8
+  %59 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  %60 = invoke noundef ptr @_ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef nonnull align 1 dereferenceable(1) %59)
+          to label %61 unwind label %84
+
+61:                                               ; preds = %52
+  %62 = load i64, ptr %7, align 8
+  %63 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %64 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds ptr, ptr %65, i64 %62
+  store ptr %66, ptr %64, align 8
+  %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %13, align 8
+  %70 = load i64, ptr %7, align 8
+  %71 = sub i64 0, %70
+  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
+  %73 = load ptr, ptr %13, align 8
+  %74 = invoke noundef ptr @_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_(ptr noundef %68, ptr noundef %72, ptr noundef %73)
+          to label %75 unwind label %84
+
+75:                                               ; preds = %61
+  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %77 = load ptr, ptr %76, align 8
+  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %79 = load ptr, ptr %78, align 8
+  %80 = load i64, ptr %7, align 8
+  %81 = getelementptr inbounds ptr, ptr %79, i64 %80
+  %82 = load ptr, ptr %10, align 8
+  invoke void @_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_(ptr noundef %77, ptr noundef %81, ptr noundef nonnull align 8 dereferenceable(8) %82)
+          to label %83 unwind label %84
+
+83:                                               ; preds = %75
+  br label %118
+
+84:                                               ; preds = %107, %96, %88, %75, %61, %52
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %14, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %15, align 4
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  br label %222
+
+88:                                               ; preds = %40
+  %89 = load ptr, ptr %13, align 8
+  %90 = load i64, ptr %7, align 8
+  %91 = load i64, ptr %11, align 8
+  %92 = sub i64 %90, %91
+  %93 = load ptr, ptr %10, align 8
+  %94 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  %95 = invoke noundef ptr @_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E(ptr noundef %89, i64 noundef %92, ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 1 dereferenceable(1) %94)
+          to label %96 unwind label %84
+
+96:                                               ; preds = %88
+  %97 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %98 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %97, i32 0, i32 1
+  store ptr %95, ptr %98, align 8
+  %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %13, align 8
+  %102 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %103 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %102, i32 0, i32 1
+  %104 = load ptr, ptr %103, align 8
+  %105 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  %106 = invoke noundef ptr @_ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %100, ptr noundef %101, ptr noundef %104, ptr noundef nonnull align 1 dereferenceable(1) %105)
+          to label %107 unwind label %84
+
+107:                                              ; preds = %96
+  %108 = load i64, ptr %11, align 8
+  %109 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %110 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %109, i32 0, i32 1
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds ptr, ptr %111, i64 %108
+  store ptr %112, ptr %110, align 8
+  %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %114 = load ptr, ptr %113, align 8
+  %115 = load ptr, ptr %13, align 8
+  %116 = load ptr, ptr %10, align 8
+  invoke void @_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_(ptr noundef %114, ptr noundef %115, ptr noundef nonnull align 8 dereferenceable(8) %116)
+          to label %117 unwind label %84
+
+117:                                              ; preds = %107
+  br label %118
+
+118:                                              ; preds = %117, %83
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
+  br label %220
+
+119:                                              ; preds = %27
+  %120 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %121 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %120, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8
+  store ptr %122, ptr %16, align 8
+  %123 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %124 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %123, i32 0, i32 1
+  %125 = load ptr, ptr %124, align 8
+  store ptr %125, ptr %17, align 8
+  %126 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %127 = load ptr, ptr %126, align 8
+  store ptr %127, ptr %18, align 8
+  %128 = load i64, ptr %7, align 8
+  %129 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %128, ptr noundef @.str)
+  store i64 %129, ptr %19, align 8
+  %130 = load ptr, ptr %18, align 8
+  %131 = load ptr, ptr %16, align 8
+  %132 = ptrtoint ptr %130 to i64
+  %133 = ptrtoint ptr %131 to i64
+  %134 = sub i64 %132, %133
+  %135 = sdiv exact i64 %134, 8
+  store i64 %135, ptr %20, align 8
+  %136 = load i64, ptr %19, align 8
+  %137 = call noundef ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %136)
+  store ptr %137, ptr %21, align 8
+  %138 = load ptr, ptr %21, align 8
+  store ptr %138, ptr %22, align 8
+  %139 = load ptr, ptr %21, align 8
+  %140 = load i64, ptr %20, align 8
+  %141 = getelementptr inbounds ptr, ptr %139, i64 %140
+  %142 = load i64, ptr %7, align 8
+  %143 = load ptr, ptr %8, align 8
+  %144 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  %145 = invoke noundef ptr @_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E(ptr noundef %141, i64 noundef %142, ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull align 1 dereferenceable(1) %144)
+          to label %146 unwind label %162
+
+146:                                              ; preds = %119
+  store ptr null, ptr %22, align 8
+  %147 = load ptr, ptr %16, align 8
+  %148 = load ptr, ptr %18, align 8
+  %149 = load ptr, ptr %21, align 8
+  %150 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  %151 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %147, ptr noundef %148, ptr noundef %149, ptr noundef nonnull align 1 dereferenceable(1) %150)
+          to label %152 unwind label %162
+
+152:                                              ; preds = %146
+  store ptr %151, ptr %22, align 8
+  %153 = load i64, ptr %7, align 8
+  %154 = load ptr, ptr %22, align 8
+  %155 = getelementptr inbounds ptr, ptr %154, i64 %153
+  store ptr %155, ptr %22, align 8
+  %156 = load ptr, ptr %18, align 8
+  %157 = load ptr, ptr %17, align 8
+  %158 = load ptr, ptr %22, align 8
+  %159 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  %160 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %156, ptr noundef %157, ptr noundef %158, ptr noundef nonnull align 1 dereferenceable(1) %159)
+          to label %161 unwind label %162
+
+161:                                              ; preds = %152
+  store ptr %160, ptr %22, align 8
+  br label %196
+
+162:                                              ; preds = %152, %146, %119
+  %163 = landingpad { ptr, i32 }
+          catch ptr null
+  %164 = extractvalue { ptr, i32 } %163, 0
+  store ptr %164, ptr %14, align 8
+  %165 = extractvalue { ptr, i32 } %163, 1
+  store i32 %165, ptr %15, align 4
+  br label %166
+
+166:                                              ; preds = %162
+  %167 = load ptr, ptr %14, align 8
+  %168 = call ptr @__cxa_begin_catch(ptr %167) #12
+  %169 = load ptr, ptr %22, align 8
+  %170 = icmp ne ptr %169, null
+  br i1 %170, label %186, label %171
+
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %21, align 8
+  %173 = load i64, ptr %20, align 8
+  %174 = getelementptr inbounds ptr, ptr %172, i64 %173
+  %175 = load ptr, ptr %21, align 8
+  %176 = load i64, ptr %20, align 8
+  %177 = getelementptr inbounds ptr, ptr %175, i64 %176
+  %178 = load i64, ptr %7, align 8
+  %179 = getelementptr inbounds ptr, ptr %177, i64 %178
+  %180 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  invoke void @_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RSaIT0_E(ptr noundef %174, ptr noundef %179, ptr noundef nonnull align 1 dereferenceable(1) %180)
+          to label %181 unwind label %182
+
+181:                                              ; preds = %171
+  br label %191
+
+182:                                              ; preds = %194, %191, %186, %171
+  %183 = landingpad { ptr, i32 }
+          cleanup
+  %184 = extractvalue { ptr, i32 } %183, 0
+  store ptr %184, ptr %14, align 8
+  %185 = extractvalue { ptr, i32 } %183, 1
+  store i32 %185, ptr %15, align 4
+  invoke void @__cxa_end_catch()
+          to label %195 unwind label %227
+
+186:                                              ; preds = %166
+  %187 = load ptr, ptr %21, align 8
+  %188 = load ptr, ptr %22, align 8
+  %189 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  invoke void @_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RSaIT0_E(ptr noundef %187, ptr noundef %188, ptr noundef nonnull align 1 dereferenceable(1) %189)
+          to label %190 unwind label %182
+
+190:                                              ; preds = %186
+  br label %191
+
+191:                                              ; preds = %190, %181
+  %192 = load ptr, ptr %21, align 8
+  %193 = load i64, ptr %19, align 8
+  invoke void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %192, i64 noundef %193)
+          to label %194 unwind label %182
+
+194:                                              ; preds = %191
+  invoke void @__cxa_rethrow() #16
+          to label %230 unwind label %182
+
+195:                                              ; preds = %182
+  br label %222
+
+196:                                              ; preds = %161
+  %197 = load ptr, ptr %16, align 8
+  %198 = load ptr, ptr %17, align 8
+  %199 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #12
+  call void @_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RSaIT0_E(ptr noundef %197, ptr noundef %198, ptr noundef nonnull align 1 dereferenceable(1) %199)
+  %200 = load ptr, ptr %16, align 8
+  %201 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %202 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %201, i32 0, i32 2
+  %203 = load ptr, ptr %202, align 8
+  %204 = load ptr, ptr %16, align 8
+  %205 = ptrtoint ptr %203 to i64
+  %206 = ptrtoint ptr %204 to i64
+  %207 = sub i64 %205, %206
+  %208 = sdiv exact i64 %207, 8
+  call void @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %200, i64 noundef %208)
+  %209 = load ptr, ptr %21, align 8
+  %210 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %211 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %210, i32 0, i32 0
+  store ptr %209, ptr %211, align 8
+  %212 = load ptr, ptr %22, align 8
+  %213 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %214 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %213, i32 0, i32 1
+  store ptr %212, ptr %214, align 8
+  %215 = load ptr, ptr %21, align 8
+  %216 = load i64, ptr %19, align 8
+  %217 = getelementptr inbounds ptr, ptr %215, i64 %216
+  %218 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %24, i32 0, i32 0
+  %219 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %218, i32 0, i32 2
+  store ptr %217, ptr %219, align 8
+  br label %220
+
+220:                                              ; preds = %196, %118
+  br label %221
+
+221:                                              ; preds = %220, %4
+  ret void
+
+222:                                              ; preds = %195, %84
+  %223 = load ptr, ptr %14, align 8
+  %224 = load i32, ptr %15, align 4
+  %225 = insertvalue { ptr, i32 } poison, ptr %223, 0
+  %226 = insertvalue { ptr, i32 } %225, i32 %224, 1
+  resume { ptr, i32 } %226
+
+227:                                              ; preds = %182
+  %228 = landingpad { ptr, i32 }
+          catch ptr null
+  %229 = extractvalue { ptr, i32 } %228, 0
+  call void @__clang_call_terminate(ptr %229) #13
+  unreachable
+
+230:                                              ; preds = %194
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE15_M_erase_at_endEPS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 8
+  store i64 %14, ptr %5, align 8
+  %15 = load i64, ptr %5, align 8
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %27
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
+  invoke void @_ZSt8_DestroyIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RSaIT0_E(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8
+  br label %27
+
+27:                                               ; preds = %23, %2
+  ret void
+
+28:                                               ; preds = %17
+  %29 = landingpad { ptr, i32 }
+          catch ptr null
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_valueC2IJRKS3_EEEPS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value", ptr %7, i32 0, i32 1
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value8_StorageC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %11 = getelementptr inbounds nuw %"struct.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %12, i32 0, i32 0
+  %14 = call noundef ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  %15 = load ptr, ptr %6, align 8
+  call void @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %15) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value6_M_valEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  %10 = load ptr, ptr %9, align 8
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 8
+  ret i64 %14
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.std::move_iterator", align 8
+  %10 = alloca %"class.std::move_iterator", align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = call ptr @_ZSt18make_move_iteratorIPPN3g2o10HyperGraph6VertexEESt13move_iteratorIT_ES6_(ptr noundef %11)
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = call ptr @_ZSt18make_move_iteratorIPPN3g2o10HyperGraph6VertexEESt13move_iteratorIT_ES6_(ptr noundef %14)
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  store ptr %15, ptr %16, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_S4_ET0_T_S8_S7_RSaIT1_E(ptr %20, ptr %22, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  ret ptr %23
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZSt12__miter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_ZSt12__miter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %9)
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef ptr @_ZSt22__copy_move_backward_aILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %8, ptr noundef %10, ptr noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZSt8__fill_aIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_(ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i64, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = call noundef ptr @_ZSt20uninitialized_fill_nIPPN3g2o10HyperGraph6VertexEmS3_ET_S5_T0_RKT1_(ptr noundef %9, i64 noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = call noundef ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  call void @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7) #12
+  %8 = getelementptr inbounds nuw %"struct.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value8_StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %11 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %12 = sub i64 %10, %11
+  %13 = load i64, ptr %5, align 8
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #16
+  unreachable
+
+17:                                               ; preds = %3
+  %18 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %19 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  store i64 %19, ptr %8, align 8
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %21 = load i64, ptr %20, align 8
+  %22 = add i64 %18, %21
+  store i64 %22, ptr %7, align 8
+  %23 = load i64, ptr %7, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %30, label %26
+
+26:                                               ; preds = %17
+  %27 = load i64, ptr %7, align 8
+  %28 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  %29 = icmp ugt i64 %27, %28
+  br i1 %29, label %30, label %32
+
+30:                                               ; preds = %26, %17
+  %31 = call noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
+  br label %34
+
+32:                                               ; preds = %26
+  %33 = load i64, ptr %7, align 8
+  br label %34
+
+34:                                               ; preds = %32, %30
+  %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  ret i64 %35
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
+  br label %13
+
+12:                                               ; preds = %2
+  br label %13
+
+13:                                               ; preds = %12, %8
+  %14 = phi ptr [ %11, %8 ], [ null, %12 ]
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.std::move_iterator", align 8
+  %10 = alloca %"class.std::move_iterator", align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIPN3g2o10HyperGraph6VertexESt13move_iteratorIPS3_EET0_PT_(ptr noundef %11)
+  %13 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = call ptr @_ZSt32__make_move_if_noexcept_iteratorIPN3g2o10HyperGraph6VertexESt13move_iteratorIPS3_EET0_PT_(ptr noundef %14)
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  store ptr %15, ptr %16, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_S4_ET0_T_S8_S7_RSaIT1_E(ptr %20, ptr %22, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  ret ptr %23
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value8_StorageC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  store i8 0, ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::vector<g2o::HyperGraph::Vertex *>::_Temporary_value", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_S4_ET0_T_S8_S7_RSaIT1_E(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
+  %5 = alloca %"class.std::move_iterator", align 8
+  %6 = alloca %"class.std::move_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.std::move_iterator", align 8
+  %10 = alloca %"class.std::move_iterator", align 8
+  %11 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  store ptr %0, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false)
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZSt18uninitialized_copyISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_ET0_T_S8_S7_(ptr %15, ptr %17, ptr noundef %13)
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZSt18make_move_iteratorIPPN3g2o10HyperGraph6VertexEESt13move_iteratorIT_ES6_(ptr noundef %0) #3 comdat {
+  %2 = alloca %"class.std::move_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZNSt13move_iteratorIPPN3g2o10HyperGraph6VertexEEC2ES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
+  %5 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %2, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt18uninitialized_copyISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_ET0_T_S8_S7_(ptr %0, ptr %1, ptr noundef %2) #3 comdat {
+  %4 = alloca %"class.std::move_iterator", align 8
+  %5 = alloca %"class.std::move_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca %"class.std::move_iterator", align 8
+  %10 = alloca %"class.std::move_iterator", align 8
+  %11 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %2, ptr %6, align 8
+  store i8 1, ptr %7, align 1
+  store i8 1, ptr %8, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false)
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZNSt20__uninitialized_copyILb1EE13__uninit_copyISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES7_EET0_T_SA_S9_(ptr %15, ptr %17, ptr noundef %13)
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt20__uninitialized_copyILb1EE13__uninit_copyISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES7_EET0_T_SA_S9_(ptr %0, ptr %1, ptr noundef %2) #3 comdat align 2 {
+  %4 = alloca %"class.std::move_iterator", align 8
+  %5 = alloca %"class.std::move_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::move_iterator", align 8
+  %8 = alloca %"class.std::move_iterator", align 8
+  %9 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %7, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %8, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef ptr @_ZSt4copyISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_ET0_T_S8_S7_(ptr %13, ptr %15, ptr noundef %11)
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt4copyISt13move_iteratorIPPN3g2o10HyperGraph6VertexEES5_ET0_T_S8_S7_(ptr %0, ptr %1, ptr noundef %2) #3 comdat {
+  %4 = alloca %"class.std::move_iterator", align 8
+  %5 = alloca %"class.std::move_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::move_iterator", align 8
+  %8 = alloca %"class.std::move_iterator", align 8
+  %9 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  %11 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = call noundef ptr @_ZSt12__miter_baseIPPN3g2o10HyperGraph6VertexEEDTcl12__miter_basecldtfp_4baseEEESt13move_iteratorIT_E(ptr %12)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
+  %14 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %8, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef ptr @_ZSt12__miter_baseIPPN3g2o10HyperGraph6VertexEEDTcl12__miter_basecldtfp_4baseEEESt13move_iteratorIT_E(ptr %15)
+  %17 = load ptr, ptr %6, align 8
+  %18 = call noundef ptr @_ZSt13__copy_move_aILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %13, ptr noundef %16, ptr noundef %17)
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt13__copy_move_aILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %7) #12
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %9) #12
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %11) #12
+  %13 = call noundef ptr @_ZSt14__copy_move_a1ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %8, ptr noundef %10, ptr noundef %12)
+  %14 = call noundef ptr @_ZSt12__niter_wrapIPPN3g2o10HyperGraph6VertexEET_RKS5_S5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %13)
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt12__miter_baseIPPN3g2o10HyperGraph6VertexEEDTcl12__miter_basecldtfp_4baseEEESt13move_iteratorIT_E(ptr %0) #3 comdat {
+  %2 = alloca %"class.std::move_iterator", align 8
+  %3 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %2, i32 0, i32 0
+  store ptr %0, ptr %3, align 8
+  %4 = call noundef ptr @_ZNKSt13move_iteratorIPPN3g2o10HyperGraph6VertexEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %5 = call noundef ptr @_ZSt12__miter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %4)
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_wrapIPPN3g2o10HyperGraph6VertexEET_RKS5_S5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt14__copy_move_a1ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = call noundef ptr @_ZSt14__copy_move_a2ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt14__copy_move_a2ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = call noundef ptr @_ZNSt11__copy_moveILb1ELb1ESt26random_access_iterator_tagE8__copy_mIPN3g2o10HyperGraph6VertexEEEPT_PKS7_SA_S8_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt11__copy_moveILb1ELb1ESt26random_access_iterator_tagE8__copy_mIPN3g2o10HyperGraph6VertexEEEPT_PKS7_SA_S8_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 8
+  store i64 %13, ptr %7, align 8
+  %14 = load i64, ptr %7, align 8
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %21
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = load i64, ptr %7, align 8
+  %20 = mul i64 8, %19
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 %20, i1 false)
+  br label %21
+
+21:                                               ; preds = %16, %3
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i64, ptr %7, align 8
+  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  ret ptr %24
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__miter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt13move_iteratorIPPN3g2o10HyperGraph6VertexEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt13move_iteratorIPPN3g2o10HyperGraph6VertexEEC2ES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__copy_move_backward_aILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %7) #12
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %9) #12
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexEET_S5_(ptr noundef %11) #12
+  %13 = call noundef ptr @_ZSt23__copy_move_backward_a1ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %8, ptr noundef %10, ptr noundef %12)
+  %14 = call noundef ptr @_ZSt12__niter_wrapIPPN3g2o10HyperGraph6VertexEET_RKS5_S5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %13)
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt23__copy_move_backward_a1ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = call noundef ptr @_ZSt23__copy_move_backward_a2ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt23__copy_move_backward_a2ILb1EPPN3g2o10HyperGraph6VertexES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb1ESt26random_access_iterator_tagE13__copy_move_bIPN3g2o10HyperGraph6VertexEEEPT_PKS7_SA_S8_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt20__copy_move_backwardILb1ELb1ESt26random_access_iterator_tagE13__copy_move_bIPN3g2o10HyperGraph6VertexEEEPT_PKS7_SA_S8_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 8
+  store i64 %13, ptr %7, align 8
+  %14 = load i64, ptr %7, align 8
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %24
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i64, ptr %7, align 8
+  %19 = sub i64 0, %18
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = load ptr, ptr %4, align 8
+  %22 = load i64, ptr %7, align 8
+  %23 = mul i64 8, %22
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %20, ptr align 8 %21, i64 %23, i1 false)
+  br label %24
+
+24:                                               ; preds = %16, %3
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i64, ptr %7, align 8
+  %27 = sub i64 0, %26
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  ret ptr %28
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt8__fill_aIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZSt9__fill_a1IPPN3g2o10HyperGraph6VertexES3_EN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_SA_RKS7_(ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt9__fill_a1IPPN3g2o10HyperGraph6VertexES3_EN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_SA_RKS7_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
+  br label %10
+
+10:                                               ; preds = %17, %3
+  %11 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = icmp ne ptr %11, %12
+  br i1 %13, label %14, label %20
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %4, align 8
+  store ptr %15, ptr %16, align 8
+  br label %17
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds ptr, ptr %18, i32 1
+  store ptr %19, ptr %4, align 8
+  br label %10, !llvm.loop !20
+
+20:                                               ; preds = %10
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt20uninitialized_fill_nIPPN3g2o10HyperGraph6VertexEmS3_ET_S5_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  store i8 1, ptr %7, align 1
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i64, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = call noundef ptr @_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPPN3g2o10HyperGraph6VertexEmS5_EET_S7_T0_RKT1_(ptr noundef %8, i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt22__uninitialized_fill_nILb1EE15__uninit_fill_nIPPN3g2o10HyperGraph6VertexEmS5_EET_S7_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = call noundef ptr @_ZSt6fill_nIPPN3g2o10HyperGraph6VertexEmS3_ET_S5_T0_RKT1_(ptr noundef %7, i64 noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt6fill_nIPPN3g2o10HyperGraph6VertexEmS3_ET_S5_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZSt17__size_to_integerm(i64 noundef %8)
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZSt19__iterator_categoryIPPN3g2o10HyperGraph6VertexEENSt15iterator_traitsIT_E17iterator_categoryERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %11 = call noundef ptr @_ZSt10__fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_ET_S5_T0_RKT1_St26random_access_iterator_tag(ptr noundef %7, i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt10__fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_ET_S5_T0_RKT1_St26random_access_iterator_tag(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = icmp ule i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %4, align 8
+  br label %21
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %17 = load ptr, ptr %7, align 8
+  call void @_ZSt8__fill_aIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_(ptr noundef %13, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i64, ptr %6, align 8
+  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  store ptr %20, ptr %4, align 8
+  br label %21
+
+21:                                               ; preds = %12, %10
+  %22 = load ptr, ptr %4, align 8
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt17__size_to_integerm(i64 noundef %0) #0 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPPN3g2o10HyperGraph6VertexEENSt15iterator_traitsIT_E17iterator_categoryERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE16_Temporary_value8_StorageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
+  %5 = call noundef i64 @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
+  ret i64 %5
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  store i64 1152921504606846975, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  store i64 %6, ptr %4, align 8
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %8 unwind label %10
+
+8:                                                ; preds = %1
+  %9 = load i64, ptr %7, align 8
+  ret i64 %9
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #12
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 1152921504606846975
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIPN3g2o10HyperGraph6VertexEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIPN3g2o10HyperGraph6VertexEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ugt i64 %12, 2305843009213693951
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  unreachable
+
+15:                                               ; preds = %11
+  call void @_ZSt17__throw_bad_allocv() #16
+  unreachable
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %5, align 8
+  %18 = mul i64 %17, 8
+  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZSt32__make_move_if_noexcept_iteratorIPN3g2o10HyperGraph6VertexESt13move_iteratorIPS3_EET0_PT_(ptr noundef %0) #3 comdat {
+  %2 = alloca %"class.std::move_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZNSt13move_iteratorIPPN3g2o10HyperGraph6VertexEEC2ES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %4)
+  %5 = getelementptr inbounds nuw %"class.std::move_iterator", ptr %2, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %11 = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %12 = icmp ule i64 %10, %11
+  br i1 %12, label %13, label %36
+
+13:                                               ; preds = %2
+  %14 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8
+  br label %17
+
+17:                                               ; preds = %30, %13
+  %18 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %19 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %19, i32 0, i32 0
+  store ptr %18, ptr %20, align 8
+  %21 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  br i1 %21, label %22, label %32
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS7_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 8 dereferenceable(16) %26)
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %22
+  br label %45
+
+29:                                               ; preds = %22
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  br label %17, !llvm.loop !21
+
+32:                                               ; preds = %17
+  %33 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %34 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %34, i32 0, i32 0
+  store ptr %33, ptr %35, align 8
+  br label %45
+
+36:                                               ; preds = %2
+  %37 = load ptr, ptr %5, align 8
+  %38 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %37)
+  store i64 %38, ptr %7, align 8
+  %39 = load i64, ptr %7, align 8
+  %40 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %39)
+  store i64 %40, ptr %8, align 8
+  %41 = load i64, ptr %8, align 8
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i64, ptr %7, align 8
+  %44 = call noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %41, ptr noundef nonnull align 4 dereferenceable(4) %42, i64 noundef %43)
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %44) #12
+  br label %45
+
+45:                                               ; preds = %36, %32, %28
+  %46 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  ret ptr %48
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %3, i32 0, i32 3
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #0 comdat align 2 {
+  %1 = call noundef i64 @_ZNSt8__detail22_Hashtable_hash_traitsISt4hashIiEE22__small_size_thresholdEv() #12
+  ret i64 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #12
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null) #12
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS7_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::__detail::_Select1st", align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE5_M_eqEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #12
+  %13 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt8__detail10_Select1stclIRKSt4pairIKiPN3g2o10HyperGraph6VertexEEEEONS0_10__1st_typeIT_E4typeEOSC_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %12) #12
+  %14 = call noundef zeroext i1 @_ZNKSt8equal_toIiEclERKiS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  ret i1 %14
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %7, align 4
+  %9 = call noundef i64 @_ZNKSt4hashIiEclEi(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %8) #12
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %9 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexEmm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, i64 noundef %8)
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i64 noundef %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i64, ptr %7, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load i64, ptr %9, align 8
+  %15 = call noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %12, ptr noundef nonnull align 4 dereferenceable(4) %13, i64 noundef %14)
+  store ptr %15, ptr %10, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %22
+
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %10, align 8
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %5, align 8
+  br label %23
+
+22:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  br label %23
+
+23:                                               ; preds = %22, %18
+  %24 = load ptr, ptr %5, align 8
+  ret ptr %24
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt8__detail22_Hashtable_hash_traitsISt4hashIiEE22__small_size_thresholdEv() #0 comdat align 2 {
+  ret i64 0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE5_M_eqEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIiELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt8equal_toIiEclERKiS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load i32, ptr %7, align 4
+  %9 = load ptr, ptr %6, align 8
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %8, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt8__detail10_Select1stclIRKSt4pairIKiPN3g2o10HyperGraph6VertexEEEEONS0_10__1st_typeIT_E4typeEOSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIiELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_value_base.43", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferISt4pairIKiPN3g2o10HyperGraph6VertexEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer.44", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIiELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt4hashIiEclEi(ptr noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4
+  %6 = sext i32 %5 to i64
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIiELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexEmm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"struct.std::__detail::_Mod_range_hashing", align 1
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = call noundef i64 @_ZNKSt8__detail18_Mod_range_hashingclEmm(ptr noundef nonnull align 1 dereferenceable(1) %7, i64 noundef %8, i64 noundef %9) #12
+  ret i64 %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt8__detail18_Mod_range_hashingclEmm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load i64, ptr %5, align 8
+  %8 = load i64, ptr %6, align 8
+  %9 = urem i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i64 noundef %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i64, ptr %7, align 8
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %10, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  br label %52
+
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %11, align 8
+  br label %25
+
+25:                                               ; preds = %48, %21
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i64, ptr %9, align 8
+  %28 = load ptr, ptr %11, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_equalsERS2_mRKNS_16_Hash_node_valueIS7_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 4 dereferenceable(4) %26, i64 noundef %27, ptr noundef nonnull align 8 dereferenceable(16) %29)
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %10, align 8
+  store ptr %32, ptr %5, align 8
+  br label %52
+
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %11, align 8
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %45
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %11, align 8
+  %40 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %39) #12
+  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(16) %41) #12
+  %43 = load i64, ptr %7, align 8
+  %44 = icmp ne i64 %42, %43
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %38, %33
+  br label %51
+
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %11, align 8
+  store ptr %47, ptr %10, align 8
+  br label %48
+
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %11, align 8
+  %50 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %49) #12
+  store ptr %50, ptr %11, align 8
+  br label %25, !llvm.loop !22
+
+51:                                               ; preds = %45
+  store ptr null, ptr %5, align 8
+  br label %52
+
+52:                                               ; preds = %51, %31, %20
+  %53 = load ptr, ptr %5, align 8
+  ret ptr %53
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_equalsERS2_mRKNS_16_Hash_node_valueIS7_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i64, ptr %7, align 8
+  %11 = load ptr, ptr %8, align 8
+  %12 = call noundef zeroext i1 @_ZNSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_S_equalsEmRKNS_21_Hash_node_code_cacheILb0EEE(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS7_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  br label %17
+
+17:                                               ; preds = %13, %4
+  %18 = phi i1 [ false, %4 ], [ %16, %13 ]
+  ret i1 %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %9 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS7_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8) #12
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE9_S_equalsEmRKNS_21_Hash_node_code_cacheILb0EEE(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS7_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"struct.std::__detail::_Mod_range_hashing", align 1
+  %8 = alloca %"struct.std::__detail::_Select1st", align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #12
+  %12 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt8__detail10_Select1stclIRKSt4pairIKiPN3g2o10HyperGraph6VertexEEEEONS0_10__1st_typeIT_E4typeEOSC_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(16) %11) #12
+  %13 = invoke noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %3
+  %15 = load i64, ptr %6, align 8
+  %16 = call noundef i64 @_ZNKSt8__detail18_Mod_range_hashingclEmm(ptr noundef nonnull align 1 dereferenceable(1) %7, i64 noundef %13, i64 noundef %15) #12
+  ret i64 %16
+
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4findERS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %11 = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %12 = icmp ule i64 %10, %11
+  br i1 %12, label %13, label %36
+
+13:                                               ; preds = %2
+  %14 = call ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %15, i32 0, i32 0
+  store ptr %14, ptr %16, align 8
+  br label %17
+
+17:                                               ; preds = %30, %13
+  %18 = call ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %19 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %19, i32 0, i32 0
+  store ptr %18, ptr %20, align 8
+  %21 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  br i1 %21, label %22, label %32
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS7_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 8 dereferenceable(16) %26)
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %22
+  br label %45
+
+29:                                               ; preds = %22
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  br label %17, !llvm.loop !23
+
+32:                                               ; preds = %17
+  %33 = call ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #12
+  %34 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %34, i32 0, i32 0
+  store ptr %33, ptr %35, align 8
+  br label %45
+
+36:                                               ; preds = %2
+  %37 = load ptr, ptr %5, align 8
+  %38 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(4) %37)
+  store i64 %38, ptr %7, align 8
+  %39 = load i64, ptr %7, align 8
+  %40 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %39)
+  store i64 %40, ptr %8, align 8
+  %41 = load i64, ptr %8, align 8
+  %42 = load ptr, ptr %5, align 8
+  %43 = load i64, ptr %7, align 8
+  %44 = call noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %41, ptr noundef nonnull align 4 dereferenceable(4) %42, i64 noundef %43)
+  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %44) #12
+  br label %45
+
+45:                                               ; preds = %36, %32, %28
+  %46 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %3, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8
+  ret ptr %48
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #12
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null) #12
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %3, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE7emplaceIJS0_IiS5_EEEES0_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::pair.8", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS0_IiS5_EEEES0_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store { ptr, i8 } %9, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 9, i1 false)
+  %10 = load { ptr, i8 }, ptr %3, align 8
+  ret { ptr, i8 } %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS0_IiS5_EEEES0_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"struct.std::pair.8", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.std::__detail::_Select1st", align 1
+  %9 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %10 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %19 = alloca i8, align 1
+  %20 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %21 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %5, align 8
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJS0_IiS5_EEEEPNS8_16_Hashtable_allocISaINS8_10_Hash_nodeIS6_Lb0EEEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(16) %23)
+  %24 = getelementptr inbounds nuw %"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %6, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #12
+  %28 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt8__detail10_Select1stclIRSt4pairIKiPN3g2o10HyperGraph6VertexEEEEONS0_10__1st_typeIT_E4typeEOSB_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(16) %27) #12
+  store ptr %28, ptr %7, align 8
+  %29 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %30 = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %31 = icmp ule i64 %29, %30
+  br i1 %31, label %32, label %58
+
+32:                                               ; preds = %2
+  %33 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %34 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %9, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %34, i32 0, i32 0
+  store ptr %33, ptr %35, align 8
+  br label %36
+
+36:                                               ; preds = %55, %32
+  %37 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %38 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %10, i32 0, i32 0
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8
+  %40 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEESA_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  br i1 %40, label %41, label %57
+
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %9, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = invoke noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS7_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 8 dereferenceable(16) %45)
+          to label %47 unwind label %50
+
+47:                                               ; preds = %41
+  br i1 %46, label %48, label %54
+
+48:                                               ; preds = %47
+  store i8 0, ptr %13, align 1
+  invoke void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKiPN3g2o10HyperGraph6VertexEELb0ELb0EEEbEC2IRS8_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %49 unwind label %50
+
+49:                                               ; preds = %48
+  store i32 1, ptr %14, align 4
+  br label %91
+
+50:                                               ; preds = %86, %80, %76, %68, %61, %58, %48, %41
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  %52 = extractvalue { ptr, i32 } %51, 0
+  store ptr %52, ptr %11, align 8
+  %53 = extractvalue { ptr, i32 } %51, 1
+  store i32 %53, ptr %12, align 4
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  br label %93
+
+54:                                               ; preds = %47
+  br label %55
+
+55:                                               ; preds = %54
+  %56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  br label %36, !llvm.loop !24
+
+57:                                               ; preds = %36
+  br label %58
+
+58:                                               ; preds = %57, %2
+  %59 = load ptr, ptr %7, align 8
+  %60 = invoke noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(4) %59)
+          to label %61 unwind label %50
+
+61:                                               ; preds = %58
+  store i64 %60, ptr %15, align 8
+  %62 = load i64, ptr %15, align 8
+  %63 = invoke noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %62)
+          to label %64 unwind label %50
+
+64:                                               ; preds = %61
+  store i64 %63, ptr %16, align 8
+  %65 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #12
+  %66 = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %67 = icmp ugt i64 %65, %66
+  br i1 %67, label %68, label %80
+
+68:                                               ; preds = %64
+  %69 = load i64, ptr %16, align 8
+  %70 = load ptr, ptr %7, align 8
+  %71 = load i64, ptr %15, align 8
+  %72 = invoke noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %69, ptr noundef nonnull align 4 dereferenceable(4) %70, i64 noundef %71)
+          to label %73 unwind label %50
+
+73:                                               ; preds = %68
+  store ptr %72, ptr %17, align 8
+  %74 = load ptr, ptr %17, align 8
+  %75 = icmp ne ptr %74, null
+  br i1 %75, label %76, label %79
+
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %17, align 8
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %77) #12
+  store i8 0, ptr %19, align 1
+  invoke void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKiPN3g2o10HyperGraph6VertexEELb0ELb0EEEbEC2IS8_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 1 dereferenceable(1) %19)
+          to label %78 unwind label %50
+
+78:                                               ; preds = %76
+  store i32 1, ptr %14, align 4
+  br label %91
+
+79:                                               ; preds = %73
+  br label %80
+
+80:                                               ; preds = %79, %64
+  %81 = load i64, ptr %16, align 8
+  %82 = load i64, ptr %15, align 8
+  %83 = getelementptr inbounds nuw %"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %6, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8
+  %85 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %81, i64 noundef %82, ptr noundef %84, i64 noundef 1)
+          to label %86 unwind label %50
+
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %20, i32 0, i32 0
+  %88 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %87, i32 0, i32 0
+  store ptr %85, ptr %88, align 8
+  %89 = getelementptr inbounds nuw %"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %6, i32 0, i32 1
+  store ptr null, ptr %89, align 8
+  store i8 1, ptr %21, align 1
+  invoke void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKiPN3g2o10HyperGraph6VertexEELb0ELb0EEEbEC2IRS8_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %21)
+          to label %90 unwind label %50
+
+90:                                               ; preds = %86
+  store i32 1, ptr %14, align 4
+  br label %91
+
+91:                                               ; preds = %90, %78, %49
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  %92 = load { ptr, i8 }, ptr %3, align 8
+  ret { ptr, i8 } %92
+
+93:                                               ; preds = %50
+  %94 = load ptr, ptr %11, align 8
+  %95 = load i32, ptr %12, align 4
+  %96 = insertvalue { ptr, i32 } poison, ptr %94, 0
+  %97 = insertvalue { ptr, i32 } %96, i32 %95, 1
+  resume { ptr, i32 } %97
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJS0_IiS5_EEEEPNS8_16_Hashtable_allocISaINS8_10_Hash_nodeIS6_Lb0EEEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %5, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE16_M_allocate_nodeIJS2_IiS7_EEEEPS9_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  store ptr %13, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt8__detail10_Select1stclIRSt4pairIKiPN3g2o10HyperGraph6VertexEEEEONS0_10__1st_typeIT_E4typeEOSB_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKiPN3g2o10HyperGraph6VertexEELb0ELb0EEEbEC2IRS8_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 8, i1 false)
+  %10 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairINSt8__detail14_Node_iteratorIS_IKiPN3g2o10HyperGraph6VertexEELb0ELb0EEEbEC2IS8_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 8, i1 false)
+  %10 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #3 comdat align 2 {
+  %6 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca %"struct.std::pair.47", align 8
+  store ptr %0, ptr %7, align 8
+  store i64 %1, ptr %8, align 8
+  store i64 %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 4
+  %17 = call noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy8_M_stateEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  store i64 %17, ptr %13, align 8
+  store ptr %13, ptr %12, align 8
+  %18 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8
+  %23 = load i64, ptr %11, align 8
+  %24 = call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %20, i64 noundef %22, i64 noundef %23)
+  %25 = getelementptr inbounds nuw { i8, i64 }, ptr %14, i32 0, i32 0
+  %26 = extractvalue { i8, i64 } %24, 0
+  store i8 %26, ptr %25, align 8
+  %27 = getelementptr inbounds nuw { i8, i64 }, ptr %14, i32 0, i32 1
+  %28 = extractvalue { i8, i64 } %24, 1
+  store i64 %28, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %"struct.std::pair.47", ptr %14, i32 0, i32 0
+  %30 = load i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %5
+  %33 = getelementptr inbounds nuw %"struct.std::pair.47", ptr %14, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  %35 = load ptr, ptr %12, align 8
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %36 = load i64, ptr %9, align 8
+  %37 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %36)
+  store i64 %37, ptr %8, align 8
+  br label %38
+
+38:                                               ; preds = %32, %5
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load i64, ptr %9, align 8
+  call void @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE13_M_store_codeERNS_21_Hash_node_code_cacheILb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %40, i64 noundef %41)
+  %42 = load i64, ptr %8, align 8
+  %43 = load ptr, ptr %10, align 8
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %42, ptr noundef %43)
+  %44 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %15, i32 0, i32 3
+  %45 = load i64, ptr %44, align 8
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %44, align 8
+  %47 = load ptr, ptr %10, align 8
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %47) #12
+  %48 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %6, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  ret ptr %50
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %13
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Hashtable<int, std::pair<const int, g2o::HyperGraph::Vertex *>, std::allocator<std::pair<const int, g2o::HyperGraph::Vertex *>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE18_M_deallocate_nodeEPS9_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %11)
+          to label %12 unwind label %14
+
+12:                                               ; preds = %7
+  br label %13
+
+13:                                               ; preds = %12, %1
+  ret void
+
+14:                                               ; preds = %7
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE16_M_allocate_nodeIJS2_IiS7_EEEEPS9_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE8allocateERSA_m(ptr noundef nonnull align 1 dereferenceable(1) %10, i64 noundef 1)
+  store ptr %11, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = call noundef ptr @_ZSt12__to_addressINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEPT_SB_(ptr noundef %12) #12
+  store ptr %13, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8
+  call void @_ZNSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #12
+  %15 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %16 unwind label %23
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseISt4pairIKiPN3g2o10HyperGraph6VertexEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #12
+  %20 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE9constructIS8_JS2_IiS7_EEEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(16) %20)
+          to label %21 unwind label %23
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %6, align 8
+  ret ptr %22
+
+23:                                               ; preds = %16, %2
+  %24 = landingpad { ptr, i32 }
+          catch ptr null
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %7, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %8, align 4
+  br label %27
+
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %7, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #12
+  %30 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %31 unwind label %34
+
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE10deallocateERSA_PS9_m(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef %32, i64 noundef 1)
+          to label %33 unwind label %34
+
+33:                                               ; preds = %31
+  invoke void @__cxa_rethrow() #16
+          to label %48 unwind label %34
+
+34:                                               ; preds = %33, %31, %27
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %7, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %8, align 4
+  invoke void @__cxa_end_catch()
+          to label %38 unwind label %45
+
+38:                                               ; preds = %34
+  br label %40
+
+39:                                               ; No predecessors!
+  call void @llvm.trap()
+  unreachable
+
+40:                                               ; preds = %38
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr %8, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
+
+45:                                               ; preds = %34
+  %46 = landingpad { ptr, i32 }
+          catch ptr null
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #13
+  unreachable
+
+48:                                               ; preds = %33
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE8allocateERSA_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__to_addressINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEPT_SB_(ptr noundef %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail15_Hash_node_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE9constructIS8_JS2_IiS7_EEEEvRSA_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE9constructIS8_JS2_IiS7_EEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ugt i64 %12, 768614336404564650
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  unreachable
+
+15:                                               ; preds = %11
+  call void @_ZSt17__throw_bad_allocv() #16
+  unreachable
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %5, align 8
+  %18 = mul i64 %17, 24
+  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 384307168202282325
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEE9constructIS8_JS2_IiS7_EEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSt4pairIKiPN3g2o10HyperGraph6VertexEEC2IiS4_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairIS8_S9_EEclsr6_PCCFPIS8_S9_EE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS_IS8_S9_E(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairIKiPN3g2o10HyperGraph6VertexEEC2IiS4_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE22_MoveConstructiblePairIS8_S9_EEclsr6_PCCFPIS8_S9_EE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS_IS8_S9_E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.10", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 4
+  store i32 %9, ptr %6, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::pair.10", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy8_M_stateEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Prime_rehash_policy", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) #9
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i64, ptr %5, align 8
+  invoke void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %3
+  br label %28
+
+12:                                               ; preds = %3
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %7, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %8, align 4
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %7, align 8
+  %18 = call ptr @__cxa_begin_catch(ptr %17) #12
+  %19 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %9, i32 0, i32 4
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i64, ptr %20, align 8
+  invoke void @_ZNSt8__detail20_Prime_rehash_policy8_M_resetEm(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %21)
+          to label %22 unwind label %23
+
+22:                                               ; preds = %16
+  invoke void @__cxa_rethrow() #16
+          to label %37 unwind label %23
+
+23:                                               ; preds = %22, %16
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %7, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %8, align 4
+  invoke void @__cxa_end_catch()
+          to label %27 unwind label %34
+
+27:                                               ; preds = %23
+  br label %29
+
+28:                                               ; preds = %11
+  ret void
+
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
+
+34:                                               ; preds = %23
+  %35 = landingpad { ptr, i32 }
+          catch ptr null
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #13
+  unreachable
+
+37:                                               ; preds = %22
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE13_M_store_codeERNS_21_Hash_node_code_cacheILb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %31
+
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i64, ptr %5, align 8
+  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %22, i32 0, i32 0
+  store ptr %21, ptr %23, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i64, ptr %5, align 8
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %29, i32 0, i32 0
+  store ptr %24, ptr %30, align 8
+  br label %59
+
+31:                                               ; preds = %3
+  %32 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %53
+
+44:                                               ; preds = %31
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %6, align 8
+  %49 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %48) #12
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(16) %50) #12
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
+  store ptr %45, ptr %52, align 8
+  br label %53
+
+53:                                               ; preds = %44, %31
+  %54 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %7, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i64, ptr %5, align 8
+  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  store ptr %54, ptr %58, align 8
+  br label %59
+
+59:                                               ; preds = %53, %14
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = load i64, ptr %4, align 8
+  %12 = call noundef ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 8 dereferenceable(56) %10, i64 noundef %11)
+  store ptr %12, ptr %5, align 8
+  %13 = call noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %10)
+  store ptr %13, ptr %6, align 8
+  %14 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8
+  store i64 0, ptr %7, align 8
+  br label %16
+
+16:                                               ; preds = %70, %2
+  %17 = load ptr, ptr %6, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %72
+
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %6, align 8
+  %21 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #12
+  store ptr %21, ptr %8, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = load i64, ptr %4, align 8
+  %25 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS7_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %24) #12
+  store i64 %25, ptr %9, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i64, ptr %9, align 8
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %55, label %31
+
+31:                                               ; preds = %19
+  %32 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8
+  %40 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 2
+  %41 = load ptr, ptr %5, align 8
+  %42 = load i64, ptr %9, align 8
+  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  store ptr %40, ptr %43, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %53
+
+48:                                               ; preds = %31
+  %49 = load ptr, ptr %6, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i64, ptr %7, align 8
+  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  store ptr %49, ptr %52, align 8
+  br label %53
+
+53:                                               ; preds = %48, %31
+  %54 = load i64, ptr %9, align 8
+  store i64 %54, ptr %7, align 8
+  br label %70
+
+55:                                               ; preds = %19
+  %56 = load ptr, ptr %5, align 8
+  %57 = load i64, ptr %9, align 8
+  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %62, i32 0, i32 0
+  store ptr %61, ptr %63, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i64, ptr %9, align 8
+  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %68, i32 0, i32 0
+  store ptr %64, ptr %69, align 8
+  br label %70
+
+70:                                               ; preds = %55, %53
+  %71 = load ptr, ptr %8, align 8
+  store ptr %71, ptr %6, align 8
+  br label %16, !llvm.loop !25
+
+72:                                               ; preds = %16
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv(ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %73 = load i64, ptr %4, align 8
+  %74 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 1
+  store i64 %73, ptr %74, align 8
+  %75 = load ptr, ptr %5, align 8
+  %76 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %10, i32 0, i32 0
+  store ptr %75, ptr %76, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail20_Prime_rehash_policy8_M_resetEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Prime_rehash_policy", ptr %5, i32 0, i32 1
+  store i64 %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i64, ptr %5, align 8
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %6, i32 0, i32 5
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %6, i32 0, i32 5
+  store ptr %11, ptr %3, align 8
+  br label %15
+
+12:                                               ; preds = %2
+  %13 = load i64, ptr %5, align 8
+  %14 = call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef %13)
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %12, %9
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %"class.std::allocator.38", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %11) #12
+  %12 = load i64, ptr %4, align 8
+  %13 = invoke noundef ptr @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %12)
+          to label %14 unwind label %21
+
+14:                                               ; preds = %2
+  store ptr %13, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = call noundef ptr @_ZSt12__to_addressIPNSt8__detail15_Hash_node_baseEEPT_S4_(ptr noundef %15) #12
+  store ptr %16, ptr %9, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load i64, ptr %4, align 8
+  %19 = mul i64 %18, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %19, i1 false)
+  %20 = load ptr, ptr %9, align 8
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  ret ptr %20
+
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  br label %25
+
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__to_addressIPNSt8__detail15_Hash_node_baseEEPT_S4_(ptr noundef %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ugt i64 %12, 2305843009213693951
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  unreachable
+
+15:                                               ; preds = %11
+  call void @_ZSt17__throw_bad_allocv() #16
+  unreachable
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %5, align 8
+  %18 = mul i64 %17, 8
+  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPNSt8__detail15_Hash_node_baseEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 1152921504606846975
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %11) #12
+  %13 = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22__small_size_thresholdEv() #12
+  %14 = icmp ule i64 %12, %13
+  br i1 %14, label %15, label %28
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %5, align 8
+  %17 = call noundef ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  store ptr %17, ptr %6, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %15
+  store i64 0, ptr %3, align 8
+  br label %51
+
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %7, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(16) %26) #12
+  store i64 %27, ptr %8, align 8
+  br label %44
+
+28:                                               ; preds = %2
+  %29 = load ptr, ptr %5, align 8
+  %30 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS2_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %29)
+  store i64 %30, ptr %9, align 8
+  %31 = load i64, ptr %9, align 8
+  %32 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %31)
+  store i64 %32, ptr %8, align 8
+  %33 = load i64, ptr %8, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i64, ptr %9, align 8
+  %36 = call noundef ptr @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %34, i64 noundef %35)
+  store ptr %36, ptr %6, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %28
+  store i64 0, ptr %3, align 8
+  br label %51
+
+40:                                               ; preds = %28
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %7, align 8
+  br label %44
+
+44:                                               ; preds = %40, %21
+  %45 = load i64, ptr %8, align 8
+  %46 = load ptr, ptr %6, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %45, ptr noundef %46, ptr noundef %47)
+  %49 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %10, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %49, i32 0, i32 0
+  store ptr %48, ptr %50, align 8
+  store i64 1, ptr %3, align 8
+  br label %51
+
+51:                                               ; preds = %44, %39, %20
+  %52 = load i64, ptr %3, align 8
+  ret i64 %52
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeERS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %8, i32 0, i32 2
+  store ptr %9, ptr %6, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %2
+  store ptr null, ptr %3, align 8
+  br label %35
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %7, align 8
+  br label %19
+
+19:                                               ; preds = %31, %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %34
+
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIiSt4pairIKiPN3g2o10HyperGraph6VertexEENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_key_equalsERS2_RKNS_16_Hash_node_valueIS7_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 8 dereferenceable(16) %25)
+  br i1 %26, label %27, label %29
+
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %6, align 8
+  store ptr %28, ptr %3, align 8
+  br label %35
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %7, align 8
+  store ptr %30, ptr %6, align 8
+  br label %31
+
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %7, align 8
+  %33 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %32) #12
+  store ptr %33, ptr %7, align 8
+  br label %19, !llvm.loop !26
+
+34:                                               ; preds = %19
+  store ptr null, ptr %3, align 8
+  br label %35
+
+35:                                               ; preds = %34, %27, %14
+  %36 = load ptr, ptr %3, align 8
+  ret ptr %36
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #3 comdat align 2 {
+  %5 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %11, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i64, ptr %7, align 8
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %12, %17
+  br i1 %18, label %19, label %35
+
+19:                                               ; preds = %4
+  %20 = load i64, ptr %7, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #12
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %32
+
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %9, align 8
+  %29 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #12
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(16) %30) #12
+  br label %33
+
+32:                                               ; preds = %19
+  br label %33
+
+33:                                               ; preds = %32, %27
+  %34 = phi i64 [ %31, %27 ], [ 0, %32 ]
+  call void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %20, ptr noundef %22, i64 noundef %34)
+  br label %56
+
+35:                                               ; preds = %4
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %55
+
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %9, align 8
+  %42 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %41) #12
+  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(16) %43) #12
+  store i64 %44, ptr %10, align 8
+  %45 = load i64, ptr %10, align 8
+  %46 = load i64, ptr %7, align 8
+  %47 = icmp ne i64 %45, %46
+  br i1 %47, label %48, label %54
+
+48:                                               ; preds = %40
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %11, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i64, ptr %10, align 8
+  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
+  store ptr %49, ptr %53, align 8
+  br label %54
+
+54:                                               ; preds = %48, %40
+  br label %55
+
+55:                                               ; preds = %54, %35
+  br label %56
+
+56:                                               ; preds = %55, %33
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %60, i32 0, i32 0
+  store ptr %59, ptr %61, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #12
+  call void @_ZNSt8__detail14_Node_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %63) #12
+  %64 = load ptr, ptr %9, align 8
+  call void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEEEE18_M_deallocate_nodeEPS9_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %64)
+  %65 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %11, i32 0, i32 3
+  %66 = load i64, ptr %65, align 8
+  %67 = add i64 %66, -1
+  store i64 %67, ptr %65, align 8
+  %68 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %5, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %68, i32 0, i32 0
+  %70 = load ptr, ptr %69, align 8
+  ret ptr %70
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %7, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %16
+
+12:                                               ; preds = %4
+  %13 = load i64, ptr %8, align 8
+  %14 = load i64, ptr %6, align 8
+  %15 = icmp ne i64 %13, %14
+  br i1 %15, label %16, label %46
+
+16:                                               ; preds = %12, %4
+  %17 = load ptr, ptr %7, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %29
+
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %9, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i64, ptr %6, align 8
+  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %9, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i64, ptr %8, align 8
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
+  store ptr %24, ptr %28, align 8
+  br label %29
+
+29:                                               ; preds = %19, %16
+  %30 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %9, i32 0, i32 2
+  %31 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %9, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i64, ptr %6, align 8
+  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %30, %35
+  br i1 %36, label %37, label %41
+
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %9, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %39, i32 0, i32 0
+  store ptr %38, ptr %40, align 8
+  br label %41
+
+41:                                               ; preds = %37, %29
+  %42 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %9, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = load i64, ptr %6, align 8
+  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  store ptr null, ptr %45, align 8
+  br label %46
+
+46:                                               ; preds = %41, %12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = call noundef ptr @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
+  call void @_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #12
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %2, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEC2ERSA_NSt8__detail14_Node_iteratorIS4_Lb1ELb0EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %4, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %7, i32 0, i32 0
+  store ptr %2, ptr %8, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"class.std::insert_iterator", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %"class.std::insert_iterator", ptr %9, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %4, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET1_T0_SK_SJ_(ptr %0, ptr %1, ptr %2, ptr %3) #3 comdat {
+  %5 = alloca %"class.std::insert_iterator", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %8 = alloca %"class.std::insert_iterator", align 8
+  %9 = alloca %"class.std::insert_iterator", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %12 = alloca %"class.std::insert_iterator", align 8
+  %13 = alloca %"class.std::insert_iterator", align 8
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %6, i32 0, i32 0
+  store ptr %0, ptr %14, align 8
+  %15 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %15, align 8
+  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 0
+  store ptr %2, ptr %16, align 8
+  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %8, i32 0, i32 1
+  store ptr %3, ptr %17, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false)
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %10, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = call noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %19) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %7, i64 8, i1 false)
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %11, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %22) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %8, i64 16, i1 false)
+  %24 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8
+  %28 = call { ptr, ptr } @_ZSt12__niter_baseISt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEEET_SD_(ptr %25, ptr %27) #12
+  %29 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 0
+  %30 = extractvalue { ptr, ptr } %28, 0
+  store ptr %30, ptr %29, align 8
+  %31 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 1
+  %32 = extractvalue { ptr, ptr } %28, 1
+  store ptr %32, ptr %31, align 8
+  %33 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw { ptr, ptr }, ptr %12, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  %37 = call { ptr, ptr } @_ZSt14__copy_move_a1ILb0EPPN3g2o10HyperGraph6VertexESt15insert_iteratorISt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEEET1_T0_SF_SE_(ptr noundef %20, ptr noundef %23, ptr %34, ptr %36)
+  %38 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
+  %39 = extractvalue { ptr, ptr } %37, 0
+  store ptr %39, ptr %38, align 8
+  %40 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
+  %41 = extractvalue { ptr, ptr } %37, 1
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = call { ptr, ptr } @_ZSt12__niter_wrapISt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEEET_RKSD_SD_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %43, ptr %45)
+  %47 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
+  %48 = extractvalue { ptr, ptr } %46, 0
+  store ptr %48, ptr %47, align 8
+  %49 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
+  %50 = extractvalue { ptr, ptr } %46, 1
+  store ptr %50, ptr %49, align 8
+  %51 = load { ptr, ptr }, ptr %5, align 8
+  ret { ptr, ptr } %51
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEEET_SB_(ptr %0) #0 comdat {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false)
+  %5 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %2, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr { ptr, ptr } @_ZSt12__niter_wrapISt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEEET_RKSD_SD_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr %2) #0 comdat {
+  %4 = alloca %"class.std::insert_iterator", align 8
+  %5 = alloca %"class.std::insert_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %7, align 8
+  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
+  store ptr %2, ptr %8, align 8
+  store ptr %0, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %5, i64 16, i1 false)
+  %9 = load { ptr, ptr }, ptr %4, align 8
+  ret { ptr, ptr } %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZSt14__copy_move_a1ILb0EPPN3g2o10HyperGraph6VertexESt15insert_iteratorISt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEEET1_T0_SF_SE_(ptr noundef %0, ptr noundef %1, ptr %2, ptr %3) #3 comdat {
+  %5 = alloca %"class.std::insert_iterator", align 8
+  %6 = alloca %"class.std::insert_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.std::insert_iterator", align 8
+  %10 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
+  store ptr %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
+  store ptr %3, ptr %11, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %6, i64 16, i1 false)
+  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = call { ptr, ptr } @_ZSt14__copy_move_a2ILb0EPPN3g2o10HyperGraph6VertexESt15insert_iteratorISt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEEET1_T0_SF_SE_(ptr noundef %12, ptr noundef %13, ptr %15, ptr %17)
+  %19 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
+  %20 = extractvalue { ptr, ptr } %18, 0
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
+  %22 = extractvalue { ptr, ptr } %18, 1
+  store ptr %22, ptr %21, align 8
+  %23 = load { ptr, ptr }, ptr %5, align 8
+  ret { ptr, ptr } %23
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPPN3g2o10HyperGraph6VertexESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %0) #0 comdat {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.12", align 8
+  %3 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.12", ptr %2, i32 0, i32 0
+  store ptr %0, ptr %3, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr { ptr, ptr } @_ZSt12__niter_baseISt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEEET_SD_(ptr %0, ptr %1) #0 comdat {
+  %3 = alloca %"class.std::insert_iterator", align 8
+  %4 = alloca %"class.std::insert_iterator", align 8
+  %5 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  store ptr %0, ptr %5, align 8
+  %6 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  store ptr %1, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 16, i1 false)
+  %7 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZSt14__copy_move_a2ILb0EPPN3g2o10HyperGraph6VertexESt15insert_iteratorISt13unordered_setIS3_St4hashIS3_ESt8equal_toIS3_ESaIS3_EEEET1_T0_SF_SE_(ptr noundef %0, ptr noundef %1, ptr %2, ptr %3) #3 comdat {
+  %5 = alloca %"class.std::insert_iterator", align 8
+  %6 = alloca %"class.std::insert_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.std::insert_iterator", align 8
+  %10 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
+  store ptr %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
+  store ptr %3, ptr %11, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %6, i64 16, i1 false)
+  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %9, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = call { ptr, ptr } @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPPN3g2o10HyperGraph6VertexESt15insert_iteratorISt13unordered_setIS6_St4hashIS6_ESt8equal_toIS6_ESaIS6_EEEEET0_T_SI_SH_(ptr noundef %12, ptr noundef %13, ptr %15, ptr %17)
+  %19 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
+  %20 = extractvalue { ptr, ptr } %18, 0
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
+  %22 = extractvalue { ptr, ptr } %18, 1
+  store ptr %22, ptr %21, align 8
+  %23 = load { ptr, ptr }, ptr %5, align 8
+  ret { ptr, ptr } %23
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPPN3g2o10HyperGraph6VertexESt15insert_iteratorISt13unordered_setIS6_St4hashIS6_ESt8equal_toIS6_ESaIS6_EEEEET0_T_SI_SH_(ptr noundef %0, ptr noundef %1, ptr %2, ptr %3) #3 comdat align 2 {
+  %5 = alloca %"class.std::insert_iterator", align 8
+  %6 = alloca %"class.std::insert_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
+  store ptr %2, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
+  store ptr %3, ptr %11, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = ptrtoint ptr %12 to i64
+  %15 = ptrtoint ptr %13 to i64
+  %16 = sub i64 %14, %15
+  %17 = sdiv exact i64 %16, 8
+  store i64 %17, ptr %9, align 8
+  br label %18
+
+18:                                               ; preds = %28, %4
+  %19 = load i64, ptr %9, align 8
+  %20 = icmp sgt i64 %19, 0
+  br i1 %20, label %21, label %31
+
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %7, align 8
+  %23 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %24 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i32 1
+  store ptr %26, ptr %7, align 8
+  %27 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  br label %28
+
+28:                                               ; preds = %21
+  %29 = load i64, ptr %9, align 8
+  %30 = add nsw i64 %29, -1
+  store i64 %30, ptr %9, align 8
+  br label %18, !llvm.loop !27
+
+31:                                               ; preds = %18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 16, i1 false)
+  %32 = load { ptr, ptr }, ptr %5, align 8
+  ret { ptr, ptr } %32
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %6 = alloca %"struct.std::__detail::_Node_const_iterator.49", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.std::insert_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"class.std::insert_iterator", ptr %7, i32 0, i32 1
+  call void @_ZNSt8__detail20_Node_const_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEC2ERKNS_14_Node_iteratorIS4_Lb1ELb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator.49", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = call ptr @_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertENSt8__detail20_Node_const_iteratorIS3_Lb1ELb0EEERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr %14, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %5, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %16, i32 0, i32 0
+  store ptr %15, ptr %17, align 8
+  %18 = getelementptr inbounds nuw %"class.std::insert_iterator", ptr %7, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %5, i64 8, i1 false)
+  %19 = getelementptr inbounds nuw %"class.std::insert_iterator", ptr %7, i32 0, i32 1
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %19) #12
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15insert_iteratorISt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS4_ESt8equal_toIS4_ESaIS4_EEEppEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertENSt8__detail20_Node_const_iteratorIS3_Lb1ELb0EEERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 {
+  %4 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %5 = alloca %"struct.std::__detail::_Node_const_iterator.49", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.std::__detail::_Node_const_iterator.49", align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator.49", ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %9, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %"class.std::unordered_set", ptr %11, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator.49", ptr %8, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = call ptr @_ZNSt8__detail12_Insert_baseIPN3g2o10HyperGraph6VertexES4_SaIS4_ENS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb1ELb1EEEE6insertENS_20_Node_const_iteratorIS4_Lb1ELb0EEERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr %16, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %18 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %4, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %18, i32 0, i32 0
+  store ptr %17, ptr %19, align 8
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %4, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  ret ptr %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail20_Node_const_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEC2ERKNS_14_Node_iteratorIS4_Lb1ELb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %8) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt8__detail12_Insert_baseIPN3g2o10HyperGraph6VertexES4_SaIS4_ENS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb1ELb1EEEE6insertENS_20_Node_const_iteratorIS4_Lb1ELb0EEERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 {
+  %4 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %5 = alloca %"struct.std::__detail::_Node_const_iterator.49", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"struct.std::__detail::_AllocNode", align 8
+  %10 = alloca %"struct.std::__detail::_Node_const_iterator.49", align 8
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator.49", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %11, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail12_Insert_baseIPN3g2o10HyperGraph6VertexES4_SaIS4_ENS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb1ELb1EEEE20_M_conjure_hashtableEv(ptr noundef nonnull align 1 dereferenceable(1) %13)
+  store ptr %14, ptr %8, align 8
+  %15 = load ptr, ptr %8, align 8
+  call void @_ZNSt8__detail10_AllocNodeISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEEC2ERNS_16_Hashtable_allocIS7_EE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %15)
+  %16 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false)
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator.49", ptr %10, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = call ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_insertIRKS3_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEENS5_14_Node_iteratorIS3_Lb1ELb0EEENS5_20_Node_const_iteratorIS3_Lb1ELb0EEEOT_RKT0_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr %20, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %22 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %4, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %22, i32 0, i32 0
+  store ptr %21, ptr %23, align 8
+  %24 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %4, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  ret ptr %26
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt8__detail12_Insert_baseIPN3g2o10HyperGraph6VertexES4_SaIS4_ENS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb1ELb1EEEE20_M_conjure_hashtableEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail10_AllocNodeISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEEC2ERNS_16_Hashtable_allocIS7_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_AllocNode", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_insertIRKS3_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEENS5_14_Node_iteratorIS3_Lb1ELb0EEENS5_20_Node_const_iteratorIS3_Lb1ELb0EEEOT_RKT0_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #3 comdat align 2 {
+  %5 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %6 = alloca %"struct.std::__detail::_Node_const_iterator.49", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"struct.std::pair.50", align 8
+  %11 = alloca { ptr, i8 }, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator.49", ptr %6, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %12, i32 0, i32 0
+  store ptr %1, ptr %13, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = load ptr, ptr %9, align 8
+  %17 = call { ptr, i8 } @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_insertIRKS3_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_RKT0_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  store { ptr, i8 } %17, ptr %11, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %11, i64 9, i1 false)
+  %18 = getelementptr inbounds nuw %"struct.std::pair.50", ptr %10, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %18, i64 8, i1 false)
+  %19 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %5, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  ret ptr %21
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_insertIRKS3_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_RKT0_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 {
+  %4 = alloca %"struct.std::pair.50", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.std::__detail::_Identity", align 1
+  %9 = alloca { ptr, i8 }, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail9_IdentityclIRKPN3g2o10HyperGraph6VertexEEEOT_S9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE14_S_forward_keyERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = call { ptr, i8 } @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  store { ptr, i8 } %16, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %9, i64 9, i1 false)
+  %17 = load { ptr, i8 }, ptr %4, align 8
+  ret { ptr, i8 } %17
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"struct.std::pair.50", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %11 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %17 = alloca i8, align 1
+  %18 = alloca %"struct.std::_Hashtable<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>, std::__detail::_Identity, std::equal_to<g2o::HyperGraph::Vertex *>, std::hash<g2o::HyperGraph::Vertex *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true>>::_Scoped_node", align 8
+  %19 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #12
+  %25 = call noundef i64 @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22__small_size_thresholdEv() #12
+  %26 = icmp ule i64 %24, %25
+  br i1 %26, label %27, label %47
+
+27:                                               ; preds = %4
+  %28 = call ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #12
+  %29 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %10, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %29, i32 0, i32 0
+  store ptr %28, ptr %30, align 8
+  br label %31
+
+31:                                               ; preds = %44, %27
+  %32 = call ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #12
+  %33 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %11, i32 0, i32 0
+  %34 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %33, i32 0, i32 0
+  store ptr %32, ptr %34, align 8
+  %35 = call noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EEES7_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  br i1 %35, label %36, label %46
+
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %10, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %40)
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %36
+  store i8 0, ptr %12, align 1
+  call void @_ZNSt4pairINSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEEbEC2IRS6_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  br label %84
+
+43:                                               ; preds = %36
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEppEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  br label %31, !llvm.loop !28
+
+46:                                               ; preds = %31
+  br label %47
+
+47:                                               ; preds = %46, %4
+  %48 = load ptr, ptr %7, align 8
+  %49 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_hash_code_trIS4_EEmRKT_(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(8) %48)
+  store i64 %49, ptr %13, align 8
+  %50 = load i64, ptr %13, align 8
+  %51 = call noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %50)
+  store i64 %51, ptr %14, align 8
+  %52 = call noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #12
+  %53 = call noundef i64 @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22__small_size_thresholdEv() #12
+  %54 = icmp ugt i64 %52, %53
+  br i1 %54, label %55, label %65
+
+55:                                               ; preds = %47
+  %56 = load i64, ptr %14, align 8
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i64, ptr %13, align 8
+  %59 = call noundef ptr @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb0EEEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %56, ptr noundef nonnull align 8 dereferenceable(8) %57, i64 noundef %58)
+  store ptr %59, ptr %15, align 8
+  %60 = load ptr, ptr %15, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %64
+
+62:                                               ; preds = %55
+  %63 = load ptr, ptr %15, align 8
+  call void @_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %63) #12
+  store i8 0, ptr %17, align 1
+  call void @_ZNSt4pairINSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEEbEC2IS6_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 1 dereferenceable(1) %17)
+  br label %84
+
+64:                                               ; preds = %55
+  br label %65
+
+65:                                               ; preds = %64, %47
+  %66 = load ptr, ptr %7, align 8
+  %67 = load ptr, ptr %8, align 8
+  %68 = load ptr, ptr %9, align 8
+  %69 = call noundef ptr @_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKPN3g2o10HyperGraph6VertexES9_NS_10_AllocNodeISaINS_10_Hash_nodeIS7_Lb0EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSF_(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %68)
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeC2EPNS5_10_Hash_nodeIS3_Lb0EEEPNS5_16_Hashtable_allocISaISJ_EEE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %69, ptr noundef %23)
+  %70 = load i64, ptr %14, align 8
+  %71 = load i64, ptr %13, align 8
+  %72 = getelementptr inbounds nuw %"struct.std::_Hashtable<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>, std::__detail::_Identity, std::equal_to<g2o::HyperGraph::Vertex *>, std::hash<g2o::HyperGraph::Vertex *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true>>::_Scoped_node", ptr %18, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = invoke ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %23, i64 noundef %70, i64 noundef %71, ptr noundef %73, i64 noundef 1)
+          to label %75 unwind label %80
+
+75:                                               ; preds = %65
+  %76 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %19, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %76, i32 0, i32 0
+  store ptr %74, ptr %77, align 8
+  %78 = getelementptr inbounds nuw %"struct.std::_Hashtable<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>, std::__detail::_Identity, std::equal_to<g2o::HyperGraph::Vertex *>, std::hash<g2o::HyperGraph::Vertex *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true>>::_Scoped_node", ptr %18, i32 0, i32 1
+  store ptr null, ptr %78, align 8
+  store i8 1, ptr %22, align 1
+  invoke void @_ZNSt4pairINSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEEbEC2IRS6_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %79 unwind label %80
+
+79:                                               ; preds = %75
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #12
+  br label %84
+
+80:                                               ; preds = %75, %65
+  %81 = landingpad { ptr, i32 }
+          cleanup
+  %82 = extractvalue { ptr, i32 } %81, 0
+  store ptr %82, ptr %20, align 8
+  %83 = extractvalue { ptr, i32 } %81, 1
+  store i32 %83, ptr %21, align 4
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #12
+  br label %86
+
+84:                                               ; preds = %79, %62, %42
+  %85 = load { ptr, i8 }, ptr %5, align 8
+  ret { ptr, i8 } %85
+
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %20, align 8
+  %88 = load i32, ptr %21, align 4
+  %89 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %88, 1
+  resume { ptr, i32 } %90
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE14_S_forward_keyERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail9_IdentityclIRKPN3g2o10HyperGraph6VertexEEEOT_S9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %3, i32 0, i32 3
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22__small_size_thresholdEv() #0 comdat align 2 {
+  %1 = call noundef i64 @_ZNSt8__detail22_Hashtable_hash_traitsISt4hashIPN3g2o10HyperGraph6VertexEEE22__small_size_thresholdEv() #12
+  ret i64 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt8__detailneERKNS_19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EEES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  call void @_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null) #12
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::__detail::_Identity", align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE5_M_eqEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail9_IdentityclIRKPN3g2o10HyperGraph6VertexEEEOT_S9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %12) #12
+  %14 = call noundef zeroext i1 @_ZNKSt8equal_toIPN3g2o10HyperGraph6VertexEEclERKS3_S6_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  ret i1 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairINSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEEbEC2IRS6_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISB_SC_EEEbE4typeELb1EEEOSB_OSC_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.50", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 8, i1 false)
+  %10 = getelementptr inbounds nuw %"struct.std::pair.50", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_hash_code_trIS4_EEmRKT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = call noundef i64 @_ZNKSt4hashIPN3g2o10HyperGraph6VertexEEclES3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8) #12
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %9 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexEmm(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, i64 noundef %8)
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb0EEEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i64, ptr %7, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load i64, ptr %9, align 8
+  %15 = call noundef ptr @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_find_before_node_trIS3_EEPNS5_15_Hash_node_baseEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %14)
+  store ptr %15, ptr %10, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %22
+
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %10, align 8
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %5, align 8
+  br label %23
+
+22:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  br label %23
+
+23:                                               ; preds = %22, %18
+  %24 = load ptr, ptr %5, align 8
+  ret ptr %24
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairINSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEEbEC2IS6_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.50", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 8, i1 false)
+  %10 = getelementptr inbounds nuw %"struct.std::pair.50", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKPN3g2o10HyperGraph6VertexES9_NS_10_AllocNodeISaINS_10_Hash_nodeIS7_Lb0EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEEclIJRKS5_EEEPS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeC2EPNS5_10_Hash_nodeIS3_Lb0EEEPNS5_16_Hashtable_allocISaISJ_EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Hashtable<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>, std::__detail::_Identity, std::equal_to<g2o::HyperGraph::Vertex *>, std::hash<g2o::HyperGraph::Vertex *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true>>::_Scoped_node", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %6, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Hashtable<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>, std::__detail::_Identity, std::equal_to<g2o::HyperGraph::Vertex *>, std::hash<g2o::HyperGraph::Vertex *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true>>::_Scoped_node", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %5, align 8
+  store ptr %11, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #3 comdat align 2 {
+  %6 = alloca %"struct.std::__detail::_Node_iterator.32", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca %"struct.std::pair.47", align 8
+  store ptr %0, ptr %7, align 8
+  store i64 %1, ptr %8, align 8
+  store i64 %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %15, i32 0, i32 4
+  %17 = call noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy8_M_stateEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  store i64 %17, ptr %13, align 8
+  store ptr %13, ptr %12, align 8
+  %18 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %15, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %15, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %15, i32 0, i32 3
+  %22 = load i64, ptr %21, align 8
+  %23 = load i64, ptr %11, align 8
+  %24 = call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %20, i64 noundef %22, i64 noundef %23)
+  %25 = getelementptr inbounds nuw { i8, i64 }, ptr %14, i32 0, i32 0
+  %26 = extractvalue { i8, i64 } %24, 0
+  store i8 %26, ptr %25, align 8
+  %27 = getelementptr inbounds nuw { i8, i64 }, ptr %14, i32 0, i32 1
+  %28 = extractvalue { i8, i64 } %24, 1
+  store i64 %28, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %"struct.std::pair.47", ptr %14, i32 0, i32 0
+  %30 = load i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %38
+
+32:                                               ; preds = %5
+  %33 = getelementptr inbounds nuw %"struct.std::pair.47", ptr %14, i32 0, i32 1
+  %34 = load i64, ptr %33, align 8
+  %35 = load ptr, ptr %12, align 8
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  %36 = load i64, ptr %9, align 8
+  %37 = call noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexEm(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %36)
+  store i64 %37, ptr %8, align 8
+  br label %38
+
+38:                                               ; preds = %32, %5
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load i64, ptr %9, align 8
+  call void @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE13_M_store_codeERNS_21_Hash_node_code_cacheILb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %40, i64 noundef %41)
+  %42 = load i64, ptr %8, align 8
+  %43 = load ptr, ptr %10, align 8
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS5_10_Hash_nodeIS3_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %15, i64 noundef %42, ptr noundef %43)
+  %44 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %15, i32 0, i32 3
+  %45 = load i64, ptr %44, align 8
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %44, align 8
+  %47 = load ptr, ptr %10, align 8
+  call void @_ZNSt8__detail14_Node_iteratorIPN3g2o10HyperGraph6VertexELb1ELb0EEC2EPNS_10_Hash_nodeIS4_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %47) #12
+  %48 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator.32", ptr %6, i32 0, i32 0
+  %49 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %48, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  ret ptr %50
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Hashtable<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>, std::__detail::_Identity, std::equal_to<g2o::HyperGraph::Vertex *>, std::hash<g2o::HyperGraph::Vertex *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true>>::_Scoped_node", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %13
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.std::_Hashtable<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>, std::__detail::_Identity, std::equal_to<g2o::HyperGraph::Vertex *>, std::hash<g2o::HyperGraph::Vertex *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true>>::_Scoped_node", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.std::_Hashtable<g2o::HyperGraph::Vertex *, g2o::HyperGraph::Vertex *, std::allocator<g2o::HyperGraph::Vertex *>, std::__detail::_Identity, std::equal_to<g2o::HyperGraph::Vertex *>, std::hash<g2o::HyperGraph::Vertex *>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true>>::_Scoped_node", ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE18_M_deallocate_nodeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %11)
+          to label %12 unwind label %14
+
+12:                                               ; preds = %7
+  br label %13
+
+13:                                               ; preds = %12, %1
+  ret void
+
+14:                                               ; preds = %7
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt8__detail22_Hashtable_hash_traitsISt4hashIPN3g2o10HyperGraph6VertexEEE22__small_size_thresholdEv() #0 comdat align 2 {
+  ret i64 0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE5_M_eqEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIPN3g2o10HyperGraph6VertexEELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt8equal_toIPN3g2o10HyperGraph6VertexEEclERKS3_S6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %8, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi0ESt8equal_toIPN3g2o10HyperGraph6VertexEELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_value_base", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_bufferIPN3g2o10HyperGraph6VertexEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_buffer", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIPN3g2o10HyperGraph6VertexEELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt4hashIPN3g2o10HyperGraph6VertexEEclES3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %5 to i64
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail21_Hashtable_ebo_helperILi1ESt4hashIPN3g2o10HyperGraph6VertexEELb1EE7_M_cgetEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexEmm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"struct.std::__detail::_Mod_range_hashing", align 1
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = call noundef i64 @_ZNKSt8__detail18_Mod_range_hashingclEmm(ptr noundef nonnull align 1 dereferenceable(1) %7, i64 noundef %8, i64 noundef %9) #12
+  ret i64 %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_find_before_node_trIS3_EEPNS5_15_Hash_node_baseEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i64 %3, ptr %9, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i64, ptr %7, align 8
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %10, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %21, label %20
+
+20:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  br label %52
+
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %11, align 8
+  br label %25
+
+25:                                               ; preds = %48, %21
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i64, ptr %9, align 8
+  %28 = load ptr, ptr %11, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef %27, ptr noundef nonnull align 8 dereferenceable(8) %29)
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %10, align 8
+  store ptr %32, ptr %5, align 8
+  br label %52
+
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %11, align 8
+  %35 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %45
+
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %11, align 8
+  %40 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #12
+  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = call noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS5_16_Hash_node_valueIS3_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(8) %41) #12
+  %43 = load i64, ptr %7, align 8
+  %44 = icmp ne i64 %42, %43
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %38, %33
+  br label %51
+
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %11, align 8
+  store ptr %47, ptr %10, align 8
+  br label %48
+
+48:                                               ; preds = %46
+  %49 = load ptr, ptr %11, align 8
+  %50 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #12
+  store ptr %50, ptr %11, align 8
+  br label %25, !llvm.loop !29
+
+51:                                               ; preds = %45
+  store ptr null, ptr %5, align 8
+  br label %52
+
+52:                                               ; preds = %51, %31, %20
+  %53 = load ptr, ptr %5, align 8
+  ret ptr %53
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE12_M_equals_trIS4_EEbRKT_mRKNS_16_Hash_node_valueIS4_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #3 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i64, ptr %7, align 8
+  %11 = load ptr, ptr %8, align 8
+  %12 = call noundef zeroext i1 @_ZNSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE9_S_equalsEmRKNS_21_Hash_node_code_cacheILb0EEE(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  br i1 %12, label %13, label %17
+
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = call noundef zeroext i1 @_ZNKSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_key_equals_trIS4_EEbRKT_RKNS_16_Hash_node_valueIS4_Lb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  br label %17
+
+17:                                               ; preds = %13, %4
+  %18 = phi i1 [ false, %4 ], [ %16, %13 ]
+  ret i1 %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS5_16_Hash_node_valueIS3_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %5, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %9 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS4_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %8) #12
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt8__detail15_Hashtable_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb0ELb1ELb1EEEE9_S_equalsEmRKNS_21_Hash_node_code_cacheILb0EEE(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #0 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret i1 true
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS4_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"struct.std::__detail::_Mod_range_hashing", align 1
+  %8 = alloca %"struct.std::__detail::_Identity", align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE4_M_vEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt8__detail9_IdentityclIRKPN3g2o10HyperGraph6VertexEEEOT_S9_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %11) #12
+  %13 = invoke noundef i64 @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %14 unwind label %17
+
+14:                                               ; preds = %3
+  %15 = load i64, ptr %6, align 8
+  %16 = call noundef i64 @_ZNKSt8__detail18_Mod_range_hashingclEmm(ptr noundef nonnull align 1 dereferenceable(1) %7, i64 noundef %13, i64 noundef %15) #12
+  ret i64 %16
+
+17:                                               ; preds = %3
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE7_M_hashEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = call noundef i64 @_ZNKSt4hashIPN3g2o10HyperGraph6VertexEEclES3_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8) #12
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEEclIJRKS5_EEEPS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__detail::_AllocNode", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE16_M_allocate_nodeIJRKS5_EEEPS6_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE16_M_allocate_nodeIJRKS5_EEEPS6_DpOT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE8allocateERS7_m(ptr noundef nonnull align 1 dereferenceable(1) %10, i64 noundef 1)
+  store ptr %11, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = call noundef ptr @_ZSt12__to_addressINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEPT_S8_(ptr noundef %12) #12
+  store ptr %13, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8
+  call void @_ZNSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
+  %15 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %16 unwind label %22
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = call noundef ptr @_ZNSt8__detail21_Hash_node_value_baseIPN3g2o10HyperGraph6VertexEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #12
+  %20 = load ptr, ptr %4, align 8
+  call void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE9constructIS5_JRKS5_EEEvRS7_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %20) #12
+  %21 = load ptr, ptr %6, align 8
+  ret ptr %21
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          catch ptr null
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %7, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %8, align 4
+  br label %26
+
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %7, align 8
+  %28 = call ptr @__cxa_begin_catch(ptr %27) #12
+  %29 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %30 unwind label %33
+
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE10deallocateERS7_PS6_m(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %31, i64 noundef 1)
+          to label %32 unwind label %33
+
+32:                                               ; preds = %30
+  invoke void @__cxa_rethrow() #16
+          to label %47 unwind label %33
+
+33:                                               ; preds = %32, %30, %26
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %7, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %8, align 4
+  invoke void @__cxa_end_catch()
+          to label %37 unwind label %44
+
+37:                                               ; preds = %33
+  br label %39
+
+38:                                               ; No predecessors!
+  call void @llvm.trap()
+  unreachable
+
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i32, ptr %8, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
+
+44:                                               ; preds = %33
+  %45 = landingpad { ptr, i32 }
+          catch ptr null
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #13
+  unreachable
+
+47:                                               ; preds = %32
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE8allocateERS7_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__to_addressINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEPT_S8_(ptr noundef %0) #0 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail15_Hash_node_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE9constructIS5_JRKS5_EEEvRS7_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE9constructIS5_JRKS5_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #3 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #12
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ugt i64 %12, 1152921504606846975
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  unreachable
+
+15:                                               ; preds = %11
+  call void @_ZSt17__throw_bad_allocv() #16
+  unreachable
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %5, align 8
+  %18 = mul i64 %17, 16
+  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 576460752303423487
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEE9constructIS5_JRKS5_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i64, ptr %5, align 8
+  invoke void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %3
+  br label %27
+
+12:                                               ; preds = %3
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %7, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %8, align 4
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %7, align 8
+  %18 = call ptr @__cxa_begin_catch(ptr %17) #12
+  %19 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %9, i32 0, i32 4
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i64, ptr %20, align 8
+  call void @_ZNSt8__detail20_Prime_rehash_policy8_M_resetEm(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %21)
+  invoke void @__cxa_rethrow() #16
+          to label %36 unwind label %22
+
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %7, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %8, align 4
+  invoke void @__cxa_end_catch()
+          to label %26 unwind label %33
+
+26:                                               ; preds = %22
+  br label %28
+
+27:                                               ; preds = %11
+  ret void
+
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
+
+33:                                               ; preds = %22
+  %34 = landingpad { ptr, i32 }
+          catch ptr null
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #13
+  unreachable
+
+36:                                               ; preds = %16
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE13_M_store_codeERNS_21_Hash_node_code_cacheILb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS5_10_Hash_nodeIS3_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %31
+
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %7, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i64, ptr %5, align 8
+  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %22, i32 0, i32 0
+  store ptr %21, ptr %23, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %7, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i64, ptr %5, align 8
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %29, i32 0, i32 0
+  store ptr %24, ptr %30, align 8
+  br label %59
+
+31:                                               ; preds = %3
+  %32 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %7, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %7, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %53
+
+44:                                               ; preds = %31
+  %45 = load ptr, ptr %6, align 8
+  %46 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %7, i32 0, i32 0
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %6, align 8
+  %49 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #12
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = call noundef i64 @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE15_M_bucket_indexERKNS5_16_Hash_node_valueIS3_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %50) #12
+  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
+  store ptr %45, ptr %52, align 8
+  br label %53
+
+53:                                               ; preds = %44, %31
+  %54 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %7, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %7, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i64, ptr %5, align 8
+  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  store ptr %54, ptr %58, align 8
+  br label %59
+
+59:                                               ; preds = %53, %14
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = load i64, ptr %4, align 8
+  %12 = call noundef ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 8 dereferenceable(56) %10, i64 noundef %11)
+  store ptr %12, ptr %5, align 8
+  %13 = call noundef ptr @_ZNKSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(56) %10)
+  store ptr %13, ptr %6, align 8
+  %14 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %10, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %14, i32 0, i32 0
+  store ptr null, ptr %15, align 8
+  store i64 0, ptr %7, align 8
+  br label %16
+
+16:                                               ; preds = %70, %2
+  %17 = load ptr, ptr %6, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %72
+
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %6, align 8
+  %21 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #12
+  store ptr %21, ptr %8, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = load i64, ptr %4, align 8
+  %25 = call noundef i64 @_ZNKSt8__detail15_Hash_code_baseIPN3g2o10HyperGraph6VertexES4_NS_9_IdentityESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE15_M_bucket_indexERKNS_16_Hash_node_valueIS4_Lb0EEEm(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %24) #12
+  store i64 %25, ptr %9, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i64, ptr %9, align 8
+  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %55, label %31
+
+31:                                               ; preds = %19
+  %32 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %10, i32 0, i32 2
+  %33 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %35, i32 0, i32 0
+  store ptr %34, ptr %36, align 8
+  %37 = load ptr, ptr %6, align 8
+  %38 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %10, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %38, i32 0, i32 0
+  store ptr %37, ptr %39, align 8
+  %40 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %10, i32 0, i32 2
+  %41 = load ptr, ptr %5, align 8
+  %42 = load i64, ptr %9, align 8
+  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  store ptr %40, ptr %43, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %44, i32 0, i32 0
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %53
+
+48:                                               ; preds = %31
+  %49 = load ptr, ptr %6, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i64, ptr %7, align 8
+  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  store ptr %49, ptr %52, align 8
+  br label %53
+
+53:                                               ; preds = %48, %31
+  %54 = load i64, ptr %9, align 8
+  store i64 %54, ptr %7, align 8
+  br label %70
+
+55:                                               ; preds = %19
+  %56 = load ptr, ptr %5, align 8
+  %57 = load i64, ptr %9, align 8
+  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %59, i32 0, i32 0
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %62, i32 0, i32 0
+  store ptr %61, ptr %63, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i64, ptr %9, align 8
+  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %68, i32 0, i32 0
+  store ptr %64, ptr %69, align 8
+  br label %70
+
+70:                                               ; preds = %55, %53
+  %71 = load ptr, ptr %8, align 8
+  store ptr %71, ptr %6, align 8
+  br label %16, !llvm.loop !30
+
+72:                                               ; preds = %16
+  call void @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv(ptr noundef nonnull align 8 dereferenceable(56) %10)
+  %73 = load i64, ptr %4, align 8
+  %74 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %10, i32 0, i32 1
+  store i64 %73, ptr %74, align 8
+  %75 = load ptr, ptr %5, align 8
+  %76 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %10, i32 0, i32 0
+  store ptr %75, ptr %76, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i64, ptr %5, align 8
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %6, i32 0, i32 5
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"class.std::_Hashtable.13", ptr %6, i32 0, i32 5
+  store ptr %11, ptr %3, align 8
+  br label %15
+
+12:                                               ; preds = %2
+  %13 = load i64, ptr %5, align 8
+  %14 = call noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef %13)
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %12, %9
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE19_M_allocate_bucketsEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %"class.std::allocator.38", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEE17_M_node_allocatorEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEEC2INS_10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EEEEERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %11) #12
+  %12 = load i64, ptr %4, align 8
+  %13 = invoke noundef ptr @_ZNSt16allocator_traitsISaIPNSt8__detail15_Hash_node_baseEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %12)
+          to label %14 unwind label %21
+
+14:                                               ; preds = %2
+  store ptr %13, ptr %6, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = call noundef ptr @_ZSt12__to_addressIPNSt8__detail15_Hash_node_baseEEPT_S4_(ptr noundef %15) #12
+  store ptr %16, ptr %9, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load i64, ptr %4, align 8
+  %19 = mul i64 %18, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 %19, i1 false)
+  %20 = load ptr, ptr %9, align 8
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  ret ptr %20
+
+21:                                               ; preds = %2
+  %22 = landingpad { ptr, i32 }
+          cleanup
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %7, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %8, align 4
+  call void @_ZNSaIPNSt8__detail15_Hash_node_baseEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #12
+  br label %25
+
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %8, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail19_Node_iterator_baseIPN3g2o10HyperGraph6VertexELb0EE7_M_incrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZNKSt8__detail10_Hash_nodeIPN3g2o10HyperGraph6VertexELb0EE7_M_nextEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base.33", ptr %3, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE16_M_insert_uniqueIRKS3_EESt4pairISt17_Rb_tree_iteratorIS3_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::pair.53", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::pair.56", align 8
+  %7 = alloca %"struct.std::_Identity", align 1
+  %8 = alloca %"struct.std::_Rb_tree<g2o::HyperGraph::Edge *, g2o::HyperGraph::Edge *, std::_Identity<g2o::HyperGraph::Edge *>, std::less<g2o::HyperGraph::Edge *>>::_Alloc_node", align 8
+  %9 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %10 = alloca i8, align 1
+  %11 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %12 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt9_IdentityIPN3g2o10HyperGraph4EdgeEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %16 = call { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 0
+  %18 = extractvalue { ptr, ptr } %16, 0
+  store ptr %18, ptr %17, align 8
+  %19 = getelementptr inbounds nuw { ptr, ptr }, ptr %6, i32 0, i32 1
+  %20 = extractvalue { ptr, ptr } %16, 1
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %6, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %32
+
+24:                                               ; preds = %2
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeC2ERS9_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(48) %13)
+  %25 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %6, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %6, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %26, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %31 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
+  store ptr %30, ptr %31, align 8
+  store i8 1, ptr %10, align 1
+  call void @_ZNSt4pairISt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEbEC2IS5_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  br label %35
+
+32:                                               ; preds = %2
+  %33 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %6, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %34) #12
+  store i8 0, ptr %12, align 1
+  call void @_ZNSt4pairISt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEbEC2IS5_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  br label %35
+
+35:                                               ; preds = %32, %24
+  %36 = load { ptr, i8 }, ptr %3, align 8
+  ret { ptr, i8 } %36
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairISt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEbEC2IRSt17_Rb_tree_iteratorIS4_ERbTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISD_SE_EEEbE4typeELb1EEEOSD_OSE_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2ERKSt17_Rb_tree_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  %10 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::pair.56", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %10 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #12
+  store ptr %13, ptr %6, align 8
+  %14 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #12
+  store ptr %14, ptr %7, align 8
+  store i8 1, ptr %8, align 1
+  br label %15
+
+15:                                               ; preds = %36, %2
+  %16 = load ptr, ptr %6, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %38
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %6, align 8
+  store ptr %19, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %12, i32 0, i32 0
+  %21 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt13_Rb_tree_nodeIS3_E(ptr noundef %23)
+  %25 = load ptr, ptr %24, align 8
+  %26 = call noundef zeroext i1 @_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef %22, ptr noundef %25) #12
+  %27 = zext i1 %26 to i8
+  store i8 %27, ptr %8, align 1
+  %28 = load i8, ptr %8, align 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %33
+
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %6, align 8
+  %32 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %31) #12
+  br label %36
+
+33:                                               ; preds = %18
+  %34 = load ptr, ptr %6, align 8
+  %35 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %34) #12
+  br label %36
+
+36:                                               ; preds = %33, %30
+  %37 = phi ptr [ %32, %30 ], [ %35, %33 ]
+  store ptr %37, ptr %6, align 8
+  br label %15, !llvm.loop !31
+
+38:                                               ; preds = %15
+  %39 = load ptr, ptr %7, align 8
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %39) #12
+  %40 = load i8, ptr %8, align 1
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %50
+
+42:                                               ; preds = %38
+  %43 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #12
+  %44 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
+  store ptr %43, ptr %44, align 8
+  %45 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %42
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br label %62
+
+47:                                               ; preds = %42
+  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  br label %49
+
+49:                                               ; preds = %47
+  br label %50
+
+50:                                               ; preds = %49, %38
+  %51 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %12, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %53)
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %5, align 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = call noundef zeroext i1 @_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef %55, ptr noundef %57) #12
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %50
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br label %62
+
+60:                                               ; preds = %50
+  %61 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
+  store ptr null, ptr %11, align 8
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  br label %62
+
+62:                                               ; preds = %60, %59, %46
+  %63 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %63
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt9_IdentityIPN3g2o10HyperGraph4EdgeEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #3 comdat align 2 {
+  %6 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca %"struct.std::_Identity", align 1
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %31, label %18
+
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %9, align 8
+  %20 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #12
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %31, label %22
+
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %15, i32 0, i32 0
+  %24 = load ptr, ptr %10, align 8
+  %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt9_IdentityIPN3g2o10HyperGraph4EdgeEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %27)
+  %29 = load ptr, ptr %28, align 8
+  %30 = call noundef zeroext i1 @_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef %26, ptr noundef %29) #12
+  br label %31
+
+31:                                               ; preds = %22, %18, %5
+  %32 = phi i1 [ true, %18 ], [ true, %5 ], [ %30, %22 ]
+  %33 = zext i1 %32 to i8
+  store i8 %33, ptr %12, align 1
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %10, align 8
+  %36 = call noundef ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11_Alloc_nodeclIRKS3_EEPSt13_Rb_tree_nodeIS3_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  store ptr %36, ptr %14, align 8
+  %37 = load i8, ptr %12, align 1
+  %38 = trunc i8 %37 to i1
+  %39 = load ptr, ptr %14, align 8
+  %40 = load ptr, ptr %9, align 8
+  %41 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %15, i32 0, i32 0
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %42, i32 0, i32 0
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef %39, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(32) %43) #12
+  %44 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %15, i32 0, i32 0
+  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %45, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, 1
+  store i64 %48, ptr %46, align 8
+  %49 = load ptr, ptr %14, align 8
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %49) #12
+  %50 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %6, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  ret ptr %51
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairISt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEbEC2IS5_bTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.53", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 8, i1 false)
+  %10 = getelementptr inbounds nuw %"struct.std::pair.53", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  %12 = load i8, ptr %11, align 1
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i8
+  store i8 %14, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = load ptr, ptr %6, align 8
+  %10 = ptrtoint ptr %9 to i64
+  %11 = icmp ult i64 %8, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt13_Rb_tree_nodeIS3_E(ptr noundef %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.std::_Identity", align 1
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef ptr @_ZNKSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt9_IdentityIPN3g2o10HyperGraph4EdgeEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #12
+  %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #15
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %0) #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt13_Rb_tree_nodeIS3_E(ptr noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::pair.56", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt13_Rb_tree_nodeIPN3g2o10HyperGraph4EdgeEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIPN3g2o10HyperGraph4EdgeEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #10
+
+; Function Attrs: nounwind
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) #11
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2ERKSt17_Rb_tree_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5eraseERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::pair.58", align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %8 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %9 = load ptr, ptr %3, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
+  %13 = extractvalue { ptr, ptr } %11, 0
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
+  %15 = extractvalue { ptr, ptr } %11, 1
+  store ptr %15, ptr %14, align 8
+  %16 = call noundef i64 @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #12
+  store i64 %16, ptr %6, align 8
+  %17 = getelementptr inbounds nuw %"struct.std::pair.58", ptr %5, i32 0, i32 0
+  call void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2ERKSt17_Rb_tree_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %17) #12
+  %18 = getelementptr inbounds nuw %"struct.std::pair.58", ptr %5, i32 0, i32 1
+  call void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2ERKSt17_Rb_tree_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %18) #12
+  %19 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %7, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %8, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS3_ESB_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %20, ptr %22)
+  %23 = load i64, ptr %6, align 8
+  %24 = call noundef i64 @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #12
+  %25 = sub i64 %23, %24
+  ret i64 %25
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE11equal_rangeERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::pair.58", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %11 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %12 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %13 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %14 = load ptr, ptr %4, align 8
+  %15 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #12
+  store ptr %15, ptr %6, align 8
+  %16 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #12
+  store ptr %16, ptr %7, align 8
+  br label %17
+
+17:                                               ; preds = %62, %2
+  %18 = load ptr, ptr %6, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %63
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %14, i32 0, i32 0
+  %22 = load ptr, ptr %6, align 8
+  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt13_Rb_tree_nodeIS3_E(ptr noundef %22)
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = call noundef zeroext i1 @_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %24, ptr noundef %26) #12
+  br i1 %27, label %28, label %31
+
+28:                                               ; preds = %20
+  %29 = load ptr, ptr %6, align 8
+  %30 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %29) #12
+  store ptr %30, ptr %6, align 8
+  br label %62
+
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %14, i32 0, i32 0
+  %33 = load ptr, ptr %5, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt13_Rb_tree_nodeIS3_E(ptr noundef %35)
+  %37 = load ptr, ptr %36, align 8
+  %38 = call noundef zeroext i1 @_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef %34, ptr noundef %37) #12
+  br i1 %38, label %39, label %43
+
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %6, align 8
+  store ptr %40, ptr %7, align 8
+  %41 = load ptr, ptr %6, align 8
+  %42 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %41) #12
+  store ptr %42, ptr %6, align 8
+  br label %61
+
+43:                                               ; preds = %31
+  %44 = load ptr, ptr %6, align 8
+  store ptr %44, ptr %8, align 8
+  %45 = load ptr, ptr %7, align 8
+  store ptr %45, ptr %9, align 8
+  %46 = load ptr, ptr %6, align 8
+  store ptr %46, ptr %7, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %47) #12
+  store ptr %48, ptr %6, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %49) #12
+  store ptr %50, ptr %8, align 8
+  %51 = load ptr, ptr %6, align 8
+  %52 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr %5, align 8
+  %54 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %51, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
+  %55 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
+  store ptr %54, ptr %55, align 8
+  %56 = load ptr, ptr %8, align 8
+  %57 = load ptr, ptr %9, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %56, ptr noundef %57, ptr noundef nonnull align 8 dereferenceable(8) %58)
+  %60 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %11, i32 0, i32 0
+  store ptr %59, ptr %60, align 8
+  call void @_ZNSt4pairISt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEES5_EC2IS5_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  br label %66
+
+61:                                               ; preds = %39
+  br label %62
+
+62:                                               ; preds = %61, %28
+  br label %17, !llvm.loop !32
+
+63:                                               ; preds = %17
+  %64 = load ptr, ptr %7, align 8
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %64) #12
+  %65 = load ptr, ptr %7, align 8
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %65) #12
+  call void @_ZNSt4pairISt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEES5_EC2IS5_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  br label %66
+
+66:                                               ; preds = %63, %43
+  %67 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %67
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS3_ESB_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2) #3 comdat align 2 {
+  %4 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %5 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %8 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %9 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %10 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %11 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %12 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  store ptr %2, ptr %13, align 8
+  store ptr %0, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #12
+  %16 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  store ptr %15, ptr %16, align 8
+  call void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2ERKSt17_Rb_tree_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #12
+  %17 = call noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br i1 %17, label %18, label %22
+
+18:                                               ; preds = %3
+  %19 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #12
+  %20 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
+  store ptr %19, ptr %20, align 8
+  call void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2ERKSt17_Rb_tree_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #12
+  %21 = call noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %9) #12
+  br label %22
+
+22:                                               ; preds = %18, %3
+  %23 = phi i1 [ false, %3 ], [ %21, %18 ]
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %22
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %14) #12
+  br label %34
+
+25:                                               ; preds = %22
+  br label %26
+
+26:                                               ; preds = %28, %25
+  %27 = call noundef zeroext i1 @_ZStneRKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+  br i1 %27, label %28, label %33
+
+28:                                               ; preds = %26
+  %29 = call ptr @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0) #12
+  %30 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %11, i32 0, i32 0
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %11, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr %32)
+  br label %26, !llvm.loop !33
+
+33:                                               ; preds = %26
+  br label %34
+
+34:                                               ; preds = %33, %24
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #3 comdat align 2 {
+  %5 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  %10 = load ptr, ptr %6, align 8
+  br label %11
+
+11:                                               ; preds = %29, %4
+  %12 = load ptr, ptr %7, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %30
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %10, i32 0, i32 0
+  %16 = load ptr, ptr %7, align 8
+  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt13_Rb_tree_nodeIS3_E(ptr noundef %16)
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef zeroext i1 @_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef %20) #12
+  br i1 %21, label %26, label %22
+
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %7, align 8
+  store ptr %23, ptr %8, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %24) #12
+  store ptr %25, ptr %7, align 8
+  br label %29
+
+26:                                               ; preds = %14
+  %27 = load ptr, ptr %7, align 8
+  %28 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %27) #12
+  store ptr %28, ptr %7, align 8
+  br label %29
+
+29:                                               ; preds = %26, %22
+  br label %11, !llvm.loop !34
+
+30:                                               ; preds = %11
+  %31 = load ptr, ptr %8, align 8
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %31) #12
+  %32 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  ret ptr %33
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_upper_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #3 comdat align 2 {
+  %5 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  %10 = load ptr, ptr %6, align 8
+  br label %11
+
+11:                                               ; preds = %29, %4
+  %12 = load ptr, ptr %7, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %30
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %10, i32 0, i32 0
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt13_Rb_tree_nodeIS3_E(ptr noundef %18)
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef zeroext i1 @_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %17, ptr noundef %20) #12
+  br i1 %21, label %22, label %26
+
+22:                                               ; preds = %14
+  %23 = load ptr, ptr %7, align 8
+  store ptr %23, ptr %8, align 8
+  %24 = load ptr, ptr %7, align 8
+  %25 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %24) #12
+  store ptr %25, ptr %7, align 8
+  br label %29
+
+26:                                               ; preds = %14
+  %27 = load ptr, ptr %7, align 8
+  %28 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %27) #12
+  store ptr %28, ptr %7, align 8
+  br label %29
+
+29:                                               ; preds = %26, %22
+  br label %11, !llvm.loop !35
+
+30:                                               ; preds = %11
+  %31 = load ptr, ptr %8, align 8
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %31) #12
+  %32 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  ret ptr %33
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairISt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEES5_EC2IS5_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::pair.58", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 8, i1 false)
+  %10 = getelementptr inbounds nuw %"struct.std::pair.58", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %11, i64 8, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #12
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #12
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4)
+          to label %5 unwind label %8
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  call void @_ZNSt15_Rb_tree_header8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
+  ret void
+
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1) #0 comdat align 2 {
+  %3 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %7, i32 0, i32 0
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %11, i32 0, i32 0
+  %13 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(32) %12) #12
+  store ptr %13, ptr %5, align 8
+  %14 = load ptr, ptr %5, align 8
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %14) #12
+  %15 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %7, i32 0, i32 0
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %16, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8
+  %19 = add i64 %18, -1
+  store i64 %19, ptr %17, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  %6 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 8, i1 false)
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %8) #15
+  %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %6, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  ret ptr %12
+}
+
+; Function Attrs: nounwind
+declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) #11
+
+; Function Attrs: nounwind willreturn memory(read)
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) #10
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_node_base", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  call void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #12
+  %10 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
+  call void @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #12
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENS8_14_Node_iteratorIS6_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %4 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %4, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %8, align 8
+  store ptr %0, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2ERKNS_14_Node_iteratorIS7_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENS8_20_Node_const_iteratorIS6_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr %12)
+  %14 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %14, i32 0, i32 0
+  store ptr %13, ptr %15, align 8
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENS8_20_Node_const_iteratorIS6_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::__detail::_Node_iterator", align 8
+  %4 = alloca %"struct.std::__detail::_Node_const_iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = getelementptr inbounds nuw %"struct.std::__detail::_Node_const_iterator", ptr %4, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %9, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  store ptr %0, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %4, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %6, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = call noundef i64 @_ZNKSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(16) %15) #12
+  store i64 %16, ptr %7, align 8
+  %17 = load i64, ptr %7, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = call noundef ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %17, ptr noundef %18)
+  store ptr %19, ptr %8, align 8
+  %20 = load i64, ptr %7, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = call ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %20, ptr noundef %21, ptr noundef %22)
+  %24 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %24, i32 0, i32 0
+  store ptr %23, ptr %25, align 8
+  %26 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator", ptr %3, i32 0, i32 0
+  %27 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  ret ptr %28
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail20_Node_const_iteratorISt4pairIKiPN3g2o10HyperGraph6VertexEELb0ELb0EEC2ERKNS_14_Node_iteratorIS7_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::__detail::_Node_iterator_base", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  call void @_ZNSt8__detail19_Node_iterator_baseISt4pairIKiPN3g2o10HyperGraph6VertexEELb0EEC2EPNS_10_Hash_nodeIS7_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %8) #12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt10_HashtableIiSt4pairIKiPN3g2o10HyperGraph6VertexEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE20_M_get_previous_nodeEmPNS8_10_Hash_nodeIS6_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.std::_Hashtable", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i64, ptr %5, align 8
+  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %7, align 8
+  br label %14
+
+14:                                               ; preds = %20, %3
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = icmp ne ptr %17, %18
+  br i1 %19, label %20, label %24
+
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %"struct.std::__detail::_Hash_node_base", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %7, align 8
+  br label %14, !llvm.loop !36
+
+24:                                               ; preds = %14
+  %25 = load ptr, ptr %7, align 8
+  ret ptr %25
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat align 2 {
+  %3 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %7 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  %10 = call noundef ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  %11 = load ptr, ptr %5, align 8
+  %12 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRKS3_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %13 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %6, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  %14 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  %15 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %7, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  %16 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEES6_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br i1 %16, label %26, label %17
+
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds nuw %"class.std::_Rb_tree", ptr %8, i32 0, i32 0
+  %19 = load ptr, ptr %5, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %6, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %22)
+  %24 = load ptr, ptr %23, align 8
+  %25 = call noundef zeroext i1 @_ZNKSt4lessIPN3g2o10HyperGraph4EdgeEEclES3_S3_(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef %20, ptr noundef %24) #12
+  br i1 %25, label %26, label %29
+
+26:                                               ; preds = %17, %2
+  %27 = call ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #12
+  %28 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  store ptr %27, ptr %28, align 8
+  br label %30
+
+29:                                               ; preds = %17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 8, i1 false)
+  br label %30
+
+30:                                               ; preds = %29, %26
+  %31 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  ret ptr %32
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1) #0 comdat align 2 {
+  %3 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %4 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %7 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %8 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %8, align 8
+  store ptr %0, ptr %5, align 8
+  %9 = load ptr, ptr %5, align 8
+  br label %10
+
+10:                                               ; preds = %2
+  br label %11
+
+11:                                               ; preds = %10
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 8, i1 false)
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  %13 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %7, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  call void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %14)
+  %15 = call ptr @_ZNKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
+  %16 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt23_Rb_tree_const_iteratorIPN3g2o10HyperGraph4EdgeEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  call void @_ZNSt17_Rb_tree_iteratorIPN3g2o10HyperGraph4EdgeEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #12
+  %7 = getelementptr inbounds nuw %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { builtin nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn }
+attributes #17 = { builtin allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}

@@ -1,0 +1,5310 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.Eigen::symbolic::SymbolExpr" = type { i8 }
+%"class.Eigen::symbolic::AddExpr" = type { [2 x i8] }
+%"class.Eigen::internal::FixedInt" = type { i8 }
+%"struct.Eigen::internal::all_t" = type { i8 }
+%"class.Eigen::symbolic::ValueExpr" = type { i8 }
+%"class.g2o::VelocityMeasurement" = type { %"class.Eigen::Matrix", double, [8 x i8] }
+%"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase" }
+%"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
+%"class.Eigen::DenseStorage" = type { %"struct.Eigen::internal::plain_array" }
+%"struct.Eigen::internal::plain_array" = type { [2 x double] }
+%"class.g2o::MotionMeasurement" = type { %"class.Eigen::Matrix.3", double }
+%"class.Eigen::Matrix.3" = type { %"class.Eigen::PlainObjectBase.4" }
+%"class.Eigen::PlainObjectBase.4" = type { %"class.Eigen::DenseStorage.11" }
+%"class.Eigen::DenseStorage.11" = type { %"struct.Eigen::internal::plain_array.12" }
+%"struct.Eigen::internal::plain_array.12" = type { [3 x double] }
+%"class.Eigen::Rotation2D" = type { double }
+%"class.Eigen::CwiseBinaryOp" = type <{ ptr, ptr, [8 x i8] }>
+%"class.Eigen::CwiseBinaryOp.17" = type <{ [8 x i8], %"class.Eigen::CwiseNullaryOp", ptr, [8 x i8] }>
+%"class.Eigen::CwiseNullaryOp" = type { [8 x i8], %"struct.Eigen::internal::scalar_constant_op" }
+%"struct.Eigen::internal::scalar_constant_op" = type { double }
+%"class.Eigen::Product" = type { ptr, ptr }
+%"class.Eigen::Matrix.48" = type { %"class.Eigen::PlainObjectBase.49" }
+%"class.Eigen::PlainObjectBase.49" = type { %"class.Eigen::DenseStorage.56" }
+%"class.Eigen::DenseStorage.56" = type { %"struct.Eigen::internal::plain_array.57" }
+%"struct.Eigen::internal::plain_array.57" = type { [4 x double] }
+%"struct.Eigen::internal::scalar_product_op" = type { i8 }
+%"struct.Eigen::internal::scalar_sum_op" = type { i8 }
+%"struct.Eigen::internal::evaluator" = type { %"struct.Eigen::internal::evaluator.28" }
+%"struct.Eigen::internal::evaluator.28" = type { %"class.Eigen::internal::plainobjectbase_evaluator_data" }
+%"class.Eigen::internal::plainobjectbase_evaluator_data" = type { ptr }
+%"struct.Eigen::internal::evaluator.29" = type { %"struct.Eigen::internal::evaluator.30" }
+%"struct.Eigen::internal::evaluator.30" = type { %"class.Eigen::internal::plainobjectbase_evaluator_data" }
+%"struct.Eigen::internal::assign_op" = type { i8 }
+%"struct.Eigen::internal::evaluator.35" = type { %"struct.Eigen::internal::binary_evaluator" }
+%"struct.Eigen::internal::binary_evaluator" = type { %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 2, 1>>, const Eigen::Matrix<double, 2, 1>>>::Data" }
+%"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 2, 1>>, const Eigen::Matrix<double, 2, 1>>>::Data" = type { [8 x i8], %"struct.Eigen::internal::evaluator.38", %"struct.Eigen::internal::evaluator.43" }
+%"struct.Eigen::internal::evaluator.38" = type { %"struct.Eigen::internal::evaluator.base", [7 x i8] }
+%"struct.Eigen::internal::evaluator.base" = type <{ %"struct.Eigen::internal::scalar_constant_op", i8 }>
+%"struct.Eigen::internal::evaluator.43" = type { %"struct.Eigen::internal::evaluator.29" }
+%"class.Eigen::internal::generic_dense_assignment_kernel" = type { ptr, ptr, ptr, ptr }
+%"struct.Eigen::internal::evaluator.39" = type <{ %"struct.Eigen::internal::scalar_constant_op", [8 x i8] }>
+%"struct.Eigen::CommaInitializer" = type { ptr, i64, i64, i64 }
+%"class.Eigen::Product.58" = type { ptr, ptr }
+%"struct.Eigen::internal::evaluator.65" = type { %"struct.Eigen::internal::product_evaluator" }
+%"struct.Eigen::internal::product_evaluator" = type { ptr, ptr, %"struct.Eigen::internal::evaluator.68", %"struct.Eigen::internal::evaluator.29", i64 }
+%"struct.Eigen::internal::evaluator.68" = type { %"struct.Eigen::internal::evaluator.69" }
+%"struct.Eigen::internal::evaluator.69" = type { %"class.Eigen::internal::plainobjectbase_evaluator_data.72" }
+%"class.Eigen::internal::plainobjectbase_evaluator_data.72" = type { ptr }
+%"class.Eigen::internal::generic_dense_assignment_kernel.73" = type { ptr, ptr, ptr, ptr }
+%"struct.Eigen::internal::evaluator.74" = type { %"struct.Eigen::internal::binary_evaluator.75" }
+%"struct.Eigen::internal::binary_evaluator.75" = type { %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<double>, const Eigen::Matrix<double, 2, 1>, const Eigen::Matrix<double, 2, 1>>>::Data" }
+%"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<double>, const Eigen::Matrix<double, 2, 1>, const Eigen::Matrix<double, 2, 1>>>::Data" = type { [8 x i8], %"struct.Eigen::internal::evaluator.43", %"struct.Eigen::internal::evaluator.43" }
+%"class.Eigen::internal::generic_dense_assignment_kernel.78" = type { ptr, ptr, ptr, ptr }
+
+$_ZN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEC2Ev = comdat any
+
+$_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEplILi1EEENS0_7AddExprIS5_NS0_9ValueExprINS3_8FixedIntIXT_EEEEEEESB_ = comdat any
+
+$_ZNK5Eigen8internal8FixedIntILi1EEclEv = comdat any
+
+$_ZN5Eigen8internal5all_tC2Ev = comdat any
+
+$_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2IddEERKT_RKT0_ = comdat any
+
+$_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEC2ERKdS3_S3_ = comdat any
+
+$_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEC2ERKS1_ = comdat any
+
+$_ZNK3g2o17MotionMeasurement5thetaEv = comdat any
+
+$_ZNK3g2o17MotionMeasurement1xEv = comdat any
+
+$_ZNK3g2o17MotionMeasurement1yEv = comdat any
+
+$_ZNK3g2o17MotionMeasurement2dtEv = comdat any
+
+$_ZNK3g2o19VelocityMeasurement2vrEv = comdat any
+
+$_ZNK3g2o19VelocityMeasurement2vlEv = comdat any
+
+$_ZNK3g2o19VelocityMeasurement2dtEv = comdat any
+
+$_ZN5Eigen10Rotation2DIdEC2ERKd = comdat any
+
+$_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2IidEERKT_RKT0_ = comdat any
+
+$_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE = comdat any
+
+$_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE = comdat any
+
+$_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2INS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEEKS1_EESA_EEEERKT_ = comdat any
+
+$_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEplIS2_EEKNS_13CwiseBinaryOpINS_8internal13scalar_sum_opIdNS6_6traitsIT_E6ScalarEEEKS2_KS9_EERKNS0_IS9_EE = comdat any
+
+$_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS1_S7_EEEERKNS_9EigenBaseIT_EE = comdat any
+
+$_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EE1xEv = comdat any
+
+$_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EE1yEv = comdat any
+
+$_ZN5Eigen8internal8FixedIntILi1EEC2Ev = comdat any
+
+$_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi0EEclEl = comdat any
+
+$_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi0EE5coeffEl = comdat any
+
+$_ZNK5Eigen9EigenBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE7derivedEv = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_ = comdat any
+
+$_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEE5coeffEl = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEC2ERKS5_ = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev = comdat any
+
+$_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE4dataEv = comdat any
+
+$_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEC2EPKdl = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev = comdat any
+
+$_ZNK5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv = comdat any
+
+$_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEED2Ev = comdat any
+
+$_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi0EEclEl = comdat any
+
+$_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi0EE5coeffEl = comdat any
+
+$_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS3_ = comdat any
+
+$_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE5coeffEl = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2ERKS5_ = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev = comdat any
+
+$_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4dataEv = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev = comdat any
+
+$_ZNK5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4dataEv = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev = comdat any
+
+$_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEE7derivedEv = comdat any
+
+$_ZN5Eigen8symbolic9ValueExprINS_8internal8FixedIntILi1EEEEC2Ev = comdat any
+
+$_ZN5Eigen8symbolic7AddExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEENS0_9ValueExprINS3_8FixedIntILi1EEEEEEC2ERKS5_RKS9_ = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22_check_template_paramsEv = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6_init2IddEEvRKT_RKT0_PNS_8internal9enable_ifILb1ES5_E4typeE = comdat any
+
+$_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EEC2Ev = comdat any
+
+$_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev = comdat any
+
+$_ZN5Eigen8internal11plain_arrayIdLi2ELi0ELi16EEC2Ev = comdat any
+
+$_ZN5Eigen8internal28check_static_allocation_sizeIdLi2EEEvv = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4dataEv = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE22_check_template_paramsEv = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv = comdat any
+
+$_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EEC2Ev = comdat any
+
+$_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev = comdat any
+
+$_ZN5Eigen8internal11plain_arrayIdLi3ELi0ELi0EEC2Ev = comdat any
+
+$_ZN5Eigen8internal28check_static_allocation_sizeIdLi3EEEvv = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_ = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6_init2IidEEvRKT_RKT0_PNS_8internal9enable_ifILb1ES5_E4typeE = comdat any
+
+$_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv = comdat any
+
+$_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv = comdat any
+
+$_ZN5Eigen8internal18scalar_constant_opIdEC2ERKd = comdat any
+
+$_ZN5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2EllRKS3_ = comdat any
+
+$_ZN5Eigen8internal17scalar_product_opIddEC2Ev = comdat any
+
+$_ZN5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_EC2ERSB_RS9_RKS3_ = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4rowsEv = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4colsEv = comdat any
+
+$_ZN5Eigen10MatrixBaseINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2Ev = comdat any
+
+$_ZN5Eigen8internal19variable_if_dynamicIlLi2EEC2El = comdat any
+
+$_ZN5Eigen8internal19variable_if_dynamicIlLi1EEC2El = comdat any
+
+$_ZN5Eigen8internal18scalar_constant_opIdEC2ERKS2_ = comdat any
+
+$_ZN5Eigen9DenseBaseINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2Ev = comdat any
+
+$_ZN5Eigen17CwiseBinaryOpImplINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_NS_5DenseEEC2Ev = comdat any
+
+$_ZN5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS7_ = comdat any
+
+$_ZN5Eigen8internal17scalar_product_opIddEC2ERKS2_ = comdat any
+
+$_ZN5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2Ev = comdat any
+
+$_ZN5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2Ev = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6_init1INS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EESF_EEvRKNS_9DenseBaseIT0_EE = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12_set_noaliasINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EEEERS2_RKNS_9DenseBaseIT_EE = comdat any
+
+$_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_ = comdat any
+
+$_ZN5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv = comdat any
+
+$_ZNK5Eigen9EigenBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEE7derivedEv = comdat any
+
+$_ZN5Eigen8internal9assign_opIddEC2Ev = comdat any
+
+$_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKSD_RKSF_ = comdat any
+
+$_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2ERKSD_ = comdat any
+
+$_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE = comdat any
+
+$_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE18const_cast_derivedEv = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EEC2ERS5_RKSG_RKSI_RS4_ = comdat any
+
+$_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESD_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSK_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEED2Ev = comdat any
+
+$_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddEC2ERKSD_ = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2Ev = comdat any
+
+$_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE4DataC2ERKSD_ = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEED2Ev = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E7functorEv = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E3lhsEv = comdat any
+
+$_ZN5Eigen8internal9evaluatorIKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2ERS9_ = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E3rhsEv = comdat any
+
+$_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERS4_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorIKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2ERKS8_ = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2Ev = comdat any
+
+$_ZNK5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7functorEv = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E4rowsEv = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E4colsEv = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6resizeEll = comdat any
+
+$_ZNK5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZN5Eigen8internal19variable_if_dynamicIlLi2EE5valueEv = comdat any
+
+$_ZNK5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv = comdat any
+
+$_ZN5Eigen8internal19variable_if_dynamicIlLi1EE5valueEv = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE6resizeElll = comdat any
+
+$_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESD_EEEENS0_9assign_opIddEELi0EEELi0ELi2EE3runERSK_ = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE24assignPacketByOuterInnerILi16ELi16EDv2_dEEvll = comdat any
+
+$_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESD_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSK_ = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE20rowIndexByOuterInnerEll = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE20colIndexByOuterInnerEll = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvll = comdat any
+
+$_ZNK5Eigen8internal9assign_opIddE12assignPacketILi16EDv2_dEEvPdRKT0_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE8coeffRefEll = comdat any
+
+$_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE6packetILi16EDv2_dEET0_ll = comdat any
+
+$_ZN5Eigen8internal6pstoreIdDv2_dEEvPT_RKT0_ = comdat any
+
+$_ZNK5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EE11outerStrideEv = comdat any
+
+$_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE4Data4funcEv = comdat any
+
+$_ZNK5Eigen8internal17scalar_product_opIddE8packetOpIDv2_dEET_RKS5_S7_ = comdat any
+
+$_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE6packetILi16EDv2_dlEET0_T1_SD_ = comdat any
+
+$_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE6packetILi16EDv2_dEET0_ll = comdat any
+
+$_ZN5Eigen8internal4pmulIDv2_dEET_RKS3_S5_ = comdat any
+
+$_ZNK5Eigen8internal15nullary_wrapperIdNS0_18scalar_constant_opIdEELb1ELb0ELb0EE8packetOpIDv2_dlEET_RKS3_T0_SA_ = comdat any
+
+$_ZNK5Eigen8internal18scalar_constant_opIdE8packetOpIDv2_dEEKT_v = comdat any
+
+$_ZN5Eigen8internal5pset1IDv2_dEET_RKNS0_15unpacket_traitsIS3_E4typeE = comdat any
+
+$_ZN5Eigen8internal5ploadIDv2_dEET_PKNS0_15unpacket_traitsIS3_E4typeE = comdat any
+
+$_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddED2Ev = comdat any
+
+$_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE4DataD2Ev = comdat any
+
+$_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev = comdat any
+
+$_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv = comdat any
+
+$_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEmlINS1_IdLi2ELi1ELi0ELi2ELi1EEEEEKNS_7ProductIS2_T_Li0EEERKNS0_IS7_EE = comdat any
+
+$_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2INS_7ProductINS0_IdLi2ELi2ELi0ELi2ELi2EEES1_Li0EEEEERKNS_9EigenBaseIT_EE = comdat any
+
+$_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEC2Ev = comdat any
+
+$_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEElsERKd = comdat any
+
+$_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEcmERKd = comdat any
+
+$_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE8finishedEv = comdat any
+
+$_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEC2ERKS1_ = comdat any
+
+$_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE22_check_template_paramsEv = comdat any
+
+$_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EEC2Ev = comdat any
+
+$_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev = comdat any
+
+$_ZN5Eigen8internal11plain_arrayIdLi4ELi0ELi16EEC2Ev = comdat any
+
+$_ZN5Eigen8internal28check_static_allocation_sizeIdLi4EEEvv = comdat any
+
+$_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2ERS2_RKd = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE8coeffRefEll = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4dataEv = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4rowsEv = comdat any
+
+$_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4colsEv = comdat any
+
+$_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4colsEv = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2ERKS3_ = comdat any
+
+$_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE7derivedEv = comdat any
+
+$_ZN5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EEC2ERKS2_RKS3_ = comdat any
+
+$_ZN5Eigen11ProductImplINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0ENS_5DenseEEC2Ev = comdat any
+
+$_ZN5Eigen8internal18dense_product_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0ELi3EEC2Ev = comdat any
+
+$_ZN5Eigen10MatrixBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEEC2Ev = comdat any
+
+$_ZN5Eigen9DenseBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEEC2Ev = comdat any
+
+$_ZNK5Eigen9EigenBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEE7derivedEv = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2INS_7ProductINS1_IdLi2ELi2ELi0ELi2ELi2EEES2_Li0EEEEERKNS_9DenseBaseIT_EE = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE10resizeLikeINS_7ProductINS1_IdLi2ELi2ELi0ELi2ELi2EEES2_Li0EEEEEvRKNS_9EigenBaseIT_EE = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12_set_noaliasINS_7ProductINS1_IdLi2ELi2ELi0ELi2ELi2EEES2_Li0EEEEERS2_RKNS_9DenseBaseIT_EE = comdat any
+
+$_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4rowsEv = comdat any
+
+$_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4colsEv = comdat any
+
+$_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4rowsEv = comdat any
+
+$_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_ = comdat any
+
+$_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS6_RKS8_ = comdat any
+
+$_ZN5Eigen8internal20generic_product_implINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEENS_10DenseShapeES5_Li3EE6evalToIS4_EEvRT_RKS3_RKS4_ = comdat any
+
+$_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE3lhsEv = comdat any
+
+$_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE3rhsEv = comdat any
+
+$_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_ = comdat any
+
+$_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE11lazyProductINS1_IdLi2ELi1ELi0ELi2ELi1EEEEEKNS_7ProductIS2_T_Li1EEERKNS0_IS7_EE = comdat any
+
+$_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS6_RKS8_ = comdat any
+
+$_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2ERKS6_ = comdat any
+
+$_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EEC2ERS5_RKS9_RKSB_RS4_ = comdat any
+
+$_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_7ProductINS4_IdLi2ELi2ELi0ELi2ELi2EEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSD_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEED2Ev = comdat any
+
+$_ZN5Eigen8internal17product_evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEELi3ENS_10DenseShapeES7_ddEC2ERKS6_ = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2Ev = comdat any
+
+$_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE3lhsEv = comdat any
+
+$_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE3rhsEv = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2ERKS3_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEED2Ev = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEEC2ERKS5_ = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev = comdat any
+
+$_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4dataEv = comdat any
+
+$_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi3EE11outerStrideEv = comdat any
+
+$_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi2EEC2EPKdl = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev = comdat any
+
+$_ZNK5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4dataEv = comdat any
+
+$_ZNK5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EE11outerStrideEv = comdat any
+
+$_ZNK5Eigen9DenseBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE9innerSizeEv = comdat any
+
+$_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4rowsEv = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEED2Ev = comdat any
+
+$_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE4rowsEv = comdat any
+
+$_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE4colsEv = comdat any
+
+$_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_7ProductINS4_IdLi2ELi2ELi0ELi2ELi2EEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi0ELi2EE3runERSD_ = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE24assignPacketByOuterInnerILi16ELi16EDv2_dEEvll = comdat any
+
+$_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_7ProductINS4_IdLi2ELi2ELi0ELi2ELi2EEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSD_ = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE20rowIndexByOuterInnerEll = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE20colIndexByOuterInnerEll = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvll = comdat any
+
+$_ZNK5Eigen8internal17product_evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEELi3ENS_10DenseShapeES7_ddE6packetILi16EDv2_dEEKT0_ll = comdat any
+
+$_ZN5Eigen8internal24etor_product_packet_implILi0ELi2ENS0_9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEENS2_INS3_IdLi2ELi1ELi0ELi2ELi1EEEEEDv2_dLi16EE3runEllRKS5_RKS7_lRS8_ = comdat any
+
+$_ZN5Eigen8internal24etor_product_packet_implILi0ELi1ENS0_9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEENS2_INS3_IdLi2ELi1ELi0ELi2ELi1EEEEEDv2_dLi16EE3runEllRKS5_RKS7_lRS8_ = comdat any
+
+$_ZN5Eigen8internal5pmaddIDv2_dEET_RKS3_S5_S5_ = comdat any
+
+$_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEE6packetILi16EDv2_dEET0_ll = comdat any
+
+$_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE5coeffEll = comdat any
+
+$_ZN5Eigen8internal4paddIDv2_dEET_RKS3_S5_ = comdat any
+
+$_ZNK5Eigen8internal30plainobjectbase_evaluator_dataIdLi2EE11outerStrideEv = comdat any
+
+$_ZN5Eigen8internal17product_evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEELi3ENS_10DenseShapeES7_ddED2Ev = comdat any
+
+$_ZN5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EEC2ERKS2_RKS3_ = comdat any
+
+$_ZN5Eigen11ProductImplINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1ENS_5DenseEEC2Ev = comdat any
+
+$_ZN5Eigen8internal18dense_product_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi1ELi3EEC2Ev = comdat any
+
+$_ZN5Eigen10MatrixBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2Ev = comdat any
+
+$_ZN5Eigen9DenseBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2Ev = comdat any
+
+$_ZN5Eigen8internal13scalar_sum_opIddEC2Ev = comdat any
+
+$_ZN5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_EC2ERS6_S8_RKS3_ = comdat any
+
+$_ZN5Eigen17CwiseBinaryOpImplINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_NS_5DenseEEC2Ev = comdat any
+
+$_ZN5Eigen8internal13scalar_sum_opIddEC2ERKS2_ = comdat any
+
+$_ZN5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2Ev = comdat any
+
+$_ZN5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2Ev = comdat any
+
+$_ZNK5Eigen9EigenBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEE7derivedEv = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS2_S9_EEEERKNS_9DenseBaseIT_EE = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE10resizeLikeINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS2_S9_EEEEvRKNS_9EigenBaseIT_EE = comdat any
+
+$_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12_set_noaliasINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS2_S9_EEEERS2_RKNS_9DenseBaseIT_EE = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4rowsEv = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4colsEv = comdat any
+
+$_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_ = comdat any
+
+$_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS8_RKSA_ = comdat any
+
+$_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2ERKS8_ = comdat any
+
+$_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EEC2ERS5_RKSB_RKSD_RS4_ = comdat any
+
+$_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS5_SA_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSF_ = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEED2Ev = comdat any
+
+$_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddEC2ERKS8_ = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2Ev = comdat any
+
+$_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE4DataC2ERKS8_ = comdat any
+
+$_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEED2Ev = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E7functorEv = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E3lhsEv = comdat any
+
+$_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E3rhsEv = comdat any
+
+$_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS5_SA_EEEENS0_9assign_opIddEELi0EEELi0ELi2EE3runERSF_ = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE24assignPacketByOuterInnerILi16ELi16EDv2_dEEvll = comdat any
+
+$_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS5_SA_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSF_ = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE20rowIndexByOuterInnerEll = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE20colIndexByOuterInnerEll = comdat any
+
+$_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvll = comdat any
+
+$_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE6packetILi16EDv2_dEET0_ll = comdat any
+
+$_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE4Data4funcEv = comdat any
+
+$_ZNK5Eigen8internal13scalar_sum_opIddE8packetOpIDv2_dEET_RKS5_S7_ = comdat any
+
+$_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddED2Ev = comdat any
+
+$_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE4DataD2Ev = comdat any
+
+$_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EEixEl = comdat any
+
+$_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EE8coeffRefEl = comdat any
+
+$_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE8coeffRefEl = comdat any
+
+@_ZN5EigenL4lastE = internal global %"class.Eigen::symbolic::SymbolExpr" zeroinitializer, align 1
+@_ZN5EigenL6lastp1E = internal global %"class.Eigen::symbolic::AddExpr" zeroinitializer, align 1
+@_ZN5EigenL3fixILi1EEE = internal global %"class.Eigen::internal::FixedInt" zeroinitializer, align 1
+@_ZN5EigenL3allE = internal global %"struct.Eigen::internal::all_t" zeroinitializer, align 1
+@llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.3, ptr null }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_odometry_measurement.cpp, ptr null }]
+
+@_ZN3g2o19VelocityMeasurementC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o19VelocityMeasurementC2Ev
+@_ZN3g2o19VelocityMeasurementC1Eddd = unnamed_addr alias void (ptr, double, double, double), ptr @_ZN3g2o19VelocityMeasurementC2Eddd
+@_ZN3g2o17MotionMeasurementC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o17MotionMeasurementC2Ev
+@_ZN3g2o17MotionMeasurementC1Edddd = unnamed_addr alias void (ptr, double, double, double, double), ptr @_ZN3g2o17MotionMeasurementC2Edddd
+@_ZN3g2o17MotionMeasurementC1ERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEd = unnamed_addr alias void (ptr, ptr, double), ptr @_ZN3g2o17MotionMeasurementC2ERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEd
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+  call void @_ZN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL4lastE)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8symbolic10SymbolExprINS_8internal17symbolic_last_tagEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
+  call void @_ZNK5Eigen8internal8FixedIntILi1EEclEv(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL3fixILi1EEE)
+  call void @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEplILi1EEENS0_7AddExprIS5_NS0_9ValueExprINS3_8FixedIntIXT_EEEEEEESB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL4lastE)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEEplILi1EEENS0_7AddExprIS5_NS0_9ValueExprINS3_8FixedIntIXT_EEEEEEESB_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca %"class.Eigen::symbolic::AddExpr", align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.Eigen::symbolic::ValueExpr", align 1
+  store ptr %0, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @_ZN5Eigen8symbolic9ValueExprINS_8internal8FixedIntILi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN5Eigen8symbolic7AddExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEENS0_9ValueExprINS3_8FixedIntILi1EEEEEEC2ERKS5_RKS9_(ptr noundef nonnull align 1 dereferenceable(2) %2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNK5Eigen8internal8FixedIntILi1EEclEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.2() #0 section ".text.startup" {
+  call void @_ZN5Eigen8internal5all_tC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL3allE)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal5all_tC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3g2o19VelocityMeasurementC2Ev(ptr noundef nonnull align 16 dereferenceable(24) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca double, align 8
+  %4 = alloca double, align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %"class.g2o::VelocityMeasurement", ptr %5, i32 0, i32 0
+  store double 0.000000e+00, ptr %3, align 8
+  store double 0.000000e+00, ptr %4, align 8
+  call void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2IddEERKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %7 = getelementptr inbounds nuw %"class.g2o::VelocityMeasurement", ptr %5, i32 0, i32 1
+  store double 0.000000e+00, ptr %7, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2IddEERKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %7)
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22_check_template_paramsEv()
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6_init2IddEEvRKT_RKT0_PNS_8internal9enable_ifILb1ES5_E4typeE(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef null)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3g2o19VelocityMeasurementC2Eddd(ptr noundef nonnull align 16 dereferenceable(24) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #2 align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  store ptr %0, ptr %5, align 8
+  store double %1, ptr %6, align 8
+  store double %2, ptr %7, align 8
+  store double %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"class.g2o::VelocityMeasurement", ptr %9, i32 0, i32 0
+  call void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2IddEERKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %11 = getelementptr inbounds nuw %"class.g2o::VelocityMeasurement", ptr %9, i32 0, i32 1
+  %12 = load double, ptr %8, align 8
+  store double %12, ptr %11, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3g2o17MotionMeasurementC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca double, align 8
+  %4 = alloca double, align 8
+  %5 = alloca double, align 8
+  store ptr %0, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %6, i32 0, i32 0
+  store double 0.000000e+00, ptr %3, align 8
+  store double 0.000000e+00, ptr %4, align 8
+  store double 0.000000e+00, ptr %5, align 8
+  call void @_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEC2ERKdS3_S3_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %8 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %6, i32 0, i32 1
+  store double 0.000000e+00, ptr %8, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEC2ERKdS3_S3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE22_check_template_paramsEv()
+  %10 = load ptr, ptr %6, align 8
+  %11 = load double, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.4", ptr %9, i32 0, i32 0
+  %13 = call noundef ptr @_ZN5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
+  %14 = getelementptr inbounds double, ptr %13, i64 0
+  store double %11, ptr %14, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load double, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.4", ptr %9, i32 0, i32 0
+  %18 = call noundef ptr @_ZN5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %19 = getelementptr inbounds double, ptr %18, i64 1
+  store double %16, ptr %19, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = load double, ptr %20, align 8
+  %22 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.4", ptr %9, i32 0, i32 0
+  %23 = call noundef ptr @_ZN5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %22)
+  %24 = getelementptr inbounds double, ptr %23, i64 2
+  store double %21, ptr %24, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3g2o17MotionMeasurementC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #2 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  store ptr %0, ptr %6, align 8
+  store double %1, ptr %7, align 8
+  store double %2, ptr %8, align 8
+  store double %3, ptr %9, align 8
+  store double %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %11, i32 0, i32 0
+  call void @_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEC2ERKdS3_S3_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %13 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %11, i32 0, i32 1
+  %14 = load double, ptr %10, align 8
+  store double %14, ptr %13, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3g2o17MotionMeasurementC2ERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEd(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, double noundef %2) unnamed_addr #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca double, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store double %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %10 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %7, i32 0, i32 1
+  %11 = load double, ptr %6, align 8
+  store double %11, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3g2o11OdomConvert17convertToVelocityERKNS_17MotionMeasurementE(ptr dead_on_unwind noalias writable sret(%"class.g2o::VelocityMeasurement") align 16 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef double @_ZNK3g2o17MotionMeasurement5thetaEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %14 = call double @llvm.fabs.f64(double %13)
+  %15 = fcmp ogt double %14, 0x3E7AD7F29ABCAF48
+  br i1 %15, label %16, label %54
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8
+  %18 = call noundef double @_ZNK3g2o17MotionMeasurement1xEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
+  %19 = load ptr, ptr %4, align 8
+  %20 = call noundef double @_ZNK3g2o17MotionMeasurement1yEv(ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %21 = call double @hypot(double noundef %18, double noundef %20) #8
+  store double %21, ptr %5, align 8
+  %22 = load double, ptr %5, align 8
+  %23 = load ptr, ptr %4, align 8
+  %24 = call noundef double @_ZNK3g2o17MotionMeasurement5thetaEv(ptr noundef nonnull align 8 dereferenceable(32) %23)
+  %25 = fdiv double %24, 2.000000e+00
+  %26 = call double @sin(double noundef %25) #8
+  %27 = fmul double 2.000000e+00, %26
+  %28 = fdiv double %22, %27
+  store double %28, ptr %6, align 8
+  store double 0.000000e+00, ptr %7, align 8
+  %29 = load ptr, ptr %4, align 8
+  %30 = call noundef double @_ZNK3g2o17MotionMeasurement2dtEv(ptr noundef nonnull align 8 dereferenceable(32) %29)
+  %31 = call double @llvm.fabs.f64(double %30)
+  %32 = fcmp ogt double %31, 0x3E7AD7F29ABCAF48
+  br i1 %32, label %33, label %39
+
+33:                                               ; preds = %16
+  %34 = load ptr, ptr %4, align 8
+  %35 = call noundef double @_ZNK3g2o17MotionMeasurement5thetaEv(ptr noundef nonnull align 8 dereferenceable(32) %34)
+  %36 = load ptr, ptr %4, align 8
+  %37 = call noundef double @_ZNK3g2o17MotionMeasurement2dtEv(ptr noundef nonnull align 8 dereferenceable(32) %36)
+  %38 = fdiv double %35, %37
+  store double %38, ptr %7, align 8
+  br label %39
+
+39:                                               ; preds = %33, %16
+  %40 = load double, ptr %6, align 8
+  %41 = fmul double 2.000000e+00, %40
+  %42 = load double, ptr %7, align 8
+  %43 = load double, ptr %7, align 8
+  %44 = fneg double %43
+  %45 = call double @llvm.fmuladd.f64(double %41, double %42, double %44)
+  %46 = fdiv double %45, 2.000000e+00
+  store double %46, ptr %8, align 8
+  %47 = load double, ptr %7, align 8
+  %48 = load double, ptr %8, align 8
+  %49 = fadd double %47, %48
+  store double %49, ptr %9, align 8
+  %50 = load double, ptr %8, align 8
+  %51 = load double, ptr %9, align 8
+  %52 = load ptr, ptr %4, align 8
+  %53 = call noundef double @_ZNK3g2o17MotionMeasurement2dtEv(ptr noundef nonnull align 8 dereferenceable(32) %52)
+  call void @_ZN3g2o19VelocityMeasurementC1Eddd(ptr noundef nonnull align 16 dereferenceable(24) %0, double noundef %50, double noundef %51, double noundef %53)
+  br label %74
+
+54:                                               ; preds = %2
+  %55 = load ptr, ptr %4, align 8
+  %56 = call noundef double @_ZNK3g2o17MotionMeasurement2dtEv(ptr noundef nonnull align 8 dereferenceable(32) %55)
+  %57 = call double @llvm.fabs.f64(double %56)
+  %58 = fcmp ogt double %57, 0x3E7AD7F29ABCAF48
+  br i1 %58, label %59, label %68
+
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %4, align 8
+  %61 = call noundef double @_ZNK3g2o17MotionMeasurement1xEv(ptr noundef nonnull align 8 dereferenceable(32) %60)
+  %62 = load ptr, ptr %4, align 8
+  %63 = call noundef double @_ZNK3g2o17MotionMeasurement1yEv(ptr noundef nonnull align 8 dereferenceable(32) %62)
+  %64 = call double @hypot(double noundef %61, double noundef %63) #8
+  %65 = load ptr, ptr %4, align 8
+  %66 = call noundef double @_ZNK3g2o17MotionMeasurement2dtEv(ptr noundef nonnull align 8 dereferenceable(32) %65)
+  %67 = fdiv double %64, %66
+  store double %67, ptr %11, align 8
+  store double %67, ptr %10, align 8
+  br label %69
+
+68:                                               ; preds = %54
+  store double 0.000000e+00, ptr %11, align 8
+  store double 0.000000e+00, ptr %10, align 8
+  br label %69
+
+69:                                               ; preds = %68, %59
+  %70 = load double, ptr %10, align 8
+  %71 = load double, ptr %11, align 8
+  %72 = load ptr, ptr %4, align 8
+  %73 = call noundef double @_ZNK3g2o17MotionMeasurement2dtEv(ptr noundef nonnull align 8 dereferenceable(32) %72)
+  call void @_ZN3g2o19VelocityMeasurementC1Eddd(ptr noundef nonnull align 16 dereferenceable(24) %0, double noundef %70, double noundef %71, double noundef %73)
+  br label %74
+
+74:                                               ; preds = %69, %39
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNK3g2o17MotionMeasurement5thetaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi0EEclEl(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 2)
+  %6 = load double, ptr %5, align 8
+  ret double %6
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #3
+
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNK3g2o17MotionMeasurement1xEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi0EEclEl(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 0)
+  %6 = load double, ptr %5, align 8
+  ret double %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNK3g2o17MotionMeasurement1yEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi0EEclEl(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1)
+  %6 = load double, ptr %5, align 8
+  ret double %6
+}
+
+; Function Attrs: nounwind
+declare double @sin(double noundef) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef double @_ZNK3g2o17MotionMeasurement2dtEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::MotionMeasurement", ptr %3, i32 0, i32 1
+  %5 = load double, ptr %4, align 8
+  ret double %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #3
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3g2o11OdomConvert15convertToMotionERKNS_19VelocityMeasurementEd(ptr dead_on_unwind noalias writable sret(%"class.g2o::MotionMeasurement") align 8 %0, ptr noundef nonnull align 16 dereferenceable(24) %1, double noundef %2) #2 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca double, align 8
+  %7 = alloca double, align 8
+  %8 = alloca double, align 8
+  %9 = alloca double, align 8
+  %10 = alloca double, align 8
+  %11 = alloca double, align 8
+  %12 = alloca %"class.Eigen::Rotation2D", align 8
+  %13 = alloca %"class.Eigen::Matrix", align 16
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.Eigen::Matrix", align 16
+  %16 = alloca %"class.Eigen::CwiseBinaryOp", align 8
+  %17 = alloca %"class.Eigen::Matrix", align 16
+  %18 = alloca %"class.Eigen::Matrix", align 16
+  %19 = alloca %"class.Eigen::CwiseBinaryOp.17", align 8
+  %20 = alloca double, align 8
+  %21 = alloca double, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store double %2, ptr %6, align 8
+  %22 = load ptr, ptr %5, align 8
+  %23 = call noundef double @_ZNK3g2o19VelocityMeasurement2vrEv(ptr noundef nonnull align 16 dereferenceable(24) %22)
+  %24 = load ptr, ptr %5, align 8
+  %25 = call noundef double @_ZNK3g2o19VelocityMeasurement2vlEv(ptr noundef nonnull align 16 dereferenceable(24) %24)
+  %26 = fsub double %23, %25
+  %27 = call double @llvm.fabs.f64(double %26)
+  %28 = fcmp ogt double %27, 0x3E7AD7F29ABCAF48
+  br i1 %28, label %29, label %59
+
+29:                                               ; preds = %3
+  %30 = load double, ptr %6, align 8
+  %31 = fmul double %30, 5.000000e-01
+  %32 = load ptr, ptr %5, align 8
+  %33 = call noundef double @_ZNK3g2o19VelocityMeasurement2vlEv(ptr noundef nonnull align 16 dereferenceable(24) %32)
+  %34 = load ptr, ptr %5, align 8
+  %35 = call noundef double @_ZNK3g2o19VelocityMeasurement2vrEv(ptr noundef nonnull align 16 dereferenceable(24) %34)
+  %36 = fadd double %33, %35
+  %37 = load ptr, ptr %5, align 8
+  %38 = call noundef double @_ZNK3g2o19VelocityMeasurement2vrEv(ptr noundef nonnull align 16 dereferenceable(24) %37)
+  %39 = load ptr, ptr %5, align 8
+  %40 = call noundef double @_ZNK3g2o19VelocityMeasurement2vlEv(ptr noundef nonnull align 16 dereferenceable(24) %39)
+  %41 = fsub double %38, %40
+  %42 = fdiv double %36, %41
+  %43 = fmul double %31, %42
+  store double %43, ptr %10, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = call noundef double @_ZNK3g2o19VelocityMeasurement2vrEv(ptr noundef nonnull align 16 dereferenceable(24) %44)
+  %46 = load ptr, ptr %5, align 8
+  %47 = call noundef double @_ZNK3g2o19VelocityMeasurement2vlEv(ptr noundef nonnull align 16 dereferenceable(24) %46)
+  %48 = fsub double %45, %47
+  %49 = load double, ptr %6, align 8
+  %50 = fdiv double %48, %49
+  store double %50, ptr %11, align 8
+  %51 = load double, ptr %11, align 8
+  %52 = load ptr, ptr %5, align 8
+  %53 = call noundef double @_ZNK3g2o19VelocityMeasurement2dtEv(ptr noundef nonnull align 16 dereferenceable(24) %52)
+  %54 = fmul double %51, %53
+  store double %54, ptr %9, align 8
+  call void @_ZN5Eigen10Rotation2DIdEC2ERKd(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  store i32 0, ptr %14, align 4
+  call void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2IidEERKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  store double -1.000000e+00, ptr %20, align 8
+  call void @_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE(ptr dead_on_unwind writable sret(%"class.Eigen::CwiseBinaryOp.17") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  call void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2INS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEEKS1_EESA_EEEERKT_(ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(33) %19)
+  call void @_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE(ptr dead_on_unwind writable sret(%"class.Eigen::Matrix") align 16 %17, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 16 dereferenceable(16) %18)
+  call void @_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEplIS2_EEKNS_13CwiseBinaryOpINS_8internal13scalar_sum_opIdNS6_6traitsIT_E6ScalarEEEKS2_KS9_EERKNS0_IS9_EE(ptr dead_on_unwind writable sret(%"class.Eigen::CwiseBinaryOp") align 8 %16, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  call void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS1_S7_EEEERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(1) %16)
+  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EE1xEv(ptr noundef nonnull align 1 dereferenceable(1) %15)
+  %56 = load double, ptr %55, align 8
+  store double %56, ptr %7, align 8
+  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EE1yEv(ptr noundef nonnull align 1 dereferenceable(1) %15)
+  %58 = load double, ptr %57, align 8
+  store double %58, ptr %8, align 8
+  br label %70
+
+59:                                               ; preds = %3
+  %60 = load ptr, ptr %5, align 8
+  %61 = call noundef double @_ZNK3g2o19VelocityMeasurement2vrEv(ptr noundef nonnull align 16 dereferenceable(24) %60)
+  %62 = load ptr, ptr %5, align 8
+  %63 = call noundef double @_ZNK3g2o19VelocityMeasurement2vlEv(ptr noundef nonnull align 16 dereferenceable(24) %62)
+  %64 = fadd double %61, %63
+  %65 = fmul double 5.000000e-01, %64
+  store double %65, ptr %21, align 8
+  store double 0.000000e+00, ptr %9, align 8
+  %66 = load double, ptr %21, align 8
+  %67 = load ptr, ptr %5, align 8
+  %68 = call noundef double @_ZNK3g2o19VelocityMeasurement2dtEv(ptr noundef nonnull align 16 dereferenceable(24) %67)
+  %69 = fmul double %66, %68
+  store double %69, ptr %7, align 8
+  store double 0.000000e+00, ptr %8, align 8
+  br label %70
+
+70:                                               ; preds = %59, %29
+  %71 = load double, ptr %7, align 8
+  %72 = load double, ptr %8, align 8
+  %73 = load double, ptr %9, align 8
+  %74 = load ptr, ptr %5, align 8
+  %75 = call noundef double @_ZNK3g2o19VelocityMeasurement2dtEv(ptr noundef nonnull align 16 dereferenceable(24) %74)
+  call void @_ZN3g2o17MotionMeasurementC1Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %71, double noundef %72, double noundef %73, double noundef %75)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNK3g2o19VelocityMeasurement2vrEv(ptr noundef nonnull align 16 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::VelocityMeasurement", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi0EEclEl(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1)
+  %6 = load double, ptr %5, align 8
+  ret double %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNK3g2o19VelocityMeasurement2vlEv(ptr noundef nonnull align 16 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::VelocityMeasurement", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi0EEclEl(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 0)
+  %6 = load double, ptr %5, align 8
+  ret double %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef double @_ZNK3g2o19VelocityMeasurement2dtEv(ptr noundef nonnull align 16 dereferenceable(24) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.g2o::VelocityMeasurement", ptr %3, i32 0, i32 1
+  %5 = load double, ptr %4, align 16
+  ret double %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen10Rotation2DIdEC2ERKd(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.Eigen::Rotation2D", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load double, ptr %7, align 8
+  store double %8, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2IidEERKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %7)
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22_check_template_paramsEv()
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6_init2IidEEvRKT_RKT0_PNS_8internal9enable_ifILb1ES5_E4typeE(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef null)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 16 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.Eigen::Product", align 8
+  %8 = alloca %"class.Eigen::Matrix.48", align 16
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv(ptr dead_on_unwind writable sret(%"class.Eigen::Matrix.48") align 16 %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %10 = load ptr, ptr %6, align 8
+  %11 = call { ptr, ptr } @_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEmlINS1_IdLi2ELi1ELi0ELi2ELi1EEEEEKNS_7ProductIS2_T_Li0EEERKNS0_IS7_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %12 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %13 = extractvalue { ptr, ptr } %11, 0
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %15 = extractvalue { ptr, ptr } %11, 1
+  store ptr %15, ptr %14, align 8
+  call void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2INS_7ProductINS0_IdLi2ELi2ELi0ELi2ELi2EEES1_Li0EEEEERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5EigenmlIdEEKNS_13CwiseBinaryOpINS_8internal17scalar_product_opINS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIS5_dNS3_IS5_dEEEEEE5valueEE4typeEdEEKNS2_19plain_constant_typeINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEESA_E4typeEKSE_EERKS5_RKNS_10MatrixBaseISE_EE(ptr dead_on_unwind noalias writable sret(%"class.Eigen::CwiseBinaryOp.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.Eigen::CwiseNullaryOp", align 8
+  %8 = alloca %"struct.Eigen::internal::scalar_constant_op", align 8
+  %9 = alloca %"struct.Eigen::internal::scalar_product_op", align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %12 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(16) %11) #8
+  %13 = load ptr, ptr %6, align 8
+  %14 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %15 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(16) %14) #8
+  %16 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen8internal18scalar_constant_opIdEC2ERKd(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  call void @_ZN5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2EllRKS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %12, i64 noundef %15, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %17 = load ptr, ptr %6, align 8
+  %18 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %17)
+  call void @_ZN5Eigen8internal17scalar_product_opIddEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  call void @_ZN5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_EC2ERSB_RS9_RKS3_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2INS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS4_18scalar_constant_opIdEEKS1_EESA_EEEERKT_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %5)
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22_check_template_paramsEv()
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6_init1INS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EESF_EEvRKNS_9DenseBaseIT0_EE(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEplIS2_EEKNS_13CwiseBinaryOpINS_8internal13scalar_sum_opIdNS6_6traitsIT_E6ScalarEEEKS2_KS9_EERKNS0_IS9_EE(ptr dead_on_unwind noalias writable sret(%"class.Eigen::CwiseBinaryOp") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.Eigen::internal::scalar_sum_op", align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %10 = load ptr, ptr %6, align 8
+  %11 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  call void @_ZN5Eigen8internal13scalar_sum_opIddEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  call void @_ZN5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_EC2ERS6_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS1_S7_EEEERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNK5Eigen9EigenBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS2_S9_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EE1xEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef 0)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EE1yEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef 1)
+  ret ptr %4
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.3() #0 section ".text.startup" {
+  call void @_ZN5Eigen8internal8FixedIntILi1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5EigenL3fixILi1EEE)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal8FixedIntILi1EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi0EEclEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi0EE5coeffEl(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELi0EE5coeffEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %"struct.Eigen::internal::evaluator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %10 = load i64, ptr %4, align 8
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEE5coeffEl(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %10)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %2
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  ret ptr %11
+
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEE5coeffEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.28", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds double, ptr %8, i64 %9
+  ret ptr %10
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.28", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  %10 = invoke noundef ptr @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %11 unwind label %13
+
+11:                                               ; preds = %2
+  invoke void @_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEC2EPKdl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10, i64 noundef 0)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %11
+  ret void
+
+13:                                               ; preds = %11, %2
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.4", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEC2EPKdl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  call void @_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage.11", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.Eigen::internal::plain_array.12", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds [3 x double], ptr %5, i64 0, i64 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi0EEclEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi0EE5coeffEl(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi0EE5coeffEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %"struct.Eigen::internal::evaluator.29", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 16 dereferenceable(16) %9)
+  %10 = load i64, ptr %4, align 8
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE5coeffEl(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %10)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %2
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  ret ptr %11
+
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 16 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE5coeffEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.30", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds double, ptr %8, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.30", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  %10 = invoke noundef ptr @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4dataEv(ptr noundef nonnull align 16 dereferenceable(16) %9)
+          to label %11 unwind label %13
+
+11:                                               ; preds = %2
+  invoke void @_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EEC2EPKdl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10, i64 noundef 0)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %11
+  ret void
+
+13:                                               ; preds = %11, %2
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4dataEv(ptr noundef nonnull align 16 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(16) %4)
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.Eigen::internal::plain_array", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds [2 x double], ptr %5, i64 0, i64 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8symbolic8BaseExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8symbolic9ValueExprINS_8internal8FixedIntILi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8symbolic7AddExprINS0_10SymbolExprINS_8internal17symbolic_last_tagEEENS0_9ValueExprINS3_8FixedIntILi1EEEEEEC2ERKS5_RKS9_(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %4 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %3, i32 0, i32 0
+  call void @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22_check_template_paramsEv() #1 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6_init2IddEEvRKT_RKT0_PNS_8internal9enable_ifILb1ES5_E4typeE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load double, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %9, i32 0, i32 0
+  %13 = call noundef ptr @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(16) %12)
+  %14 = getelementptr inbounds double, ptr %13, i64 0
+  store double %11, ptr %14, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load double, ptr %15, align 8
+  %17 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %9, i32 0, i32 0
+  %18 = call noundef ptr @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(16) %17)
+  %19 = getelementptr inbounds double, ptr %18, i64 1
+  store double %16, ptr %19, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage", ptr %3, i32 0, i32 0
+  call void @_ZN5Eigen8internal11plain_arrayIdLi2ELi0ELi16EEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal11plain_arrayIdLi2ELi0ELi16EEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN5Eigen8internal28check_static_allocation_sizeIdLi2EEEvv()
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal28check_static_allocation_sizeIdLi2EEEvv() #1 comdat {
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.Eigen::internal::plain_array", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds [2 x double], ptr %5, i64 0, i64 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %4 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.4", ptr %3, i32 0, i32 0
+  call void @_ZN5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE22_check_template_paramsEv() #1 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage.11", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.Eigen::internal::plain_array.12", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds [3 x double], ptr %5, i64 0, i64 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen12DenseStorageIdLi3ELi3ELi1ELi0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage.11", ptr %3, i32 0, i32 0
+  call void @_ZN5Eigen8internal11plain_arrayIdLi3ELi0ELi0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal11plain_arrayIdLi3ELi0ELi0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN5Eigen8internal28check_static_allocation_sizeIdLi3EEEvv()
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal28check_static_allocation_sizeIdLi3EEEvv() #1 comdat {
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %6 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.4", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.4", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %8, i64 24, i1 false)
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6_init2IidEEvRKT_RKT0_PNS_8internal9enable_ifILb1ES5_E4typeE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #1 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load i32, ptr %10, align 4
+  %12 = sitofp i32 %11 to double
+  %13 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %9, i32 0, i32 0
+  %14 = call noundef ptr @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(16) %13)
+  %15 = getelementptr inbounds double, ptr %14, i64 0
+  store double %12, ptr %15, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = load double, ptr %16, align 8
+  %18 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %9, i32 0, i32 0
+  %19 = call noundef ptr @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(16) %18)
+  %20 = getelementptr inbounds double, ptr %19, i64 1
+  store double %17, ptr %20, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef i64 @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4rowsEv() #8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef i64 @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4colsEv() #8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal18scalar_constant_opIdEC2ERKd(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.Eigen::internal::scalar_constant_op", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load double, ptr %7, align 8
+  store double %8, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2EllRKS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %10 = load i64, ptr %6, align 8
+  call void @_ZN5Eigen8internal19variable_if_dynamicIlLi2EEC2El(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
+  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %12 = load i64, ptr %7, align 8
+  call void @_ZN5Eigen8internal19variable_if_dynamicIlLi1EEC2El(ptr noundef nonnull align 1 dereferenceable(1) %11, i64 noundef %12)
+  %13 = getelementptr inbounds nuw %"class.Eigen::CwiseNullaryOp", ptr %9, i32 0, i32 1
+  %14 = load ptr, ptr %8, align 8
+  call void @_ZN5Eigen8internal18scalar_constant_opIdEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal17scalar_product_opIddEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_EC2ERSB_RS9_RKS3_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen17CwiseBinaryOpImplINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_NS_5DenseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %10 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp.17", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %12 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp.17", ptr %9, i32 0, i32 2
+  %13 = load ptr, ptr %7, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = load ptr, ptr %8, align 8
+  call void @_ZN5Eigen8internal17scalar_product_opIddEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4rowsEv() #1 comdat align 2 {
+  ret i64 2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE4colsEv() #1 comdat align 2 {
+  ret i64 1
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen9DenseBaseINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal19variable_if_dynamicIlLi2EEC2El(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal19variable_if_dynamicIlLi1EEC2El(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  call void @_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal18scalar_constant_opIdEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.Eigen::internal::scalar_constant_op", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::scalar_constant_op", ptr %7, i32 0, i32 0
+  %9 = load double, ptr %8, align 8
+  store double %9, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen9DenseBaseINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen17CwiseBinaryOpImplINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_NS_5DenseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.Eigen::CwiseNullaryOp", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.Eigen::CwiseNullaryOp", ptr %7, i32 0, i32 1
+  call void @_ZN5Eigen8internal18scalar_constant_opIdEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal17scalar_product_opIddEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6_init1INS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EESF_EEvRKNS_9DenseBaseIT0_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12_set_noaliasINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EEEERS2_RKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12_set_noaliasINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEEKS2_EESC_EEEERS2_RKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.Eigen::internal::assign_op", align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZNK5Eigen9EigenBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen8internal9assign_opIddEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(33) %9, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %10 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKSD_RKSF_(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(33) ptr @_ZNK5Eigen9EigenBaseINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9assign_opIddEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKSD_RKSF_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(33) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.Eigen::internal::evaluator.35", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.Eigen::internal::evaluator.29", align 8
+  %11 = alloca %"class.Eigen::internal::generic_dense_assignment_kernel", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(33) %12)
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %6, align 8
+  invoke void @_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(33) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %16 unwind label %25
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 16 dereferenceable(16) %17)
+          to label %18 unwind label %25
+
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = invoke noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE18const_cast_derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %20)
+          to label %22 unwind label %29
+
+22:                                               ; preds = %18
+  invoke void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EEC2ERS5_RKSG_RKSI_RS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 16 dereferenceable(16) %21)
+          to label %23 unwind label %29
+
+23:                                               ; preds = %22
+  invoke void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESD_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSK_(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %24 unwind label %29
+
+24:                                               ; preds = %23
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
+  call void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
+  ret void
+
+25:                                               ; preds = %16, %3
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %8, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %9, align 4
+  br label %33
+
+29:                                               ; preds = %23, %22, %18
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %8, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %9, align 4
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
+  br label %33
+
+33:                                               ; preds = %29, %25
+  call void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %8, align 8
+  %36 = load i32, ptr %9, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(33) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS3_EESA_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E4rowsEv(ptr noundef nonnull align 8 dereferenceable(33) %9) #8
+  store i64 %10, ptr %7, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = call noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E4colsEv(ptr noundef nonnull align 8 dereferenceable(33) %11) #8
+  store i64 %12, ptr %8, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(16) %13) #8
+  %15 = load i64, ptr %7, align 8
+  %16 = icmp ne i64 %14, %15
+  br i1 %16, label %22, label %17
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8
+  %19 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(16) %18) #8
+  %20 = load i64, ptr %8, align 8
+  %21 = icmp ne i64 %19, %20
+  br i1 %21, label %22, label %26
+
+22:                                               ; preds = %17, %3
+  %23 = load ptr, ptr %4, align 8
+  %24 = load i64, ptr %7, align 8
+  %25 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6resizeEll(ptr noundef nonnull align 16 dereferenceable(16) %23, i64 noundef %24, i64 noundef %25)
+  br label %26
+
+26:                                               ; preds = %22, %17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE18const_cast_derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EEC2ERS5_RKSG_RKSI_RS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 16 dereferenceable(16) %4) unnamed_addr #1 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel", ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %7, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel", ptr %11, i32 0, i32 1
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel", ptr %11, i32 0, i32 2
+  %17 = load ptr, ptr %9, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel", ptr %11, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESD_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSK_(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESD_EEEENS0_9assign_opIddEELi0EEELi0ELi2EE3runERSK_(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  invoke void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE4DataC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(33) %9)
+          to label %10 unwind label %11
+
+10:                                               ; preds = %2
+  ret void
+
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE4DataC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(33) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E7functorEv(ptr noundef nonnull align 8 dereferenceable(33) %8)
+  call void @_ZN5Eigen8internal17scalar_product_opIddEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %10 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 2, 1>>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E3lhsEv(ptr noundef nonnull align 8 dereferenceable(33) %11)
+  call void @_ZN5Eigen8internal9evaluatorIKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2ERS9_(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %13 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 2, 1>>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %7, i32 0, i32 2
+  %14 = load ptr, ptr %4, align 8
+  %15 = invoke noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E3rhsEv(ptr noundef nonnull align 8 dereferenceable(33) %14)
+          to label %16 unwind label %18
+
+16:                                               ; preds = %2
+  invoke void @_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 16 dereferenceable(16) %15)
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
+  ret void
+
+18:                                               ; preds = %16, %2
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  call void @_ZN5Eigen8internal9evaluatorIKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10) #8
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i32, ptr %6, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E7functorEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E3lhsEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp.17", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorIKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2ERS9_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E3rhsEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp.17", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 16 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorIKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.39", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7functorEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %11 unwind label %13
+
+11:                                               ; preds = %2
+  invoke void @_ZN5Eigen8internal18scalar_constant_opIdEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %11
+  ret void
+
+13:                                               ; preds = %11, %2
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
+  call void @_ZN5Eigen8internal14evaluator_baseINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7functorEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::CwiseNullaryOp", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E4rowsEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp.17", ptr %3, i32 0, i32 1
+  %5 = invoke noundef i64 @_ZNK5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret i64 %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #9
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS1_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEES9_E4colsEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp.17", ptr %3, i32 0, i32 1
+  %5 = invoke noundef i64 @_ZNK5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret i64 %5
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #9
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6resizeEll(ptr noundef nonnull align 16 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8
+  store i64 %1, ptr %7, align 8
+  store i64 %2, ptr %8, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = load i64, ptr %7, align 8
+  %11 = load i64, ptr %8, align 8
+  store i64 %10, ptr %4, align 8
+  store i64 %11, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %9, i32 0, i32 0
+  %13 = load i64, ptr %7, align 8
+  %14 = load i64, ptr %8, align 8
+  %15 = mul nsw i64 %13, %14
+  %16 = load i64, ptr %7, align 8
+  %17 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE6resizeElll(ptr noundef nonnull align 16 dereferenceable(16) %12, i64 noundef %15, i64 noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef i64 @_ZN5Eigen8internal19variable_if_dynamicIlLi2EE5valueEv()
+  ret i64 %3
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #8
+  call void @_ZSt9terminatev() #9
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen8internal19variable_if_dynamicIlLi2EE5valueEv() #1 comdat align 2 {
+  ret i64 2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen14CwiseNullaryOpINS_8internal18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef i64 @_ZN5Eigen8internal19variable_if_dynamicIlLi1EE5valueEv()
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen8internal19variable_if_dynamicIlLi1EE5valueEv() #1 comdat align 2 {
+  ret i64 1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EE6resizeElll(ptr noundef nonnull align 16 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESD_EEEENS0_9assign_opIddEELi0EEELi0ELi2EE3runERSK_(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE24assignPacketByOuterInnerILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0)
+  %4 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESD_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSK_(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE24assignPacketByOuterInnerILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = call noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE20rowIndexByOuterInnerEll(i64 noundef %10, i64 noundef %11)
+  store i64 %12, ptr %7, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = load i64, ptr %6, align 8
+  %15 = call noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE20colIndexByOuterInnerEll(i64 noundef %13, i64 noundef %14)
+  store i64 %15, ptr %8, align 8
+  %16 = load i64, ptr %7, align 8
+  %17 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS5_EESD_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSK_(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE20rowIndexByOuterInnerEll(i64 noundef %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE20colIndexByOuterInnerEll(i64 noundef %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  ret i64 0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKS4_EESC_EEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca <2 x double>, align 16
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel", ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel", ptr %8, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = load i64, ptr %6, align 8
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE8coeffRefEll(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %13, i64 noundef %14)
+  %16 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel", ptr %8, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i64, ptr %5, align 8
+  %19 = load i64, ptr %6, align 8
+  %20 = call noundef <2 x double> @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef %18, i64 noundef %19)
+  store <2 x double> %20, ptr %7, align 16
+  call void @_ZNK5Eigen8internal9assign_opIddE12assignPacketILi16EDv2_dEEvPdRKT0_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %15, ptr noundef nonnull align 16 dereferenceable(16) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK5Eigen8internal9assign_opIddE12assignPacketILi16EDv2_dEEvPdRKT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 16 dereferenceable(16) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %4, align 8
+  store ptr %10, ptr %5, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen8internal6pstoreIdDv2_dEEvPT_RKT0_(ptr noundef %11, ptr noundef nonnull align 16 dereferenceable(16) %12)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE8coeffRefEll(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.30", ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i64, ptr %5, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.30", ptr %7, i32 0, i32 0
+  %14 = call noundef i64 @_ZNK5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EE11outerStrideEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #8
+  %15 = mul nsw i64 %12, %14
+  %16 = add nsw i64 %11, %15
+  %17 = getelementptr inbounds double, ptr %10, i64 %16
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca <2 x double>, align 16
+  %8 = alloca <2 x double>, align 16
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator", ptr %9, i32 0, i32 0
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE4Data4funcEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %12 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator", ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 2, 1>>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %12, i32 0, i32 1
+  %14 = load i64, ptr %5, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = call noundef <2 x double> @_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE6packetILi16EDv2_dlEET0_T1_SD_(ptr noundef nonnull align 8 dereferenceable(9) %13, i64 noundef %14, i64 noundef %15)
+  store <2 x double> %16, ptr %7, align 16
+  %17 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator", ptr %9, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 2, 1>>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %17, i32 0, i32 2
+  %19 = load i64, ptr %5, align 8
+  %20 = load i64, ptr %6, align 8
+  %21 = call noundef <2 x double> @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %19, i64 noundef %20)
+  store <2 x double> %21, ptr %8, align 16
+  %22 = call noundef <2 x double> @_ZNK5Eigen8internal17scalar_product_opIddE8packetOpIDv2_dEET_RKS5_S7_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %8)
+  ret <2 x double> %22
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal6pstoreIdDv2_dEEvPT_RKT0_(ptr noundef %0, ptr noundef nonnull align 16 dereferenceable(16) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca <2 x double>, align 16
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = load <2 x double>, ptr %8, align 16
+  store ptr %7, ptr %3, align 8
+  store <2 x double> %9, ptr %4, align 16
+  %10 = load <2 x double>, ptr %4, align 16
+  %11 = load ptr, ptr %3, align 8
+  store <2 x double> %10, ptr %11, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EE11outerStrideEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE4Data4funcEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal17scalar_product_opIddE8packetOpIDv2_dEET_RKS5_S7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = call noundef <2 x double> @_ZN5Eigen8internal4pmulIDv2_dEET_RKS3_S5_(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %8)
+  ret <2 x double> %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal9evaluatorINS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE6packetILi16EDv2_dlEET0_T1_SD_(ptr noundef nonnull align 8 dereferenceable(9) %0, i64 noundef %1, i64 noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.39", ptr %7, i32 0, i32 0
+  %10 = load i64, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = call noundef <2 x double> @_ZNK5Eigen8internal15nullary_wrapperIdNS0_18scalar_constant_opIdEELb1ELb0ELb0EE8packetOpIDv2_dlEET_RKS3_T0_SA_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %10, i64 noundef %11)
+  ret <2 x double> %12
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.30", ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = getelementptr inbounds double, ptr %11, i64 %12
+  %14 = load i64, ptr %7, align 8
+  %15 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.30", ptr %8, i32 0, i32 0
+  %16 = call noundef i64 @_ZNK5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EE11outerStrideEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #8
+  %17 = mul nsw i64 %14, %16
+  %18 = getelementptr inbounds double, ptr %13, i64 %17
+  store ptr %18, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = call noundef <2 x double> @_ZN5Eigen8internal5ploadIDv2_dEET_PKNS0_15unpacket_traitsIS3_E4typeE(ptr noundef %19)
+  ret <2 x double> %20
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZN5Eigen8internal4pmulIDv2_dEET_RKS3_S5_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) #7 comdat {
+  %3 = alloca <2 x double>, align 16
+  %4 = alloca <2 x double>, align 16
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load <2 x double>, ptr %7, align 16
+  %9 = load ptr, ptr %6, align 8
+  %10 = load <2 x double>, ptr %9, align 16
+  store <2 x double> %8, ptr %3, align 16
+  store <2 x double> %10, ptr %4, align 16
+  %11 = load <2 x double>, ptr %3, align 16
+  %12 = load <2 x double>, ptr %4, align 16
+  %13 = fmul <2 x double> %11, %12
+  ret <2 x double> %13
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal15nullary_wrapperIdNS0_18scalar_constant_opIdEELb1ELb0ELb0EE8packetOpIDv2_dlEET_RKS3_T0_SA_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2, i64 noundef %3) #7 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %9 = load ptr, ptr %6, align 8
+  %10 = call noundef <2 x double> @_ZNK5Eigen8internal18scalar_constant_opIdE8packetOpIDv2_dEEKT_v(ptr noundef nonnull align 8 dereferenceable(8) %9)
+  ret <2 x double> %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal18scalar_constant_opIdE8packetOpIDv2_dEEKT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.Eigen::internal::scalar_constant_op", ptr %3, i32 0, i32 0
+  %5 = call noundef <2 x double> @_ZN5Eigen8internal5pset1IDv2_dEET_RKNS0_15unpacket_traitsIS3_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  ret <2 x double> %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZN5Eigen8internal5pset1IDv2_dEET_RKNS0_15unpacket_traitsIS3_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat {
+  %2 = alloca double, align 8
+  %3 = alloca <2 x double>, align 16
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load double, ptr %5, align 8
+  store double %6, ptr %2, align 8
+  %7 = load double, ptr %2, align 8
+  %8 = insertelement <2 x double> poison, double %7, i32 0
+  %9 = load double, ptr %2, align 8
+  %10 = insertelement <2 x double> %8, double %9, i32 1
+  store <2 x double> %10, ptr %3, align 16
+  %11 = load <2 x double>, ptr %3, align 16
+  ret <2 x double> %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZN5Eigen8internal5ploadIDv2_dEET_PKNS0_15unpacket_traitsIS3_E4typeE(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  store ptr %4, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = load <2 x double>, ptr %5, align 16
+  ret <2 x double> %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator", ptr %3, i32 0, i32 0
+  call void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEESA_EENS0_10IndexBasedESE_ddE4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 2, 1>>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %3, i32 0, i32 2
+  call void @_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_product_op<double>, const Eigen::CwiseNullaryOp<Eigen::internal::scalar_constant_op<double>, const Eigen::Matrix<double, 2, 1>>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %3, i32 0, i32 1
+  call void @_ZN5Eigen8internal9evaluatorIKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %5) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.48") align 16 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca double, align 8
+  %6 = alloca double, align 8
+  %7 = alloca %"struct.Eigen::CommaInitializer", align 8
+  %8 = alloca %"class.Eigen::Matrix.48", align 16
+  %9 = alloca double, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %"class.Eigen::Rotation2D", ptr %12, i32 0, i32 0
+  %14 = load double, ptr %13, align 8
+  %15 = call double @sin(double noundef %14) #8
+  store double %15, ptr %5, align 8
+  %16 = getelementptr inbounds nuw %"class.Eigen::Rotation2D", ptr %12, i32 0, i32 0
+  %17 = load double, ptr %16, align 8
+  %18 = call double @cos(double noundef %17) #8
+  store double %18, ptr %6, align 8
+  call void @_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %8)
+  call void @_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEElsERKd(ptr dead_on_unwind writable sret(%"struct.Eigen::CommaInitializer") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %19 = load double, ptr %5, align 8
+  %20 = fneg double %19
+  store double %20, ptr %9, align 8
+  %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEcmERKd(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %22 unwind label %30
+
+22:                                               ; preds = %2
+  %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEcmERKd(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %24 unwind label %30
+
+24:                                               ; preds = %22
+  %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEcmERKd(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %26 unwind label %30
+
+26:                                               ; preds = %24
+  %27 = invoke noundef nonnull align 16 dereferenceable(32) ptr @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE8finishedEv(ptr noundef nonnull align 8 dereferenceable(32) %25)
+          to label %28 unwind label %30
+
+28:                                               ; preds = %26
+  invoke void @_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEC2ERKS1_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %27)
+          to label %29 unwind label %30
+
+29:                                               ; preds = %28
+  call void @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
+  ret void
+
+30:                                               ; preds = %28, %26, %24, %22, %2
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %10, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %11, align 4
+  call void @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
+  br label %34
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8
+  %36 = load i32, ptr %11, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEmlINS1_IdLi2ELi1ELi0ELi2ELi1EEEEEKNS_7ProductIS2_T_Li0EEERKNS0_IS7_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca %"class.Eigen::Product", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EEC2ERKS2_RKS3_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(16) %9)
+  %10 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEC2INS_7ProductINS0_IdLi2ELi2ELi0ELi2ELi2EEES1_Li0EEEEERKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2INS_7ProductINS1_IdLi2ELi2ELi0ELi2ELi2EEES2_Li0EEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  ret void
+}
+
+; Function Attrs: nounwind
+declare double @cos(double noundef) #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %3)
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE22_check_template_paramsEv()
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEElsERKd(ptr dead_on_unwind noalias writable sret(%"struct.Eigen::CommaInitializer") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2ERS2_RKd(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEcmERKd(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %5, i32 0, i32 2
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %5, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(32) %9) #8
+  %11 = icmp eq i64 %7, %10
+  br i1 %11, label %12, label %20
+
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %5, i32 0, i32 3
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %5, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8
+  %17 = add nsw i64 %16, %14
+  store i64 %17, ptr %15, align 8
+  %18 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %5, i32 0, i32 2
+  store i64 0, ptr %18, align 8
+  %19 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %5, i32 0, i32 3
+  store i64 1, ptr %19, align 8
+  br label %20
+
+20:                                               ; preds = %12, %2
+  %21 = load ptr, ptr %4, align 8
+  %22 = load double, ptr %21, align 8
+  %23 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %5, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %5, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %5, i32 0, i32 2
+  %28 = load i64, ptr %27, align 8
+  %29 = add nsw i64 %28, 1
+  store i64 %29, ptr %27, align 8
+  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE8coeffRefEll(ptr noundef nonnull align 16 dereferenceable(32) %24, i64 noundef %26, i64 noundef %28)
+  store double %22, ptr %30, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(32) ptr @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE8finishedEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEC2ERKS1_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2ERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE8finishedEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %4 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.49", ptr %3, i32 0, i32 0
+  call void @_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE22_check_template_paramsEv() #1 comdat align 2 {
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage.56", ptr %3, i32 0, i32 0
+  call void @_ZN5Eigen8internal11plain_arrayIdLi4ELi0ELi16EEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen9DenseBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal11plain_arrayIdLi4ELi0ELi16EEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN5Eigen8internal28check_static_allocation_sizeIdLi4EEEvv()
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal28check_static_allocation_sizeIdLi4EEEvv() #1 comdat {
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen16CommaInitializerINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2ERS2_RKd(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %7, i32 0, i32 1
+  store i64 0, ptr %10, align 8
+  %11 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %7, i32 0, i32 2
+  store i64 1, ptr %11, align 8
+  %12 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %7, i32 0, i32 3
+  store i64 1, ptr %12, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = load double, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %"struct.Eigen::CommaInitializer", ptr %7, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE8coeffRefEll(ptr noundef nonnull align 16 dereferenceable(32) %16, i64 noundef 0, i64 noundef 0)
+  store double %14, ptr %17, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE8coeffRefEll(ptr noundef nonnull align 16 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.49", ptr %7, i32 0, i32 0
+  %9 = call noundef ptr @_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(32) %8)
+  %10 = load i64, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = call noundef i64 @_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4rowsEv() #8
+  %13 = mul nsw i64 %11, %12
+  %14 = add nsw i64 %10, %13
+  %15 = getelementptr inbounds double, ptr %9, i64 %14
+  ret ptr %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage.56", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.Eigen::internal::plain_array.57", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4rowsEv() #1 comdat align 2 {
+  ret i64 2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef i64 @_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4colsEv() #8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4colsEv() #1 comdat align 2 {
+  ret i64 2
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2ERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %6 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.49", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.49", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %6, ptr align 16 %8, i64 32, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EEC2ERKS2_RKS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen11ProductImplINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0ENS_5DenseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = getelementptr inbounds nuw %"class.Eigen::Product", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"class.Eigen::Product", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen11ProductImplINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0ENS_5DenseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal18dense_product_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0ELi3EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal18dense_product_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0ELi3EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen9DenseBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen9DenseBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2INS_7ProductINS1_IdLi2ELi2ELi0ELi2ELi2EEES2_Li0EEEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %6 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %5, i32 0, i32 0
+  call void @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %6)
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22_check_template_paramsEv()
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE10resizeLikeINS_7ProductINS1_IdLi2ELi2ELi0ELi2ELi2EEES2_Li0EEEEEvRKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12_set_noaliasINS_7ProductINS1_IdLi2ELi2ELi0ELi2ELi2EEES2_Li0EEEEERS2_RKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE10resizeLikeINS_7ProductINS1_IdLi2ELi2ELi0ELi2ELi2EEES2_Li0EEEEEvRKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  store ptr %11, ptr %7, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = call noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4rowsEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4colsEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #8
+  store i64 %13, ptr %3, align 8
+  store i64 %15, ptr %4, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = call noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4rowsEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #8
+  %18 = load ptr, ptr %7, align 8
+  %19 = call noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4colsEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #8
+  %20 = mul nsw i64 %17, %19
+  store i64 %20, ptr %8, align 8
+  %21 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6resizeEll(ptr noundef nonnull align 16 dereferenceable(16) %9, i64 noundef %21, i64 noundef 1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12_set_noaliasINS_7ProductINS1_IdLi2ELi2ELi0ELi2ELi2EEES2_Li0EEEEERS2_RKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.Eigen::internal::assign_op", align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi0EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen8internal9assign_opIddEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %10 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4rowsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::Product", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(32) %5) #8
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4colsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::Product", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(16) %5) #8
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef i64 @_ZN5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4rowsEv() #8
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS6_RKS8_(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li0EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS6_RKS8_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4rowsEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #8
+  store i64 %10, ptr %7, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = call noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE4colsEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #8
+  store i64 %12, ptr %8, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(16) %13) #8
+  %15 = load i64, ptr %7, align 8
+  %16 = icmp ne i64 %14, %15
+  br i1 %16, label %22, label %17
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8
+  %19 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(16) %18) #8
+  %20 = load i64, ptr %8, align 8
+  %21 = icmp ne i64 %19, %20
+  br i1 %21, label %22, label %26
+
+22:                                               ; preds = %17, %3
+  %23 = load ptr, ptr %4, align 8
+  %24 = load i64, ptr %7, align 8
+  %25 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6resizeEll(ptr noundef nonnull align 16 dereferenceable(16) %23, i64 noundef %24, i64 noundef %25)
+  br label %26
+
+26:                                               ; preds = %22, %17
+  %27 = load ptr, ptr %4, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE3lhsEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  %30 = load ptr, ptr %5, align 8
+  %31 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE3rhsEv(ptr noundef nonnull align 8 dereferenceable(16) %30)
+  call void @_ZN5Eigen8internal20generic_product_implINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEENS_10DenseShapeES5_Li3EE6evalToIS4_EEvRT_RKS3_RKS4_(ptr noundef nonnull align 16 dereferenceable(16) %27, ptr noundef nonnull align 16 dereferenceable(32) %29, ptr noundef nonnull align 16 dereferenceable(16) %31)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEENS_10DenseShapeES5_Li3EE6evalToIS4_EEvRT_RKS3_RKS4_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.Eigen::Product.58", align 8
+  %8 = alloca %"struct.Eigen::internal::assign_op", align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = call { ptr, ptr } @_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE11lazyProductINS1_IdLi2ELi1ELi0ELi2ELi1EEEEEKNS_7ProductIS2_T_Li1EEERKNS0_IS7_EE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %13 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
+  %14 = extractvalue { ptr, ptr } %12, 0
+  store ptr %14, ptr %13, align 8
+  %15 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
+  %16 = extractvalue { ptr, ptr } %12, 1
+  store ptr %16, ptr %15, align 8
+  call void @_ZN5Eigen8internal9assign_opIddEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE3lhsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::Product", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi0EE3rhsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::Product", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS6_RKS8_(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZNK5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE11lazyProductINS1_IdLi2ELi1ELi0ELi2ELi1EEEEEKNS_7ProductIS2_T_Li1EEERKNS0_IS7_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca %"class.Eigen::Product.58", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %8 = load ptr, ptr %5, align 8
+  %9 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EEC2ERKS2_RKS3_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(16) %9)
+  %10 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS6_RKS8_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.Eigen::internal::evaluator.65", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.Eigen::internal::evaluator.29", align 8
+  %11 = alloca %"class.Eigen::internal::generic_dense_assignment_kernel.73", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %6, align 8
+  invoke void @_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %16 unwind label %24
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 16 dereferenceable(16) %17)
+          to label %18 unwind label %24
+
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE18const_cast_derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %20)
+  invoke void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EEC2ERS5_RKS9_RKSB_RS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 16 dereferenceable(16) %21)
+          to label %22 unwind label %28
+
+22:                                               ; preds = %18
+  invoke void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_7ProductINS4_IdLi2ELi2ELi0ELi2ELi2EEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSD_(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %22
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
+  call void @_ZN5Eigen8internal9evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #8
+  ret void
+
+24:                                               ; preds = %16, %3
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  br label %32
+
+28:                                               ; preds = %22, %18
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %8, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %9, align 4
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN5Eigen8internal9evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #8
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %8, align 8
+  %35 = load i32, ptr %9, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen8internal17product_evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEELi3ENS_10DenseShapeES7_ddEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_7ProductINS2_IdLi2ELi2ELi0ELi2ELi2EEES3_Li1EEEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE4rowsEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #8
+  store i64 %10, ptr %7, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = call noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE4colsEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #8
+  store i64 %12, ptr %8, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(16) %13) #8
+  %15 = load i64, ptr %7, align 8
+  %16 = icmp ne i64 %14, %15
+  br i1 %16, label %22, label %17
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8
+  %19 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(16) %18) #8
+  %20 = load i64, ptr %8, align 8
+  %21 = icmp ne i64 %19, %20
+  br i1 %21, label %22, label %26
+
+22:                                               ; preds = %17, %3
+  %23 = load ptr, ptr %4, align 8
+  %24 = load i64, ptr %7, align 8
+  %25 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6resizeEll(ptr noundef nonnull align 16 dereferenceable(16) %23, i64 noundef %24, i64 noundef %25)
+  br label %26
+
+26:                                               ; preds = %22, %17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EEC2ERS5_RKS9_RKSB_RS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 16 dereferenceable(16) %4) unnamed_addr #1 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.73", ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %7, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.73", ptr %11, i32 0, i32 1
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.73", ptr %11, i32 0, i32 2
+  %17 = load ptr, ptr %9, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.73", ptr %11, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_7ProductINS4_IdLi2ELi2ELi0ELi2ELi2EEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSD_(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_7ProductINS4_IdLi2ELi2ELi0ELi2ELi2EEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi0ELi2EE3runERSD_(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal17product_evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEELi3ENS_10DenseShapeES7_ddED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal17product_evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEELi3ENS_10DenseShapeES7_ddEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  %10 = invoke noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE3lhsEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %11 unwind label %29
+
+11:                                               ; preds = %2
+  store ptr %10, ptr %8, align 8
+  %12 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %7, i32 0, i32 1
+  %13 = load ptr, ptr %4, align 8
+  %14 = invoke noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE3rhsEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %15 unwind label %29
+
+15:                                               ; preds = %11
+  store ptr %14, ptr %12, align 8
+  %16 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %7, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  invoke void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 16 dereferenceable(32) %18)
+          to label %19 unwind label %29
+
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %7, i32 0, i32 3
+  %21 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %7, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  invoke void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 16 dereferenceable(16) %22)
+          to label %23 unwind label %33
+
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %7, i32 0, i32 4
+  %25 = load ptr, ptr %4, align 8
+  %26 = invoke noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE3lhsEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %27 unwind label %37
+
+27:                                               ; preds = %23
+  %28 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(32) %26) #8
+  store i64 %28, ptr %24, align 8
+  ret void
+
+29:                                               ; preds = %15, %11, %2
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %5, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %6, align 4
+  br label %42
+
+33:                                               ; preds = %19
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %5, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %6, align 4
+  br label %41
+
+37:                                               ; preds = %23
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %5, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %6, align 4
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #8
+  br label %41
+
+41:                                               ; preds = %37, %33
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #8
+  br label %42
+
+42:                                               ; preds = %41, %29
+  call void @_ZN5Eigen8internal14evaluator_baseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %5, align 8
+  %45 = load i32, ptr %6, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE3lhsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::Product.58", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE3rhsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::Product.58", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 16 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 16 dereferenceable(32) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 16 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.69", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  %10 = invoke noundef ptr @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4dataEv(ptr noundef nonnull align 16 dereferenceable(32) %9)
+          to label %11 unwind label %15
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef i64 @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi3EE11outerStrideEv(ptr noundef nonnull align 1 dereferenceable(1) %12) #8
+  invoke void @_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi2EEC2EPKdl(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10, i64 noundef %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %11
+  ret void
+
+15:                                               ; preds = %11, %2
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %5, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %6, align 4
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = load i32, ptr %6, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4dataEv(ptr noundef nonnull align 16 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase.49", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(32) %4)
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi3EE11outerStrideEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %5 = call noundef i64 @_ZNK5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EE11outerStrideEv(ptr noundef nonnull align 16 dereferenceable(32) %4) #8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal30plainobjectbase_evaluator_dataIdLi2EEC2EPKdl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data.72", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  call void @_ZN5Eigen8internal22ignore_unused_variableIlEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK5Eigen12DenseStorageIdLi4ELi2ELi2ELi0EE4dataEv(ptr noundef nonnull align 16 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::DenseStorage.56", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.Eigen::internal::plain_array.57", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EE11outerStrideEv(ptr noundef nonnull align 16 dereferenceable(32) %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = invoke noundef i64 @_ZNK5Eigen9DenseBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE9innerSizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %5 unwind label %6
+
+5:                                                ; preds = %1
+  ret i64 %4
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #9
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen9DenseBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE9innerSizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4rowsEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4rowsEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %5 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(32) %4) #8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE4rowsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::Product.58", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(32) %5) #8
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EE4colsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::Product.58", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(16) %5) #8
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_7ProductINS4_IdLi2ELi2ELi0ELi2ELi2EEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi0ELi2EE3runERSD_(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE24assignPacketByOuterInnerILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0)
+  %4 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_7ProductINS4_IdLi2ELi2ELi0ELi2ELi2EEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSD_(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE24assignPacketByOuterInnerILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = call noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE20rowIndexByOuterInnerEll(i64 noundef %10, i64 noundef %11)
+  store i64 %12, ptr %7, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = load i64, ptr %6, align 8
+  %15 = call noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE20colIndexByOuterInnerEll(i64 noundef %13, i64 noundef %14)
+  store i64 %15, ptr %8, align 8
+  %16 = load i64, ptr %7, align 8
+  %17 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_7ProductINS4_IdLi2ELi2ELi0ELi2ELi2EEES5_Li1EEEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSD_(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE20rowIndexByOuterInnerEll(i64 noundef %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE20colIndexByOuterInnerEll(i64 noundef %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  ret i64 0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_7ProductINS3_IdLi2ELi2ELi0ELi2ELi2EEES4_Li1EEEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca <2 x double>, align 16
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.73", ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.73", ptr %8, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = load i64, ptr %6, align 8
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE8coeffRefEll(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %13, i64 noundef %14)
+  %16 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.73", ptr %8, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i64, ptr %5, align 8
+  %19 = load i64, ptr %6, align 8
+  %20 = call noundef <2 x double> @_ZNK5Eigen8internal17product_evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEELi3ENS_10DenseShapeES7_ddE6packetILi16EDv2_dEEKT0_ll(ptr noundef nonnull align 8 dereferenceable(40) %17, i64 noundef %18, i64 noundef %19)
+  store <2 x double> %20, ptr %7, align 16
+  call void @_ZNK5Eigen8internal9assign_opIddE12assignPacketILi16EDv2_dEEvPdRKT0_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %15, ptr noundef nonnull align 16 dereferenceable(16) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal17product_evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEELi3ENS_10DenseShapeES7_ddE6packetILi16EDv2_dEEKT0_ll(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca <2 x double>, align 16
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i64, ptr %5, align 8
+  %10 = load i64, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %8, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %8, i32 0, i32 3
+  %13 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %8, i32 0, i32 4
+  %14 = load i64, ptr %13, align 8
+  call void @_ZN5Eigen8internal24etor_product_packet_implILi0ELi2ENS0_9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEENS2_INS3_IdLi2ELi1ELi0ELi2ELi1EEEEEDv2_dLi16EE3runEllRKS5_RKS7_lRS8_(i64 noundef %9, i64 noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %14, ptr noundef nonnull align 16 dereferenceable(16) %7)
+  %15 = load <2 x double>, ptr %7, align 16
+  ret <2 x double> %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal24etor_product_packet_implILi0ELi2ENS0_9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEENS2_INS3_IdLi2ELi1ELi0ELi2ELi1EEEEEDv2_dLi16EE3runEllRKS5_RKS7_lRS8_(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4, ptr noundef nonnull align 16 dereferenceable(16) %5) #7 comdat align 2 {
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca <2 x double>, align 16
+  %14 = alloca <2 x double>, align 16
+  store i64 %0, ptr %7, align 8
+  store i64 %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load i64, ptr %7, align 8
+  %16 = load i64, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load i64, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  call void @_ZN5Eigen8internal24etor_product_packet_implILi0ELi1ENS0_9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEENS2_INS3_IdLi2ELi1ELi0ELi2ELi1EEEEEDv2_dLi16EE3runEllRKS5_RKS7_lRS8_(i64 noundef %15, i64 noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %19, ptr noundef nonnull align 16 dereferenceable(16) %20)
+  %21 = load ptr, ptr %9, align 8
+  %22 = load i64, ptr %7, align 8
+  %23 = call noundef <2 x double> @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %22, i64 noundef 1)
+  store <2 x double> %23, ptr %13, align 16
+  %24 = load ptr, ptr %10, align 8
+  %25 = load i64, ptr %8, align 8
+  %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE5coeffEll(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef 1, i64 noundef %25)
+  %27 = call noundef <2 x double> @_ZN5Eigen8internal5pset1IDv2_dEET_RKNS0_15unpacket_traitsIS3_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %26)
+  store <2 x double> %27, ptr %14, align 16
+  %28 = load ptr, ptr %12, align 8
+  %29 = call noundef <2 x double> @_ZN5Eigen8internal5pmaddIDv2_dEET_RKS3_S5_S5_(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %14, ptr noundef nonnull align 16 dereferenceable(16) %28)
+  %30 = load ptr, ptr %12, align 8
+  store <2 x double> %29, ptr %30, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal24etor_product_packet_implILi0ELi1ENS0_9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEENS2_INS3_IdLi2ELi1ELi0ELi2ELi1EEEEEDv2_dLi16EE3runEllRKS5_RKS7_lRS8_(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4, ptr noundef nonnull align 16 dereferenceable(16) %5) #7 comdat align 2 {
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca <2 x double>, align 16
+  %14 = alloca <2 x double>, align 16
+  store i64 %0, ptr %7, align 8
+  store i64 %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store i64 %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %15 = load ptr, ptr %9, align 8
+  %16 = load i64, ptr %7, align 8
+  %17 = call noundef <2 x double> @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %16, i64 noundef 0)
+  store <2 x double> %17, ptr %13, align 16
+  %18 = load ptr, ptr %10, align 8
+  %19 = load i64, ptr %8, align 8
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE5coeffEll(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 0, i64 noundef %19)
+  %21 = call noundef <2 x double> @_ZN5Eigen8internal5pset1IDv2_dEET_RKNS0_15unpacket_traitsIS3_E4typeE(ptr noundef nonnull align 8 dereferenceable(8) %20)
+  store <2 x double> %21, ptr %14, align 16
+  %22 = call noundef <2 x double> @_ZN5Eigen8internal4pmulIDv2_dEET_RKS3_S5_(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %14)
+  %23 = load ptr, ptr %12, align 8
+  store <2 x double> %22, ptr %23, align 16
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZN5Eigen8internal5pmaddIDv2_dEET_RKS3_S5_S5_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) #7 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca <2 x double>, align 16
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef <2 x double> @_ZN5Eigen8internal4pmulIDv2_dEET_RKS3_S5_(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %9)
+  store <2 x double> %10, ptr %7, align 16
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef <2 x double> @_ZN5Eigen8internal4paddIDv2_dEET_RKS3_S5_(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %11)
+  ret <2 x double> %12
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEEE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store i64 %1, ptr %6, align 8
+  store i64 %2, ptr %7, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.69", ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data.72", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = getelementptr inbounds double, ptr %11, i64 %12
+  %14 = load i64, ptr %7, align 8
+  %15 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.69", ptr %8, i32 0, i32 0
+  %16 = call noundef i64 @_ZNK5Eigen8internal30plainobjectbase_evaluator_dataIdLi2EE11outerStrideEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #8
+  %17 = mul nsw i64 %14, %16
+  %18 = getelementptr inbounds double, ptr %13, i64 %17
+  store ptr %18, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = call noundef <2 x double> @_ZN5Eigen8internal5ploadIDv2_dEET_PKNS0_15unpacket_traitsIS3_E4typeE(ptr noundef %19)
+  ret <2 x double> %20
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE5coeffEll(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) #1 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.30", ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = load i64, ptr %5, align 8
+  %12 = load i64, ptr %6, align 8
+  %13 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.30", ptr %7, i32 0, i32 0
+  %14 = call noundef i64 @_ZNK5Eigen8internal30plainobjectbase_evaluator_dataIdLi0EE11outerStrideEv(ptr noundef nonnull align 8 dereferenceable(8) %13) #8
+  %15 = mul nsw i64 %12, %14
+  %16 = add nsw i64 %11, %15
+  %17 = getelementptr inbounds double, ptr %10, i64 %16
+  ret ptr %17
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZN5Eigen8internal4paddIDv2_dEET_RKS3_S5_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %1) #7 comdat {
+  %3 = alloca <2 x double>, align 16
+  %4 = alloca <2 x double>, align 16
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load <2 x double>, ptr %7, align 16
+  %9 = load ptr, ptr %6, align 8
+  %10 = load <2 x double>, ptr %9, align 16
+  store <2 x double> %8, ptr %3, align 16
+  store <2 x double> %10, ptr %4, align 16
+  %11 = load <2 x double>, ptr %3, align 16
+  %12 = load <2 x double>, ptr %4, align 16
+  %13 = fadd <2 x double> %11, %12
+  ret <2 x double> %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen8internal30plainobjectbase_evaluator_dataIdLi2EE11outerStrideEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 2
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal17product_evaluatorINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEELi3ENS_10DenseShapeES7_ddED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %3, i32 0, i32 3
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = getelementptr inbounds nuw %"struct.Eigen::internal::product_evaluator", ptr %3, i32 0, i32 2
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS3_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1EEC2ERKS2_RKS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen11ProductImplINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1ENS_5DenseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = getelementptr inbounds nuw %"class.Eigen::Product.58", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw %"class.Eigen::Product.58", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen11ProductImplINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS1_IdLi2ELi1ELi0ELi2ELi1EEELi1ENS_5DenseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal18dense_product_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi1ELi3EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal18dense_product_baseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi1ELi3EEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen9DenseBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen9DenseBaseINS_7ProductINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS2_IdLi2ELi1ELi0ELi2ELi1EEELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal13scalar_sum_opIddEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_EC2ERS6_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen17CwiseBinaryOpImplINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_NS_5DenseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %10 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = load ptr, ptr %8, align 8
+  call void @_ZN5Eigen8internal13scalar_sum_opIddEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen17CwiseBinaryOpImplINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_NS_5DenseEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal13scalar_sum_opIddEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(17) ptr @_ZNK5Eigen9EigenBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2INS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS2_S9_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %6 = getelementptr inbounds nuw %"class.Eigen::PlainObjectBase", ptr %5, i32 0, i32 0
+  call void @_ZN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EEC2Ev(ptr noundef nonnull align 16 dereferenceable(16) %6)
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE22_check_template_paramsEv()
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE10resizeLikeINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS2_S9_EEEEvRKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12_set_noaliasINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS2_S9_EEEERS2_RKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE10resizeLikeINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS2_S9_EEEEvRKNS_9EigenBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNK5Eigen9EigenBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %10)
+  store ptr %11, ptr %7, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = call noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4rowsEv(ptr noundef nonnull align 8 dereferenceable(17) %12) #8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4colsEv(ptr noundef nonnull align 8 dereferenceable(17) %14) #8
+  store i64 %13, ptr %3, align 8
+  store i64 %15, ptr %4, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = call noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4rowsEv(ptr noundef nonnull align 8 dereferenceable(17) %16) #8
+  %18 = load ptr, ptr %7, align 8
+  %19 = call noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4colsEv(ptr noundef nonnull align 8 dereferenceable(17) %18) #8
+  %20 = mul nsw i64 %17, %19
+  store i64 %20, ptr %8, align 8
+  %21 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6resizeEll(ptr noundef nonnull align 16 dereferenceable(16) %9, i64 noundef %21, i64 noundef 1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE12_set_noaliasINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKS2_S9_EEEERS2_RKNS_9DenseBaseIT_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.Eigen::internal::assign_op", align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(17) ptr @_ZNK5Eigen9EigenBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen8internal9assign_opIddEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(17) %9, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %10 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4rowsEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(16) %5) #8
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4colsEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(16) %5) #8
+  ret i64 %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal24call_assignment_no_aliasINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  store ptr %8, ptr %7, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS8_RKSA_(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(17) %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal10AssignmentINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EENS0_9assign_opIddEENS0_11Dense2DenseEvE3runERS3_RKS8_RKSA_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(17) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.Eigen::internal::evaluator.74", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"struct.Eigen::internal::evaluator.29", align 8
+  %11 = alloca %"class.Eigen::internal::generic_dense_assignment_kernel.78", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %12 = load ptr, ptr %5, align 8
+  call void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(17) %12)
+  %13 = load ptr, ptr %4, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %6, align 8
+  invoke void @_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(17) %14, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %16 unwind label %24
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %4, align 8
+  invoke void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 16 dereferenceable(16) %17)
+          to label %18 unwind label %24
+
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE18const_cast_derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %20)
+  invoke void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EEC2ERS5_RKSB_RKSD_RS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 16 dereferenceable(16) %21)
+          to label %22 unwind label %28
+
+22:                                               ; preds = %18
+  invoke void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS5_SA_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSF_(ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %22
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
+  call void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
+  ret void
+
+24:                                               ; preds = %16, %3
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  br label %32
+
+28:                                               ; preds = %22, %18
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %8, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %9, align 4
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %8, align 8
+  %35 = load i32, ptr %9, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(17) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS3_S7_EEddEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #2 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4rowsEv(ptr noundef nonnull align 8 dereferenceable(17) %9) #8
+  store i64 %10, ptr %7, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = call noundef i64 @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E4colsEv(ptr noundef nonnull align 8 dereferenceable(17) %11) #8
+  store i64 %12, ptr %8, align 8
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4rowsEv(ptr noundef nonnull align 16 dereferenceable(16) %13) #8
+  %15 = load i64, ptr %7, align 8
+  %16 = icmp ne i64 %14, %15
+  br i1 %16, label %22, label %17
+
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %4, align 8
+  %19 = call noundef i64 @_ZNK5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE4colsEv(ptr noundef nonnull align 16 dereferenceable(16) %18) #8
+  %20 = load i64, ptr %8, align 8
+  %21 = icmp ne i64 %19, %20
+  br i1 %21, label %22, label %26
+
+22:                                               ; preds = %17, %3
+  %23 = load ptr, ptr %4, align 8
+  %24 = load i64, ptr %7, align 8
+  %25 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE6resizeEll(ptr noundef nonnull align 16 dereferenceable(16) %23, i64 noundef %24, i64 noundef %25)
+  br label %26
+
+26:                                               ; preds = %22, %17
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EEC2ERS5_RKSB_RKSD_RS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 16 dereferenceable(16) %4) unnamed_addr #1 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.78", ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %7, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.78", ptr %11, i32 0, i32 1
+  %15 = load ptr, ptr %8, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.78", ptr %11, i32 0, i32 2
+  %17 = load ptr, ptr %9, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.78", ptr %11, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  store ptr %19, ptr %18, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS5_SA_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSF_(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS5_SA_EEEENS0_9assign_opIddEELi0EEELi0ELi2EE3runERSF_(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
+  %8 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator.75", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  invoke void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE4DataC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(17) %9)
+          to label %10 unwind label %11
+
+10:                                               ; preds = %2
+  ret void
+
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
+  br label %15
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE4DataC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E7functorEv(ptr noundef nonnull align 8 dereferenceable(17) %8)
+  call void @_ZN5Eigen8internal13scalar_sum_opIddEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  %10 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<double>, const Eigen::Matrix<double, 2, 1>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E3lhsEv(ptr noundef nonnull align 8 dereferenceable(17) %11)
+  call void @_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 16 dereferenceable(16) %12)
+  %13 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<double>, const Eigen::Matrix<double, 2, 1>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %7, i32 0, i32 2
+  %14 = load ptr, ptr %4, align 8
+  %15 = invoke noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E3rhsEv(ptr noundef nonnull align 8 dereferenceable(17) %14)
+          to label %16 unwind label %18
+
+16:                                               ; preds = %2
+  invoke void @_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 16 dereferenceable(16) %15)
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
+  ret void
+
+18:                                               ; preds = %16, %2
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %5, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %6, align 4
+  call void @_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %5, align 8
+  %24 = load i32, ptr %6, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E7functorEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E3lhsEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 16 dereferenceable(16) ptr @_ZNK5Eigen13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES6_E3rhsEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.Eigen::CwiseBinaryOp", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS5_SA_EEEENS0_9assign_opIddEELi0EEELi0ELi2EE3runERSF_(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE24assignPacketByOuterInnerILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0)
+  %4 = load ptr, ptr %2, align 8
+  call void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS5_SA_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSF_(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE24assignPacketByOuterInnerILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = load i64, ptr %6, align 8
+  %12 = call noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE20rowIndexByOuterInnerEll(i64 noundef %10, i64 noundef %11)
+  store i64 %12, ptr %7, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = load i64, ptr %6, align 8
+  %15 = call noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE20colIndexByOuterInnerEll(i64 noundef %13, i64 noundef %14)
+  store i64 %15, ptr %8, align 8
+  %16 = load i64, ptr %7, align 8
+  %17 = load i64, ptr %8, align 8
+  call void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %16, i64 noundef %17)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal47copy_using_evaluator_innervec_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS3_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS5_SA_EEEENS0_9assign_opIddEELi0EEELi2ELi2EE3runERSF_(ptr noundef nonnull align 8 dereferenceable(32) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE20rowIndexByOuterInnerEll(i64 noundef %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE20colIndexByOuterInnerEll(i64 noundef %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  ret i64 0
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS2_INS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKS4_S9_EEEENS0_9assign_opIddEELi0EE12assignPacketILi16ELi16EDv2_dEEvll(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca <2 x double>, align 16
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.78", ptr %8, i32 0, i32 2
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.78", ptr %8, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = load i64, ptr %5, align 8
+  %14 = load i64, ptr %6, align 8
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE8coeffRefEll(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %13, i64 noundef %14)
+  %16 = getelementptr inbounds nuw %"class.Eigen::internal::generic_dense_assignment_kernel.78", ptr %8, i32 0, i32 1
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i64, ptr %5, align 8
+  %19 = load i64, ptr %6, align 8
+  %20 = call noundef <2 x double> @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %18, i64 noundef %19)
+  store <2 x double> %20, ptr %7, align 16
+  call void @_ZNK5Eigen8internal9assign_opIddE12assignPacketILi16EDv2_dEEvPdRKT0_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %15, ptr noundef nonnull align 16 dereferenceable(16) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca <2 x double>, align 16
+  %8 = alloca <2 x double>, align 16
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator.75", ptr %9, i32 0, i32 0
+  %11 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE4Data4funcEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %12 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator.75", ptr %9, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<double>, const Eigen::Matrix<double, 2, 1>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %12, i32 0, i32 1
+  %14 = load i64, ptr %5, align 8
+  %15 = load i64, ptr %6, align 8
+  %16 = call noundef <2 x double> @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %14, i64 noundef %15)
+  store <2 x double> %16, ptr %7, align 16
+  %17 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator.75", ptr %9, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<double>, const Eigen::Matrix<double, 2, 1>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %17, i32 0, i32 2
+  %19 = load i64, ptr %5, align 8
+  %20 = load i64, ptr %6, align 8
+  %21 = call noundef <2 x double> @_ZNK5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE6packetILi16EDv2_dEET0_ll(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %19, i64 noundef %20)
+  store <2 x double> %21, ptr %8, align 16
+  %22 = call noundef <2 x double> @_ZNK5Eigen8internal13scalar_sum_opIddE8packetOpIDv2_dEET_RKS5_S7_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %8)
+  ret <2 x double> %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE4Data4funcEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef <2 x double> @_ZNK5Eigen8internal13scalar_sum_opIddE8packetOpIDv2_dEET_RKS5_S7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = call noundef <2 x double> @_ZN5Eigen8internal4paddIDv2_dEET_RKS3_S5_(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %8)
+  ret <2 x double> %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator.75", ptr %3, i32 0, i32 0
+  call void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
+  call void @_ZN5Eigen8internal14evaluator_baseINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN5Eigen8internal16binary_evaluatorINS_13CwiseBinaryOpINS0_13scalar_sum_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEES7_EENS0_10IndexBasedES9_ddE4DataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<double>, const Eigen::Matrix<double, 2, 1>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %3, i32 0, i32 2
+  call void @_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
+  %5 = getelementptr inbounds nuw %"struct.Eigen::internal::binary_evaluator<Eigen::CwiseBinaryOp<Eigen::internal::scalar_sum_op<double>, const Eigen::Matrix<double, 2, 1>, const Eigen::Matrix<double, 2, 1>>>::Data", ptr %3, i32 0, i32 1
+  call void @_ZN5Eigen8internal9evaluatorIKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EEixEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EE8coeffRefEl(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen15DenseCoeffsBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELi1EE8coeffRefEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %"struct.Eigen::internal::evaluator.29", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = call noundef nonnull align 16 dereferenceable(16) ptr @_ZN5Eigen9EigenBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 16 dereferenceable(16) %9)
+  %10 = load i64, ptr %4, align 8
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE8coeffRefEl(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %10)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %2
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  ret ptr %11
+
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
+  call void @_ZN5Eigen8internal9evaluatorINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
+  br label %17
+
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEE8coeffRefEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #1 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.Eigen::internal::evaluator.30", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.Eigen::internal::plainobjectbase_evaluator_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds double, ptr %8, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_odometry_measurement.cpp() #0 section ".text.startup" {
+  call void @__cxx_global_var_init()
+  call void @__cxx_global_var_init.1()
+  call void @__cxx_global_var_init.2()
+  ret void
+}
+
+attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}

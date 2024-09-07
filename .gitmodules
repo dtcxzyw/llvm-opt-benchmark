@@ -645,3 +645,6 @@
 [submodule "bench/openspiel/open_spiel"]
 	path = bench/openspiel/open_spiel
 	url = https://github.com/google-deepmind/open_spiel.git
+[submodule "bench/g2o/g2o"]
+	path = bench/g2o/g2o
+	url = https://github.com/RainerKuemmerle/g2o.git
