@@ -26924,7 +26924,7 @@ openssl/libcrypto-lib-der_writer.ll 119336949
 openssl/libcrypto-lib-des_enc.ll 1374484506
 openssl/libcrypto-lib-deterministic_nonce.ll 83739818
 openssl/libcrypto-lib-dh_ameth.ll 151790495
-openssl/libcrypto-lib-dh_asn1.ll 64076269
+openssl/libcrypto-lib-dh_asn1.ll 64140470
 openssl/libcrypto-lib-dh_backend.ll 84231721
 openssl/libcrypto-lib-dh_check.ll 116869279
 openssl/libcrypto-lib-dh_ctrl.ll 107013335
