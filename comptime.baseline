@@ -13506,7 +13506,7 @@ linux/hidraw.ll 166958404
 linux/hmac.ll 87545425
 linux/holder.ll 67120732
 linux/hooks.ll 1666443238
-linux/host.ll 269656267
+linux/host.ll 269925928
 linux/hosts.ll 147821751
 linux/hpet.ll 284849146
 linux/hrtimer.ll 515946073
