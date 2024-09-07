@@ -1,0 +1,182 @@
+; ModuleID = 'bench/openusd/original/blackbody.cpp.ll'
+source_filename = "bench/openusd/original/blackbody.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" = type { [3 x float] }
+
+@_ZN32pxrInternal_v0_24__pxrReserved__L13_blackbodyRGBE = internal unnamed_addr constant [22 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f"] [%"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3F9C2656A0000000, float 0.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3F9C2656A0000000, float 0.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FC32830A0000000, float 0.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FD06CDB00000000, float 0x3F80941C80000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FD7CF6380000000, float 0x3FB1446740000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FDE82A9A0000000, float 0x3FC3A932A0000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FE2408520000000, float 0x3FD096AAE0000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FE4E94EE0000000, float 0x3FD8234EC0000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FE74295A0000000, float 0x3FE00D2800000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FE9545200000000, float 0x3FE418FC60000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FEB2699C0000000, float 0x3FE81A71A0000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FECC12D00000000, float 0x3FEBFF38C0000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 1.000000e+00, float 0x3FEE2B2E20000000, float 0x3FEFBB8800000000] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 0x3FED05B5C0000000, float 0x3FEC7E9DA0000000, float 1.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 0x3FEA80FFE0000000, float 0x3FEAF05640000000, float 1.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 0x3FE8815C20000000, float 0x3FE9A921C0000000, float 1.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 0x3FE6E35E80000000, float 0x3FE8983300000000, float 1.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 0x3FE58ECFA0000000, float 0x3FE7B18BA0000000, float 1.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 0x3FE4729F60000000, float 0x3FE6EC69C0000000, float 1.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 0x3FE38281C0000000, float 0x3FE64241C0000000, float 1.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 0x3FE38281C0000000, float 0x3FE64241C0000000, float 1.000000e+00] }, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" { [3 x float] [float 0x3FE38281C0000000, float 0x3FE64241C0000000, float 1.000000e+00] }], align 16
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__31UsdLuxBlackbodyTemperatureAsRgbEf(float noundef %0) local_unnamed_addr #0 {
+  %2 = fadd float %0, -1.000000e+03
+  %3 = fdiv float %2, 9.000000e+03
+  %4 = fcmp olt float %3, 0.000000e+00
+  %5 = fcmp ogt float %3, 1.000000e+00
+  %..i = select i1 %5, float 1.000000e+00, float %3
+  %6 = fmul float %..i, 1.800000e+01
+  %7 = select i1 %4, float 0.000000e+00, float %6
+  %8 = tail call noundef float @llvm.floor.f32(float %7)
+  %9 = fptosi float %8 to i32
+  %10 = sitofp i32 %9 to float
+  %11 = fsub float %7, %10
+  %12 = sext i32 %9 to i64
+  %13 = getelementptr inbounds [22 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L13_blackbodyRGBE, i64 0, i64 %12
+  %.sroa.0510.0.copyload = load <2 x float>, ptr %13, align 4
+  %.sroa.5514.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.5514.0.copyload = load float, ptr %.sroa.5514.0..sroa_idx, align 4
+  %14 = add nsw i32 %9, 1
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds [22 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L13_blackbodyRGBE, i64 0, i64 %15
+  %.sroa.0505.0.copyload = load <2 x float>, ptr %16, align 4
+  %.sroa.5509.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.5509.0.copyload = load float, ptr %.sroa.5509.0..sroa_idx, align 4
+  %17 = add nsw i32 %9, 2
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds [22 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L13_blackbodyRGBE, i64 0, i64 %18
+  %.sroa.0500.0.copyload = load <2 x float>, ptr %19, align 4
+  %.sroa.5504.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.5504.0.copyload = load float, ptr %.sroa.5504.0..sroa_idx, align 4
+  %20 = add nsw i32 %9, 3
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [22 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__L13_blackbodyRGBE, i64 0, i64 %21
+  %.sroa.0496.0.copyload = load <2 x float>, ptr %22, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
+  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0510.0.copyload, i64 0
+  %23 = fmul float %.sroa.0.0.vec.extract.i.i, -5.000000e-01
+  %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.0510.0.copyload, i64 1
+  %24 = fmul float %.sroa.0.4.vec.extract.i.i, -5.000000e-01
+  %25 = fmul float %.sroa.5514.0.copyload, -5.000000e-01
+  %.sroa.0.0.vec.extract.i.i148 = extractelement <2 x float> %.sroa.0505.0.copyload, i64 0
+  %26 = fmul float %.sroa.0.0.vec.extract.i.i148, 1.500000e+00
+  %.sroa.0.4.vec.extract.i.i150 = extractelement <2 x float> %.sroa.0505.0.copyload, i64 1
+  %27 = fmul float %.sroa.0.4.vec.extract.i.i150, 1.500000e+00
+  %28 = fmul float %.sroa.5509.0.copyload, 1.500000e+00
+  %29 = fadd float %23, %26
+  %30 = fadd float %24, %27
+  %31 = fadd float %25, %28
+  %.sroa.0.0.vec.extract.i.i157 = extractelement <2 x float> %.sroa.0500.0.copyload, i64 0
+  %32 = fmul float %.sroa.0.0.vec.extract.i.i157, 1.500000e+00
+  %.sroa.0.4.vec.extract.i.i159 = extractelement <2 x float> %.sroa.0500.0.copyload, i64 1
+  %33 = fmul float %.sroa.0.4.vec.extract.i.i159, 1.500000e+00
+  %34 = fmul float %.sroa.5504.0.copyload, 1.500000e+00
+  %35 = fsub float %29, %32
+  %36 = fsub float %30, %33
+  %37 = fsub float %31, %34
+  %.sroa.0.0.vec.extract.i.i175 = extractelement <2 x float> %.sroa.0496.0.copyload, i64 0
+  %38 = fmul float %.sroa.0.0.vec.extract.i.i175, 5.000000e-01
+  %.sroa.0.4.vec.extract.i.i177 = extractelement <2 x float> %.sroa.0496.0.copyload, i64 1
+  %39 = fmul float %.sroa.0.4.vec.extract.i.i177, 5.000000e-01
+  %40 = fmul float %.sroa.5.0.copyload, 5.000000e-01
+  %41 = fadd float %35, %38
+  %42 = fadd float %36, %39
+  %43 = fadd float %37, %40
+  %44 = fmul float %.sroa.0.0.vec.extract.i.i148, 2.500000e+00
+  %45 = fmul float %.sroa.0.4.vec.extract.i.i150, 2.500000e+00
+  %46 = fmul float %.sroa.5509.0.copyload, 2.500000e+00
+  %47 = fsub float %.sroa.0.0.vec.extract.i.i, %44
+  %48 = fsub float %.sroa.0.4.vec.extract.i.i, %45
+  %49 = fsub float %.sroa.5514.0.copyload, %46
+  %50 = fmul float %.sroa.0.0.vec.extract.i.i157, 2.000000e+00
+  %51 = fmul float %.sroa.0.4.vec.extract.i.i159, 2.000000e+00
+  %52 = fmul float %.sroa.5504.0.copyload, 2.000000e+00
+  %53 = fadd float %47, %50
+  %54 = fadd float %48, %51
+  %55 = fadd float %49, %52
+  %56 = fsub float %53, %38
+  %57 = fsub float %54, %39
+  %58 = fsub float %55, %40
+  %59 = fmul float %.sroa.0.0.vec.extract.i.i148, 0.000000e+00
+  %60 = fmul float %.sroa.0.4.vec.extract.i.i150, 0.000000e+00
+  %61 = fmul float %.sroa.5509.0.copyload, 0.000000e+00
+  %62 = fadd float %23, %59
+  %63 = fadd float %24, %60
+  %64 = fadd float %25, %61
+  %65 = fmul float %.sroa.0.0.vec.extract.i.i157, 5.000000e-01
+  %66 = fmul float %.sroa.0.4.vec.extract.i.i159, 5.000000e-01
+  %67 = fmul float %.sroa.5504.0.copyload, 5.000000e-01
+  %68 = fadd float %62, %65
+  %69 = fadd float %63, %66
+  %70 = fadd float %64, %67
+  %71 = fmul float %.sroa.0.0.vec.extract.i.i175, 0.000000e+00
+  %72 = fmul float %.sroa.0.4.vec.extract.i.i177, 0.000000e+00
+  %73 = fmul float %.sroa.5.0.copyload, 0.000000e+00
+  %74 = fadd float %68, %71
+  %75 = fadd float %69, %72
+  %76 = fadd float %70, %73
+  %77 = fmul float %.sroa.0.0.vec.extract.i.i, 0.000000e+00
+  %78 = fmul float %.sroa.0.4.vec.extract.i.i, 0.000000e+00
+  %79 = fmul float %.sroa.5514.0.copyload, 0.000000e+00
+  %80 = fadd float %77, %.sroa.0.0.vec.extract.i.i148
+  %81 = fadd float %78, %.sroa.0.4.vec.extract.i.i150
+  %82 = fadd float %79, %.sroa.5509.0.copyload
+  %83 = fmul float %.sroa.0.0.vec.extract.i.i157, 0.000000e+00
+  %84 = fmul float %.sroa.0.4.vec.extract.i.i159, 0.000000e+00
+  %85 = fmul float %.sroa.5504.0.copyload, 0.000000e+00
+  %86 = fadd float %80, %83
+  %87 = fadd float %81, %84
+  %88 = fadd float %82, %85
+  %89 = fadd float %86, %71
+  %90 = fadd float %87, %72
+  %91 = fadd float %88, %73
+  %92 = fmul float %11, %41
+  %93 = fmul float %11, %42
+  %94 = fmul float %11, %43
+  %95 = fadd float %56, %92
+  %96 = fadd float %57, %93
+  %97 = fadd float %58, %94
+  %98 = fmul float %11, %95
+  %99 = fmul float %11, %96
+  %100 = fmul float %11, %97
+  %101 = fadd float %74, %98
+  %102 = fadd float %75, %99
+  %103 = fadd float %76, %100
+  %104 = fmul float %11, %101
+  %105 = fmul float %11, %102
+  %106 = fmul float %11, %103
+  %107 = fadd float %89, %104
+  %108 = fadd float %90, %105
+  %109 = fadd float %91, %106
+  %110 = fmul float %108, 0x3FE6E2EB20000000
+  %111 = tail call float @llvm.fmuladd.f32(float %107, float 0x3FCB367A00000000, float %110)
+  %112 = tail call noundef float @llvm.fmuladd.f32(float %109, float 0x3FB27BB300000000, float %111)
+  %113 = fpext float %112 to double
+  %114 = fdiv double 1.000000e+00, %113
+  %115 = fpext float %107 to double
+  %116 = fmul double %114, %115
+  %117 = fptrunc double %116 to float
+  %118 = fpext float %108 to double
+  %119 = fmul double %114, %118
+  %120 = fptrunc double %119 to float
+  %121 = fpext float %109 to double
+  %122 = fmul double %114, %121
+  %123 = fptrunc double %122 to float
+  %124 = fcmp olt float %117, 0.000000e+00
+  %125 = select i1 %124, float 0.000000e+00, float %117
+  %126 = insertelement <2 x float> poison, float %125, i64 0
+  %127 = fcmp olt float %120, 0.000000e+00
+  %128 = select i1 %127, float 0.000000e+00, float %120
+  %.sroa.0515.4.vec.insert530 = insertelement <2 x float> %126, float %128, i64 1
+  %129 = fcmp olt float %123, 0.000000e+00
+  %130 = select i1 %129, float 0.000000e+00, float %123
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0515.4.vec.insert530, 0
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %130, 1
+  ret { <2 x float>, float } %.fca.1.insert
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.floor.f32(float) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #1
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}

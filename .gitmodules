@@ -636,3 +636,9 @@
 [submodule "bench/portaudio/portaudio"]
 	path = bench/portaudio/portaudio
 	url = https://github.com/PortAudio/portaudio.git
+[submodule "bench/openusd/OpenUSD"]
+	path = bench/openusd/OpenUSD
+	url = https://github.com/PixarAnimationStudios/OpenUSD.git
+[submodule "bench/openusd/contrib/OpenSubdiv"]
+	path = bench/openusd/contrib/OpenSubdiv
+	url = https://github.com/PixarAnimationStudios/OpenSubdiv.git

@@ -1,0 +1,11026 @@
+; ModuleID = 'bench/openusd/original/read.c.ll'
+source_filename = "bench/openusd/original/read.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.avifDecodeSample = type { %struct.avifROData, i32, i32, i32, i64, i64, i8, i32 }
+%struct.avifROData = type { ptr, i64 }
+%struct.avifROStream = type { ptr, i64, i64, ptr, ptr }
+%struct.avifBoxHeader = type { i64, [4 x i8] }
+%struct.avifFileType = type { [4 x i8], i32, ptr, i32 }
+%struct.avifCropRect = type { i32, i32, i32, i32 }
+%struct.avifSequenceHeader = type { i8, i32, i32, i32, i32, i32, i16, i16, i16, i32, %struct.avifCodecConfigurationBox }
+%struct.avifCodecConfigurationBox = type { i8, i8, i8, i8, i8, i8, i8, i8, i8 }
+%struct.avifTrack = type { i32, i32, i32, i32, i64, i64, i64, i32, i32, i32, i32, ptr, ptr }
+%struct.avifSampleDescription = type { [4 x i8], %struct.avifPropertyArray }
+%struct.avifPropertyArray = type { ptr, i32, i32, i32 }
+%struct.avifDecoderItem = type { i32, ptr, [4 x i8], i64, i32, i32, i32, %struct.avifContentType, %struct.avifPropertyArray, %struct.avifExtentArray, %struct.avifRWData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
+%struct.avifContentType = type { [64 x i8] }
+%struct.avifExtentArray = type { ptr, i32, i32, i32 }
+%struct.avifRWData = type { ptr, i64 }
+%struct.avifProperty = type { [4 x i8], %union.anon }
+%union.anon = type { %struct.avifColourInformationBox, [24 x i8] }
+%struct.avifColourInformationBox = type { i32, i64, i64, i32, i16, i16, i16, i32 }
+%struct.avifTileInfo = type { i32, i32, i32, %struct.avifImageGrid }
+%struct.avifImageGrid = type { i32, i32, i32, i32 }
+%struct.avifTile = type { ptr, i32, ptr, ptr, i32, i32, i8 }
+%struct.avifExtent = type { i64, i64 }
+%struct.avifSampleTableSampleToChunk = type { i32, i32, i32 }
+%struct.avifSampleTableChunk = type { i64 }
+%struct.avifSampleTableSampleSize = type { i32 }
+%struct.avifSyncSample = type { i32 }
+%struct.avifImage = type { i32, i32, i32, i32, i32, i32, [3 x ptr], [3 x i32], i32, ptr, i32, i32, i32, %struct.avifRWData, i16, i16, i16, %struct.avifContentLightLevelInformationBox, i32, %struct.avifPixelAspectRatioBox, %struct.avifCleanApertureBox, %struct.avifImageRotation, %struct.avifImageMirror, %struct.avifRWData, %struct.avifRWData }
+%struct.avifContentLightLevelInformationBox = type { i16, i16 }
+%struct.avifPixelAspectRatioBox = type { i32, i32 }
+%struct.avifCleanApertureBox = type { i32, i32, i32, i32, i32, i32, i32, i32 }
+%struct.avifImageRotation = type { i8 }
+%struct.avifImageMirror = type { i8 }
+%struct.avifSampleTableTimeToSample = type { i32, i32 }
+
+@.str.1 = private unnamed_addr constant [5 x i8] c"grid\00", align 1
+@.str.2 = private unnamed_addr constant [5 x i8] c"ispe\00", align 1
+@.str.3 = private unnamed_addr constant [41 x i8] c"Item ID [%u] has an invalid size [%ux%u]\00", align 1
+@.str.4 = private unnamed_addr constant [46 x i8] c"Item ID [%u] dimensions are too large [%ux%u]\00", align 1
+@.str.5 = private unnamed_addr constant [5 x i8] c"auxC\00", align 1
+@.str.6 = private unnamed_addr constant [81 x i8] c"[Strict] Alpha auxiliary image item ID [%u] is missing a mandatory ispe property\00", align 1
+@.str.7 = private unnamed_addr constant [50 x i8] c"Item ID [%u] is missing a mandatory ispe property\00", align 1
+@.str.8 = private unnamed_addr constant [5 x i8] c"avis\00", align 1
+@.str.9 = private unnamed_addr constant [5 x i8] c"avif\00", align 1
+@.str.10 = private unnamed_addr constant [31 x i8] c"Failed to find AV1 color track\00", align 1
+@.str.11 = private unnamed_addr constant [50 x i8] c"Failed to find AV1 color track's color properties\00", align 1
+@.str.12 = private unnamed_addr constant [27 x i8] c"Primary item not specified\00", align 1
+@.str.13 = private unnamed_addr constant [23 x i8] c"Primary item not found\00", align 1
+@.str.14 = private unnamed_addr constant [5 x i8] c"colr\00", align 1
+@.str.15 = private unnamed_addr constant [5 x i8] c"clli\00", align 1
+@.str.16 = private unnamed_addr constant [5 x i8] c"pasp\00", align 1
+@.str.17 = private unnamed_addr constant [5 x i8] c"clap\00", align 1
+@.str.18 = private unnamed_addr constant [5 x i8] c"irot\00", align 1
+@.str.19 = private unnamed_addr constant [5 x i8] c"imir\00", align 1
+@.str.20 = private unnamed_addr constant [10 x i8] c"Box[ftyp]\00", align 1
+@.str.21 = private unnamed_addr constant [79 x i8] c"Box[ftyp] contains a compatible brands section that isn't divisible by 4 [%zu]\00", align 1
+@.str.22 = private unnamed_addr constant [22 x i8] c"File-level box header\00", align 1
+@.str.23 = private unnamed_addr constant [5 x i8] c"meta\00", align 1
+@.str.25 = private unnamed_addr constant [10 x i8] c"Box[meta]\00", align 1
+@.str.26 = private unnamed_addr constant [5 x i8] c"hdlr\00", align 1
+@.str.27 = private unnamed_addr constant [59 x i8] c"Box[meta] does not have a Box[hdlr] as its first child box\00", align 1
+@.str.28 = private unnamed_addr constant [5 x i8] c"iloc\00", align 1
+@.str.29 = private unnamed_addr constant [5 x i8] c"pitm\00", align 1
+@.str.30 = private unnamed_addr constant [5 x i8] c"idat\00", align 1
+@.str.31 = private unnamed_addr constant [5 x i8] c"iprp\00", align 1
+@.str.32 = private unnamed_addr constant [5 x i8] c"iinf\00", align 1
+@.str.33 = private unnamed_addr constant [5 x i8] c"iref\00", align 1
+@.str.34 = private unnamed_addr constant [29 x i8] c"Box[meta] has no child boxes\00", align 1
+@.str.35 = private unnamed_addr constant [53 x i8] c"Box[%s] contains a duplicate unique box of type '%s'\00", align 1
+@.str.36 = private unnamed_addr constant [10 x i8] c"Box[hdlr]\00", align 1
+@.str.37 = private unnamed_addr constant [55 x i8] c"Box[hdlr] contains a pre_defined value that is nonzero\00", align 1
+@.str.38 = private unnamed_addr constant [5 x i8] c"pict\00", align 1
+@.str.39 = private unnamed_addr constant [37 x i8] c"Box[hdlr] handler_type is not 'pict'\00", align 1
+@.str.40 = private unnamed_addr constant [10 x i8] c"Box[iloc]\00", align 1
+@.str.41 = private unnamed_addr constant [42 x i8] c"Box[iloc] has an unsupported version [%u]\00", align 1
+@.str.42 = private unnamed_addr constant [51 x i8] c"Box[iloc] has an unsupported base_offset_size [%u]\00", align 1
+@.str.43 = private unnamed_addr constant [48 x i8] c"Item ID [%u] contains duplicate sets of extents\00", align 1
+@.str.44 = private unnamed_addr constant [45 x i8] c"Box[iloc] has a non null reserved field [%u]\00", align 1
+@.str.45 = private unnamed_addr constant [54 x i8] c"Box[iloc] has an unsupported construction method [%u]\00", align 1
+@.str.46 = private unnamed_addr constant [79 x i8] c"Item ID [%u] contains an extent offset which overflows: [base: %lu offset:%lu]\00", align 1
+@.str.48 = private unnamed_addr constant [81 x i8] c"Item ID [%u] contains an extent length which overflows the item size: [%zu, %zu]\00", align 1
+@.str.49 = private unnamed_addr constant [37 x i8] c"Box[%4s] has an invalid item ID [%u]\00", align 1
+@.str.50 = private unnamed_addr constant [41 x i8] c"Multiple boxes of unique Box[pitm] found\00", align 1
+@.str.51 = private unnamed_addr constant [10 x i8] c"Box[pitm]\00", align 1
+@.str.52 = private unnamed_addr constant [38 x i8] c"Meta box contains multiple idat boxes\00", align 1
+@.str.53 = private unnamed_addr constant [27 x i8] c"idat box has a length of 0\00", align 1
+@.str.54 = private unnamed_addr constant [10 x i8] c"Box[iprp]\00", align 1
+@.str.56 = private unnamed_addr constant [55 x i8] c"Failed to find Box[ipco] as the first box in Box[iprp]\00", align 1
+@.str.57 = private unnamed_addr constant [5 x i8] c"ipma\00", align 1
+@.str.58 = private unnamed_addr constant [104 x i8] c"Multiple Box[ipma] with a given pair of values of version and flags. See HEIF (ISO 23008-12:2017) 9.3.1\00", align 1
+@.str.59 = private unnamed_addr constant [64 x i8] c"Exceeded possible count of unique ipma version and flags tuples\00", align 1
+@.str.60 = private unnamed_addr constant [48 x i8] c"Box[iprp] contains a box that isn't type 'ipma'\00", align 1
+@.str.61 = private unnamed_addr constant [10 x i8] c"Box[ipco]\00", align 1
+@.str.62 = private unnamed_addr constant [5 x i8] c"av1C\00", align 1
+@.str.63 = private unnamed_addr constant [5 x i8] c"pixi\00", align 1
+@.str.64 = private unnamed_addr constant [5 x i8] c"a1op\00", align 1
+@.str.65 = private unnamed_addr constant [5 x i8] c"lsel\00", align 1
+@.str.66 = private unnamed_addr constant [5 x i8] c"a1lx\00", align 1
+@.str.67 = private unnamed_addr constant [10 x i8] c"Box[ispe]\00", align 1
+@.str.68 = private unnamed_addr constant [10 x i8] c"Box[auxC]\00", align 1
+@.str.69 = private unnamed_addr constant [10 x i8] c"Box[colr]\00", align 1
+@.str.70 = private unnamed_addr constant [5 x i8] c"rICC\00", align 1
+@.str.71 = private unnamed_addr constant [5 x i8] c"prof\00", align 1
+@.str.72 = private unnamed_addr constant [5 x i8] c"nclx\00", align 1
+@.str.73 = private unnamed_addr constant [46 x i8] c"Box[colr] contains nonzero reserved bits [%u]\00", align 1
+@.str.74 = private unnamed_addr constant [10 x i8] c"Box[%.4s]\00", align 1
+@.str.75 = private unnamed_addr constant [33 x i8] c"%s contains illegal marker: [%u]\00", align 1
+@.str.76 = private unnamed_addr constant [34 x i8] c"%s contains illegal version: [%u]\00", align 1
+@.str.77 = private unnamed_addr constant [10 x i8] c"Box[pasp]\00", align 1
+@.str.78 = private unnamed_addr constant [10 x i8] c"Box[clap]\00", align 1
+@.str.79 = private unnamed_addr constant [10 x i8] c"Box[irot]\00", align 1
+@.str.80 = private unnamed_addr constant [46 x i8] c"Box[irot] contains nonzero reserved bits [%u]\00", align 1
+@.str.81 = private unnamed_addr constant [10 x i8] c"Box[imir]\00", align 1
+@.str.82 = private unnamed_addr constant [46 x i8] c"Box[imir] contains nonzero reserved bits [%u]\00", align 1
+@.str.83 = private unnamed_addr constant [10 x i8] c"Box[pixi]\00", align 1
+@.str.84 = private unnamed_addr constant [48 x i8] c"Box[pixi] contains unsupported plane count [%u]\00", align 1
+@.str.85 = private unnamed_addr constant [10 x i8] c"Box[a1op]\00", align 1
+@.str.86 = private unnamed_addr constant [55 x i8] c"Box[a1op] contains an unsupported operating point [%u]\00", align 1
+@.str.87 = private unnamed_addr constant [10 x i8] c"Box[lsel]\00", align 1
+@.str.88 = private unnamed_addr constant [45 x i8] c"Box[lsel] contains an unsupported layer [%u]\00", align 1
+@.str.89 = private unnamed_addr constant [10 x i8] c"Box[a1lx]\00", align 1
+@.str.90 = private unnamed_addr constant [52 x i8] c"Box[a1lx] has bits set in the reserved section [%u]\00", align 1
+@.str.91 = private unnamed_addr constant [10 x i8] c"Box[clli]\00", align 1
+@.str.92 = private unnamed_addr constant [10 x i8] c"Box[ipma]\00", align 1
+@.str.93 = private unnamed_addr constant [52 x i8] c"Box[ipma] item IDs are not ordered by increasing ID\00", align 1
+@.str.94 = private unnamed_addr constant [37 x i8] c"Duplicate Box[ipma] for item ID [%u]\00", align 1
+@.str.95 = private unnamed_addr constant [92 x i8] c"Box[ipma] for item ID [%u] contains an illegal property index [%u] (out of [%u] properties)\00", align 1
+@avifParseItemPropertyAssociation.supportedTypes = internal unnamed_addr constant [13 x ptr] [ptr @.str.2, ptr @.str.5, ptr @.str.14, ptr @.str.62, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.15], align 16
+@.str.96 = private unnamed_addr constant [86 x i8] c"Item ID [%u] has a %s property association which must not be marked essential, but is\00", align 1
+@avifParseItemPropertyAssociation.essentialTypes = internal unnamed_addr constant [2 x ptr] [ptr @.str.64, ptr @.str.65], align 16
+@.str.97 = private unnamed_addr constant [86 x i8] c"Item ID [%u] has a %s property association which must be marked essential, but is not\00", align 1
+@.str.98 = private unnamed_addr constant [10 x i8] c"Box[iinf]\00", align 1
+@.str.99 = private unnamed_addr constant [40 x i8] c"Box[iinf] has an unsupported version %u\00", align 1
+@.str.100 = private unnamed_addr constant [5 x i8] c"infe\00", align 1
+@.str.101 = private unnamed_addr constant [48 x i8] c"Box[iinf] contains a box that isn't type 'infe'\00", align 1
+@.str.102 = private unnamed_addr constant [10 x i8] c"Box[infe]\00", align 1
+@.str.103 = private unnamed_addr constant [49 x i8] c"%s: Expecting box version 2 or 3, got version %u\00", align 1
+@.str.104 = private unnamed_addr constant [5 x i8] c"mime\00", align 1
+@.str.105 = private unnamed_addr constant [10 x i8] c"Box[iref]\00", align 1
+@.str.111 = private unnamed_addr constant [10 x i8] c"Box[moov]\00", align 1
+@.str.113 = private unnamed_addr constant [10 x i8] c"Box[trak]\00", align 1
+@.str.118 = private unnamed_addr constant [36 x i8] c"More than one [edts] Box was found.\00", align 1
+@.str.119 = private unnamed_addr constant [26 x i8] c"Invalid track duration 0.\00", align 1
+@.str.120 = private unnamed_addr constant [10 x i8] c"Box[tkhd]\00", align 1
+@.str.121 = private unnamed_addr constant [42 x i8] c"Box[tkhd] has an unsupported version [%u]\00", align 1
+@.str.122 = private unnamed_addr constant [42 x i8] c"Track ID [%u] has an invalid size [%ux%u]\00", align 1
+@.str.123 = private unnamed_addr constant [47 x i8] c"Track ID [%u] dimensions are too large [%ux%u]\00", align 1
+@.str.124 = private unnamed_addr constant [10 x i8] c"Box[mdia]\00", align 1
+@.str.127 = private unnamed_addr constant [10 x i8] c"Box[mdhd]\00", align 1
+@.str.128 = private unnamed_addr constant [42 x i8] c"Box[mdhd] has an unsupported version [%u]\00", align 1
+@.str.129 = private unnamed_addr constant [10 x i8] c"Box[minf]\00", align 1
+@.str.131 = private unnamed_addr constant [48 x i8] c"Duplicate Box[stbl] for a single track detected\00", align 1
+@.str.132 = private unnamed_addr constant [10 x i8] c"Box[stbl]\00", align 1
+@.str.140 = private unnamed_addr constant [10 x i8] c"Box[co64]\00", align 1
+@.str.141 = private unnamed_addr constant [10 x i8] c"Box[stco]\00", align 1
+@.str.142 = private unnamed_addr constant [10 x i8] c"Box[stsc]\00", align 1
+@.str.143 = private unnamed_addr constant [43 x i8] c"Box[stsc] does not begin with chunk 1 [%u]\00", align 1
+@.str.144 = private unnamed_addr constant [45 x i8] c"Box[stsc] chunks are not strictly increasing\00", align 1
+@.str.145 = private unnamed_addr constant [10 x i8] c"Box[stsz]\00", align 1
+@.str.146 = private unnamed_addr constant [10 x i8] c"Box[stss]\00", align 1
+@.str.147 = private unnamed_addr constant [10 x i8] c"Box[stts]\00", align 1
+@.str.148 = private unnamed_addr constant [10 x i8] c"Box[stsd]\00", align 1
+@.str.149 = private unnamed_addr constant [10 x i8] c"Box[tref]\00", align 1
+@.str.150 = private unnamed_addr constant [10 x i8] c"Box[edts]\00", align 1
+@.str.152 = private unnamed_addr constant [36 x i8] c"More than one [elst] Box was found.\00", align 1
+@.str.153 = private unnamed_addr constant [34 x i8] c"Box[edts] contains no [elst] Box.\00", align 1
+@.str.154 = private unnamed_addr constant [10 x i8] c"Box[elst]\00", align 1
+@.str.155 = private unnamed_addr constant [44 x i8] c"Box[elst] contains an entry_count != 1 [%d]\00", align 1
+@.str.156 = private unnamed_addr constant [42 x i8] c"Box[elst] has an unsupported version [%u]\00", align 1
+@.str.157 = private unnamed_addr constant [50 x i8] c"Box[elst] Invalid value for segment_duration (0).\00", align 1
+@.str.158 = private unnamed_addr constant [5 x i8] c"av01\00", align 1
+@.str.159 = private unnamed_addr constant [44 x i8] c"urn:mpeg:mpegB:cicp:systems:auxiliary:alpha\00", align 1
+@.str.160 = private unnamed_addr constant [27 x i8] c"urn:mpeg:hevc:2015:auxid:1\00", align 1
+@.str.161 = private unnamed_addr constant [5 x i8] c"Exif\00", align 1
+@.str.162 = private unnamed_addr constant [12 x i8] c"Exif header\00", align 1
+@xmpContentType = internal constant [20 x i8] c"application/rdf+xml\00", align 16
+@.str.163 = private unnamed_addr constant [39 x i8] c"Item ID %u read has overflowing offset\00", align 1
+@.str.164 = private unnamed_addr constant [28 x i8] c"Item ID %u has zero extents\00", align 1
+@.str.165 = private unnamed_addr constant [70 x i8] c"Item ID %u is stored in an idat, but no associated idat box was found\00", align 1
+@.str.166 = private unnamed_addr constant [72 x i8] c"Item ID %u reported size failed size hint sanity check. Truncated data?\00", align 1
+@.str.167 = private unnamed_addr constant [55 x i8] c"Item ID %u has impossible extent offset in idat buffer\00", align 1
+@.str.168 = private unnamed_addr constant [53 x i8] c"Item ID %u has impossible extent size in idat buffer\00", align 1
+@.str.169 = private unnamed_addr constant [72 x i8] c"Item ID %u extent offset failed size hint sanity check. Truncated data?\00", align 1
+@.str.170 = private unnamed_addr constant [64 x i8] c"Item ID %u tried to read %zu bytes, but only received %zu bytes\00", align 1
+@.str.171 = private unnamed_addr constant [45 x i8] c"Item ID %u has %zu unexpected trailing bytes\00", align 1
+@.str.172 = private unnamed_addr constant [45 x i8] c"Sample table contains a chunk with 0 samples\00", align 1
+@.str.173 = private unnamed_addr constant [39 x i8] c"Exceeded avifDecoder's imageCountLimit\00", align 1
+@.str.174 = private unnamed_addr constant [23 x i8] c"Truncated sample table\00", align 1
+@.str.175 = private unnamed_addr constant [70 x i8] c"Sample table contains an offset/size pair which overflows: [%lu / %u]\00", align 1
+@.str.176 = private unnamed_addr constant [52 x i8] c"Exceeded avifIO's sizeHint, possibly truncated data\00", align 1
+@.str.177 = private unnamed_addr constant [10 x i8] c"Box[grid]\00", align 1
+@.str.178 = private unnamed_addr constant [39 x i8] c"Box[grid] has unsupported version [%u]\00", align 1
+@.str.179 = private unnamed_addr constant [45 x i8] c"Grid box contains illegal field length: [%u]\00", align 1
+@.str.180 = private unnamed_addr constant [48 x i8] c"Grid box contains illegal dimensions: [%u x %u]\00", align 1
+@.str.181 = private unnamed_addr constant [45 x i8] c"Grid box dimensions are too large: [%u x %u]\00", align 1
+@.str.182 = private unnamed_addr constant [48 x i8] c"Tile item ID %u has an unknown item type '%.4s'\00", align 1
+@.str.183 = private unnamed_addr constant [74 x i8] c"Grid image contains tile with an unsupported property marked as essential\00", align 1
+@.str.184 = private unnamed_addr constant [5 x i8] c"av02\00", align 1
+@.str.185 = private unnamed_addr constant [5 x i8] c"av2C\00", align 1
+@.str.186 = private unnamed_addr constant [50 x i8] c"Grid image's first tile is missing an %s property\00", align 1
+@.str.187 = private unnamed_addr constant [67 x i8] c"Tile item ID %u of type '%.4s' differs from other tile type '%.4s'\00", align 1
+@.str.188 = private unnamed_addr constant [73 x i8] c"Grid image of dimensions %ux%u requires %u tiles, and only %u were found\00", align 1
+@.str.189 = private unnamed_addr constant [48 x i8] c"a1lx layer index [%d] does not fit in item size\00", align 1
+@.str.190 = private unnamed_addr constant [91 x i8] c"lsel property requests layer index [%u] which isn't present in a1lx property ([%u] layers)\00", align 1
+@.str.191 = private unnamed_addr constant [53 x i8] c"Exceeded avifDecoder's imageCountLimit (progressive)\00", align 1
+@.str.192 = private unnamed_addr constant [59 x i8] c"Item ID %u of type '%.4s' is missing mandatory %s property\00", align 1
+@.str.193 = private unnamed_addr constant [64 x i8] c"Tile item ID %u of type '%.4s' is missing mandatory %s property\00", align 1
+@.str.194 = private unnamed_addr constant [89 x i8] c"The fields of the %s property of tile item ID %u of type '%.4s' differs from other tiles\00", align 1
+@.str.195 = private unnamed_addr constant [70 x i8] c"[Strict] Item ID %u of type '%.4s' is missing mandatory pixi property\00", align 1
+@.str.196 = private unnamed_addr constant [87 x i8] c"Item ID %u depth specified by pixi property [%u] does not match %s property depth [%u]\00", align 1
+@.str.197 = private unnamed_addr constant [90 x i8] c"[Strict] Item ID %u is missing an ispe property, so its clap property cannot be validated\00", align 1
+@.str.198 = private unnamed_addr constant [35 x i8] c"tile->codec->getNextImage() failed\00", align 1
+@.str.199 = private unnamed_addr constant [35 x i8] c"avifImageLimitedToFullAlpha failed\00", align 1
+@.str.200 = private unnamed_addr constant [88 x i8] c"The color image item does not match the alpha image item in width, height, or bit depth\00", align 1
+@.str.201 = private unnamed_addr constant [101 x i8] c"Grid image tiles do not completely cover the image (HEIF (ISO/IEC 23008-12:2017), Section 6.6.2.3.1)\00", align 1
+@.str.202 = private unnamed_addr constant [175 x i8] c"Grid image tiles in the rightmost column and bottommost row do not overlap the reconstructed image grid canvas. See MIAF (ISO/IEC 23000-22:2019), Section 7.3.11.4.2, Figure 2\00", align 1
+@.str.203 = private unnamed_addr constant [59 x i8] c"Alpha plane dimensions do not match color plane dimensions\00", align 1
+@.str.204 = private unnamed_addr constant [25 x i8] c"Image allocation failure\00", align 1
+@.str.205 = private unnamed_addr constant [37 x i8] c"Grid image contains mismatched tiles\00", align 1
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @avifCodecDecodeInputCreate() local_unnamed_addr #0 {
+  %1 = tail call ptr @avifAlloc(i64 noundef 32) #13
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %6, label %3
+
+3:                                                ; preds = %0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
+  %4 = tail call i32 @avifArrayCreate(ptr noundef nonnull %1, i32 noundef 56, i32 noundef 1) #13
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %5, label %6
+
+5:                                                ; preds = %3
+  tail call void @avifFree(ptr noundef nonnull %1) #13
+  br label %6
+
+6:                                                ; preds = %3, %0, %5
+  %.0 = phi ptr [ null, %5 ], [ null, %0 ], [ %1, %3 ]
+  ret ptr %.0
+}
+
+declare ptr @avifAlloc(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+
+declare i32 @avifArrayCreate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @avifFree(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @avifCodecDecodeInputDestroy(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = load i32, ptr %2, align 4
+  %.not9 = icmp eq i32 %3, 0
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1, %10
+  %4 = phi i32 [ %11, %10 ], [ %3, %1 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %1 ]
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds %struct.avifDecodeSample, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i32, ptr %7, align 8
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %10, label %9
+
+9:                                                ; preds = %.lr.ph
+  tail call void @avifRWDataFree(ptr noundef nonnull %6) #13
+  %.pre = load i32, ptr %2, align 4
+  br label %10
+
+10:                                               ; preds = %.lr.ph, %9
+  %11 = phi i32 [ %4, %.lr.ph ], [ %.pre, %9 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %12 = zext i32 %11 to i64
+  %13 = icmp ult i64 %indvars.iv.next, %12
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+
+._crit_edge:                                      ; preds = %10, %1
+  tail call void @avifArrayDestroy(ptr noundef nonnull %0) #13
+  tail call void @avifFree(ptr noundef nonnull %0) #13
+  ret void
+}
+
+declare void @avifRWDataFree(ptr noundef) local_unnamed_addr #1
+
+declare void @avifArrayDestroy(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden range(i32 0, 2) i32 @avifPeekCompatibleFileType(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.avifROStream, align 8
+  %3 = alloca %struct.avifROData, align 8
+  %4 = alloca %struct.avifBoxHeader, align 8
+  %5 = alloca %struct.avifFileType, align 8
+  %6 = load ptr, ptr %0, align 8
+  store ptr %6, ptr %3, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %8, ptr %9, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #13
+  %10 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %2, ptr noundef nonnull %4) #13
+  %.not = icmp ne i32 %10, 0
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %lhsv = load i32, ptr %11, align 8
+  %.not3 = icmp eq i32 %lhsv, 1887007846
+  %or.cond = select i1 %.not, i1 %.not3, i1 false
+  br i1 %or.cond, label %12, label %18
+
+12:                                               ; preds = %1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  %13 = call ptr @avifROStreamCurrent(ptr noundef nonnull %2) #13
+  %14 = load i64, ptr %4, align 8
+  %15 = call fastcc i32 @avifParseFileTypeBox(ptr noundef nonnull %5, ptr noundef %13, i64 noundef %14, ptr noundef null)
+  %.not4 = icmp eq i32 %15, 0
+  br i1 %.not4, label %18, label %16
+
+16:                                               ; preds = %12
+  %17 = call fastcc i32 @avifFileTypeIsCompatible(ptr noundef nonnull %5)
+  br label %18
+
+18:                                               ; preds = %12, %1, %16
+  %.0 = phi i32 [ %17, %16 ], [ 0, %1 ], [ 0, %12 ]
+  ret i32 %.0
+}
+
+declare void @avifROStreamStart(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamReadBoxHeader(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @avifParseFileTypeBox(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = alloca %struct.avifROStream, align 8
+  %6 = alloca %struct.avifROData, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %2, ptr %7, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull @.str.20) #13
+  %8 = call i32 @avifROStreamRead(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 4) #13
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %24, label %9
+
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = call i32 @avifROStreamReadU32(ptr noundef nonnull %5, ptr noundef nonnull %10) #13
+  %.not12 = icmp eq i32 %11, 0
+  br i1 %.not12, label %24, label %12
+
+12:                                               ; preds = %9
+  %13 = call i64 @avifROStreamRemainingBytes(ptr noundef nonnull %5) #13
+  %14 = and i64 %13, 3
+  %.not13 = icmp eq i64 %14, 0
+  br i1 %.not13, label %16, label %15
+
+15:                                               ; preds = %12
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %3, ptr noundef nonnull @.str.21, i64 noundef %13) #13
+  br label %24
+
+16:                                               ; preds = %12
+  %17 = call ptr @avifROStreamCurrent(ptr noundef nonnull %5) #13
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8
+  %19 = call i32 @avifROStreamSkip(ptr noundef nonnull %5, i64 noundef %13) #13
+  %.not14 = icmp eq i32 %19, 0
+  br i1 %.not14, label %24, label %20
+
+20:                                               ; preds = %16
+  %21 = trunc i64 %13 to i32
+  %22 = ashr exact i32 %21, 2
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %22, ptr %23, align 8
+  br label %24
+
+24:                                               ; preds = %16, %9, %4, %20, %15
+  %.0 = phi i32 [ 0, %15 ], [ 1, %20 ], [ 0, %4 ], [ 0, %9 ], [ 0, %16 ]
+  ret i32 %.0
+}
+
+declare ptr @avifROStreamCurrent(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
+define internal fastcc range(i32 0, 2) i32 @avifFileTypeIsCompatible(ptr nocapture noundef readonly %0) unnamed_addr #3 {
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.9, i64 4)
+  %.not.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not.i, label %avifFileTypeHasBrand.exit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i32, ptr %2, align 8
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph.i, label %.loopexit.thread
+
+.lr.ph.i:                                         ; preds = %.preheader.i
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %wide.trip.count.i = zext nneg i32 %3 to i64
+  br label %8
+
+7:                                                ; preds = %8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.loopexit, label %8, !llvm.loop !6
+
+8:                                                ; preds = %7, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
+  %9 = shl nsw i64 %indvars.iv.i, 2
+  %10 = getelementptr inbounds i8, ptr %6, i64 %9
+  %bcmp10.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull readonly dereferenceable(4) @.str.9, i64 4)
+  %.not11.i = icmp eq i32 %bcmp10.i, 0
+  br i1 %.not11.i, label %avifFileTypeHasBrand.exit, label %7
+
+.loopexit:                                        ; preds = %7
+  %bcmp.i2 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.8, i64 4)
+  %.not.i3 = icmp eq i32 %bcmp.i2, 0
+  br i1 %.not.i3, label %avifFileTypeHasBrand.exit, label %.lr.ph.i6
+
+.loopexit.thread:                                 ; preds = %.preheader.i
+  %bcmp.i218 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull readonly dereferenceable(4) @.str.8, i64 4)
+  %.not.i319 = icmp eq i32 %bcmp.i218, 0
+  br label %avifFileTypeHasBrand.exit
+
+.lr.ph.i6:                                        ; preds = %.loopexit
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %wide.trip.count.i7 = zext nneg i32 %3 to i64
+  br label %13
+
+13:                                               ; preds = %13, %.lr.ph.i6
+  %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.i6 ], [ %indvars.iv.next.i11, %13 ]
+  %14 = shl nsw i64 %indvars.iv.i8, 2
+  %15 = getelementptr inbounds i8, ptr %12, i64 %14
+  %bcmp10.i9 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %15, ptr noundef nonnull readonly dereferenceable(4) @.str.8, i64 4)
+  %.not11.i10 = icmp eq i32 %bcmp10.i9, 0
+  %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i8, 1
+  %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, %wide.trip.count.i7
+  %or.cond = select i1 %.not11.i10, i1 true, i1 %exitcond.not.i12
+  br i1 %or.cond, label %avifFileTypeHasBrand.exit, label %13, !llvm.loop !6
+
+avifFileTypeHasBrand.exit:                        ; preds = %8, %13, %.loopexit.thread, %.loopexit, %1
+  %.shrunk = phi i1 [ true, %1 ], [ true, %.loopexit ], [ %.not.i319, %.loopexit.thread ], [ %.not11.i10, %13 ], [ true, %8 ]
+  %16 = zext i1 %.shrunk to i32
+  ret i32 %16
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @avifDecoderCreate() local_unnamed_addr #0 {
+  %1 = tail call ptr @avifAlloc(i64 noundef 440) #13
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %9, label %3
+
+3:                                                ; preds = %0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %1, i8 0, i64 440, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 1, ptr %4, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 268435456, ptr %5, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 32768, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store i32 2592000, ptr %7, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i32 7, ptr %8, align 8
+  br label %9
+
+9:                                                ; preds = %0, %3
+  ret ptr %1
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @avifDecoderDestroy(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %3 = load ptr, ptr %2, align 8
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %5, label %4
+
+4:                                                ; preds = %1
+  tail call fastcc void @avifDecoderDataDestroy(ptr noundef nonnull %3)
+  store ptr null, ptr %2, align 8
+  br label %5
+
+5:                                                ; preds = %4, %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = load ptr, ptr %6, align 8
+  %.not8.i = icmp eq ptr %7, null
+  br i1 %.not8.i, label %avifDecoderCleanup.exit, label %8
+
+8:                                                ; preds = %5
+  tail call void @avifImageDestroy(ptr noundef nonnull %7) #13
+  store ptr null, ptr %6, align 8
+  br label %avifDecoderCleanup.exit
+
+avifDecoderCleanup.exit:                          ; preds = %5, %8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @avifDiagnosticsClearError(ptr noundef nonnull %9) #13
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %11 = load ptr, ptr %10, align 8
+  tail call void @avifIODestroy(ptr noundef %11) #13
+  tail call void @avifFree(ptr noundef nonnull %0) #13
+  ret void
+}
+
+declare void @avifIODestroy(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @avifDecoderSetSource(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %1, ptr %3, align 8
+  %4 = tail call i32 @avifDecoderReset(ptr noundef %0)
+  ret i32 %4
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @avifDecoderReset(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.avifCropRect, align 4
+  %3 = alloca [2 x ptr], align 16
+  %4 = alloca [2 x i32], align 8
+  %5 = alloca %struct.avifROData, align 8
+  %6 = alloca %struct.avifSequenceHeader, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @avifDiagnosticsClearError(ptr noundef nonnull %7) #13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %9 = load ptr, ptr %8, align 8
+  %.not = icmp eq ptr %9, null
+  %indvars.iv750.sroa.gep1096 = getelementptr inbounds i8, ptr %4, i64 4
+  %indvars.iv750.sroa.gep1099 = getelementptr inbounds i8, ptr %3, i64 8
+  br i1 %.not, label %avifMetaFindAlphaItem.exit, label %.preheader527
+
+.preheader527:                                    ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %11 = getelementptr inbounds i8, ptr %9, i64 68
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %12 = getelementptr inbounds i8, ptr %9, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  tail call fastcc void @avifDecoderDataClearTiles(ptr noundef nonnull %9)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = load ptr, ptr %13, align 8
+  %.not365 = icmp eq ptr %14, null
+  br i1 %.not365, label %16, label %15
+
+15:                                               ; preds = %.preheader527
+  tail call void @avifImageDestroy(ptr noundef nonnull %14) #13
+  br label %16
+
+16:                                               ; preds = %15, %.preheader527
+  %17 = tail call ptr @avifImageCreateEmpty() #13
+  store ptr %17, ptr %13, align 8
+  %.not366 = icmp eq ptr %17, null
+  br i1 %.not366, label %avifMetaFindAlphaItem.exit, label %18
+
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  store i32 0, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 152
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %37
+
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %27, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
+  %.not367 = icmp eq i32 %bcmp, 0
+  br i1 %.not367, label %28, label %30
+
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  br label %.preheader517.sink.split
+
+30:                                               ; preds = %26
+  %bcmp368 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %27, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
+  %.not369 = icmp eq i32 %bcmp368, 0
+  br i1 %.not369, label %31, label %33
+
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  br label %.thread778.sink.split
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds i8, ptr %9, i64 20
+  %35 = load i32, ptr %34, align 4
+  %.not370 = icmp eq i32 %35, 0
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  br i1 %.not370, label %.thread778.sink.split, label %.preheader517.sink.split
+
+37:                                               ; preds = %18
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store i32 %24, ptr %38, align 8
+  %39 = icmp eq i32 %24, 2
+  br i1 %39, label %.preheader517, label %.thread778
+
+.preheader517.sink.split:                         ; preds = %33, %28
+  %.sink884 = phi ptr [ %29, %28 ], [ %36, %33 ]
+  store i32 2, ptr %.sink884, align 8
+  br label %.preheader517
+
+.preheader517:                                    ; preds = %.preheader517.sink.split, %37
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %41 = getelementptr inbounds i8, ptr %9, i64 20
+  %42 = load i32, ptr %41, align 4
+  %.not654 = icmp eq i32 %42, 0
+  br i1 %.not654, label %avifSampleTableGetCodecType.exit._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader517
+  %43 = load ptr, ptr %40, align 8
+  %wide.trip.count = zext i32 %42 to i64
+  br label %44
+
+44:                                               ; preds = %.lr.ph, %avifSampleTableGetCodecType.exit.thread
+  %indvars.iv753 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next754, %avifSampleTableGetCodecType.exit.thread ]
+  %45 = getelementptr inbounds %struct.avifTrack, ptr %43, i64 %indvars.iv753
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
+  %47 = load ptr, ptr %46, align 8
+  %.not383 = icmp eq ptr %47, null
+  br i1 %.not383, label %avifSampleTableGetCodecType.exit.thread, label %48
+
+48:                                               ; preds = %44
+  %49 = load i32, ptr %45, align 8
+  %.not384 = icmp eq i32 %49, 0
+  br i1 %.not384, label %avifSampleTableGetCodecType.exit.thread, label %50
+
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  %52 = load i32, ptr %51, align 4
+  %.not385 = icmp eq i32 %52, 0
+  br i1 %.not385, label %avifSampleTableGetCodecType.exit.thread, label %53
+
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %47, i64 36
+  %55 = load i32, ptr %54, align 4
+  %.not.i = icmp eq i32 %55, 0
+  br i1 %.not.i, label %avifSampleTableGetCodecType.exit.thread, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %wide.trip.count.i = zext i32 %55 to i64
+  br label %59
+
+58:                                               ; preds = %59
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %avifSampleTableGetCodecType.exit.thread, label %59, !llvm.loop !7
+
+59:                                               ; preds = %58, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %58 ]
+  %60 = getelementptr inbounds %struct.avifSampleDescription, ptr %57, i64 %indvars.iv.i
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %60, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not.i.not.i, label %avifSampleTableGetCodecType.exit, label %58
+
+avifSampleTableGetCodecType.exit:                 ; preds = %59
+  %61 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %62 = load i32, ptr %61, align 4
+  %.not386 = icmp eq i32 %62, 0
+  br i1 %.not386, label %avifSampleTableGetCodecType.exit._crit_edge.loopexit, label %avifSampleTableGetCodecType.exit.thread
+
+avifSampleTableGetCodecType.exit.thread:          ; preds = %58, %53, %avifSampleTableGetCodecType.exit, %50, %48, %44
+  %indvars.iv.next754 = add nuw nsw i64 %indvars.iv753, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next754, %wide.trip.count
+  br i1 %exitcond.not, label %avifSampleTableGetCodecType.exit._crit_edge.thread, label %44, !llvm.loop !8
+
+avifSampleTableGetCodecType.exit._crit_edge.loopexit: ; preds = %avifSampleTableGetCodecType.exit
+  %63 = trunc nuw i64 %indvars.iv753 to i32
+  br label %avifSampleTableGetCodecType.exit._crit_edge
+
+avifSampleTableGetCodecType.exit._crit_edge:      ; preds = %avifSampleTableGetCodecType.exit._crit_edge.loopexit, %.preheader517
+  %.0308.lcssa = phi i32 [ 0, %.preheader517 ], [ %63, %avifSampleTableGetCodecType.exit._crit_edge.loopexit ]
+  %.1305 = phi i32 [ 0, %.preheader517 ], [ 1, %avifSampleTableGetCodecType.exit._crit_edge.loopexit ]
+  %64 = icmp eq i32 %.0308.lcssa, %42
+  br i1 %64, label %avifSampleTableGetCodecType.exit._crit_edge.thread, label %65
+
+avifSampleTableGetCodecType.exit._crit_edge.thread: ; preds = %avifSampleTableGetCodecType.exit.thread, %avifSampleTableGetCodecType.exit._crit_edge
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #13
+  br label %avifMetaFindAlphaItem.exit
+
+65:                                               ; preds = %avifSampleTableGetCodecType.exit._crit_edge
+  %66 = load ptr, ptr %40, align 8
+  %67 = zext i32 %.0308.lcssa to i64
+  %68 = getelementptr inbounds %struct.avifTrack, ptr %66, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 36
+  %72 = load i32, ptr %71, align 4
+  %.not.i420 = icmp eq i32 %72, 0
+  br i1 %.not.i420, label %.loopexit516, label %.lr.ph.i421
+
+.lr.ph.i421:                                      ; preds = %65
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %wide.trip.count.i422 = zext i32 %72 to i64
+  br label %76
+
+75:                                               ; preds = %76
+  %indvars.iv.next.i425 = add nuw nsw i64 %indvars.iv.i423, 1
+  %exitcond.not.i426 = icmp eq i64 %indvars.iv.next.i425, %wide.trip.count.i422
+  br i1 %exitcond.not.i426, label %.loopexit516, label %76, !llvm.loop !9
+
+76:                                               ; preds = %75, %.lr.ph.i421
+  %indvars.iv.i423 = phi i64 [ 0, %.lr.ph.i421 ], [ %indvars.iv.next.i425, %75 ]
+  %77 = getelementptr inbounds %struct.avifSampleDescription, ptr %74, i64 %indvars.iv.i423
+  %bcmp.i.i424 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %77, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i.i = icmp eq i32 %bcmp.i.i424, 0
+  %..i.i = zext i1 %.not.i.i to i32
+  %78 = icmp eq i32 %.1305, %..i.i
+  br i1 %78, label %79, label %75
+
+.loopexit516:                                     ; preds = %75, %65
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.11) #13
+  br label %avifMetaFindAlphaItem.exit
+
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %68, i64 64
+  %82 = load ptr, ptr %81, align 8
+  %.not388 = icmp eq ptr %82, null
+  br i1 %.not388, label %86, label %83
+
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %13, align 8
+  %85 = tail call fastcc i32 @avifDecoderFindMetadata(ptr noundef %0, ptr noundef nonnull %82, ptr noundef %84, i32 noundef 0)
+  %.not389 = icmp eq i32 %85, 0
+  br i1 %.not389, label %._crit_edge, label %avifMetaFindAlphaItem.exit
+
+._crit_edge:                                      ; preds = %83
+  %.pre773 = load i32, ptr %41, align 4
+  br label %86
+
+86:                                               ; preds = %._crit_edge, %79
+  %87 = phi i32 [ %.pre773, %._crit_edge ], [ %42, %79 ]
+  %.not655 = icmp eq i32 %87, 0
+  br i1 %.not655, label %avifSampleTableGetCodecType.exit437._crit_edge, label %.lr.ph631
+
+.lr.ph631:                                        ; preds = %86
+  %88 = load ptr, ptr %40, align 8
+  %wide.trip.count759 = zext i32 %87 to i64
+  br label %89
+
+89:                                               ; preds = %.lr.ph631, %avifSampleTableGetCodecType.exit437.thread
+  %indvars.iv756 = phi i64 [ 0, %.lr.ph631 ], [ %indvars.iv.next757, %avifSampleTableGetCodecType.exit437.thread ]
+  %.0310628 = phi i32 [ 0, %.lr.ph631 ], [ %.2312, %avifSampleTableGetCodecType.exit437.thread ]
+  %90 = getelementptr inbounds %struct.avifTrack, ptr %88, i64 %indvars.iv756
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 56
+  %92 = load ptr, ptr %91, align 8
+  %.not390 = icmp eq ptr %92, null
+  br i1 %.not390, label %avifSampleTableGetCodecType.exit437.thread, label %93
+
+93:                                               ; preds = %89
+  %94 = load i32, ptr %90, align 8
+  %.not391 = icmp eq i32 %94, 0
+  br i1 %.not391, label %avifSampleTableGetCodecType.exit437.thread, label %95
+
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 12
+  %97 = load i32, ptr %96, align 4
+  %.not392 = icmp eq i32 %97, 0
+  br i1 %.not392, label %avifSampleTableGetCodecType.exit437.thread, label %98
+
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds i8, ptr %92, i64 36
+  %100 = load i32, ptr %99, align 4
+  %.not.i428 = icmp eq i32 %100, 0
+  br i1 %.not.i428, label %avifSampleTableGetCodecType.exit437.thread, label %.lr.ph.i429
+
+.lr.ph.i429:                                      ; preds = %98
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %102 = load ptr, ptr %101, align 8
+  %wide.trip.count.i430 = zext i32 %100 to i64
+  br label %104
+
+103:                                              ; preds = %104
+  %indvars.iv.next.i434 = add nuw nsw i64 %indvars.iv.i431, 1
+  %exitcond.not.i435 = icmp eq i64 %indvars.iv.next.i434, %wide.trip.count.i430
+  br i1 %exitcond.not.i435, label %avifSampleTableGetCodecType.exit437.thread, label %104, !llvm.loop !7
+
+104:                                              ; preds = %103, %.lr.ph.i429
+  %indvars.iv.i431 = phi i64 [ 0, %.lr.ph.i429 ], [ %indvars.iv.next.i434, %103 ]
+  %105 = getelementptr inbounds %struct.avifSampleDescription, ptr %102, i64 %indvars.iv.i431
+  %bcmp.i.i432 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %105, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i.not.i433 = icmp eq i32 %bcmp.i.i432, 0
+  br i1 %.not.i.not.i433, label %avifSampleTableGetCodecType.exit437, label %103
+
+avifSampleTableGetCodecType.exit437:              ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %107 = load i32, ptr %106, align 4
+  %108 = load i32, ptr %68, align 8
+  %109 = icmp eq i32 %107, %108
+  br i1 %109, label %avifSampleTableGetCodecType.exit437._crit_edge.loopexit, label %avifSampleTableGetCodecType.exit437.thread
+
+avifSampleTableGetCodecType.exit437.thread:       ; preds = %103, %98, %avifSampleTableGetCodecType.exit437, %95, %93, %89
+  %.2312 = phi i32 [ 1, %avifSampleTableGetCodecType.exit437 ], [ %.0310628, %95 ], [ %.0310628, %93 ], [ %.0310628, %89 ], [ 0, %98 ], [ 0, %103 ]
+  %indvars.iv.next757 = add nuw nsw i64 %indvars.iv756, 1
+  %exitcond760.not = icmp eq i64 %indvars.iv.next757, %wide.trip.count759
+  br i1 %exitcond760.not, label %avifSampleTableGetCodecType.exit437._crit_edge.thread, label %89, !llvm.loop !10
+
+avifSampleTableGetCodecType.exit437._crit_edge.loopexit: ; preds = %avifSampleTableGetCodecType.exit437
+  %110 = trunc nuw i64 %indvars.iv756 to i32
+  br label %avifSampleTableGetCodecType.exit437._crit_edge
+
+avifSampleTableGetCodecType.exit437._crit_edge:   ; preds = %avifSampleTableGetCodecType.exit437._crit_edge.loopexit, %86
+  %.0309.lcssa = phi i32 [ 0, %86 ], [ %110, %avifSampleTableGetCodecType.exit437._crit_edge.loopexit ]
+  %.1311 = phi i32 [ 0, %86 ], [ 1, %avifSampleTableGetCodecType.exit437._crit_edge.loopexit ]
+  %.not393 = icmp eq i32 %.0309.lcssa, %87
+  br i1 %.not393, label %avifSampleTableGetCodecType.exit437._crit_edge.thread, label %111
+
+111:                                              ; preds = %avifSampleTableGetCodecType.exit437._crit_edge
+  %112 = load ptr, ptr %40, align 8
+  %113 = zext i32 %.0309.lcssa to i64
+  %114 = getelementptr inbounds %struct.avifTrack, ptr %112, i64 %113
+  br label %avifSampleTableGetCodecType.exit437._crit_edge.thread
+
+avifSampleTableGetCodecType.exit437._crit_edge.thread: ; preds = %avifSampleTableGetCodecType.exit437.thread, %111, %avifSampleTableGetCodecType.exit437._crit_edge
+  %.1311784 = phi i32 [ %.1311, %111 ], [ %.1311, %avifSampleTableGetCodecType.exit437._crit_edge ], [ %.2312, %avifSampleTableGetCodecType.exit437.thread ]
+  %.0307 = phi ptr [ %114, %111 ], [ null, %avifSampleTableGetCodecType.exit437._crit_edge ], [ null, %avifSampleTableGetCodecType.exit437.thread ]
+  %115 = getelementptr inbounds nuw i8, ptr %68, i64 48
+  %116 = load i32, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %68, i64 52
+  %118 = load i32, ptr %117, align 4
+  %119 = tail call fastcc ptr @avifDecoderDataCreateTile(ptr noundef %9, i32 noundef %.1305, i32 noundef %116, i32 noundef %118, i8 noundef zeroext 0)
+  %.not394 = icmp eq ptr %119, null
+  br i1 %.not394, label %avifMetaFindAlphaItem.exit, label %120
+
+120:                                              ; preds = %avifSampleTableGetCodecType.exit437._crit_edge.thread
+  %121 = load ptr, ptr %119, align 8
+  %122 = load ptr, ptr %69, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %124 = load i32, ptr %123, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %128 = load i64, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %130 = load ptr, ptr %129, align 8
+  %131 = tail call fastcc i32 @avifCodecDecodeInputFillFromSampleTable(ptr noundef %121, ptr noundef %122, i32 noundef %124, i64 noundef %128, ptr noundef %130)
+  %.not395 = icmp eq i32 %131, 0
+  br i1 %.not395, label %132, label %avifMetaFindAlphaItem.exit
+
+132:                                              ; preds = %120
+  store i32 1, ptr %10, align 8
+  %133 = icmp ne ptr %.0307, null
+  br i1 %133, label %134, label %154
+
+134:                                              ; preds = %132
+  %135 = getelementptr inbounds nuw i8, ptr %.0307, i64 48
+  %136 = load i32, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %.0307, i64 52
+  %138 = load i32, ptr %137, align 4
+  %139 = tail call fastcc ptr @avifDecoderDataCreateTile(ptr noundef nonnull %9, i32 noundef %.1311784, i32 noundef %136, i32 noundef %138, i8 noundef zeroext 0)
+  %.not396 = icmp eq ptr %139, null
+  br i1 %.not396, label %avifMetaFindAlphaItem.exit, label %140
+
+140:                                              ; preds = %134
+  %141 = load ptr, ptr %139, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %.0307, i64 56
+  %143 = load ptr, ptr %142, align 8
+  %144 = load i32, ptr %123, align 4
+  %145 = load ptr, ptr %125, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  %147 = load i64, ptr %146, align 8
+  %148 = load ptr, ptr %129, align 8
+  %149 = tail call fastcc i32 @avifCodecDecodeInputFillFromSampleTable(ptr noundef %141, ptr noundef %143, i32 noundef %144, i64 noundef %147, ptr noundef %148)
+  %.not397 = icmp eq i32 %149, 0
+  br i1 %.not397, label %150, label %avifMetaFindAlphaItem.exit
+
+150:                                              ; preds = %140
+  %151 = load ptr, ptr %139, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 28
+  store i32 1, ptr %152, align 4
+  %153 = getelementptr inbounds i8, ptr %9, i64 84
+  store i32 1, ptr %153, align 4
+  br label %154
+
+154:                                              ; preds = %150, %132
+  %155 = load ptr, ptr %69, align 8
+  store ptr %155, ptr %22, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 -1, ptr %156, align 8
+  %157 = load ptr, ptr %119, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 12
+  %159 = load i32, ptr %158, align 4
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %159, ptr %160, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  %162 = load i32, ptr %161, align 4
+  %163 = zext i32 %162 to i64
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %163, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %166 = load i64, ptr %165, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 %166, ptr %167, align 8
+  %168 = load i32, ptr %161, align 4
+  %.not398 = icmp eq i32 %168, 0
+  %169 = uitofp i64 %166 to double
+  %170 = uitofp i32 %168 to double
+  %171 = fdiv double %169, %170
+  %.sink = select i1 %.not398, double 0.000000e+00, double %171
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store double %.sink, ptr %172, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %68, i64 44
+  %174 = load i32, ptr %173, align 4
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 %174, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %176, i8 0, i64 40, i1 false)
+  %177 = load i32, ptr %115, align 8
+  %178 = load ptr, ptr %13, align 8
+  store i32 %177, ptr %178, align 8
+  %179 = load i32, ptr %117, align 4
+  %180 = load ptr, ptr %13, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
+  store i32 %179, ptr %181, align 4
+  %182 = zext i1 %133 to i32
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 %182, ptr %183, align 4
+  br i1 %133, label %184, label %643
+
+184:                                              ; preds = %154
+  %185 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  br label %.sink.split893
+
+.thread778.sink.split:                            ; preds = %33, %31
+  %.sink885 = phi ptr [ %32, %31 ], [ %36, %33 ]
+  store i32 1, ptr %.sink885, align 8
+  br label %.thread778
+
+.thread778:                                       ; preds = %.thread778.sink.split, %37
+  %186 = load ptr, ptr %9, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 68
+  %188 = load i32, ptr %187, align 4
+  %189 = icmp eq i32 %188, 0
+  br i1 %189, label %192, label %.preheader526.preheader
+
+.preheader526.preheader:                          ; preds = %.thread778
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  store i64 0, ptr %4, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 12
+  %191 = load i32, ptr %190, align 4
+  %.not.i438 = icmp eq i32 %191, 0
+  br i1 %.not.i438, label %.loopexit525, label %.lr.ph.i439
+
+192:                                              ; preds = %.thread778
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.12) #13
+  br label %avifMetaFindAlphaItem.exit
+
+.lr.ph.i439:                                      ; preds = %.preheader526.preheader
+  %193 = load ptr, ptr %186, align 8
+  %wide.trip.count.i440 = zext i32 %191 to i64
+  br label %194
+
+194:                                              ; preds = %avifDecoderItemShouldBeSkipped.exit.thread.i, %.lr.ph.i439
+  %indvars.iv.i441 = phi i64 [ 0, %.lr.ph.i439 ], [ %indvars.iv.next.i443, %avifDecoderItemShouldBeSkipped.exit.thread.i ]
+  %195 = getelementptr inbounds %struct.avifDecoderItem, ptr %193, i64 %indvars.iv.i441
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
+  %197 = load i64, ptr %196, align 8
+  %.not.i.i442 = icmp eq i64 %197, 0
+  br i1 %.not.i.i442, label %avifDecoderItemShouldBeSkipped.exit.thread.i, label %198
+
+198:                                              ; preds = %194
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 208
+  %200 = load i32, ptr %199, align 8
+  %.not5.i.i = icmp eq i32 %200, 0
+  br i1 %.not5.i.i, label %201, label %avifDecoderItemShouldBeSkipped.exit.thread.i
+
+201:                                              ; preds = %198
+  %202 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %202, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i.not.i.i = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %.not.i.not.i.i, label %avifDecoderItemShouldBeSkipped.exit.i, label %203
+
+203:                                              ; preds = %201
+  %bcmp.i.i446 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %202, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %.not6.i.i = icmp eq i32 %bcmp.i.i446, 0
+  br i1 %.not6.i.i, label %avifDecoderItemShouldBeSkipped.exit.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i
+
+avifDecoderItemShouldBeSkipped.exit.i:            ; preds = %203, %201
+  %204 = getelementptr inbounds nuw i8, ptr %195, i64 184
+  %205 = load i32, ptr %204, align 8
+  %.not11.i = icmp eq i32 %205, 0
+  br i1 %.not11.i, label %206, label %avifDecoderItemShouldBeSkipped.exit.thread.i
+
+206:                                              ; preds = %avifDecoderItemShouldBeSkipped.exit.i
+  %207 = load i32, ptr %195, align 8
+  %208 = icmp eq i32 %207, %188
+  br i1 %208, label %209, label %avifDecoderItemShouldBeSkipped.exit.thread.i
+
+avifDecoderItemShouldBeSkipped.exit.thread.i:     ; preds = %206, %avifDecoderItemShouldBeSkipped.exit.i, %203, %198, %194
+  %indvars.iv.next.i443 = add nuw nsw i64 %indvars.iv.i441, 1
+  %exitcond.not.i444 = icmp eq i64 %indvars.iv.next.i443, %wide.trip.count.i440
+  br i1 %exitcond.not.i444, label %.loopexit525, label %194, !llvm.loop !11
+
+.loopexit525:                                     ; preds = %avifDecoderItemShouldBeSkipped.exit.thread.i, %.preheader526.preheader
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.13) #13
+  br label %avifMetaFindAlphaItem.exit
+
+209:                                              ; preds = %206
+  store ptr %195, ptr %3, align 16
+  %210 = getelementptr inbounds i8, ptr %9, i64 68
+  %211 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef nonnull %195, i32 noundef 1, ptr noundef nonnull %210, ptr noundef nonnull %4)
+  %.not372 = icmp eq i32 %211, 0
+  br i1 %.not372, label %212, label %avifMetaFindAlphaItem.exit
+
+212:                                              ; preds = %209
+  %213 = getelementptr inbounds nuw i8, ptr %195, i64 112
+  %214 = load i32, ptr %4, align 8
+  %215 = load ptr, ptr %9, align 8
+  %216 = getelementptr inbounds i8, ptr %3, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %215, i64 12
+  %218 = load i32, ptr %217, align 4
+  %.not139.i = icmp eq i32 %218, 0
+  br i1 %.not139.i, label %._crit_edge.i, label %.lr.ph.i447
+
+.lr.ph.i447:                                      ; preds = %212
+  %219 = load ptr, ptr %215, align 8
+  %wide.trip.count.i448 = zext i32 %218 to i64
+  br label %220
+
+220:                                              ; preds = %avifDecoderItemShouldBeSkipped.exit.thread.i452, %.lr.ph.i447
+  %indvars.iv.i449 = phi i64 [ 0, %.lr.ph.i447 ], [ %indvars.iv.next.i453, %avifDecoderItemShouldBeSkipped.exit.thread.i452 ]
+  %221 = getelementptr inbounds %struct.avifDecoderItem, ptr %219, i64 %indvars.iv.i449
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
+  %223 = load i64, ptr %222, align 8
+  %.not.i.i450 = icmp eq i64 %223, 0
+  br i1 %.not.i.i450, label %avifDecoderItemShouldBeSkipped.exit.thread.i452, label %224
+
+224:                                              ; preds = %220
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 208
+  %226 = load i32, ptr %225, align 8
+  %.not5.i.i451 = icmp eq i32 %226, 0
+  br i1 %.not5.i.i451, label %227, label %avifDecoderItemShouldBeSkipped.exit.thread.i452
+
+227:                                              ; preds = %224
+  %228 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %bcmp.i.i.i457 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %228, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i.not.i.i458 = icmp eq i32 %bcmp.i.i.i457, 0
+  br i1 %.not.i.not.i.i458, label %avifDecoderItemShouldBeSkipped.exit.i461, label %229
+
+229:                                              ; preds = %227
+  %bcmp.i.i459 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %228, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %.not6.i.i460 = icmp eq i32 %bcmp.i.i459, 0
+  br i1 %.not6.i.i460, label %avifDecoderItemShouldBeSkipped.exit.i461, label %avifDecoderItemShouldBeSkipped.exit.thread.i452
+
+avifDecoderItemShouldBeSkipped.exit.i461:         ; preds = %229, %227
+  %230 = getelementptr inbounds nuw i8, ptr %221, i64 184
+  %231 = load i32, ptr %230, align 8
+  %.not116.i = icmp eq i32 %231, 0
+  br i1 %.not116.i, label %232, label %avifDecoderItemShouldBeSkipped.exit.thread.i452
+
+232:                                              ; preds = %avifDecoderItemShouldBeSkipped.exit.i461
+  %233 = load i32, ptr %195, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %221, i64 188
+  %235 = load i32, ptr %234, align 4
+  %.not.i87.i = icmp eq i32 %235, %233
+  br i1 %.not.i87.i, label %236, label %avifDecoderItemShouldBeSkipped.exit.thread.i452
+
+236:                                              ; preds = %232
+  %237 = getelementptr inbounds i8, ptr %221, i64 124
+  %238 = load i32, ptr %237, align 4
+  %.not12.i.i.i = icmp eq i32 %238, 0
+  br i1 %.not12.i.i.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i452, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %236
+  %239 = getelementptr inbounds nuw i8, ptr %221, i64 112
+  %240 = load ptr, ptr %239, align 8
+  %wide.trip.count.i.i.i = zext i32 %238 to i64
+  br label %242
+
+241:                                              ; preds = %242
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond.not.i.i.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i452, label %242, !llvm.loop !12
+
+242:                                              ; preds = %241, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %241 ]
+  %243 = getelementptr inbounds %struct.avifProperty, ptr %240, i64 %indvars.iv.i.i.i
+  %bcmp.i.i88.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %243, ptr noundef nonnull readonly dereferenceable(4) @.str.5, i64 4)
+  %.not.i.i.i = icmp eq i32 %bcmp.i.i88.i, 0
+  br i1 %.not.i.i.i, label %avifPropertyArrayFind.exit.i.i, label %241
+
+avifPropertyArrayFind.exit.i.i:                   ; preds = %242
+  %.not6.i89.i = icmp eq ptr %240, null
+  br i1 %.not6.i89.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i452, label %244
+
+244:                                              ; preds = %avifPropertyArrayFind.exit.i.i
+  %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  %246 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %245, ptr noundef nonnull dereferenceable(44) @.str.159) #14
+  %.not.i7.i.i = icmp eq i32 %246, 0
+  br i1 %.not.i7.i.i, label %avifDecoderItemIsAlphaAux.exit.thread108.i, label %avifDecoderItemIsAlphaAux.exit.i
+
+avifDecoderItemIsAlphaAux.exit.i:                 ; preds = %244
+  %247 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %245, ptr noundef nonnull dereferenceable(27) @.str.160) #14
+  %.not2.i.i.not.i = icmp eq i32 %247, 0
+  br i1 %.not2.i.i.not.i, label %avifDecoderItemIsAlphaAux.exit.thread108.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i452
+
+avifDecoderItemIsAlphaAux.exit.thread108.i:       ; preds = %avifDecoderItemIsAlphaAux.exit.i, %244
+  store ptr %221, ptr %216, align 8
+  br label %316
+
+avifDecoderItemShouldBeSkipped.exit.thread.i452:  ; preds = %241, %avifDecoderItemIsAlphaAux.exit.i, %avifPropertyArrayFind.exit.i.i, %236, %232, %avifDecoderItemShouldBeSkipped.exit.i461, %229, %224, %220
+  %indvars.iv.next.i453 = add nuw nsw i64 %indvars.iv.i449, 1
+  %exitcond.not.i454 = icmp eq i64 %indvars.iv.next.i453, %wide.trip.count.i448
+  br i1 %exitcond.not.i454, label %._crit_edge.i, label %220, !llvm.loop !13
+
+._crit_edge.i:                                    ; preds = %avifDecoderItemShouldBeSkipped.exit.thread.i452, %212
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %202, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %.not.i455 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not.i455, label %248, label %.thread.sink.split
+
+248:                                              ; preds = %._crit_edge.i
+  %249 = load i32, ptr %210, align 4
+  %250 = getelementptr inbounds i8, ptr %9, i64 72
+  %251 = load i32, ptr %250, align 4
+  %252 = mul i32 %251, %249
+  %253 = icmp eq i32 %252, 0
+  br i1 %253, label %.thread.sink.split, label %254
+
+254:                                              ; preds = %248
+  %255 = zext i32 %252 to i64
+  %256 = shl nuw nsw i64 %255, 2
+  %257 = tail call ptr @avifAlloc(i64 noundef %256) #13
+  %.not81.i = icmp eq ptr %257, null
+  br i1 %.not81.i, label %avifMetaFindAlphaItem.exit, label %.preheader117.i
+
+.preheader117.i:                                  ; preds = %254
+  %258 = load i32, ptr %217, align 4
+  %.not140.i = icmp eq i32 %258, 0
+  br i1 %.not140.i, label %._crit_edge132.i, label %.lr.ph131.i
+
+.lr.ph131.i:                                      ; preds = %.preheader117.i, %.loopexit.i
+  %259 = phi i32 [ %294, %.loopexit.i ], [ %258, %.preheader117.i ]
+  %indvars.iv152.i = phi i64 [ %indvars.iv.next153.i, %.loopexit.i ], [ 0, %.preheader117.i ]
+  %.072130.i = phi i32 [ %.3.i, %.loopexit.i ], [ 0, %.preheader117.i ]
+  %.074129.i = phi i32 [ %spec.select.i, %.loopexit.i ], [ 0, %.preheader117.i ]
+  %260 = load ptr, ptr %215, align 8
+  %261 = getelementptr inbounds %struct.avifDecoderItem, ptr %260, i64 %indvars.iv152.i
+  %262 = load i32, ptr %261, align 8
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %262, i32 %.074129.i)
+  %263 = getelementptr inbounds nuw i8, ptr %261, i64 196
+  %264 = load i32, ptr %263, align 4
+  %265 = load i32, ptr %195, align 8
+  %266 = icmp eq i32 %264, %265
+  br i1 %266, label %.preheader.i, label %.loopexit.i
+
+.preheader.i:                                     ; preds = %.lr.ph131.i
+  %.not141.i = icmp eq i32 %259, 0
+  br i1 %.not141.i, label %.loopexit.i, label %.lr.ph127.i
+
+.lr.ph127.i:                                      ; preds = %.preheader.i, %avifDecoderItemIsAlphaAux.exit104.thread.i
+  %267 = phi i32 [ %290, %avifDecoderItemIsAlphaAux.exit104.thread.i ], [ %259, %.preheader.i ]
+  %268 = phi i32 [ %291, %avifDecoderItemIsAlphaAux.exit104.thread.i ], [ %259, %.preheader.i ]
+  %indvars.iv149.i = phi i64 [ %indvars.iv.next150.i, %avifDecoderItemIsAlphaAux.exit104.thread.i ], [ 0, %.preheader.i ]
+  %.1126.i = phi i32 [ %.2.i, %avifDecoderItemIsAlphaAux.exit104.thread.i ], [ %.072130.i, %.preheader.i ]
+  %269 = load ptr, ptr %215, align 8
+  %270 = getelementptr inbounds %struct.avifDecoderItem, ptr %269, i64 %indvars.iv149.i
+  %271 = load i32, ptr %261, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %270, i64 188
+  %273 = load i32, ptr %272, align 4
+  %.not.i90.i = icmp eq i32 %273, %271
+  br i1 %.not.i90.i, label %274, label %avifDecoderItemIsAlphaAux.exit104.thread.i
+
+274:                                              ; preds = %.lr.ph127.i
+  %275 = getelementptr inbounds i8, ptr %270, i64 124
+  %276 = load i32, ptr %275, align 4
+  %.not12.i.i92.i = icmp eq i32 %276, 0
+  br i1 %.not12.i.i92.i, label %avifDecoderItemIsAlphaAux.exit104.thread.i, label %.lr.ph.i.i93.i
+
+.lr.ph.i.i93.i:                                   ; preds = %274
+  %277 = getelementptr inbounds nuw i8, ptr %270, i64 112
+  %278 = load ptr, ptr %277, align 8
+  %wide.trip.count.i.i94.i = zext i32 %276 to i64
+  br label %280
+
+279:                                              ; preds = %280
+  %indvars.iv.next.i.i98.i = add nuw nsw i64 %indvars.iv.i.i95.i, 1
+  %exitcond.not.i.i99.i = icmp eq i64 %indvars.iv.next.i.i98.i, %wide.trip.count.i.i94.i
+  br i1 %exitcond.not.i.i99.i, label %avifDecoderItemIsAlphaAux.exit104.thread.i, label %280, !llvm.loop !12
+
+280:                                              ; preds = %279, %.lr.ph.i.i93.i
+  %indvars.iv.i.i95.i = phi i64 [ 0, %.lr.ph.i.i93.i ], [ %indvars.iv.next.i.i98.i, %279 ]
+  %281 = getelementptr inbounds %struct.avifProperty, ptr %278, i64 %indvars.iv.i.i95.i
+  %bcmp.i.i96.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %281, ptr noundef nonnull readonly dereferenceable(4) @.str.5, i64 4)
+  %.not.i.i97.i = icmp eq i32 %bcmp.i.i96.i, 0
+  br i1 %.not.i.i97.i, label %avifPropertyArrayFind.exit.i100.i, label %279
+
+avifPropertyArrayFind.exit.i100.i:                ; preds = %280
+  %.not6.i101.i = icmp eq ptr %278, null
+  br i1 %.not6.i101.i, label %avifDecoderItemIsAlphaAux.exit104.thread.i, label %282
+
+282:                                              ; preds = %avifPropertyArrayFind.exit.i100.i
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 8
+  %284 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %283, ptr noundef nonnull dereferenceable(44) @.str.159) #14
+  %.not.i7.i102.i = icmp eq i32 %284, 0
+  br i1 %.not.i7.i102.i, label %avifDecoderItemIsAlphaAux.exit104.thread113.i, label %avifDecoderItemIsAlphaAux.exit104.i
+
+avifDecoderItemIsAlphaAux.exit104.i:              ; preds = %282
+  %285 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %283, ptr noundef nonnull dereferenceable(27) @.str.160) #14
+  %.not2.i.i103.not.i = icmp eq i32 %285, 0
+  br i1 %.not2.i.i103.not.i, label %avifDecoderItemIsAlphaAux.exit104.thread113.i, label %avifDecoderItemIsAlphaAux.exit104.thread.i
+
+avifDecoderItemIsAlphaAux.exit104.thread113.i:    ; preds = %avifDecoderItemIsAlphaAux.exit104.i, %282
+  %286 = add i32 %.1126.i, 1
+  %287 = zext i32 %.1126.i to i64
+  %288 = getelementptr inbounds i32, ptr %257, i64 %287
+  %289 = trunc nuw i64 %indvars.iv149.i to i32
+  store i32 %289, ptr %288, align 4
+  %.pre.i = load i32, ptr %217, align 4
+  br label %avifDecoderItemIsAlphaAux.exit104.thread.i
+
+avifDecoderItemIsAlphaAux.exit104.thread.i:       ; preds = %279, %avifDecoderItemIsAlphaAux.exit104.thread113.i, %avifDecoderItemIsAlphaAux.exit104.i, %avifPropertyArrayFind.exit.i100.i, %274, %.lr.ph127.i
+  %290 = phi i32 [ %.pre.i, %avifDecoderItemIsAlphaAux.exit104.thread113.i ], [ %267, %avifDecoderItemIsAlphaAux.exit104.i ], [ %267, %.lr.ph127.i ], [ %267, %avifPropertyArrayFind.exit.i100.i ], [ %267, %274 ], [ %267, %279 ]
+  %291 = phi i32 [ %.pre.i, %avifDecoderItemIsAlphaAux.exit104.thread113.i ], [ %268, %avifDecoderItemIsAlphaAux.exit104.i ], [ %268, %.lr.ph127.i ], [ %268, %avifPropertyArrayFind.exit.i100.i ], [ %268, %274 ], [ %268, %279 ]
+  %.2.i = phi i32 [ %286, %avifDecoderItemIsAlphaAux.exit104.thread113.i ], [ %.1126.i, %avifDecoderItemIsAlphaAux.exit104.i ], [ %.1126.i, %.lr.ph127.i ], [ %.1126.i, %avifPropertyArrayFind.exit.i100.i ], [ %.1126.i, %274 ], [ %.1126.i, %279 ]
+  %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
+  %292 = zext i32 %291 to i64
+  %293 = icmp ult i64 %indvars.iv.next150.i, %292
+  br i1 %293, label %.lr.ph127.i, label %.loopexit.i, !llvm.loop !14
+
+.loopexit.i:                                      ; preds = %avifDecoderItemIsAlphaAux.exit104.thread.i, %.preheader.i, %.lr.ph131.i
+  %294 = phi i32 [ %259, %.lr.ph131.i ], [ 0, %.preheader.i ], [ %290, %avifDecoderItemIsAlphaAux.exit104.thread.i ]
+  %.3.i = phi i32 [ %.072130.i, %.lr.ph131.i ], [ %.072130.i, %.preheader.i ], [ %.2.i, %avifDecoderItemIsAlphaAux.exit104.thread.i ]
+  %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
+  %295 = zext i32 %294 to i64
+  %296 = icmp ult i64 %indvars.iv.next153.i, %295
+  br i1 %296, label %.lr.ph131.i, label %._crit_edge132.loopexit.i, !llvm.loop !15
+
+._crit_edge132.loopexit.i:                        ; preds = %.loopexit.i
+  %297 = add i32 %spec.select.i, 1
+  br label %._crit_edge132.i
+
+._crit_edge132.i:                                 ; preds = %._crit_edge132.loopexit.i, %.preheader117.i
+  %.074.lcssa.i = phi i32 [ 1, %.preheader117.i ], [ %297, %._crit_edge132.loopexit.i ]
+  %.072.lcssa.i = phi i32 [ 0, %.preheader117.i ], [ %.3.i, %._crit_edge132.loopexit.i ]
+  %.not82.i = icmp eq i32 %.072.lcssa.i, %252
+  br i1 %.not82.i, label %299, label %298
+
+298:                                              ; preds = %._crit_edge132.i
+  tail call void @avifFree(ptr noundef nonnull %257) #13
+  br label %.thread.sink.split
+
+299:                                              ; preds = %._crit_edge132.i
+  %300 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef nonnull %215, i32 noundef %.074.lcssa.i, ptr noundef nonnull %216)
+  %.not83.i = icmp eq i32 %300, 0
+  br i1 %.not83.i, label %.lr.ph137.preheader.i, label %301
+
+301:                                              ; preds = %299
+  tail call void @avifFree(ptr noundef nonnull %257) #13
+  br label %avifMetaFindAlphaItem.exit
+
+.lr.ph137.preheader.i:                            ; preds = %299
+  %302 = load ptr, ptr %216, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
+  store i32 1684632167, ptr %303, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %195, i64 36
+  %305 = load i32, ptr %304, align 4
+  %306 = getelementptr inbounds nuw i8, ptr %302, i64 36
+  store i32 %305, ptr %306, align 4
+  %307 = getelementptr inbounds nuw i8, ptr %195, i64 40
+  %308 = load i32, ptr %307, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %302, i64 40
+  store i32 %308, ptr %309, align 8
+  %.pre = load i32, ptr %302, align 8
+  br label %.lr.ph137.i
+
+.lr.ph137.i:                                      ; preds = %.lr.ph137.i, %.lr.ph137.preheader.i
+  %indvars.iv155.i = phi i64 [ 0, %.lr.ph137.preheader.i ], [ %indvars.iv.next156.i, %.lr.ph137.i ]
+  %310 = load ptr, ptr %215, align 8
+  %311 = getelementptr inbounds i32, ptr %257, i64 %indvars.iv155.i
+  %312 = load i32, ptr %311, align 4
+  %313 = zext i32 %312 to i64
+  %314 = getelementptr inbounds %struct.avifDecoderItem, ptr %310, i64 %313, i32 16
+  store i32 %.pre, ptr %314, align 4
+  %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
+  %exitcond159.not.i = icmp eq i64 %indvars.iv.next156.i, %255
+  br i1 %exitcond159.not.i, label %._crit_edge138.i, label %.lr.ph137.i, !llvm.loop !16
+
+._crit_edge138.i:                                 ; preds = %.lr.ph137.i
+  tail call void @avifFree(ptr noundef nonnull %257) #13
+  %315 = getelementptr inbounds i8, ptr %9, i64 96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %315, ptr noundef nonnull readonly align 4 dereferenceable(16) %210, i64 16, i1 false)
+  br label %316
+
+316:                                              ; preds = %avifDecoderItemIsAlphaAux.exit.thread108.i, %._crit_edge138.i
+  %317 = phi ptr [ %221, %avifDecoderItemIsAlphaAux.exit.thread108.i ], [ %302, %._crit_edge138.i ]
+  %.0495.ph = phi i32 [ 1, %avifDecoderItemIsAlphaAux.exit.thread108.i ], [ 0, %._crit_edge138.i ]
+  %.not374 = icmp eq ptr %317, null
+  br i1 %.not374, label %.thread, label %318
+
+318:                                              ; preds = %316
+  %319 = getelementptr inbounds i8, ptr %9, i64 96
+  %320 = getelementptr inbounds i8, ptr %4, i64 4
+  %321 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef nonnull %317, i32 noundef %.0495.ph, ptr noundef nonnull %319, ptr noundef nonnull %320)
+  %.not375 = icmp eq i32 %321, 0
+  br i1 %.not375, label %.thread, label %avifMetaFindAlphaItem.exit
+
+.thread.sink.split:                               ; preds = %248, %._crit_edge.i, %298
+  store ptr null, ptr %216, align 8
+  br label %.thread
+
+.thread:                                          ; preds = %.thread.sink.split, %316, %318
+  %322 = phi ptr [ null, %316 ], [ %317, %318 ], [ null, %.thread.sink.split ]
+  %.0495.ph508 = phi i32 [ %.0495.ph, %316 ], [ %.0495.ph, %318 ], [ 0, %.thread.sink.split ]
+  %323 = load ptr, ptr %9, align 8
+  %324 = load ptr, ptr %13, align 8
+  %325 = load ptr, ptr %3, align 16
+  %326 = load i32, ptr %325, align 8
+  %327 = tail call fastcc i32 @avifDecoderFindMetadata(ptr noundef %0, ptr noundef %323, ptr noundef %324, i32 noundef %326)
+  %.not376 = icmp eq i32 %327, 0
+  br i1 %.not376, label %328, label %avifMetaFindAlphaItem.exit
+
+328:                                              ; preds = %.thread
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 -1, ptr %329, align 8
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 1, ptr %330, align 4
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 1, ptr %331, align 8
+  %332 = getelementptr inbounds i8, ptr %0, i64 80
+  %333 = getelementptr inbounds i8, ptr %0, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %332, i8 0, i64 16, i1 false)
+  store double 1.000000e+00, ptr %333, align 8
+  %334 = getelementptr inbounds i8, ptr %0, i64 104
+  store i64 1, ptr %334, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 1, ptr %335, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store double 1.000000e+00, ptr %336, align 8
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 1, ptr %337, align 8
+  %338 = getelementptr inbounds nuw i8, ptr %325, i64 36
+  %339 = getelementptr inbounds nuw i8, ptr %325, i64 40
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %344 = icmp ne i32 %.0495.ph508, 0
+  br label %345
+
+345:                                              ; preds = %328, %614
+  %.not653 = phi i1 [ true, %328 ], [ false, %614 ]
+  %indvars.iv750.sroa.phi = phi ptr [ %4, %328 ], [ %indvars.iv750.sroa.gep1096, %614 ]
+  %indvars.iv750.sroa.phi1097 = phi ptr [ %3, %328 ], [ %indvars.iv750.sroa.gep1099, %614 ]
+  %indvars.iv750 = phi i64 [ 0, %328 ], [ 1, %614 ]
+  %346 = load ptr, ptr %indvars.iv750.sroa.phi1097, align 8
+  %.not378 = icmp eq ptr %346, null
+  br i1 %.not378, label %614, label %347
+
+347:                                              ; preds = %345
+  br i1 %.not653, label %357, label %348
+
+348:                                              ; preds = %347
+  %349 = getelementptr inbounds nuw i8, ptr %346, i64 36
+  %350 = load i32, ptr %349, align 4
+  %.not379 = icmp eq i32 %350, 0
+  br i1 %.not379, label %351, label %357
+
+351:                                              ; preds = %348
+  %352 = getelementptr inbounds nuw i8, ptr %346, i64 40
+  %353 = load i32, ptr %352, align 8
+  %.not380 = icmp eq i32 %353, 0
+  br i1 %.not380, label %354, label %357
+
+354:                                              ; preds = %351
+  %355 = load i32, ptr %338, align 4
+  store i32 %355, ptr %349, align 4
+  %356 = load i32, ptr %339, align 8
+  store i32 %356, ptr %352, align 8
+  br label %357
+
+357:                                              ; preds = %347, %348, %351, %354
+  %358 = getelementptr inbounds [2 x %struct.avifTileInfo], ptr %10, i64 0, i64 %indvars.iv750
+  %359 = load ptr, ptr %8, align 8
+  %360 = getelementptr inbounds i8, ptr %359, i64 44
+  %361 = load i32, ptr %360, align 4
+  %362 = getelementptr inbounds nuw i8, ptr %358, i64 12
+  %363 = load i32, ptr %362, align 4
+  %.not.i462 = icmp eq i32 %363, 0
+  br i1 %.not.i462, label %450, label %364
+
+364:                                              ; preds = %357
+  %365 = getelementptr inbounds i8, ptr %358, i64 16
+  %366 = load i32, ptr %365, align 4
+  %.not33.i = icmp eq i32 %366, 0
+  br i1 %.not33.i, label %450, label %367
+
+367:                                              ; preds = %364
+  %368 = getelementptr inbounds nuw i8, ptr %346, i64 8
+  %369 = load ptr, ptr %368, align 8
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 12
+  %371 = load i32, ptr %370, align 4
+  %.not118.i.i = icmp eq i32 %371, 0
+  br i1 %.not118.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %367
+  %372 = getelementptr inbounds nuw i8, ptr %346, i64 112
+  %373 = getelementptr inbounds nuw i8, ptr %346, i64 216
+  %374 = trunc nuw nsw i64 %indvars.iv750 to i32
+  br label %375
+
+375:                                              ; preds = %440, %.lr.ph.i.i
+  %376 = phi ptr [ %369, %.lr.ph.i.i ], [ %441, %440 ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %440 ]
+  %.061117.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %440 ]
+  %.062116.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.163.i.i, %440 ]
+  %377 = load ptr, ptr %376, align 8
+  %378 = getelementptr inbounds %struct.avifDecoderItem, ptr %377, i64 %indvars.iv.i.i
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 196
+  %380 = load i32, ptr %379, align 4
+  %381 = load i32, ptr %346, align 8
+  %.not71.i.i = icmp eq i32 %380, %381
+  br i1 %.not71.i.i, label %382, label %440
+
+382:                                              ; preds = %375
+  %383 = getelementptr inbounds nuw i8, ptr %378, i64 16
+  %bcmp.i.i.i466 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %383, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i.not.i.i467 = icmp eq i32 %bcmp.i.i.i466, 0
+  br i1 %.not.i.not.i.i467, label %386, label %384
+
+384:                                              ; preds = %382
+  %385 = load i32, ptr %378, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.182, i32 noundef %385, ptr noundef nonnull %383) #13
+  br label %avifMetaFindAlphaItem.exit
+
+386:                                              ; preds = %382
+  %387 = getelementptr inbounds nuw i8, ptr %378, i64 208
+  %388 = load i32, ptr %387, align 8
+  %.not72.i.i = icmp eq i32 %388, 0
+  br i1 %.not72.i.i, label %390, label %389
+
+389:                                              ; preds = %386
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.183) #13
+  br label %avifMetaFindAlphaItem.exit
+
+390:                                              ; preds = %386
+  %391 = load ptr, ptr %8, align 8
+  %392 = getelementptr inbounds nuw i8, ptr %378, i64 36
+  %393 = load i32, ptr %392, align 4
+  %394 = getelementptr inbounds nuw i8, ptr %378, i64 40
+  %395 = load i32, ptr %394, align 8
+  %396 = getelementptr inbounds i8, ptr %378, i64 124
+  %397 = load i32, ptr %396, align 4
+  %.not12.i.i.i.i = icmp eq i32 %397, 0
+  br i1 %.not12.i.i.i.i, label %avifDecoderItemOperatingPoint.exit.i.i, label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %390
+  %398 = getelementptr inbounds nuw i8, ptr %378, i64 112
+  %399 = load ptr, ptr %398, align 8
+  %wide.trip.count.i.i.i.i = zext i32 %397 to i64
+  br label %401
+
+400:                                              ; preds = %401
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i, label %avifDecoderItemOperatingPoint.exit.i.i, label %401, !llvm.loop !12
+
+401:                                              ; preds = %400, %.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %400 ]
+  %402 = getelementptr inbounds %struct.avifProperty, ptr %399, i64 %indvars.iv.i.i.i.i
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %402, ptr noundef nonnull readonly dereferenceable(4) @.str.64, i64 4)
+  %.not.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %.not.i.i.i.i, label %avifPropertyArrayFind.exit.i.i.i, label %400
+
+avifPropertyArrayFind.exit.i.i.i:                 ; preds = %401
+  %.not.i81.i.i = icmp eq ptr %399, null
+  br i1 %.not.i81.i.i, label %avifDecoderItemOperatingPoint.exit.i.i, label %403
+
+403:                                              ; preds = %avifPropertyArrayFind.exit.i.i.i
+  %404 = getelementptr inbounds nuw i8, ptr %402, i64 8
+  %405 = load i8, ptr %404, align 8
+  br label %avifDecoderItemOperatingPoint.exit.i.i
+
+avifDecoderItemOperatingPoint.exit.i.i:           ; preds = %400, %403, %avifPropertyArrayFind.exit.i.i.i, %390
+  %.0.i.i.i = phi i8 [ %405, %403 ], [ 0, %avifPropertyArrayFind.exit.i.i.i ], [ 0, %390 ], [ 0, %400 ]
+  %406 = call fastcc ptr @avifDecoderDataCreateTile(ptr noundef %391, i32 noundef 1, i32 noundef %393, i32 noundef %395, i8 noundef zeroext %.0.i.i.i)
+  %.not73.i.i = icmp eq ptr %406, null
+  br i1 %.not73.i.i, label %avifMetaFindAlphaItem.exit, label %407
+
+407:                                              ; preds = %avifDecoderItemOperatingPoint.exit.i.i
+  %408 = load ptr, ptr %406, align 8
+  %409 = load i32, ptr %340, align 4
+  %410 = load i32, ptr %341, align 4
+  %411 = load ptr, ptr %342, align 8
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
+  %413 = load i64, ptr %412, align 8
+  %414 = call fastcc i32 @avifCodecDecodeInputFillFromDecoderItem(ptr noundef %408, ptr noundef %378, i32 noundef %409, i32 noundef %410, i64 noundef %413, ptr noundef nonnull %7)
+  %.not74.i.i = icmp eq i32 %414, 0
+  br i1 %.not74.i.i, label %415, label %avifMetaFindAlphaItem.exit
+
+415:                                              ; preds = %407
+  %416 = load ptr, ptr %406, align 8
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 28
+  store i32 %374, ptr %417, align 4
+  %418 = icmp eq ptr %.062116.i.i, null
+  br i1 %418, label %419, label %434
+
+419:                                              ; preds = %415
+  %bcmp76.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %383, ptr noundef nonnull dereferenceable(4) @.str.184, i64 4)
+  %.not77.i.i = icmp eq i32 %bcmp76.i.i, 0
+  %420 = select i1 %.not77.i.i, ptr @.str.185, ptr @.str.62
+  %421 = load i32, ptr %396, align 4
+  %.not12.i.i.i469 = icmp eq i32 %421, 0
+  br i1 %.not12.i.i.i469, label %avifPropertyArrayFind.exit.thread.i.i, label %.lr.ph.i.i.i470
+
+.lr.ph.i.i.i470:                                  ; preds = %419
+  %422 = getelementptr inbounds nuw i8, ptr %378, i64 112
+  %423 = load ptr, ptr %422, align 8
+  %wide.trip.count.i.i.i471 = zext i32 %421 to i64
+  br label %425
+
+424:                                              ; preds = %425
+  %indvars.iv.next.i.i.i473 = add nuw nsw i64 %indvars.iv.i.i.i472, 1
+  %exitcond.not.i.i.i474 = icmp eq i64 %indvars.iv.next.i.i.i473, %wide.trip.count.i.i.i471
+  br i1 %exitcond.not.i.i.i474, label %avifPropertyArrayFind.exit.thread.i.i, label %425, !llvm.loop !12
+
+425:                                              ; preds = %424, %.lr.ph.i.i.i470
+  %indvars.iv.i.i.i472 = phi i64 [ 0, %.lr.ph.i.i.i470 ], [ %indvars.iv.next.i.i.i473, %424 ]
+  %426 = getelementptr inbounds %struct.avifProperty, ptr %423, i64 %indvars.iv.i.i.i472
+  %bcmp.i82.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %426, ptr noundef nonnull readonly dereferenceable(4) %420, i64 4)
+  %.not.i83.i.i = icmp eq i32 %bcmp.i82.i.i, 0
+  br i1 %.not.i83.i.i, label %avifPropertyArrayFind.exit.i.i475, label %424
+
+avifPropertyArrayFind.exit.i.i475:                ; preds = %425
+  %.not78.i.i = icmp eq ptr %423, null
+  br i1 %.not78.i.i, label %avifPropertyArrayFind.exit.thread.i.i, label %427
+
+avifPropertyArrayFind.exit.thread.i.i:            ; preds = %avifPropertyArrayFind.exit.i.i475, %419, %424
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.186, ptr noundef nonnull %420) #13
+  br label %avifMetaFindAlphaItem.exit
+
+427:                                              ; preds = %avifPropertyArrayFind.exit.i.i475
+  %428 = call ptr @avifArrayPush(ptr noundef nonnull %372) #13
+  %.not79.i.i = icmp eq ptr %428, null
+  br i1 %.not79.i.i, label %avifMetaFindAlphaItem.exit, label %429
+
+429:                                              ; preds = %427
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %428, ptr noundef nonnull align 8 dereferenceable(72) %426, i64 72, i1 false)
+  br i1 %.not653, label %430, label %438
+
+430:                                              ; preds = %429
+  %431 = getelementptr inbounds nuw i8, ptr %378, i64 216
+  %432 = load i32, ptr %431, align 8
+  %.not80.i.i = icmp eq i32 %432, 0
+  br i1 %.not80.i.i, label %438, label %433
+
+433:                                              ; preds = %430
+  store i32 1, ptr %373, align 8
+  br label %438
+
+434:                                              ; preds = %415
+  %435 = getelementptr inbounds nuw i8, ptr %.062116.i.i, i64 16
+  %bcmp.i.i468 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %383, ptr noundef nonnull dereferenceable(4) %435, i64 4)
+  %.not75.i.i = icmp eq i32 %bcmp.i.i468, 0
+  br i1 %.not75.i.i, label %438, label %436
+
+436:                                              ; preds = %434
+  %437 = load i32, ptr %378, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.187, i32 noundef %437, ptr noundef nonnull %383, ptr noundef nonnull %435) #13
+  br label %avifMetaFindAlphaItem.exit
+
+438:                                              ; preds = %434, %433, %430, %429
+  %.2.i.i = phi ptr [ %378, %433 ], [ %378, %430 ], [ %378, %429 ], [ %.062116.i.i, %434 ]
+  %439 = add i32 %.061117.i.i, 1
+  %.pre.i.i = load ptr, ptr %368, align 8
+  br label %440
+
+440:                                              ; preds = %438, %375
+  %441 = phi ptr [ %376, %375 ], [ %.pre.i.i, %438 ]
+  %.163.i.i = phi ptr [ %.062116.i.i, %375 ], [ %.2.i.i, %438 ]
+  %.1.i.i = phi i32 [ %.061117.i.i, %375 ], [ %439, %438 ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 12
+  %443 = load i32, ptr %442, align 4
+  %444 = zext i32 %443 to i64
+  %445 = icmp ult i64 %indvars.iv.next.i.i, %444
+  br i1 %445, label %375, label %._crit_edge.i.loopexit.i, !llvm.loop !17
+
+._crit_edge.i.loopexit.i:                         ; preds = %440
+  %.pre.i463 = load i32, ptr %362, align 4
+  %.pre97.i = load i32, ptr %365, align 4
+  br label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %367
+  %446 = phi i32 [ %366, %367 ], [ %.pre97.i, %._crit_edge.i.loopexit.i ]
+  %447 = phi i32 [ %363, %367 ], [ %.pre.i463, %._crit_edge.i.loopexit.i ]
+  %.061.lcssa.i.i = phi i32 [ 0, %367 ], [ %.1.i.i, %._crit_edge.i.loopexit.i ]
+  %448 = mul i32 %447, %446
+  %.not.i.i464 = icmp eq i32 %.061.lcssa.i.i, %448
+  br i1 %.not.i.i464, label %482, label %449
+
+449:                                              ; preds = %._crit_edge.i.i
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.188, i32 noundef %446, i32 noundef %447, i32 noundef %448, i32 noundef %.061.lcssa.i.i) #13
+  br label %avifMetaFindAlphaItem.exit
+
+450:                                              ; preds = %364, %357
+  %451 = getelementptr inbounds nuw i8, ptr %346, i64 24
+  %452 = load i64, ptr %451, align 8
+  %.not34.i = icmp eq i64 %452, 0
+  br i1 %.not34.i, label %avifMetaFindAlphaItem.exit, label %453
+
+453:                                              ; preds = %450
+  %454 = getelementptr inbounds nuw i8, ptr %346, i64 16
+  %bcmp.i38.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %454, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i39.i = icmp eq i32 %bcmp.i38.i, 0
+  %..i.i476 = zext i1 %.not.i39.i to i32
+  %455 = getelementptr inbounds nuw i8, ptr %346, i64 36
+  %456 = load i32, ptr %455, align 4
+  %457 = getelementptr inbounds nuw i8, ptr %346, i64 40
+  %458 = load i32, ptr %457, align 8
+  %459 = getelementptr inbounds i8, ptr %346, i64 124
+  %460 = load i32, ptr %459, align 4
+  %.not12.i.i40.i = icmp eq i32 %460, 0
+  br i1 %.not12.i.i40.i, label %avifDecoderItemOperatingPoint.exit.i, label %.lr.ph.i.i41.i
+
+.lr.ph.i.i41.i:                                   ; preds = %453
+  %461 = getelementptr inbounds nuw i8, ptr %346, i64 112
+  %462 = load ptr, ptr %461, align 8
+  %wide.trip.count.i.i42.i = zext i32 %460 to i64
+  br label %464
+
+463:                                              ; preds = %464
+  %indvars.iv.next.i.i45.i = add nuw nsw i64 %indvars.iv.i.i43.i, 1
+  %exitcond.not.i.i46.i = icmp eq i64 %indvars.iv.next.i.i45.i, %wide.trip.count.i.i42.i
+  br i1 %exitcond.not.i.i46.i, label %avifDecoderItemOperatingPoint.exit.i, label %464, !llvm.loop !12
+
+464:                                              ; preds = %463, %.lr.ph.i.i41.i
+  %indvars.iv.i.i43.i = phi i64 [ 0, %.lr.ph.i.i41.i ], [ %indvars.iv.next.i.i45.i, %463 ]
+  %465 = getelementptr inbounds %struct.avifProperty, ptr %462, i64 %indvars.iv.i.i43.i
+  %bcmp.i.i44.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %465, ptr noundef nonnull readonly dereferenceable(4) @.str.64, i64 4)
+  %.not.i.i.i477 = icmp eq i32 %bcmp.i.i44.i, 0
+  br i1 %.not.i.i.i477, label %avifPropertyArrayFind.exit.i49.i, label %463
+
+avifPropertyArrayFind.exit.i49.i:                 ; preds = %464
+  %.not.i50.i = icmp eq ptr %462, null
+  br i1 %.not.i50.i, label %avifDecoderItemOperatingPoint.exit.i, label %466
+
+466:                                              ; preds = %avifPropertyArrayFind.exit.i49.i
+  %467 = getelementptr inbounds nuw i8, ptr %465, i64 8
+  %468 = load i8, ptr %467, align 8
+  br label %avifDecoderItemOperatingPoint.exit.i
+
+avifDecoderItemOperatingPoint.exit.i:             ; preds = %463, %466, %avifPropertyArrayFind.exit.i49.i, %453
+  %.0.i48.i = phi i8 [ %468, %466 ], [ 0, %avifPropertyArrayFind.exit.i49.i ], [ 0, %453 ], [ 0, %463 ]
+  %469 = call fastcc ptr @avifDecoderDataCreateTile(ptr noundef %359, i32 noundef %..i.i476, i32 noundef %456, i32 noundef %458, i8 noundef zeroext %.0.i48.i)
+  %.not35.i = icmp eq ptr %469, null
+  br i1 %.not35.i, label %avifMetaFindAlphaItem.exit, label %470
+
+470:                                              ; preds = %avifDecoderItemOperatingPoint.exit.i
+  %471 = load ptr, ptr %469, align 8
+  %472 = load i32, ptr %340, align 4
+  %473 = load i32, ptr %341, align 4
+  %474 = load ptr, ptr %342, align 8
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 24
+  %476 = load i64, ptr %475, align 8
+  %477 = call fastcc i32 @avifCodecDecodeInputFillFromDecoderItem(ptr noundef %471, ptr noundef nonnull %346, i32 noundef %472, i32 noundef %473, i64 noundef %476, ptr noundef nonnull %7)
+  %.not36.i = icmp eq i32 %477, 0
+  br i1 %.not36.i, label %478, label %avifMetaFindAlphaItem.exit
+
+478:                                              ; preds = %470
+  %479 = load ptr, ptr %469, align 8
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 28
+  %481 = trunc nuw nsw i64 %indvars.iv750 to i32
+  store i32 %481, ptr %480, align 4
+  br label %482
+
+482:                                              ; preds = %478, %._crit_edge.i.i
+  %483 = load ptr, ptr %8, align 8
+  %484 = getelementptr inbounds i8, ptr %483, i64 44
+  %485 = load i32, ptr %484, align 4
+  %486 = sub i32 %485, %361
+  store i32 %486, ptr %358, align 4
+  %487 = load i32, ptr %343, align 8
+  %or.cond = or i1 %344, %.not653
+  %488 = and i32 %487, -2
+  %spec.select = select i1 %or.cond, i32 %487, i32 %488
+  %489 = load i32, ptr %indvars.iv750.sroa.phi, align 4
+  %cond.i = icmp eq i32 %489, 1
+  %.str.62..i = select i1 %cond.i, ptr @.str.62, ptr null
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  %490 = getelementptr inbounds i8, ptr %346, i64 124
+  %491 = load i32, ptr %490, align 4
+  %.not12.i.i = icmp eq i32 %491, 0
+  br i1 %.not12.i.i, label %avifPropertyArrayFind.exit.thread.i, label %.lr.ph.i.i478
+
+.lr.ph.i.i478:                                    ; preds = %482
+  %492 = getelementptr inbounds nuw i8, ptr %346, i64 112
+  %493 = load ptr, ptr %492, align 8
+  %wide.trip.count.i.i = zext i32 %491 to i64
+  br label %495
+
+494:                                              ; preds = %495
+  %indvars.iv.next.i.i482 = add nuw nsw i64 %indvars.iv.i.i479, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i482, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %avifPropertyArrayFind.exit.thread.i, label %495, !llvm.loop !12
+
+495:                                              ; preds = %494, %.lr.ph.i.i478
+  %indvars.iv.i.i479 = phi i64 [ 0, %.lr.ph.i.i478 ], [ %indvars.iv.next.i.i482, %494 ]
+  %496 = getelementptr inbounds %struct.avifProperty, ptr %493, i64 %indvars.iv.i.i479
+  %bcmp.i.i480 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %496, ptr noundef nonnull readonly dereferenceable(4) %.str.62..i, i64 4)
+  %.not.i.i481 = icmp eq i32 %bcmp.i.i480, 0
+  br i1 %.not.i.i481, label %avifPropertyArrayFind.exit.i, label %494
+
+avifPropertyArrayFind.exit.i:                     ; preds = %495
+  %.not.i484 = icmp eq ptr %493, null
+  br i1 %.not.i484, label %avifPropertyArrayFind.exit.thread.i, label %499
+
+avifPropertyArrayFind.exit.thread.i:              ; preds = %avifPropertyArrayFind.exit.i, %482, %494
+  %497 = load i32, ptr %346, align 8
+  %498 = getelementptr inbounds nuw i8, ptr %346, i64 16
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.192, i32 noundef %497, ptr noundef nonnull %498, ptr noundef %.str.62..i) #13
+  br label %avifDecoderItemValidateProperties.exit.thread
+
+499:                                              ; preds = %avifPropertyArrayFind.exit.i
+  %500 = getelementptr inbounds nuw i8, ptr %346, i64 16
+  %bcmp.i485 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %500, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %.not89.i = icmp eq i32 %bcmp.i485, 0
+  br i1 %.not89.i, label %.preheader.i488, label %.lr.ph.i119.i.preheader
+
+.preheader.i488:                                  ; preds = %499
+  %501 = getelementptr inbounds nuw i8, ptr %346, i64 8
+  %502 = load ptr, ptr %501, align 8
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 12
+  %504 = load i32, ptr %503, align 4
+  %.not176.i = icmp eq i32 %504, 0
+  br i1 %.not176.i, label %.lr.ph.i119.i.preheader, label %.lr.ph.i489
+
+.lr.ph.i489:                                      ; preds = %.preheader.i488
+  %505 = load ptr, ptr %502, align 8
+  %506 = load i32, ptr %346, align 8
+  %507 = getelementptr inbounds nuw i8, ptr %496, i64 8
+  %508 = getelementptr inbounds i8, ptr %496, i64 9
+  %509 = getelementptr inbounds i8, ptr %496, i64 10
+  %510 = getelementptr inbounds i8, ptr %496, i64 11
+  %511 = getelementptr inbounds i8, ptr %496, i64 12
+  %512 = getelementptr inbounds i8, ptr %496, i64 13
+  %513 = getelementptr inbounds i8, ptr %496, i64 14
+  %514 = getelementptr inbounds i8, ptr %496, i64 15
+  %515 = getelementptr inbounds i8, ptr %496, i64 16
+  %wide.trip.count.i490 = zext i32 %504 to i64
+  br label %516
+
+516:                                              ; preds = %569, %.lr.ph.i489
+  %indvars.iv.i491 = phi i64 [ 0, %.lr.ph.i489 ], [ %indvars.iv.next.i492, %569 ]
+  %517 = getelementptr inbounds %struct.avifDecoderItem, ptr %505, i64 %indvars.iv.i491
+  %518 = getelementptr inbounds nuw i8, ptr %517, i64 196
+  %519 = load i32, ptr %518, align 4
+  %.not90.i = icmp eq i32 %519, %506
+  br i1 %.not90.i, label %520, label %569
+
+520:                                              ; preds = %516
+  %521 = getelementptr inbounds i8, ptr %517, i64 124
+  %522 = load i32, ptr %521, align 4
+  %.not12.i108.i = icmp eq i32 %522, 0
+  br i1 %.not12.i108.i, label %avifPropertyArrayFind.exit117.thread.i, label %.lr.ph.i109.i
+
+.lr.ph.i109.i:                                    ; preds = %520
+  %523 = getelementptr inbounds nuw i8, ptr %517, i64 112
+  %524 = load ptr, ptr %523, align 8
+  %wide.trip.count.i110.i = zext i32 %522 to i64
+  br label %526
+
+525:                                              ; preds = %526
+  %indvars.iv.next.i114.i = add nuw nsw i64 %indvars.iv.i111.i, 1
+  %exitcond.not.i115.i = icmp eq i64 %indvars.iv.next.i114.i, %wide.trip.count.i110.i
+  br i1 %exitcond.not.i115.i, label %avifPropertyArrayFind.exit117.thread.i, label %526, !llvm.loop !12
+
+526:                                              ; preds = %525, %.lr.ph.i109.i
+  %indvars.iv.i111.i = phi i64 [ 0, %.lr.ph.i109.i ], [ %indvars.iv.next.i114.i, %525 ]
+  %527 = getelementptr inbounds %struct.avifProperty, ptr %524, i64 %indvars.iv.i111.i
+  %bcmp.i112.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %527, ptr noundef nonnull readonly dereferenceable(4) %.str.62..i, i64 4)
+  %.not.i113.i = icmp eq i32 %bcmp.i112.i, 0
+  br i1 %.not.i113.i, label %avifPropertyArrayFind.exit117.i, label %525
+
+avifPropertyArrayFind.exit117.i:                  ; preds = %526
+  %.not91.i = icmp eq ptr %524, null
+  br i1 %.not91.i, label %avifPropertyArrayFind.exit117.thread.i, label %530
+
+avifPropertyArrayFind.exit117.thread.i:           ; preds = %avifPropertyArrayFind.exit117.i, %520, %525
+  %528 = load i32, ptr %517, align 8
+  %529 = getelementptr inbounds nuw i8, ptr %517, i64 16
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.193, i32 noundef %528, ptr noundef nonnull %529, ptr noundef %.str.62..i) #13
+  br label %avifDecoderItemValidateProperties.exit.thread
+
+530:                                              ; preds = %avifPropertyArrayFind.exit117.i
+  %531 = getelementptr inbounds nuw i8, ptr %527, i64 8
+  %532 = load i8, ptr %531, align 8
+  %533 = load i8, ptr %507, align 8
+  %.not92.i = icmp eq i8 %532, %533
+  br i1 %.not92.i, label %534, label %566
+
+534:                                              ; preds = %530
+  %535 = getelementptr inbounds i8, ptr %527, i64 9
+  %536 = load i8, ptr %535, align 1
+  %537 = load i8, ptr %508, align 1
+  %.not93.i = icmp eq i8 %536, %537
+  br i1 %.not93.i, label %538, label %566
+
+538:                                              ; preds = %534
+  %539 = getelementptr inbounds i8, ptr %527, i64 10
+  %540 = load i8, ptr %539, align 2
+  %541 = load i8, ptr %509, align 2
+  %.not94.i = icmp eq i8 %540, %541
+  br i1 %.not94.i, label %542, label %566
+
+542:                                              ; preds = %538
+  %543 = getelementptr inbounds i8, ptr %527, i64 11
+  %544 = load i8, ptr %543, align 1
+  %545 = load i8, ptr %510, align 1
+  %.not95.i = icmp eq i8 %544, %545
+  br i1 %.not95.i, label %546, label %566
+
+546:                                              ; preds = %542
+  %547 = getelementptr inbounds i8, ptr %527, i64 12
+  %548 = load i8, ptr %547, align 4
+  %549 = load i8, ptr %511, align 4
+  %.not96.i = icmp eq i8 %548, %549
+  br i1 %.not96.i, label %550, label %566
+
+550:                                              ; preds = %546
+  %551 = getelementptr inbounds i8, ptr %527, i64 13
+  %552 = load i8, ptr %551, align 1
+  %553 = load i8, ptr %512, align 1
+  %.not97.i = icmp eq i8 %552, %553
+  br i1 %.not97.i, label %554, label %566
+
+554:                                              ; preds = %550
+  %555 = getelementptr inbounds i8, ptr %527, i64 14
+  %556 = load i8, ptr %555, align 2
+  %557 = load i8, ptr %513, align 2
+  %.not98.i = icmp eq i8 %556, %557
+  br i1 %.not98.i, label %558, label %566
+
+558:                                              ; preds = %554
+  %559 = getelementptr inbounds i8, ptr %527, i64 15
+  %560 = load i8, ptr %559, align 1
+  %561 = load i8, ptr %514, align 1
+  %.not99.i = icmp eq i8 %560, %561
+  br i1 %.not99.i, label %562, label %566
+
+562:                                              ; preds = %558
+  %563 = getelementptr inbounds i8, ptr %527, i64 16
+  %564 = load i8, ptr %563, align 8
+  %565 = load i8, ptr %515, align 8
+  %.not100.i = icmp eq i8 %564, %565
+  br i1 %.not100.i, label %569, label %566
+
+566:                                              ; preds = %562, %558, %554, %550, %546, %542, %538, %534, %530
+  %567 = load i32, ptr %517, align 8
+  %568 = getelementptr inbounds nuw i8, ptr %517, i64 16
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.194, ptr noundef %.str.62..i, i32 noundef %567, ptr noundef nonnull %568) #13
+  br label %avifDecoderItemValidateProperties.exit.thread
+
+569:                                              ; preds = %562, %516
+  %indvars.iv.next.i492 = add nuw nsw i64 %indvars.iv.i491, 1
+  %exitcond.not.i493 = icmp eq i64 %indvars.iv.next.i492, %wide.trip.count.i490
+  br i1 %exitcond.not.i493, label %.lr.ph.i119.i.preheader, label %516, !llvm.loop !18
+
+.lr.ph.i119.i.preheader:                          ; preds = %569, %.preheader.i488, %499
+  br label %.lr.ph.i119.i
+
+570:                                              ; preds = %.lr.ph.i119.i
+  %indvars.iv.next.i124.i = add nuw nsw i64 %indvars.iv.i121.i, 1
+  %exitcond.not.i125.i = icmp eq i64 %indvars.iv.next.i124.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i125.i, label %avifPropertyArrayFind.exit127.i, label %.lr.ph.i119.i, !llvm.loop !12
+
+.lr.ph.i119.i:                                    ; preds = %.lr.ph.i119.i.preheader, %570
+  %indvars.iv.i121.i = phi i64 [ %indvars.iv.next.i124.i, %570 ], [ 0, %.lr.ph.i119.i.preheader ]
+  %571 = getelementptr inbounds %struct.avifProperty, ptr %493, i64 %indvars.iv.i121.i
+  %bcmp.i122.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %571, ptr noundef nonnull readonly dereferenceable(4) @.str.63, i64 4)
+  %.not.i123.i = icmp eq i32 %bcmp.i122.i, 0
+  br i1 %.not.i123.i, label %avifPropertyArrayFind.exit127.i, label %570
+
+avifPropertyArrayFind.exit127.i:                  ; preds = %.lr.ph.i119.i, %570
+  %.0.i126.i = phi ptr [ null, %570 ], [ %571, %.lr.ph.i119.i ]
+  %.not101.i = icmp ne ptr %.0.i126.i, null
+  %572 = and i32 %spec.select, 1
+  %.not102.i = icmp eq i32 %572, 0
+  %or.cond.i = or i1 %.not102.i, %.not101.i
+  br i1 %or.cond.i, label %575, label %573
+
+573:                                              ; preds = %avifPropertyArrayFind.exit127.i
+  %574 = load i32, ptr %346, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.195, i32 noundef %574, ptr noundef nonnull %500) #13
+  br label %avifDecoderItemValidateProperties.exit.thread
+
+575:                                              ; preds = %avifPropertyArrayFind.exit127.i
+  br i1 %.not101.i, label %576, label %.loopexit.i486
+
+576:                                              ; preds = %575
+  %577 = getelementptr inbounds i8, ptr %496, i64 12
+  %578 = load i8, ptr %577, align 1
+  %.not.i128.i = icmp eq i8 %578, 0
+  br i1 %.not.i128.i, label %579, label %avifCodecConfigurationBoxGetDepth.exit.i
+
+579:                                              ; preds = %576
+  %580 = getelementptr inbounds i8, ptr %496, i64 11
+  %581 = load i8, ptr %580, align 1
+  %.not2.i.i = icmp eq i8 %581, 0
+  %..i.i487 = select i1 %.not2.i.i, i32 8, i32 10
+  br label %avifCodecConfigurationBoxGetDepth.exit.i
+
+avifCodecConfigurationBoxGetDepth.exit.i:         ; preds = %579, %576
+  %.0.i129.i = phi i32 [ 12, %576 ], [ %..i.i487, %579 ]
+  %582 = getelementptr inbounds i8, ptr %.0.i126.i, i64 12
+  %583 = load i8, ptr %582, align 4
+  %.not177.i = icmp eq i8 %583, 0
+  br i1 %.not177.i, label %.loopexit.i486, label %.lr.ph175.i
+
+.lr.ph175.i:                                      ; preds = %avifCodecConfigurationBoxGetDepth.exit.i
+  %584 = getelementptr inbounds nuw i8, ptr %.0.i126.i, i64 8
+  %wide.trip.count196.i = zext i8 %583 to i64
+  br label %586
+
+585:                                              ; preds = %586
+  %indvars.iv.next194.i = add nuw nsw i64 %indvars.iv193.i, 1
+  %exitcond197.not.i = icmp eq i64 %indvars.iv.next194.i, %wide.trip.count196.i
+  br i1 %exitcond197.not.i, label %.loopexit.i486, label %586, !llvm.loop !19
+
+586:                                              ; preds = %585, %.lr.ph175.i
+  %indvars.iv193.i = phi i64 [ 0, %.lr.ph175.i ], [ %indvars.iv.next194.i, %585 ]
+  %587 = getelementptr inbounds [4 x i8], ptr %584, i64 0, i64 %indvars.iv193.i
+  %588 = load i8, ptr %587, align 1
+  %589 = zext i8 %588 to i32
+  %.not107.i = icmp eq i32 %.0.i129.i, %589
+  br i1 %.not107.i, label %585, label %590
+
+590:                                              ; preds = %586
+  %591 = load i32, ptr %346, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.196, i32 noundef %591, i32 noundef %589, ptr noundef %.str.62..i, i32 noundef %.0.i129.i) #13
+  br label %avifDecoderItemValidateProperties.exit.thread
+
+.loopexit.i486:                                   ; preds = %585, %avifCodecConfigurationBoxGetDepth.exit.i, %575
+  %592 = and i32 %spec.select, 2
+  %.not103.i = icmp eq i32 %592, 0
+  br i1 %.not103.i, label %avifDecoderItemValidateProperties.exit, label %.lr.ph.i131.i
+
+593:                                              ; preds = %.lr.ph.i131.i
+  %indvars.iv.next.i136.i = add nuw nsw i64 %indvars.iv.i133.i, 1
+  %exitcond.not.i137.i = icmp eq i64 %indvars.iv.next.i136.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i137.i, label %avifDecoderItemValidateProperties.exit, label %.lr.ph.i131.i, !llvm.loop !12
+
+.lr.ph.i131.i:                                    ; preds = %.loopexit.i486, %593
+  %indvars.iv.i133.i = phi i64 [ %indvars.iv.next.i136.i, %593 ], [ 0, %.loopexit.i486 ]
+  %594 = getelementptr inbounds %struct.avifProperty, ptr %493, i64 %indvars.iv.i133.i
+  %bcmp.i134.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %594, ptr noundef nonnull readonly dereferenceable(4) @.str.17, i64 4)
+  %.not.i135.i = icmp eq i32 %bcmp.i134.i, 0
+  br i1 %.not.i135.i, label %.lr.ph.i141.i, label %593
+
+595:                                              ; preds = %.lr.ph.i141.i
+  %indvars.iv.next.i146.i = add nuw nsw i64 %indvars.iv.i143.i, 1
+  %exitcond.not.i147.i = icmp eq i64 %indvars.iv.next.i146.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i147.i, label %avifPropertyArrayFind.exit149.thread.i, label %.lr.ph.i141.i, !llvm.loop !12
+
+.lr.ph.i141.i:                                    ; preds = %.lr.ph.i131.i, %595
+  %indvars.iv.i143.i = phi i64 [ %indvars.iv.next.i146.i, %595 ], [ 0, %.lr.ph.i131.i ]
+  %596 = getelementptr inbounds %struct.avifProperty, ptr %493, i64 %indvars.iv.i143.i
+  %bcmp.i144.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %596, ptr noundef nonnull readonly dereferenceable(4) @.str.2, i64 4)
+  %.not.i145.i = icmp eq i32 %bcmp.i144.i, 0
+  br i1 %.not.i145.i, label %avifPropertyArrayFind.exit149.i, label %595
+
+avifPropertyArrayFind.exit149.thread.i:           ; preds = %595
+  %597 = load i32, ptr %346, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, i32 noundef %597) #13
+  br label %avifDecoderItemValidateProperties.exit.thread
+
+avifPropertyArrayFind.exit149.i:                  ; preds = %.lr.ph.i141.i
+  %598 = getelementptr inbounds nuw i8, ptr %596, i64 8
+  %599 = load i32, ptr %598, align 8
+  %600 = getelementptr inbounds i8, ptr %596, i64 12
+  %601 = load i32, ptr %600, align 4
+  %602 = getelementptr inbounds i8, ptr %496, i64 13
+  %603 = load i8, ptr %602, align 1
+  %.not.i150.i = icmp eq i8 %603, 0
+  br i1 %.not.i150.i, label %604, label %avifCodecConfigurationBoxGetFormat.exit.i
+
+604:                                              ; preds = %avifPropertyArrayFind.exit149.i
+  %605 = getelementptr inbounds i8, ptr %496, i64 15
+  %606 = load i8, ptr %605, align 1
+  %607 = icmp eq i8 %606, 1
+  br i1 %607, label %avifCodecConfigurationBoxGetFormat.exit.i, label %608
+
+608:                                              ; preds = %604
+  %609 = getelementptr inbounds i8, ptr %496, i64 14
+  %610 = load i8, ptr %609, align 1
+  %611 = icmp eq i8 %610, 1
+  %..i152.i = select i1 %611, i32 2, i32 1
+  br label %avifCodecConfigurationBoxGetFormat.exit.i
+
+avifCodecConfigurationBoxGetFormat.exit.i:        ; preds = %608, %604, %avifPropertyArrayFind.exit149.i
+  %.0.i151.i = phi i32 [ 4, %avifPropertyArrayFind.exit149.i ], [ 3, %604 ], [ %..i152.i, %608 ]
+  %612 = getelementptr inbounds nuw i8, ptr %594, i64 8
+  %613 = call i32 @avifCropRectConvertCleanApertureBox(ptr noundef nonnull %2, ptr noundef nonnull %612, i32 noundef %599, i32 noundef %601, i32 noundef %.0.i151.i, ptr noundef nonnull %7) #13
+  %.not106.i = icmp eq i32 %613, 0
+  br i1 %.not106.i, label %avifDecoderItemValidateProperties.exit.thread, label %avifDecoderItemValidateProperties.exit
+
+avifDecoderItemValidateProperties.exit.thread:    ; preds = %avifCodecConfigurationBoxGetFormat.exit.i, %590, %avifPropertyArrayFind.exit149.thread.i, %573, %566, %avifPropertyArrayFind.exit117.thread.i, %avifPropertyArrayFind.exit.thread.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  br label %avifMetaFindAlphaItem.exit
+
+avifDecoderItemValidateProperties.exit:           ; preds = %593, %.loopexit.i486, %avifCodecConfigurationBoxGetFormat.exit.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  br label %614
+
+614:                                              ; preds = %avifDecoderItemValidateProperties.exit, %345
+  br i1 %.not653, label %345, label %615, !llvm.loop !20
+
+615:                                              ; preds = %614
+  %616 = getelementptr inbounds nuw i8, ptr %325, i64 216
+  %617 = load i32, ptr %616, align 8
+  %.not377 = icmp eq i32 %617, 0
+  br i1 %.not377, label %629, label %618
+
+618:                                              ; preds = %615
+  store i32 1, ptr %19, align 8
+  %619 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %620 = load ptr, ptr %619, align 8
+  %621 = load ptr, ptr %620, align 8
+  %622 = getelementptr inbounds nuw i8, ptr %621, i64 12
+  %623 = load i32, ptr %622, align 4
+  %624 = icmp ugt i32 %623, 1
+  br i1 %624, label %625, label %629
+
+625:                                              ; preds = %618
+  store i32 2, ptr %19, align 8
+  %626 = load ptr, ptr %620, align 8
+  %627 = getelementptr inbounds nuw i8, ptr %626, i64 12
+  %628 = load i32, ptr %627, align 4
+  store i32 %628, ptr %330, align 4
+  br label %629
+
+629:                                              ; preds = %618, %625, %615
+  %630 = load i32, ptr %338, align 4
+  %631 = load ptr, ptr %13, align 8
+  store i32 %630, ptr %631, align 8
+  %632 = load i32, ptr %339, align 8
+  %633 = load ptr, ptr %13, align 8
+  %634 = getelementptr inbounds nuw i8, ptr %633, i64 4
+  store i32 %632, ptr %634, align 4
+  %635 = icmp ne ptr %322, null
+  %636 = zext i1 %635 to i32
+  %637 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 %636, ptr %637, align 4
+  br i1 %635, label %638, label %643
+
+638:                                              ; preds = %629
+  %639 = getelementptr inbounds nuw i8, ptr %325, i64 204
+  br label %.sink.split893
+
+.sink.split893:                                   ; preds = %184, %638
+  %.sink897 = phi ptr [ %322, %638 ], [ %.0307, %184 ]
+  %.sink895.in = phi ptr [ %639, %638 ], [ %185, %184 ]
+  %.0306.ph = phi ptr [ %213, %638 ], [ %80, %184 ]
+  %.3.ph = phi i32 [ %214, %638 ], [ %.1305, %184 ]
+  %.sink895 = load i32, ptr %.sink895.in, align 4
+  %640 = load i32, ptr %.sink897, align 8
+  %641 = icmp eq i32 %.sink895, %640
+  %642 = zext i1 %641 to i32
+  br label %643
+
+643:                                              ; preds = %.sink.split893, %629, %154
+  %.sink886 = phi i32 [ 0, %154 ], [ 0, %629 ], [ %642, %.sink.split893 ]
+  %.0306 = phi ptr [ %80, %154 ], [ %213, %629 ], [ %.0306.ph, %.sink.split893 ]
+  %.3 = phi i32 [ %.1305, %154 ], [ %214, %629 ], [ %.3.ph, %.sink.split893 ]
+  %644 = load ptr, ptr %13, align 8
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 80
+  store i32 %.sink886, ptr %645, align 8
+  br label %650
+
+.preheader515:                                    ; preds = %650
+  %646 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %647 = getelementptr inbounds i8, ptr %9, i64 44
+  %648 = load i32, ptr %647, align 4
+  %.not656 = icmp eq i32 %648, 0
+  br i1 %.not656, label %.preheader, label %.lr.ph646
+
+.lr.ph646:                                        ; preds = %.preheader515
+  %649 = getelementptr inbounds i8, ptr %0, i64 152
+  br label %660
+
+650:                                              ; preds = %643, %650
+  %651 = phi i1 [ true, %643 ], [ false, %650 ]
+  %indvars.iv761 = phi i64 [ 0, %643 ], [ 1, %650 ]
+  %.0322640 = phi i32 [ 0, %643 ], [ %655, %650 ]
+  %652 = getelementptr inbounds [2 x %struct.avifTileInfo], ptr %10, i64 0, i64 %indvars.iv761
+  %653 = getelementptr inbounds nuw i8, ptr %652, i64 8
+  store i32 %.0322640, ptr %653, align 4
+  %654 = load i32, ptr %652, align 4
+  %655 = add i32 %654, %.0322640
+  br i1 %651, label %650, label %.preheader515, !llvm.loop !21
+
+.preheader:                                       ; preds = %._crit_edge644, %.preheader515
+  %656 = getelementptr inbounds nuw i8, ptr %.0306, i64 12
+  %657 = load i32, ptr %656, align 4
+  %.not658 = icmp eq i32 %657, 0
+  br i1 %.not658, label %._crit_edge652, label %.lr.ph651
+
+.lr.ph651:                                        ; preds = %.preheader
+  %658 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %659 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %686
+
+660:                                              ; preds = %.lr.ph646, %._crit_edge644
+  %661 = phi i32 [ %648, %.lr.ph646 ], [ %683, %._crit_edge644 ]
+  %indvars.iv767 = phi i64 [ 0, %.lr.ph646 ], [ %indvars.iv.next768, %._crit_edge644 ]
+  %662 = load ptr, ptr %646, align 8
+  %663 = getelementptr inbounds %struct.avifTile, ptr %662, i64 %indvars.iv767
+  %664 = load ptr, ptr %663, align 8
+  %665 = getelementptr inbounds nuw i8, ptr %664, i64 12
+  %666 = load i32, ptr %665, align 4
+  %.not657 = icmp eq i32 %666, 0
+  br i1 %.not657, label %._crit_edge644, label %.lr.ph643
+
+.lr.ph643:                                        ; preds = %660, %677
+  %indvars.iv764 = phi i64 [ %indvars.iv.next765, %677 ], [ 0, %660 ]
+  %667 = phi ptr [ %678, %677 ], [ %664, %660 ]
+  %668 = load ptr, ptr %667, align 8
+  %669 = getelementptr inbounds %struct.avifDecodeSample, ptr %668, i64 %indvars.iv764, i32 5
+  %670 = load i64, ptr %669, align 8
+  %.not418 = icmp eq i64 %670, 0
+  br i1 %.not418, label %avifMetaFindAlphaItem.exit, label %671
+
+671:                                              ; preds = %.lr.ph643
+  %672 = getelementptr inbounds nuw i8, ptr %667, i64 28
+  %673 = load i32, ptr %672, align 4
+  switch i32 %673, label %677 [
+    i32 0, label %.sink.split
+    i32 1, label %674
+  ]
+
+674:                                              ; preds = %671
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %671, %674
+  %.sink892 = phi ptr [ %649, %674 ], [ %21, %671 ]
+  %675 = load i64, ptr %.sink892, align 8
+  %676 = add i64 %675, %670
+  store i64 %676, ptr %.sink892, align 8
+  br label %677
+
+677:                                              ; preds = %.sink.split, %671
+  %indvars.iv.next765 = add nuw nsw i64 %indvars.iv764, 1
+  %678 = load ptr, ptr %663, align 8
+  %679 = getelementptr inbounds nuw i8, ptr %678, i64 12
+  %680 = load i32, ptr %679, align 4
+  %681 = zext i32 %680 to i64
+  %682 = icmp ult i64 %indvars.iv.next765, %681
+  br i1 %682, label %.lr.ph643, label %._crit_edge644.loopexit, !llvm.loop !22
+
+._crit_edge644.loopexit:                          ; preds = %677
+  %.pre774 = load i32, ptr %647, align 4
+  br label %._crit_edge644
+
+._crit_edge644:                                   ; preds = %._crit_edge644.loopexit, %660
+  %683 = phi i32 [ %.pre774, %._crit_edge644.loopexit ], [ %661, %660 ]
+  %indvars.iv.next768 = add nuw nsw i64 %indvars.iv767, 1
+  %684 = zext i32 %683 to i64
+  %685 = icmp ult i64 %indvars.iv.next768, %684
+  br i1 %685, label %660, label %.preheader, !llvm.loop !23
+
+686:                                              ; preds = %.lr.ph651, %728
+  %indvars.iv770 = phi i64 [ 0, %.lr.ph651 ], [ %indvars.iv.next771, %728 ]
+  %.0317649 = phi i32 [ 0, %.lr.ph651 ], [ %.1318, %728 ]
+  %.0319648 = phi i32 [ 0, %.lr.ph651 ], [ %.2321, %728 ]
+  %687 = load ptr, ptr %.0306, align 8
+  %688 = getelementptr inbounds %struct.avifProperty, ptr %687, i64 %indvars.iv770
+  %bcmp410 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %688, ptr noundef nonnull dereferenceable(4) @.str.14, i64 4)
+  %.not411 = icmp eq i32 %bcmp410, 0
+  br i1 %.not411, label %689, label %728
+
+689:                                              ; preds = %686
+  %690 = getelementptr inbounds nuw i8, ptr %688, i64 8
+  %691 = load i32, ptr %690, align 8
+  %.not412 = icmp eq i32 %691, 0
+  br i1 %.not412, label %707, label %692
+
+692:                                              ; preds = %689
+  %.not413 = icmp eq i32 %.0319648, 0
+  br i1 %.not413, label %693, label %avifMetaFindAlphaItem.exit
+
+693:                                              ; preds = %692
+  %694 = load ptr, ptr %658, align 8
+  %695 = getelementptr inbounds nuw i8, ptr %694, i64 8
+  %696 = load ptr, ptr %695, align 8
+  %697 = getelementptr inbounds i8, ptr %688, i64 16
+  %698 = load i64, ptr %697, align 8
+  %699 = getelementptr inbounds i8, ptr %688, i64 24
+  %700 = load i64, ptr %699, align 8
+  %701 = call i32 %696(ptr noundef %694, i32 noundef 0, i64 noundef %698, i64 noundef %700, ptr noundef nonnull %5) #13
+  %.not414 = icmp eq i32 %701, 0
+  br i1 %.not414, label %702, label %avifMetaFindAlphaItem.exit
+
+702:                                              ; preds = %693
+  %703 = load ptr, ptr %13, align 8
+  %704 = load ptr, ptr %5, align 8
+  %705 = load i64, ptr %659, align 8
+  %706 = call i32 @avifImageSetProfileICC(ptr noundef %703, ptr noundef %704, i64 noundef %705) #13
+  %.not415 = icmp eq i32 %706, 0
+  br i1 %.not415, label %707, label %avifMetaFindAlphaItem.exit
+
+707:                                              ; preds = %702, %689
+  %.1320 = phi i32 [ 1, %702 ], [ %.0319648, %689 ]
+  %708 = getelementptr inbounds i8, ptr %688, i64 32
+  %709 = load i32, ptr %708, align 8
+  %.not416 = icmp eq i32 %709, 0
+  br i1 %.not416, label %728, label %710
+
+710:                                              ; preds = %707
+  %.not417 = icmp eq i32 %.0317649, 0
+  br i1 %.not417, label %711, label %avifMetaFindAlphaItem.exit
+
+711:                                              ; preds = %710
+  store i32 1, ptr %20, align 8
+  %712 = getelementptr inbounds i8, ptr %688, i64 36
+  %713 = load i16, ptr %712, align 4
+  %714 = load ptr, ptr %13, align 8
+  %715 = getelementptr inbounds nuw i8, ptr %714, i64 104
+  store i16 %713, ptr %715, align 8
+  %716 = getelementptr inbounds i8, ptr %688, i64 38
+  %717 = load i16, ptr %716, align 2
+  %718 = load ptr, ptr %13, align 8
+  %719 = getelementptr inbounds nuw i8, ptr %718, i64 106
+  store i16 %717, ptr %719, align 2
+  %720 = getelementptr inbounds i8, ptr %688, i64 40
+  %721 = load i16, ptr %720, align 8
+  %722 = load ptr, ptr %13, align 8
+  %723 = getelementptr inbounds nuw i8, ptr %722, i64 108
+  store i16 %721, ptr %723, align 4
+  %724 = getelementptr inbounds i8, ptr %688, i64 44
+  %725 = load i32, ptr %724, align 4
+  %726 = load ptr, ptr %13, align 8
+  %727 = getelementptr inbounds nuw i8, ptr %726, i64 16
+  store i32 %725, ptr %727, align 8
+  br label %728
+
+728:                                              ; preds = %686, %711, %707
+  %.2321 = phi i32 [ %.0319648, %686 ], [ %.1320, %711 ], [ %.1320, %707 ]
+  %.1318 = phi i32 [ %.0317649, %686 ], [ 1, %711 ], [ %.0317649, %707 ]
+  %indvars.iv.next771 = add nuw nsw i64 %indvars.iv770, 1
+  %729 = load i32, ptr %656, align 4
+  %730 = zext i32 %729 to i64
+  %731 = icmp ult i64 %indvars.iv.next771, %730
+  br i1 %731, label %686, label %._crit_edge652, !llvm.loop !24
+
+._crit_edge652:                                   ; preds = %728, %.preheader
+  %732 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.15)
+  %.not399 = icmp eq ptr %732, null
+  br i1 %.not399, label %738, label %733
+
+733:                                              ; preds = %._crit_edge652
+  %734 = load ptr, ptr %13, align 8
+  %735 = getelementptr inbounds nuw i8, ptr %734, i64 110
+  %736 = getelementptr inbounds nuw i8, ptr %732, i64 8
+  %737 = load i32, ptr %736, align 8
+  store i32 %737, ptr %735, align 2
+  br label %738
+
+738:                                              ; preds = %733, %._crit_edge652
+  %739 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.16)
+  %.not400 = icmp eq ptr %739, null
+  br i1 %.not400, label %749, label %740
+
+740:                                              ; preds = %738
+  %741 = load ptr, ptr %13, align 8
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 116
+  %743 = load i32, ptr %742, align 4
+  %744 = or i32 %743, 1
+  store i32 %744, ptr %742, align 4
+  %745 = load ptr, ptr %13, align 8
+  %746 = getelementptr inbounds nuw i8, ptr %745, i64 120
+  %747 = getelementptr inbounds nuw i8, ptr %739, i64 8
+  %748 = load i64, ptr %747, align 8
+  store i64 %748, ptr %746, align 8
+  br label %749
+
+749:                                              ; preds = %740, %738
+  %750 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.17)
+  %.not401 = icmp eq ptr %750, null
+  br i1 %.not401, label %759, label %751
+
+751:                                              ; preds = %749
+  %752 = load ptr, ptr %13, align 8
+  %753 = getelementptr inbounds nuw i8, ptr %752, i64 116
+  %754 = load i32, ptr %753, align 4
+  %755 = or i32 %754, 2
+  store i32 %755, ptr %753, align 4
+  %756 = load ptr, ptr %13, align 8
+  %757 = getelementptr inbounds nuw i8, ptr %756, i64 128
+  %758 = getelementptr inbounds nuw i8, ptr %750, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %757, ptr noundef nonnull align 8 dereferenceable(32) %758, i64 32, i1 false)
+  br label %759
+
+759:                                              ; preds = %751, %749
+  %760 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.18)
+  %.not402 = icmp eq ptr %760, null
+  br i1 %.not402, label %770, label %761
+
+761:                                              ; preds = %759
+  %762 = load ptr, ptr %13, align 8
+  %763 = getelementptr inbounds nuw i8, ptr %762, i64 116
+  %764 = load i32, ptr %763, align 4
+  %765 = or i32 %764, 4
+  store i32 %765, ptr %763, align 4
+  %766 = load ptr, ptr %13, align 8
+  %767 = getelementptr inbounds nuw i8, ptr %766, i64 160
+  %768 = getelementptr inbounds nuw i8, ptr %760, i64 8
+  %769 = load i8, ptr %768, align 8
+  store i8 %769, ptr %767, align 8
+  br label %770
+
+770:                                              ; preds = %761, %759
+  %771 = call fastcc ptr @avifPropertyArrayFind(ptr noundef nonnull %.0306, ptr noundef nonnull @.str.19)
+  %.not403 = icmp eq ptr %771, null
+  br i1 %.not403, label %781, label %772
+
+772:                                              ; preds = %770
+  %773 = load ptr, ptr %13, align 8
+  %774 = getelementptr inbounds nuw i8, ptr %773, i64 116
+  %775 = load i32, ptr %774, align 4
+  %776 = or i32 %775, 8
+  store i32 %776, ptr %774, align 4
+  %777 = load ptr, ptr %13, align 8
+  %778 = getelementptr inbounds nuw i8, ptr %777, i64 161
+  %779 = getelementptr inbounds nuw i8, ptr %771, i64 8
+  %780 = load i8, ptr %779, align 8
+  store i8 %780, ptr %778, align 1
+  br label %781
+
+781:                                              ; preds = %772, %770
+  %782 = load i32, ptr %20, align 8
+  %.not404 = icmp eq i32 %782, 0
+  br i1 %.not404, label %783, label %.loopexit
+
+783:                                              ; preds = %781
+  %784 = load i32, ptr %647, align 4
+  %.not405 = icmp eq i32 %784, 0
+  br i1 %.not405, label %.loopexit, label %785
+
+785:                                              ; preds = %783
+  %786 = load ptr, ptr %646, align 8
+  %787 = load ptr, ptr %786, align 8
+  %788 = getelementptr inbounds nuw i8, ptr %787, i64 12
+  %789 = load i32, ptr %788, align 4
+  %.not406 = icmp eq i32 %789, 0
+  br i1 %.not406, label %.loopexit, label %790
+
+790:                                              ; preds = %785
+  %791 = load ptr, ptr %787, align 8
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 40
+  %793 = getelementptr inbounds nuw i8, ptr %786, i64 8
+  %.pre775 = load i64, ptr %792, align 8
+  br label %794
+
+794:                                              ; preds = %818, %790
+  %795 = phi i64 [ %.pre775, %790 ], [ %819, %818 ]
+  %.0303 = phi i64 [ 0, %790 ], [ %spec.select419, %818 ]
+  %796 = add nuw nsw i64 %.0303, 64
+  %spec.select419 = call i64 @llvm.umin.i64(i64 %796, i64 %795)
+  %797 = call fastcc i32 @avifDecoderPrepareSample(ptr noundef %0, ptr noundef nonnull %791, i64 noundef %spec.select419)
+  %.not407 = icmp eq i32 %797, 0
+  br i1 %.not407, label %798, label %avifMetaFindAlphaItem.exit
+
+798:                                              ; preds = %794
+  %799 = load i32, ptr %793, align 8
+  %800 = call i32 @avifSequenceHeaderParse(ptr noundef nonnull %6, ptr noundef nonnull %791, i32 noundef %799) #13
+  %.not408 = icmp eq i32 %800, 0
+  br i1 %.not408, label %818, label %801
+
+801:                                              ; preds = %798
+  store i32 1, ptr %20, align 8
+  %802 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %803 = load i16, ptr %802, align 4
+  %804 = load ptr, ptr %13, align 8
+  %805 = getelementptr inbounds nuw i8, ptr %804, i64 104
+  store i16 %803, ptr %805, align 8
+  %806 = getelementptr inbounds nuw i8, ptr %6, i64 26
+  %807 = load i16, ptr %806, align 2
+  %808 = load ptr, ptr %13, align 8
+  %809 = getelementptr inbounds nuw i8, ptr %808, i64 106
+  store i16 %807, ptr %809, align 2
+  %810 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %811 = load i16, ptr %810, align 4
+  %812 = load ptr, ptr %13, align 8
+  %813 = getelementptr inbounds nuw i8, ptr %812, i64 108
+  store i16 %811, ptr %813, align 4
+  %814 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %815 = load i32, ptr %814, align 4
+  %816 = load ptr, ptr %13, align 8
+  %817 = getelementptr inbounds nuw i8, ptr %816, i64 16
+  store i32 %815, ptr %817, align 8
+  br label %.loopexit
+
+818:                                              ; preds = %798
+  %819 = load i64, ptr %792, align 8
+  %820 = icmp ne i64 %spec.select419, %819
+  %821 = icmp ult i64 %spec.select419, 4096
+  %822 = and i1 %821, %820
+  br i1 %822, label %794, label %.loopexit, !llvm.loop !25
+
+.loopexit:                                        ; preds = %818, %781, %783, %801, %785
+  %823 = load ptr, ptr %13, align 8
+  %824 = call fastcc i32 @avifReadCodecConfigProperty(ptr noundef %823, ptr noundef nonnull %.0306, i32 noundef %.3)
+  br label %avifMetaFindAlphaItem.exit
+
+avifMetaFindAlphaItem.exit:                       ; preds = %470, %avifDecoderItemOperatingPoint.exit.i, %450, %avifDecoderItemOperatingPoint.exit.i.i, %407, %427, %.lr.ph643, %710, %702, %693, %692, %794, %384, %389, %avifPropertyArrayFind.exit.thread.i.i, %436, %449, %avifDecoderItemValidateProperties.exit.thread, %301, %254, %.loopexit, %.thread, %318, %209, %140, %134, %120, %avifSampleTableGetCodecType.exit437._crit_edge.thread, %83, %16, %1, %.loopexit525, %192, %.loopexit516, %avifSampleTableGetCodecType.exit._crit_edge.thread
+  %.0 = phi i32 [ 3, %avifSampleTableGetCodecType.exit._crit_edge.thread ], [ 9, %.loopexit516 ], [ 10, %192 ], [ 10, %.loopexit525 ], [ 0, %1 ], [ 26, %16 ], [ %85, %83 ], [ 26, %avifSampleTableGetCodecType.exit437._crit_edge.thread ], [ %131, %120 ], [ 26, %134 ], [ %149, %140 ], [ %211, %209 ], [ %321, %318 ], [ %327, %.thread ], [ %824, %.loopexit ], [ %300, %301 ], [ 26, %254 ], [ 9, %avifDecoderItemValidateProperties.exit.thread ], [ 18, %384 ], [ 18, %389 ], [ 18, %avifPropertyArrayFind.exit.thread.i.i ], [ 18, %436 ], [ 18, %449 ], [ %797, %794 ], [ 9, %710 ], [ %706, %702 ], [ %701, %693 ], [ 9, %692 ], [ 9, %.lr.ph643 ], [ 26, %427 ], [ %414, %407 ], [ 26, %avifDecoderItemOperatingPoint.exit.i.i ], [ 10, %450 ], [ 26, %avifDecoderItemOperatingPoint.exit.i ], [ %477, %470 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @avifDecoderSetIO(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %4 = load ptr, ptr %3, align 8
+  tail call void @avifIODestroy(ptr noundef %4) #13
+  store ptr %1, ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden range(i32 0, 27) i32 @avifDecoderSetIOMemory(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @avifIOCreateMemoryReader(ptr noundef %1, i64 noundef %2) #13
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %8, label %5
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %7 = load ptr, ptr %6, align 8
+  tail call void @avifIODestroy(ptr noundef %7) #13
+  store ptr %4, ptr %6, align 8
+  br label %8
+
+8:                                                ; preds = %3, %5
+  %.0 = phi i32 [ 0, %5 ], [ 26, %3 ]
+  ret i32 %.0
+}
+
+declare ptr @avifIOCreateMemoryReader(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden range(i32 0, 23) i32 @avifDecoderSetIOFile(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call ptr @avifIOCreateFileReader(ptr noundef %1) #13
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %7, label %4
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %6 = load ptr, ptr %5, align 8
+  tail call void @avifIODestroy(ptr noundef %6) #13
+  store ptr %3, ptr %5, align 8
+  br label %7
+
+7:                                                ; preds = %2, %4
+  %.0 = phi i32 [ 0, %4 ], [ 22, %2 ]
+  ret i32 %.0
+}
+
+declare ptr @avifIOCreateFileReader(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden range(i32 0, 27) i32 @avifDecoderNthImageMaxExtent(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %6 = load ptr, ptr %5, align 8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %avifDecoderItemMaxExtent.exit.thread, label %7
+
+7:                                                ; preds = %3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  %8 = load ptr, ptr %5, align 8
+  %.not.i = icmp eq ptr %8, null
+  %.not713.i = icmp eq i32 %1, 0
+  %or.cond.i = or i1 %.not713.i, %.not.i
+  br i1 %or.cond.i, label %.preheader.lr.ph, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %7
+  %9 = getelementptr inbounds i8, ptr %8, i64 44
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, 0
+  %wide.trip.count.i.i = zext i32 %10 to i64
+  br i1 %11, label %.preheader.lr.ph, label %.lr.ph.split.i
+
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %13 = load ptr, ptr %12, align 8
+  %14 = zext i32 %1 to i64
+  br label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %.loopexit.i, %.lr.ph.split.i
+  %indvars.iv.i = phi i64 [ %14, %.lr.ph.split.i ], [ %indvars.iv.next.i, %.loopexit.i ]
+  br label %16
+
+15:                                               ; preds = %22
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %avifDecoderNearestKeyframe.exit, label %16, !llvm.loop !26
+
+16:                                               ; preds = %15, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %15 ]
+  %17 = getelementptr inbounds %struct.avifTile, ptr %13, i64 %indvars.iv.i.i
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %20 = load i32, ptr %19, align 4
+  %21 = zext i32 %20 to i64
+  %.not14.i.i = icmp ult i64 %indvars.iv.i, %21
+  br i1 %.not14.i.i, label %22, label %.loopexit.i
+
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %18, align 8
+  %24 = getelementptr inbounds %struct.avifDecodeSample, ptr %23, i64 %indvars.iv.i, i32 7
+  %25 = load i32, ptr %24, align 4
+  %.not15.i.i = icmp eq i32 %25, 0
+  br i1 %.not15.i.i, label %.loopexit.i, label %15
+
+.loopexit.i:                                      ; preds = %22, %16
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %26 = and i64 %indvars.iv.next.i, 4294967295
+  %.not7.i = icmp eq i64 %26, 0
+  br i1 %.not7.i, label %.preheader.lr.ph, label %.preheader.i.i, !llvm.loop !27
+
+avifDecoderNearestKeyframe.exit:                  ; preds = %15
+  %27 = trunc nuw i64 %indvars.iv.i to i32
+  %.not3777 = icmp ult i32 %1, %27
+  br i1 %.not3777, label %avifDecoderItemMaxExtent.exit.thread, label %.preheader.lr.ph
+
+.preheader.lr.ph:                                 ; preds = %.loopexit.i, %.lr.ph.i, %7, %avifDecoderNearestKeyframe.exit
+  %.06.i87 = phi i32 [ %27, %avifDecoderNearestKeyframe.exit ], [ 0, %7 ], [ 0, %.lr.ph.i ], [ 0, %.loopexit.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = getelementptr inbounds i8, ptr %8, i64 44
+  %30 = load i32, ptr %29, align 4
+  %.not79 = icmp eq i32 %30, 0
+  br i1 %.not79, label %avifDecoderItemMaxExtent.exit.thread, label %.preheader
+
+.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
+  %31 = phi ptr [ %123, %._crit_edge ], [ %8, %.preheader.lr.ph ]
+  %.03178 = phi i32 [ %124, %._crit_edge ], [ %.06.i87, %.preheader.lr.ph ]
+  %32 = getelementptr inbounds i8, ptr %31, i64 44
+  %33 = load i32, ptr %32, align 4
+  %.not80 = icmp eq i32 %33, 0
+  br i1 %.not80, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
+  %34 = zext i32 %.03178 to i64
+  br label %35
+
+35:                                               ; preds = %.lr.ph, %avifExtentMerge.exit
+  %36 = phi ptr [ %31, %.lr.ph ], [ %119, %avifExtentMerge.exit ]
+  %.03276 = phi i32 [ 0, %.lr.ph ], [ %118, %avifExtentMerge.exit ]
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %39 = zext i32 %.03276 to i64
+  %40 = getelementptr inbounds %struct.avifTile, ptr %38, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  %43 = load i32, ptr %42, align 4
+  %.not38 = icmp ult i32 %.03178, %43
+  br i1 %.not38, label %44, label %avifDecoderItemMaxExtent.exit.thread
+
+44:                                               ; preds = %35
+  %45 = load ptr, ptr %41, align 8
+  %46 = getelementptr inbounds %struct.avifDecodeSample, ptr %45, i64 %34
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = load i32, ptr %47, align 8
+  %.not39 = icmp eq i32 %48, 0
+  br i1 %.not39, label %99, label %49
+
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %36, align 8
+  %51 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %50, i32 noundef %48, ptr noundef nonnull %4)
+  %.not40 = icmp eq i32 %51, 0
+  br i1 %.not40, label %52, label %avifDecoderItemMaxExtent.exit.thread
+
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %4, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
+  %55 = getelementptr inbounds i8, ptr %53, i64 148
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %avifDecoderItemMaxExtent.exit.thread, label %58
+
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %60 = load i32, ptr %59, align 8
+  %.not.i42 = icmp eq i32 %60, 0
+  br i1 %.not.i42, label %66, label %61
+
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 56
+  %65 = load i64, ptr %64, align 8
+  %.not74.i = icmp eq i64 %65, 0
+  br i1 %.not74.i, label %avifDecoderItemMaxExtent.exit.thread, label %.thread
+
+66:                                               ; preds = %58
+  %67 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %68 = load i64, ptr %67, align 8
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %avifDecoderItemMaxExtent.exit.thread, label %70
+
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %72 = load i64, ptr %71, align 8
+  %73 = load ptr, ptr %54, align 8
+  %wide.trip.count.i = zext i32 %56 to i64
+  br label %74
+
+74:                                               ; preds = %96, %70
+  %indvars.iv.i44 = phi i64 [ 0, %70 ], [ %indvars.iv.next.i45, %96 ]
+  %.05091.i = phi i64 [ %72, %70 ], [ %.2.i, %96 ]
+  %.05190.i = phi i64 [ %68, %70 ], [ %.253.i, %96 ]
+  %.05689.i = phi i64 [ -1, %70 ], [ %.258.i, %96 ]
+  %.06087.i = phi i64 [ 0, %70 ], [ %.262.i, %96 ]
+  %75 = getelementptr inbounds %struct.avifExtent, ptr %73, i64 %indvars.iv.i44
+  %76 = load i64, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %78 = load i64, ptr %77, align 8
+  %.not71.i = icmp eq i64 %.05091.i, 0
+  br i1 %.not71.i, label %88, label %79
+
+79:                                               ; preds = %74
+  %.not72.i = icmp ult i64 %.05091.i, %78
+  br i1 %.not72.i, label %82, label %80
+
+80:                                               ; preds = %79
+  %81 = sub nuw i64 %.05091.i, %78
+  br label %96
+
+82:                                               ; preds = %79
+  %83 = xor i64 %76, -1
+  %84 = icmp ugt i64 %.05091.i, %83
+  br i1 %84, label %avifDecoderItemMaxExtent.exit.thread, label %85
+
+85:                                               ; preds = %82
+  %86 = add i64 %76, %.05091.i
+  %87 = sub i64 %78, %.05091.i
+  br label %88
+
+88:                                               ; preds = %85, %74
+  %.055.i = phi i64 [ %86, %85 ], [ %76, %74 ]
+  %.054.i = phi i64 [ %87, %85 ], [ %78, %74 ]
+  %89 = tail call i64 @llvm.umin.i64(i64 %.054.i, i64 %.05190.i)
+  %90 = xor i64 %.055.i, -1
+  %91 = icmp ugt i64 %89, %90
+  br i1 %91, label %avifDecoderItemMaxExtent.exit.thread, label %92
+
+92:                                               ; preds = %88
+  %93 = add i64 %89, %.055.i
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.05689.i, i64 %.055.i)
+  %.363.i = tail call i64 @llvm.umax.i64(i64 %.06087.i, i64 %93)
+  %94 = sub i64 %.05190.i, %89
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %.thread.i, label %96
+
+96:                                               ; preds = %92, %80
+  %.262.i = phi i64 [ %.06087.i, %80 ], [ %.363.i, %92 ]
+  %.258.i = phi i64 [ %.05689.i, %80 ], [ %spec.select.i, %92 ]
+  %.253.i = phi i64 [ %.05190.i, %80 ], [ %94, %92 ]
+  %.2.i = phi i64 [ %81, %80 ], [ 0, %92 ]
+  %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %97, label %74, !llvm.loop !28
+
+97:                                               ; preds = %96
+  %.not73.i = icmp eq i64 %.253.i, 0
+  br i1 %.not73.i, label %.thread.i, label %avifDecoderItemMaxExtent.exit.thread
+
+.thread.i:                                        ; preds = %92, %97
+  %.15780.i = phi i64 [ %.258.i, %97 ], [ %spec.select.i, %92 ]
+  %.16179.i = phi i64 [ %.262.i, %97 ], [ %.363.i, %92 ]
+  %98 = sub i64 %.16179.i, %.15780.i
+  br label %avifDecoderItemMaxExtent.exit
+
+99:                                               ; preds = %44
+  %100 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %103 = load i64, ptr %102, align 8
+  br label %avifDecoderItemMaxExtent.exit
+
+avifDecoderItemMaxExtent.exit:                    ; preds = %.thread.i, %99
+  %.sroa.0.2 = phi i64 [ %101, %99 ], [ %.15780.i, %.thread.i ]
+  %.sroa.6.2 = phi i64 [ %103, %99 ], [ %98, %.thread.i ]
+  %104 = xor i64 %.sroa.0.2, -1
+  %105 = icmp ugt i64 %.sroa.6.2, %104
+  br i1 %105, label %avifDecoderItemMaxExtent.exit.thread, label %106
+
+106:                                              ; preds = %avifDecoderItemMaxExtent.exit
+  %107 = load i64, ptr %28, align 8
+  %.not.i46 = icmp eq i64 %107, 0
+  br i1 %.not.i46, label %109, label %110
+
+.thread:                                          ; preds = %61
+  %108 = load i64, ptr %28, align 8
+  %.not.i4662 = icmp eq i64 %108, 0
+  br i1 %.not.i4662, label %109, label %avifExtentMerge.exit
+
+109:                                              ; preds = %.thread, %106
+  %.sroa.0.25866 = phi i64 [ 0, %.thread ], [ %.sroa.0.2, %106 ]
+  %.sroa.6.25963 = phi i64 [ 0, %.thread ], [ %.sroa.6.2, %106 ]
+  store i64 %.sroa.0.25866, ptr %2, align 8
+  br label %avifExtentMerge.exit.sink.split
+
+110:                                              ; preds = %106
+  %.not25.i = icmp eq i64 %.sroa.6.2, 0
+  br i1 %.not25.i, label %avifExtentMerge.exit, label %111
+
+111:                                              ; preds = %110
+  %112 = load i64, ptr %2, align 8
+  %113 = tail call i64 @llvm.umin.i64(i64 %112, i64 %.sroa.0.2)
+  store i64 %113, ptr %2, align 8
+  %114 = add i64 %112, %107
+  %115 = add i64 %.sroa.6.2, %.sroa.0.2
+  %116 = tail call i64 @llvm.umax.i64(i64 %114, i64 %115)
+  %117 = sub i64 %116, %113
+  br label %avifExtentMerge.exit.sink.split
+
+avifExtentMerge.exit.sink.split:                  ; preds = %111, %109
+  %.sroa.6.25963.sink = phi i64 [ %.sroa.6.25963, %109 ], [ %117, %111 ]
+  store i64 %.sroa.6.25963.sink, ptr %28, align 8
+  br label %avifExtentMerge.exit
+
+avifExtentMerge.exit:                             ; preds = %avifExtentMerge.exit.sink.split, %.thread, %110
+  %118 = add nuw i32 %.03276, 1
+  %119 = load ptr, ptr %5, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 44
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp ult i32 %118, %121
+  br i1 %122, label %35, label %._crit_edge, !llvm.loop !29
+
+._crit_edge:                                      ; preds = %avifExtentMerge.exit, %.preheader
+  %123 = phi ptr [ %31, %.preheader ], [ %119, %avifExtentMerge.exit ]
+  %124 = add i32 %.03178, 1
+  %.not37 = icmp ugt i32 %124, %1
+  br i1 %.not37, label %avifDecoderItemMaxExtent.exit.thread, label %.preheader, !llvm.loop !30
+
+avifDecoderItemMaxExtent.exit.thread:             ; preds = %._crit_edge, %97, %66, %61, %52, %avifDecoderItemMaxExtent.exit, %49, %35, %88, %82, %.preheader.lr.ph, %avifDecoderNearestKeyframe.exit, %3
+  %.0 = phi i32 [ 3, %3 ], [ 0, %avifDecoderNearestKeyframe.exit ], [ 0, %.preheader.lr.ph ], [ 9, %82 ], [ 9, %88 ], [ 20, %52 ], [ 3, %61 ], [ 20, %66 ], [ 20, %97 ], [ 9, %avifDecoderItemMaxExtent.exit ], [ %51, %49 ], [ 16, %35 ], [ 0, %._crit_edge ]
+  ret i32 %.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define hidden i32 @avifDecoderNearestKeyframe(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %4 = load ptr, ptr %3, align 8
+  %.not = icmp eq ptr %4, null
+  %.not713 = icmp eq i32 %1, 0
+  %or.cond = or i1 %.not, %.not713
+  br i1 %or.cond, label %avifDecoderIsKeyframe.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %4, i64 44
+  %6 = load i32, ptr %5, align 4
+  %7 = icmp eq i32 %6, 0
+  %wide.trip.count.i = zext i32 %6 to i64
+  br i1 %7, label %avifDecoderIsKeyframe.exit, label %.lr.ph.split
+
+.lr.ph.split:                                     ; preds = %.lr.ph
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %10 = zext i32 %1 to i64
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %.lr.ph.split, %.loopexit
+  %indvars.iv = phi i64 [ %10, %.lr.ph.split ], [ %indvars.iv.next, %.loopexit ]
+  br label %12
+
+11:                                               ; preds = %18
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %avifDecoderIsKeyframe.exit.loopexit16, label %12, !llvm.loop !26
+
+12:                                               ; preds = %11, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %11 ]
+  %13 = getelementptr inbounds %struct.avifTile, ptr %9, i64 %indvars.iv.i
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %16 = load i32, ptr %15, align 4
+  %17 = zext i32 %16 to i64
+  %.not14.i = icmp ult i64 %indvars.iv, %17
+  br i1 %.not14.i, label %18, label %.loopexit
+
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %14, align 8
+  %20 = getelementptr inbounds %struct.avifDecodeSample, ptr %19, i64 %indvars.iv, i32 7
+  %21 = load i32, ptr %20, align 4
+  %.not15.i = icmp eq i32 %21, 0
+  br i1 %.not15.i, label %.loopexit, label %11
+
+.loopexit:                                        ; preds = %18, %12
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %22 = and i64 %indvars.iv.next, 4294967295
+  %.not7 = icmp eq i64 %22, 0
+  br i1 %.not7, label %avifDecoderIsKeyframe.exit, label %.preheader.i, !llvm.loop !27
+
+avifDecoderIsKeyframe.exit.loopexit16:            ; preds = %11
+  %23 = trunc nuw i64 %indvars.iv to i32
+  br label %avifDecoderIsKeyframe.exit
+
+avifDecoderIsKeyframe.exit:                       ; preds = %.loopexit, %.lr.ph, %avifDecoderIsKeyframe.exit.loopexit16, %2
+  %.06 = phi i32 [ 0, %2 ], [ %23, %avifDecoderIsKeyframe.exit.loopexit16 ], [ 0, %.lr.ph ], [ 0, %.loopexit ]
+  ret i32 %.06
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 27) i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+  store ptr null, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = load i32, ptr %4, align 4
+  %.not27 = icmp eq i32 %5, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3
+  %6 = load ptr, ptr %0, align 8
+  %wide.trip.count = zext i32 %5 to i64
+  br label %8
+
+7:                                                ; preds = %8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !32
+
+8:                                                ; preds = %.lr.ph, %7
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %9 = getelementptr inbounds %struct.avifDecoderItem, ptr %6, i64 %indvars.iv
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, %1
+  br i1 %11, label %12, label %7
+
+12:                                               ; preds = %8
+  store ptr %9, ptr %2, align 8
+  br label %28
+
+._crit_edge:                                      ; preds = %7, %3
+  %13 = tail call ptr @avifArrayPush(ptr noundef nonnull %0) #13
+  store ptr %13, ptr %2, align 8
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %28, label %14
+
+14:                                               ; preds = %._crit_edge
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 112
+  %16 = tail call i32 @avifArrayCreate(ptr noundef nonnull %15, i32 noundef 72, i32 noundef 16) #13
+  %.not24 = icmp eq i32 %16, 0
+  br i1 %.not24, label %17, label %18
+
+17:                                               ; preds = %14
+  tail call void @avifArrayPop(ptr noundef nonnull %0) #13
+  br label %28
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 136
+  %21 = tail call i32 @avifArrayCreate(ptr noundef nonnull %20, i32 noundef 16, i32 noundef 1) #13
+  %.not25 = icmp eq i32 %21, 0
+  %22 = load ptr, ptr %2, align 8
+  br i1 %.not25, label %23, label %25
+
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 112
+  tail call void @avifArrayDestroy(ptr noundef nonnull %24) #13
+  tail call void @avifArrayPop(ptr noundef nonnull %0) #13
+  br label %28
+
+25:                                               ; preds = %18
+  store i32 %1, ptr %22, align 8
+  %26 = load ptr, ptr %2, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr %0, ptr %27, align 8
+  br label %28
+
+28:                                               ; preds = %._crit_edge, %25, %23, %17, %12
+  %.022 = phi i32 [ 0, %12 ], [ 0, %25 ], [ 26, %23 ], [ 26, %17 ], [ 26, %._crit_edge ]
+  ret i32 %.022
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @avifDecoderParse(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.avifROStream, align 8
+  %3 = alloca %struct.avifROData, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %struct.avifROStream, align 8
+  %9 = alloca %struct.avifROData, align 8
+  %10 = alloca %struct.avifBoxHeader, align 8
+  %11 = alloca %struct.avifROStream, align 8
+  %12 = alloca %struct.avifROData, align 8
+  %13 = alloca %struct.avifBoxHeader, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca %struct.avifROStream, align 8
+  %17 = alloca %struct.avifROData, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca %struct.avifBoxHeader, align 8
+  %20 = alloca %struct.avifROStream, align 8
+  %21 = alloca %struct.avifROData, align 8
+  %22 = alloca i32, align 4
+  %23 = alloca %struct.avifROStream, align 8
+  %24 = alloca %struct.avifROData, align 8
+  %25 = alloca i32, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca %struct.avifROStream, align 8
+  %28 = alloca %struct.avifROData, align 8
+  %29 = alloca i32, align 4
+  %30 = alloca i32, align 4
+  %31 = alloca %struct.avifROStream, align 8
+  %32 = alloca %struct.avifROData, align 8
+  %33 = alloca i32, align 4
+  %34 = alloca %struct.avifROStream, align 8
+  %35 = alloca %struct.avifROData, align 8
+  %36 = alloca %struct.avifBoxHeader, align 8
+  %37 = alloca %struct.avifROStream, align 8
+  %38 = alloca %struct.avifROData, align 8
+  %39 = alloca %struct.avifBoxHeader, align 8
+  %40 = alloca %struct.avifROStream, align 8
+  %41 = alloca %struct.avifROData, align 8
+  %42 = alloca i8, align 1
+  %43 = alloca i32, align 4
+  %44 = alloca i32, align 4
+  %45 = alloca i32, align 4
+  %46 = alloca i64, align 8
+  %47 = alloca i64, align 8
+  %48 = alloca %struct.avifROStream, align 8
+  %49 = alloca %struct.avifROData, align 8
+  %50 = alloca %struct.avifBoxHeader, align 8
+  %51 = alloca %struct.avifROStream, align 8
+  %52 = alloca %struct.avifROData, align 8
+  %53 = alloca i8, align 1
+  %54 = alloca i32, align 4
+  %55 = alloca i32, align 4
+  %56 = alloca i64, align 8
+  %57 = alloca i32, align 4
+  %58 = alloca i32, align 4
+  %59 = alloca i32, align 4
+  %60 = alloca %struct.avifROStream, align 8
+  %61 = alloca %struct.avifROData, align 8
+  %62 = alloca %struct.avifBoxHeader, align 8
+  %63 = alloca %struct.avifROStream, align 8
+  %64 = alloca %struct.avifROData, align 8
+  %65 = alloca %struct.avifBoxHeader, align 8
+  %66 = alloca %struct.avifROData, align 8
+  %67 = alloca %struct.avifROStream, align 8
+  %68 = alloca %struct.avifROData, align 8
+  %69 = alloca %struct.avifBoxHeader, align 8
+  %70 = alloca %struct.avifROData, align 8
+  %71 = alloca %struct.avifFileType, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @avifDiagnosticsClearError(ptr noundef nonnull %72) #13
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %74 = load i32, ptr %73, align 4
+  %75 = add i32 %74, -268435457
+  %or.cond73 = icmp ult i32 %75, -268435456
+  br i1 %or.cond73, label %729, label %76
+
+76:                                               ; preds = %1
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %78 = load ptr, ptr %77, align 8
+  %.not = icmp eq ptr %78, null
+  br i1 %.not, label %729, label %79
+
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %.not63 = icmp eq ptr %81, null
+  br i1 %.not63, label %729, label %82
+
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %84 = load ptr, ptr %83, align 8
+  %.not.i = icmp eq ptr %84, null
+  br i1 %.not.i, label %86, label %85
+
+85:                                               ; preds = %82
+  tail call fastcc void @avifDecoderDataDestroy(ptr noundef nonnull %84)
+  store ptr null, ptr %83, align 8
+  br label %86
+
+86:                                               ; preds = %85, %82
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %88 = load ptr, ptr %87, align 8
+  %.not8.i = icmp eq ptr %88, null
+  br i1 %.not8.i, label %avifDecoderCleanup.exit, label %89
+
+89:                                               ; preds = %86
+  tail call void @avifImageDestroy(ptr noundef nonnull %88) #13
+  store ptr null, ptr %87, align 8
+  br label %avifDecoderCleanup.exit
+
+avifDecoderCleanup.exit:                          ; preds = %86, %89
+  tail call void @avifDiagnosticsClearError(ptr noundef nonnull %72) #13
+  %90 = tail call ptr @avifAlloc(i64 noundef 168) #13
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %avifDecoderDataCreate.exit.thread, label %92
+
+92:                                               ; preds = %avifDecoderCleanup.exit
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %90, i8 0, i64 168, i1 false)
+  %93 = tail call ptr @avifAlloc(i64 noundef 72) #13
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %avifMetaCreate.exit.thread.i, label %95
+
+95:                                               ; preds = %92
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %93, i8 0, i64 72, i1 false)
+  %96 = tail call i32 @avifArrayCreate(ptr noundef nonnull %93, i32 noundef 224, i32 noundef 8) #13
+  %.not.i.i = icmp eq i32 %96, 0
+  br i1 %.not.i.i, label %100, label %97
+
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  %99 = tail call i32 @avifArrayCreate(ptr noundef nonnull %98, i32 noundef 72, i32 noundef 16) #13
+  %.not8.i.i = icmp eq i32 %99, 0
+  br i1 %.not8.i.i, label %100, label %101
+
+100:                                              ; preds = %97, %95
+  tail call fastcc void @avifMetaDestroy(ptr noundef nonnull %93)
+  br label %avifMetaCreate.exit.thread.i
+
+avifMetaCreate.exit.thread.i:                     ; preds = %100, %92
+  store ptr null, ptr %90, align 8
+  br label %107
+
+101:                                              ; preds = %97
+  store ptr %93, ptr %90, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %103 = tail call i32 @avifArrayCreate(ptr noundef nonnull %102, i32 noundef 72, i32 noundef 2) #13
+  %.not.i75 = icmp eq i32 %103, 0
+  br i1 %.not.i75, label %107, label %104
+
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %106 = tail call i32 @avifArrayCreate(ptr noundef nonnull %105, i32 noundef 48, i32 noundef 8) #13
+  %.not10.i = icmp eq i32 %106, 0
+  br i1 %.not10.i, label %107, label %108
+
+107:                                              ; preds = %104, %101, %avifMetaCreate.exit.thread.i
+  tail call fastcc void @avifDecoderDataDestroy(ptr noundef nonnull %90)
+  br label %avifDecoderDataCreate.exit.thread
+
+avifDecoderDataCreate.exit.thread:                ; preds = %107, %avifDecoderCleanup.exit
+  store ptr null, ptr %83, align 8
+  br label %729
+
+108:                                              ; preds = %104
+  store ptr %90, ptr %83, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %90, i64 144
+  store ptr %72, ptr %109, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %71)
+  %110 = load ptr, ptr %83, align 8
+  %111 = load ptr, ptr %77, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %110, i64 144
+  %120 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %144 = getelementptr inbounds nuw i8, ptr %110, i64 136
+  %145 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  br label %147
+
+147:                                              ; preds = %645, %108
+  %148 = phi ptr [ %111, %108 ], [ %646, %645 ]
+  %.054708.i = phi i32 [ 0, %108 ], [ %.1129.i, %645 ]
+  %.055707.i = phi i32 [ 0, %108 ], [ %.156127.i, %645 ]
+  %.057706.i = phi i32 [ 0, %108 ], [ %.158125.i, %645 ]
+  %.059705.i = phi i32 [ 0, %108 ], [ %.160123.i, %645 ]
+  %.061704.i = phi i32 [ 0, %108 ], [ %.162121.i, %645 ]
+  %.063703.i = phi i64 [ 0, %108 ], [ %176, %645 ]
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  %150 = load ptr, ptr %149, align 8
+  %151 = call i32 %150(ptr noundef nonnull %148, i32 noundef 0, i64 noundef %.063703.i, i64 noundef 32, ptr noundef nonnull %66) #13
+  %.not69.i = icmp eq i32 %151, 0
+  br i1 %.not69.i, label %152, label %avifParse.exit.thread
+
+152:                                              ; preds = %147
+  %153 = load i64, ptr %112, align 8
+  %.not70.i = icmp eq i64 %153, 0
+  br i1 %.not70.i, label %650, label %154
+
+154:                                              ; preds = %152
+  %155 = load ptr, ptr %66, align 8
+  store ptr %155, ptr %68, align 8
+  store i64 %153, ptr %113, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %72, ptr noundef nonnull @.str.22) #13
+  %156 = call i32 @avifROStreamReadBoxHeaderPartial(ptr noundef nonnull %67, ptr noundef nonnull %69) #13
+  %.not72.i = icmp eq i32 %156, 0
+  br i1 %.not72.i, label %avifParse.exit.thread, label %157
+
+157:                                              ; preds = %154
+  %158 = load i64, ptr %114, align 8
+  %159 = add i64 %158, %.063703.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
+  %lhsv.i = load i32, ptr %115, align 8
+  switch i32 %lhsv.i, label %169 [
+    i32 1987014509, label %160
+    i32 1887007846, label %160
+    i32 1635018093, label %160
+  ]
+
+160:                                              ; preds = %157, %157, %157
+  %161 = load ptr, ptr %77, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load ptr, ptr %162, align 8
+  %164 = load i64, ptr %69, align 8
+  %165 = call i32 %163(ptr noundef %161, i32 noundef 0, i64 noundef %159, i64 noundef %164, ptr noundef nonnull %70) #13
+  %.not78.i = icmp eq i32 %165, 0
+  br i1 %.not78.i, label %166, label %avifParse.exit.thread
+
+166:                                              ; preds = %160
+  %167 = load i64, ptr %116, align 8
+  %168 = load i64, ptr %69, align 8
+  %.not79.i = icmp eq i64 %167, %168
+  br i1 %.not79.i, label %._crit_edge.i, label %avifParse.exit.thread
+
+._crit_edge.i:                                    ; preds = %166
+  %lhsv80.pre.i = load i32, ptr %115, align 8
+  br label %173
+
+169:                                              ; preds = %157
+  %170 = load i64, ptr %69, align 8
+  %171 = xor i64 %159, -1
+  %172 = icmp ugt i64 %170, %171
+  br i1 %172, label %avifParse.exit.thread, label %173
+
+173:                                              ; preds = %169, %._crit_edge.i
+  %174 = phi i64 [ 0, %169 ], [ %167, %._crit_edge.i ]
+  %lhsv80.i = phi i32 [ %lhsv.i, %169 ], [ %lhsv80.pre.i, %._crit_edge.i ]
+  %175 = phi i64 [ %170, %169 ], [ %167, %._crit_edge.i ]
+  %.053.i = phi i64 [ 0, %169 ], [ %159, %._crit_edge.i ]
+  %176 = add i64 %175, %159
+  switch i32 %lhsv80.i, label %avifFileTypeHasBrand.exit108.i [
+    i32 1887007846, label %177
+    i32 1635018093, label %198
+    i32 1987014509, label %204
+  ]
+
+177:                                              ; preds = %173
+  %.not82.i = icmp eq i32 %.061704.i, 0
+  br i1 %.not82.i, label %178, label %avifParse.exit.thread
+
+178:                                              ; preds = %177
+  %179 = load ptr, ptr %70, align 8
+  %180 = load ptr, ptr %119, align 8
+  %181 = call fastcc i32 @avifParseFileTypeBox(ptr noundef nonnull %71, ptr noundef %179, i64 noundef %174, ptr noundef %180)
+  %.not83.i = icmp eq i32 %181, 0
+  br i1 %.not83.i, label %avifParse.exit.thread, label %182
+
+182:                                              ; preds = %178
+  %183 = call fastcc i32 @avifFileTypeIsCompatible(ptr noundef nonnull %71)
+  %.not84.i = icmp eq i32 %183, 0
+  br i1 %.not84.i, label %avifParse.exit.thread, label %184
+
+184:                                              ; preds = %182
+  %185 = load i32, ptr %71, align 8
+  store i32 %185, ptr %144, align 8
+  %.not131.i = icmp eq i32 %185, 1718187617
+  %.pre = load i32, ptr %145, align 8
+  br i1 %.not131.i, label %.preheader.i99.i, label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %184
+  %186 = icmp sgt i32 %.pre, 0
+  br i1 %186, label %.lr.ph.i.i, label %avifFileTypeHasBrand.exit.i
+
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i
+  %187 = load ptr, ptr %146, align 8
+  %wide.trip.count.i.i = zext nneg i32 %.pre to i64
+  br label %189
+
+188:                                              ; preds = %189
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %avifFileTypeHasBrand.exit.i, label %189, !llvm.loop !6
+
+189:                                              ; preds = %188, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %188 ]
+  %190 = shl nsw i64 %indvars.iv.i.i, 2
+  %191 = getelementptr inbounds i8, ptr %187, i64 %190
+  %bcmp10.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %191, ptr noundef nonnull readonly dereferenceable(4) @.str.9, i64 4)
+  %.not11.i.i = icmp eq i32 %bcmp10.i.i, 0
+  br i1 %.not11.i.i, label %avifFileTypeHasBrand.exit.i, label %188
+
+avifFileTypeHasBrand.exit.i:                      ; preds = %189, %188, %.preheader.i.i
+  %.0.i.i = phi i32 [ 0, %.preheader.i.i ], [ 1, %189 ], [ 0, %188 ]
+  %.not133.i = icmp eq i32 %185, 1936291425
+  br i1 %.not133.i, label %avifFileTypeHasBrand.exit108.thread.i, label %.preheader.i99.i
+
+.preheader.i99.i:                                 ; preds = %avifFileTypeHasBrand.exit.i, %184
+  %.0.i1202.i = phi i32 [ %.0.i.i, %avifFileTypeHasBrand.exit.i ], [ 1, %184 ]
+  %192 = icmp sgt i32 %.pre, 0
+  br i1 %192, label %.lr.ph.i101.i, label %avifFileTypeHasBrand.exit108.thread.i
+
+.lr.ph.i101.i:                                    ; preds = %.preheader.i99.i
+  %193 = load ptr, ptr %146, align 8
+  %wide.trip.count.i102.i = zext nneg i32 %.pre to i64
+  br label %195
+
+194:                                              ; preds = %195
+  %indvars.iv.next.i106.i = add nuw nsw i64 %indvars.iv.i103.i, 1
+  %exitcond.not.i107.i = icmp eq i64 %indvars.iv.next.i106.i, %wide.trip.count.i102.i
+  br i1 %exitcond.not.i107.i, label %avifFileTypeHasBrand.exit108.thread.i, label %195, !llvm.loop !6
+
+195:                                              ; preds = %194, %.lr.ph.i101.i
+  %indvars.iv.i103.i = phi i64 [ 0, %.lr.ph.i101.i ], [ %indvars.iv.next.i106.i, %194 ]
+  %196 = shl nsw i64 %indvars.iv.i103.i, 2
+  %197 = getelementptr inbounds i8, ptr %193, i64 %196
+  %bcmp10.i104.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %197, ptr noundef nonnull readonly dereferenceable(4) @.str.8, i64 4)
+  %.not11.i105.i = icmp eq i32 %bcmp10.i104.i, 0
+  br i1 %.not11.i105.i, label %avifFileTypeHasBrand.exit108.thread.i, label %194
+
+198:                                              ; preds = %173
+  %.not87.i = icmp eq i32 %.059705.i, 0
+  br i1 %.not87.i, label %199, label %avifParse.exit.thread
+
+199:                                              ; preds = %198
+  %200 = load ptr, ptr %110, align 8
+  %201 = load ptr, ptr %70, align 8
+  %202 = load ptr, ptr %119, align 8
+  %203 = call fastcc i32 @avifParseMetaBox(ptr noundef %200, i64 noundef %.053.i, ptr noundef %201, i64 noundef %174, ptr noundef %202)
+  %.not88.i = icmp eq i32 %203, 0
+  br i1 %.not88.i, label %avifFileTypeHasBrand.exit108.i, label %avifParse.exit.thread
+
+204:                                              ; preds = %173
+  %.not91.i = icmp eq i32 %.057706.i, 0
+  br i1 %.not91.i, label %205, label %avifParse.exit.thread
+
+205:                                              ; preds = %204
+  %206 = load ptr, ptr %70, align 8
+  %207 = load i32, ptr %73, align 4
+  %208 = load i32, ptr %117, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65)
+  store ptr %206, ptr %64, align 8
+  store i64 %174, ptr %118, align 8
+  %209 = load ptr, ptr %119, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noundef %209, ptr noundef nonnull @.str.111) #13
+  %invariant.op.i.i = add i64 %.053.i, 78
+  br label %210
+
+210:                                              ; preds = %636, %205
+  %211 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %63, i64 noundef 1) #13
+  %.not.i109.i = icmp eq i32 %211, 0
+  br i1 %.not.i109.i, label %639, label %212
+
+212:                                              ; preds = %210
+  %213 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %63, ptr noundef nonnull %65) #13
+  %.not10.i.i = icmp eq i32 %213, 0
+  br i1 %.not10.i.i, label %avifParseMovieBox.exit.thread.i, label %214
+
+214:                                              ; preds = %212
+  %lhsv.i.i = load i32, ptr %120, align 8
+  %.not11.i110.i = icmp eq i32 %lhsv.i.i, 1801548404
+  br i1 %.not11.i110.i, label %215, label %636
+
+215:                                              ; preds = %214
+  %216 = call i64 @avifROStreamOffset(ptr noundef nonnull %63) #13
+  %217 = add i64 %216, %.053.i
+  %218 = call ptr @avifROStreamCurrent(ptr noundef nonnull %63) #13
+  %219 = load i64, ptr %65, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62)
+  store ptr %218, ptr %61, align 8
+  store i64 %219, ptr %121, align 8
+  %220 = load ptr, ptr %119, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef %220, ptr noundef nonnull @.str.113) #13
+  %221 = call ptr @avifArrayPush(ptr noundef nonnull %122) #13
+  %222 = icmp eq ptr %221, null
+  br i1 %222, label %avifParseTrackBox.exit.thread.i.i, label %223
+
+223:                                              ; preds = %215
+  %224 = call ptr @avifAlloc(i64 noundef 72) #13
+  %225 = icmp eq ptr %224, null
+  br i1 %225, label %.loopexit22.i.i, label %226
+
+226:                                              ; preds = %223
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %224, i8 0, i64 72, i1 false)
+  %227 = call i32 @avifArrayCreate(ptr noundef nonnull %224, i32 noundef 224, i32 noundef 8) #13
+  %.not.i.i.i.i.i = icmp eq i32 %227, 0
+  br i1 %.not.i.i.i.i.i, label %231, label %228
+
+228:                                              ; preds = %226
+  %229 = getelementptr inbounds nuw i8, ptr %224, i64 24
+  %230 = call i32 @avifArrayCreate(ptr noundef nonnull %229, i32 noundef 72, i32 noundef 16) #13
+  %.not8.i.i.i.i.i = icmp eq i32 %230, 0
+  br i1 %.not8.i.i.i.i.i, label %231, label %avifDecoderDataCreateTrack.exit.i.i.i
+
+231:                                              ; preds = %228, %226
+  call fastcc void @avifMetaDestroy(ptr noundef nonnull %224)
+  br label %.loopexit22.i.i
+
+.loopexit22.i.i:                                  ; preds = %223, %231
+  %232 = getelementptr inbounds nuw i8, ptr %221, i64 64
+  store ptr null, ptr %232, align 8
+  call void @avifArrayPop(ptr noundef nonnull %122) #13
+  br label %avifParseTrackBox.exit.thread.i.i
+
+avifDecoderDataCreateTrack.exit.i.i.i:            ; preds = %228
+  %233 = getelementptr inbounds nuw i8, ptr %221, i64 64
+  store ptr %224, ptr %233, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %221, i64 40
+  %235 = getelementptr inbounds nuw i8, ptr %221, i64 32
+  %236 = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %221, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %221, i64 56
+  %239 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %221, i64 12
+  %.reass.i.i = add i64 %invariant.op.i.i, %216
+  %241 = getelementptr inbounds nuw i8, ptr %221, i64 24
+  %242 = getelementptr inbounds nuw i8, ptr %221, i64 48
+  %243 = getelementptr inbounds nuw i8, ptr %221, i64 52
+  br label %244
+
+244:                                              ; preds = %615, %avifDecoderDataCreateTrack.exit.i.i.i
+  %.041.i.i.i = phi i32 [ %.1.i.i.i, %615 ], [ 0, %avifDecoderDataCreateTrack.exit.i.i.i ]
+  %245 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %60, i64 noundef 1) #13
+  %.not47.i.i.i = icmp eq i32 %245, 0
+  br i1 %.not47.i.i.i, label %618, label %246
+
+246:                                              ; preds = %244
+  %247 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %60, ptr noundef nonnull %62) #13
+  %.not50.i.i.i = icmp eq i32 %247, 0
+  br i1 %.not50.i.i.i, label %avifParseTrackBox.exit.thread.i.i, label %248
+
+248:                                              ; preds = %246
+  %lhsv.i.i.i = load i32, ptr %123, align 8
+  switch i32 %lhsv.i.i.i, label %615 [
+    i32 1684564852, label %249
+    i32 1635018093, label %305
+    i32 1634296941, label %313
+    i32 1717924468, label %539
+    i32 1937007717, label %567
+  ]
+
+249:                                              ; preds = %248
+  %250 = call ptr @avifROStreamCurrent(ptr noundef nonnull %60) #13
+  %251 = load i64, ptr %62, align 8
+  %252 = load ptr, ptr %119, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59)
+  store ptr %250, ptr %52, align 8
+  store i64 %251, ptr %142, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %51, ptr noundef nonnull %52, ptr noundef %252, ptr noundef nonnull @.str.120) #13
+  %253 = call i32 @avifROStreamReadVersionAndFlags(ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef null) #13
+  %.not.i.i.i.i = icmp eq i32 %253, 0
+  br i1 %.not.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %254
+
+254:                                              ; preds = %249
+  %255 = load i8, ptr %53, align 1
+  switch i8 %255, label %281 [
+    i8 1, label %256
+    i8 0, label %266
+  ]
+
+256:                                              ; preds = %254
+  %257 = call i32 @avifROStreamReadU64(ptr noundef nonnull %51, ptr noundef nonnull %56) #13
+  %.not31.i.i.i.i = icmp eq i32 %257, 0
+  br i1 %.not31.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %258
+
+258:                                              ; preds = %256
+  %259 = call i32 @avifROStreamReadU64(ptr noundef nonnull %51, ptr noundef nonnull %56) #13
+  %.not32.i.i.i.i = icmp eq i32 %259, 0
+  br i1 %.not32.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %260
+
+260:                                              ; preds = %258
+  %261 = call i32 @avifROStreamReadU32(ptr noundef nonnull %51, ptr noundef nonnull %55) #13
+  %.not33.i.i.i.i = icmp eq i32 %261, 0
+  br i1 %.not33.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %262
+
+262:                                              ; preds = %260
+  %263 = call i32 @avifROStreamReadU32(ptr noundef nonnull %51, ptr noundef nonnull %54) #13
+  %.not34.i.i.i.i = icmp eq i32 %263, 0
+  br i1 %.not34.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %264
+
+264:                                              ; preds = %262
+  %265 = call i32 @avifROStreamReadU64(ptr noundef nonnull %51, ptr noundef nonnull %241) #13
+  %.not35.i.i.i.i = icmp eq i32 %265, 0
+  br i1 %.not35.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %283
+
+266:                                              ; preds = %254
+  %267 = call i32 @avifROStreamReadU32(ptr noundef nonnull %51, ptr noundef nonnull %54) #13
+  %.not26.i.i.i.i = icmp eq i32 %267, 0
+  br i1 %.not26.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %268
+
+268:                                              ; preds = %266
+  %269 = call i32 @avifROStreamReadU32(ptr noundef nonnull %51, ptr noundef nonnull %54) #13
+  %.not27.i.i.i.i = icmp eq i32 %269, 0
+  br i1 %.not27.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %270
+
+270:                                              ; preds = %268
+  %271 = call i32 @avifROStreamReadU32(ptr noundef nonnull %51, ptr noundef nonnull %55) #13
+  %.not28.i.i.i.i = icmp eq i32 %271, 0
+  br i1 %.not28.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %272
+
+272:                                              ; preds = %270
+  %273 = call i32 @avifROStreamReadU32(ptr noundef nonnull %51, ptr noundef nonnull %54) #13
+  %.not29.i.i.i.i = icmp eq i32 %273, 0
+  br i1 %.not29.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %274
+
+274:                                              ; preds = %272
+  %275 = call i32 @avifROStreamReadU32(ptr noundef nonnull %51, ptr noundef nonnull %57) #13
+  %.not30.i.i.i.i = icmp eq i32 %275, 0
+  br i1 %.not30.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %276
+
+276:                                              ; preds = %274
+  %277 = load i32, ptr %57, align 4
+  %278 = icmp eq i32 %277, -1
+  %279 = zext i32 %277 to i64
+  %280 = select i1 %278, i64 -1, i64 %279
+  store i64 %280, ptr %241, align 8
+  br label %283
+
+281:                                              ; preds = %254
+  %282 = zext i8 %255 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %252, ptr noundef nonnull @.str.121, i32 noundef %282) #13
+  br label %avifParseTrackHeaderBox.exit.thread.i.i.i
+
+283:                                              ; preds = %276, %264
+  %284 = call i32 @avifROStreamSkip(ptr noundef nonnull %51, i64 noundef 52) #13
+  %.not36.i.i.i.i = icmp eq i32 %284, 0
+  br i1 %.not36.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %285
+
+285:                                              ; preds = %283
+  %286 = call i32 @avifROStreamReadU32(ptr noundef nonnull %51, ptr noundef nonnull %58) #13
+  %.not37.i.i.i.i = icmp eq i32 %286, 0
+  br i1 %.not37.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %287
+
+287:                                              ; preds = %285
+  %288 = call i32 @avifROStreamReadU32(ptr noundef nonnull %51, ptr noundef nonnull %59) #13
+  %.not38.i.i.i.i = icmp eq i32 %288, 0
+  br i1 %.not38.i.i.i.i, label %avifParseTrackHeaderBox.exit.thread.i.i.i, label %289
+
+289:                                              ; preds = %287
+  %290 = load i32, ptr %58, align 4
+  %291 = lshr i32 %290, 16
+  store i32 %291, ptr %242, align 8
+  %292 = load i32, ptr %59, align 4
+  %293 = lshr i32 %292, 16
+  store i32 %293, ptr %243, align 4
+  %294 = icmp ult i32 %290, 65536
+  %295 = icmp ult i32 %292, 65536
+  %or.cond.i.i.i.i = select i1 %294, i1 true, i1 %295
+  br i1 %or.cond.i.i.i.i, label %296, label %298
+
+296:                                              ; preds = %289
+  %297 = load i32, ptr %221, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %252, ptr noundef nonnull @.str.122, i32 noundef %297, i32 noundef %291, i32 noundef %293) #13
+  br label %avifParseTrackHeaderBox.exit.thread.i.i.i
+
+298:                                              ; preds = %289
+  %299 = call i32 @avifDimensionsTooLarge(i32 noundef %291, i32 noundef %293, i32 noundef %207, i32 noundef %208) #13
+  %.not39.i.i.i.i = icmp eq i32 %299, 0
+  br i1 %.not39.i.i.i.i, label %avifParseTrackHeaderBox.exit.i.i.i, label %300
+
+300:                                              ; preds = %298
+  %301 = load i32, ptr %221, align 8
+  %302 = load i32, ptr %242, align 8
+  %303 = load i32, ptr %243, align 4
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %252, ptr noundef nonnull @.str.123, i32 noundef %301, i32 noundef %302, i32 noundef %303) #13
+  br label %avifParseTrackHeaderBox.exit.thread.i.i.i
+
+avifParseTrackHeaderBox.exit.thread.i.i.i:        ; preds = %287, %285, %283, %274, %272, %270, %268, %266, %264, %262, %260, %258, %256, %249, %300, %296, %281
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
+  br label %avifParseTrackBox.exit.thread.i.i
+
+avifParseTrackHeaderBox.exit.i.i.i:               ; preds = %298
+  %304 = load i32, ptr %55, align 4
+  store i32 %304, ptr %221, align 8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
+  br label %615
+
+305:                                              ; preds = %248
+  %306 = load ptr, ptr %233, align 8
+  %307 = call i64 @avifROStreamOffset(ptr noundef nonnull %60) #13
+  %308 = add i64 %217, %307
+  %309 = call ptr @avifROStreamCurrent(ptr noundef nonnull %60) #13
+  %310 = load i64, ptr %62, align 8
+  %311 = load ptr, ptr %119, align 8
+  %312 = call fastcc i32 @avifParseMetaBox(ptr noundef %306, i64 noundef %308, ptr noundef %309, i64 noundef %310, ptr noundef %311)
+  %.not55.i.i.i = icmp eq i32 %312, 0
+  br i1 %.not55.i.i.i, label %615, label %avifParseTrackBox.exit.thread.i.i
+
+313:                                              ; preds = %248
+  %314 = call i64 @avifROStreamOffset(ptr noundef nonnull %60) #13
+  %315 = call ptr @avifROStreamCurrent(ptr noundef nonnull %60) #13
+  %316 = load i64, ptr %62, align 8
+  %317 = load ptr, ptr %119, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
+  store ptr %315, ptr %49, align 8
+  store i64 %316, ptr %129, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef %317, ptr noundef nonnull @.str.124) #13
+  %invariant.op233.i.i.i = add i64 %.reass.i.i, %314
+  br label %318
+
+318:                                              ; preds = %536, %313
+  %319 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %48, i64 noundef 1) #13
+  %.not.i68.i.i.i = icmp eq i32 %319, 0
+  br i1 %.not.i68.i.i.i, label %avifParseMediaBox.exit.i.i.i, label %320
+
+320:                                              ; preds = %318
+  %321 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %48, ptr noundef nonnull %50) #13
+  %.not11.i.i.i.i = icmp eq i32 %321, 0
+  br i1 %.not11.i.i.i.i, label %avifParseMediaBox.exit.thread.i.i.i, label %322
+
+322:                                              ; preds = %320
+  %lhsv.i.i.i.i = load i32, ptr %130, align 8
+  switch i32 %lhsv.i.i.i.i, label %536 [
+    i32 1684563053, label %323
+    i32 1718511981, label %353
+  ]
+
+323:                                              ; preds = %322
+  %324 = call ptr @avifROStreamCurrent(ptr noundef nonnull %48) #13
+  %325 = load i64, ptr %50, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
+  store ptr %324, ptr %41, align 8
+  store i64 %325, ptr %141, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef %317, ptr noundef nonnull @.str.127) #13
+  %326 = call i32 @avifROStreamReadVersionAndFlags(ptr noundef nonnull %40, ptr noundef nonnull %42, ptr noundef null) #13
+  %.not.i.i70.i.i.i = icmp eq i32 %326, 0
+  br i1 %.not.i.i70.i.i.i, label %avifParseMediaHeaderBox.exit.thread.i.i.i.i, label %327
+
+327:                                              ; preds = %323
+  %328 = load i8, ptr %42, align 1
+  switch i8 %328, label %350 [
+    i8 1, label %329
+    i8 0, label %339
+  ]
+
+329:                                              ; preds = %327
+  %330 = call i32 @avifROStreamReadU64(ptr noundef nonnull %40, ptr noundef nonnull %46) #13
+  %.not12.i.i.i.i.i = icmp eq i32 %330, 0
+  br i1 %.not12.i.i.i.i.i, label %avifParseMediaHeaderBox.exit.thread.i.i.i.i, label %331
+
+331:                                              ; preds = %329
+  %332 = call i32 @avifROStreamReadU64(ptr noundef nonnull %40, ptr noundef nonnull %46) #13
+  %.not13.i.i.i.i.i = icmp eq i32 %332, 0
+  br i1 %.not13.i.i.i.i.i, label %avifParseMediaHeaderBox.exit.thread.i.i.i.i, label %333
+
+333:                                              ; preds = %331
+  %334 = call i32 @avifROStreamReadU32(ptr noundef nonnull %40, ptr noundef nonnull %44) #13
+  %.not14.i.i.i.i.i = icmp eq i32 %334, 0
+  br i1 %.not14.i.i.i.i.i, label %avifParseMediaHeaderBox.exit.thread.i.i.i.i, label %335
+
+335:                                              ; preds = %333
+  %336 = call i32 @avifROStreamReadU64(ptr noundef nonnull %40, ptr noundef nonnull %47) #13
+  %.not15.i.i.i.i.i = icmp eq i32 %336, 0
+  br i1 %.not15.i.i.i.i.i, label %avifParseMediaHeaderBox.exit.thread.i.i.i.i, label %337
+
+337:                                              ; preds = %335
+  %338 = load i64, ptr %47, align 8
+  br label %avifParseMediaHeaderBox.exit.i.i.i.i
+
+339:                                              ; preds = %327
+  %340 = call i32 @avifROStreamReadU32(ptr noundef nonnull %40, ptr noundef nonnull %43) #13
+  %.not8.i.i71.i.i.i = icmp eq i32 %340, 0
+  br i1 %.not8.i.i71.i.i.i, label %avifParseMediaHeaderBox.exit.thread.i.i.i.i, label %341
+
+341:                                              ; preds = %339
+  %342 = call i32 @avifROStreamReadU32(ptr noundef nonnull %40, ptr noundef nonnull %43) #13
+  %.not9.i.i.i.i.i = icmp eq i32 %342, 0
+  br i1 %.not9.i.i.i.i.i, label %avifParseMediaHeaderBox.exit.thread.i.i.i.i, label %343
+
+343:                                              ; preds = %341
+  %344 = call i32 @avifROStreamReadU32(ptr noundef nonnull %40, ptr noundef nonnull %44) #13
+  %.not10.i.i.i.i.i = icmp eq i32 %344, 0
+  br i1 %.not10.i.i.i.i.i, label %avifParseMediaHeaderBox.exit.thread.i.i.i.i, label %345
+
+345:                                              ; preds = %343
+  %346 = call i32 @avifROStreamReadU32(ptr noundef nonnull %40, ptr noundef nonnull %45) #13
+  %.not11.i.i.i.i.i = icmp eq i32 %346, 0
+  br i1 %.not11.i.i.i.i.i, label %avifParseMediaHeaderBox.exit.thread.i.i.i.i, label %347
+
+347:                                              ; preds = %345
+  %348 = load i32, ptr %45, align 4
+  %349 = zext i32 %348 to i64
+  br label %avifParseMediaHeaderBox.exit.i.i.i.i
+
+350:                                              ; preds = %327
+  %351 = zext i8 %328 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %317, ptr noundef nonnull @.str.128, i32 noundef %351) #13
+  br label %avifParseMediaHeaderBox.exit.thread.i.i.i.i
+
+avifParseMediaHeaderBox.exit.thread.i.i.i.i:      ; preds = %345, %343, %341, %339, %335, %333, %331, %329, %323, %350
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
+  br label %avifParseMediaBox.exit.thread.i.i.i
+
+avifParseMediaHeaderBox.exit.i.i.i.i:             ; preds = %347, %337
+  %.sink.i.i.i.i.i = phi i64 [ %349, %347 ], [ %338, %337 ]
+  store i64 %.sink.i.i.i.i.i, ptr %239, align 8
+  %352 = load i32, ptr %44, align 4
+  store i32 %352, ptr %240, align 4
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
+  br label %536
+
+353:                                              ; preds = %322
+  %354 = call i64 @avifROStreamOffset(ptr noundef nonnull %48) #13
+  %355 = call ptr @avifROStreamCurrent(ptr noundef nonnull %48) #13
+  %356 = load i64, ptr %50, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
+  store ptr %355, ptr %38, align 8
+  store i64 %356, ptr %131, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef %317, ptr noundef nonnull @.str.129) #13
+  %invariant.op232.reass.i.i.i = add i64 %invariant.op233.i.i.i, %354
+  br label %357
+
+357:                                              ; preds = %533, %353
+  %358 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %37, i64 noundef 1) #13
+  %.not.i18.i.i.i.i = icmp eq i32 %358, 0
+  br i1 %.not.i18.i.i.i.i, label %avifParseMediaInformationBox.exit.i.i.i.i, label %359
+
+359:                                              ; preds = %357
+  %360 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %37, ptr noundef nonnull %39) #13
+  %.not9.i19.i.i.i.i = icmp eq i32 %360, 0
+  br i1 %.not9.i19.i.i.i.i, label %avifParseMediaInformationBox.exit.thread.i.i.i.i, label %361
+
+361:                                              ; preds = %359
+  %lhsv.i.i.i.i.i = load i32, ptr %132, align 8
+  %.not10.i20.i.i.i.i = icmp eq i32 %lhsv.i.i.i.i.i, 1818391667
+  br i1 %.not10.i20.i.i.i.i, label %362, label %533
+
+362:                                              ; preds = %361
+  %363 = call i64 @avifROStreamOffset(ptr noundef nonnull %37) #13
+  %364 = call ptr @avifROStreamCurrent(ptr noundef nonnull %37) #13
+  %365 = load i64, ptr %39, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
+  %366 = load ptr, ptr %238, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %366, null
+  br i1 %.not.i.i.i.i.i.i, label %368, label %367
+
+367:                                              ; preds = %362
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %317, ptr noundef nonnull @.str.131) #13
+  br label %avifParseSampleTableBox.exit.i.i.i.i.i
+
+368:                                              ; preds = %362
+  %369 = call ptr @avifAlloc(i64 noundef 152) #13
+  %370 = icmp eq ptr %369, null
+  br i1 %370, label %avifSampleTableCreate.exit.thread.i.i.i.i.i.i, label %371
+
+371:                                              ; preds = %368
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %369, i8 0, i64 152, i1 false)
+  %372 = call i32 @avifArrayCreate(ptr noundef nonnull %369, i32 noundef 8, i32 noundef 16) #13
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %372, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %388, label %373
+
+373:                                              ; preds = %371
+  %374 = getelementptr inbounds nuw i8, ptr %369, i64 24
+  %375 = call i32 @avifArrayCreate(ptr noundef nonnull %374, i32 noundef 32, i32 noundef 2) #13
+  %.not12.i.i.i.i.i.i.i = icmp eq i32 %375, 0
+  br i1 %.not12.i.i.i.i.i.i.i, label %388, label %376
+
+376:                                              ; preds = %373
+  %377 = getelementptr inbounds nuw i8, ptr %369, i64 48
+  %378 = call i32 @avifArrayCreate(ptr noundef nonnull %377, i32 noundef 12, i32 noundef 16) #13
+  %.not13.i.i.i.i.i.i.i = icmp eq i32 %378, 0
+  br i1 %.not13.i.i.i.i.i.i.i, label %388, label %379
+
+379:                                              ; preds = %376
+  %380 = getelementptr inbounds nuw i8, ptr %369, i64 72
+  %381 = call i32 @avifArrayCreate(ptr noundef nonnull %380, i32 noundef 4, i32 noundef 16) #13
+  %.not14.i.i.i.i.i.i.i = icmp eq i32 %381, 0
+  br i1 %.not14.i.i.i.i.i.i.i, label %388, label %382
+
+382:                                              ; preds = %379
+  %383 = getelementptr inbounds nuw i8, ptr %369, i64 96
+  %384 = call i32 @avifArrayCreate(ptr noundef nonnull %383, i32 noundef 8, i32 noundef 16) #13
+  %.not15.i.i.i.i.i.i.i = icmp eq i32 %384, 0
+  br i1 %.not15.i.i.i.i.i.i.i, label %388, label %385
+
+385:                                              ; preds = %382
+  %386 = getelementptr inbounds nuw i8, ptr %369, i64 120
+  %387 = call i32 @avifArrayCreate(ptr noundef nonnull %386, i32 noundef 4, i32 noundef 16) #13
+  %.not16.i.i.i.i.i.i.i = icmp eq i32 %387, 0
+  br i1 %.not16.i.i.i.i.i.i.i, label %388, label %389
+
+388:                                              ; preds = %385, %382, %379, %376, %373, %371
+  call fastcc void @avifSampleTableDestroy(ptr noundef nonnull %369)
+  br label %avifSampleTableCreate.exit.thread.i.i.i.i.i.i
+
+avifSampleTableCreate.exit.thread.i.i.i.i.i.i:    ; preds = %368, %388
+  store ptr null, ptr %238, align 8
+  br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
+
+389:                                              ; preds = %385
+  store ptr %369, ptr %238, align 8
+  store ptr %364, ptr %35, align 8
+  store i64 %365, ptr %133, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef %317, ptr noundef nonnull @.str.132) #13
+  %invariant.op231.reass.i.i.i = add i64 %invariant.op232.reass.i.i.i, %363
+  br label %390
+
+390:                                              ; preds = %530, %389
+  %391 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %34, i64 noundef 1) #13
+  %.not44.i.i.i.i.i.i = icmp eq i32 %391, 0
+  br i1 %.not44.i.i.i.i.i.i, label %avifParseSampleTableBox.exit.i.i.i.i.i, label %392
+
+392:                                              ; preds = %390
+  %393 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %34, ptr noundef nonnull %36) #13
+  %.not45.i.i.i.i.i.i = icmp eq i32 %393, 0
+  br i1 %.not45.i.i.i.i.i.i, label %avifParseSampleTableBox.exit.thread.i.i.i.i.i, label %394
+
+394:                                              ; preds = %392
+  %lhsv.i.i.i.i.i.i = load i32, ptr %134, align 8
+  switch i32 %lhsv.i.i.i.i.i.i, label %530 [
+    i32 1868788851, label %395
+    i32 875982691, label %400
+    i32 1668510835, label %405
+    i32 2054386803, label %436
+    i32 1936946291, label %458
+    i32 1937011827, label %475
+    i32 1685288051, label %494
+  ]
+
+395:                                              ; preds = %394
+  %396 = load ptr, ptr %238, align 8
+  %397 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
+  %398 = load i64, ptr %36, align 8
+  %399 = call fastcc i32 @avifParseChunkOffsetBox(ptr noundef %396, i32 noundef 0, ptr noundef %397, i64 noundef %398, ptr noundef %317)
+  %.not47.i.i.i.i.i.i = icmp eq i32 %399, 0
+  br i1 %.not47.i.i.i.i.i.i, label %530, label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
+
+400:                                              ; preds = %394
+  %401 = load ptr, ptr %238, align 8
+  %402 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
+  %403 = load i64, ptr %36, align 8
+  %404 = call fastcc i32 @avifParseChunkOffsetBox(ptr noundef %401, i32 noundef 1, ptr noundef %402, i64 noundef %403, ptr noundef %317)
+  %.not50.i.i.i.i.i.i = icmp eq i32 %404, 0
+  br i1 %.not50.i.i.i.i.i.i, label %530, label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
+
+405:                                              ; preds = %394
+  %406 = load ptr, ptr %238, align 8
+  %407 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
+  %408 = load i64, ptr %36, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
+  store ptr %407, ptr %32, align 8
+  store i64 %408, ptr %138, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef %317, ptr noundef nonnull @.str.142) #13
+  %409 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %31, i8 noundef zeroext 0) #13
+  %.not.i67.i.i.i.i.i.i = icmp eq i32 %409, 0
+  br i1 %.not.i67.i.i.i.i.i.i, label %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i, label %410
+
+410:                                              ; preds = %405
+  %411 = call i32 @avifROStreamReadU32(ptr noundef nonnull %31, ptr noundef nonnull %33) #13
+  %.not22.i.i.i.i.i.i.i = icmp eq i32 %411, 0
+  br i1 %.not22.i.i.i.i.i.i.i, label %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i
+
+.preheader.i.i.i.i.i.i.i:                         ; preds = %410
+  %412 = load i32, ptr %33, align 4
+  %.not39.i.i.i.i.i.i.i = icmp eq i32 %412, 0
+  br i1 %.not39.i.i.i.i.i.i.i, label %avifParseSampleToChunkBox.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i.i.i
+  %413 = getelementptr inbounds nuw i8, ptr %406, i64 48
+  br label %414
+
+414:                                              ; preds = %431, %.lr.ph.i.i.i.i.i.i.i
+  %.01830.i.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %433, %431 ]
+  %.01929.i.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %432, %431 ]
+  %415 = call ptr @avifArrayPush(ptr noundef nonnull %413) #13
+  %.not23.i.i.i.i.i.i.i = icmp eq ptr %415, null
+  br i1 %.not23.i.i.i.i.i.i.i, label %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i, label %416
+
+416:                                              ; preds = %414
+  %417 = call i32 @avifROStreamReadU32(ptr noundef nonnull %31, ptr noundef nonnull %415) #13
+  %.not24.i.i.i.i.i.i.i = icmp eq i32 %417, 0
+  br i1 %.not24.i.i.i.i.i.i.i, label %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i, label %418
+
+418:                                              ; preds = %416
+  %419 = getelementptr inbounds nuw i8, ptr %415, i64 4
+  %420 = call i32 @avifROStreamReadU32(ptr noundef nonnull %31, ptr noundef nonnull %419) #13
+  %.not25.i.i.i.i.i.i.i = icmp eq i32 %420, 0
+  br i1 %.not25.i.i.i.i.i.i.i, label %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i, label %421
+
+421:                                              ; preds = %418
+  %422 = getelementptr inbounds nuw i8, ptr %415, i64 8
+  %423 = call i32 @avifROStreamReadU32(ptr noundef nonnull %31, ptr noundef nonnull %422) #13
+  %.not26.i.i.i.i.i.i.i = icmp eq i32 %423, 0
+  br i1 %.not26.i.i.i.i.i.i.i, label %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i, label %424
+
+424:                                              ; preds = %421
+  %425 = icmp eq i32 %.01830.i.i.i.i.i.i.i, 0
+  %426 = load i32, ptr %415, align 4
+  br i1 %425, label %427, label %429
+
+427:                                              ; preds = %424
+  %.not28.i.i.i.i.i.i.i = icmp eq i32 %426, 1
+  br i1 %.not28.i.i.i.i.i.i.i, label %431, label %428
+
+428:                                              ; preds = %427
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %317, ptr noundef nonnull @.str.143, i32 noundef %426) #13
+  br label %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i
+
+429:                                              ; preds = %424
+  %.not27.i.i.i.i.i.i.i = icmp ugt i32 %426, %.01929.i.i.i.i.i.i.i
+  br i1 %.not27.i.i.i.i.i.i.i, label %431, label %430
+
+430:                                              ; preds = %429
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %317, ptr noundef nonnull @.str.144) #13
+  br label %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i
+
+431:                                              ; preds = %429, %427
+  %432 = phi i32 [ %426, %429 ], [ 1, %427 ]
+  %433 = add nuw i32 %.01830.i.i.i.i.i.i.i, 1
+  %434 = load i32, ptr %33, align 4
+  %435 = icmp ult i32 %433, %434
+  br i1 %435, label %414, label %avifParseSampleToChunkBox.exit.i.i.i.i.i.i, !llvm.loop !33
+
+avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i: ; preds = %410, %405, %421, %418, %416, %414, %430, %428
+  %.0.i68.ph.i.i.i.i.i.i = phi i32 [ 9, %430 ], [ 9, %428 ], [ 26, %414 ], [ 9, %416 ], [ 9, %418 ], [ 9, %421 ], [ 9, %405 ], [ 9, %410 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
+  br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
+
+avifParseSampleToChunkBox.exit.i.i.i.i.i.i:       ; preds = %431, %.preheader.i.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
+  br label %530
+
+436:                                              ; preds = %394
+  %437 = load ptr, ptr %238, align 8
+  %438 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
+  %439 = load i64, ptr %36, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
+  store ptr %438, ptr %28, align 8
+  store i64 %439, ptr %137, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %317, ptr noundef nonnull @.str.145) #13
+  %440 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %27, i8 noundef zeroext 0) #13
+  %.not.i69.i.i.i.i.i.i = icmp eq i32 %440, 0
+  br i1 %.not.i69.i.i.i.i.i.i, label %avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i, label %441
+
+441:                                              ; preds = %436
+  %442 = call i32 @avifROStreamReadU32(ptr noundef nonnull %27, ptr noundef nonnull %29) #13
+  %.not12.i70.i.i.i.i.i.i = icmp eq i32 %442, 0
+  br i1 %.not12.i70.i.i.i.i.i.i, label %avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i, label %443
+
+443:                                              ; preds = %441
+  %444 = call i32 @avifROStreamReadU32(ptr noundef nonnull %27, ptr noundef nonnull %30) #13
+  %.not13.i71.i.i.i.i.i.i = icmp eq i32 %444, 0
+  br i1 %.not13.i71.i.i.i.i.i.i, label %avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i, label %445
+
+445:                                              ; preds = %443
+  %446 = load i32, ptr %29, align 4
+  %.not14.i72.i.i.i.i.i.i = icmp eq i32 %446, 0
+  br i1 %.not14.i72.i.i.i.i.i.i, label %.preheader.i74.i.i.i.i.i.i, label %449
+
+.preheader.i74.i.i.i.i.i.i:                       ; preds = %445
+  %447 = getelementptr inbounds nuw i8, ptr %437, i64 72
+  %448 = load i32, ptr %30, align 4
+  %.not22.i75.i.i.i.i.i.i = icmp eq i32 %448, 0
+  br i1 %.not22.i75.i.i.i.i.i.i, label %avifParseSampleSizeBox.exit.i.i.i.i.i.i, label %.lr.ph.i76.i.i.i.i.i.i
+
+449:                                              ; preds = %445
+  %450 = getelementptr inbounds nuw i8, ptr %437, i64 144
+  store i32 %446, ptr %450, align 8
+  br label %avifParseSampleSizeBox.exit.i.i.i.i.i.i
+
+451:                                              ; preds = %456
+  %452 = add nuw i32 %.0917.i.i.i.i.i.i.i, 1
+  %453 = load i32, ptr %30, align 4
+  %454 = icmp ult i32 %452, %453
+  br i1 %454, label %.lr.ph.i76.i.i.i.i.i.i, label %avifParseSampleSizeBox.exit.i.i.i.i.i.i, !llvm.loop !34
+
+.lr.ph.i76.i.i.i.i.i.i:                           ; preds = %.preheader.i74.i.i.i.i.i.i, %451
+  %.0917.i.i.i.i.i.i.i = phi i32 [ %452, %451 ], [ 0, %.preheader.i74.i.i.i.i.i.i ]
+  %455 = call ptr @avifArrayPush(ptr noundef nonnull %447) #13
+  %.not15.i77.i.i.i.i.i.i = icmp eq ptr %455, null
+  br i1 %.not15.i77.i.i.i.i.i.i, label %avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i, label %456
+
+456:                                              ; preds = %.lr.ph.i76.i.i.i.i.i.i
+  %457 = call i32 @avifROStreamReadU32(ptr noundef nonnull %27, ptr noundef nonnull %455) #13
+  %.not16.i78.i.i.i.i.i.i = icmp eq i32 %457, 0
+  br i1 %.not16.i78.i.i.i.i.i.i, label %avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i, label %451
+
+avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i:   ; preds = %443, %441, %436, %456, %.lr.ph.i76.i.i.i.i.i.i
+  %.0.i73.ph.i.i.i.i.i.i = phi i32 [ 26, %.lr.ph.i76.i.i.i.i.i.i ], [ 9, %456 ], [ 9, %436 ], [ 9, %441 ], [ 9, %443 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
+  br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
+
+avifParseSampleSizeBox.exit.i.i.i.i.i.i:          ; preds = %451, %449, %.preheader.i74.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
+  br label %530
+
+458:                                              ; preds = %394
+  %459 = load ptr, ptr %238, align 8
+  %460 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
+  %461 = load i64, ptr %36, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
+  store ptr %460, ptr %24, align 8
+  store i64 %461, ptr %136, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef %317, ptr noundef nonnull @.str.146) #13
+  %462 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %23, i8 noundef zeroext 0) #13
+  %.not.i79.i.i.i.i.i.i = icmp eq i32 %462, 0
+  br i1 %.not.i79.i.i.i.i.i.i, label %avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i, label %463
+
+463:                                              ; preds = %458
+  %464 = call i32 @avifROStreamReadU32(ptr noundef nonnull %23, ptr noundef nonnull %25) #13
+  %.not10.i.i.i.i.i.i.i = icmp eq i32 %464, 0
+  br i1 %.not10.i.i.i.i.i.i.i, label %avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i, label %.preheader.i80.i.i.i.i.i.i
+
+.preheader.i80.i.i.i.i.i.i:                       ; preds = %463
+  %465 = getelementptr inbounds nuw i8, ptr %459, i64 120
+  %466 = load i32, ptr %25, align 4
+  %.not18.i.i.i.i.i.i.i = icmp eq i32 %466, 0
+  br i1 %.not18.i.i.i.i.i.i.i, label %avifParseSyncSampleBox.exit.i.i.i.i.i.i, label %.lr.ph.i81.i.i.i.i.i.i
+
+.lr.ph.i81.i.i.i.i.i.i:                           ; preds = %.preheader.i80.i.i.i.i.i.i, %470
+  %.0813.i.i.i.i.i.i.i = phi i32 [ %472, %470 ], [ 0, %.preheader.i80.i.i.i.i.i.i ]
+  store i32 0, ptr %26, align 4
+  %467 = call i32 @avifROStreamReadU32(ptr noundef nonnull %23, ptr noundef nonnull %26) #13
+  %.not11.i.i.i.i.i.i.i = icmp eq i32 %467, 0
+  br i1 %.not11.i.i.i.i.i.i.i, label %avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i, label %468
+
+468:                                              ; preds = %.lr.ph.i81.i.i.i.i.i.i
+  %469 = call ptr @avifArrayPush(ptr noundef nonnull %465) #13
+  %.not12.i82.i.i.i.i.i.i = icmp eq ptr %469, null
+  br i1 %.not12.i82.i.i.i.i.i.i, label %avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i, label %470
+
+470:                                              ; preds = %468
+  %471 = load i32, ptr %26, align 4
+  store i32 %471, ptr %469, align 4
+  %472 = add nuw i32 %.0813.i.i.i.i.i.i.i, 1
+  %473 = load i32, ptr %25, align 4
+  %474 = icmp ult i32 %472, %473
+  br i1 %474, label %.lr.ph.i81.i.i.i.i.i.i, label %avifParseSyncSampleBox.exit.i.i.i.i.i.i, !llvm.loop !35
+
+avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i:   ; preds = %463, %458, %468, %.lr.ph.i81.i.i.i.i.i.i
+  %.0.i83.ph.i.i.i.i.i.i = phi i32 [ 9, %.lr.ph.i81.i.i.i.i.i.i ], [ 26, %468 ], [ 9, %458 ], [ 9, %463 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
+  br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
+
+avifParseSyncSampleBox.exit.i.i.i.i.i.i:          ; preds = %470, %.preheader.i80.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
+  br label %530
+
+475:                                              ; preds = %394
+  %476 = load ptr, ptr %238, align 8
+  %477 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
+  %478 = load i64, ptr %36, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
+  store ptr %477, ptr %21, align 8
+  store i64 %478, ptr %135, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %317, ptr noundef nonnull @.str.147) #13
+  %479 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %20, i8 noundef zeroext 0) #13
+  %.not.i84.i.i.i.i.i.i = icmp eq i32 %479, 0
+  br i1 %.not.i84.i.i.i.i.i.i, label %avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i, label %480
+
+480:                                              ; preds = %475
+  %481 = call i32 @avifROStreamReadU32(ptr noundef nonnull %20, ptr noundef nonnull %22) #13
+  %.not11.i85.i.i.i.i.i.i = icmp eq i32 %481, 0
+  br i1 %.not11.i85.i.i.i.i.i.i, label %avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i, label %.preheader.i86.i.i.i.i.i.i
+
+.preheader.i86.i.i.i.i.i.i:                       ; preds = %480
+  %482 = getelementptr inbounds nuw i8, ptr %476, i64 96
+  %483 = load i32, ptr %22, align 4
+  %.not22.i87.i.i.i.i.i.i = icmp eq i32 %483, 0
+  br i1 %.not22.i87.i.i.i.i.i.i, label %avifParseTimeToSampleBox.exit.i.i.i.i.i.i, label %.lr.ph.i88.i.i.i.i.i.i
+
+484:                                              ; preds = %491
+  %485 = add nuw i32 %.0915.i.i.i.i.i.i.i, 1
+  %486 = load i32, ptr %22, align 4
+  %487 = icmp ult i32 %485, %486
+  br i1 %487, label %.lr.ph.i88.i.i.i.i.i.i, label %avifParseTimeToSampleBox.exit.i.i.i.i.i.i, !llvm.loop !36
+
+.lr.ph.i88.i.i.i.i.i.i:                           ; preds = %.preheader.i86.i.i.i.i.i.i, %484
+  %.0915.i.i.i.i.i.i.i = phi i32 [ %485, %484 ], [ 0, %.preheader.i86.i.i.i.i.i.i ]
+  %488 = call ptr @avifArrayPush(ptr noundef nonnull %482) #13
+  %.not12.i89.i.i.i.i.i.i = icmp eq ptr %488, null
+  br i1 %.not12.i89.i.i.i.i.i.i, label %avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i, label %489
+
+489:                                              ; preds = %.lr.ph.i88.i.i.i.i.i.i
+  %490 = call i32 @avifROStreamReadU32(ptr noundef nonnull %20, ptr noundef nonnull %488) #13
+  %.not13.i90.i.i.i.i.i.i = icmp eq i32 %490, 0
+  br i1 %.not13.i90.i.i.i.i.i.i, label %avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i, label %491
+
+491:                                              ; preds = %489
+  %492 = getelementptr inbounds nuw i8, ptr %488, i64 4
+  %493 = call i32 @avifROStreamReadU32(ptr noundef nonnull %20, ptr noundef nonnull %492) #13
+  %.not14.i91.i.i.i.i.i.i = icmp eq i32 %493, 0
+  br i1 %.not14.i91.i.i.i.i.i.i, label %avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i, label %484
+
+avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i: ; preds = %480, %475, %491, %489, %.lr.ph.i88.i.i.i.i.i.i
+  %.0.i92.ph.i.i.i.i.i.i = phi i32 [ 26, %.lr.ph.i88.i.i.i.i.i.i ], [ 9, %489 ], [ 9, %491 ], [ 9, %475 ], [ 9, %480 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
+  br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
+
+avifParseTimeToSampleBox.exit.i.i.i.i.i.i:        ; preds = %484, %.preheader.i86.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
+  br label %530
+
+494:                                              ; preds = %394
+  %495 = load ptr, ptr %238, align 8
+  %496 = call i64 @avifROStreamOffset(ptr noundef nonnull %34) #13
+  %497 = call ptr @avifROStreamCurrent(ptr noundef nonnull %34) #13
+  %498 = load i64, ptr %36, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
+  store ptr %497, ptr %17, align 8
+  store i64 %498, ptr %139, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %317, ptr noundef nonnull @.str.148) #13
+  %499 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %16, i8 noundef zeroext 0) #13
+  %.not.i13.i.i.i.i.i = icmp eq i32 %499, 0
+  br i1 %.not.i13.i.i.i.i.i, label %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i, label %500
+
+500:                                              ; preds = %494
+  %501 = call i32 @avifROStreamReadU32(ptr noundef nonnull %16, ptr noundef nonnull %18) #13
+  %.not23.i.i.i.i.i.i = icmp eq i32 %501, 0
+  br i1 %.not23.i.i.i.i.i.i, label %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i, label %.preheader.i.i.i.i.i.i
+
+.preheader.i.i.i.i.i.i:                           ; preds = %500
+  %502 = load i32, ptr %18, align 4
+  %.not38.i.i.i.i.i.i = icmp eq i32 %502, 0
+  br i1 %.not38.i.i.i.i.i.i, label %avifParseSampleDescriptionBox.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i
+  %503 = getelementptr inbounds nuw i8, ptr %495, i64 24
+  %.reass.reass.i.reass.reass.i.reass.reass.i.i.i = add i64 %invariant.op231.reass.i.i.i, %496
+  br label %508
+
+504:                                              ; preds = %527
+  %505 = add nuw i32 %.01929.i.i.i.i.i.i, 1
+  %506 = load i32, ptr %18, align 4
+  %507 = icmp ult i32 %505, %506
+  br i1 %507, label %508, label %avifParseSampleDescriptionBox.exit.i.i.i.i.i, !llvm.loop !37
+
+508:                                              ; preds = %504, %.lr.ph.i.i.i.i.i.i
+  %.01929.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %505, %504 ]
+  %509 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %16, ptr noundef nonnull %19) #13
+  %.not24.i.i.i.i.i.i = icmp eq i32 %509, 0
+  br i1 %.not24.i.i.i.i.i.i, label %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i, label %510
+
+510:                                              ; preds = %508
+  %511 = call ptr @avifArrayPush(ptr noundef nonnull %503) #13
+  %.not25.i.i.i.i.i.i = icmp eq ptr %511, null
+  br i1 %.not25.i.i.i.i.i.i, label %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i, label %512
+
+512:                                              ; preds = %510
+  %513 = getelementptr inbounds nuw i8, ptr %511, i64 8
+  %514 = call i32 @avifArrayCreate(ptr noundef nonnull %513, i32 noundef 72, i32 noundef 16) #13
+  %.not26.i.i.i.i.i.i = icmp eq i32 %514, 0
+  br i1 %.not26.i.i.i.i.i.i, label %515, label %516
+
+515:                                              ; preds = %512
+  call void @avifArrayPop(ptr noundef nonnull %503) #13
+  br label %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i
+
+516:                                              ; preds = %512
+  %517 = load i32, ptr %140, align 8
+  store i32 %517, ptr %511, align 8
+  %518 = call i64 @avifROStreamRemainingBytes(ptr noundef nonnull %16) #13
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %511, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i.i14.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  %519 = icmp ugt i64 %518, 78
+  %or.cond.i.i.i.i.i.i = select i1 %.not.i.i14.i.i.i.i.i, i1 %519, i1 false
+  br i1 %or.cond.i.i.i.i.i.i, label %520, label %527
+
+520:                                              ; preds = %516
+  %521 = call i64 @avifROStreamOffset(ptr noundef nonnull %16) #13
+  %522 = add i64 %.reass.reass.i.reass.reass.i.reass.reass.i.i.i, %521
+  %523 = call ptr @avifROStreamCurrent(ptr noundef nonnull %16) #13
+  %524 = getelementptr inbounds i8, ptr %523, i64 78
+  %525 = add i64 %518, -78
+  %526 = call fastcc i32 @avifParseItemPropertyContainerBox(ptr noundef nonnull %513, i64 noundef %522, ptr noundef nonnull %524, i64 noundef %525, ptr noundef %317)
+  %.not27.i.i.i.i.i.i = icmp eq i32 %526, 0
+  br i1 %.not27.i.i.i.i.i.i, label %527, label %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i
+
+527:                                              ; preds = %520, %516
+  %528 = load i64, ptr %19, align 8
+  %529 = call i32 @avifROStreamSkip(ptr noundef nonnull %16, i64 noundef %528) #13
+  %.not28.i.i.i.i.i.i = icmp eq i32 %529, 0
+  br i1 %.not28.i.i.i.i.i.i, label %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i, label %504
+
+avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i: ; preds = %500, %494, %527, %520, %510, %508, %515
+  %.0.i15.ph.i.i.i.i.i = phi i32 [ 26, %515 ], [ 9, %527 ], [ %526, %520 ], [ 26, %510 ], [ 9, %508 ], [ 9, %494 ], [ 9, %500 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
+  br label %avifParseSampleTableBox.exit.thread.i.i.i.i.i
+
+avifParseSampleDescriptionBox.exit.i.i.i.i.i:     ; preds = %504, %.preheader.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
+  br label %530
+
+530:                                              ; preds = %avifParseSampleDescriptionBox.exit.i.i.i.i.i, %avifParseTimeToSampleBox.exit.i.i.i.i.i.i, %avifParseSyncSampleBox.exit.i.i.i.i.i.i, %avifParseSampleSizeBox.exit.i.i.i.i.i.i, %avifParseSampleToChunkBox.exit.i.i.i.i.i.i, %400, %395, %394
+  %531 = load i64, ptr %36, align 8
+  %532 = call i32 @avifROStreamSkip(ptr noundef nonnull %34, i64 noundef %531) #13
+  %.not66.i.i.i.i.i.i = icmp eq i32 %532, 0
+  br i1 %.not66.i.i.i.i.i.i, label %avifParseSampleTableBox.exit.thread.i.i.i.i.i, label %390, !llvm.loop !38
+
+avifParseSampleTableBox.exit.thread.i.i.i.i.i:    ; preds = %530, %400, %395, %392, %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i, %avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i, %avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i, %avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i, %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i, %avifSampleTableCreate.exit.thread.i.i.i.i.i.i
+  %.0.i.ph.i.i.i.i.i = phi i32 [ %.0.i15.ph.i.i.i.i.i, %avifParseSampleDescriptionBox.exit.thread.i.i.i.i.i ], [ %.0.i92.ph.i.i.i.i.i.i, %avifParseTimeToSampleBox.exit.thread.i.i.i.i.i.i ], [ %.0.i83.ph.i.i.i.i.i.i, %avifParseSyncSampleBox.exit.thread.i.i.i.i.i.i ], [ %.0.i73.ph.i.i.i.i.i.i, %avifParseSampleSizeBox.exit.thread.i.i.i.i.i.i ], [ %.0.i68.ph.i.i.i.i.i.i, %avifParseSampleToChunkBox.exit.thread.i.i.i.i.i.i ], [ 26, %avifSampleTableCreate.exit.thread.i.i.i.i.i.i ], [ 9, %392 ], [ %399, %395 ], [ %404, %400 ], [ 9, %530 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
+  br label %avifParseMediaInformationBox.exit.thread.i.i.i.i
+
+avifParseSampleTableBox.exit.i.i.i.i.i:           ; preds = %390, %367
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
+  br label %533
+
+533:                                              ; preds = %avifParseSampleTableBox.exit.i.i.i.i.i, %361
+  %534 = load i64, ptr %39, align 8
+  %535 = call i32 @avifROStreamSkip(ptr noundef nonnull %37, i64 noundef %534) #13
+  %.not12.i21.i.i.i.i = icmp eq i32 %535, 0
+  br i1 %.not12.i21.i.i.i.i, label %avifParseMediaInformationBox.exit.thread.i.i.i.i, label %357, !llvm.loop !39
+
+avifParseMediaInformationBox.exit.thread.i.i.i.i: ; preds = %533, %359, %avifParseSampleTableBox.exit.thread.i.i.i.i.i
+  %.0.i22.ph.i.i.i.i = phi i32 [ %.0.i.ph.i.i.i.i.i, %avifParseSampleTableBox.exit.thread.i.i.i.i.i ], [ 9, %359 ], [ 9, %533 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
+  br label %avifParseMediaBox.exit.thread.i.i.i
+
+avifParseMediaInformationBox.exit.i.i.i.i:        ; preds = %357
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
+  br label %536
+
+536:                                              ; preds = %avifParseMediaInformationBox.exit.i.i.i.i, %avifParseMediaHeaderBox.exit.i.i.i.i, %322
+  %537 = load i64, ptr %50, align 8
+  %538 = call i32 @avifROStreamSkip(ptr noundef nonnull %48, i64 noundef %537) #13
+  %.not17.i.i.i.i = icmp eq i32 %538, 0
+  br i1 %.not17.i.i.i.i, label %avifParseMediaBox.exit.thread.i.i.i, label %318, !llvm.loop !40
+
+avifParseMediaBox.exit.thread.i.i.i:              ; preds = %536, %320, %avifParseMediaInformationBox.exit.thread.i.i.i.i, %avifParseMediaHeaderBox.exit.thread.i.i.i.i
+  %.0.i69.ph.i.i.i = phi i32 [ %.0.i22.ph.i.i.i.i, %avifParseMediaInformationBox.exit.thread.i.i.i.i ], [ 9, %avifParseMediaHeaderBox.exit.thread.i.i.i.i ], [ 9, %320 ], [ 9, %536 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
+  br label %avifParseTrackBox.exit.thread.i.i
+
+avifParseMediaBox.exit.i.i.i:                     ; preds = %318
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
+  br label %615
+
+539:                                              ; preds = %248
+  %540 = call ptr @avifROStreamCurrent(ptr noundef nonnull %60) #13
+  %541 = load i64, ptr %62, align 8
+  %542 = load ptr, ptr %119, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  store ptr %540, ptr %12, align 8
+  store i64 %541, ptr %127, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %542, ptr noundef nonnull @.str.149) #13
+  %543 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %11, i64 noundef 1) #13
+  %.not14.i.i.i.i = icmp eq i32 %543, 0
+  br i1 %.not14.i.i.i.i, label %avifTrackReferenceBox.exit.i.i.i, label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %539, %565
+  %544 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %11, ptr noundef nonnull %13) #13
+  %.not5.i.i.i.i = icmp eq i32 %544, 0
+  br i1 %.not5.i.i.i.i, label %avifTrackReferenceBox.exit.thread.i.i.i, label %545
+
+545:                                              ; preds = %.lr.ph.i.i.i.i
+  %lhsv.i72.i.i.i = load i32, ptr %128, align 8
+  switch i32 %lhsv.i72.i.i.i, label %562 [
+    i32 1819833697, label %546
+    i32 1835364976, label %554
+  ]
+
+546:                                              ; preds = %545
+  %547 = call i32 @avifROStreamReadU32(ptr noundef nonnull %11, ptr noundef nonnull %14) #13
+  %.not7.i.i.i.i = icmp eq i32 %547, 0
+  br i1 %.not7.i.i.i.i, label %avifTrackReferenceBox.exit.thread.i.i.i, label %548
+
+548:                                              ; preds = %546
+  %549 = load i64, ptr %13, align 8
+  %550 = add i64 %549, -4
+  %551 = call i32 @avifROStreamSkip(ptr noundef nonnull %11, i64 noundef %550) #13
+  %.not8.i.i.i.i = icmp eq i32 %551, 0
+  br i1 %.not8.i.i.i.i, label %avifTrackReferenceBox.exit.thread.i.i.i, label %552
+
+552:                                              ; preds = %548
+  %553 = load i32, ptr %14, align 4
+  store i32 %553, ptr %237, align 4
+  br label %565
+
+554:                                              ; preds = %545
+  %555 = call i32 @avifROStreamReadU32(ptr noundef nonnull %11, ptr noundef nonnull %15) #13
+  %.not11.i73.i.i.i = icmp eq i32 %555, 0
+  br i1 %.not11.i73.i.i.i, label %avifTrackReferenceBox.exit.thread.i.i.i, label %556
+
+556:                                              ; preds = %554
+  %557 = load i64, ptr %13, align 8
+  %558 = add i64 %557, -4
+  %559 = call i32 @avifROStreamSkip(ptr noundef nonnull %11, i64 noundef %558) #13
+  %.not12.i.i.i.i = icmp eq i32 %559, 0
+  br i1 %.not12.i.i.i.i, label %avifTrackReferenceBox.exit.thread.i.i.i, label %560
+
+560:                                              ; preds = %556
+  %561 = load i32, ptr %15, align 4
+  store i32 %561, ptr %236, align 8
+  br label %565
+
+562:                                              ; preds = %545
+  %563 = load i64, ptr %13, align 8
+  %564 = call i32 @avifROStreamSkip(ptr noundef nonnull %11, i64 noundef %563) #13
+  %.not13.i.i.i.i = icmp eq i32 %564, 0
+  br i1 %.not13.i.i.i.i, label %avifTrackReferenceBox.exit.thread.i.i.i, label %565
+
+565:                                              ; preds = %562, %560, %552
+  %566 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %11, i64 noundef 1) #13
+  %.not.i74.i.i.i = icmp eq i32 %566, 0
+  br i1 %.not.i74.i.i.i, label %avifTrackReferenceBox.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
+
+avifTrackReferenceBox.exit.thread.i.i.i:          ; preds = %562, %556, %554, %548, %546, %.lr.ph.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  br label %avifParseTrackBox.exit.thread.i.i
+
+avifTrackReferenceBox.exit.i.i.i:                 ; preds = %565, %539
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  br label %615
+
+567:                                              ; preds = %248
+  %.not64.i.i.i = icmp eq i32 %.041.i.i.i, 0
+  br i1 %.not64.i.i.i, label %570, label %568
+
+568:                                              ; preds = %567
+  %569 = load ptr, ptr %119, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %569, ptr noundef nonnull @.str.118) #13
+  br label %avifParseTrackBox.exit.thread.i.i
+
+570:                                              ; preds = %567
+  %571 = call ptr @avifROStreamCurrent(ptr noundef nonnull %60) #13
+  %572 = load i64, ptr %62, align 8
+  %573 = load ptr, ptr %119, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  store ptr %571, ptr %9, align 8
+  store i64 %572, ptr %124, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %573, ptr noundef nonnull @.str.150) #13
+  br label %574
+
+574:                                              ; preds = %610, %570
+  %.0.i76.i.i.i = phi i32 [ 0, %570 ], [ %.1.i.i.i.i, %610 ]
+  %575 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %8, i64 noundef 1) #13
+  %.not.i77.i.i.i = icmp eq i32 %575, 0
+  br i1 %.not.i77.i.i.i, label %613, label %576
+
+576:                                              ; preds = %574
+  %577 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %8, ptr noundef nonnull %10) #13
+  %.not11.i78.i.i.i = icmp eq i32 %577, 0
+  br i1 %.not11.i78.i.i.i, label %avifParseEditBox.exit.thread.i.i.i, label %578
+
+578:                                              ; preds = %576
+  %lhsv.i79.i.i.i = load i32, ptr %125, align 8
+  %.not12.i80.i.i.i = icmp eq i32 %lhsv.i79.i.i.i, 1953721445
+  br i1 %.not12.i80.i.i.i, label %579, label %610
+
+579:                                              ; preds = %578
+  %.not13.i81.i.i.i = icmp eq i32 %.0.i76.i.i.i, 0
+  br i1 %.not13.i81.i.i.i, label %581, label %580
+
+580:                                              ; preds = %579
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %573, ptr noundef nonnull @.str.152) #13
+  br label %avifParseEditBox.exit.thread.i.i.i
+
+581:                                              ; preds = %579
+  %582 = call ptr @avifROStreamCurrent(ptr noundef nonnull %8) #13
+  %583 = load i64, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  store ptr %582, ptr %3, align 8
+  store i64 %583, ptr %126, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %573, ptr noundef nonnull @.str.154) #13
+  %584 = call i32 @avifROStreamReadVersionAndFlags(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %.not.i.i82.i.i.i = icmp eq i32 %584, 0
+  br i1 %.not.i.i82.i.i.i, label %avifParseEditListBox.exit.thread.i.i.i.i, label %585
+
+585:                                              ; preds = %581
+  %586 = load i32, ptr %5, align 4
+  %587 = and i32 %586, 1
+  %588 = icmp eq i32 %587, 0
+  br i1 %588, label %589, label %590
+
+589:                                              ; preds = %585
+  store i32 0, ptr %234, align 8
+  br label %avifParseEditListBox.exit.i.i.i.i
+
+590:                                              ; preds = %585
+  store i32 1, ptr %234, align 8
+  %591 = call i32 @avifROStreamReadU32(ptr noundef nonnull %2, ptr noundef nonnull %6) #13
+  %.not13.i.i83.i.i.i = icmp eq i32 %591, 0
+  br i1 %.not13.i.i83.i.i.i, label %avifParseEditListBox.exit.thread.i.i.i.i, label %592
+
+592:                                              ; preds = %590
+  %593 = load i32, ptr %6, align 4
+  %.not14.i.i84.i.i.i = icmp eq i32 %593, 1
+  br i1 %.not14.i.i84.i.i.i, label %595, label %594
+
+594:                                              ; preds = %592
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %573, ptr noundef nonnull @.str.155, i32 noundef %593) #13
+  br label %avifParseEditListBox.exit.thread.i.i.i.i
+
+595:                                              ; preds = %592
+  %596 = load i8, ptr %4, align 1
+  switch i8 %596, label %604 [
+    i8 1, label %597
+    i8 0, label %599
+  ]
+
+597:                                              ; preds = %595
+  %598 = call i32 @avifROStreamReadU64(ptr noundef nonnull %2, ptr noundef nonnull %235) #13
+  %.not16.i.i.i.i.i = icmp eq i32 %598, 0
+  br i1 %.not16.i.i.i.i.i, label %avifParseEditListBox.exit.thread.i.i.i.i, label %._crit_edge.i.i.i.i.i
+
+._crit_edge.i.i.i.i.i:                            ; preds = %597
+  %.pre.i.i.i.i.i = load i64, ptr %235, align 8
+  br label %606
+
+599:                                              ; preds = %595
+  %600 = call i32 @avifROStreamReadU32(ptr noundef nonnull %2, ptr noundef nonnull %7) #13
+  %.not15.i.i85.i.i.i = icmp eq i32 %600, 0
+  br i1 %.not15.i.i85.i.i.i, label %avifParseEditListBox.exit.thread.i.i.i.i, label %601
+
+601:                                              ; preds = %599
+  %602 = load i32, ptr %7, align 4
+  %603 = zext i32 %602 to i64
+  store i64 %603, ptr %235, align 8
+  br label %606
+
+604:                                              ; preds = %595
+  %605 = zext i8 %596 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %573, ptr noundef nonnull @.str.156, i32 noundef %605) #13
+  br label %avifParseEditListBox.exit.thread.i.i.i.i
+
+606:                                              ; preds = %601, %._crit_edge.i.i.i.i.i
+  %607 = phi i64 [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %603, %601 ]
+  %608 = icmp eq i64 %607, 0
+  br i1 %608, label %609, label %avifParseEditListBox.exit.i.i.i.i
+
+609:                                              ; preds = %606
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %573, ptr noundef nonnull @.str.157) #13
+  br label %avifParseEditListBox.exit.thread.i.i.i.i
+
+avifParseEditListBox.exit.thread.i.i.i.i:         ; preds = %599, %597, %590, %581, %609, %604, %594
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  br label %avifParseEditBox.exit.thread.i.i.i
+
+avifParseEditListBox.exit.i.i.i.i:                ; preds = %606, %589
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  br label %610
+
+610:                                              ; preds = %avifParseEditListBox.exit.i.i.i.i, %578
+  %.1.i.i.i.i = phi i32 [ %.0.i76.i.i.i, %578 ], [ 1, %avifParseEditListBox.exit.i.i.i.i ]
+  %611 = load i64, ptr %10, align 8
+  %612 = call i32 @avifROStreamSkip(ptr noundef nonnull %8, i64 noundef %611) #13
+  %.not15.i.i.i.i = icmp eq i32 %612, 0
+  br i1 %.not15.i.i.i.i, label %avifParseEditBox.exit.thread.i.i.i, label %574, !llvm.loop !42
+
+613:                                              ; preds = %574
+  %.not10.i.i.i.i = icmp eq i32 %.0.i76.i.i.i, 0
+  br i1 %.not10.i.i.i.i, label %614, label %avifParseEditBox.exit.i.i.i
+
+614:                                              ; preds = %613
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %573, ptr noundef nonnull @.str.153) #13
+  br label %avifParseEditBox.exit.thread.i.i.i
+
+avifParseEditBox.exit.thread.i.i.i:               ; preds = %610, %576, %614, %avifParseEditListBox.exit.thread.i.i.i.i, %580
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  br label %avifParseTrackBox.exit.thread.i.i
+
+avifParseEditBox.exit.i.i.i:                      ; preds = %613
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  br label %615
+
+615:                                              ; preds = %avifParseEditBox.exit.i.i.i, %avifTrackReferenceBox.exit.i.i.i, %avifParseMediaBox.exit.i.i.i, %305, %avifParseTrackHeaderBox.exit.i.i.i, %248
+  %.1.i.i.i = phi i32 [ %.041.i.i.i, %avifTrackReferenceBox.exit.i.i.i ], [ %.041.i.i.i, %avifParseMediaBox.exit.i.i.i ], [ %.041.i.i.i, %305 ], [ %.041.i.i.i, %avifParseTrackHeaderBox.exit.i.i.i ], [ 1, %avifParseEditBox.exit.i.i.i ], [ %.041.i.i.i, %248 ]
+  %616 = load i64, ptr %62, align 8
+  %617 = call i32 @avifROStreamSkip(ptr noundef nonnull %60, i64 noundef %616) #13
+  %.not66.i.i.i = icmp eq i32 %617, 0
+  br i1 %.not66.i.i.i, label %avifParseTrackBox.exit.thread.i.i, label %244, !llvm.loop !43
+
+618:                                              ; preds = %244
+  %.not48.i.i.i = icmp eq i32 %.041.i.i.i, 0
+  br i1 %.not48.i.i.i, label %avifParseTrackBox.exit.i.i, label %619
+
+619:                                              ; preds = %618
+  %620 = load i32, ptr %234, align 8
+  %.not49.i.i.i = icmp eq i32 %620, 0
+  br i1 %.not49.i.i.i, label %avifParseTrackBox.exit.i.i, label %621
+
+621:                                              ; preds = %619
+  %622 = load i64, ptr %241, align 8
+  switch i64 %622, label %625 [
+    i64 -1, label %avifParseTrackBox.exit.i.i
+    i64 0, label %623
+  ]
+
+623:                                              ; preds = %621
+  %624 = load ptr, ptr %119, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %624, ptr noundef nonnull @.str.119) #13
+  br label %avifParseTrackBox.exit.thread.i.i
+
+625:                                              ; preds = %621
+  %626 = load i64, ptr %235, align 8
+  %627 = udiv i64 %622, %626
+  %628 = urem i64 %622, %626
+  %629 = icmp ne i64 %628, 0
+  %630 = zext i1 %629 to i64
+  %631 = add i64 %627, -1
+  %632 = add i64 %631, %630
+  %633 = icmp ugt i64 %632, 2147483647
+  %634 = trunc nuw nsw i64 %632 to i32
+  %spec.select.i.i = select i1 %633, i32 -1, i32 %634
+  br label %avifParseTrackBox.exit.i.i
+
+avifParseTrackBox.exit.thread.i.i:                ; preds = %215, %615, %305, %246, %623, %avifParseEditBox.exit.thread.i.i.i, %568, %avifTrackReferenceBox.exit.thread.i.i.i, %avifParseMediaBox.exit.thread.i.i.i, %avifParseTrackHeaderBox.exit.thread.i.i.i, %.loopexit22.i.i
+  %.0.i.ph.i.i = phi i32 [ 26, %.loopexit22.i.i ], [ 9, %avifParseEditBox.exit.thread.i.i.i ], [ 9, %avifTrackReferenceBox.exit.thread.i.i.i ], [ %.0.i69.ph.i.i.i, %avifParseMediaBox.exit.thread.i.i.i ], [ 9, %avifParseTrackHeaderBox.exit.thread.i.i.i ], [ 9, %623 ], [ 9, %568 ], [ 9, %615 ], [ %312, %305 ], [ 9, %246 ], [ 26, %215 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
+  br label %avifParseMovieBox.exit.thread.i
+
+avifParseTrackBox.exit.i.i:                       ; preds = %625, %621, %619, %618
+  %.sink.i.i = phi i32 [ -2, %618 ], [ -1, %621 ], [ 0, %619 ], [ %spec.select.i.i, %625 ]
+  %635 = getelementptr inbounds nuw i8, ptr %221, i64 44
+  store i32 %.sink.i.i, ptr %635, align 4
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62)
+  br label %636
+
+636:                                              ; preds = %avifParseTrackBox.exit.i.i, %214
+  %637 = load i64, ptr %65, align 8
+  %638 = call i32 @avifROStreamSkip(ptr noundef nonnull %63, i64 noundef %637) #13
+  %.not13.i.i = icmp eq i32 %638, 0
+  br i1 %.not13.i.i, label %avifParseMovieBox.exit.thread.i, label %210, !llvm.loop !44
+
+avifParseMovieBox.exit.thread.i:                  ; preds = %636, %212, %avifParseTrackBox.exit.thread.i.i
+  %.0.i111.ph.i = phi i32 [ %.0.i.ph.i.i, %avifParseTrackBox.exit.thread.i.i ], [ 9, %212 ], [ 9, %636 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65)
+  br label %avifParse.exit.thread
+
+639:                                              ; preds = %210
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65)
+  store i32 1, ptr %143, align 8
+  br label %avifFileTypeHasBrand.exit108.i
+
+avifFileTypeHasBrand.exit108.i:                   ; preds = %639, %199, %173
+  %.160.i = phi i32 [ %.059705.i, %639 ], [ 1, %199 ], [ %.059705.i, %173 ]
+  %.158.i = phi i32 [ 1, %639 ], [ %.057706.i, %199 ], [ %.057706.i, %173 ]
+  %.not93.i = icmp eq i32 %.061704.i, 0
+  br i1 %.not93.i, label %645, label %avifFileTypeHasBrand.exit108.thread.i
+
+avifFileTypeHasBrand.exit108.thread.i:            ; preds = %195, %194, %avifFileTypeHasBrand.exit108.i, %.preheader.i99.i, %avifFileTypeHasBrand.exit.i
+  %.1128.i = phi i32 [ %.054708.i, %avifFileTypeHasBrand.exit108.i ], [ 0, %.preheader.i99.i ], [ 1, %avifFileTypeHasBrand.exit.i ], [ 0, %194 ], [ 1, %195 ]
+  %.156126.i = phi i32 [ %.055707.i, %avifFileTypeHasBrand.exit108.i ], [ %.0.i1202.i, %.preheader.i99.i ], [ %.0.i.i, %avifFileTypeHasBrand.exit.i ], [ %.0.i1202.i, %194 ], [ %.0.i1202.i, %195 ]
+  %.158124.i = phi i32 [ %.158.i, %avifFileTypeHasBrand.exit108.i ], [ %.057706.i, %.preheader.i99.i ], [ %.057706.i, %avifFileTypeHasBrand.exit.i ], [ %.057706.i, %194 ], [ %.057706.i, %195 ]
+  %.160122.i = phi i32 [ %.160.i, %avifFileTypeHasBrand.exit108.i ], [ %.059705.i, %.preheader.i99.i ], [ %.059705.i, %avifFileTypeHasBrand.exit.i ], [ %.059705.i, %194 ], [ %.059705.i, %195 ]
+  %.162120.i = phi i32 [ %.061704.i, %avifFileTypeHasBrand.exit108.i ], [ 1, %.preheader.i99.i ], [ 1, %avifFileTypeHasBrand.exit.i ], [ 1, %194 ], [ 1, %195 ]
+  %640 = icmp eq i32 %.156126.i, 0
+  %641 = icmp ne i32 %.160122.i, 0
+  %or.cond.i = select i1 %640, i1 true, i1 %641
+  br i1 %or.cond.i, label %642, label %645
+
+642:                                              ; preds = %avifFileTypeHasBrand.exit108.thread.i
+  %643 = icmp eq i32 %.1128.i, 0
+  %644 = icmp ne i32 %.158124.i, 0
+  %or.cond3.i = select i1 %643, i1 true, i1 %644
+  br i1 %or.cond3.i, label %select.unfold, label %645
+
+645:                                              ; preds = %642, %avifFileTypeHasBrand.exit108.thread.i, %avifFileTypeHasBrand.exit108.i
+  %.1129.i = phi i32 [ %.1128.i, %642 ], [ %.1128.i, %avifFileTypeHasBrand.exit108.thread.i ], [ %.054708.i, %avifFileTypeHasBrand.exit108.i ]
+  %.156127.i = phi i32 [ %.156126.i, %642 ], [ %.156126.i, %avifFileTypeHasBrand.exit108.thread.i ], [ %.055707.i, %avifFileTypeHasBrand.exit108.i ]
+  %.158125.i = phi i32 [ 0, %642 ], [ %.158124.i, %avifFileTypeHasBrand.exit108.thread.i ], [ %.158.i, %avifFileTypeHasBrand.exit108.i ]
+  %.160123.i = phi i32 [ %.160122.i, %642 ], [ 0, %avifFileTypeHasBrand.exit108.thread.i ], [ %.160.i, %avifFileTypeHasBrand.exit108.i ]
+  %.162121.i = phi i32 [ %.162120.i, %642 ], [ %.162120.i, %avifFileTypeHasBrand.exit108.thread.i ], [ 0, %avifFileTypeHasBrand.exit108.i ]
+  %646 = load ptr, ptr %77, align 8
+  %647 = getelementptr inbounds nuw i8, ptr %646, i64 24
+  %648 = load i64, ptr %647, align 8
+  %.not.i77 = icmp ne i64 %648, 0
+  %649 = icmp ugt i64 %176, %648
+  %or.cond94.i = select i1 %.not.i77, i1 %649, i1 false
+  br i1 %or.cond94.i, label %avifParse.exit.thread, label %147
+
+650:                                              ; preds = %152
+  %.not71.i = icmp eq i32 %.061704.i, 0
+  br i1 %.not71.i, label %avifParse.exit.thread, label %651
+
+651:                                              ; preds = %650
+  %652 = icmp eq i32 %.055707.i, 0
+  %653 = icmp ne i32 %.059705.i, 0
+  %or.cond5.i = select i1 %652, i1 true, i1 %653
+  br i1 %or.cond5.i, label %654, label %avifParse.exit.thread
+
+654:                                              ; preds = %651
+  %655 = icmp eq i32 %.054708.i, 0
+  %656 = icmp ne i32 %.057706.i, 0
+  %or.cond7.i = select i1 %655, i1 true, i1 %656
+  br i1 %or.cond7.i, label %select.unfold, label %avifParse.exit.thread
+
+avifParse.exit.thread:                            ; preds = %204, %199, %198, %182, %178, %177, %169, %166, %160, %154, %147, %645, %650, %651, %654, %avifParseMovieBox.exit.thread.i
+  %.0.i76.ph = phi i32 [ %.0.i111.ph.i, %avifParseMovieBox.exit.thread.i ], [ 20, %654 ], [ 20, %651 ], [ 2, %650 ], [ 9, %204 ], [ %203, %199 ], [ 9, %198 ], [ 2, %182 ], [ 9, %178 ], [ 9, %177 ], [ 9, %169 ], [ 20, %166 ], [ %165, %160 ], [ 9, %154 ], [ %151, %147 ], [ 9, %645 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71)
+  br label %729
+
+select.unfold:                                    ; preds = %642, %654
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71)
+  %657 = load ptr, ptr %83, align 8
+  %658 = load ptr, ptr %657, align 8
+  %659 = getelementptr inbounds nuw i8, ptr %658, i64 12
+  %660 = load i32, ptr %659, align 4
+  %.not620 = icmp eq i32 %660, 0
+  br i1 %.not620, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %select.unfold
+  %661 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %662
+
+662:                                              ; preds = %.lr.ph, %722
+  %663 = phi ptr [ %658, %.lr.ph ], [ %723, %722 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %722 ]
+  %664 = load ptr, ptr %663, align 8
+  %665 = getelementptr inbounds %struct.avifDecoderItem, ptr %664, i64 %indvars.iv
+  %666 = getelementptr inbounds nuw i8, ptr %665, i64 24
+  %667 = load i64, ptr %666, align 8
+  %.not66 = icmp eq i64 %667, 0
+  br i1 %.not66, label %722, label %668
+
+668:                                              ; preds = %662
+  %669 = getelementptr inbounds nuw i8, ptr %665, i64 208
+  %670 = load i32, ptr %669, align 8
+  %.not67 = icmp eq i32 %670, 0
+  br i1 %.not67, label %671, label %722
+
+671:                                              ; preds = %668
+  %672 = getelementptr inbounds nuw i8, ptr %665, i64 16
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %672, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %673 = icmp eq i32 %bcmp, 0
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %672, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i78 = icmp eq i32 %bcmp.i, 0
+  %or.cond = select i1 %.not.i78, i1 true, i1 %673
+  br i1 %or.cond, label %674, label %722
+
+674:                                              ; preds = %671
+  %675 = getelementptr inbounds i8, ptr %665, i64 124
+  %676 = load i32, ptr %675, align 4
+  %.not12.i = icmp eq i32 %676, 0
+  br i1 %.not12.i, label %avifPropertyArrayFind.exit93.thread, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %674
+  %677 = getelementptr inbounds nuw i8, ptr %665, i64 112
+  %678 = load ptr, ptr %677, align 8
+  %wide.trip.count.i = zext i32 %676 to i64
+  br label %680
+
+679:                                              ; preds = %680
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.lr.ph.i84.preheader, label %680, !llvm.loop !12
+
+680:                                              ; preds = %679, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %679 ]
+  %681 = getelementptr inbounds %struct.avifProperty, ptr %678, i64 %indvars.iv.i
+  %bcmp.i79 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %681, ptr noundef nonnull readonly dereferenceable(4) @.str.2, i64 4)
+  %.not.i80 = icmp eq i32 %bcmp.i79, 0
+  br i1 %.not.i80, label %avifPropertyArrayFind.exit, label %679
+
+avifPropertyArrayFind.exit:                       ; preds = %680
+  %.not68 = icmp eq ptr %678, null
+  br i1 %.not68, label %.lr.ph.i84.preheader, label %682
+
+.lr.ph.i84.preheader:                             ; preds = %679, %avifPropertyArrayFind.exit
+  br label %.lr.ph.i84
+
+682:                                              ; preds = %avifPropertyArrayFind.exit
+  %683 = getelementptr inbounds nuw i8, ptr %681, i64 8
+  %684 = load i32, ptr %683, align 8
+  %685 = getelementptr inbounds nuw i8, ptr %665, i64 36
+  store i32 %684, ptr %685, align 4
+  %686 = getelementptr inbounds i8, ptr %681, i64 12
+  %687 = load i32, ptr %686, align 4
+  %688 = getelementptr inbounds nuw i8, ptr %665, i64 40
+  store i32 %687, ptr %688, align 8
+  %689 = icmp eq i32 %684, 0
+  %690 = icmp eq i32 %687, 0
+  %or.cond74 = select i1 %689, i1 true, i1 %690
+  br i1 %or.cond74, label %691, label %695
+
+691:                                              ; preds = %682
+  %692 = getelementptr inbounds nuw i8, ptr %657, i64 144
+  %693 = load ptr, ptr %692, align 8
+  %694 = load i32, ptr %665, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %693, ptr noundef nonnull @.str.3, i32 noundef %694, i32 noundef %684, i32 noundef %687) #13
+  br label %729
+
+695:                                              ; preds = %682
+  %696 = load i32, ptr %73, align 4
+  %697 = load i32, ptr %117, align 8
+  %698 = call i32 @avifDimensionsTooLarge(i32 noundef %684, i32 noundef %687, i32 noundef %696, i32 noundef %697) #13
+  %.not72 = icmp eq i32 %698, 0
+  br i1 %.not72, label %._crit_edge1132, label %699
+
+._crit_edge1132:                                  ; preds = %695
+  %.pre1133 = load ptr, ptr %657, align 8
+  br label %722
+
+699:                                              ; preds = %695
+  %700 = getelementptr inbounds nuw i8, ptr %665, i64 36
+  %701 = getelementptr inbounds nuw i8, ptr %665, i64 40
+  %702 = getelementptr inbounds nuw i8, ptr %657, i64 144
+  %703 = load ptr, ptr %702, align 8
+  %704 = load i32, ptr %665, align 8
+  %705 = load i32, ptr %700, align 4
+  %706 = load i32, ptr %701, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %703, ptr noundef nonnull @.str.4, i32 noundef %704, i32 noundef %705, i32 noundef %706) #13
+  br label %729
+
+707:                                              ; preds = %.lr.ph.i84
+  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i86, 1
+  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count.i
+  br i1 %exitcond.not.i90, label %avifPropertyArrayFind.exit93.thread, label %.lr.ph.i84, !llvm.loop !12
+
+.lr.ph.i84:                                       ; preds = %.lr.ph.i84.preheader, %707
+  %indvars.iv.i86 = phi i64 [ %indvars.iv.next.i89, %707 ], [ 0, %.lr.ph.i84.preheader ]
+  %708 = getelementptr inbounds %struct.avifProperty, ptr %678, i64 %indvars.iv.i86
+  %bcmp.i87 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %708, ptr noundef nonnull readonly dereferenceable(4) @.str.5, i64 4)
+  %.not.i88 = icmp eq i32 %bcmp.i87, 0
+  br i1 %.not.i88, label %avifPropertyArrayFind.exit93, label %707
+
+avifPropertyArrayFind.exit93:                     ; preds = %.lr.ph.i84
+  %.not69 = icmp eq ptr %678, null
+  br i1 %.not69, label %avifPropertyArrayFind.exit93.thread, label %709
+
+709:                                              ; preds = %avifPropertyArrayFind.exit93
+  %710 = getelementptr inbounds nuw i8, ptr %708, i64 8
+  %711 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %710, ptr noundef nonnull dereferenceable(44) @.str.159) #14
+  %.not.i94 = icmp eq i32 %711, 0
+  br i1 %.not.i94, label %isAlphaURN.exit.thread, label %isAlphaURN.exit
+
+isAlphaURN.exit:                                  ; preds = %709
+  %712 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %710, ptr noundef nonnull dereferenceable(27) @.str.160) #14
+  %.not2.i.not = icmp eq i32 %712, 0
+  br i1 %.not2.i.not, label %isAlphaURN.exit.thread, label %avifPropertyArrayFind.exit93.thread
+
+isAlphaURN.exit.thread:                           ; preds = %709, %isAlphaURN.exit
+  %713 = load i32, ptr %661, align 8
+  %714 = and i32 %713, 4
+  %.not71 = icmp eq i32 %714, 0
+  br i1 %.not71, label %722, label %715
+
+715:                                              ; preds = %isAlphaURN.exit.thread
+  %716 = getelementptr inbounds nuw i8, ptr %657, i64 144
+  %717 = load ptr, ptr %716, align 8
+  %718 = load i32, ptr %665, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %717, ptr noundef nonnull @.str.6, i32 noundef %718) #13
+  br label %729
+
+avifPropertyArrayFind.exit93.thread:              ; preds = %674, %isAlphaURN.exit, %avifPropertyArrayFind.exit93, %707
+  %719 = getelementptr inbounds nuw i8, ptr %657, i64 144
+  %720 = load ptr, ptr %719, align 8
+  %721 = load i32, ptr %665, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %720, ptr noundef nonnull @.str.7, i32 noundef %721) #13
+  br label %729
+
+722:                                              ; preds = %._crit_edge1132, %isAlphaURN.exit.thread, %671, %668, %662
+  %723 = phi ptr [ %.pre1133, %._crit_edge1132 ], [ %663, %isAlphaURN.exit.thread ], [ %663, %671 ], [ %663, %668 ], [ %663, %662 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %724 = getelementptr inbounds nuw i8, ptr %723, i64 12
+  %725 = load i32, ptr %724, align 4
+  %726 = zext i32 %725 to i64
+  %727 = icmp ult i64 %indvars.iv.next, %726
+  br i1 %727, label %662, label %._crit_edge, !llvm.loop !45
+
+._crit_edge:                                      ; preds = %722, %select.unfold
+  %728 = call i32 @avifDecoderReset(ptr noundef %0)
+  br label %729
+
+729:                                              ; preds = %avifParse.exit.thread, %avifDecoderDataCreate.exit.thread, %76, %79, %1, %._crit_edge, %avifPropertyArrayFind.exit93.thread, %715, %699, %691
+  %.0 = phi i32 [ 9, %691 ], [ 9, %699 ], [ 9, %715 ], [ 9, %avifPropertyArrayFind.exit93.thread ], [ %728, %._crit_edge ], [ 25, %1 ], [ 21, %79 ], [ 21, %76 ], [ 26, %avifDecoderDataCreate.exit.thread ], [ %.0.i76.ph, %avifParse.exit.thread ]
+  ret i32 %.0
+}
+
+declare void @avifDiagnosticsClearError(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
+define internal fastcc noundef ptr @avifPropertyArrayFind(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %4 = load i32, ptr %3, align 4
+  %.not12 = icmp eq i32 %4, 0
+  br i1 %.not12, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
+  %5 = load ptr, ptr %0, align 8
+  %wide.trip.count = zext i32 %4 to i64
+  br label %7
+
+6:                                                ; preds = %7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !12
+
+7:                                                ; preds = %.lr.ph, %6
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
+  %8 = getelementptr inbounds %struct.avifProperty, ptr %5, i64 %indvars.iv
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %8, ptr noundef nonnull dereferenceable(4) %1, i64 4)
+  %.not = icmp eq i32 %bcmp, 0
+  br i1 %.not, label %._crit_edge, label %6
+
+._crit_edge:                                      ; preds = %7, %6, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %8, %7 ]
+  ret ptr %.0
+}
+
+declare void @avifDiagnosticsPrintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @avifDimensionsTooLarge(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @avifDecoderDataClearTiles(ptr nocapture noundef %0) unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = load i32, ptr %2, align 4
+  %.not44 = icmp eq i32 %3, 0
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br label %7
+
+7:                                                ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %struct.avifTile, ptr %8, i64 %indvars.iv
+  %10 = load ptr, ptr %9, align 8
+  %.not37 = icmp eq ptr %10, null
+  br i1 %.not37, label %24, label %11
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %13 = load i32, ptr %12, align 4
+  %.not9.i = icmp eq i32 %13, 0
+  br i1 %.not9.i, label %avifCodecDecodeInputDestroy.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %11, %20
+  %14 = phi i32 [ %21, %20 ], [ %13, %11 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %11 ]
+  %15 = load ptr, ptr %10, align 8
+  %16 = getelementptr inbounds %struct.avifDecodeSample, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i32, ptr %17, align 8
+  %.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i, label %20, label %19
+
+19:                                               ; preds = %.lr.ph.i
+  tail call void @avifRWDataFree(ptr noundef nonnull %16) #13
+  %.pre.i = load i32, ptr %12, align 4
+  br label %20
+
+20:                                               ; preds = %19, %.lr.ph.i
+  %21 = phi i32 [ %14, %.lr.ph.i ], [ %.pre.i, %19 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %22 = zext i32 %21 to i64
+  %23 = icmp ult i64 %indvars.iv.next.i, %22
+  br i1 %23, label %.lr.ph.i, label %avifCodecDecodeInputDestroy.exit, !llvm.loop !4
+
+avifCodecDecodeInputDestroy.exit:                 ; preds = %20, %11
+  tail call void @avifArrayDestroy(ptr noundef nonnull %10) #13
+  tail call void @avifFree(ptr noundef nonnull %10) #13
+  store ptr null, ptr %9, align 8
+  br label %24
+
+24:                                               ; preds = %avifCodecDecodeInputDestroy.exit, %7
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %.not38 = icmp eq ptr %26, null
+  br i1 %.not38, label %33, label %27
+
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %5, align 8
+  %.not39 = icmp eq ptr %26, %28
+  br i1 %.not39, label %32, label %29
+
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %6, align 8
+  %.not40 = icmp eq ptr %26, %30
+  br i1 %.not40, label %32, label %31
+
+31:                                               ; preds = %29
+  tail call void @avifCodecDestroy(ptr noundef nonnull %26) #13
+  br label %32
+
+32:                                               ; preds = %31, %29, %27
+  store ptr null, ptr %25, align 8
+  br label %33
+
+33:                                               ; preds = %32, %24
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %.not41 = icmp eq ptr %35, null
+  br i1 %.not41, label %37, label %36
+
+36:                                               ; preds = %33
+  tail call void @avifImageDestroy(ptr noundef nonnull %35) #13
+  store ptr null, ptr %34, align 8
+  br label %37
+
+37:                                               ; preds = %33, %36
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %38 = load i32, ptr %2, align 4
+  %39 = zext i32 %38 to i64
+  %40 = icmp ult i64 %indvars.iv.next, %39
+  br i1 %40, label %7, label %._crit_edge, !llvm.loop !46
+
+._crit_edge:                                      ; preds = %37, %1
+  store i32 0, ptr %2, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %41, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 0, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 0, ptr %44, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %46 = load ptr, ptr %45, align 8
+  %.not = icmp eq ptr %46, null
+  br i1 %.not, label %48, label %47
+
+47:                                               ; preds = %._crit_edge
+  tail call void @avifCodecDestroy(ptr noundef nonnull %46) #13
+  store ptr null, ptr %45, align 8
+  br label %48
+
+48:                                               ; preds = %47, %._crit_edge
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %50 = load ptr, ptr %49, align 8
+  %.not36 = icmp eq ptr %50, null
+  br i1 %.not36, label %52, label %51
+
+51:                                               ; preds = %48
+  tail call void @avifCodecDestroy(ptr noundef nonnull %50) #13
+  store ptr null, ptr %49, align 8
+  br label %52
+
+52:                                               ; preds = %51, %48
+  ret void
+}
+
+declare void @avifImageDestroy(ptr noundef) local_unnamed_addr #1
+
+declare ptr @avifImageCreateEmpty() local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @avifDecoderFindMetadata(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+  %5 = alloca %struct.avifROData, align 8
+  %6 = alloca %struct.avifROStream, align 8
+  %7 = alloca %struct.avifROData, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %struct.avifROData, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %11 = load i32, ptr %10, align 4
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %15, label %12
+
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = load i32, ptr %13, align 8
+  %.not40 = icmp eq i32 %14, 0
+  br i1 %.not40, label %15, label %.loopexit
+
+15:                                               ; preds = %12, %4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %19 = load i32, ptr %18, align 4
+  %.not68 = icmp eq i32 %19, 0
+  br i1 %.not68, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %15
+  %.not43 = icmp eq i32 %3, 0
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br label %25
+
+25:                                               ; preds = %.lr.ph, %65
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
+  %26 = load ptr, ptr %1, align 8
+  %27 = getelementptr inbounds %struct.avifDecoderItem, ptr %26, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = load i64, ptr %28, align 8
+  %.not41 = icmp eq i64 %29, 0
+  br i1 %.not41, label %65, label %30
+
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 208
+  %32 = load i32, ptr %31, align 8
+  %.not42 = icmp eq i32 %32, 0
+  br i1 %.not42, label %33, label %65
+
+33:                                               ; preds = %30
+  br i1 %.not43, label %37, label %34
+
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 192
+  %36 = load i32, ptr %35, align 8
+  %.not44 = icmp eq i32 %36, %3
+  br i1 %.not44, label %37, label %65
+
+37:                                               ; preds = %34, %33
+  %38 = load i32, ptr %10, align 4
+  %.not45 = icmp eq i32 %38, 0
+  br i1 %.not45, label %39, label %52
+
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %40, ptr noundef nonnull dereferenceable(4) @.str.161, i64 4)
+  %.not46 = icmp eq i32 %bcmp, 0
+  br i1 %.not46, label %41, label %52
+
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %16, align 8
+  %43 = call fastcc i32 @avifDecoderItemRead(ptr noundef nonnull %27, ptr noundef %42, ptr noundef nonnull %5, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %21)
+  %.not47 = icmp eq i32 %43, 0
+  br i1 %.not47, label %44, label %.loopexit
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %5, align 8
+  store ptr %45, ptr %7, align 8
+  %46 = load i64, ptr %23, align 8
+  store i64 %46, ptr %24, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %21, ptr noundef nonnull @.str.162) #13
+  %47 = call i32 @avifROStreamReadU32(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
+  %.not48 = icmp eq i32 %47, 0
+  br i1 %.not48, label %.loopexit, label %48
+
+48:                                               ; preds = %44
+  %49 = call ptr @avifROStreamCurrent(ptr noundef nonnull %6) #13
+  %50 = call i64 @avifROStreamRemainingBytes(ptr noundef nonnull %6) #13
+  %51 = call i32 @avifRWDataSet(ptr noundef nonnull %17, ptr noundef %49, i64 noundef %50) #13
+  %.not49 = icmp eq i32 %51, 0
+  br i1 %.not49, label %65, label %.loopexit
+
+52:                                               ; preds = %39, %37
+  %53 = load i32, ptr %20, align 8
+  %.not50 = icmp eq i32 %53, 0
+  br i1 %.not50, label %54, label %65
+
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %bcmp51 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %55, ptr noundef nonnull dereferenceable(4) @.str.104, i64 4)
+  %.not52 = icmp eq i32 %bcmp51, 0
+  br i1 %.not52, label %56, label %65
+
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %27, i64 44
+  %bcmp53 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %57, ptr noundef nonnull dereferenceable(20) @xmpContentType, i64 20)
+  %.not54 = icmp eq i32 %bcmp53, 0
+  br i1 %.not54, label %58, label %65
+
+58:                                               ; preds = %56
+  %59 = load ptr, ptr %16, align 8
+  %60 = call fastcc i32 @avifDecoderItemRead(ptr noundef nonnull %27, ptr noundef %59, ptr noundef nonnull %9, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %21)
+  %.not55 = icmp eq i32 %60, 0
+  br i1 %.not55, label %61, label %.loopexit
+
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %9, align 8
+  %63 = load i64, ptr %22, align 8
+  %64 = call i32 @avifImageSetMetadataXMP(ptr noundef %2, ptr noundef %62, i64 noundef %63) #13
+  %.not56 = icmp eq i32 %64, 0
+  br i1 %.not56, label %65, label %.loopexit
+
+65:                                               ; preds = %48, %61, %56, %54, %52, %34, %30, %25
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %66 = load i32, ptr %18, align 4
+  %67 = zext i32 %66 to i64
+  %68 = icmp ult i64 %indvars.iv.next, %67
+  br i1 %68, label %25, label %.loopexit, !llvm.loop !47
+
+.loopexit:                                        ; preds = %41, %44, %48, %58, %61, %65, %15, %12
+  %.0 = phi i32 [ 0, %12 ], [ 0, %15 ], [ %43, %41 ], [ 9, %44 ], [ %51, %48 ], [ %60, %58 ], [ %64, %61 ], [ 0, %65 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @avifDecoderDataCreateTile(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = tail call ptr @avifArrayPush(ptr noundef nonnull %6) #13
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %39, label %9
+
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %1, ptr %10, align 8
+  %11 = tail call ptr @avifImageCreateEmpty() #13
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %11, ptr %12, align 8
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %23, label %13
+
+13:                                               ; preds = %9
+  %14 = tail call ptr @avifAlloc(i64 noundef 32) #13
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %.thread, label %16
+
+16:                                               ; preds = %13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
+  %17 = tail call i32 @avifArrayCreate(ptr noundef nonnull %14, i32 noundef 56, i32 noundef 1) #13
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %18, label %19
+
+18:                                               ; preds = %16
+  tail call void @avifFree(ptr noundef nonnull %14) #13
+  br label %.thread
+
+.thread:                                          ; preds = %13, %18
+  store ptr null, ptr %7, align 8
+  br label %37
+
+19:                                               ; preds = %16
+  store ptr %14, ptr %7, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i32 %2, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  store i32 %3, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store i8 %4, ptr %22, align 8
+  br label %39
+
+23:                                               ; preds = %9
+  %.pr = load ptr, ptr %7, align 8
+  %.not24 = icmp eq ptr %.pr, null
+  br i1 %.not24, label %.thread32, label %24
+
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
+  %26 = load i32, ptr %25, align 4
+  %.not9.i = icmp eq i32 %26, 0
+  br i1 %.not9.i, label %avifCodecDecodeInputDestroy.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %24, %33
+  %27 = phi i32 [ %34, %33 ], [ %26, %24 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %24 ]
+  %28 = load ptr, ptr %.pr, align 8
+  %29 = getelementptr inbounds %struct.avifDecodeSample, ptr %28, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load i32, ptr %30, align 8
+  %.not.i26 = icmp eq i32 %31, 0
+  br i1 %.not.i26, label %33, label %32
+
+32:                                               ; preds = %.lr.ph.i
+  tail call void @avifRWDataFree(ptr noundef nonnull %29) #13
+  %.pre.i = load i32, ptr %25, align 4
+  br label %33
+
+33:                                               ; preds = %32, %.lr.ph.i
+  %34 = phi i32 [ %27, %.lr.ph.i ], [ %.pre.i, %32 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %35 = zext i32 %34 to i64
+  %36 = icmp ult i64 %indvars.iv.next.i, %35
+  br i1 %36, label %.lr.ph.i, label %avifCodecDecodeInputDestroy.exit, !llvm.loop !4
+
+avifCodecDecodeInputDestroy.exit:                 ; preds = %33, %24
+  tail call void @avifArrayDestroy(ptr noundef nonnull %.pr) #13
+  tail call void @avifFree(ptr noundef nonnull %.pr) #13
+  br label %37
+
+37:                                               ; preds = %.thread, %avifCodecDecodeInputDestroy.exit
+  %.pr31 = load ptr, ptr %12, align 8
+  %.not25 = icmp eq ptr %.pr31, null
+  br i1 %.not25, label %.thread32, label %38
+
+38:                                               ; preds = %37
+  tail call void @avifImageDestroy(ptr noundef nonnull %.pr31) #13
+  br label %.thread32
+
+.thread32:                                        ; preds = %23, %38, %37
+  tail call void @avifArrayPop(ptr noundef nonnull %6) #13
+  br label %39
+
+39:                                               ; preds = %5, %.thread32, %19
+  %.0 = phi ptr [ %7, %19 ], [ null, %.thread32 ], [ null, %5 ]
+  ret ptr %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 27) i32 @avifCodecDecodeInputFillFromSampleTable(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+  %.not = icmp eq i32 %2, 0
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %6 = icmp eq i32 %.pre, 0
+  br i1 %.not, label %.loopexit98, label %.preheader97
+
+.preheader97:                                     ; preds = %5
+  br i1 %6, label %.preheader, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader97
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %8 = getelementptr inbounds i8, ptr %1, i64 60
+  %9 = load i32, ptr %8, align 4
+  %10 = zext i32 %9 to i64
+  br label %13
+
+11:                                               ; preds = %26
+  %12 = sub nuw i32 %.068112, %24
+  %exitcond.not = icmp eq i32 %14, %.pre
+  br i1 %exitcond.not, label %.lr.ph124, label %13, !llvm.loop !48
+
+13:                                               ; preds = %.lr.ph, %11
+  %.068112 = phi i32 [ %2, %.lr.ph ], [ %12, %11 ]
+  %.069111 = phi i32 [ 0, %.lr.ph ], [ %14, %11 ]
+  %14 = add nuw i32 %.069111, 1
+  br label %15
+
+15:                                               ; preds = %18, %13
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ %10, %13 ]
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
+  %16 = and i64 %indvars.iv.next.i, 2147483648
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %avifGetSampleCountOfChunk.exit.thread
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8
+  %20 = and i64 %indvars.iv.next.i, 2147483647
+  %21 = getelementptr inbounds %struct.avifSampleTableSampleToChunk, ptr %19, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %.not.i = icmp ugt i32 %22, %14
+  br i1 %.not.i, label %15, label %avifGetSampleCountOfChunk.exit, !llvm.loop !49
+
+avifGetSampleCountOfChunk.exit:                   ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %avifGetSampleCountOfChunk.exit.thread, label %26
+
+avifGetSampleCountOfChunk.exit.thread:            ; preds = %avifGetSampleCountOfChunk.exit, %15
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.172) #13
+  br label %.loopexit95
+
+26:                                               ; preds = %avifGetSampleCountOfChunk.exit
+  %27 = icmp ugt i32 %24, %.068112
+  br i1 %27, label %28, label %11
+
+28:                                               ; preds = %26
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.173) #13
+  br label %.loopexit95
+
+.loopexit98:                                      ; preds = %5
+  br i1 %6, label %.preheader, label %.lr.ph124
+
+.lr.ph124:                                        ; preds = %11, %.loopexit98
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %31 = getelementptr inbounds i8, ptr %1, i64 60
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %33 = getelementptr inbounds i8, ptr %1, i64 84
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.not86.not = icmp eq i64 %3, 0
+  br i1 %.not86.not, label %.lr.ph124.split, label %.lr.ph124.split.us
+
+.lr.ph124.split.us:                               ; preds = %.lr.ph124, %.loopexit.split.us131
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.split.us131 ], [ 0, %.lr.ph124 ]
+  %.073123.us = phi i32 [ %52, %.loopexit.split.us131 ], [ 0, %.lr.ph124 ]
+  %35 = load ptr, ptr %1, align 8
+  %36 = load i32, ptr %31, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %37 = zext i32 %36 to i64
+  br label %38
+
+38:                                               ; preds = %41, %.lr.ph124.split.us
+  %indvars.iv.i88.us = phi i64 [ %indvars.iv.next.i89.us, %41 ], [ %37, %.lr.ph124.split.us ]
+  %indvars.iv.next.i89.us = add nsw i64 %indvars.iv.i88.us, -1
+  %39 = and i64 %indvars.iv.next.i89.us, 2147483648
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %41, label %avifGetSampleCountOfChunk.exit92.thread
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %30, align 8
+  %43 = and i64 %indvars.iv.next.i89.us, 2147483647
+  %44 = getelementptr inbounds %struct.avifSampleTableSampleToChunk, ptr %42, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = zext i32 %45 to i64
+  %.not.i91.us = icmp ult i64 %indvars.iv.next, %46
+  br i1 %.not.i91.us, label %38, label %avifGetSampleCountOfChunk.exit92.us, !llvm.loop !49
+
+avifGetSampleCountOfChunk.exit92.us:              ; preds = %41
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %avifGetSampleCountOfChunk.exit92.thread, label %.split.us133
+
+.split.us133:                                     ; preds = %avifGetSampleCountOfChunk.exit92.us
+  %50 = getelementptr inbounds %struct.avifSampleTableChunk, ptr %35, i64 %indvars.iv
+  %51 = load i64, ptr %50, align 8
+  %52 = add i32 %.073123.us, %48
+  br label %53
+
+53:                                               ; preds = %.split.us133, %76
+  %.072114.us126 = phi i64 [ %51, %.split.us133 ], [ %74, %76 ]
+  %.1113.us127 = phi i32 [ %.073123.us, %.split.us133 ], [ %77, %76 ]
+  %54 = load i32, ptr %32, align 8
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %63
+
+56:                                               ; preds = %53
+  %57 = load i32, ptr %33, align 4
+  %.not84.us128 = icmp ult i32 %.1113.us127, %57
+  br i1 %.not84.us128, label %58, label %.split117.us
+
+58:                                               ; preds = %56
+  %59 = load ptr, ptr %34, align 8
+  %60 = zext i32 %.1113.us127 to i64
+  %61 = getelementptr inbounds %struct.avifSampleTableSampleSize, ptr %59, i64 %60
+  %62 = load i32, ptr %61, align 4
+  br label %63
+
+63:                                               ; preds = %58, %53
+  %.070.us129 = phi i32 [ %62, %58 ], [ %54, %53 ]
+  %64 = tail call ptr @avifArrayPush(ptr noundef %0) #13
+  %.not85.us130 = icmp eq ptr %64, null
+  br i1 %.not85.us130, label %.loopexit95, label %65
+
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  store i64 %.072114.us126, ptr %66, align 8
+  %67 = zext i32 %.070.us129 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  store i64 %67, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 48
+  store i8 -1, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 52
+  store i32 0, ptr %70, align 4
+  %71 = xor i64 %.072114.us126, -1
+  %72 = icmp ugt i64 %67, %71
+  br i1 %72, label %.split119.us, label %73
+
+73:                                               ; preds = %65
+  %74 = add i64 %.072114.us126, %67
+  %75 = icmp ugt i64 %74, %3
+  br i1 %75, label %.split139.us, label %76
+
+76:                                               ; preds = %73
+  %77 = add i32 %.1113.us127, 1
+  %exitcond169.not = icmp eq i32 %77, %52
+  br i1 %exitcond169.not, label %.loopexit.split.us131, label %53, !llvm.loop !50
+
+.loopexit.split.us131:                            ; preds = %76
+  %78 = load i32, ptr %29, align 4
+  %79 = zext i32 %78 to i64
+  %80 = icmp ult i64 %indvars.iv.next, %79
+  br i1 %80, label %.lr.ph124.split.us, label %.preheader, !llvm.loop !51
+
+.preheader:                                       ; preds = %.loopexit.split.us131, %.loopexit.split.us, %.preheader97, %.loopexit98
+  %81 = getelementptr inbounds i8, ptr %1, i64 132
+  %82 = load i32, ptr %81, align 4
+  %.not144 = icmp eq i32 %82, 0
+  br i1 %.not144, label %._crit_edge, label %.lr.ph141
+
+.lr.ph141:                                        ; preds = %.preheader
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br label %129
+
+.lr.ph124.split:                                  ; preds = %.lr.ph124, %.loopexit.split.us
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.loopexit.split.us ], [ 0, %.lr.ph124 ]
+  %.073123 = phi i32 [ %102, %.loopexit.split.us ], [ 0, %.lr.ph124 ]
+  %85 = load ptr, ptr %1, align 8
+  %86 = load i32, ptr %31, align 4
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %87 = zext i32 %86 to i64
+  br label %88
+
+88:                                               ; preds = %91, %.lr.ph124.split
+  %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i89, %91 ], [ %87, %.lr.ph124.split ]
+  %indvars.iv.next.i89 = add nsw i64 %indvars.iv.i88, -1
+  %89 = and i64 %indvars.iv.next.i89, 2147483648
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %91, label %avifGetSampleCountOfChunk.exit92.thread
+
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %30, align 8
+  %93 = and i64 %indvars.iv.next.i89, 2147483647
+  %94 = getelementptr inbounds %struct.avifSampleTableSampleToChunk, ptr %92, i64 %93
+  %95 = load i32, ptr %94, align 4
+  %96 = zext i32 %95 to i64
+  %.not.i91 = icmp ult i64 %indvars.iv.next173, %96
+  br i1 %.not.i91, label %88, label %avifGetSampleCountOfChunk.exit92, !llvm.loop !49
+
+avifGetSampleCountOfChunk.exit92:                 ; preds = %91
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %avifGetSampleCountOfChunk.exit92.thread, label %.split.us
+
+avifGetSampleCountOfChunk.exit92.thread:          ; preds = %avifGetSampleCountOfChunk.exit92.us, %38, %avifGetSampleCountOfChunk.exit92, %88
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.172) #13
+  br label %.loopexit95
+
+.split.us:                                        ; preds = %avifGetSampleCountOfChunk.exit92
+  %100 = getelementptr inbounds %struct.avifSampleTableChunk, ptr %85, i64 %indvars.iv172
+  %101 = load i64, ptr %100, align 8
+  %102 = add i32 %.073123, %98
+  br label %103
+
+103:                                              ; preds = %123, %.split.us
+  %.072114.us = phi i64 [ %101, %.split.us ], [ %124, %123 ]
+  %.1113.us = phi i32 [ %.073123, %.split.us ], [ %125, %123 ]
+  %104 = load i32, ptr %32, align 8
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %113
+
+106:                                              ; preds = %103
+  %107 = load i32, ptr %33, align 4
+  %.not84.us = icmp ult i32 %.1113.us, %107
+  br i1 %.not84.us, label %108, label %.split117.us
+
+108:                                              ; preds = %106
+  %109 = load ptr, ptr %34, align 8
+  %110 = zext i32 %.1113.us to i64
+  %111 = getelementptr inbounds %struct.avifSampleTableSampleSize, ptr %109, i64 %110
+  %112 = load i32, ptr %111, align 4
+  br label %113
+
+113:                                              ; preds = %108, %103
+  %.070.us = phi i32 [ %112, %108 ], [ %104, %103 ]
+  %114 = tail call ptr @avifArrayPush(ptr noundef %0) #13
+  %.not85.us = icmp eq ptr %114, null
+  br i1 %.not85.us, label %.loopexit95, label %115
+
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 32
+  store i64 %.072114.us, ptr %116, align 8
+  %117 = zext i32 %.070.us to i64
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 40
+  store i64 %117, ptr %118, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 48
+  store i8 -1, ptr %119, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 52
+  store i32 0, ptr %120, align 4
+  %121 = xor i64 %.072114.us, -1
+  %122 = icmp ugt i64 %117, %121
+  br i1 %122, label %.split119.us, label %123
+
+123:                                              ; preds = %115
+  %124 = add i64 %.072114.us, %117
+  %125 = add i32 %.1113.us, 1
+  %exitcond171.not = icmp eq i32 %125, %102
+  br i1 %exitcond171.not, label %.loopexit.split.us, label %103, !llvm.loop !50
+
+.loopexit.split.us:                               ; preds = %123
+  %126 = load i32, ptr %29, align 4
+  %127 = zext i32 %126 to i64
+  %128 = icmp ult i64 %indvars.iv.next173, %127
+  br i1 %128, label %.lr.ph124.split, label %.preheader, !llvm.loop !51
+
+.split117.us:                                     ; preds = %56, %106
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.174) #13
+  br label %.loopexit95
+
+.split119.us:                                     ; preds = %65, %115
+  %.us-phi = phi i32 [ %.070.us, %115 ], [ %.070.us129, %65 ]
+  %.us-phi120 = phi i64 [ %.072114.us, %115 ], [ %.072114.us126, %65 ]
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.175, i64 noundef %.us-phi120, i32 noundef %.us-phi) #13
+  br label %.loopexit95
+
+.split139.us:                                     ; preds = %73
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.176) #13
+  br label %.loopexit95
+
+129:                                              ; preds = %.lr.ph141, %141
+  %130 = phi i32 [ %82, %.lr.ph141 ], [ %142, %141 ]
+  %indvars.iv175 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next176, %141 ]
+  %131 = load ptr, ptr %83, align 8
+  %132 = getelementptr inbounds %struct.avifSyncSample, ptr %131, i64 %indvars.iv175
+  %133 = load i32, ptr %132, align 4
+  %134 = add i32 %133, -1
+  %135 = load i32, ptr %84, align 4
+  %136 = icmp ult i32 %134, %135
+  br i1 %136, label %137, label %141
+
+137:                                              ; preds = %129
+  %138 = load ptr, ptr %0, align 8
+  %139 = zext i32 %134 to i64
+  %140 = getelementptr inbounds %struct.avifDecodeSample, ptr %138, i64 %139, i32 7
+  store i32 1, ptr %140, align 4
+  %.pre178 = load i32, ptr %81, align 4
+  br label %141
+
+141:                                              ; preds = %129, %137
+  %142 = phi i32 [ %130, %129 ], [ %.pre178, %137 ]
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
+  %143 = zext i32 %142 to i64
+  %144 = icmp ult i64 %indvars.iv.next176, %143
+  br i1 %144, label %129, label %._crit_edge, !llvm.loop !52
+
+._crit_edge:                                      ; preds = %141, %.preheader
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %146 = load i32, ptr %145, align 4
+  %.not83 = icmp eq i32 %146, 0
+  br i1 %.not83, label %.loopexit95, label %147
+
+147:                                              ; preds = %._crit_edge
+  %148 = load ptr, ptr %0, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 52
+  store i32 1, ptr %149, align 4
+  br label %.loopexit95
+
+.loopexit95:                                      ; preds = %63, %113, %._crit_edge, %147, %.split139.us, %.split119.us, %.split117.us, %avifGetSampleCountOfChunk.exit92.thread, %28, %avifGetSampleCountOfChunk.exit.thread
+  %.0 = phi i32 [ 9, %avifGetSampleCountOfChunk.exit.thread ], [ 9, %28 ], [ 9, %avifGetSampleCountOfChunk.exit92.thread ], [ 9, %.split117.us ], [ 9, %.split119.us ], [ 9, %.split139.us ], [ 0, %147 ], [ 0, %._crit_edge ], [ 26, %113 ], [ 26, %63 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @avifDecoderItemReadAndParse(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+  %6 = alloca %struct.avifROStream, align 8
+  %7 = alloca %struct.avifROData, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca i8, align 1
+  %12 = alloca i16, align 2
+  %13 = alloca i16, align 2
+  %14 = alloca %struct.avifROData, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %15, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %.not = icmp eq i32 %bcmp, 0
+  br i1 %.not, label %16, label %107
+
+16:                                               ; preds = %5
+  %.not17 = icmp eq i32 %2, 0
+  br i1 %.not17, label %93, label %17
+
+17:                                               ; preds = %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 144
+  %23 = load ptr, ptr %22, align 8
+  %24 = call fastcc i32 @avifDecoderItemRead(ptr noundef %1, ptr noundef %19, ptr noundef nonnull %14, i64 noundef 0, i64 noundef 0, ptr noundef %23)
+  %.not18 = icmp eq i32 %24, 0
+  br i1 %.not18, label %25, label %108
+
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %14, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %32 = load i32, ptr %31, align 8
+  %33 = load ptr, ptr %20, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 144
+  %35 = load ptr, ptr %34, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13)
+  store ptr %26, ptr %7, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %28, ptr %36, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %35, ptr noundef nonnull @.str.177) #13
+  %37 = call i32 @avifROStreamRead(ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 1) #13
+  %.not.i = icmp eq i32 %37, 0
+  br i1 %.not.i, label %avifParseImageGridBox.exit.thread, label %38
+
+38:                                               ; preds = %25
+  %39 = load i8, ptr %8, align 1
+  %.not30.i = icmp eq i8 %39, 0
+  br i1 %.not30.i, label %42, label %40
+
+40:                                               ; preds = %38
+  %41 = zext i8 %39 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %35, ptr noundef nonnull @.str.178, i32 noundef %41) #13
+  br label %avifParseImageGridBox.exit.thread
+
+42:                                               ; preds = %38
+  %43 = call i32 @avifROStreamRead(ptr noundef nonnull %6, ptr noundef nonnull %9, i64 noundef 1) #13
+  %.not31.i = icmp eq i32 %43, 0
+  br i1 %.not31.i, label %avifParseImageGridBox.exit.thread, label %44
+
+44:                                               ; preds = %42
+  %45 = call i32 @avifROStreamRead(ptr noundef nonnull %6, ptr noundef nonnull %10, i64 noundef 1) #13
+  %.not32.i = icmp eq i32 %45, 0
+  br i1 %.not32.i, label %avifParseImageGridBox.exit.thread, label %46
+
+46:                                               ; preds = %44
+  %47 = call i32 @avifROStreamRead(ptr noundef nonnull %6, ptr noundef nonnull %11, i64 noundef 1) #13
+  %.not33.i = icmp eq i32 %47, 0
+  br i1 %.not33.i, label %avifParseImageGridBox.exit.thread, label %48
+
+48:                                               ; preds = %46
+  %49 = load i8, ptr %10, align 1
+  %50 = zext i8 %49 to i32
+  %51 = add nuw nsw i32 %50, 1
+  store i32 %51, ptr %3, align 4
+  %52 = load i8, ptr %11, align 1
+  %53 = zext i8 %52 to i32
+  %54 = add nuw nsw i32 %53, 1
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %54, ptr %55, align 4
+  %56 = load i8, ptr %9, align 1
+  %57 = shl i8 %56, 4
+  %narrow.i = and i8 %57, 16
+  %58 = add nuw nsw i8 %narrow.i, 16
+  %59 = zext nneg i8 %58 to i32
+  %60 = icmp eq i8 %narrow.i, 0
+  br i1 %60, label %61, label %72
+
+61:                                               ; preds = %48
+  %62 = call i32 @avifROStreamReadU16(ptr noundef nonnull %6, ptr noundef nonnull %12) #13
+  %.not37.i = icmp eq i32 %62, 0
+  br i1 %.not37.i, label %avifParseImageGridBox.exit.thread, label %63
+
+63:                                               ; preds = %61
+  %64 = call i32 @avifROStreamReadU16(ptr noundef nonnull %6, ptr noundef nonnull %13) #13
+  %.not38.i = icmp eq i32 %64, 0
+  br i1 %.not38.i, label %avifParseImageGridBox.exit.thread, label %65
+
+65:                                               ; preds = %63
+  %66 = load i16, ptr %12, align 2
+  %67 = zext i16 %66 to i32
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %67, ptr %68, align 4
+  %69 = load i16, ptr %13, align 2
+  %70 = zext i16 %69 to i32
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %70, ptr %71, align 4
+  br label %80
+
+72:                                               ; preds = %48
+  %.not34.i = icmp eq i8 %58, 32
+  br i1 %.not34.i, label %74, label %73
+
+73:                                               ; preds = %72
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %35, ptr noundef nonnull @.str.179, i32 noundef %59) #13
+  br label %avifParseImageGridBox.exit.thread
+
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %76 = call i32 @avifROStreamReadU32(ptr noundef nonnull %6, ptr noundef nonnull %75) #13
+  %.not35.i = icmp eq i32 %76, 0
+  br i1 %.not35.i, label %avifParseImageGridBox.exit.thread, label %77
+
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %79 = call i32 @avifROStreamReadU32(ptr noundef nonnull %6, ptr noundef nonnull %78) #13
+  %.not36.i = icmp eq i32 %79, 0
+  br i1 %.not36.i, label %avifParseImageGridBox.exit.thread, label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %77
+  %.pre.i = load i32, ptr %75, align 4
+  %.pre42.i.pre = load i32, ptr %78, align 4
+  br label %80
+
+80:                                               ; preds = %._crit_edge.i, %65
+  %.pre42.i = phi i32 [ %.pre42.i.pre, %._crit_edge.i ], [ %70, %65 ]
+  %81 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %67, %65 ]
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %83 = icmp eq i32 %81, 0
+  %.phi.trans.insert41.i = getelementptr inbounds nuw i8, ptr %3, i64 12
+  br i1 %83, label %._crit_edge40.i, label %84
+
+84:                                               ; preds = %80
+  %85 = icmp eq i32 %.pre42.i, 0
+  br i1 %85, label %._crit_edge40.i, label %87
+
+._crit_edge40.i:                                  ; preds = %84, %80
+  %86 = phi i32 [ 0, %84 ], [ %.pre42.i, %80 ]
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %35, ptr noundef nonnull @.str.180, i32 noundef %81, i32 noundef %86) #13
+  br label %avifParseImageGridBox.exit.thread
+
+87:                                               ; preds = %84
+  %88 = call i32 @avifDimensionsTooLarge(i32 noundef %81, i32 noundef %.pre42.i, i32 noundef %30, i32 noundef %32) #13
+  %.not39.i = icmp eq i32 %88, 0
+  br i1 %.not39.i, label %avifParseImageGridBox.exit, label %89
+
+89:                                               ; preds = %87
+  %90 = load i32, ptr %82, align 4
+  %91 = load i32, ptr %.phi.trans.insert41.i, align 4
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %35, ptr noundef nonnull @.str.181, i32 noundef %90, i32 noundef %91) #13
+  br label %avifParseImageGridBox.exit.thread
+
+avifParseImageGridBox.exit.thread:                ; preds = %40, %._crit_edge40.i, %89, %73, %25, %42, %44, %46, %61, %63, %74, %77
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
+  br label %108
+
+avifParseImageGridBox.exit:                       ; preds = %87
+  %92 = call i64 @avifROStreamRemainingBytes(ptr noundef nonnull %6) #13
+  %.not29 = icmp eq i64 %92, 0
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
+  br i1 %.not29, label %93, label %108
+
+93:                                               ; preds = %16, %avifParseImageGridBox.exit
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
+  %97 = load i32, ptr %96, align 4
+  %.not.i21 = icmp eq i32 %97, 0
+  br i1 %.not.i21, label %avifDecoderItemGetGridCodecType.exit.thread, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %93
+  %98 = load ptr, ptr %95, align 8
+  %99 = load i32, ptr %1, align 8
+  %wide.trip.count.i = zext i32 %97 to i64
+  br label %101
+
+100:                                              ; preds = %101
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %avifDecoderItemGetGridCodecType.exit.thread, label %101, !llvm.loop !53
+
+101:                                              ; preds = %100, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %100 ]
+  %102 = getelementptr inbounds %struct.avifDecoderItem, ptr %98, i64 %indvars.iv.i
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %103, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i.i = icmp eq i32 %bcmp.i.i, 0
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 196
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, %99
+  %or.cond.i = select i1 %106, i1 %.not.i.i, i1 false
+  br i1 %or.cond.i, label %avifDecoderItemGetGridCodecType.exit, label %100
+
+avifDecoderItemGetGridCodecType.exit.thread:      ; preds = %100, %93
+  store i32 0, ptr %4, align 4
+  br label %108
+
+avifDecoderItemGetGridCodecType.exit:             ; preds = %101
+  store i32 1, ptr %4, align 4
+  br label %108
+
+107:                                              ; preds = %5
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %15, ptr noundef nonnull dereferenceable(4) @.str.158, i64 4)
+  %.not.i24 = icmp eq i32 %bcmp.i, 0
+  %..i = zext i1 %.not.i24 to i32
+  store i32 %..i, ptr %4, align 4
+  br label %108
+
+108:                                              ; preds = %107, %avifDecoderItemGetGridCodecType.exit, %avifDecoderItemGetGridCodecType.exit.thread, %avifParseImageGridBox.exit.thread, %avifParseImageGridBox.exit, %17
+  %.0 = phi i32 [ %24, %17 ], [ 18, %avifParseImageGridBox.exit ], [ 18, %avifParseImageGridBox.exit.thread ], [ 18, %avifDecoderItemGetGridCodecType.exit.thread ], [ 0, %avifDecoderItemGetGridCodecType.exit ], [ 0, %107 ]
+  ret i32 %.0
+}
+
+declare i32 @avifImageSetProfileICC(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @avifDecoderPrepareSample(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca %struct.avifROData, align 8
+  %6 = alloca %struct.avifROData, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %12, label %9
+
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %11 = load i32, ptr %10, align 4
+  %.not52 = icmp eq i32 %11, 0
+  br i1 %.not52, label %65, label %12
+
+12:                                               ; preds = %9, %3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %14 = load i64, ptr %13, align 8
+  %.not53.not = icmp eq i64 %2, 0
+  %15 = tail call i64 @llvm.umin.i64(i64 %14, i64 %2)
+  %.043 = select i1 %.not53.not, i64 %14, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = load i32, ptr %16, align 8
+  %.not54 = icmp eq i32 %17, 0
+  br i1 %.not54, label %36, label %18
+
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %21, i32 noundef %17, ptr noundef nonnull %4)
+  %.not61 = icmp eq i32 %22, 0
+  br i1 %.not61, label %23, label %66
+
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %25 = load i64, ptr %24, align 8
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %30 = call fastcc i32 @avifDecoderItemRead(ptr noundef %26, ptr noundef %28, ptr noundef nonnull %5, i64 noundef %25, i64 noundef %.043, ptr noundef nonnull %29)
+  %.not62 = icmp eq i32 %30, 0
+  br i1 %.not62, label %31, label %66
+
+31:                                               ; preds = %23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 0, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 180
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %34, ptr %35, align 4
+  br label %65
+
+36:                                               ; preds = %12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = load i64, ptr %39, align 8
+  %.not55 = icmp ne i64 %40, 0
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.pre = load i64, ptr %.phi.trans.insert, align 8
+  %41 = icmp ugt i64 %.pre, %40
+  %or.cond = select i1 %.not55, i1 %41, i1 false
+  br i1 %or.cond, label %66, label %._crit_edge
+
+._crit_edge:                                      ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = call i32 %43(ptr noundef nonnull %38, i32 noundef 0, i64 noundef %.pre, i64 noundef %.043, ptr noundef nonnull %6) #13
+  %.not56 = icmp eq i32 %44, 0
+  br i1 %.not56, label %45, label %66
+
+45:                                               ; preds = %._crit_edge
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %47 = load i64, ptr %46, align 8
+  %.not57 = icmp eq i64 %47, %.043
+  br i1 %.not57, label %48, label %66
+
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %37, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %51 = load i32, ptr %50, align 8
+  %.not58 = icmp eq i32 %51, 0
+  %52 = zext i1 %.not58 to i32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %52, ptr %53, align 8
+  %54 = load i64, ptr %13, align 8
+  %55 = icmp ne i64 %.043, %54
+  %56 = zext i1 %55 to i32
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %56, ptr %57, align 4
+  %58 = load ptr, ptr %37, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %60 = load i32, ptr %59, align 8
+  %.not59 = icmp eq i32 %60, 0
+  br i1 %.not59, label %62, label %61
+
+61:                                               ; preds = %48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  br label %65
+
+62:                                               ; preds = %48
+  %63 = load ptr, ptr %6, align 8
+  %64 = call i32 @avifRWDataSet(ptr noundef nonnull %1, ptr noundef %63, i64 noundef %.043) #13
+  %.not60 = icmp eq i32 %64, 0
+  br i1 %.not60, label %65, label %66
+
+65:                                               ; preds = %31, %62, %61, %9
+  br label %66
+
+66:                                               ; preds = %36, %62, %45, %._crit_edge, %23, %18, %65
+  %.0 = phi i32 [ 0, %65 ], [ %22, %18 ], [ %30, %23 ], [ %44, %._crit_edge ], [ 20, %45 ], [ %64, %62 ], [ 9, %36 ]
+  ret i32 %.0
+}
+
+declare i32 @avifSequenceHeaderParse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc range(i32 0, 10) i32 @avifReadCodecConfigProperty(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #6 {
+  %cond.i = icmp eq i32 %2, 1
+  %.str.62..i = select i1 %cond.i, ptr @.str.62, ptr null
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %5 = load i32, ptr %4, align 4
+  %.not12.i = icmp eq i32 %5, 0
+  br i1 %.not12.i, label %avifPropertyArrayFind.exit.thread, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %3
+  %6 = load ptr, ptr %1, align 8
+  %wide.trip.count.i = zext i32 %5 to i64
+  br label %8
+
+7:                                                ; preds = %8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %avifPropertyArrayFind.exit.thread, label %8, !llvm.loop !12
+
+8:                                                ; preds = %7, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
+  %9 = getelementptr inbounds %struct.avifProperty, ptr %6, i64 %indvars.iv.i
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %9, ptr noundef nonnull readonly dereferenceable(4) %.str.62..i, i64 4)
+  %.not.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not.i, label %avifPropertyArrayFind.exit, label %7
+
+avifPropertyArrayFind.exit:                       ; preds = %8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %avifPropertyArrayFind.exit.thread, label %10
+
+10:                                               ; preds = %avifPropertyArrayFind.exit
+  %11 = getelementptr inbounds i8, ptr %9, i64 12
+  %12 = load i8, ptr %11, align 1
+  %.not.i20 = icmp eq i8 %12, 0
+  br i1 %.not.i20, label %13, label %avifCodecConfigurationBoxGetDepth.exit
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %9, i64 11
+  %15 = load i8, ptr %14, align 1
+  %.not2.i = icmp eq i8 %15, 0
+  %..i = select i1 %.not2.i, i32 8, i32 10
+  br label %avifCodecConfigurationBoxGetDepth.exit
+
+avifCodecConfigurationBoxGetDepth.exit:           ; preds = %10, %13
+  %.0.i21 = phi i32 [ 12, %10 ], [ %..i, %13 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.0.i21, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %9, i64 13
+  %18 = load i8, ptr %17, align 1
+  %.not16 = icmp eq i8 %18, 0
+  br i1 %.not16, label %21, label %19
+
+19:                                               ; preds = %avifCodecConfigurationBoxGetDepth.exit
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 4, ptr %20, align 4
+  br label %32
+
+21:                                               ; preds = %avifCodecConfigurationBoxGetDepth.exit
+  %22 = getelementptr inbounds i8, ptr %9, i64 14
+  %23 = load i8, ptr %22, align 2
+  %.not17 = icmp eq i8 %23, 0
+  br i1 %.not17, label %30, label %24
+
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds i8, ptr %9, i64 15
+  %26 = load i8, ptr %25, align 1
+  %.not18 = icmp eq i8 %26, 0
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  br i1 %.not18, label %29, label %28
+
+28:                                               ; preds = %24
+  store i32 3, ptr %27, align 4
+  br label %32
+
+29:                                               ; preds = %24
+  store i32 2, ptr %27, align 4
+  br label %32
+
+30:                                               ; preds = %21
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1, ptr %31, align 4
+  br label %32
+
+32:                                               ; preds = %28, %30, %29, %19
+  %33 = getelementptr inbounds i8, ptr %9, i64 16
+  %34 = load i8, ptr %33, align 8
+  %35 = zext i8 %34 to i32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %35, ptr %36, align 4
+  br label %avifPropertyArrayFind.exit.thread
+
+avifPropertyArrayFind.exit.thread:                ; preds = %7, %3, %avifPropertyArrayFind.exit, %32
+  %.0 = phi i32 [ 0, %32 ], [ 9, %avifPropertyArrayFind.exit ], [ 9, %3 ], [ 9, %7 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @avifDecoderNextImage(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.avifImage, align 8
+  %3 = alloca %struct.avifImage, align 8
+  %4 = alloca %struct.avifCropRect, align 4
+  %5 = alloca %struct.avifCropRect, align 4
+  %6 = alloca i32, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @avifDiagnosticsClearError(ptr noundef nonnull %7) #13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %9 = load ptr, ptr %8, align 8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %avifDecoderCreateCodecs.exit.thread, label %10
+
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds i8, ptr %9, i64 44
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %avifDecoderCreateCodecs.exit.thread, label %14
+
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %16 = load ptr, ptr %15, align 8
+  %.not62 = icmp eq ptr %16, null
+  br i1 %.not62, label %avifDecoderCreateCodecs.exit.thread, label %17
+
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %.not63 = icmp eq ptr %19, null
+  br i1 %.not63, label %avifDecoderCreateCodecs.exit.thread, label %20
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  br label %23
+
+22:                                               ; preds = %23
+  br i1 %24, label %23, label %avifDecoderDataFrameFullyDecoded.exit, !llvm.loop !54
+
+23:                                               ; preds = %22, %20
+  %24 = phi i1 [ true, %20 ], [ false, %22 ]
+  %indvars.iv.i = phi i64 [ 0, %20 ], [ 1, %22 ]
+  %25 = getelementptr inbounds [2 x %struct.avifTileInfo], ptr %21, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = load i32, ptr %25, align 4
+  %.not.i = icmp eq i32 %27, %28
+  br i1 %.not.i, label %22, label %avifDecoderDataFrameFullyDecoded.exit.thread
+
+avifDecoderDataFrameFullyDecoded.exit:            ; preds = %22
+  %29 = load ptr, ptr %8, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 60
+  store i32 0, ptr %30, align 4
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 88
+  store i32 0, ptr %32, align 4
+  %.pre = load ptr, ptr %8, align 8
+  br label %avifDecoderDataFrameFullyDecoded.exit.thread
+
+avifDecoderDataFrameFullyDecoded.exit.thread:     ; preds = %23, %avifDecoderDataFrameFullyDecoded.exit
+  %33 = phi ptr [ %.pre, %avifDecoderDataFrameFullyDecoded.exit ], [ %9, %23 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %35 = load i32, ptr %34, align 8
+  %36 = add nsw i32 %35, 1
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %.not65 = icmp eq ptr %40, null
+  br i1 %.not65, label %41, label %avifDecoderCreateCodecs.exit
+
+41:                                               ; preds = %avifDecoderDataFrameFullyDecoded.exit.thread
+  tail call fastcc void @avifDecoderDataResetCodec(ptr noundef nonnull %33)
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 112
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp eq i32 %43, 2
+  br i1 %44, label %45, label %95
+
+45:                                               ; preds = %41
+  %46 = load i32, ptr %0, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 120
+  %51 = tail call i32 @avifCodecCreate(i32 noundef %46, i32 noundef 1, ptr noundef nonnull %50) #13
+  %.not.i.i = icmp eq i32 %51, 0
+  br i1 %.not.i.i, label %52, label %avifDecoderCreateCodecs.exit.thread
+
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %50, align 8
+  %.not13.i.i = icmp eq ptr %53, null
+  br i1 %.not13.i.i, label %avifDecoderCreateCodecs.exit.thread, label %54
+
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store ptr %7, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %57 = load i8, ptr %56, align 8
+  %58 = load ptr, ptr %50, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  store i8 %57, ptr %59, align 8
+  %60 = load ptr, ptr %49, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %62 = load i32, ptr %61, align 8
+  %63 = load ptr, ptr %50, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
+  store i32 %62, ptr %64, align 4
+  %65 = load ptr, ptr %50, align 8
+  %66 = load ptr, ptr %37, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  store ptr %65, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %33, i64 44
+  %69 = load i32, ptr %68, align 4
+  %70 = icmp ugt i32 %69, 1
+  br i1 %70, label %71, label %avifDecoderCreateCodecs.exit
+
+71:                                               ; preds = %54
+  %72 = load i32, ptr %0, align 8
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %33, i64 128
+  %78 = tail call i32 @avifCodecCreate(i32 noundef %72, i32 noundef 1, ptr noundef nonnull %77) #13
+  %.not.i58.i = icmp eq i32 %78, 0
+  br i1 %.not.i58.i, label %79, label %avifDecoderCreateCodecs.exit.thread
+
+79:                                               ; preds = %71
+  %80 = load ptr, ptr %77, align 8
+  %.not13.i60.i = icmp eq ptr %80, null
+  br i1 %.not13.i60.i, label %avifDecoderCreateCodecs.exit.thread, label %81
+
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  store ptr %7, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %75, i64 88
+  %84 = load i8, ptr %83, align 8
+  %85 = load ptr, ptr %77, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  store i8 %84, ptr %86, align 8
+  %87 = load ptr, ptr %76, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %89 = load i32, ptr %88, align 8
+  %90 = load ptr, ptr %77, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 28
+  store i32 %89, ptr %91, align 4
+  %92 = load ptr, ptr %77, align 8
+  %93 = load ptr, ptr %37, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 64
+  store ptr %92, ptr %94, align 8
+  br label %avifDecoderCreateCodecs.exit
+
+95:                                               ; preds = %41
+  %96 = getelementptr inbounds i8, ptr %33, i64 44
+  %97 = load i32, ptr %96, align 4
+  %98 = icmp eq i32 %97, 1
+  br i1 %98, label %.critedge.i, label %99
+
+99:                                               ; preds = %95
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp eq i32 %101, 1
+  br i1 %102, label %103, label %.critedge57.i
+
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds nuw i8, ptr %33, i64 56
+  br label %105
+
+105:                                              ; preds = %105, %103
+  %106 = phi i1 [ true, %103 ], [ false, %105 ]
+  %indvars.iv.i.i = phi i64 [ 0, %103 ], [ 1, %105 ]
+  %.02331.i.i = phi i32 [ 0, %103 ], [ %spec.select.i.i, %105 ]
+  %.02430.i.i = phi i32 [ 0, %103 ], [ %.125.i.i, %105 ]
+  %107 = getelementptr inbounds [2 x %struct.avifTileInfo], ptr %104, i64 0, i64 %indvars.iv.i.i
+  %108 = load i32, ptr %107, align 4
+  %.not28.i.i = icmp ne i32 %108, 0
+  %109 = zext i1 %.not28.i.i to i32
+  %spec.select.i.i = add nuw nsw i32 %.02331.i.i, %109
+  %110 = icmp eq i32 %108, 1
+  %111 = zext i1 %110 to i32
+  %.125.i.i = add nuw nsw i32 %.02430.i.i, %111
+  br i1 %106, label %105, label %112, !llvm.loop !55
+
+112:                                              ; preds = %105
+  %113 = icmp ne i32 %.125.i.i, 0
+  %114 = icmp ugt i32 %spec.select.i.i, 1
+  %or.cond.i.i = select i1 %113, i1 %114, i1 false
+  br i1 %or.cond.i.i, label %.critedge57.i, label %115
+
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %37, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
+  %118 = load i8, ptr %117, align 8
+  %119 = load ptr, ptr %116, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
+  %121 = load i32, ptr %120, align 8
+  %.not.i75 = icmp eq i32 %97, 0
+  br i1 %.not.i75, label %.critedge.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %115
+  %wide.trip.count.i.i = zext i32 %97 to i64
+  br label %.lr.ph.i.i
+
+122:                                              ; preds = %126
+  %indvars.iv.next39.i.i = add nuw nsw i64 %indvars.iv38.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next39.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %.critedge.i, label %.lr.ph.i.i, !llvm.loop !56
+
+.lr.ph.i.i:                                       ; preds = %122, %.lr.ph.preheader.i.i
+  %indvars.iv38.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next39.i.i, %122 ]
+  %123 = getelementptr inbounds %struct.avifTile, ptr %116, i64 %indvars.iv38.i.i
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
+  %125 = load i8, ptr %124, align 8
+  %.not.i63.i = icmp eq i8 %125, %118
+  br i1 %.not.i63.i, label %126, label %.critedge57.i
+
+126:                                              ; preds = %.lr.ph.i.i
+  %127 = load ptr, ptr %123, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %129 = load i32, ptr %128, align 8
+  %.not27.i.i = icmp eq i32 %129, %121
+  br i1 %.not27.i.i, label %122, label %.critedge57.i
+
+.critedge.i:                                      ; preds = %122, %115, %95
+  %130 = load i32, ptr %0, align 8
+  %131 = load ptr, ptr %8, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %33, i64 120
+  %135 = tail call i32 @avifCodecCreate(i32 noundef %130, i32 noundef 1, ptr noundef nonnull %134) #13
+  %.not.i64.i = icmp eq i32 %135, 0
+  br i1 %.not.i64.i, label %136, label %avifDecoderCreateCodecs.exit.thread
+
+136:                                              ; preds = %.critedge.i
+  %137 = load ptr, ptr %134, align 8
+  %.not13.i66.i = icmp eq ptr %137, null
+  br i1 %.not13.i66.i, label %avifDecoderCreateCodecs.exit.thread, label %avifCodecCreateInternal.exit67.i
+
+avifCodecCreateInternal.exit67.i:                 ; preds = %136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  store ptr %7, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 40
+  %140 = load i8, ptr %139, align 8
+  %141 = load ptr, ptr %134, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  store i8 %140, ptr %142, align 8
+  %143 = load ptr, ptr %133, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  %145 = load i32, ptr %144, align 8
+  %146 = load ptr, ptr %134, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 28
+  store i32 %145, ptr %147, align 4
+  %148 = load ptr, ptr %8, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 44
+  %150 = load i32, ptr %149, align 4
+  %.not90.i = icmp eq i32 %150, 0
+  br i1 %.not90.i, label %avifDecoderCreateCodecs.exit, label %.lr.ph88.preheader.i
+
+.lr.ph88.preheader.i:                             ; preds = %avifCodecCreateInternal.exit67.i
+  %.pre.i = load ptr, ptr %134, align 8
+  br label %.lr.ph88.i
+
+.lr.ph88.i:                                       ; preds = %.lr.ph88.i, %.lr.ph88.preheader.i
+  %indvars.iv93.i = phi i64 [ 0, %.lr.ph88.preheader.i ], [ %indvars.iv.next94.i, %.lr.ph88.i ]
+  %151 = phi ptr [ %148, %.lr.ph88.preheader.i ], [ %155, %.lr.ph88.i ]
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 32
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds %struct.avifTile, ptr %153, i64 %indvars.iv93.i, i32 2
+  store ptr %.pre.i, ptr %154, align 8
+  %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
+  %155 = load ptr, ptr %8, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 44
+  %157 = load i32, ptr %156, align 4
+  %158 = zext i32 %157 to i64
+  %159 = icmp ult i64 %indvars.iv.next94.i, %158
+  br i1 %159, label %.lr.ph88.i, label %avifDecoderCreateCodecs.exit, !llvm.loop !57
+
+.critedge57.i:                                    ; preds = %126, %.lr.ph.i.i, %112, %99
+  %160 = load ptr, ptr %8, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 44
+  %162 = load i32, ptr %161, align 4
+  %.not89.i = icmp eq i32 %162, 0
+  br i1 %.not89.i, label %avifDecoderCreateCodecs.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.critedge57.i, %172
+  %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i, %172 ], [ 0, %.critedge57.i ]
+  %163 = phi ptr [ %183, %172 ], [ %160, %.critedge57.i ]
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds %struct.avifTile, ptr %165, i64 %indvars.iv.i74
+  %167 = load i32, ptr %0, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %169 = tail call i32 @avifCodecCreate(i32 noundef %167, i32 noundef 1, ptr noundef nonnull %168) #13
+  %.not.i68.i = icmp eq i32 %169, 0
+  br i1 %.not.i68.i, label %170, label %avifDecoderCreateCodecs.exit.thread
+
+170:                                              ; preds = %.lr.ph.i
+  %171 = load ptr, ptr %168, align 8
+  %.not13.i70.i = icmp eq ptr %171, null
+  br i1 %.not13.i70.i, label %avifDecoderCreateCodecs.exit.thread, label %172
+
+172:                                              ; preds = %170
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  store ptr %7, ptr %173, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %166, i64 40
+  %175 = load i8, ptr %174, align 8
+  %176 = load ptr, ptr %168, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
+  store i8 %175, ptr %177, align 8
+  %178 = load ptr, ptr %166, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
+  %180 = load i32, ptr %179, align 8
+  %181 = load ptr, ptr %168, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 28
+  store i32 %180, ptr %182, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i74, 1
+  %183 = load ptr, ptr %8, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 44
+  %185 = load i32, ptr %184, align 4
+  %186 = zext i32 %185 to i64
+  %187 = icmp ult i64 %indvars.iv.next.i, %186
+  br i1 %187, label %.lr.ph.i, label %avifDecoderCreateCodecs.exit, !llvm.loop !58
+
+avifDecoderCreateCodecs.exit:                     ; preds = %172, %.lr.ph88.i, %.critedge57.i, %avifCodecCreateInternal.exit67.i, %81, %54, %avifDecoderDataFrameFullyDecoded.exit.thread
+  %188 = zext i32 %36 to i64
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %199
+
+.preheader112:                                    ; preds = %.thread102
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %193 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %197 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  br label %229
+
+199:                                              ; preds = %avifDecoderCreateCodecs.exit, %.thread102
+  %200 = phi i1 [ true, %avifDecoderCreateCodecs.exit ], [ false, %.thread102 ]
+  %indvars.iv165 = phi i64 [ 0, %avifDecoderCreateCodecs.exit ], [ 1, %.thread102 ]
+  %201 = load ptr, ptr %8, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 56
+  %203 = getelementptr inbounds [2 x %struct.avifTileInfo], ptr %202, i64 0, i64 %indvars.iv165
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 4
+  %205 = load i32, ptr %204, align 4
+  %206 = load i32, ptr %203, align 4
+  %207 = icmp ult i32 %205, %206
+  br i1 %207, label %.lr.ph.i77, label %.thread102
+
+.lr.ph.i77:                                       ; preds = %199
+  %208 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  br label %213
+
+209:                                              ; preds = %224
+  %210 = add nuw i32 %.01519.i, 1
+  %211 = load i32, ptr %203, align 4
+  %212 = icmp ult i32 %210, %211
+  br i1 %212, label %213, label %.thread102, !llvm.loop !59
+
+213:                                              ; preds = %209, %.lr.ph.i77
+  %.01519.i = phi i32 [ %205, %.lr.ph.i77 ], [ %210, %209 ]
+  %214 = load ptr, ptr %8, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
+  %216 = load ptr, ptr %215, align 8
+  %217 = load i32, ptr %208, align 4
+  %218 = add i32 %217, %.01519.i
+  %219 = zext i32 %218 to i64
+  %220 = getelementptr inbounds %struct.avifTile, ptr %216, i64 %219
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 12
+  %223 = load i32, ptr %222, align 4
+  %.not.i78 = icmp ult i32 %36, %223
+  br i1 %.not.i78, label %224, label %avifDecoderCreateCodecs.exit.thread
+
+224:                                              ; preds = %213
+  %225 = load ptr, ptr %221, align 8
+  %226 = getelementptr inbounds %struct.avifDecodeSample, ptr %225, i64 %188
+  %227 = tail call fastcc i32 @avifDecoderPrepareSample(ptr noundef nonnull %0, ptr noundef %226, i64 noundef 0)
+  %.not18.i = icmp eq i32 %227, 0
+  br i1 %.not18.i, label %209, label %avifDecoderPrepareTiles.exit
+
+avifDecoderPrepareTiles.exit:                     ; preds = %224
+  %228 = load i32, ptr %189, align 8
+  %.not71 = icmp ne i32 %228, 0
+  %.not72 = icmp eq i32 %227, 23
+  %or.cond = and i1 %.not72, %.not71
+  br i1 %or.cond, label %.thread102, label %avifDecoderCreateCodecs.exit.thread
+
+.thread102:                                       ; preds = %209, %199, %avifDecoderPrepareTiles.exit
+  br i1 %200, label %199, label %.preheader112, !llvm.loop !60
+
+229:                                              ; preds = %.preheader112, %.loopexit
+  %230 = phi i1 [ true, %.preheader112 ], [ false, %.loopexit ]
+  %indvars.iv168 = phi i64 [ 0, %.preheader112 ], [ 1, %.loopexit ]
+  %231 = load ptr, ptr %8, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 56
+  %233 = getelementptr inbounds [2 x %struct.avifTileInfo], ptr %232, i64 0, i64 %indvars.iv168
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
+  %235 = load i32, ptr %234, align 4
+  %236 = load i32, ptr %233, align 4
+  %237 = icmp ult i32 %235, %236
+  br i1 %237, label %.lr.ph.i80, label %.loopexit
+
+.lr.ph.i80:                                       ; preds = %229
+  %238 = getelementptr inbounds nuw i8, ptr %233, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %233, i64 12
+  %240 = getelementptr inbounds i8, ptr %233, i64 16
+  %241 = getelementptr inbounds i8, ptr %233, i64 20
+  %242 = getelementptr inbounds i8, ptr %233, i64 24
+  br label %243
+
+243:                                              ; preds = %588, %.lr.ph.i80
+  %.073109.i = phi i32 [ %235, %.lr.ph.i80 ], [ %589, %588 ]
+  %244 = load ptr, ptr %8, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
+  %246 = load ptr, ptr %245, align 8
+  %247 = load i32, ptr %238, align 4
+  %248 = add i32 %247, %.073109.i
+  %249 = zext i32 %248 to i64
+  %250 = getelementptr inbounds %struct.avifTile, ptr %246, i64 %249
+  %251 = load ptr, ptr %250, align 8
+  %252 = load ptr, ptr %251, align 8
+  %253 = getelementptr inbounds %struct.avifDecodeSample, ptr %252, i64 %188
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
+  %255 = load i64, ptr %254, align 8
+  %256 = getelementptr inbounds nuw i8, ptr %253, i64 40
+  %257 = load i64, ptr %256, align 8
+  %258 = icmp ult i64 %255, %257
+  br i1 %258, label %.loopexit, label %259
+
+259:                                              ; preds = %243
+  store i32 0, ptr %6, align 4
+  %260 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  %261 = load ptr, ptr %260, align 8
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 32
+  %263 = load ptr, ptr %262, align 8
+  %264 = getelementptr inbounds nuw i8, ptr %251, i64 28
+  %265 = load i32, ptr %264, align 4
+  %266 = icmp eq i32 %265, 1
+  %267 = zext i1 %266 to i32
+  %268 = getelementptr inbounds nuw i8, ptr %250, i64 24
+  %269 = load ptr, ptr %268, align 8
+  %270 = call i32 %263(ptr noundef %261, ptr noundef nonnull %0, ptr noundef nonnull %253, i32 noundef %267, ptr noundef nonnull %6, ptr noundef %269) #13
+  %.not.i81 = icmp eq i32 %270, 0
+  br i1 %.not.i81, label %271, label %277
+
+271:                                              ; preds = %259
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.198) #13
+  %272 = load ptr, ptr %250, align 8
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 28
+  %274 = load i32, ptr %273, align 4
+  %275 = icmp eq i32 %274, 1
+  %276 = select i1 %275, i32 12, i32 11
+  br label %avifDecoderDecodeTiles.exit.thread
+
+277:                                              ; preds = %259
+  %278 = load ptr, ptr %250, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 28
+  %280 = load i32, ptr %279, align 4
+  %281 = icmp eq i32 %280, 1
+  %282 = load i32, ptr %6, align 4
+  %283 = icmp ne i32 %282, 0
+  %or.cond.i = select i1 %281, i1 %283, i1 false
+  br i1 %or.cond.i, label %284, label %avifImageLimitedToFullAlpha.exit.thread.i
+
+284:                                              ; preds = %277
+  %285 = load ptr, ptr %268, align 8
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 76
+  %287 = load i32, ptr %286, align 4
+  %.not.i.i82 = icmp eq i32 %287, 0
+  br i1 %.not.i.i82, label %288, label %avifImageLimitedToFullAlpha.exit.i
+
+288:                                              ; preds = %284
+  %289 = getelementptr inbounds nuw i8, ptr %285, i64 64
+  %290 = load ptr, ptr %289, align 8
+  %291 = getelementptr inbounds nuw i8, ptr %285, i64 72
+  %292 = load i32, ptr %291, align 8
+  store ptr null, ptr %289, align 8
+  store i32 0, ptr %291, align 8
+  %293 = call i32 @avifImageAllocatePlanes(ptr noundef nonnull %285, i32 noundef 2) #13
+  %.not52.i.i = icmp eq i32 %293, 0
+  br i1 %.not52.i.i, label %294, label %avifImageLimitedToFullAlpha.exit.i
+
+294:                                              ; preds = %288
+  %295 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  %296 = load i32, ptr %295, align 8
+  %297 = icmp ugt i32 %296, 8
+  %298 = getelementptr inbounds nuw i8, ptr %285, i64 4
+  %299 = load i32, ptr %298, align 4
+  %.not67.i.i = icmp eq i32 %299, 0
+  br i1 %297, label %.preheader.i.i, label %.preheader53.i.i
+
+.preheader53.i.i:                                 ; preds = %294
+  br i1 %.not67.i.i, label %avifImageLimitedToFullAlpha.exit.thread.i, label %.lr.ph57.i.i
+
+.lr.ph57.i.i:                                     ; preds = %.preheader53.i.i
+  %300 = load i32, ptr %285, align 8
+  %.not65.i.i = icmp eq i32 %300, 0
+  br i1 %.not65.i.i, label %avifImageLimitedToFullAlpha.exit.thread.i, label %.lr.ph57.split.i.i
+
+.preheader.i.i:                                   ; preds = %294
+  br i1 %.not67.i.i, label %avifImageLimitedToFullAlpha.exit.thread.i, label %.lr.ph63.i.i
+
+.lr.ph63.i.i:                                     ; preds = %.preheader.i.i
+  %301 = load i32, ptr %285, align 8
+  %.not68.i.i = icmp eq i32 %301, 0
+  br i1 %.not68.i.i, label %avifImageLimitedToFullAlpha.exit.thread.i, label %.lr.ph63.split.i.i
+
+.lr.ph63.split.i.i:                               ; preds = %.lr.ph63.i.i, %._crit_edge61.i.i
+  %302 = phi i32 [ %325, %._crit_edge61.i.i ], [ %299, %.lr.ph63.i.i ]
+  %303 = phi i32 [ %326, %._crit_edge61.i.i ], [ 1, %.lr.ph63.i.i ]
+  %indvars.iv80.i.i = phi i64 [ %indvars.iv.next81.i.i, %._crit_edge61.i.i ], [ 0, %.lr.ph63.i.i ]
+  %304 = trunc nuw i64 %indvars.iv80.i.i to i32
+  %305 = mul i32 %292, %304
+  %306 = zext i32 %305 to i64
+  %307 = getelementptr inbounds i8, ptr %290, i64 %306
+  %308 = load ptr, ptr %289, align 8
+  %309 = load i32, ptr %291, align 8
+  %310 = mul i32 %309, %304
+  %311 = zext i32 %310 to i64
+  %312 = getelementptr inbounds i8, ptr %308, i64 %311
+  %.not69.i.i = icmp eq i32 %303, 0
+  br i1 %.not69.i.i, label %._crit_edge61.i.i, label %.lr.ph60.i.i
+
+.lr.ph60.i.i:                                     ; preds = %.lr.ph63.split.i.i, %.lr.ph60.i.i
+  %indvars.iv77.i.i = phi i64 [ %indvars.iv.next78.i.i, %.lr.ph60.i.i ], [ 0, %.lr.ph63.split.i.i ]
+  %313 = shl nuw nsw i64 %indvars.iv77.i.i, 1
+  %314 = and i64 %313, 4294967294
+  %315 = getelementptr inbounds i8, ptr %307, i64 %314
+  %316 = load i16, ptr %315, align 2
+  %317 = zext i16 %316 to i32
+  %318 = load i32, ptr %295, align 8
+  %319 = call i32 @avifLimitedToFullY(i32 noundef %318, i32 noundef %317) #13
+  %320 = trunc i32 %319 to i16
+  %321 = getelementptr inbounds i8, ptr %312, i64 %314
+  store i16 %320, ptr %321, align 2
+  %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
+  %322 = load i32, ptr %285, align 8
+  %323 = zext i32 %322 to i64
+  %324 = icmp ult i64 %indvars.iv.next78.i.i, %323
+  br i1 %324, label %.lr.ph60.i.i, label %._crit_edge61.loopexit.i.i, !llvm.loop !61
+
+._crit_edge61.loopexit.i.i:                       ; preds = %.lr.ph60.i.i
+  %.pre83.i.i = load i32, ptr %298, align 4
+  br label %._crit_edge61.i.i
+
+._crit_edge61.i.i:                                ; preds = %._crit_edge61.loopexit.i.i, %.lr.ph63.split.i.i
+  %325 = phi i32 [ %.pre83.i.i, %._crit_edge61.loopexit.i.i ], [ %302, %.lr.ph63.split.i.i ]
+  %326 = phi i32 [ %322, %._crit_edge61.loopexit.i.i ], [ 0, %.lr.ph63.split.i.i ]
+  %indvars.iv.next81.i.i = add nuw nsw i64 %indvars.iv80.i.i, 1
+  %327 = zext i32 %325 to i64
+  %328 = icmp ult i64 %indvars.iv.next81.i.i, %327
+  br i1 %328, label %.lr.ph63.split.i.i, label %avifImageLimitedToFullAlpha.exit.thread.i, !llvm.loop !62
+
+.lr.ph57.split.i.i:                               ; preds = %.lr.ph57.i.i, %._crit_edge.i.i
+  %329 = phi i32 [ %350, %._crit_edge.i.i ], [ %299, %.lr.ph57.i.i ]
+  %330 = phi i32 [ %351, %._crit_edge.i.i ], [ 1, %.lr.ph57.i.i ]
+  %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %._crit_edge.i.i ], [ 0, %.lr.ph57.i.i ]
+  %331 = trunc nuw i64 %indvars.iv74.i.i to i32
+  %332 = mul i32 %292, %331
+  %333 = zext i32 %332 to i64
+  %334 = getelementptr inbounds i8, ptr %290, i64 %333
+  %335 = load ptr, ptr %289, align 8
+  %336 = load i32, ptr %291, align 8
+  %337 = mul i32 %336, %331
+  %338 = zext i32 %337 to i64
+  %339 = getelementptr inbounds i8, ptr %335, i64 %338
+  %.not66.i.i = icmp eq i32 %330, 0
+  br i1 %.not66.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i83
+
+.lr.ph.i.i83:                                     ; preds = %.lr.ph57.split.i.i, %.lr.ph.i.i83
+  %indvars.iv.i.i84 = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i83 ], [ 0, %.lr.ph57.split.i.i ]
+  %340 = getelementptr inbounds i8, ptr %334, i64 %indvars.iv.i.i84
+  %341 = load i8, ptr %340, align 1
+  %342 = zext i8 %341 to i32
+  %343 = load i32, ptr %295, align 8
+  %344 = call i32 @avifLimitedToFullY(i32 noundef %343, i32 noundef %342) #13
+  %345 = trunc i32 %344 to i8
+  %346 = getelementptr inbounds i8, ptr %339, i64 %indvars.iv.i.i84
+  store i8 %345, ptr %346, align 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i84, 1
+  %347 = load i32, ptr %285, align 8
+  %348 = zext i32 %347 to i64
+  %349 = icmp ult i64 %indvars.iv.next.i.i, %348
+  br i1 %349, label %.lr.ph.i.i83, label %._crit_edge.loopexit.i.i, !llvm.loop !63
+
+._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i83
+  %.pre.i.i = load i32, ptr %298, align 4
+  br label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.lr.ph57.split.i.i
+  %350 = phi i32 [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ %329, %.lr.ph57.split.i.i ]
+  %351 = phi i32 [ %347, %._crit_edge.loopexit.i.i ], [ 0, %.lr.ph57.split.i.i ]
+  %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
+  %352 = zext i32 %350 to i64
+  %353 = icmp ult i64 %indvars.iv.next75.i.i, %352
+  br i1 %353, label %.lr.ph57.split.i.i, label %avifImageLimitedToFullAlpha.exit.thread.i, !llvm.loop !64
+
+avifImageLimitedToFullAlpha.exit.i:               ; preds = %288, %284
+  %.0.i.i = phi i32 [ 25, %284 ], [ %293, %288 ]
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.199) #13
+  br label %avifDecoderDecodeTiles.exit.thread
+
+avifImageLimitedToFullAlpha.exit.thread.i:        ; preds = %._crit_edge.i.i, %._crit_edge61.i.i, %.lr.ph63.i.i, %.preheader.i.i, %.lr.ph57.i.i, %.preheader53.i.i, %277
+  %354 = getelementptr inbounds nuw i8, ptr %250, i64 32
+  %355 = load i32, ptr %354, align 8
+  %356 = load ptr, ptr %268, align 8
+  %357 = load i32, ptr %356, align 8
+  %.not78.i = icmp eq i32 %355, %357
+  %358 = getelementptr inbounds nuw i8, ptr %250, i64 36
+  %359 = load i32, ptr %358, align 4
+  br i1 %.not78.i, label %360, label %avifImageLimitedToFullAlpha.exit.thread._crit_edge.i
+
+360:                                              ; preds = %avifImageLimitedToFullAlpha.exit.thread.i
+  %361 = getelementptr inbounds nuw i8, ptr %356, i64 4
+  %362 = load i32, ptr %361, align 4
+  %.not79.i = icmp eq i32 %359, %362
+  br i1 %.not79.i, label %372, label %avifImageLimitedToFullAlpha.exit.thread._crit_edge.i
+
+avifImageLimitedToFullAlpha.exit.thread._crit_edge.i: ; preds = %360, %avifImageLimitedToFullAlpha.exit.thread.i
+  %363 = load i32, ptr %190, align 4
+  %364 = load i32, ptr %191, align 8
+  %365 = call i32 @avifImageScaleWithLimit(ptr noundef nonnull %356, i32 noundef %355, i32 noundef %359, i32 noundef %363, i32 noundef %364, ptr noundef nonnull %7) #13
+  %.not80.i = icmp eq i32 %365, 0
+  br i1 %.not80.i, label %372, label %366
+
+366:                                              ; preds = %avifImageLimitedToFullAlpha.exit.thread._crit_edge.i
+  %367 = load ptr, ptr %250, align 8
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 28
+  %369 = load i32, ptr %368, align 4
+  %370 = icmp eq i32 %369, 1
+  %371 = select i1 %370, i32 12, i32 11
+  br label %avifDecoderDecodeTiles.exit.thread
+
+372:                                              ; preds = %avifImageLimitedToFullAlpha.exit.thread._crit_edge.i, %360
+  %373 = load i32, ptr %234, align 4
+  %374 = add i32 %373, 1
+  store i32 %374, ptr %234, align 4
+  %375 = load i32, ptr %239, align 4
+  %.not81.i = icmp eq i32 %375, 0
+  br i1 %.not81.i, label %551, label %376
+
+376:                                              ; preds = %372
+  %377 = load i32, ptr %240, align 4
+  %.not82.i = icmp eq i32 %377, 0
+  br i1 %.not82.i, label %551, label %378
+
+378:                                              ; preds = %376
+  %379 = icmp eq i32 %.073109.i, 0
+  br i1 %379, label %380, label %.split.i
+
+380:                                              ; preds = %378
+  %381 = load ptr, ptr %192, align 8
+  %382 = load ptr, ptr %8, align 8
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 32
+  %384 = load ptr, ptr %383, align 8
+  %385 = load i32, ptr %238, align 4
+  %386 = zext i32 %385 to i64
+  %387 = getelementptr inbounds %struct.avifTile, ptr %384, i64 %386
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 24
+  %389 = load ptr, ptr %388, align 8
+  %390 = load i32, ptr %389, align 8
+  %391 = mul i32 %390, %377
+  %392 = load i32, ptr %241, align 4
+  %393 = icmp ult i32 %391, %392
+  br i1 %393, label %.sink.split.i.i, label %394
+
+394:                                              ; preds = %380
+  %395 = getelementptr inbounds nuw i8, ptr %389, i64 4
+  %396 = load i32, ptr %395, align 4
+  %397 = mul i32 %396, %375
+  %398 = load i32, ptr %242, align 4
+  %399 = icmp ult i32 %397, %398
+  br i1 %399, label %.sink.split.i.i, label %400
+
+400:                                              ; preds = %394
+  %401 = add i32 %377, -1
+  %402 = mul i32 %390, %401
+  %.not.i88.i = icmp ult i32 %402, %392
+  br i1 %.not.i88.i, label %403, label %.sink.split.i.i
+
+403:                                              ; preds = %400
+  %404 = add i32 %375, -1
+  %405 = mul i32 %396, %404
+  %.not58.i.i = icmp ult i32 %405, %398
+  br i1 %.not58.i.i, label %406, label %.sink.split.i.i
+
+406:                                              ; preds = %403
+  %407 = load ptr, ptr %387, align 8
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 28
+  %409 = load i32, ptr %408, align 4
+  %410 = icmp eq i32 %409, 1
+  %411 = getelementptr inbounds nuw i8, ptr %389, i64 12
+  %412 = load i32, ptr %411, align 4
+  %413 = getelementptr inbounds nuw i8, ptr %382, i64 144
+  %414 = load ptr, ptr %413, align 8
+  %415 = call i32 @avifAreGridDimensionsValid(i32 noundef %412, i32 noundef %392, i32 noundef %398, i32 noundef %390, i32 noundef %396, ptr noundef %414) #13
+  %.not59.i.i = icmp eq i32 %415, 0
+  br i1 %.not59.i.i, label %avifDecoderDecodeTiles.exit.thread, label %416
+
+416:                                              ; preds = %406
+  %417 = load i32, ptr %381, align 8
+  %418 = load i32, ptr %241, align 4
+  %.not60.i.i = icmp eq i32 %417, %418
+  br i1 %.not60.i.i, label %419, label %435
+
+419:                                              ; preds = %416
+  %420 = getelementptr inbounds nuw i8, ptr %381, i64 4
+  %421 = load i32, ptr %420, align 4
+  %422 = load i32, ptr %242, align 4
+  %.not61.i.i = icmp eq i32 %421, %422
+  br i1 %.not61.i.i, label %423, label %435
+
+423:                                              ; preds = %419
+  %424 = getelementptr inbounds nuw i8, ptr %381, i64 8
+  %425 = load i32, ptr %424, align 8
+  %426 = load ptr, ptr %388, align 8
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 8
+  %428 = load i32, ptr %427, align 8
+  %.not62.i.i = icmp eq i32 %425, %428
+  br i1 %.not62.i.i, label %429, label %435
+
+429:                                              ; preds = %423
+  br i1 %410, label %462, label %430
+
+430:                                              ; preds = %429
+  %431 = getelementptr inbounds nuw i8, ptr %381, i64 12
+  %432 = load i32, ptr %431, align 4
+  %433 = getelementptr inbounds nuw i8, ptr %426, i64 12
+  %434 = load i32, ptr %433, align 4
+  %.not63.i.i = icmp eq i32 %432, %434
+  br i1 %.not63.i.i, label %462, label %.thread.i.i
+
+435:                                              ; preds = %423, %419, %416
+  br i1 %410, label %.sink.split.i.i, label %.thread.i.i
+
+.thread.i.i:                                      ; preds = %435, %430
+  call void @avifImageFreePlanes(ptr noundef nonnull %381, i32 noundef 255) #13
+  %436 = load i32, ptr %241, align 4
+  store i32 %436, ptr %381, align 8
+  %437 = load i32, ptr %242, align 4
+  %438 = getelementptr inbounds nuw i8, ptr %381, i64 4
+  store i32 %437, ptr %438, align 4
+  %439 = load ptr, ptr %388, align 8
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
+  %441 = load i32, ptr %440, align 8
+  %442 = getelementptr inbounds nuw i8, ptr %381, i64 8
+  store i32 %441, ptr %442, align 8
+  %443 = load ptr, ptr %388, align 8
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 12
+  %445 = load i32, ptr %444, align 4
+  %446 = getelementptr inbounds nuw i8, ptr %381, i64 12
+  store i32 %445, ptr %446, align 4
+  %447 = getelementptr inbounds nuw i8, ptr %382, i64 160
+  %448 = load i32, ptr %447, align 8
+  %.not64.i.i = icmp eq i32 %448, 0
+  br i1 %.not64.i.i, label %449, label %462
+
+449:                                              ; preds = %.thread.i.i
+  store i32 1, ptr %447, align 8
+  %450 = load ptr, ptr %388, align 8
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 104
+  %452 = load i16, ptr %451, align 8
+  %453 = getelementptr inbounds nuw i8, ptr %381, i64 104
+  store i16 %452, ptr %453, align 8
+  %454 = load ptr, ptr %388, align 8
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 106
+  %456 = load i16, ptr %455, align 2
+  %457 = getelementptr inbounds nuw i8, ptr %381, i64 106
+  store i16 %456, ptr %457, align 2
+  %458 = load ptr, ptr %388, align 8
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 108
+  %460 = load i16, ptr %459, align 4
+  %461 = getelementptr inbounds nuw i8, ptr %381, i64 108
+  store i16 %460, ptr %461, align 4
+  br label %462
+
+462:                                              ; preds = %449, %.thread.i.i, %430, %429
+  %463 = select i1 %410, i32 2, i32 1
+  %464 = call i32 @avifImageAllocatePlanes(ptr noundef nonnull %381, i32 noundef %463) #13
+  %.not65.i90.i = icmp eq i32 %464, 0
+  br i1 %.not65.i90.i, label %.split.i, label %.sink.split.i.i
+
+.sink.split.i.i:                                  ; preds = %462, %435, %403, %400, %394, %380
+  %.str.204.sink.i.i = phi ptr [ @.str.201, %394 ], [ @.str.201, %380 ], [ @.str.202, %403 ], [ @.str.202, %400 ], [ @.str.204, %462 ], [ @.str.203, %435 ]
+  %.0.ph.i.i = phi i32 [ 18, %394 ], [ 18, %380 ], [ 18, %403 ], [ 18, %400 ], [ 26, %462 ], [ 18, %435 ]
+  %.sink66.i.i = getelementptr inbounds nuw i8, ptr %382, i64 144
+  %465 = load ptr, ptr %.sink66.i.i, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %465, ptr noundef nonnull %.str.204.sink.i.i) #13
+  br label %avifDecoderDecodeTiles.exit.thread
+
+.split.i:                                         ; preds = %462, %378
+  %466 = load ptr, ptr %8, align 8
+  %467 = load ptr, ptr %192, align 8
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  %468 = getelementptr inbounds nuw i8, ptr %466, i64 32
+  %469 = load ptr, ptr %468, align 8
+  %470 = load i32, ptr %238, align 4
+  %471 = zext i32 %470 to i64
+  %472 = getelementptr inbounds %struct.avifTile, ptr %469, i64 %471
+  %.not.i89 = icmp eq ptr %250, %472
+  br i1 %.not.i89, label %517, label %473
+
+473:                                              ; preds = %.split.i
+  %474 = load ptr, ptr %268, align 8
+  %475 = load i32, ptr %474, align 8
+  %476 = getelementptr inbounds nuw i8, ptr %472, i64 24
+  %477 = load ptr, ptr %476, align 8
+  %478 = load i32, ptr %477, align 8
+  %.not44.i = icmp eq i32 %475, %478
+  br i1 %.not44.i, label %479, label %514
+
+479:                                              ; preds = %473
+  %480 = getelementptr inbounds nuw i8, ptr %474, i64 4
+  %481 = load i32, ptr %480, align 4
+  %482 = getelementptr inbounds nuw i8, ptr %477, i64 4
+  %483 = load i32, ptr %482, align 4
+  %.not45.i = icmp eq i32 %481, %483
+  br i1 %.not45.i, label %484, label %514
+
+484:                                              ; preds = %479
+  %485 = getelementptr inbounds nuw i8, ptr %474, i64 8
+  %486 = load i32, ptr %485, align 8
+  %487 = getelementptr inbounds nuw i8, ptr %477, i64 8
+  %488 = load i32, ptr %487, align 8
+  %.not46.i = icmp eq i32 %486, %488
+  br i1 %.not46.i, label %489, label %514
+
+489:                                              ; preds = %484
+  %490 = getelementptr inbounds nuw i8, ptr %474, i64 12
+  %491 = load i32, ptr %490, align 4
+  %492 = getelementptr inbounds nuw i8, ptr %477, i64 12
+  %493 = load i32, ptr %492, align 4
+  %.not47.i = icmp eq i32 %491, %493
+  br i1 %.not47.i, label %494, label %514
+
+494:                                              ; preds = %489
+  %495 = getelementptr inbounds nuw i8, ptr %474, i64 16
+  %496 = load i32, ptr %495, align 8
+  %497 = getelementptr inbounds nuw i8, ptr %477, i64 16
+  %498 = load i32, ptr %497, align 8
+  %.not48.i = icmp eq i32 %496, %498
+  br i1 %.not48.i, label %499, label %514
+
+499:                                              ; preds = %494
+  %500 = getelementptr inbounds nuw i8, ptr %474, i64 104
+  %501 = load i16, ptr %500, align 8
+  %502 = getelementptr inbounds nuw i8, ptr %477, i64 104
+  %503 = load i16, ptr %502, align 8
+  %.not49.i = icmp eq i16 %501, %503
+  br i1 %.not49.i, label %504, label %514
+
+504:                                              ; preds = %499
+  %505 = getelementptr inbounds nuw i8, ptr %474, i64 106
+  %506 = load i16, ptr %505, align 2
+  %507 = getelementptr inbounds nuw i8, ptr %477, i64 106
+  %508 = load i16, ptr %507, align 2
+  %.not50.i = icmp eq i16 %506, %508
+  br i1 %.not50.i, label %509, label %514
+
+509:                                              ; preds = %504
+  %510 = getelementptr inbounds nuw i8, ptr %474, i64 108
+  %511 = load i16, ptr %510, align 4
+  %512 = getelementptr inbounds nuw i8, ptr %477, i64 108
+  %513 = load i16, ptr %512, align 4
+  %.not51.i = icmp eq i16 %511, %513
+  br i1 %.not51.i, label %517, label %514
+
+514:                                              ; preds = %509, %504, %499, %494, %489, %484, %479, %473
+  %515 = getelementptr inbounds nuw i8, ptr %466, i64 144
+  %516 = load ptr, ptr %515, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %516, ptr noundef nonnull @.str.205) #13
+  br label %avifDecoderDataCopyTileToImage.exit.thread
+
+517:                                              ; preds = %509, %.split.i
+  %518 = load i32, ptr %240, align 4
+  %519 = udiv i32 %.073109.i, %518
+  %520 = urem i32 %.073109.i, %518
+  call void @avifImageSetDefaults(ptr noundef nonnull %2) #13
+  call void @avifImageSetDefaults(ptr noundef nonnull %3) #13
+  %521 = getelementptr inbounds nuw i8, ptr %472, i64 24
+  %522 = load ptr, ptr %521, align 8
+  %523 = load i32, ptr %522, align 8
+  %524 = mul i32 %523, %520
+  store i32 %524, ptr %4, align 4
+  %525 = getelementptr inbounds nuw i8, ptr %522, i64 4
+  %526 = load i32, ptr %525, align 4
+  %527 = mul i32 %526, %519
+  store i32 %527, ptr %193, align 4
+  store i32 %523, ptr %194, align 4
+  store i32 %526, ptr %195, align 4
+  %528 = add i32 %524, %523
+  %529 = load i32, ptr %241, align 4
+  %530 = icmp ugt i32 %528, %529
+  br i1 %530, label %531, label %533
+
+531:                                              ; preds = %517
+  %532 = sub i32 %529, %524
+  store i32 %532, ptr %194, align 4
+  br label %533
+
+533:                                              ; preds = %531, %517
+  %534 = phi i32 [ %532, %531 ], [ %523, %517 ]
+  %535 = add i32 %527, %526
+  %536 = load i32, ptr %242, align 4
+  %537 = icmp ugt i32 %535, %536
+  br i1 %537, label %538, label %540
+
+538:                                              ; preds = %533
+  %539 = sub i32 %536, %527
+  store i32 %539, ptr %195, align 4
+  br label %540
+
+540:                                              ; preds = %538, %533
+  %541 = phi i32 [ %539, %538 ], [ %526, %533 ]
+  store i32 0, ptr %5, align 4
+  store i32 0, ptr %196, align 4
+  store i32 %534, ptr %197, align 4
+  store i32 %541, ptr %198, align 4
+  %542 = call i32 @avifImageSetViewRect(ptr noundef nonnull %3, ptr noundef %467, ptr noundef nonnull %4) #13
+  %.not52.i = icmp eq i32 %542, 0
+  br i1 %.not52.i, label %543, label %avifDecoderDataCopyTileToImage.exit.thread
+
+543:                                              ; preds = %540
+  %544 = load ptr, ptr %268, align 8
+  %545 = call i32 @avifImageSetViewRect(ptr noundef nonnull %2, ptr noundef %544, ptr noundef nonnull %5) #13
+  %.not53.i = icmp eq i32 %545, 0
+  br i1 %.not53.i, label %avifDecoderDataCopyTileToImage.exit, label %avifDecoderDataCopyTileToImage.exit.thread
+
+avifDecoderDataCopyTileToImage.exit.thread:       ; preds = %543, %540, %514
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  br label %avifDecoderDecodeTiles.exit.thread
+
+avifDecoderDataCopyTileToImage.exit:              ; preds = %543
+  %546 = load ptr, ptr %250, align 8
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 28
+  %548 = load i32, ptr %547, align 4
+  %549 = icmp eq i32 %548, 1
+  %550 = select i1 %549, i32 2, i32 1
+  call void @avifImageCopySamples(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %550) #13
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  br label %588
+
+551:                                              ; preds = %376, %372
+  %552 = load ptr, ptr %268, align 8
+  %553 = load ptr, ptr %192, align 8
+  %554 = load i32, ptr %553, align 8
+  %555 = load i32, ptr %552, align 8
+  %.not83.i = icmp eq i32 %554, %555
+  br i1 %.not83.i, label %556, label %566
+
+556:                                              ; preds = %551
+  %557 = getelementptr inbounds nuw i8, ptr %553, i64 4
+  %558 = load i32, ptr %557, align 4
+  %559 = getelementptr inbounds nuw i8, ptr %552, i64 4
+  %560 = load i32, ptr %559, align 4
+  %.not84.i = icmp eq i32 %558, %560
+  br i1 %.not84.i, label %561, label %566
+
+561:                                              ; preds = %556
+  %562 = getelementptr inbounds nuw i8, ptr %553, i64 8
+  %563 = load i32, ptr %562, align 8
+  %564 = getelementptr inbounds nuw i8, ptr %552, i64 8
+  %565 = load i32, ptr %564, align 8
+  %.not85.i = icmp eq i32 %563, %565
+  br i1 %.not85.i, label %.sink.split.i, label %566
+
+566:                                              ; preds = %561, %556, %551
+  %567 = load ptr, ptr %250, align 8
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 28
+  %569 = load i32, ptr %568, align 4
+  %570 = icmp eq i32 %569, 1
+  br i1 %570, label %571, label %572
+
+571:                                              ; preds = %566
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.200) #13
+  br label %avifDecoderDecodeTiles.exit.thread
+
+572:                                              ; preds = %566
+  call void @avifImageFreePlanes(ptr noundef nonnull %553, i32 noundef 255) #13
+  %573 = load i32, ptr %552, align 8
+  %574 = load ptr, ptr %192, align 8
+  store i32 %573, ptr %574, align 8
+  %575 = getelementptr inbounds nuw i8, ptr %552, i64 4
+  %576 = load i32, ptr %575, align 4
+  %577 = load ptr, ptr %192, align 8
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 4
+  store i32 %576, ptr %578, align 4
+  %579 = getelementptr inbounds nuw i8, ptr %552, i64 8
+  %580 = load i32, ptr %579, align 8
+  %581 = load ptr, ptr %192, align 8
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 8
+  store i32 %580, ptr %582, align 8
+  %.pre174 = load ptr, ptr %192, align 8
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %572, %561
+  %583 = phi ptr [ %.pre174, %572 ], [ %553, %561 ]
+  %584 = load ptr, ptr %250, align 8
+  %585 = getelementptr inbounds nuw i8, ptr %584, i64 28
+  %586 = load i32, ptr %585, align 4
+  %587 = icmp eq i32 %586, 1
+  %..i = select i1 %587, i32 2, i32 1
+  call void @avifImageStealPlanes(ptr noundef %583, ptr noundef nonnull %552, i32 noundef %..i) #13
+  br label %588
+
+588:                                              ; preds = %avifDecoderDataCopyTileToImage.exit, %.sink.split.i
+  %589 = add nuw i32 %.073109.i, 1
+  %590 = load i32, ptr %233, align 4
+  %591 = icmp ult i32 %589, %590
+  br i1 %591, label %243, label %.loopexit, !llvm.loop !65
+
+avifDecoderDecodeTiles.exit.thread:               ; preds = %406, %avifImageLimitedToFullAlpha.exit.i, %366, %571, %271, %.sink.split.i.i, %avifDecoderDataCopyTileToImage.exit.thread
+  %.0.i79.ph = phi i32 [ 18, %avifDecoderDataCopyTileToImage.exit.thread ], [ %.0.ph.i.i, %.sink.split.i.i ], [ %276, %271 ], [ 12, %571 ], [ %371, %366 ], [ %.0.i.i, %avifImageLimitedToFullAlpha.exit.i ], [ 18, %406 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br label %avifDecoderCreateCodecs.exit.thread
+
+.loopexit:                                        ; preds = %588, %243, %229
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  br i1 %230, label %229, label %592, !llvm.loop !66
+
+592:                                              ; preds = %.loopexit
+  %593 = load ptr, ptr %8, align 8
+  %594 = getelementptr inbounds nuw i8, ptr %593, i64 56
+  br label %595
+
+595:                                              ; preds = %595, %592
+  %.not109 = phi i1 [ false, %592 ], [ true, %595 ]
+  %indvars.iv.i85 = phi i64 [ 0, %592 ], [ 1, %595 ]
+  %596 = getelementptr inbounds [2 x %struct.avifTileInfo], ptr %594, i64 0, i64 %indvars.iv.i85
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 4
+  %598 = load i32, ptr %597, align 4
+  %599 = load i32, ptr %596, align 4
+  %.not.i86 = icmp ne i32 %598, %599
+  %brmerge = or i1 %.not109, %.not.i86
+  br i1 %brmerge, label %avifDecoderDataFrameFullyDecoded.exit88, label %595
+
+avifDecoderDataFrameFullyDecoded.exit88:          ; preds = %595
+  br i1 %.not.i86, label %avifDecoderCreateCodecs.exit.thread, label %.preheader110.preheader
+
+.preheader110.preheader:                          ; preds = %avifDecoderDataFrameFullyDecoded.exit88
+  store i32 %36, ptr %34, align 8
+  %600 = getelementptr inbounds nuw i8, ptr %593, i64 152
+  %601 = load ptr, ptr %600, align 8
+  %.not68 = icmp eq ptr %601, null
+  br i1 %.not68, label %605, label %602
+
+602:                                              ; preds = %.preheader110.preheader
+  %603 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %604 = call i32 @avifDecoderNthImageTiming(ptr noundef nonnull %0, i32 noundef %36, ptr noundef nonnull %603)
+  %.not69 = icmp eq i32 %604, 0
+  br i1 %.not69, label %605, label %avifDecoderCreateCodecs.exit.thread
+
+605:                                              ; preds = %602, %.preheader110.preheader
+  br label %avifDecoderCreateCodecs.exit.thread
+
+avifDecoderCreateCodecs.exit.thread:              ; preds = %170, %.lr.ph.i, %avifDecoderPrepareTiles.exit, %213, %avifDecoderDataFrameFullyDecoded.exit88, %.critedge.i, %136, %71, %79, %45, %52, %avifDecoderDecodeTiles.exit.thread, %602, %14, %17, %1, %10, %605
+  %.0 = phi i32 [ 0, %605 ], [ 3, %10 ], [ 3, %1 ], [ 21, %17 ], [ 21, %14 ], [ %604, %602 ], [ %.0.i79.ph, %avifDecoderDecodeTiles.exit.thread ], [ %135, %.critedge.i ], [ 26, %136 ], [ %78, %71 ], [ 26, %79 ], [ %51, %45 ], [ 26, %52 ], [ 23, %avifDecoderDataFrameFullyDecoded.exit88 ], [ 16, %213 ], [ %227, %avifDecoderPrepareTiles.exit ], [ %169, %.lr.ph.i ], [ 26, %170 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define hidden range(i32 0, 17) i32 @avifDecoderNthImageTiming(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %5 = load ptr, ptr %4, align 8
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %76, label %6
+
+6:                                                ; preds = %3
+  %7 = icmp slt i32 %1, 0
+  br i1 %7, label %76, label %8
+
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %10 = load i32, ptr %9, align 4
+  %.not32 = icmp slt i32 %1, %10
+  br i1 %.not32, label %11, label %76
+
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %13 = load ptr, ptr %12, align 8
+  %.not33 = icmp eq ptr %13, null
+  br i1 %.not33, label %14, label %16
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
+  br label %76
+
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %18 = load i64, ptr %17, align 8
+  store i64 %18, ptr %2, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 0, ptr %19, align 8
+  %.not48 = icmp eq i32 %1, 0
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %16, %avifSampleTableGetImageDelta.exit
+  %20 = phi i64 [ %41, %avifSampleTableGetImageDelta.exit ], [ 0, %16 ]
+  %.047 = phi i32 [ %42, %avifSampleTableGetImageDelta.exit ], [ 0, %16 ]
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 152
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 108
+  %25 = load i32, ptr %24, align 4
+  %.not.i = icmp eq i32 %25, 0
+  br i1 %.not.i, label %avifSampleTableGetImageDelta.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 96
+  %27 = load ptr, ptr %26, align 8
+  %28 = add i32 %25, -1
+  %29 = zext i32 %28 to i64
+  %wide.trip.count.i = zext i32 %25 to i64
+  br label %31
+
+30:                                               ; preds = %31
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %avifSampleTableGetImageDelta.exit, label %31, !llvm.loop !67
+
+31:                                               ; preds = %30, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
+  %.01319.i = phi i32 [ 0, %.lr.ph.i ], [ %34, %30 ]
+  %32 = getelementptr inbounds %struct.avifSampleTableTimeToSample, ptr %27, i64 %indvars.iv.i
+  %33 = load i32, ptr %32, align 4
+  %34 = add i32 %33, %.01319.i
+  %35 = icmp slt i32 %.047, %34
+  %36 = icmp eq i64 %indvars.iv.i, %29
+  %or.cond.i = or i1 %36, %35
+  br i1 %or.cond.i, label %37, label %30
+
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds %struct.avifSampleTableTimeToSample, ptr %27, i64 %indvars.iv.i, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = zext i32 %39 to i64
+  br label %avifSampleTableGetImageDelta.exit
+
+avifSampleTableGetImageDelta.exit:                ; preds = %30, %.lr.ph, %37
+  %.0.i = phi i64 [ %40, %37 ], [ 1, %.lr.ph ], [ 1, %30 ]
+  %41 = add i64 %20, %.0.i
+  store i64 %41, ptr %19, align 8
+  %42 = add nuw nsw i32 %.047, 1
+  %exitcond.not = icmp eq i32 %42, %1
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !68
+
+._crit_edge.loopexit:                             ; preds = %avifSampleTableGetImageDelta.exit
+  %43 = uitofp i64 %41 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %16
+  %44 = phi double [ %43, %._crit_edge.loopexit ], [ 0.000000e+00, %16 ]
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 152
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 108
+  %49 = load i32, ptr %48, align 4
+  %.not.i35 = icmp eq i32 %49, 0
+  br i1 %.not.i35, label %avifSampleTableGetImageDelta.exit44, label %.lr.ph.i36
+
+.lr.ph.i36:                                       ; preds = %._crit_edge
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 96
+  %51 = load ptr, ptr %50, align 8
+  %52 = add i32 %49, -1
+  %53 = zext i32 %52 to i64
+  %wide.trip.count.i37 = zext i32 %49 to i64
+  br label %55
+
+54:                                               ; preds = %55
+  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i38, 1
+  %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i37
+  br i1 %exitcond.not.i42, label %avifSampleTableGetImageDelta.exit44, label %55, !llvm.loop !67
+
+55:                                               ; preds = %54, %.lr.ph.i36
+  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i41, %54 ]
+  %.01319.i39 = phi i32 [ 0, %.lr.ph.i36 ], [ %58, %54 ]
+  %56 = getelementptr inbounds %struct.avifSampleTableTimeToSample, ptr %51, i64 %indvars.iv.i38
+  %57 = load i32, ptr %56, align 4
+  %58 = add i32 %57, %.01319.i39
+  %59 = icmp slt i32 %1, %58
+  %60 = icmp eq i64 %indvars.iv.i38, %53
+  %or.cond.i40 = or i1 %60, %59
+  br i1 %or.cond.i40, label %61, label %54
+
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds %struct.avifSampleTableTimeToSample, ptr %51, i64 %indvars.iv.i38, i32 1
+  %63 = load i32, ptr %62, align 4
+  %64 = zext i32 %63 to i64
+  br label %avifSampleTableGetImageDelta.exit44
+
+avifSampleTableGetImageDelta.exit44:              ; preds = %54, %._crit_edge, %61
+  %.0.i43 = phi i64 [ %64, %61 ], [ 1, %._crit_edge ], [ 1, %54 ]
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i64 %.0.i43, ptr %65, align 8
+  %.not34 = icmp eq i64 %18, 0
+  br i1 %.not34, label %73, label %66
+
+66:                                               ; preds = %avifSampleTableGetImageDelta.exit44
+  %67 = uitofp i64 %18 to double
+  %68 = fdiv double %44, %67
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double %68, ptr %69, align 8
+  %70 = uitofp nneg i64 %.0.i43 to double
+  %71 = fdiv double %70, %67
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store double %71, ptr %72, align 8
+  br label %76
+
+73:                                               ; preds = %avifSampleTableGetImageDelta.exit44
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double 0.000000e+00, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store double 0.000000e+00, ptr %75, align 8
+  br label %76
+
+76:                                               ; preds = %66, %73, %6, %8, %3, %14
+  %.028 = phi i32 [ 0, %14 ], [ 3, %3 ], [ 16, %8 ], [ 16, %6 ], [ 0, %73 ], [ 0, %66 ]
+  ret i32 %.028
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @avifDecoderNthImage(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @avifDiagnosticsClearError(ptr noundef nonnull %3) #13
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %5 = load ptr, ptr %4, align 8
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %avifDecoderDataFrameFullyDecoded.exit, label %6
+
+6:                                                ; preds = %2
+  %7 = icmp slt i32 %1, 0
+  br i1 %7, label %avifDecoderDataFrameFullyDecoded.exit, label %8
+
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %10 = load i32, ptr %9, align 4
+  %.not29 = icmp slt i32 %1, %10
+  br i1 %.not29, label %11, label %avifDecoderDataFrameFullyDecoded.exit
+
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = load i32, ptr %12, align 8
+  %14 = add nsw i32 %13, 1
+  %15 = icmp eq i32 %1, %14
+  br i1 %15, label %16, label %18
+
+16:                                               ; preds = %11
+  %17 = tail call i32 @avifDecoderNextImage(ptr noundef nonnull %0)
+  br label %avifDecoderDataFrameFullyDecoded.exit
+
+18:                                               ; preds = %11
+  %19 = icmp eq i32 %1, %13
+  br i1 %19, label %20, label %avifDecoderDataFrameFullyDecoded.exit.thread
+
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  br label %23
+
+22:                                               ; preds = %23
+  br i1 %24, label %23, label %avifDecoderDataFrameFullyDecoded.exit, !llvm.loop !54
+
+23:                                               ; preds = %22, %20
+  %24 = phi i1 [ true, %20 ], [ false, %22 ]
+  %indvars.iv.i = phi i64 [ 0, %20 ], [ 1, %22 ]
+  %25 = getelementptr inbounds [2 x %struct.avifTileInfo], ptr %21, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = load i32, ptr %25, align 4
+  %.not.i = icmp eq i32 %27, %28
+  br i1 %.not.i, label %22, label %avifDecoderDataFrameFullyDecoded.exit.thread
+
+avifDecoderDataFrameFullyDecoded.exit.thread:     ; preds = %23, %18
+  %.not713.i = icmp eq i32 %1, 0
+  br i1 %.not713.i, label %avifDecoderNearestKeyframe.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %avifDecoderDataFrameFullyDecoded.exit.thread
+  %29 = getelementptr inbounds i8, ptr %5, i64 44
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp eq i32 %30, 0
+  %wide.trip.count.i.i = zext i32 %30 to i64
+  br i1 %31, label %avifDecoderNearestKeyframe.exit, label %.lr.ph.split.i
+
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %34 = zext nneg i32 %1 to i64
+  br label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %.loopexit.i, %.lr.ph.split.i
+  %indvars.iv.i34 = phi i64 [ %34, %.lr.ph.split.i ], [ %indvars.iv.next.i, %.loopexit.i ]
+  br label %36
+
+35:                                               ; preds = %42
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i.i, label %avifDecoderIsKeyframe.exit.loopexit16.i, label %36, !llvm.loop !26
+
+36:                                               ; preds = %35, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %35 ]
+  %37 = getelementptr inbounds %struct.avifTile, ptr %33, i64 %indvars.iv.i.i
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %40 = load i32, ptr %39, align 4
+  %41 = zext i32 %40 to i64
+  %.not14.i.i = icmp ult i64 %indvars.iv.i34, %41
+  br i1 %.not14.i.i, label %42, label %.loopexit.i
+
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %38, align 8
+  %44 = getelementptr inbounds %struct.avifDecodeSample, ptr %43, i64 %indvars.iv.i34, i32 7
+  %45 = load i32, ptr %44, align 4
+  %.not15.i.i = icmp eq i32 %45, 0
+  br i1 %.not15.i.i, label %.loopexit.i, label %35
+
+.loopexit.i:                                      ; preds = %42, %36
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i34, -1
+  %46 = and i64 %indvars.iv.next.i, 4294967295
+  %.not7.i = icmp eq i64 %46, 0
+  br i1 %.not7.i, label %avifDecoderNearestKeyframe.exit, label %.preheader.i.i, !llvm.loop !27
+
+avifDecoderIsKeyframe.exit.loopexit16.i:          ; preds = %35
+  %47 = trunc nuw i64 %indvars.iv.i34 to i32
+  br label %avifDecoderNearestKeyframe.exit
+
+avifDecoderNearestKeyframe.exit:                  ; preds = %.loopexit.i, %avifDecoderDataFrameFullyDecoded.exit.thread, %.lr.ph.i, %avifDecoderIsKeyframe.exit.loopexit16.i
+  %.06.i35 = phi i32 [ 0, %avifDecoderDataFrameFullyDecoded.exit.thread ], [ %47, %avifDecoderIsKeyframe.exit.loopexit16.i ], [ 0, %.lr.ph.i ], [ 0, %.loopexit.i ]
+  %48 = icmp sle i32 %.06.i35, %14
+  %.not31 = icmp sgt i32 %1, %13
+  %or.cond = and i1 %.not31, %48
+  br i1 %or.cond, label %.preheader, label %49
+
+49:                                               ; preds = %avifDecoderNearestKeyframe.exit
+  %50 = add nsw i32 %.06.i35, -1
+  store i32 %50, ptr %12, align 8
+  tail call fastcc void @avifDecoderDataResetCodec(ptr noundef nonnull %5)
+  br label %.preheader
+
+.preheader:                                       ; preds = %avifDecoderNearestKeyframe.exit, %49
+  br label %51
+
+51:                                               ; preds = %.preheader, %53
+  %52 = tail call i32 @avifDecoderNextImage(ptr noundef %0)
+  %.not32 = icmp eq i32 %52, 0
+  br i1 %.not32, label %53, label %avifDecoderDataFrameFullyDecoded.exit
+
+53:                                               ; preds = %51
+  %54 = load i32, ptr %12, align 8
+  %55 = icmp eq i32 %1, %54
+  br i1 %55, label %avifDecoderDataFrameFullyDecoded.exit, label %51
+
+avifDecoderDataFrameFullyDecoded.exit:            ; preds = %22, %53, %51, %6, %8, %2, %16
+  %.0 = phi i32 [ %17, %16 ], [ 3, %2 ], [ 16, %8 ], [ 16, %6 ], [ 0, %53 ], [ %52, %51 ], [ 0, %22 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @avifDecoderDataResetCodec(ptr nocapture noundef %0) unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = load i32, ptr %2, align 4
+  %.not35 = icmp eq i32 %3, 0
+  br i1 %.not35, label %.preheader, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br label %11
+
+.preheader:                                       ; preds = %26, %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 0, ptr %7, align 4
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 0, ptr %8, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %31, label %30
+
+11:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %struct.avifTile, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %.not29 = icmp eq ptr %15, null
+  br i1 %.not29, label %17, label %16
+
+16:                                               ; preds = %11
+  tail call void @avifImageFreePlanes(ptr noundef nonnull %15, i32 noundef 255) #13
+  br label %17
+
+17:                                               ; preds = %16, %11
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %.not30 = icmp eq ptr %19, null
+  br i1 %.not30, label %26, label %20
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %5, align 8
+  %.not31 = icmp eq ptr %19, %21
+  br i1 %.not31, label %25, label %22
+
+22:                                               ; preds = %20
+  %23 = load ptr, ptr %6, align 8
+  %.not32 = icmp eq ptr %19, %23
+  br i1 %.not32, label %25, label %24
+
+24:                                               ; preds = %22
+  tail call void @avifCodecDestroy(ptr noundef nonnull %19) #13
+  br label %25
+
+25:                                               ; preds = %24, %22, %20
+  store ptr null, ptr %18, align 8
+  br label %26
+
+26:                                               ; preds = %17, %25
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %27 = load i32, ptr %2, align 4
+  %28 = zext i32 %27 to i64
+  %29 = icmp ult i64 %indvars.iv.next, %28
+  br i1 %29, label %11, label %.preheader, !llvm.loop !69
+
+30:                                               ; preds = %.preheader
+  tail call void @avifCodecDestroy(ptr noundef nonnull %10) #13
+  store ptr null, ptr %9, align 8
+  br label %31
+
+31:                                               ; preds = %30, %.preheader
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %33 = load ptr, ptr %32, align 8
+  %.not28 = icmp eq ptr %33, null
+  br i1 %.not28, label %35, label %34
+
+34:                                               ; preds = %31
+  tail call void @avifCodecDestroy(ptr noundef nonnull %33) #13
+  store ptr null, ptr %32, align 8
+  br label %35
+
+35:                                               ; preds = %34, %31
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define hidden range(i32 0, 2) i32 @avifDecoderIsKeyframe(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %4 = load ptr, ptr %3, align 8
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %.loopexit, label %5
+
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %4, i64 44
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %10 = load ptr, ptr %9, align 8
+  %11 = zext i32 %1 to i64
+  %wide.trip.count = zext i32 %7 to i64
+  br label %13
+
+12:                                               ; preds = %18
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !26
+
+13:                                               ; preds = %.preheader, %12
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
+  %14 = getelementptr inbounds %struct.avifTile, ptr %10, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %17 = load i32, ptr %16, align 4
+  %.not14 = icmp ult i32 %1, %17
+  br i1 %.not14, label %18, label %.loopexit
+
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %15, align 8
+  %20 = getelementptr inbounds %struct.avifDecodeSample, ptr %19, i64 %11, i32 7
+  %21 = load i32, ptr %20, align 4
+  %.not15 = icmp eq i32 %21, 0
+  br i1 %.not15, label %.loopexit, label %12
+
+.loopexit:                                        ; preds = %12, %13, %18, %2, %5
+  %.0 = phi i32 [ 0, %5 ], [ 0, %2 ], [ 1, %12 ], [ 0, %13 ], [ 0, %18 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define hidden i32 @avifDecoderDecodedRowCount(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  br label %10
+
+10:                                               ; preds = %1, %avifGetDecodedRowCount.exit
+  %11 = phi i1 [ true, %1 ], [ false, %avifGetDecodedRowCount.exit ]
+  %indvars.iv = phi i64 [ 0, %1 ], [ 1, %avifGetDecodedRowCount.exit ]
+  %.013 = phi i32 [ %5, %1 ], [ %34, %avifGetDecodedRowCount.exit ]
+  %12 = getelementptr inbounds [2 x %struct.avifTileInfo], ptr %8, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = load i32, ptr %12, align 4
+  %16 = icmp eq i32 %14, %15
+  br i1 %16, label %avifGetDecodedRowCount.exit, label %17
+
+17:                                               ; preds = %10
+  %18 = icmp eq i32 %14, 0
+  br i1 %18, label %avifGetDecodedRowCount.exit, label %19
+
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %21 = load i32, ptr %20, align 4
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %avifGetDecodedRowCount.exit, label %22
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %12, i64 16
+  %24 = load i32, ptr %23, align 4
+  %.not21.i = icmp eq i32 %24, 0
+  br i1 %.not21.i, label %avifGetDecodedRowCount.exit, label %25
+
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %9, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %28 = load i32, ptr %27, align 4
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr inbounds %struct.avifTile, ptr %26, i64 %29, i32 5
+  %31 = load i32, ptr %30, align 4
+  %32 = udiv i32 %14, %24
+  %33 = mul i32 %32, %31
+  %..i = tail call i32 @llvm.umin.i32(i32 %33, i32 %5)
+  br label %avifGetDecodedRowCount.exit
+
+avifGetDecodedRowCount.exit:                      ; preds = %19, %22, %10, %17, %25
+  %.0.i = phi i32 [ %..i, %25 ], [ 0, %17 ], [ %5, %10 ], [ %5, %22 ], [ %5, %19 ]
+  %34 = tail call i32 @llvm.umin.i32(i32 %.013, i32 %.0.i)
+  br i1 %11, label %10, label %35, !llvm.loop !70
+
+35:                                               ; preds = %avifGetDecodedRowCount.exit
+  ret i32 %34
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @avifDecoderRead(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = tail call i32 @avifDecoderParse(ptr noundef %0)
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %10
+
+4:                                                ; preds = %2
+  %5 = tail call i32 @avifDecoderNextImage(ptr noundef %0)
+  %.not10 = icmp eq i32 %5, 0
+  br i1 %.not10, label %6, label %10
+
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 @avifImageCopy(ptr noundef %1, ptr noundef %8, i32 noundef 255) #13
+  br label %10
+
+10:                                               ; preds = %4, %2, %6
+  %.0 = phi i32 [ %9, %6 ], [ %3, %2 ], [ %5, %4 ]
+  ret i32 %.0
+}
+
+declare i32 @avifImageCopy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @avifDecoderReadMemory(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @avifDiagnosticsClearError(ptr noundef nonnull %5) #13
+  %6 = tail call ptr @avifIOCreateMemoryReader(ptr noundef %2, i64 noundef %3) #13
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %avifDecoderSetIOMemory.exit, label %7
+
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %9 = load ptr, ptr %8, align 8
+  tail call void @avifIODestroy(ptr noundef %9) #13
+  store ptr %6, ptr %8, align 8
+  %10 = tail call i32 @avifDecoderParse(ptr noundef %0)
+  %.not.i9 = icmp eq i32 %10, 0
+  br i1 %.not.i9, label %11, label %avifDecoderSetIOMemory.exit
+
+11:                                               ; preds = %7
+  %12 = tail call i32 @avifDecoderNextImage(ptr noundef nonnull %0)
+  %.not10.i = icmp eq i32 %12, 0
+  br i1 %.not10.i, label %13, label %avifDecoderSetIOMemory.exit
+
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call i32 @avifImageCopy(ptr noundef %1, ptr noundef %15, i32 noundef 255) #13
+  br label %avifDecoderSetIOMemory.exit
+
+avifDecoderSetIOMemory.exit:                      ; preds = %13, %11, %7, %4
+  %.0 = phi i32 [ 26, %4 ], [ %16, %13 ], [ %10, %7 ], [ %12, %11 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @avifDecoderReadFile(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @avifDiagnosticsClearError(ptr noundef nonnull %4) #13
+  %5 = tail call ptr @avifIOCreateFileReader(ptr noundef %2) #13
+  %.not.i = icmp eq ptr %5, null
+  br i1 %.not.i, label %avifDecoderSetIOFile.exit, label %6
+
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %8 = load ptr, ptr %7, align 8
+  tail call void @avifIODestroy(ptr noundef %8) #13
+  store ptr %5, ptr %7, align 8
+  %9 = tail call i32 @avifDecoderParse(ptr noundef %0)
+  %.not.i8 = icmp eq i32 %9, 0
+  br i1 %.not.i8, label %10, label %avifDecoderSetIOFile.exit
+
+10:                                               ; preds = %6
+  %11 = tail call i32 @avifDecoderNextImage(ptr noundef nonnull %0)
+  %.not10.i = icmp eq i32 %11, 0
+  br i1 %.not10.i, label %12, label %avifDecoderSetIOFile.exit
+
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = load ptr, ptr %13, align 8
+  %15 = tail call i32 @avifImageCopy(ptr noundef %1, ptr noundef %14, i32 noundef 255) #13
+  br label %avifDecoderSetIOFile.exit
+
+avifDecoderSetIOFile.exit:                        ; preds = %12, %10, %6, %3
+  %.0 = phi i32 [ 22, %3 ], [ %15, %12 ], [ %9, %6 ], [ %11, %10 ]
+  ret i32 %.0
+}
+
+declare i32 @avifROStreamRead(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamReadU32(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @avifROStreamRemainingBytes(ptr noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamSkip(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @avifDecoderDataDestroy(ptr noundef %0) unnamed_addr #0 {
+  %2 = load ptr, ptr %0, align 8
+  tail call fastcc void @avifMetaDestroy(ptr noundef %2)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = load i32, ptr %4, align 4
+  %.not17 = icmp eq i32 %5, 0
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1, %15
+  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %1 ]
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %struct.avifTrack, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %9 = load ptr, ptr %8, align 8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %11, label %10
+
+10:                                               ; preds = %.lr.ph
+  tail call fastcc void @avifSampleTableDestroy(ptr noundef nonnull %9)
+  br label %11
+
+11:                                               ; preds = %10, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %13 = load ptr, ptr %12, align 8
+  %.not15 = icmp eq ptr %13, null
+  br i1 %.not15, label %15, label %14
+
+14:                                               ; preds = %11
+  tail call fastcc void @avifMetaDestroy(ptr noundef nonnull %13)
+  br label %15
+
+15:                                               ; preds = %11, %14
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %16 = load i32, ptr %4, align 4
+  %17 = zext i32 %16 to i64
+  %18 = icmp ult i64 %indvars.iv.next, %17
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !71
+
+._crit_edge:                                      ; preds = %15, %1
+  tail call void @avifArrayDestroy(ptr noundef nonnull %3) #13
+  tail call fastcc void @avifDecoderDataClearTiles(ptr noundef nonnull %0)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @avifArrayDestroy(ptr noundef nonnull %19) #13
+  tail call void @avifFree(ptr noundef nonnull %0) #13
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @avifMetaDestroy(ptr noundef %0) unnamed_addr #0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = load i32, ptr %2, align 4
+  %.not13 = icmp eq i32 %3, 0
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1, %12
+  %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %1 ]
+  %4 = load ptr, ptr %0, align 8
+  %5 = getelementptr inbounds %struct.avifDecoderItem, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  tail call void @avifArrayDestroy(ptr noundef nonnull %6) #13
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  tail call void @avifArrayDestroy(ptr noundef nonnull %7) #13
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %9 = load i32, ptr %8, align 8
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %12, label %10
+
+10:                                               ; preds = %.lr.ph
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  tail call void @avifRWDataFree(ptr noundef nonnull %11) #13
+  br label %12
+
+12:                                               ; preds = %.lr.ph, %10
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %13 = load i32, ptr %2, align 4
+  %14 = zext i32 %13 to i64
+  %15 = icmp ult i64 %indvars.iv.next, %14
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !72
+
+._crit_edge:                                      ; preds = %12, %1
+  tail call void @avifArrayDestroy(ptr noundef nonnull %0) #13
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @avifArrayDestroy(ptr noundef nonnull %16) #13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @avifRWDataFree(ptr noundef nonnull %17) #13
+  tail call void @avifFree(ptr noundef nonnull %0) #13
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @avifSampleTableDestroy(ptr noundef %0) unnamed_addr #0 {
+  tail call void @avifArrayDestroy(ptr noundef %0) #13
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = load i32, ptr %3, align 4
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds %struct.avifSampleDescription, ptr %5, i64 %indvars.iv, i32 1
+  tail call void @avifArrayDestroy(ptr noundef nonnull %6) #13
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %7 = load i32, ptr %3, align 4
+  %8 = zext i32 %7 to i64
+  %9 = icmp ult i64 %indvars.iv.next, %8
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  tail call void @avifArrayDestroy(ptr noundef nonnull %2) #13
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @avifArrayDestroy(ptr noundef nonnull %10) #13
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @avifArrayDestroy(ptr noundef nonnull %11) #13
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @avifArrayDestroy(ptr noundef nonnull %12) #13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  tail call void @avifArrayDestroy(ptr noundef nonnull %13) #13
+  tail call void @avifFree(ptr noundef nonnull %0) #13
+  ret void
+}
+
+declare ptr @avifArrayPush(ptr noundef) local_unnamed_addr #1
+
+declare void @avifArrayPop(ptr noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamReadBoxHeaderPartial(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 27) i32 @avifParseMetaBox(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+  %6 = alloca %struct.avifROStream, align 8
+  %7 = alloca %struct.avifROData, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca %struct.avifBoxHeader, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i16, align 2
+  %12 = alloca i16, align 2
+  %13 = alloca i32, align 4
+  %14 = alloca i16, align 2
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca %struct.avifROStream, align 8
+  %18 = alloca %struct.avifROData, align 8
+  %19 = alloca i8, align 1
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i16, align 2
+  %23 = alloca i16, align 2
+  %24 = alloca [4 x i8], align 4
+  %25 = alloca %struct.avifContentType, align 1
+  %26 = alloca ptr, align 8
+  %27 = alloca %struct.avifROStream, align 8
+  %28 = alloca %struct.avifROData, align 8
+  %29 = alloca i8, align 1
+  %30 = alloca i32, align 4
+  %31 = alloca i16, align 2
+  %32 = alloca %struct.avifBoxHeader, align 8
+  %33 = alloca %struct.avifROStream, align 8
+  %34 = alloca %struct.avifROData, align 8
+  %35 = alloca i8, align 1
+  %36 = alloca i32, align 4
+  %37 = alloca i32, align 4
+  %38 = alloca i32, align 4
+  %39 = alloca i16, align 2
+  %40 = alloca ptr, align 8
+  %41 = alloca i8, align 1
+  %42 = alloca i8, align 1
+  %43 = alloca i32, align 4
+  %44 = alloca %struct.avifROStream, align 8
+  %45 = alloca %struct.avifROData, align 8
+  %46 = alloca %struct.avifBoxHeader, align 8
+  %47 = alloca [4 x i32], align 16
+  %48 = alloca %struct.avifBoxHeader, align 8
+  %49 = alloca %struct.avifROStream, align 8
+  %50 = alloca %struct.avifROData, align 8
+  %51 = alloca i8, align 1
+  %52 = alloca i16, align 2
+  %53 = alloca %struct.avifROStream, align 8
+  %54 = alloca %struct.avifROData, align 8
+  %55 = alloca i8, align 1
+  %56 = alloca i8, align 1
+  %57 = alloca i8, align 1
+  %58 = alloca i8, align 1
+  %59 = alloca i32, align 4
+  %60 = alloca i16, align 2
+  %61 = alloca i32, align 4
+  %62 = alloca i32, align 4
+  %63 = alloca ptr, align 8
+  %64 = alloca i8, align 1
+  %65 = alloca i16, align 2
+  %66 = alloca i64, align 8
+  %67 = alloca i16, align 2
+  %68 = alloca i64, align 8
+  %69 = alloca i64, align 8
+  %70 = alloca %struct.avifROStream, align 8
+  %71 = alloca %struct.avifROData, align 8
+  %72 = alloca i32, align 4
+  %73 = alloca [4 x i8], align 1
+  %74 = alloca i32, align 4
+  %75 = alloca %struct.avifROStream, align 8
+  %76 = alloca %struct.avifROData, align 8
+  %77 = alloca %struct.avifBoxHeader, align 8
+  store ptr %2, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store i64 %3, ptr %78, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %75, ptr noundef nonnull %76, ptr noundef %4, ptr noundef nonnull @.str.25) #13
+  %79 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %75, i8 noundef zeroext 0) #13
+  %.not = icmp eq i32 %79, 0
+  br i1 %.not, label %avifParseItemDataBox.exit.thread, label %80
+
+80:                                               ; preds = %5
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %82 = load i32, ptr %81, align 8
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %81, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 36
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %98 = getelementptr inbounds i8, ptr %0, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %100 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  br label %102
+
+102:                                              ; preds = %547, %80
+  %.0139 = phi i32 [ 0, %80 ], [ %.1, %547 ]
+  %.not43 = phi i1 [ false, %80 ], [ true, %547 ]
+  %103 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %75, i64 noundef 1) #13
+  %.not42 = icmp eq i32 %103, 0
+  br i1 %.not42, label %550, label %104
+
+104:                                              ; preds = %102
+  %105 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %75, ptr noundef nonnull %77) #13
+  %.not44 = icmp eq i32 %105, 0
+  br i1 %.not44, label %avifParseItemDataBox.exit.thread, label %106
+
+106:                                              ; preds = %104
+  %lhsv = load i32, ptr %84, align 8
+  br i1 %.not43, label %127, label %107
+
+107:                                              ; preds = %106
+  %.not70 = icmp eq i32 %lhsv, 1919706216
+  br i1 %.not70, label %108, label %126
+
+108:                                              ; preds = %107
+  %109 = and i32 %.0139, 1
+  %.not.i = icmp eq i32 %109, 0
+  br i1 %.not.i, label %110, label %uniqueBoxSeen.exit.thread
+
+uniqueBoxSeen.exit.thread:                        ; preds = %108
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.26) #13
+  br label %avifParseItemDataBox.exit.thread
+
+110:                                              ; preds = %108
+  %111 = or disjoint i32 %.0139, 1
+  %112 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
+  %113 = load i64, ptr %77, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %74)
+  store ptr %112, ptr %71, align 8
+  store i64 %113, ptr %85, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef %4, ptr noundef nonnull @.str.36) #13
+  %114 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %70, i8 noundef zeroext 0) #13
+  %.not.i74 = icmp eq i32 %114, 0
+  br i1 %.not.i74, label %avifParseHandlerBox.exit.thread, label %115
+
+115:                                              ; preds = %110
+  %116 = call i32 @avifROStreamReadU32(ptr noundef nonnull %70, ptr noundef nonnull %72) #13
+  %.not8.i = icmp eq i32 %116, 0
+  br i1 %.not8.i, label %avifParseHandlerBox.exit.thread, label %117
+
+117:                                              ; preds = %115
+  %118 = load i32, ptr %72, align 4
+  %.not9.i = icmp eq i32 %118, 0
+  br i1 %.not9.i, label %119, label %avifParseHandlerBox.exit.thread.sink.split
+
+119:                                              ; preds = %117
+  %120 = call i32 @avifROStreamRead(ptr noundef nonnull %70, ptr noundef nonnull %73, i64 noundef 4) #13
+  %.not10.i = icmp eq i32 %120, 0
+  br i1 %.not10.i, label %avifParseHandlerBox.exit.thread, label %121
+
+121:                                              ; preds = %119
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %73, ptr noundef nonnull dereferenceable(4) @.str.38, i64 4)
+  %.not11.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not11.i, label %.preheader.i, label %avifParseHandlerBox.exit.thread.sink.split
+
+122:                                              ; preds = %.preheader.i
+  %123 = add nuw nsw i32 %.014.i, 1
+  %exitcond.not.i = icmp eq i32 %123, 3
+  br i1 %exitcond.not.i, label %avifParseHandlerBox.exit, label %.preheader.i, !llvm.loop !74
+
+.preheader.i:                                     ; preds = %121, %122
+  %.014.i = phi i32 [ %123, %122 ], [ 0, %121 ]
+  %124 = call i32 @avifROStreamReadU32(ptr noundef nonnull %70, ptr noundef nonnull %74) #13
+  %.not13.i = icmp eq i32 %124, 0
+  br i1 %.not13.i, label %avifParseHandlerBox.exit.thread, label %122
+
+avifParseHandlerBox.exit.thread.sink.split:       ; preds = %121, %117
+  %.str.37.sink = phi ptr [ @.str.37, %117 ], [ @.str.39, %121 ]
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull %.str.37.sink) #13
+  br label %avifParseHandlerBox.exit.thread
+
+avifParseHandlerBox.exit.thread:                  ; preds = %110, %115, %119, %.preheader.i, %avifParseHandlerBox.exit.thread.sink.split
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %74)
+  br label %avifParseItemDataBox.exit.thread
+
+avifParseHandlerBox.exit:                         ; preds = %122
+  %125 = call i32 @avifROStreamReadString(ptr noundef nonnull %70, ptr noundef null, i64 noundef 0) #13
+  %.not12.i.not = icmp eq i32 %125, 0
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %74)
+  br i1 %.not12.i.not, label %avifParseItemDataBox.exit.thread, label %547
+
+126:                                              ; preds = %107
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.27) #13
+  br label %avifParseItemDataBox.exit.thread
+
+127:                                              ; preds = %106
+  switch i32 %lhsv, label %547 [
+    i32 1668246633, label %128
+    i32 1836345712, label %251
+    i32 1952539753, label %271
+    i32 1886548073, label %283
+    i32 1718511977, label %403
+    i32 1717924457, label %475
+  ]
+
+128:                                              ; preds = %127
+  %129 = and i32 %.0139, 2
+  %.not.i75 = icmp eq i32 %129, 0
+  br i1 %.not.i75, label %130, label %uniqueBoxSeen.exit77.thread
+
+uniqueBoxSeen.exit77.thread:                      ; preds = %128
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.28) #13
+  br label %avifParseItemDataBox.exit.thread
+
+130:                                              ; preds = %128
+  %131 = or disjoint i32 %.0139, 2
+  %132 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
+  %133 = load i64, ptr %77, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69)
+  store ptr %132, ptr %54, align 8
+  store i64 %133, ptr %101, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef %4, ptr noundef nonnull @.str.40) #13
+  %134 = call i32 @avifROStreamReadVersionAndFlags(ptr noundef nonnull %53, ptr noundef nonnull %55, ptr noundef null) #13
+  %.not.i78 = icmp eq i32 %134, 0
+  br i1 %.not.i78, label %avifParseItemLocationBox.exit.thread, label %135
+
+135:                                              ; preds = %130
+  %136 = load i8, ptr %55, align 1
+  %137 = icmp ugt i8 %136, 2
+  br i1 %137, label %138, label %140
+
+138:                                              ; preds = %135
+  %139 = zext i8 %136 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.41, i32 noundef %139) #13
+  br label %avifParseItemLocationBox.exit.thread
+
+140:                                              ; preds = %135
+  %141 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %53, ptr noundef nonnull %56, i64 noundef 4) #13
+  %.not51.i = icmp eq i32 %141, 0
+  br i1 %.not51.i, label %avifParseItemLocationBox.exit.thread, label %142
+
+142:                                              ; preds = %140
+  %143 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %53, ptr noundef nonnull %57, i64 noundef 4) #13
+  %.not52.i = icmp eq i32 %143, 0
+  br i1 %.not52.i, label %avifParseItemLocationBox.exit.thread, label %144
+
+144:                                              ; preds = %142
+  %145 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %53, ptr noundef nonnull %58, i64 noundef 4) #13
+  %.not53.i = icmp eq i32 %145, 0
+  br i1 %.not53.i, label %avifParseItemLocationBox.exit.thread, label %146
+
+146:                                              ; preds = %144
+  %147 = load i8, ptr %55, align 1
+  %148 = add i8 %147, -1
+  %or.cond.i = icmp ult i8 %148, 2
+  %149 = load i8, ptr %58, align 1
+  %150 = icmp ne i8 %149, 0
+  %or.cond5.i = select i1 %or.cond.i, i1 %150, i1 false
+  br i1 %or.cond5.i, label %151, label %153
+
+151:                                              ; preds = %146
+  %152 = zext i8 %149 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.42, i32 noundef %152) #13
+  br label %avifParseItemLocationBox.exit.thread
+
+153:                                              ; preds = %146
+  %154 = call i32 @avifROStreamReadBits(ptr noundef nonnull %53, ptr noundef nonnull %59, i64 noundef 4) #13
+  %.not54.i = icmp eq i32 %154, 0
+  br i1 %.not54.i, label %avifParseItemLocationBox.exit.thread, label %155
+
+155:                                              ; preds = %153
+  %156 = load i8, ptr %55, align 1
+  %157 = icmp ult i8 %156, 2
+  br i1 %157, label %158, label %163
+
+158:                                              ; preds = %155
+  %159 = call i32 @avifROStreamReadU16(ptr noundef nonnull %53, ptr noundef nonnull %60) #13
+  %.not56.i = icmp eq i32 %159, 0
+  br i1 %.not56.i, label %avifParseItemLocationBox.exit.thread, label %160
+
+160:                                              ; preds = %158
+  %161 = load i16, ptr %60, align 2
+  %162 = zext i16 %161 to i32
+  store i32 %162, ptr %61, align 4
+  br label %165
+
+163:                                              ; preds = %155
+  %164 = call i32 @avifROStreamReadU32(ptr noundef nonnull %53, ptr noundef nonnull %61) #13
+  %.not55.i = icmp eq i32 %164, 0
+  br i1 %.not55.i, label %avifParseItemLocationBox.exit.thread, label %._crit_edge119.i
+
+._crit_edge119.i:                                 ; preds = %163
+  %.pre.i = load i32, ptr %61, align 4
+  br label %165
+
+165:                                              ; preds = %._crit_edge119.i, %160
+  %166 = phi i32 [ %.pre.i, %._crit_edge119.i ], [ %162, %160 ]
+  %.not103.i = icmp eq i32 %166, 0
+  br i1 %.not103.i, label %avifParseItemLocationBox.exit, label %.lr.ph86.i
+
+.lr.ph86.i:                                       ; preds = %165, %._crit_edge.i
+  %.03984.i = phi i32 [ %248, %._crit_edge.i ], [ 0, %165 ]
+  %167 = load i8, ptr %55, align 1
+  %168 = icmp ult i8 %167, 2
+  br i1 %168, label %169, label %174
+
+169:                                              ; preds = %.lr.ph86.i
+  %170 = call i32 @avifROStreamReadU16(ptr noundef nonnull %53, ptr noundef nonnull %60) #13
+  %.not58.i = icmp eq i32 %170, 0
+  br i1 %.not58.i, label %avifParseItemLocationBox.exit.thread, label %171
+
+171:                                              ; preds = %169
+  %172 = load i16, ptr %60, align 2
+  %173 = zext i16 %172 to i32
+  store i32 %173, ptr %62, align 4
+  br label %176
+
+174:                                              ; preds = %.lr.ph86.i
+  %175 = call i32 @avifROStreamReadU32(ptr noundef nonnull %53, ptr noundef nonnull %62) #13
+  %.not57.i = icmp eq i32 %175, 0
+  br i1 %.not57.i, label %avifParseItemLocationBox.exit.thread, label %thread-pre-split.i
+
+thread-pre-split.i:                               ; preds = %174
+  %.pr.i = load i32, ptr %62, align 4
+  br label %176
+
+176:                                              ; preds = %thread-pre-split.i, %171
+  %177 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %173, %171 ]
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %avifCheckItemID.exit.i, label %179
+
+avifCheckItemID.exit.i:                           ; preds = %176
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.28, i32 noundef 0) #13
+  br label %avifParseItemLocationBox.exit.thread
+
+179:                                              ; preds = %176
+  %180 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %177, ptr noundef nonnull %63)
+  %.not60.i = icmp eq i32 %180, 0
+  br i1 %.not60.i, label %181, label %avifParseItemLocationBox.exit.thread
+
+181:                                              ; preds = %179
+  %182 = load ptr, ptr %63, align 8
+  %183 = getelementptr inbounds i8, ptr %182, i64 148
+  %184 = load i32, ptr %183, align 4
+  %.not61.i = icmp eq i32 %184, 0
+  br i1 %.not61.i, label %187, label %185
+
+185:                                              ; preds = %181
+  %186 = load i32, ptr %62, align 4
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.43, i32 noundef %186) #13
+  br label %avifParseItemLocationBox.exit.thread
+
+187:                                              ; preds = %181
+  %188 = load i8, ptr %55, align 1
+  %189 = add i8 %188, -1
+  %or.cond8.i = icmp ult i8 %189, 2
+  br i1 %or.cond8.i, label %190, label %205
+
+190:                                              ; preds = %187
+  %191 = call i32 @avifROStreamReadBits(ptr noundef nonnull %53, ptr noundef nonnull %59, i64 noundef 12) #13
+  %.not62.i = icmp eq i32 %191, 0
+  br i1 %.not62.i, label %avifParseItemLocationBox.exit.thread, label %192
+
+192:                                              ; preds = %190
+  %193 = load i32, ptr %59, align 4
+  %.not63.i = icmp eq i32 %193, 0
+  br i1 %.not63.i, label %195, label %194
+
+194:                                              ; preds = %192
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.44, i32 noundef %193) #13
+  br label %avifParseItemLocationBox.exit.thread
+
+195:                                              ; preds = %192
+  %196 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %53, ptr noundef nonnull %64, i64 noundef 4) #13
+  %.not64.i = icmp eq i32 %196, 0
+  br i1 %.not64.i, label %avifParseItemLocationBox.exit.thread, label %197
+
+197:                                              ; preds = %195
+  %198 = load i8, ptr %64, align 1
+  %or.cond11.i = icmp ugt i8 %198, 1
+  br i1 %or.cond11.i, label %199, label %201
+
+199:                                              ; preds = %197
+  %200 = zext i8 %198 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.45, i32 noundef %200) #13
+  br label %avifParseItemLocationBox.exit.thread
+
+201:                                              ; preds = %197
+  %202 = icmp eq i8 %198, 1
+  br i1 %202, label %203, label %205
+
+203:                                              ; preds = %201
+  %204 = getelementptr inbounds nuw i8, ptr %182, i64 32
+  store i32 1, ptr %204, align 8
+  br label %205
+
+205:                                              ; preds = %203, %201, %187
+  %206 = call i32 @avifROStreamReadU16(ptr noundef nonnull %53, ptr noundef nonnull %65) #13
+  %.not65.i = icmp eq i32 %206, 0
+  br i1 %.not65.i, label %avifParseItemLocationBox.exit.thread, label %207
+
+207:                                              ; preds = %205
+  %208 = load i8, ptr %58, align 1
+  %209 = zext i8 %208 to i64
+  %210 = call i32 @avifROStreamReadUX8(ptr noundef nonnull %53, ptr noundef nonnull %66, i64 noundef %209) #13
+  %.not66.i = icmp eq i32 %210, 0
+  br i1 %.not66.i, label %avifParseItemLocationBox.exit.thread, label %211
+
+211:                                              ; preds = %207
+  %212 = call i32 @avifROStreamReadU16(ptr noundef nonnull %53, ptr noundef nonnull %67) #13
+  %.not67.i = icmp eq i32 %212, 0
+  br i1 %.not67.i, label %avifParseItemLocationBox.exit.thread, label %.preheader.i80
+
+.preheader.i80:                                   ; preds = %211
+  %213 = load i16, ptr %67, align 2
+  %.not104.i = icmp eq i16 %213, 0
+  br i1 %.not104.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.preheader.i80
+  %214 = getelementptr inbounds nuw i8, ptr %182, i64 136
+  %215 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  br label %216
+
+216:                                              ; preds = %242, %.lr.ph.i
+  %.04083.i = phi i32 [ 0, %.lr.ph.i ], [ %244, %242 ]
+  %217 = load i8, ptr %56, align 1
+  %218 = zext i8 %217 to i64
+  %219 = call i32 @avifROStreamReadUX8(ptr noundef nonnull %53, ptr noundef nonnull %68, i64 noundef %218) #13
+  %.not68.i = icmp eq i32 %219, 0
+  br i1 %.not68.i, label %avifParseItemLocationBox.exit.thread, label %220
+
+220:                                              ; preds = %216
+  %221 = load i8, ptr %57, align 1
+  %222 = zext i8 %221 to i64
+  %223 = call i32 @avifROStreamReadUX8(ptr noundef nonnull %53, ptr noundef nonnull %69, i64 noundef %222) #13
+  %.not69.i = icmp eq i32 %223, 0
+  br i1 %.not69.i, label %avifParseItemLocationBox.exit.thread, label %224
+
+224:                                              ; preds = %220
+  %225 = call ptr @avifArrayPush(ptr noundef nonnull %214) #13
+  %.not70.i = icmp eq ptr %225, null
+  br i1 %.not70.i, label %avifParseItemLocationBox.exit.thread, label %226
+
+226:                                              ; preds = %224
+  %227 = load i64, ptr %68, align 8
+  %228 = load i64, ptr %66, align 8
+  %229 = xor i64 %228, -1
+  %230 = icmp ugt i64 %227, %229
+  br i1 %230, label %231, label %233
+
+231:                                              ; preds = %226
+  %232 = load i32, ptr %62, align 4
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.46, i32 noundef %232, i64 noundef %228, i64 noundef %227) #13
+  br label %avifParseItemLocationBox.exit.thread
+
+233:                                              ; preds = %226
+  %234 = add i64 %228, %227
+  store i64 %234, ptr %225, align 8
+  %235 = load i64, ptr %69, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %225, i64 8
+  store i64 %235, ptr %236, align 8
+  %237 = load i64, ptr %215, align 8
+  %238 = xor i64 %237, -1
+  %239 = icmp ugt i64 %235, %238
+  br i1 %239, label %240, label %242
+
+240:                                              ; preds = %233
+  %241 = load i32, ptr %62, align 4
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.48, i32 noundef %241, i64 noundef %235, i64 noundef %237) #13
+  br label %avifParseItemLocationBox.exit.thread
+
+242:                                              ; preds = %233
+  %243 = add i64 %237, %235
+  store i64 %243, ptr %215, align 8
+  %244 = add nuw nsw i32 %.04083.i, 1
+  %245 = load i16, ptr %67, align 2
+  %246 = zext i16 %245 to i32
+  %247 = icmp ult i32 %244, %246
+  br i1 %247, label %216, label %._crit_edge.i, !llvm.loop !75
+
+._crit_edge.i:                                    ; preds = %242, %.preheader.i80
+  %248 = add nuw i32 %.03984.i, 1
+  %249 = load i32, ptr %61, align 4
+  %250 = icmp ult i32 %248, %249
+  br i1 %250, label %.lr.ph86.i, label %avifParseItemLocationBox.exit, !llvm.loop !76
+
+avifParseItemLocationBox.exit.thread:             ; preds = %130, %140, %142, %144, %153, %158, %163, %169, %174, %179, %190, %195, %205, %207, %211, %224, %220, %216, %138, %151, %185, %194, %199, %231, %240, %avifCheckItemID.exit.i
+  %.0.i79.ph = phi i32 [ 9, %avifCheckItemID.exit.i ], [ 9, %240 ], [ 9, %231 ], [ 9, %199 ], [ 9, %194 ], [ 9, %185 ], [ 9, %151 ], [ 9, %138 ], [ 26, %224 ], [ 9, %220 ], [ 9, %216 ], [ 9, %169 ], [ 9, %174 ], [ %180, %179 ], [ 9, %190 ], [ 9, %195 ], [ 9, %205 ], [ 9, %207 ], [ 9, %211 ], [ 9, %163 ], [ 9, %158 ], [ 9, %153 ], [ 9, %144 ], [ 9, %142 ], [ 9, %140 ], [ 9, %130 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
+  br label %avifParseItemDataBox.exit.thread
+
+avifParseItemLocationBox.exit:                    ; preds = %._crit_edge.i, %165
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
+  br label %547
+
+251:                                              ; preds = %127
+  %252 = and i32 %.0139, 4
+  %.not.i81 = icmp eq i32 %252, 0
+  br i1 %.not.i81, label %253, label %uniqueBoxSeen.exit83.thread
+
+uniqueBoxSeen.exit83.thread:                      ; preds = %251
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.29) #13
+  br label %avifParseItemDataBox.exit.thread
+
+253:                                              ; preds = %251
+  %254 = or disjoint i32 %.0139, 4
+  %255 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
+  %256 = load i64, ptr %77, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %52)
+  %257 = load i32, ptr %99, align 4
+  %.not.i84 = icmp eq i32 %257, 0
+  br i1 %.not.i84, label %259, label %258
+
+258:                                              ; preds = %253
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.50) #13
+  br label %avifParsePrimaryItemBox.exit.thread
+
+259:                                              ; preds = %253
+  store ptr %255, ptr %50, align 8
+  store i64 %256, ptr %100, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %49, ptr noundef nonnull %50, ptr noundef %4, ptr noundef nonnull @.str.51) #13
+  %260 = call i32 @avifROStreamReadVersionAndFlags(ptr noundef nonnull %49, ptr noundef nonnull %51, ptr noundef null) #13
+  %.not7.i = icmp eq i32 %260, 0
+  br i1 %.not7.i, label %avifParsePrimaryItemBox.exit.thread, label %261
+
+261:                                              ; preds = %259
+  %262 = load i8, ptr %51, align 1
+  %263 = icmp eq i8 %262, 0
+  br i1 %263, label %264, label %269
+
+264:                                              ; preds = %261
+  %265 = call i32 @avifROStreamReadU16(ptr noundef nonnull %49, ptr noundef nonnull %52) #13
+  %.not9.i87 = icmp eq i32 %265, 0
+  br i1 %.not9.i87, label %avifParsePrimaryItemBox.exit.thread, label %266
+
+266:                                              ; preds = %264
+  %267 = load i16, ptr %52, align 2
+  %268 = zext i16 %267 to i32
+  store i32 %268, ptr %99, align 4
+  br label %avifParsePrimaryItemBox.exit
+
+269:                                              ; preds = %261
+  %270 = call i32 @avifROStreamReadU32(ptr noundef nonnull %49, ptr noundef nonnull %99) #13
+  %.not8.i86 = icmp eq i32 %270, 0
+  br i1 %.not8.i86, label %avifParsePrimaryItemBox.exit.thread, label %avifParsePrimaryItemBox.exit
+
+avifParsePrimaryItemBox.exit.thread:              ; preds = %259, %264, %269, %258
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %52)
+  br label %avifParseItemDataBox.exit.thread
+
+avifParsePrimaryItemBox.exit:                     ; preds = %266, %269
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %52)
+  br label %547
+
+271:                                              ; preds = %127
+  %272 = and i32 %.0139, 8
+  %.not.i88 = icmp eq i32 %272, 0
+  br i1 %.not.i88, label %273, label %uniqueBoxSeen.exit90.thread
+
+uniqueBoxSeen.exit90.thread:                      ; preds = %271
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.30) #13
+  br label %avifParseItemDataBox.exit.thread
+
+273:                                              ; preds = %271
+  %274 = or disjoint i32 %.0139, 8
+  %275 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
+  %276 = load i64, ptr %77, align 8
+  %277 = load i64, ptr %98, align 8
+  %.not.i91 = icmp eq i64 %277, 0
+  br i1 %.not.i91, label %279, label %278
+
+278:                                              ; preds = %273
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.52) #13
+  br label %avifParseItemDataBox.exit.thread
+
+279:                                              ; preds = %273
+  %280 = icmp eq i64 %276, 0
+  br i1 %280, label %281, label %avifParseItemDataBox.exit
+
+281:                                              ; preds = %279
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.53) #13
+  br label %avifParseItemDataBox.exit.thread
+
+avifParseItemDataBox.exit:                        ; preds = %279
+  %282 = call i32 @avifRWDataSet(ptr noundef nonnull %97, ptr noundef %275, i64 noundef %276) #13
+  %.not8.i93.not = icmp eq i32 %282, 0
+  br i1 %.not8.i93.not, label %547, label %avifParseItemDataBox.exit.thread
+
+283:                                              ; preds = %127
+  %284 = and i32 %.0139, 16
+  %.not.i95 = icmp eq i32 %284, 0
+  br i1 %.not.i95, label %285, label %uniqueBoxSeen.exit97.thread
+
+uniqueBoxSeen.exit97.thread:                      ; preds = %283
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.31) #13
+  br label %avifParseItemDataBox.exit.thread
+
+285:                                              ; preds = %283
+  %286 = or disjoint i32 %.0139, 16
+  %287 = call i64 @avifROStreamOffset(ptr noundef nonnull %75) #13
+  %288 = add i64 %287, %1
+  %289 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
+  %290 = load i64, ptr %77, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48)
+  store ptr %289, ptr %45, align 8
+  store i64 %290, ptr %91, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef %4, ptr noundef nonnull @.str.54) #13
+  %291 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %44, ptr noundef nonnull %46) #13
+  %.not.i98 = icmp eq i32 %291, 0
+  br i1 %.not.i98, label %avifParseItemPropertiesBox.exit.thread, label %292
+
+292:                                              ; preds = %285
+  %lhsv.i = load i32, ptr %92, align 8
+  %.not27.i = icmp eq i32 %lhsv.i, 1868787817
+  br i1 %.not27.i, label %294, label %293
+
+293:                                              ; preds = %292
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.56) #13
+  br label %avifParseItemPropertiesBox.exit.thread
+
+294:                                              ; preds = %292
+  %295 = call i64 @avifROStreamOffset(ptr noundef nonnull %44) #13
+  %296 = add i64 %288, %295
+  %297 = call ptr @avifROStreamCurrent(ptr noundef nonnull %44) #13
+  %298 = load i64, ptr %46, align 8
+  %299 = call fastcc i32 @avifParseItemPropertyContainerBox(ptr noundef nonnull %93, i64 noundef %296, ptr noundef %297, i64 noundef %298, ptr noundef %4)
+  %.not28.i = icmp eq i32 %299, 0
+  br i1 %.not28.i, label %300, label %avifParseItemPropertiesBox.exit.thread
+
+300:                                              ; preds = %294
+  %301 = load i64, ptr %46, align 8
+  %302 = call i32 @avifROStreamSkip(ptr noundef nonnull %44, i64 noundef %301) #13
+  %.not29.i = icmp eq i32 %302, 0
+  br i1 %.not29.i, label %avifParseItemPropertiesBox.exit.thread, label %.preheader.i99
+
+.preheader.i99:                                   ; preds = %300, %._crit_edge.thread.i
+  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %._crit_edge.thread.i ], [ 0, %300 ]
+  %303 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %44, i64 noundef 1) #13
+  %.not30.i = icmp eq i32 %303, 0
+  br i1 %.not30.i, label %avifParseItemPropertiesBox.exit, label %304
+
+304:                                              ; preds = %.preheader.i99
+  %305 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %44, ptr noundef nonnull %48) #13
+  %.not31.i = icmp eq i32 %305, 0
+  br i1 %.not31.i, label %avifParseItemPropertiesBox.exit.thread, label %306
+
+306:                                              ; preds = %304
+  %lhsv32.i = load i32, ptr %94, align 8
+  %.not33.i = icmp eq i32 %lhsv32.i, 1634562153
+  br i1 %.not33.i, label %307, label %402
+
+307:                                              ; preds = %306
+  %308 = call ptr @avifROStreamCurrent(ptr noundef nonnull %44) #13
+  %309 = load i64, ptr %48, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43)
+  store ptr %308, ptr %34, align 8
+  store i64 %309, ptr %95, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %4, ptr noundef nonnull @.str.92) #13
+  %310 = call i32 @avifROStreamReadVersionAndFlags(ptr noundef nonnull %33, ptr noundef nonnull %35, ptr noundef nonnull %36) #13
+  %.not.i.i = icmp eq i32 %310, 0
+  br i1 %.not.i.i, label %avifParseItemPropertyAssociation.exit.thread.i, label %311
+
+311:                                              ; preds = %307
+  %312 = load i32, ptr %36, align 4
+  %313 = and i32 %312, 1
+  %.not59.i.i = icmp eq i32 %313, 0
+  %314 = load i8, ptr %35, align 1
+  %315 = zext i8 %314 to i32
+  %316 = shl nuw i32 %315, 24
+  %317 = or i32 %316, %312
+  %318 = call i32 @avifROStreamReadU32(ptr noundef nonnull %33, ptr noundef nonnull %37) #13
+  %.not60.i.i = icmp eq i32 %318, 0
+  br i1 %.not60.i.i, label %avifParseItemPropertyAssociation.exit.thread.i, label %.preheader85.i.i
+
+.preheader85.i.i:                                 ; preds = %311
+  %319 = load i32, ptr %37, align 4
+  %.not108.i.i = icmp eq i32 %319, 0
+  br i1 %.not108.i.i, label %avifParseItemPropertyAssociation.exit.i, label %.lr.ph99.i.i
+
+.lr.ph99.i.i:                                     ; preds = %.preheader85.i.i
+  %320 = select i1 %.not59.i.i, i64 7, i64 15
+  br label %321
+
+321:                                              ; preds = %._crit_edge.i.i, %.lr.ph99.i.i
+  %.04698.i.i = phi i32 [ 0, %.lr.ph99.i.i ], [ %332, %._crit_edge.i.i ]
+  %.04897.i.i = phi i32 [ 0, %.lr.ph99.i.i ], [ %389, %._crit_edge.i.i ]
+  %322 = load i8, ptr %35, align 1
+  %323 = icmp eq i8 %322, 0
+  br i1 %323, label %324, label %329
+
+324:                                              ; preds = %321
+  %325 = call i32 @avifROStreamReadU16(ptr noundef nonnull %33, ptr noundef nonnull %39) #13
+  %.not62.i.i = icmp eq i32 %325, 0
+  br i1 %.not62.i.i, label %avifParseItemPropertyAssociation.exit.thread.i, label %326
+
+326:                                              ; preds = %324
+  %327 = load i16, ptr %39, align 2
+  %328 = zext i16 %327 to i32
+  store i32 %328, ptr %38, align 4
+  br label %331
+
+329:                                              ; preds = %321
+  %330 = call i32 @avifROStreamReadU32(ptr noundef nonnull %33, ptr noundef nonnull %38) #13
+  %.not61.i.i = icmp eq i32 %330, 0
+  br i1 %.not61.i.i, label %avifParseItemPropertyAssociation.exit.thread.i, label %thread-pre-split.i.i
+
+thread-pre-split.i.i:                             ; preds = %329
+  %.pr.i.i = load i32, ptr %38, align 4
+  br label %331
+
+331:                                              ; preds = %thread-pre-split.i.i, %326
+  %332 = phi i32 [ %.pr.i.i, %thread-pre-split.i.i ], [ %328, %326 ]
+  %333 = icmp eq i32 %332, 0
+  br i1 %333, label %avifCheckItemID.exit.i.i, label %334
+
+avifCheckItemID.exit.i.i:                         ; preds = %331
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.57, i32 noundef 0) #13
+  br label %avifParseItemPropertyAssociation.exit.thread.i
+
+334:                                              ; preds = %331
+  %.not64.i.i = icmp ugt i32 %332, %.04698.i.i
+  br i1 %.not64.i.i, label %336, label %335
+
+335:                                              ; preds = %334
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.93) #13
+  br label %avifParseItemPropertyAssociation.exit.thread.i
+
+336:                                              ; preds = %334
+  %337 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %332, ptr noundef nonnull %40)
+  %.not65.i.i = icmp eq i32 %337, 0
+  br i1 %.not65.i.i, label %338, label %avifParseItemPropertyAssociation.exit.thread.i
+
+338:                                              ; preds = %336
+  %339 = load ptr, ptr %40, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 212
+  %341 = load i32, ptr %340, align 4
+  %.not66.i.i = icmp eq i32 %341, 0
+  br i1 %.not66.i.i, label %344, label %342
+
+342:                                              ; preds = %338
+  %343 = load i32, ptr %38, align 4
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.94, i32 noundef %343) #13
+  br label %avifParseItemPropertyAssociation.exit.thread.i
+
+344:                                              ; preds = %338
+  store i32 1, ptr %340, align 4
+  %345 = call i32 @avifROStreamRead(ptr noundef nonnull %33, ptr noundef nonnull %41, i64 noundef 1) #13
+  %.not67.i.i = icmp eq i32 %345, 0
+  br i1 %.not67.i.i, label %avifParseItemPropertyAssociation.exit.thread.i, label %.preheader84.i.i
+
+.preheader84.i.i:                                 ; preds = %344
+  %346 = load i8, ptr %41, align 1
+  %.not109.i.i = icmp eq i8 %346, 0
+  br i1 %.not109.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.preheader84.i.i
+  %347 = getelementptr inbounds nuw i8, ptr %339, i64 208
+  %348 = getelementptr inbounds nuw i8, ptr %339, i64 112
+  br label %349
+
+349:                                              ; preds = %385, %.lr.ph.i.i
+  %.05196.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %386, %385 ]
+  %350 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %33, ptr noundef nonnull %42, i64 noundef 1) #13
+  %.not68.i.i = icmp eq i32 %350, 0
+  br i1 %.not68.i.i, label %avifParseItemPropertyAssociation.exit.thread.i, label %351
+
+351:                                              ; preds = %349
+  %352 = call i32 @avifROStreamReadBits(ptr noundef nonnull %33, ptr noundef nonnull %43, i64 noundef %320) #13
+  %.not69.i.i = icmp eq i32 %352, 0
+  br i1 %.not69.i.i, label %avifParseItemPropertyAssociation.exit.thread.i, label %353
+
+353:                                              ; preds = %351
+  %354 = load i32, ptr %43, align 4
+  %355 = icmp eq i32 %354, 0
+  br i1 %355, label %385, label %356
+
+356:                                              ; preds = %353
+  %357 = add i32 %354, -1
+  store i32 %357, ptr %43, align 4
+  %358 = load i32, ptr %96, align 4
+  %.not70.i.i = icmp ult i32 %357, %358
+  br i1 %.not70.i.i, label %361, label %359
+
+359:                                              ; preds = %356
+  %360 = load i32, ptr %38, align 4
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.95, i32 noundef %360, i32 noundef %357, i32 noundef %358) #13
+  br label %avifParseItemPropertyAssociation.exit.thread.i
+
+361:                                              ; preds = %356
+  %362 = load ptr, ptr %93, align 8
+  %363 = zext i32 %357 to i64
+  %364 = getelementptr inbounds %struct.avifProperty, ptr %362, i64 %363
+  br label %367
+
+365:                                              ; preds = %367
+  %366 = add nuw nsw i64 %.04994.i.i, 1
+  %exitcond.i.i = icmp eq i64 %366, 13
+  br i1 %exitcond.i.i, label %.critedge.i.i, label %367, !llvm.loop !77
+
+367:                                              ; preds = %365, %361
+  %.04994.i.i = phi i64 [ 0, %361 ], [ %366, %365 ]
+  %368 = getelementptr inbounds [13 x ptr], ptr @avifParseItemPropertyAssociation.supportedTypes, i64 0, i64 %.04994.i.i
+  %369 = load ptr, ptr %368, align 8
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %364, ptr noundef nonnull dereferenceable(4) %369, i64 4)
+  %.not71.i.i = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not71.i.i, label %370, label %365
+
+370:                                              ; preds = %367
+  %371 = load i8, ptr %42, align 1
+  %.not74.i.i = icmp eq i8 %371, 0
+  br i1 %.not74.i.i, label %.preheader.i.i, label %372
+
+372:                                              ; preds = %370
+  %bcmp78.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %364, ptr noundef nonnull dereferenceable(4) @.str.66, i64 4)
+  %.not79.i.i = icmp eq i32 %bcmp78.i.i, 0
+  br i1 %.not79.i.i, label %373, label %.critedge81.i.i
+
+373:                                              ; preds = %372
+  %374 = load i32, ptr %38, align 4
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.96, i32 noundef %374, ptr noundef nonnull @.str.66) #13
+  br label %avifParseItemPropertyAssociation.exit.thread.i
+
+375:                                              ; preds = %.preheader.i.i
+  br i1 %376, label %.preheader.i.i, label %.critedge81.i.i, !llvm.loop !78
+
+.preheader.i.i:                                   ; preds = %370, %375
+  %376 = phi i1 [ false, %375 ], [ true, %370 ]
+  %.04595.i.i = phi i64 [ 1, %375 ], [ 0, %370 ]
+  %377 = getelementptr inbounds [2 x ptr], ptr @avifParseItemPropertyAssociation.essentialTypes, i64 0, i64 %.04595.i.i
+  %378 = load ptr, ptr %377, align 8
+  %bcmp75.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %364, ptr noundef nonnull dereferenceable(4) %378, i64 4)
+  %.not76.i.i = icmp eq i32 %bcmp75.i.i, 0
+  br i1 %.not76.i.i, label %379, label %375
+
+379:                                              ; preds = %.preheader.i.i
+  %380 = load i32, ptr %38, align 4
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.97, i32 noundef %380, ptr noundef %378) #13
+  br label %avifParseItemPropertyAssociation.exit.thread.i
+
+.critedge81.i.i:                                  ; preds = %375, %372
+  %381 = call ptr @avifArrayPush(ptr noundef nonnull %348) #13
+  %.not77.i.i = icmp eq ptr %381, null
+  br i1 %.not77.i.i, label %avifParseItemPropertyAssociation.exit.thread.i, label %382
+
+382:                                              ; preds = %.critedge81.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %381, ptr noundef nonnull align 8 dereferenceable(72) %364, i64 72, i1 false)
+  br label %385
+
+.critedge.i.i:                                    ; preds = %365
+  %383 = load i8, ptr %42, align 1
+  %.not73.i.i = icmp eq i8 %383, 0
+  br i1 %.not73.i.i, label %385, label %384
+
+384:                                              ; preds = %.critedge.i.i
+  store i32 1, ptr %347, align 8
+  br label %385
+
+385:                                              ; preds = %384, %.critedge.i.i, %382, %353
+  %386 = add nuw i8 %.05196.i.i, 1
+  %387 = load i8, ptr %41, align 1
+  %388 = icmp ult i8 %386, %387
+  br i1 %388, label %349, label %._crit_edge.i.i, !llvm.loop !79
+
+._crit_edge.i.i:                                  ; preds = %385, %.preheader84.i.i
+  %389 = add nuw i32 %.04897.i.i, 1
+  %390 = load i32, ptr %37, align 4
+  %391 = icmp ult i32 %389, %390
+  br i1 %391, label %321, label %avifParseItemPropertyAssociation.exit.i, !llvm.loop !80
+
+avifParseItemPropertyAssociation.exit.thread.i:   ; preds = %311, %307, %344, %336, %329, %324, %.critedge81.i.i, %351, %349, %379, %373, %359, %342, %335, %avifCheckItemID.exit.i.i
+  %.0.i.ph.i = phi i32 [ 9, %avifCheckItemID.exit.i.i ], [ 9, %379 ], [ 9, %373 ], [ 9, %359 ], [ 9, %342 ], [ 9, %335 ], [ 9, %349 ], [ 9, %351 ], [ 26, %.critedge81.i.i ], [ 9, %344 ], [ %337, %336 ], [ 9, %329 ], [ 9, %324 ], [ 9, %307 ], [ 9, %311 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
+  br label %avifParseItemPropertiesBox.exit.thread
+
+avifParseItemPropertyAssociation.exit.i:          ; preds = %._crit_edge.i.i, %.preheader85.i.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43)
+  %.not52.i100 = icmp eq i64 %indvars.iv64.i, 0
+  br i1 %.not52.i100, label %._crit_edge.thread.i, label %.lr.ph.i101
+
+392:                                              ; preds = %.lr.ph.i101
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i, %indvars.iv64.i
+  br i1 %exitcond.not.i102, label %._crit_edge.i103, label %.lr.ph.i101, !llvm.loop !81
+
+.lr.ph.i101:                                      ; preds = %avifParseItemPropertyAssociation.exit.i, %392
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %392 ], [ 0, %avifParseItemPropertyAssociation.exit.i ]
+  %393 = getelementptr inbounds [4 x i32], ptr %47, i64 0, i64 %indvars.iv.i
+  %394 = load i32, ptr %393, align 4
+  %395 = icmp eq i32 %394, %317
+  br i1 %395, label %396, label %392
+
+396:                                              ; preds = %.lr.ph.i101
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.58) #13
+  br label %avifParseItemPropertiesBox.exit.thread
+
+._crit_edge.i103:                                 ; preds = %392
+  %397 = icmp eq i64 %indvars.iv64.i, 4
+  br i1 %397, label %398, label %._crit_edge.thread.i
+
+398:                                              ; preds = %._crit_edge.i103
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.59) #13
+  br label %avifParseItemPropertiesBox.exit.thread
+
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i103, %avifParseItemPropertyAssociation.exit.i
+  %399 = getelementptr inbounds [4 x i32], ptr %47, i64 0, i64 %indvars.iv64.i
+  store i32 %317, ptr %399, align 4
+  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
+  %400 = load i64, ptr %48, align 8
+  %401 = call i32 @avifROStreamSkip(ptr noundef nonnull %44, i64 noundef %400) #13
+  %.not35.i = icmp eq i32 %401, 0
+  br i1 %.not35.i, label %avifParseItemPropertiesBox.exit.thread, label %.preheader.i99, !llvm.loop !82
+
+402:                                              ; preds = %306
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.60) #13
+  br label %avifParseItemPropertiesBox.exit.thread
+
+avifParseItemPropertiesBox.exit.thread:           ; preds = %285, %294, %300, %._crit_edge.thread.i, %304, %293, %402, %396, %398, %avifParseItemPropertyAssociation.exit.thread.i
+  %.023.i.ph = phi i32 [ %.0.i.ph.i, %avifParseItemPropertyAssociation.exit.thread.i ], [ 9, %398 ], [ 9, %396 ], [ 9, %402 ], [ 9, %293 ], [ 9, %304 ], [ 9, %._crit_edge.thread.i ], [ 9, %285 ], [ %299, %294 ], [ 9, %300 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
+  br label %avifParseItemDataBox.exit.thread
+
+avifParseItemPropertiesBox.exit:                  ; preds = %.preheader.i99
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
+  br label %547
+
+403:                                              ; preds = %127
+  %404 = and i32 %.0139, 32
+  %.not.i104 = icmp eq i32 %404, 0
+  br i1 %.not.i104, label %405, label %uniqueBoxSeen.exit106.thread
+
+uniqueBoxSeen.exit106.thread:                     ; preds = %403
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.32) #13
+  br label %avifParseItemDataBox.exit.thread
+
+405:                                              ; preds = %403
+  %406 = or disjoint i32 %.0139, 32
+  %407 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
+  %408 = load i64, ptr %77, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
+  store ptr %407, ptr %28, align 8
+  store i64 %408, ptr %88, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %4, ptr noundef nonnull @.str.98) #13
+  %409 = call i32 @avifROStreamReadVersionAndFlags(ptr noundef nonnull %27, ptr noundef nonnull %29, ptr noundef null) #13
+  %.not.i107 = icmp eq i32 %409, 0
+  br i1 %.not.i107, label %avifParseItemInfoBox.exit.thread, label %410
+
+410:                                              ; preds = %405
+  %411 = load i8, ptr %29, align 1
+  switch i8 %411, label %419 [
+    i8 0, label %412
+    i8 1, label %417
+  ]
+
+412:                                              ; preds = %410
+  %413 = call i32 @avifROStreamReadU16(ptr noundef nonnull %27, ptr noundef nonnull %31) #13
+  %.not15.i = icmp eq i32 %413, 0
+  br i1 %.not15.i, label %avifParseItemInfoBox.exit.thread, label %414
+
+414:                                              ; preds = %412
+  %415 = load i16, ptr %31, align 2
+  %416 = zext i16 %415 to i32
+  store i32 %416, ptr %30, align 4
+  br label %421
+
+417:                                              ; preds = %410
+  %418 = call i32 @avifROStreamReadU32(ptr noundef nonnull %27, ptr noundef nonnull %30) #13
+  %.not14.i = icmp eq i32 %418, 0
+  br i1 %.not14.i, label %avifParseItemInfoBox.exit.thread, label %._crit_edge.i108
+
+._crit_edge.i108:                                 ; preds = %417
+  %.pre.i109 = load i32, ptr %30, align 4
+  br label %421
+
+419:                                              ; preds = %410
+  %420 = zext i8 %411 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.99, i32 noundef %420) #13
+  br label %avifParseItemInfoBox.exit.thread
+
+421:                                              ; preds = %._crit_edge.i108, %414
+  %422 = phi i32 [ %.pre.i109, %._crit_edge.i108 ], [ %416, %414 ]
+  %.not28.i110 = icmp eq i32 %422, 0
+  br i1 %.not28.i110, label %avifParseItemInfoBox.exit, label %.lr.ph.i111
+
+423:                                              ; preds = %468
+  %424 = add nuw i32 %.01123.i, 1
+  %425 = load i32, ptr %30, align 4
+  %426 = icmp ult i32 %424, %425
+  br i1 %426, label %.lr.ph.i111, label %avifParseItemInfoBox.exit, !llvm.loop !83
+
+.lr.ph.i111:                                      ; preds = %421, %423
+  %.01123.i = phi i32 [ %424, %423 ], [ 0, %421 ]
+  %427 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %27, ptr noundef nonnull %32) #13
+  %.not16.i = icmp eq i32 %427, 0
+  br i1 %.not16.i, label %avifParseItemInfoBox.exit.thread, label %428
+
+428:                                              ; preds = %.lr.ph.i111
+  %lhsv.i112 = load i32, ptr %89, align 8
+  %.not17.i = icmp eq i32 %lhsv.i112, 1701211753
+  br i1 %.not17.i, label %429, label %467
+
+429:                                              ; preds = %428
+  %430 = call ptr @avifROStreamCurrent(ptr noundef nonnull %27) #13
+  %431 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  store ptr %430, ptr %18, align 8
+  store i64 %431, ptr %90, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %4, ptr noundef nonnull @.str.102) #13
+  %432 = call i32 @avifROStreamReadVersionAndFlags(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %20) #13
+  %.not.i.i114 = icmp eq i32 %432, 0
+  br i1 %.not.i.i114, label %avifParseItemInfoEntry.exit.thread.i, label %433
+
+433:                                              ; preds = %429
+  %434 = load i8, ptr %19, align 1
+  %435 = add i8 %434, -4
+  %or.cond.i.i = icmp ult i8 %435, -2
+  br i1 %or.cond.i.i, label %436, label %442
+
+436:                                              ; preds = %433
+  %437 = zext i8 %434 to i32
+  %438 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %439 = load ptr, ptr %438, align 8
+  %440 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %441 = load ptr, ptr %440, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %439, ptr noundef nonnull @.str.103, ptr noundef %441, i32 noundef %437) #13
+  br label %avifParseItemInfoEntry.exit.thread.i
+
+442:                                              ; preds = %433
+  %443 = icmp eq i8 %434, 2
+  br i1 %443, label %444, label %449
+
+444:                                              ; preds = %442
+  %445 = call i32 @avifROStreamReadU16(ptr noundef nonnull %17, ptr noundef nonnull %22) #13
+  %.not15.i.i = icmp eq i32 %445, 0
+  br i1 %.not15.i.i, label %avifParseItemInfoEntry.exit.thread.i, label %446
+
+446:                                              ; preds = %444
+  %447 = load i16, ptr %22, align 2
+  %448 = zext i16 %447 to i32
+  store i32 %448, ptr %21, align 4
+  br label %451
+
+449:                                              ; preds = %442
+  %450 = call i32 @avifROStreamReadU32(ptr noundef nonnull %17, ptr noundef nonnull %21) #13
+  %.not14.i.i = icmp eq i32 %450, 0
+  br i1 %.not14.i.i, label %avifParseItemInfoEntry.exit.thread.i, label %thread-pre-split.i.i115
+
+thread-pre-split.i.i115:                          ; preds = %449
+  %.pr.i.i116 = load i32, ptr %21, align 4
+  br label %451
+
+451:                                              ; preds = %thread-pre-split.i.i115, %446
+  %452 = phi i32 [ %.pr.i.i116, %thread-pre-split.i.i115 ], [ %448, %446 ]
+  %453 = icmp eq i32 %452, 0
+  br i1 %453, label %avifCheckItemID.exit.i.i119, label %454
+
+avifCheckItemID.exit.i.i119:                      ; preds = %451
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.100, i32 noundef 0) #13
+  br label %avifParseItemInfoEntry.exit.thread.i
+
+454:                                              ; preds = %451
+  %455 = call i32 @avifROStreamReadU16(ptr noundef nonnull %17, ptr noundef nonnull %23) #13
+  %.not17.i.i = icmp eq i32 %455, 0
+  br i1 %.not17.i.i, label %avifParseItemInfoEntry.exit.thread.i, label %456
+
+456:                                              ; preds = %454
+  %457 = call i32 @avifROStreamRead(ptr noundef nonnull %17, ptr noundef nonnull %24, i64 noundef 4) #13
+  %.not18.i.i = icmp eq i32 %457, 0
+  br i1 %.not18.i.i, label %avifParseItemInfoEntry.exit.thread.i, label %458
+
+458:                                              ; preds = %456
+  %lhsv634 = load i32, ptr %24, align 4
+  %.not635 = icmp eq i32 %lhsv634, 1701669229
+  br i1 %.not635, label %459, label %463
+
+459:                                              ; preds = %458
+  %460 = call i32 @avifROStreamReadString(ptr noundef nonnull %17, ptr noundef null, i64 noundef 0) #13
+  %.not20.i.i = icmp eq i32 %460, 0
+  br i1 %.not20.i.i, label %avifParseItemInfoEntry.exit.thread.i, label %461
+
+461:                                              ; preds = %459
+  %462 = call i32 @avifROStreamReadString(ptr noundef nonnull %17, ptr noundef nonnull %25, i64 noundef 64) #13
+  %.not21.i.i = icmp eq i32 %462, 0
+  br i1 %.not21.i.i, label %avifParseItemInfoEntry.exit.thread.i, label %464
+
+463:                                              ; preds = %458
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %25, i8 0, i64 64, i1 false)
+  br label %464
+
+464:                                              ; preds = %463, %461
+  %465 = load i32, ptr %21, align 4
+  %466 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %465, ptr noundef nonnull %26)
+  %.not22.i.i = icmp eq i32 %466, 0
+  br i1 %.not22.i.i, label %468, label %avifParseItemInfoEntry.exit.thread.i
+
+avifParseItemInfoEntry.exit.thread.i:             ; preds = %464, %461, %459, %456, %454, %449, %444, %429, %avifCheckItemID.exit.i.i119, %436
+  %.0.i.ph.i118 = phi i32 [ 9, %avifCheckItemID.exit.i.i119 ], [ 9, %436 ], [ %466, %464 ], [ 9, %461 ], [ 9, %459 ], [ 9, %456 ], [ 9, %454 ], [ 9, %449 ], [ 9, %444 ], [ 9, %429 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  br label %avifParseItemInfoBox.exit.thread
+
+467:                                              ; preds = %428
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.101) #13
+  br label %avifParseItemInfoBox.exit.thread
+
+468:                                              ; preds = %464
+  %469 = load ptr, ptr %26, align 8
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
+  %471 = load i32, ptr %24, align 4
+  store i32 %471, ptr %470, align 8
+  %472 = getelementptr inbounds nuw i8, ptr %469, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %472, ptr noundef nonnull align 1 dereferenceable(64) %25, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  %473 = load i64, ptr %32, align 8
+  %474 = call i32 @avifROStreamSkip(ptr noundef nonnull %27, i64 noundef %473) #13
+  %.not19.i = icmp eq i32 %474, 0
+  br i1 %.not19.i, label %avifParseItemInfoBox.exit.thread, label %423
+
+avifParseItemInfoBox.exit.thread:                 ; preds = %405, %412, %417, %.lr.ph.i111, %468, %467, %419, %avifParseItemInfoEntry.exit.thread.i
+  %.0.i113.ph = phi i32 [ %.0.i.ph.i118, %avifParseItemInfoEntry.exit.thread.i ], [ 9, %419 ], [ 9, %467 ], [ 9, %468 ], [ 9, %.lr.ph.i111 ], [ 9, %417 ], [ 9, %412 ], [ 9, %405 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
+  br label %avifParseItemDataBox.exit.thread
+
+avifParseItemInfoBox.exit:                        ; preds = %423, %421
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
+  br label %547
+
+475:                                              ; preds = %127
+  %476 = and i32 %.0139, 64
+  %.not.i120 = icmp eq i32 %476, 0
+  br i1 %.not.i120, label %477, label %uniqueBoxSeen.exit122.thread
+
+uniqueBoxSeen.exit122.thread:                     ; preds = %475
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.33) #13
+  br label %avifParseItemDataBox.exit.thread
+
+477:                                              ; preds = %475
+  %478 = or disjoint i32 %.0139, 64
+  %479 = call ptr @avifROStreamCurrent(ptr noundef nonnull %75) #13
+  %480 = load i64, ptr %77, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  store ptr %479, ptr %7, align 8
+  store i64 %480, ptr %86, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @.str.105) #13
+  %481 = call i32 @avifROStreamReadVersionAndFlags(ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef null) #13
+  %.not.i123 = icmp eq i32 %481, 0
+  br i1 %.not.i123, label %avifParseItemReferenceBox.exit.thread, label %.preheader72.i
+
+.preheader72.i:                                   ; preds = %477
+  %482 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %6, i64 noundef 1) #13
+  %.not3677.i = icmp eq i32 %482, 0
+  br i1 %.not3677.i, label %avifParseItemReferenceBox.exit, label %.lr.ph78.i
+
+.lr.ph78.i:                                       ; preds = %.preheader72.i, %._crit_edge.i129
+  %483 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %6, ptr noundef nonnull %9) #13
+  %.not37.i = icmp eq i32 %483, 0
+  br i1 %.not37.i, label %avifParseItemReferenceBox.exit.thread, label %484
+
+484:                                              ; preds = %.lr.ph78.i
+  store i32 0, ptr %10, align 4
+  %485 = load i8, ptr %8, align 1
+  switch i8 %485, label %avifParseItemReferenceBox.exit [
+    i8 0, label %486
+    i8 1, label %492
+  ]
+
+486:                                              ; preds = %484
+  %487 = call i32 @avifROStreamReadU16(ptr noundef nonnull %6, ptr noundef nonnull %11) #13
+  %.not40.i = icmp eq i32 %487, 0
+  br i1 %.not40.i, label %avifParseItemReferenceBox.exit.thread, label %488
+
+488:                                              ; preds = %486
+  %489 = load i16, ptr %11, align 2
+  %490 = zext i16 %489 to i32
+  store i32 %490, ptr %10, align 4
+  %491 = icmp eq i16 %489, 0
+  br i1 %491, label %.loopexit.sink.split.i, label %avifCheckItemID.exit.thread.i
+
+492:                                              ; preds = %484
+  %493 = call i32 @avifROStreamReadU32(ptr noundef nonnull %6, ptr noundef nonnull %10) #13
+  %.not38.i = icmp eq i32 %493, 0
+  br i1 %.not38.i, label %avifParseItemReferenceBox.exit.thread, label %494
+
+494:                                              ; preds = %492
+  %495 = load i32, ptr %10, align 4
+  %496 = icmp eq i32 %495, 0
+  br i1 %496, label %.loopexit.sink.split.i, label %avifCheckItemID.exit.thread.i
+
+avifCheckItemID.exit.thread.i:                    ; preds = %494, %488
+  store i16 0, ptr %12, align 2
+  %497 = call i32 @avifROStreamReadU16(ptr noundef nonnull %6, ptr noundef nonnull %12) #13
+  %.not42.i = icmp eq i32 %497, 0
+  br i1 %.not42.i, label %avifParseItemReferenceBox.exit.thread, label %.preheader.i124
+
+.preheader.i124:                                  ; preds = %avifCheckItemID.exit.thread.i
+  %498 = load i16, ptr %12, align 2
+  %.not88.i = icmp eq i16 %498, 0
+  br i1 %.not88.i, label %._crit_edge.i129, label %.lr.ph.i125
+
+.lr.ph.i125:                                      ; preds = %.preheader.i124, %542
+  %indvars.iv.i126 = phi i32 [ %indvars.iv.next.i128, %542 ], [ 0, %.preheader.i124 ]
+  store i32 0, ptr %13, align 4
+  %499 = load i8, ptr %8, align 1
+  switch i8 %499, label %._crit_edge.i129 [
+    i8 0, label %500
+    i8 1, label %506
+  ]
+
+500:                                              ; preds = %.lr.ph.i125
+  %501 = call i32 @avifROStreamReadU16(ptr noundef nonnull %6, ptr noundef nonnull %14) #13
+  %.not45.i = icmp eq i32 %501, 0
+  br i1 %.not45.i, label %avifParseItemReferenceBox.exit.thread, label %502
+
+502:                                              ; preds = %500
+  %503 = load i16, ptr %14, align 2
+  %504 = zext i16 %503 to i32
+  store i32 %504, ptr %13, align 4
+  %505 = icmp eq i16 %503, 0
+  br i1 %505, label %.loopexit.sink.split.i, label %avifCheckItemID.exit61.thread.i
+
+506:                                              ; preds = %.lr.ph.i125
+  %507 = call i32 @avifROStreamReadU32(ptr noundef nonnull %6, ptr noundef nonnull %13) #13
+  %.not43.i = icmp eq i32 %507, 0
+  br i1 %.not43.i, label %avifParseItemReferenceBox.exit.thread, label %508
+
+508:                                              ; preds = %506
+  %509 = load i32, ptr %13, align 4
+  %510 = icmp eq i32 %509, 0
+  br i1 %510, label %.loopexit.sink.split.i, label %avifCheckItemID.exit61.thread.i
+
+avifCheckItemID.exit61.thread.i:                  ; preds = %508, %502
+  %511 = phi i32 [ %509, %508 ], [ %504, %502 ]
+  %512 = load i32, ptr %10, align 4
+  %513 = icmp ne i32 %512, 0
+  %514 = icmp ne i32 %511, 0
+  %or.cond.i127 = and i1 %514, %513
+  br i1 %or.cond.i127, label %515, label %542
+
+515:                                              ; preds = %avifCheckItemID.exit61.thread.i
+  %516 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %512, ptr noundef nonnull %15)
+  %.not47.i = icmp eq i32 %516, 0
+  br i1 %.not47.i, label %517, label %avifParseItemReferenceBox.exit.thread
+
+517:                                              ; preds = %515
+  %lhsv.i131 = load i32, ptr %87, align 8
+  switch i32 %lhsv.i131, label %542 [
+    i32 1651337332, label %518
+    i32 1819833697, label %522
+    i32 1668506723, label %526
+    i32 1735223652, label %530
+    i32 1835364976, label %538
+  ]
+
+518:                                              ; preds = %517
+  %519 = load i32, ptr %13, align 4
+  %520 = load ptr, ptr %15, align 8
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 184
+  store i32 %519, ptr %521, align 8
+  br label %542
+
+522:                                              ; preds = %517
+  %523 = load i32, ptr %13, align 4
+  %524 = load ptr, ptr %15, align 8
+  %525 = getelementptr inbounds nuw i8, ptr %524, i64 188
+  store i32 %523, ptr %525, align 4
+  br label %542
+
+526:                                              ; preds = %517
+  %527 = load i32, ptr %13, align 4
+  %528 = load ptr, ptr %15, align 8
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 192
+  store i32 %527, ptr %529, align 8
+  br label %542
+
+530:                                              ; preds = %517
+  %531 = load i32, ptr %13, align 4
+  %532 = call fastcc i32 @avifMetaFindOrCreateItem(ptr noundef %0, i32 noundef %531, ptr noundef nonnull %16)
+  %.not55.i132 = icmp eq i32 %532, 0
+  br i1 %.not55.i132, label %533, label %avifParseItemReferenceBox.exit.thread
+
+533:                                              ; preds = %530
+  %534 = load i32, ptr %10, align 4
+  %535 = load ptr, ptr %16, align 8
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 196
+  store i32 %534, ptr %536, align 4
+  %537 = getelementptr inbounds nuw i8, ptr %535, i64 200
+  store i32 %indvars.iv.i126, ptr %537, align 8
+  br label %542
+
+538:                                              ; preds = %517
+  %539 = load i32, ptr %13, align 4
+  %540 = load ptr, ptr %15, align 8
+  %541 = getelementptr inbounds nuw i8, ptr %540, i64 204
+  store i32 %539, ptr %541, align 4
+  br label %542
+
+542:                                              ; preds = %538, %533, %526, %522, %518, %517, %avifCheckItemID.exit61.thread.i
+  %indvars.iv.next.i128 = add nuw nsw i32 %indvars.iv.i126, 1
+  %543 = load i16, ptr %12, align 2
+  %544 = zext i16 %543 to i32
+  %545 = icmp ult i32 %indvars.iv.next.i128, %544
+  br i1 %545, label %.lr.ph.i125, label %._crit_edge.i129, !llvm.loop !84
+
+._crit_edge.i129:                                 ; preds = %542, %.lr.ph.i125, %.preheader.i124
+  %546 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %6, i64 noundef 1) #13
+  %.not36.i = icmp eq i32 %546, 0
+  br i1 %.not36.i, label %avifParseItemReferenceBox.exit, label %.lr.ph78.i, !llvm.loop !85
+
+.loopexit.sink.split.i:                           ; preds = %494, %488, %508, %502
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.33, i32 noundef 0) #13
+  br label %avifParseItemReferenceBox.exit.thread
+
+avifParseItemReferenceBox.exit.thread:            ; preds = %477, %.lr.ph78.i, %486, %492, %avifCheckItemID.exit.thread.i, %530, %515, %506, %500, %.loopexit.sink.split.i
+  %.0.i130.ph = phi i32 [ 9, %.loopexit.sink.split.i ], [ %532, %530 ], [ %516, %515 ], [ 9, %506 ], [ 9, %500 ], [ 9, %avifCheckItemID.exit.thread.i ], [ 9, %492 ], [ 9, %486 ], [ 9, %.lr.ph78.i ], [ 9, %477 ]
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  br label %avifParseItemDataBox.exit.thread
+
+avifParseItemReferenceBox.exit:                   ; preds = %484, %._crit_edge.i129, %.preheader72.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  br label %547
+
+547:                                              ; preds = %127, %avifParseItemReferenceBox.exit, %avifParseItemInfoBox.exit, %avifParseItemPropertiesBox.exit, %avifParsePrimaryItemBox.exit, %avifParseItemLocationBox.exit, %avifParseHandlerBox.exit, %avifParseItemDataBox.exit
+  %.1 = phi i32 [ %131, %avifParseItemLocationBox.exit ], [ %254, %avifParsePrimaryItemBox.exit ], [ %274, %avifParseItemDataBox.exit ], [ %286, %avifParseItemPropertiesBox.exit ], [ %406, %avifParseItemInfoBox.exit ], [ %478, %avifParseItemReferenceBox.exit ], [ %111, %avifParseHandlerBox.exit ], [ %.0139, %127 ]
+  %548 = load i64, ptr %77, align 8
+  %549 = call i32 @avifROStreamSkip(ptr noundef nonnull %75, i64 noundef %548) #13
+  %.not73 = icmp eq i32 %549, 0
+  br i1 %.not73, label %avifParseItemDataBox.exit.thread, label %102, !llvm.loop !86
+
+550:                                              ; preds = %102
+  br i1 %.not43, label %avifParseItemDataBox.exit.thread, label %551
+
+551:                                              ; preds = %550
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.34) #13
+  br label %avifParseItemDataBox.exit.thread
+
+avifParseItemDataBox.exit.thread:                 ; preds = %547, %avifParseItemDataBox.exit, %avifParseHandlerBox.exit, %104, %281, %278, %avifParseItemReferenceBox.exit.thread, %uniqueBoxSeen.exit122.thread, %avifParseItemInfoBox.exit.thread, %uniqueBoxSeen.exit106.thread, %avifParseItemPropertiesBox.exit.thread, %uniqueBoxSeen.exit97.thread, %uniqueBoxSeen.exit90.thread, %avifParsePrimaryItemBox.exit.thread, %uniqueBoxSeen.exit83.thread, %avifParseItemLocationBox.exit.thread, %uniqueBoxSeen.exit77.thread, %avifParseHandlerBox.exit.thread, %uniqueBoxSeen.exit.thread, %550, %5, %551, %126
+  %.0 = phi i32 [ 9, %126 ], [ 9, %551 ], [ 9, %5 ], [ 0, %550 ], [ 9, %uniqueBoxSeen.exit.thread ], [ 9, %avifParseHandlerBox.exit.thread ], [ 9, %uniqueBoxSeen.exit77.thread ], [ %.0.i79.ph, %avifParseItemLocationBox.exit.thread ], [ 9, %uniqueBoxSeen.exit83.thread ], [ 9, %avifParsePrimaryItemBox.exit.thread ], [ 9, %uniqueBoxSeen.exit90.thread ], [ 9, %uniqueBoxSeen.exit97.thread ], [ %.023.i.ph, %avifParseItemPropertiesBox.exit.thread ], [ 9, %uniqueBoxSeen.exit106.thread ], [ %.0.i113.ph, %avifParseItemInfoBox.exit.thread ], [ 9, %uniqueBoxSeen.exit122.thread ], [ %.0.i130.ph, %avifParseItemReferenceBox.exit.thread ], [ 9, %278 ], [ 9, %281 ], [ 9, %104 ], [ 9, %avifParseHandlerBox.exit ], [ 9, %avifParseItemDataBox.exit ], [ 9, %547 ]
+  ret i32 %.0
+}
+
+declare i32 @avifROStreamReadAndEnforceVersion(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
+
+declare i32 @avifROStreamHasBytesLeft(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i64 @avifROStreamOffset(ptr noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamReadString(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamReadVersionAndFlags(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamReadBits8(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamReadBits(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamReadU16(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @avifROStreamReadUX8(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @avifRWDataSet(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 27) i32 @avifParseItemPropertyContainerBox(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+  %6 = alloca %struct.avifROStream, align 8
+  %7 = alloca %struct.avifROData, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca %struct.avifROStream, align 8
+  %10 = alloca %struct.avifROData, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca %struct.avifROStream, align 8
+  %13 = alloca %struct.avifROData, align 8
+  %14 = alloca %struct.avifROStream, align 8
+  %15 = alloca %struct.avifROData, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca [10 x i8], align 1
+  %19 = alloca %struct.avifROStream, align 8
+  %20 = alloca %struct.avifROData, align 8
+  %21 = alloca %struct.avifROStream, align 8
+  %22 = alloca %struct.avifROData, align 8
+  %23 = alloca [4 x i8], align 1
+  %24 = alloca i8, align 1
+  %25 = alloca i8, align 1
+  %26 = alloca %struct.avifROStream, align 8
+  %27 = alloca %struct.avifROData, align 8
+  %28 = alloca %struct.avifROStream, align 8
+  %29 = alloca %struct.avifROData, align 8
+  %30 = alloca %struct.avifROStream, align 8
+  %31 = alloca %struct.avifROData, align 8
+  %32 = alloca %struct.avifBoxHeader, align 8
+  store ptr %2, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i64 %3, ptr %33, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef %4, ptr noundef nonnull @.str.61) #13
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  br label %43
+
+43:                                               ; preds = %217, %5
+  %44 = call i32 @avifROStreamHasBytesLeft(ptr noundef nonnull %30, i64 noundef 1) #13
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %.loopexit, label %45
+
+45:                                               ; preds = %43
+  %46 = call i32 @avifROStreamReadBoxHeader(ptr noundef nonnull %30, ptr noundef nonnull %32) #13
+  %.not34 = icmp eq i32 %46, 0
+  br i1 %.not34, label %.loopexit, label %47
+
+47:                                               ; preds = %45
+  %48 = call ptr @avifArrayPush(ptr noundef %0) #13
+  %.not35 = icmp eq ptr %48, null
+  br i1 %.not35, label %.loopexit, label %49
+
+49:                                               ; preds = %47
+  %50 = load i32, ptr %34, align 8
+  store i32 %50, ptr %48, align 8
+  switch i32 %50, label %217 [
+    i32 1701868393, label %51
+    i32 1131967841, label %60
+    i32 1919709027, label %66
+    i32 1127315041, label %104
+    i32 1886609776, label %145
+    i32 1885432931, label %152
+    i32 1953460841, label %177
+    i32 1919511913, label %187
+    i32 1769498992, label %197
+    i32 1886335329, label %201
+    i32 1818588012, label %205
+    i32 2020356449, label %209
+    i32 1768713315, label %213
+  ]
+
+51:                                               ; preds = %49
+  %52 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %53 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
+  store ptr %52, ptr %29, align 8
+  store i64 %53, ptr %42, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef %4, ptr noundef nonnull @.str.67) #13
+  %54 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %28, i8 noundef zeroext 0) #13
+  %.not.i = icmp eq i32 %54, 0
+  br i1 %.not.i, label %avifParseImageSpatialExtentsProperty.exit.thread, label %55
+
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %57 = call i32 @avifROStreamReadU32(ptr noundef nonnull %28, ptr noundef nonnull %56) #13
+  %.not6.i = icmp eq i32 %57, 0
+  br i1 %.not6.i, label %avifParseImageSpatialExtentsProperty.exit.thread, label %avifParseImageSpatialExtentsProperty.exit
+
+avifParseImageSpatialExtentsProperty.exit.thread: ; preds = %51, %55
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
+  br label %.loopexit
+
+avifParseImageSpatialExtentsProperty.exit:        ; preds = %55
+  %58 = getelementptr inbounds i8, ptr %48, i64 12
+  %59 = call i32 @avifROStreamReadU32(ptr noundef nonnull %28, ptr noundef nonnull %58) #13
+  %.not7.i.not = icmp eq i32 %59, 0
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
+  br i1 %.not7.i.not, label %.loopexit, label %217
+
+60:                                               ; preds = %49
+  %61 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %62 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
+  store ptr %61, ptr %27, align 8
+  store i64 %62, ptr %41, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef %4, ptr noundef nonnull @.str.68) #13
+  %63 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %26, i8 noundef zeroext 0) #13
+  %.not.i75 = icmp eq i32 %63, 0
+  br i1 %.not.i75, label %avifParseAuxiliaryTypeProperty.exit.thread, label %avifParseAuxiliaryTypeProperty.exit
+
+avifParseAuxiliaryTypeProperty.exit.thread:       ; preds = %60
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
+  br label %.loopexit
+
+avifParseAuxiliaryTypeProperty.exit:              ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %65 = call i32 @avifROStreamReadString(ptr noundef nonnull %26, ptr noundef nonnull %64, i64 noundef 64) #13
+  %.not4.i.not = icmp eq i32 %65, 0
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
+  br i1 %.not4.i.not, label %.loopexit, label %217
+
+66:                                               ; preds = %49
+  %67 = call i64 @avifROStreamOffset(ptr noundef nonnull %30) #13
+  %68 = add i64 %67, %1
+  %69 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %70 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25)
+  store ptr %69, ptr %22, align 8
+  store i64 %70, ptr %40, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %4, ptr noundef nonnull @.str.69) #13
+  %71 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 0, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %48, i64 32
+  store i32 0, ptr %72, align 8
+  %73 = call i32 @avifROStreamRead(ptr noundef nonnull %21, ptr noundef nonnull %23, i64 noundef 4) #13
+  %.not.i78 = icmp eq i32 %73, 0
+  br i1 %.not.i78, label %avifParseColourInformationBox.exit.thread, label %74
+
+74:                                               ; preds = %66
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %23, ptr noundef nonnull dereferenceable(4) @.str.70, i64 4)
+  %.not17.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not17.i, label %76, label %75
+
+75:                                               ; preds = %74
+  %bcmp18.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %23, ptr noundef nonnull dereferenceable(4) @.str.71, i64 4)
+  %.not19.i = icmp eq i32 %bcmp18.i, 0
+  br i1 %.not19.i, label %76, label %82
+
+76:                                               ; preds = %75, %74
+  store i32 1, ptr %71, align 8
+  %77 = call i64 @avifROStreamOffset(ptr noundef nonnull %21) #13
+  %78 = add i64 %68, %77
+  %79 = getelementptr inbounds i8, ptr %48, i64 16
+  store i64 %78, ptr %79, align 8
+  %80 = call i64 @avifROStreamRemainingBytes(ptr noundef nonnull %21) #13
+  %81 = getelementptr inbounds i8, ptr %48, i64 24
+  store i64 %80, ptr %81, align 8
+  br label %avifParseColourInformationBox.exit
+
+82:                                               ; preds = %75
+  %bcmp20.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %23, ptr noundef nonnull dereferenceable(4) @.str.72, i64 4)
+  %.not21.i = icmp eq i32 %bcmp20.i, 0
+  br i1 %.not21.i, label %83, label %avifParseColourInformationBox.exit
+
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds i8, ptr %48, i64 36
+  %85 = call i32 @avifROStreamReadU16(ptr noundef nonnull %21, ptr noundef nonnull %84) #13
+  %.not22.i = icmp eq i32 %85, 0
+  br i1 %.not22.i, label %avifParseColourInformationBox.exit.thread, label %86
+
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds i8, ptr %48, i64 38
+  %88 = call i32 @avifROStreamReadU16(ptr noundef nonnull %21, ptr noundef nonnull %87) #13
+  %.not23.i = icmp eq i32 %88, 0
+  br i1 %.not23.i, label %avifParseColourInformationBox.exit.thread, label %89
+
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds i8, ptr %48, i64 40
+  %91 = call i32 @avifROStreamReadU16(ptr noundef nonnull %21, ptr noundef nonnull %90) #13
+  %.not24.i = icmp eq i32 %91, 0
+  br i1 %.not24.i, label %avifParseColourInformationBox.exit.thread, label %92
+
+92:                                               ; preds = %89
+  %93 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %21, ptr noundef nonnull %24, i64 noundef 1) #13
+  %.not25.i = icmp eq i32 %93, 0
+  br i1 %.not25.i, label %avifParseColourInformationBox.exit.thread, label %94
+
+94:                                               ; preds = %92
+  %95 = load i8, ptr %24, align 1
+  %.not26.i = icmp ne i8 %95, 0
+  %96 = zext i1 %.not26.i to i32
+  %97 = getelementptr inbounds i8, ptr %48, i64 44
+  store i32 %96, ptr %97, align 4
+  %98 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %21, ptr noundef nonnull %25, i64 noundef 7) #13
+  %.not27.i = icmp eq i32 %98, 0
+  br i1 %.not27.i, label %avifParseColourInformationBox.exit.thread, label %99
+
+99:                                               ; preds = %94
+  %100 = load i8, ptr %25, align 1
+  %.not28.i = icmp eq i8 %100, 0
+  br i1 %.not28.i, label %103, label %101
+
+101:                                              ; preds = %99
+  %102 = zext i8 %100 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.73, i32 noundef %102) #13
+  br label %avifParseColourInformationBox.exit.thread
+
+103:                                              ; preds = %99
+  store i32 1, ptr %72, align 8
+  br label %avifParseColourInformationBox.exit
+
+avifParseColourInformationBox.exit.thread:        ; preds = %66, %83, %86, %89, %92, %94, %101
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
+  br label %.loopexit
+
+avifParseColourInformationBox.exit:               ; preds = %76, %82, %103
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
+  br label %217
+
+104:                                              ; preds = %49
+  %105 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %106 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
+  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 10, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.62) #13
+  store ptr %105, ptr %20, align 8
+  store i64 %106, ptr %39, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %4, ptr noundef nonnull %18) #13
+  %108 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  %109 = call i32 @avifROStreamReadBits(ptr noundef nonnull %19, ptr noundef nonnull %16, i64 noundef 1) #13
+  %.not.i.i = icmp eq i32 %109, 0
+  br i1 %.not.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %110
+
+110:                                              ; preds = %104
+  %111 = load i32, ptr %16, align 4
+  %.not27.i.i = icmp eq i32 %111, 0
+  br i1 %.not27.i.i, label %112, label %113
+
+112:                                              ; preds = %110
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.62, i32 noundef 0) #13
+  br label %avifParseCodecConfigurationBoxProperty.exit.thread
+
+113:                                              ; preds = %110
+  %114 = call i32 @avifROStreamReadBits(ptr noundef nonnull %19, ptr noundef nonnull %17, i64 noundef 7) #13
+  %.not28.i.i = icmp eq i32 %114, 0
+  br i1 %.not28.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %115
+
+115:                                              ; preds = %113
+  %116 = load i32, ptr %17, align 4
+  %.not29.i.i = icmp eq i32 %116, 1
+  br i1 %.not29.i.i, label %118, label %117
+
+117:                                              ; preds = %115
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.62, i32 noundef %116) #13
+  br label %avifParseCodecConfigurationBoxProperty.exit.thread
+
+118:                                              ; preds = %115
+  %119 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %108, i64 noundef 3) #13
+  %.not30.i.i = icmp eq i32 %119, 0
+  br i1 %.not30.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %120
+
+120:                                              ; preds = %118
+  %121 = getelementptr inbounds i8, ptr %48, i64 9
+  %122 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %121, i64 noundef 5) #13
+  %.not31.i.i = icmp eq i32 %122, 0
+  br i1 %.not31.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %123
+
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds i8, ptr %48, i64 10
+  %125 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %124, i64 noundef 1) #13
+  %.not32.i.i = icmp eq i32 %125, 0
+  br i1 %.not32.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %126
+
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds i8, ptr %48, i64 11
+  %128 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %127, i64 noundef 1) #13
+  %.not33.i.i = icmp eq i32 %128, 0
+  br i1 %.not33.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %129
+
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds i8, ptr %48, i64 12
+  %131 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %130, i64 noundef 1) #13
+  %.not34.i.i = icmp eq i32 %131, 0
+  br i1 %.not34.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %132
+
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds i8, ptr %48, i64 13
+  %134 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %133, i64 noundef 1) #13
+  %.not35.i.i = icmp eq i32 %134, 0
+  br i1 %.not35.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %135
+
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds i8, ptr %48, i64 14
+  %137 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %136, i64 noundef 1) #13
+  %.not36.i.i = icmp eq i32 %137, 0
+  br i1 %.not36.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %138
+
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds i8, ptr %48, i64 15
+  %140 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %139, i64 noundef 1) #13
+  %.not37.i.i = icmp eq i32 %140, 0
+  br i1 %.not37.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %141
+
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds i8, ptr %48, i64 16
+  %143 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %19, ptr noundef nonnull %142, i64 noundef 2) #13
+  %.not38.i.i = icmp eq i32 %143, 0
+  br i1 %.not38.i.i, label %avifParseCodecConfigurationBoxProperty.exit.thread, label %avifParseCodecConfigurationBoxProperty.exit
+
+avifParseCodecConfigurationBoxProperty.exit.thread: ; preds = %104, %113, %118, %120, %123, %126, %129, %132, %135, %138, %141, %117, %112
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
+  br label %.loopexit
+
+avifParseCodecConfigurationBoxProperty.exit:      ; preds = %141
+  %144 = call i32 @avifROStreamSkip(ptr noundef nonnull %19, i64 noundef 1) #13
+  %.not39.i.i.not = icmp eq i32 %144, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
+  br i1 %.not39.i.i.not, label %.loopexit, label %217
+
+145:                                              ; preds = %49
+  %146 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %147 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
+  store ptr %146, ptr %15, align 8
+  store i64 %147, ptr %38, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %4, ptr noundef nonnull @.str.77) #13
+  %148 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %149 = call i32 @avifROStreamReadU32(ptr noundef nonnull %14, ptr noundef nonnull %148) #13
+  %.not.i80 = icmp eq i32 %149, 0
+  br i1 %.not.i80, label %avifParsePixelAspectRatioBoxProperty.exit.thread, label %avifParsePixelAspectRatioBoxProperty.exit
+
+avifParsePixelAspectRatioBoxProperty.exit.thread: ; preds = %145
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  br label %.loopexit
+
+avifParsePixelAspectRatioBoxProperty.exit:        ; preds = %145
+  %150 = getelementptr inbounds i8, ptr %48, i64 12
+  %151 = call i32 @avifROStreamReadU32(ptr noundef nonnull %14, ptr noundef nonnull %150) #13
+  %.not6.i81.not = icmp eq i32 %151, 0
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  br i1 %.not6.i81.not, label %.loopexit, label %217
+
+152:                                              ; preds = %49
+  %153 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %154 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  store ptr %153, ptr %13, align 8
+  store i64 %154, ptr %37, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull @.str.78) #13
+  %155 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %156 = call i32 @avifROStreamReadU32(ptr noundef nonnull %12, ptr noundef nonnull %155) #13
+  %.not.i84 = icmp eq i32 %156, 0
+  br i1 %.not.i84, label %avifParseCleanApertureBoxProperty.exit.thread, label %157
+
+157:                                              ; preds = %152
+  %158 = getelementptr inbounds i8, ptr %48, i64 12
+  %159 = call i32 @avifROStreamReadU32(ptr noundef nonnull %12, ptr noundef nonnull %158) #13
+  %.not12.i = icmp eq i32 %159, 0
+  br i1 %.not12.i, label %avifParseCleanApertureBoxProperty.exit.thread, label %160
+
+160:                                              ; preds = %157
+  %161 = getelementptr inbounds i8, ptr %48, i64 16
+  %162 = call i32 @avifROStreamReadU32(ptr noundef nonnull %12, ptr noundef nonnull %161) #13
+  %.not13.i = icmp eq i32 %162, 0
+  br i1 %.not13.i, label %avifParseCleanApertureBoxProperty.exit.thread, label %163
+
+163:                                              ; preds = %160
+  %164 = getelementptr inbounds i8, ptr %48, i64 20
+  %165 = call i32 @avifROStreamReadU32(ptr noundef nonnull %12, ptr noundef nonnull %164) #13
+  %.not14.i = icmp eq i32 %165, 0
+  br i1 %.not14.i, label %avifParseCleanApertureBoxProperty.exit.thread, label %166
+
+166:                                              ; preds = %163
+  %167 = getelementptr inbounds i8, ptr %48, i64 24
+  %168 = call i32 @avifROStreamReadU32(ptr noundef nonnull %12, ptr noundef nonnull %167) #13
+  %.not15.i = icmp eq i32 %168, 0
+  br i1 %.not15.i, label %avifParseCleanApertureBoxProperty.exit.thread, label %169
+
+169:                                              ; preds = %166
+  %170 = getelementptr inbounds i8, ptr %48, i64 28
+  %171 = call i32 @avifROStreamReadU32(ptr noundef nonnull %12, ptr noundef nonnull %170) #13
+  %.not16.i = icmp eq i32 %171, 0
+  br i1 %.not16.i, label %avifParseCleanApertureBoxProperty.exit.thread, label %172
+
+172:                                              ; preds = %169
+  %173 = getelementptr inbounds i8, ptr %48, i64 32
+  %174 = call i32 @avifROStreamReadU32(ptr noundef nonnull %12, ptr noundef nonnull %173) #13
+  %.not17.i85 = icmp eq i32 %174, 0
+  br i1 %.not17.i85, label %avifParseCleanApertureBoxProperty.exit.thread, label %avifParseCleanApertureBoxProperty.exit
+
+avifParseCleanApertureBoxProperty.exit.thread:    ; preds = %152, %157, %160, %163, %166, %169, %172
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  br label %.loopexit
+
+avifParseCleanApertureBoxProperty.exit:           ; preds = %172
+  %175 = getelementptr inbounds i8, ptr %48, i64 36
+  %176 = call i32 @avifROStreamReadU32(ptr noundef nonnull %12, ptr noundef nonnull %175) #13
+  %.not18.i.not = icmp eq i32 %176, 0
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  br i1 %.not18.i.not, label %.loopexit, label %217
+
+177:                                              ; preds = %49
+  %178 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %179 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
+  store ptr %178, ptr %10, align 8
+  store i64 %179, ptr %36, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %4, ptr noundef nonnull @.str.79) #13
+  %180 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %181 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %9, ptr noundef nonnull %11, i64 noundef 6) #13
+  %.not.i88 = icmp eq i32 %181, 0
+  br i1 %.not.i88, label %avifParseImageRotationProperty.exit.thread, label %182
+
+182:                                              ; preds = %177
+  %183 = load i8, ptr %11, align 1
+  %.not7.i89 = icmp eq i8 %183, 0
+  br i1 %.not7.i89, label %avifParseImageRotationProperty.exit, label %184
+
+184:                                              ; preds = %182
+  %185 = zext i8 %183 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.80, i32 noundef %185) #13
+  br label %avifParseImageRotationProperty.exit.thread
+
+avifParseImageRotationProperty.exit.thread:       ; preds = %177, %184
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  br label %.loopexit
+
+avifParseImageRotationProperty.exit:              ; preds = %182
+  %186 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %9, ptr noundef nonnull %180, i64 noundef 2) #13
+  %.not8.i.not = icmp eq i32 %186, 0
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  br i1 %.not8.i.not, label %.loopexit, label %217
+
+187:                                              ; preds = %49
+  %188 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %189 = load i64, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  store ptr %188, ptr %7, align 8
+  store i64 %189, ptr %35, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull @.str.81) #13
+  %190 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %191 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %6, ptr noundef nonnull %8, i64 noundef 7) #13
+  %.not.i92 = icmp eq i32 %191, 0
+  br i1 %.not.i92, label %avifParseImageMirrorProperty.exit.thread, label %192
+
+192:                                              ; preds = %187
+  %193 = load i8, ptr %8, align 1
+  %.not7.i93 = icmp eq i8 %193, 0
+  br i1 %.not7.i93, label %avifParseImageMirrorProperty.exit, label %194
+
+194:                                              ; preds = %192
+  %195 = zext i8 %193 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %4, ptr noundef nonnull @.str.82, i32 noundef %195) #13
+  br label %avifParseImageMirrorProperty.exit.thread
+
+avifParseImageMirrorProperty.exit.thread:         ; preds = %187, %194
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  br label %.loopexit
+
+avifParseImageMirrorProperty.exit:                ; preds = %192
+  %196 = call i32 @avifROStreamReadBits8(ptr noundef nonnull %6, ptr noundef nonnull %190, i64 noundef 1) #13
+  %.not8.i95.not = icmp eq i32 %196, 0
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  br i1 %.not8.i95.not, label %.loopexit, label %217
+
+197:                                              ; preds = %49
+  %198 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %199 = load i64, ptr %32, align 8
+  %200 = call fastcc i32 @avifParsePixelInformationProperty(ptr noundef nonnull %48, ptr noundef %198, i64 noundef %199, ptr noundef %4)
+  %.not61 = icmp eq i32 %200, 0
+  br i1 %.not61, label %.loopexit, label %217
+
+201:                                              ; preds = %49
+  %202 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %203 = load i64, ptr %32, align 8
+  %204 = call fastcc i32 @avifParseOperatingPointSelectorProperty(ptr noundef nonnull %48, ptr noundef %202, i64 noundef %203, ptr noundef %4)
+  %.not64 = icmp eq i32 %204, 0
+  br i1 %.not64, label %.loopexit, label %217
+
+205:                                              ; preds = %49
+  %206 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %207 = load i64, ptr %32, align 8
+  %208 = call fastcc i32 @avifParseLayerSelectorProperty(ptr noundef nonnull %48, ptr noundef %206, i64 noundef %207, ptr noundef %4)
+  %.not67 = icmp eq i32 %208, 0
+  br i1 %.not67, label %.loopexit, label %217
+
+209:                                              ; preds = %49
+  %210 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %211 = load i64, ptr %32, align 8
+  %212 = call fastcc i32 @avifParseAV1LayeredImageIndexingProperty(ptr noundef nonnull %48, ptr noundef %210, i64 noundef %211, ptr noundef %4)
+  %.not70 = icmp eq i32 %212, 0
+  br i1 %.not70, label %.loopexit, label %217
+
+213:                                              ; preds = %49
+  %214 = call ptr @avifROStreamCurrent(ptr noundef nonnull %30) #13
+  %215 = load i64, ptr %32, align 8
+  %216 = call fastcc i32 @avifParseContentLightLevelInformationBox(ptr noundef nonnull %48, ptr noundef %214, i64 noundef %215, ptr noundef %4)
+  %.not73 = icmp eq i32 %216, 0
+  br i1 %.not73, label %.loopexit, label %217
+
+217:                                              ; preds = %49, %avifParseColourInformationBox.exit, %avifParseImageSpatialExtentsProperty.exit, %avifParsePixelAspectRatioBoxProperty.exit, %avifParseImageRotationProperty.exit, %197, %205, %213, %209, %201, %avifParseImageMirrorProperty.exit, %avifParseCleanApertureBoxProperty.exit, %avifParseCodecConfigurationBoxProperty.exit, %avifParseAuxiliaryTypeProperty.exit
+  %218 = load i64, ptr %32, align 8
+  %219 = call i32 @avifROStreamSkip(ptr noundef nonnull %30, i64 noundef %218) #13
+  %.not74 = icmp eq i32 %219, 0
+  br i1 %.not74, label %.loopexit, label %43, !llvm.loop !87
+
+.loopexit:                                        ; preds = %43, %217, %213, %209, %205, %201, %197, %avifParseImageMirrorProperty.exit, %avifParseImageRotationProperty.exit, %avifParseCleanApertureBoxProperty.exit, %avifParsePixelAspectRatioBoxProperty.exit, %avifParseCodecConfigurationBoxProperty.exit, %avifParseAuxiliaryTypeProperty.exit, %avifParseImageSpatialExtentsProperty.exit, %47, %45, %avifParseImageMirrorProperty.exit.thread, %avifParseImageRotationProperty.exit.thread, %avifParseCleanApertureBoxProperty.exit.thread, %avifParsePixelAspectRatioBoxProperty.exit.thread, %avifParseCodecConfigurationBoxProperty.exit.thread, %avifParseColourInformationBox.exit.thread, %avifParseAuxiliaryTypeProperty.exit.thread, %avifParseImageSpatialExtentsProperty.exit.thread
+  %.0 = phi i32 [ 9, %avifParseImageSpatialExtentsProperty.exit.thread ], [ 9, %avifParseAuxiliaryTypeProperty.exit.thread ], [ 9, %avifParseColourInformationBox.exit.thread ], [ 9, %avifParseCodecConfigurationBoxProperty.exit.thread ], [ 9, %avifParsePixelAspectRatioBoxProperty.exit.thread ], [ 9, %avifParseCleanApertureBoxProperty.exit.thread ], [ 9, %avifParseImageRotationProperty.exit.thread ], [ 9, %avifParseImageMirrorProperty.exit.thread ], [ 0, %43 ], [ 9, %217 ], [ 9, %213 ], [ 9, %209 ], [ 9, %205 ], [ 9, %201 ], [ 9, %197 ], [ 9, %avifParseImageMirrorProperty.exit ], [ 9, %avifParseImageRotationProperty.exit ], [ 9, %avifParseCleanApertureBoxProperty.exit ], [ 9, %avifParsePixelAspectRatioBoxProperty.exit ], [ 9, %avifParseCodecConfigurationBoxProperty.exit ], [ 9, %avifParseAuxiliaryTypeProperty.exit ], [ 9, %avifParseImageSpatialExtentsProperty.exit ], [ 26, %47 ], [ 9, %45 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @avifParsePixelInformationProperty(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = alloca %struct.avifROStream, align 8
+  %6 = alloca %struct.avifROData, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %2, ptr %7, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull @.str.83) #13
+  %8 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %5, i8 noundef zeroext 0) #13
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %.loopexit, label %9
+
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = call i32 @avifROStreamRead(ptr noundef nonnull %5, ptr noundef nonnull %11, i64 noundef 1) #13
+  %.not15 = icmp eq i32 %12, 0
+  br i1 %.not15, label %.loopexit, label %13
+
+13:                                               ; preds = %9
+  %14 = load i8, ptr %11, align 1
+  %15 = icmp ugt i8 %14, 4
+  br i1 %15, label %16, label %.preheader
+
+.preheader:                                       ; preds = %13
+  %.not20 = icmp eq i8 %14, 0
+  br i1 %.not20, label %.loopexit, label %.lr.ph
+
+16:                                               ; preds = %13
+  %17 = zext i8 %14 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %3, ptr noundef nonnull @.str.84, i32 noundef %17) #13
+  br label %.loopexit
+
+18:                                               ; preds = %.lr.ph
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %19 = load i8, ptr %11, align 1
+  %20 = zext i8 %19 to i64
+  %21 = icmp ult i64 %indvars.iv.next, %20
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !88
+
+.lr.ph:                                           ; preds = %.preheader, %18
+  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader ]
+  %22 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %23 = call i32 @avifROStreamRead(ptr noundef nonnull %5, ptr noundef nonnull %22, i64 noundef 1) #13
+  %.not16 = icmp eq i32 %23, 0
+  br i1 %.not16, label %.loopexit, label %18
+
+.loopexit:                                        ; preds = %.lr.ph, %18, %.preheader, %9, %4, %16
+  %.013 = phi i32 [ 0, %16 ], [ 0, %4 ], [ 0, %9 ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 1, %18 ]
+  ret i32 %.013
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @avifParseOperatingPointSelectorProperty(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = alloca %struct.avifROStream, align 8
+  %6 = alloca %struct.avifROData, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %2, ptr %7, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull @.str.85) #13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = call i32 @avifROStreamRead(ptr noundef nonnull %5, ptr noundef nonnull %8, i64 noundef 1) #13
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %15, label %10
+
+10:                                               ; preds = %4
+  %11 = load i8, ptr %8, align 1
+  %12 = icmp ugt i8 %11, 31
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %10
+  %14 = zext i8 %11 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %3, ptr noundef nonnull @.str.86, i32 noundef %14) #13
+  br label %15
+
+15:                                               ; preds = %10, %4, %13
+  %.0 = phi i32 [ 0, %13 ], [ 0, %4 ], [ 1, %10 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @avifParseLayerSelectorProperty(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = alloca %struct.avifROStream, align 8
+  %6 = alloca %struct.avifROData, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %2, ptr %7, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull @.str.87) #13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = call i32 @avifROStreamReadU16(ptr noundef nonnull %5, ptr noundef nonnull %8) #13
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %switch.lookup, label %10
+
+10:                                               ; preds = %4
+  %11 = load i16, ptr %8, align 2
+  %switch.tableidx = add i16 %11, 1
+  %12 = icmp ult i16 %switch.tableidx, 5
+  br i1 %12, label %switch.lookup, label %13
+
+13:                                               ; preds = %10
+  %14 = zext i16 %11 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %3, ptr noundef nonnull @.str.88, i32 noundef %14) #13
+  br label %switch.lookup
+
+switch.lookup:                                    ; preds = %10, %4, %13
+  %.0 = phi i32 [ 0, %13 ], [ 0, %4 ], [ 1, %10 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @avifParseAV1LayeredImageIndexingProperty(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = alloca %struct.avifROStream, align 8
+  %6 = alloca %struct.avifROData, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i16, align 2
+  store ptr %1, ptr %6, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %2, ptr %9, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull @.str.89) #13
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %7, align 1
+  %11 = call i32 @avifROStreamRead(ptr noundef nonnull %5, ptr noundef nonnull %7, i64 noundef 1) #13
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %.loopexit, label %12
+
+12:                                               ; preds = %4
+  %13 = load i8, ptr %7, align 1
+  %.not12 = icmp ult i8 %13, 2
+  br i1 %.not12, label %.preheader, label %14
+
+14:                                               ; preds = %12
+  %15 = zext i8 %13 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %3, ptr noundef nonnull @.str.90, i32 noundef %15) #13
+  br label %.loopexit
+
+.preheaderthread-pre-split:                       ; preds = %26
+  %.pr = load i8, ptr %7, align 1
+  br label %.preheader
+
+.preheader:                                       ; preds = %12, %.preheaderthread-pre-split
+  %16 = phi i8 [ %.pr, %.preheaderthread-pre-split ], [ %13, %12 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheaderthread-pre-split ], [ 0, %12 ]
+  %.not13 = icmp eq i8 %16, 0
+  br i1 %.not13, label %20, label %17
+
+17:                                               ; preds = %.preheader
+  %18 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %19 = call i32 @avifROStreamReadU32(ptr noundef nonnull %5, ptr noundef nonnull %18) #13
+  %.not15 = icmp eq i32 %19, 0
+  br i1 %.not15, label %.loopexit, label %26
+
+20:                                               ; preds = %.preheader
+  %21 = call i32 @avifROStreamReadU16(ptr noundef nonnull %5, ptr noundef nonnull %8) #13
+  %.not14 = icmp eq i32 %21, 0
+  br i1 %.not14, label %.loopexit, label %22
+
+22:                                               ; preds = %20
+  %23 = load i16, ptr %8, align 2
+  %24 = zext i16 %23 to i32
+  %25 = getelementptr inbounds [3 x i32], ptr %10, i64 0, i64 %indvars.iv
+  store i32 %24, ptr %25, align 4
+  br label %26
+
+26:                                               ; preds = %22, %17
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !89
+
+.loopexit:                                        ; preds = %26, %20, %17, %4, %14
+  %.011 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 1, %26 ], [ 0, %20 ], [ 0, %17 ]
+  ret i32 %.011
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @avifParseContentLightLevelInformationBox(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = alloca %struct.avifROStream, align 8
+  %6 = alloca %struct.avifROData, align 8
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %2, ptr %7, align 8
+  call void @avifROStreamStart(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3, ptr noundef nonnull @.str.91) #13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = call i32 @avifROStreamReadU16(ptr noundef nonnull %5, ptr noundef nonnull %8) #13
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %13, label %10
+
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds i8, ptr %0, i64 10
+  %12 = call i32 @avifROStreamReadU16(ptr noundef nonnull %5, ptr noundef nonnull %11) #13
+  %.not6 = icmp ne i32 %12, 0
+  %. = zext i1 %.not6 to i32
+  br label %13
+
+13:                                               ; preds = %10, %4
+  %.0 = phi i32 [ 0, %4 ], [ %., %10 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+
+declare i32 @avifROStreamReadU64(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 27) i32 @avifParseChunkOffsetBox(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+  %6 = alloca %struct.avifROStream, align 8
+  %7 = alloca %struct.avifROData, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  store ptr %2, ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %3, ptr %11, align 8
+  %.not = icmp eq i32 %1, 0
+  %12 = select i1 %.not, ptr @.str.141, ptr @.str.140
+  call void @avifROStreamStart(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull %12) #13
+  %13 = call i32 @avifROStreamReadAndEnforceVersion(ptr noundef nonnull %6, i8 noundef zeroext 0) #13
+  %.not12 = icmp eq i32 %13, 0
+  br i1 %.not12, label %.loopexit, label %14
+
+14:                                               ; preds = %5
+  %15 = call i32 @avifROStreamReadU32(ptr noundef nonnull %6, ptr noundef nonnull %8) #13
+  %.not13 = icmp eq i32 %15, 0
+  br i1 %.not13, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %14
+  %16 = load i32, ptr %8, align 4
+  %.not26 = icmp eq i32 %16, 0
+  br i1 %.not26, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %21
+  %.01017.us = phi i32 [ %23, %21 ], [ 0, %.lr.ph ]
+  %17 = call i32 @avifROStreamReadU32(ptr noundef nonnull %6, ptr noundef nonnull %10) #13
+  %.not14.us = icmp eq i32 %17, 0
+  br i1 %.not14.us, label %.loopexit, label %18
+
+18:                                               ; preds = %.lr.ph.split.us
+  %19 = load i32, ptr %10, align 4
+  %20 = call ptr @avifArrayPush(ptr noundef %0) #13
+  %.not16.us = icmp eq ptr %20, null
+  br i1 %.not16.us, label %.loopexit, label %21
+
+21:                                               ; preds = %18
+  %22 = zext i32 %19 to i64
+  store i64 %22, ptr %20, align 8
+  %23 = add nuw i32 %.01017.us, 1
+  %24 = load i32, ptr %8, align 4
+  %25 = icmp ult i32 %23, %24
+  br i1 %25, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !90
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %29
+  %.01017 = phi i32 [ %31, %29 ], [ 0, %.lr.ph ]
+  %26 = call i32 @avifROStreamReadU64(ptr noundef nonnull %6, ptr noundef nonnull %9) #13
+  %.not15 = icmp eq i32 %26, 0
+  br i1 %.not15, label %.loopexit, label %27
+
+27:                                               ; preds = %.lr.ph.split
+  %28 = call ptr @avifArrayPush(ptr noundef %0) #13
+  %.not16 = icmp eq ptr %28, null
+  br i1 %.not16, label %.loopexit, label %29
+
+29:                                               ; preds = %27
+  %30 = load i64, ptr %9, align 8
+  store i64 %30, ptr %28, align 8
+  %31 = add nuw i32 %.01017, 1
+  %32 = load i32, ptr %8, align 4
+  %33 = icmp ult i32 %31, %32
+  br i1 %33, label %.lr.ph.split, label %.loopexit, !llvm.loop !90
+
+.loopexit:                                        ; preds = %.lr.ph.split, %27, %29, %.lr.ph.split.us, %18, %21, %.preheader, %14, %5
+  %.0 = phi i32 [ 9, %5 ], [ 9, %14 ], [ 0, %.preheader ], [ 9, %.lr.ph.split.us ], [ 26, %18 ], [ 0, %21 ], [ 9, %.lr.ph.split ], [ 26, %27 ], [ 0, %29 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+
+declare void @avifCodecDestroy(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @avifDecoderItemRead(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+  %7 = alloca %struct.avifROData, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %9 = load ptr, ptr %8, align 8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %23, label %10
+
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %12 = load i32, ptr %11, align 4
+  %.not133 = icmp eq i32 %12, 0
+  br i1 %.not133, label %13, label %23
+
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %0, i64 168
+  %15 = load i64, ptr %14, align 8
+  %.not134 = icmp ult i64 %3, %15
+  br i1 %.not134, label %18, label %16
+
+16:                                               ; preds = %13
+  %17 = load i32, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.163, i32 noundef %17) #13
+  br label %.loopexit
+
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %9, i64 %3
+  store ptr %19, ptr %2, align 8
+  %20 = load i64, ptr %14, align 8
+  %21 = sub i64 %20, %3
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %21, ptr %22, align 8
+  br label %.loopexit
+
+23:                                               ; preds = %10, %6
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %25 = getelementptr inbounds i8, ptr %0, i64 148
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %30
+
+28:                                               ; preds = %23
+  %29 = load i32, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.164, i32 noundef %29) #13
+  br label %.loopexit
+
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %32 = load i32, ptr %31, align 8
+  %.not135 = icmp eq i32 %32, 0
+  br i1 %.not135, label %42, label %33
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 56
+  %37 = load i64, ptr %36, align 8
+  %.not136 = icmp eq i64 %37, 0
+  br i1 %.not136, label %40, label %38
+
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  br label %42
+
+40:                                               ; preds = %33
+  %41 = load i32, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.165, i32 noundef %41) #13
+  br label %.loopexit
+
+42:                                               ; preds = %38, %30
+  %.0112 = phi ptr [ %39, %38 ], [ null, %30 ]
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %44 = load i64, ptr %43, align 8
+  %.not137 = icmp ne i64 %44, 0
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre = load i64, ptr %.phi.trans.insert, align 8
+  %45 = icmp ugt i64 %.pre, %44
+  %or.cond = select i1 %.not137, i1 %45, i1 false
+  br i1 %or.cond, label %46, label %._crit_edge238
+
+46:                                               ; preds = %42
+  %47 = load i32, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.166, i32 noundef %47) #13
+  br label %.loopexit
+
+._crit_edge238:                                   ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.not138 = icmp ult i64 %3, %.pre
+  br i1 %.not138, label %51, label %49
+
+49:                                               ; preds = %._crit_edge238
+  %50 = load i32, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.163, i32 noundef %50) #13
+  br label %.loopexit
+
+51:                                               ; preds = %._crit_edge238
+  %52 = sub nuw i64 %.pre, %3
+  %.not139.not = icmp eq i64 %4, 0
+  %53 = tail call i64 @llvm.umin.i64(i64 %4, i64 %52)
+  %54 = select i1 %.not139.not, i64 %52, i64 %53
+  %55 = add i64 %54, %3
+  %56 = icmp eq i32 %26, 1
+  br i1 %56, label %57, label %.thread147
+
+57:                                               ; preds = %51
+  %.not140 = icmp eq ptr %.0112, null
+  br i1 %.not140, label %58, label %.lr.ph.split.split.us
+
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %60 = load i32, ptr %59, align 8
+  %.not151 = icmp eq i32 %60, 0
+  br i1 %.not151, label %.thread147, label %.lr.ph.split.us.split.us.preheader
+
+.thread147:                                       ; preds = %51, %58
+  %61 = tail call i32 @avifRWDataRealloc(ptr noundef nonnull %8, i64 noundef %.pre) #13
+  %.not141 = icmp eq i32 %61, 0
+  br i1 %.not141, label %.thread, label %.loopexit
+
+.thread:                                          ; preds = %.thread147
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 1, ptr %62, align 8
+  %.pre239 = load ptr, ptr %8, align 8
+  %.pre240 = load i32, ptr %25, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  store i32 1, ptr %63, align 4
+  %.not187 = icmp eq i32 %.pre240, 0
+  br i1 %.not187, label %._crit_edge, label %.lr.ph.thread
+
+.lr.ph.thread:                                    ; preds = %.thread
+  %.not142244 = icmp eq ptr %.0112, null
+  %64 = getelementptr inbounds nuw i8, ptr %.0112, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %.not142244, label %.lr.ph.split.us.split, label %.lr.ph.split.split
+
+.lr.ph.split.us.split.us.preheader:               ; preds = %58
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  store i32 1, ptr %67, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 168
+  br label %.lr.ph.split.us.split.us
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %77
+  %indvars.iv235 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next236, %77 ]
+  %.0116165.us.us = phi i64 [ %55, %.lr.ph.split.us.split.us.preheader ], [ %88, %77 ]
+  %71 = load ptr, ptr %24, align 8
+  %72 = getelementptr inbounds %struct.avifExtent, ptr %71, i64 %indvars.iv235
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load i64, ptr %73, align 8
+  %spec.select.us.us = call i64 @llvm.umin.i64(i64 %74, i64 %.0116165.us.us)
+  %75 = load i64, ptr %43, align 8
+  %.not143.us.us = icmp ne i64 %75, 0
+  %.pre242 = load i64, ptr %72, align 8
+  %76 = icmp ugt i64 %.pre242, %75
+  %or.cond290 = select i1 %.not143.us.us, i1 %76, i1 false
+  br i1 %or.cond290, label %.split.us, label %81
+
+77:                                               ; preds = %86
+  %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
+  %78 = load i32, ptr %25, align 4
+  %79 = zext i32 %78 to i64
+  %80 = icmp ult i64 %indvars.iv.next236, %79
+  br i1 %80, label %.lr.ph.split.us.split.us, label %._crit_edge.thread, !llvm.loop !91
+
+81:                                               ; preds = %.lr.ph.split.us.split.us
+  %82 = load ptr, ptr %69, align 8
+  %83 = call i32 %82(ptr noundef nonnull %1, i32 noundef 0, i64 noundef %.pre242, i64 noundef %spec.select.us.us, ptr noundef nonnull %7) #13
+  %.not144.us.us = icmp eq i32 %83, 0
+  br i1 %.not144.us.us, label %84, label %.loopexit
+
+84:                                               ; preds = %81
+  %85 = load i64, ptr %68, align 8
+  %.not145.us.us = icmp eq i64 %spec.select.us.us, %85
+  br i1 %.not145.us.us, label %86, label %.split170.us
+
+86:                                               ; preds = %84
+  %87 = load i64, ptr %7, align 8
+  store i64 %87, ptr %8, align 8
+  store i64 %spec.select.us.us, ptr %70, align 8
+  %88 = sub i64 %.0116165.us.us, %spec.select.us.us
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %.thread148, label %77
+
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.thread, %96
+  %indvars.iv232 = phi i64 [ %indvars.iv.next233, %96 ], [ 0, %.lr.ph.thread ]
+  %.0114167.us = phi ptr [ %97, %96 ], [ %.pre239, %.lr.ph.thread ]
+  %.0116165.us = phi i64 [ %108, %96 ], [ %55, %.lr.ph.thread ]
+  %90 = load ptr, ptr %24, align 8
+  %91 = getelementptr inbounds %struct.avifExtent, ptr %90, i64 %indvars.iv232
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load i64, ptr %92, align 8
+  %spec.select.us = call i64 @llvm.umin.i64(i64 %93, i64 %.0116165.us)
+  %94 = load i64, ptr %43, align 8
+  %.not143.us = icmp ne i64 %94, 0
+  %.pre241 = load i64, ptr %91, align 8
+  %95 = icmp ugt i64 %.pre241, %94
+  %or.cond291 = select i1 %.not143.us, i1 %95, i1 false
+  br i1 %or.cond291, label %.split.us, label %101
+
+96:                                               ; preds = %106
+  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
+  %97 = getelementptr inbounds i8, ptr %.0114167.us, i64 %spec.select.us
+  %98 = load i32, ptr %25, align 4
+  %99 = zext i32 %98 to i64
+  %100 = icmp ult i64 %indvars.iv.next233, %99
+  br i1 %100, label %.lr.ph.split.us.split, label %._crit_edge.thread, !llvm.loop !91
+
+101:                                              ; preds = %.lr.ph.split.us.split
+  %102 = load ptr, ptr %66, align 8
+  %103 = call i32 %102(ptr noundef nonnull %1, i32 noundef 0, i64 noundef %.pre241, i64 noundef %spec.select.us, ptr noundef nonnull %7) #13
+  %.not144.us = icmp eq i32 %103, 0
+  br i1 %.not144.us, label %104, label %.loopexit
+
+104:                                              ; preds = %101
+  %105 = load i64, ptr %65, align 8
+  %.not145.us = icmp eq i64 %spec.select.us, %105
+  br i1 %.not145.us, label %106, label %.split170.us
+
+106:                                              ; preds = %104
+  %107 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0114167.us, ptr align 1 %107, i64 %spec.select.us, i1 false)
+  %108 = sub i64 %.0116165.us, %spec.select.us
+  %109 = icmp eq i64 %108, 0
+  br i1 %109, label %.thread148, label %96
+
+.lr.ph.split.split.us:                            ; preds = %57
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  store i32 1, ptr %110, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %.0112, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 168
+  %114 = load ptr, ptr %24, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %116 = load i64, ptr %115, align 8
+  %spec.select.us176 = tail call i64 @llvm.umin.i64(i64 %116, i64 %55)
+  %117 = load i64, ptr %114, align 8
+  %118 = load i64, ptr %111, align 8
+  %119 = icmp ugt i64 %117, %118
+  br i1 %119, label %.split.us178, label %120
+
+120:                                              ; preds = %.lr.ph.split.split.us
+  %121 = sub nuw i64 %118, %117
+  %122 = icmp ugt i64 %116, %121
+  br i1 %122, label %.split182.us, label %123
+
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %.0112, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 %117
+  store ptr %125, ptr %7, align 8
+  store i64 %121, ptr %112, align 8
+  %.cast = ptrtoint ptr %125 to i64
+  store i64 %.cast, ptr %8, align 8
+  store i64 %spec.select.us176, ptr %113, align 8
+  %126 = sub i64 %55, %spec.select.us176
+  %127 = icmp eq i64 %126, 0
+  br i1 %127, label %.thread148, label %._crit_edge.thread
+
+128:                                              ; preds = %145
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %129 = getelementptr inbounds i8, ptr %.0114167, i64 %spec.select
+  %130 = load i32, ptr %25, align 4
+  %131 = zext i32 %130 to i64
+  %132 = icmp ult i64 %indvars.iv.next, %131
+  br i1 %132, label %.lr.ph.split.split, label %._crit_edge.thread, !llvm.loop !91
+
+.lr.ph.split.split:                               ; preds = %.lr.ph.thread, %128
+  %indvars.iv = phi i64 [ %indvars.iv.next, %128 ], [ 0, %.lr.ph.thread ]
+  %.0114167 = phi ptr [ %129, %128 ], [ %.pre239, %.lr.ph.thread ]
+  %.0116165 = phi i64 [ %148, %128 ], [ %55, %.lr.ph.thread ]
+  %133 = load ptr, ptr %24, align 8
+  %134 = getelementptr inbounds %struct.avifExtent, ptr %133, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %136 = load i64, ptr %135, align 8
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %136, i64 %.0116165)
+  %137 = load i64, ptr %134, align 8
+  %138 = load i64, ptr %64, align 8
+  %139 = icmp ugt i64 %137, %138
+  br i1 %139, label %.split.us178, label %141
+
+.split.us178:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us
+  %140 = load i32, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.167, i32 noundef %140) #13
+  br label %.loopexit
+
+141:                                              ; preds = %.lr.ph.split.split
+  %142 = sub nuw i64 %138, %137
+  %143 = icmp ugt i64 %136, %142
+  br i1 %143, label %.split182.us, label %145
+
+.split182.us:                                     ; preds = %141, %120
+  %144 = load i32, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.168, i32 noundef %144) #13
+  br label %.loopexit
+
+145:                                              ; preds = %141
+  %146 = load ptr, ptr %.0112, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 %137
+  store ptr %147, ptr %7, align 8
+  store i64 %142, ptr %65, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0114167, ptr align 1 %147, i64 %spec.select, i1 false)
+  %148 = sub i64 %.0116165, %spec.select
+  %149 = icmp eq i64 %148, 0
+  br i1 %149, label %.thread148, label %128
+
+.split.us:                                        ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split
+  %150 = load i32, ptr %0, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.169, i32 noundef %150) #13
+  br label %.loopexit
+
+.split170.us:                                     ; preds = %84, %104
+  %.us-phi185 = phi i64 [ %spec.select.us, %104 ], [ %spec.select.us.us, %84 ]
+  %.us-phi186 = phi i64 [ %105, %104 ], [ %85, %84 ]
+  %151 = load i32, ptr %0, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.170, i32 noundef %151, i64 noundef %.us-phi185, i64 noundef %.us-phi186) #13
+  br label %.loopexit
+
+._crit_edge:                                      ; preds = %.thread
+  %.not146 = icmp eq i64 %55, 0
+  br i1 %.not146, label %.thread148, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %77, %128, %96, %123, %._crit_edge
+  %.0116.lcssa247 = phi i64 [ %55, %._crit_edge ], [ %126, %123 ], [ %108, %96 ], [ %148, %128 ], [ %88, %77 ]
+  %152 = load i32, ptr %0, align 8
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.171, i32 noundef %152, i64 noundef %.0116.lcssa247) #13
+  br label %.loopexit
+
+.thread148:                                       ; preds = %86, %145, %106, %123, %._crit_edge
+  %153 = phi ptr [ %63, %._crit_edge ], [ %110, %123 ], [ %63, %106 ], [ %63, %145 ], [ %67, %86 ]
+  %154 = load ptr, ptr %8, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 %3
+  store ptr %155, ptr %2, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %54, ptr %156, align 8
+  %157 = load i64, ptr %48, align 8
+  %158 = icmp ne i64 %157, %55
+  %159 = zext i1 %158 to i32
+  store i32 %159, ptr %153, align 4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %81, %101, %.thread147, %.thread148, %._crit_edge.thread, %.split170.us, %.split.us, %.split182.us, %.split.us178, %49, %46, %40, %28, %18, %16
+  %.0 = phi i32 [ 20, %28 ], [ 20, %46 ], [ 20, %49 ], [ 9, %.split.us178 ], [ 9, %.split182.us ], [ 20, %._crit_edge.thread ], [ 0, %.thread148 ], [ 9, %.split.us ], [ 20, %.split170.us ], [ 3, %40 ], [ 20, %16 ], [ 0, %18 ], [ %61, %.thread147 ], [ %103, %101 ], [ %83, %81 ]
+  ret i32 %.0
+}
+
+declare i32 @avifImageSetMetadataXMP(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @avifRWDataRealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc range(i32 0, 27) i32 @avifCodecDecodeInputFillFromDecoderItem(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+  %7 = alloca [4 x i64], align 16
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %13, label %8
+
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ugt i64 %10, %4
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %8
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.176) #13
+  br label %.loopexit
+
+13:                                               ; preds = %8, %6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  %14 = getelementptr inbounds i8, ptr %1, i64 124
+  %15 = load i32, ptr %14, align 4
+  %.not12.i = icmp eq i32 %15, 0
+  br i1 %.not12.i, label %.thread220.sink.split, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %17 = load ptr, ptr %16, align 8
+  %wide.trip.count.i = zext i32 %15 to i64
+  br label %19
+
+18:                                               ; preds = %19
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.lr.ph.i126, label %19, !llvm.loop !12
+
+19:                                               ; preds = %18, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
+  %20 = getelementptr inbounds %struct.avifProperty, ptr %17, i64 %indvars.iv.i
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %20, ptr noundef nonnull readonly dereferenceable(4) @.str.66, i64 4)
+  %.not.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not.i, label %avifPropertyArrayFind.exit, label %18
+
+avifPropertyArrayFind.exit:                       ; preds = %19
+  %.not108 = icmp eq ptr %17, null
+  br i1 %.not108, label %.lr.ph.i126, label %21
+
+21:                                               ; preds = %avifPropertyArrayFind.exit
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  br label %25
+
+25:                                               ; preds = %21, %33
+  %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %33 ]
+  %.091180 = phi i64 [ %23, %21 ], [ %35, %33 ]
+  %.096179 = phi i32 [ 0, %21 ], [ %26, %33 ]
+  %26 = add nuw nsw i32 %.096179, 1
+  %27 = getelementptr inbounds [3 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %28 = load i32, ptr %27, align 4
+  %29 = zext i32 %28 to i64
+  %.not109 = icmp eq i32 %28, 0
+  br i1 %.not109, label %.thread, label %30
+
+30:                                               ; preds = %25
+  %.not123 = icmp ugt i64 %.091180, %29
+  br i1 %.not123, label %33, label %31
+
+31:                                               ; preds = %30
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.189, i32 noundef %32) #13
+  br label %.loopexit
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  store i64 %29, ptr %34, align 8
+  %35 = sub nuw i64 %.091180, %29
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond.not, label %37, label %25, !llvm.loop !92
+
+.thread:                                          ; preds = %25
+  %indvars = trunc i32 %26 to i8
+  %36 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 %indvars.iv
+  store i64 %.091180, ptr %36, align 8
+  br label %.lr.ph.i126
+
+37:                                               ; preds = %33
+  %.not110 = icmp eq i64 %35, 0
+  br i1 %.not110, label %.lr.ph.i126, label %38
+
+38:                                               ; preds = %37
+  %39 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 %35, ptr %39, align 8
+  br label %.lr.ph.i126
+
+.lr.ph.i126:                                      ; preds = %18, %avifPropertyArrayFind.exit, %38, %37, %.thread
+  %.not108137 = phi i1 [ false, %38 ], [ false, %37 ], [ true, %avifPropertyArrayFind.exit ], [ false, %.thread ], [ true, %18 ]
+  %.088 = phi i8 [ 4, %38 ], [ 3, %37 ], [ 0, %avifPropertyArrayFind.exit ], [ %indvars, %.thread ], [ 0, %18 ]
+  br label %41
+
+40:                                               ; preds = %41
+  %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i128, 1
+  %exitcond.not.i132 = icmp eq i64 %indvars.iv.next.i131, %wide.trip.count.i
+  br i1 %exitcond.not.i132, label %avifPropertyArrayFind.exit134.thread, label %41, !llvm.loop !12
+
+41:                                               ; preds = %40, %.lr.ph.i126
+  %indvars.iv.i128 = phi i64 [ 0, %.lr.ph.i126 ], [ %indvars.iv.next.i131, %40 ]
+  %42 = getelementptr inbounds %struct.avifProperty, ptr %17, i64 %indvars.iv.i128
+  %bcmp.i129 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %42, ptr noundef nonnull readonly dereferenceable(4) @.str.65, i64 4)
+  %.not.i130 = icmp eq i32 %bcmp.i129, 0
+  br i1 %.not.i130, label %avifPropertyArrayFind.exit134, label %40
+
+avifPropertyArrayFind.exit134:                    ; preds = %41
+  br i1 %.not108137, label %50, label %43
+
+avifPropertyArrayFind.exit134.thread:             ; preds = %40
+  br i1 %.not108137, label %.thread220.sink.split, label %.thread145
+
+43:                                               ; preds = %avifPropertyArrayFind.exit134
+  %.not111 = icmp eq ptr %17, null
+  br i1 %.not111, label %.thread145, label %.thread143
+
+.thread143:                                       ; preds = %43
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %45 = load i16, ptr %44, align 8
+  %46 = icmp eq i16 %45, -1
+  %47 = zext i1 %46 to i32
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  store i32 %47, ptr %48, align 8
+  %49 = xor i1 %46, true
+  br label %52
+
+50:                                               ; preds = %avifPropertyArrayFind.exit134
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  store i32 0, ptr %51, align 8
+  %.not112 = icmp eq ptr %17, null
+  br i1 %.not112, label %.thread220, label %52
+
+52:                                               ; preds = %.thread143, %50
+  %.not115 = phi i1 [ %49, %.thread143 ], [ true, %50 ]
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %54 = load i16, ptr %53, align 8
+  %.not113 = icmp eq i16 %54, -1
+  br i1 %.not113, label %81, label %55
+
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 1, ptr %56, align 8
+  %57 = zext i8 %.088 to i32
+  %.not119 = icmp eq i8 %.088, 0
+  br i1 %.not119, label %68, label %58
+
+58:                                               ; preds = %55
+  %59 = load i16, ptr %53, align 8
+  %60 = zext i16 %59 to i32
+  %.not120 = icmp ult i32 %60, %57
+  br i1 %.not120, label %.preheader, label %61
+
+61:                                               ; preds = %58
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.190, i32 noundef %60, i32 noundef %57) #13
+  br label %.loopexit
+
+.preheader:                                       ; preds = %58, %.preheader
+  %.093183 = phi i8 [ %66, %.preheader ], [ 0, %58 ]
+  %.094182 = phi i64 [ %65, %.preheader ], [ 0, %58 ]
+  %62 = zext i8 %.093183 to i64
+  %63 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 %62
+  %64 = load i64, ptr %63, align 8
+  %65 = add i64 %64, %.094182
+  %66 = add i8 %.093183, 1
+  %67 = zext i8 %66 to i16
+  %.not121 = icmp ult i16 %59, %67
+  br i1 %.not121, label %.loopexit167, label %.preheader, !llvm.loop !93
+
+68:                                               ; preds = %55
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %70 = load i64, ptr %69, align 8
+  br label %.loopexit167
+
+.loopexit167:                                     ; preds = %.preheader, %68
+  %.195 = phi i64 [ %70, %68 ], [ %65, %.preheader ]
+  %71 = tail call ptr @avifArrayPush(ptr noundef %0) #13
+  %.not122 = icmp eq ptr %71, null
+  br i1 %.not122, label %.loopexit, label %72
+
+72:                                               ; preds = %.loopexit167
+  %73 = load i32, ptr %1, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store i32 %73, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  store i64 0, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  store i64 %.195, ptr %76, align 8
+  %77 = load i16, ptr %53, align 8
+  %78 = trunc i16 %77 to i8
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 48
+  store i8 %78, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 52
+  store i32 1, ptr %80, align 4
+  br label %.loopexit
+
+81:                                               ; preds = %52
+  %.not114 = icmp eq i32 %2, 0
+  %or.cond166 = select i1 %.not114, i1 true, i1 %.not115
+  br i1 %or.cond166, label %.thread220, label %.thread147
+
+.thread145:                                       ; preds = %avifPropertyArrayFind.exit134.thread, %43
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  store i32 1, ptr %82, align 8
+  %.not114146 = icmp eq i32 %2, 0
+  br i1 %.not114146, label %.thread220, label %.thread147
+
+.thread147:                                       ; preds = %81, %.thread145
+  %.not117 = icmp ne i32 %3, 0
+  %83 = zext i8 %.088 to i32
+  %84 = icmp ult i32 %3, %83
+  %or.cond = select i1 %.not117, i1 %84, i1 false
+  br i1 %or.cond, label %85, label %86
+
+85:                                               ; preds = %.thread147
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.191) #13
+  br label %.loopexit
+
+86:                                               ; preds = %.thread147
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 1, ptr %87, align 8
+  %.not188 = icmp eq i8 %.088, 0
+  br i1 %.not188, label %.loopexit, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %86
+  %wide.trip.count = zext i8 %.088 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %89
+  %indvars.iv205 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next206, %89 ]
+  %.090184 = phi i64 [ 0, %.lr.ph.preheader ], [ %100, %89 ]
+  %88 = tail call ptr @avifArrayPush(ptr noundef %0) #13
+  %.not118 = icmp eq ptr %88, null
+  br i1 %.not118, label %.loopexit, label %89
+
+89:                                               ; preds = %.lr.ph
+  %90 = load i32, ptr %1, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  store i32 %90, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  store i64 %.090184, ptr %92, align 8
+  %93 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 %indvars.iv205
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 40
+  store i64 %94, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %88, i64 48
+  store i8 -1, ptr %96, align 8
+  %97 = icmp eq i64 %indvars.iv205, 0
+  %98 = zext i1 %97 to i32
+  %99 = getelementptr inbounds nuw i8, ptr %88, i64 52
+  store i32 %98, ptr %99, align 4
+  %100 = add i64 %94, %.090184
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count
+  br i1 %exitcond209.not, label %.loopexit, label %.lr.ph, !llvm.loop !94
+
+.thread220.sink.split:                            ; preds = %avifPropertyArrayFind.exit134.thread, %13
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  store i32 0, ptr %101, align 8
+  br label %.thread220
+
+.thread220:                                       ; preds = %.thread220.sink.split, %50, %.thread145, %81
+  %102 = tail call ptr @avifArrayPush(ptr noundef %0) #13
+  %.not116 = icmp eq ptr %102, null
+  br i1 %.not116, label %.loopexit, label %103
+
+103:                                              ; preds = %.thread220
+  %104 = load i32, ptr %1, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  store i32 %104, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 32
+  store i64 0, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %108 = load i64, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 40
+  store i64 %108, ptr %109, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %102, i64 48
+  store i8 -1, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %102, i64 52
+  store i32 1, ptr %111, align 4
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph, %89, %86, %72, %103, %.thread220, %.loopexit167, %85, %61, %31, %12
+  %.0 = phi i32 [ 9, %12 ], [ 9, %31 ], [ 9, %61 ], [ 9, %85 ], [ 26, %.loopexit167 ], [ 26, %.thread220 ], [ 0, %103 ], [ 0, %72 ], [ 0, %86 ], [ 26, %.lr.ph ], [ 0, %89 ]
+  ret i32 %.0
+}
+
+declare i32 @avifCropRectConvertCleanApertureBox(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @avifCodecCreate(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @avifImageScaleWithLimit(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @avifImageFreePlanes(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @avifImageStealPlanes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @avifImageAllocatePlanes(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @avifLimitedToFullY(i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @avifAreGridDimensionsValid(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @avifImageSetDefaults(ptr noundef) local_unnamed_addr #1
+
+declare i32 @avifImageSetViewRect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @avifImageCopySamples(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #11
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5, !31}
+!31 = !{!"llvm.loop.unswitch.partial.disable"}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = distinct !{!41, !5}
+!42 = distinct !{!42, !5}
+!43 = distinct !{!43, !5}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5}
+!46 = distinct !{!46, !5}
+!47 = distinct !{!47, !5}
+!48 = distinct !{!48, !5}
+!49 = distinct !{!49, !5}
+!50 = distinct !{!50, !5}
+!51 = distinct !{!51, !5}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5}
+!54 = distinct !{!54, !5}
+!55 = distinct !{!55, !5}
+!56 = distinct !{!56, !5}
+!57 = distinct !{!57, !5}
+!58 = distinct !{!58, !5}
+!59 = distinct !{!59, !5}
+!60 = distinct !{!60, !5}
+!61 = distinct !{!61, !5}
+!62 = distinct !{!62, !5, !31}
+!63 = distinct !{!63, !5}
+!64 = distinct !{!64, !5, !31}
+!65 = distinct !{!65, !5}
+!66 = distinct !{!66, !5}
+!67 = distinct !{!67, !5}
+!68 = distinct !{!68, !5}
+!69 = distinct !{!69, !5}
+!70 = distinct !{!70, !5}
+!71 = distinct !{!71, !5}
+!72 = distinct !{!72, !5}
+!73 = distinct !{!73, !5}
+!74 = distinct !{!74, !5}
+!75 = distinct !{!75, !5}
+!76 = distinct !{!76, !5}
+!77 = distinct !{!77, !5}
+!78 = distinct !{!78, !5}
+!79 = distinct !{!79, !5}
+!80 = distinct !{!80, !5}
+!81 = distinct !{!81, !5}
+!82 = distinct !{!82, !5}
+!83 = distinct !{!83, !5}
+!84 = distinct !{!84, !5}
+!85 = distinct !{!85, !5}
+!86 = distinct !{!86, !5}
+!87 = distinct !{!87, !5}
+!88 = distinct !{!88, !5}
+!89 = distinct !{!89, !5}
+!90 = distinct !{!90, !5}
+!91 = distinct !{!91, !5}
+!92 = distinct !{!92, !5}
+!93 = distinct !{!93, !5}
+!94 = distinct !{!94, !5}
