@@ -630,3 +630,6 @@
 [submodule "bench/libjpeg-turbo/libjpeg-turbo"]
 	path = bench/libjpeg-turbo/libjpeg-turbo
 	url = https://github.com/libjpeg-turbo/libjpeg-turbo.git
+[submodule "bench/ncnn/ncnn"]
+	path = bench/ncnn/ncnn
+	url = https://github.com/Tencent/ncnn.git
