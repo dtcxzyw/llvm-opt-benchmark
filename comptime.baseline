@@ -15212,7 +15212,7 @@ llvm/CGObjCMac.cpp.ll 11651955164
 llvm/CGObjCRuntime.cpp.ll 1325049208
 llvm/CGOpenCLRuntime.cpp.ll 426786710
 llvm/CGOpenMPRuntime.cpp.ll 33645091387
-llvm/CGOpenMPRuntimeGPU.cpp.ll 7445340964
+llvm/CGOpenMPRuntimeGPU.cpp.ll 7452789699
 llvm/CGPointerAuth.cpp.ll 1619818836
 llvm/CGProfile.cpp.ll 2164346382
 llvm/CGRecordLayoutBuilder.cpp.ll 3766866543
@@ -35027,7 +35027,7 @@ slurm/callerid.ll 108404695
 slurm/cancel.ll 51514461
 slurm/cbuf.ll 569231818
 slurm/cgroup.ll 296185074
-slurm/cgroup_common.ll 235933218
+slurm/cgroup_common.ll 236169182
 slurm/cgroup_dbus.ll 112083411
 slurm/cgroup_v1.ll 344235464
 slurm/cgroup_v2.ll 469525704
