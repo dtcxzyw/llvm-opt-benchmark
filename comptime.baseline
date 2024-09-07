@@ -8152,7 +8152,7 @@ gromacs/analysismodule.cpp.ll 1010950211
 gromacs/analysissettings.cpp.ll 87397260
 gromacs/andersentemperaturecoupling.cpp.ll 1410137606
 gromacs/angle.cpp.ll 2038163798
-gromacs/angle_correction.cpp.ll 39763382
+gromacs/angle_correction.cpp.ll 39723440
 gromacs/any.cpp.ll 167257895
 gromacs/argon-forces-integration.cpp.ll 2970278706
 gromacs/arraydata.cpp.ll 393575737
@@ -12239,7 +12239,7 @@ libuv/fs-poll.c.ll 107527431
 libuv/fs.c.ll 768887917
 libuv/getaddrinfo.c.ll 80052545
 libuv/idna.c.ll 390973636
-libuv/inet.c.ll 278307154
+libuv/inet.c.ll 278585535
 libuv/linux.c.ll 1056904682
 libuv/loop-watcher.c.ll 113998502
 libuv/loop.c.ll 83519472
@@ -12335,7 +12335,7 @@ libwebp/lossless_enc_msa.c.ll 34116579
 libwebp/lossless_enc_neon.c.ll 34117009
 libwebp/lossless_enc_sse2.c.ll 439216390
 libwebp/lossless_enc_sse41.c.ll 153635272
-libwebp/lossless_mips_dsp_r2.c.ll 34151936
+libwebp/lossless_mips_dsp_r2.c.ll 34117672
 libwebp/lossless_msa.c.ll 34114315
 libwebp/lossless_neon.c.ll 34114522
 libwebp/lossless_sse2.c.ll 480991819
@@ -18329,7 +18329,7 @@ minetest/l_storage.cpp.ll 122075820
 minetest/l_util.cpp.ll 891072325
 minetest/l_vmanip.cpp.ll 423259254
 minetest/light.cpp.ll 140170348
-minetest/lighting.cpp.ll 35048431
+minetest/lighting.cpp.ll 35013194
 minetest/localplayer.cpp.ll 1029351153
 minetest/log.cpp.ll 627624670
 minetest/luaentity_sao.cpp.ll 1004487957
@@ -19838,7 +19838,7 @@ nuttx/lib_fclose.c.ll 54815048
 nuttx/lib_feof.c.ll 35668828
 nuttx/lib_ferror.c.ll 35806640
 nuttx/lib_fflush.c.ll 40849968
-nuttx/lib_ffs.c.ll 36331982
+nuttx/lib_ffs.c.ll 36295637
 nuttx/lib_ffsl.c.ll 36577466
 nuttx/lib_ffsll.c.ll 36575120
 nuttx/lib_fgetc.c.ll 38939820
@@ -20080,7 +20080,7 @@ nuttx/pthread_barrierattr_setpshared.c.ll 36754055
 nuttx/pthread_barrierinit.c.ll 37309512
 nuttx/pthread_barrierwait.c.ll 51485824
 nuttx/pthread_completejoin.c.ll 68501498
-nuttx/pthread_condattr_destroy.c.ll 35426112
+nuttx/pthread_condattr_destroy.c.ll 35390679
 nuttx/pthread_condattr_getclock.c.ll 36222407
 nuttx/pthread_condattr_getpshared.c.ll 36565163
 nuttx/pthread_condattr_init.c.ll 36153688
@@ -26561,7 +26561,7 @@ openssl/buildtest_c_modes-bin-buildtest_modes.ll 34370379
 openssl/buildtest_c_obj_mac-bin-buildtest_obj_mac.ll 34371419
 openssl/buildtest_c_objects-bin-buildtest_objects.ll 34371268
 openssl/buildtest_c_ossl_typ-bin-buildtest_ossl_typ.ll 34371919
-openssl/buildtest_c_param_build-bin-buildtest_param_build.ll 34373192
+openssl/buildtest_c_param_build-bin-buildtest_param_build.ll 34338674
 openssl/buildtest_c_params-bin-buildtest_params.ll 34370854
 openssl/buildtest_c_pem-bin-buildtest_pem.ll 34369909
 openssl/buildtest_c_pem2-bin-buildtest_pem2.ll 34370333
@@ -31385,7 +31385,7 @@ qemu/meson-generated_.._qapi_qapi-events-block-export.c.ll 53078181
 qemu/meson-generated_.._qapi_qapi-events-block.c.ll 63697960
 qemu/meson-generated_.._qapi_qapi-events-char.c.ll 53420511
 qemu/meson-generated_.._qapi_qapi-events-dump.c.ll 53276468
-qemu/meson-generated_.._qapi_qapi-events-job.c.ll 53333163
+qemu/meson-generated_.._qapi_qapi-events-job.c.ll 53279729
 qemu/meson-generated_.._qapi_qapi-events-machine.c.ll 83560245
 qemu/meson-generated_.._qapi_qapi-events-migration.c.ll 82334159
 qemu/meson-generated_.._qapi_qapi-events-misc.c.ll 63779276
@@ -31589,7 +31589,7 @@ qemu/stubs_ram-block.c.ll 38623964
 qemu/stubs_ramfb.c.ll 36024203
 qemu/stubs_replay-tools.c.ll 46555516
 qemu/stubs_replay.c.ll 37172426
-qemu/stubs_runstate-check.c.ll 34808860
+qemu/stubs_runstate-check.c.ll 34773952
 qemu/stubs_semihost-all.c.ll 34267371
 qemu/stubs_semihost.c.ll 39345345
 qemu/stubs_sysbus.c.ll 34238155
@@ -34151,7 +34151,7 @@ spike/f16_to_ui8.ll 36891029
 spike/f32_classify.ll 66205183
 spike/f32_div.ll 54769303
 spike/f32_mul.ll 58403776
-spike/f32_rem.ll 80799775
+spike/f32_rem.ll 80718949
 spike/f32_roundToInt.ll 59366959
 spike/f32_sqrt.ll 53708550
 spike/f32_to_bf16.ll 45380611
@@ -36347,7 +36347,7 @@ wasmtime-rs/1ciz0r2wgkmnwx4v.ll 38190923
 wasmtime-rs/1cnnneruo9nr1th2.ll 116135799
 wasmtime-rs/1d0hmxdweaxxi3oz.ll 181627319
 wasmtime-rs/1d7m6di32gj3j7pj.ll 292473726
-wasmtime-rs/1daj4qeyrk6k9nxn.ll 40591925
+wasmtime-rs/1daj4qeyrk6k9nxn.ll 40551142
 wasmtime-rs/1dcl4d9wobe0dosb.ll 34817155
 wasmtime-rs/1diuaeh8guxl7hpm.ll 612069565
 wasmtime-rs/1e75qbimt8rfvrit.ll 82754651
