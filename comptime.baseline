@@ -1403,7 +1403,7 @@ actix-rs/2ltm6szalsytk9dh.ll 1082133569
 actix-rs/2m9lq42maoywd5kd.ll 557691269
 actix-rs/2nm6r5hc2u1hk1e1.ll 2473361027
 actix-rs/2o6s6qtmif526itx.ll 1955168897
-actix-rs/2opjbt4uk1jlgbvj.ll 36570474
+actix-rs/2opjbt4uk1jlgbvj.ll 36533734
 actix-rs/2ozvrgwfc0zacwiu.ll 40356538
 actix-rs/2p19xo69k6kpmshr.ll 34829138
 actix-rs/2p9yk5hk6n8dqugm.ll 82123675
@@ -8064,7 +8064,7 @@ graphviz/output.c.ll 614625030
 graphviz/pack.c.ll 1002810161
 graphviz/parse.c.ll 320270700
 graphviz/partition.c.ll 424877909
-graphviz/patchwork.c.ll 137717882
+graphviz/patchwork.c.ll 137580138
 graphviz/patchworkinit.c.ll 132151367
 graphviz/pathaccess.c.ll 102710094
 graphviz/pathcat.c.ll 108355535
@@ -19836,7 +19836,7 @@ nuttx/lib_expf.c.ll 42211206
 nuttx/lib_expl.c.ll 42153710
 nuttx/lib_fclose.c.ll 54815048
 nuttx/lib_feof.c.ll 35630631
-nuttx/lib_ferror.c.ll 35806640
+nuttx/lib_ferror.c.ll 35770816
 nuttx/lib_fflush.c.ll 40849968
 nuttx/lib_ffs.c.ll 36295637
 nuttx/lib_ffsl.c.ll 36540183
