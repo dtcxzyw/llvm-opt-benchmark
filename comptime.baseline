@@ -12682,7 +12682,7 @@ lief/ResourcesManager.cpp.ll 14900554709
 lief/ResourcesParser.cpp.ll 14316147396
 lief/RichEntry.cpp.ll 65350531
 lief/RichHeader.cpp.ll 12791106157
-lief/RsaInfo.cpp.ll 139840685
+lief/RsaInfo.cpp.ll 139980859
 lief/SegmentCommand.cpp.ll 11601618375
 lief/SegmentSplitInfo.cpp.ll 68308863
 lief/Signature.cpp.ll 13955085128
