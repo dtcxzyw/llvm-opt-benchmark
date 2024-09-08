@@ -5063,7 +5063,7 @@ cpython/pylifecycle.ll 1280311762
 cpython/pyos.ll 54825401
 cpython/pystate.ll 907936688
 cpython/pystrcmp.ll 54689802
-cpython/pystrhex.ll 159951702
+cpython/pystrhex.ll 160111666
 cpython/pystrtod.ll 189895662
 cpython/pythonrun.ll 640836321
 cpython/pytime.ll 84420725
