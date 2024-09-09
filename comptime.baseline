@@ -12372,7 +12372,7 @@ libwebp/huffman_utils.c.ll 199028318
 libwebp/idec_dec.c.ll 348467278
 libwebp/image_dec.c.ll 65266622
 libwebp/image_enc.c.ll 435970356
-libwebp/imageio_util.c.ll 75517890
+libwebp/imageio_util.c.ll 75593497
 libwebp/img2webp.c.ll 194543104
 libwebp/io_dec.c.ll 313665550
 libwebp/iterator_enc.c.ll 332661323
@@ -17440,7 +17440,7 @@ luajit/lib_aux.ll 157568073
 luajit/lib_aux_dyn.ll 157555220
 luajit/lib_base.ll 269224519
 luajit/lib_base_dyn.ll 269379940
-luajit/lib_bit.ll 82579580
+luajit/lib_bit.ll 82662196
 luajit/lib_bit_dyn.ll 82531871
 luajit/lib_buffer.ll 207875800
 luajit/lib_buffer_dyn.ll 208080324
@@ -25487,7 +25487,7 @@ openmpi/coll_tuned_gather_decision.ll 57945614
 openmpi/coll_tuned_module.ll 152842688
 openmpi/coll_tuned_reduce_decision.ll 66605522
 openmpi/coll_tuned_reduce_scatter_block_decision.ll 57861026
-openmpi/coll_tuned_reduce_scatter_decision.ll 58625357
+openmpi/coll_tuned_reduce_scatter_decision.ll 58684029
 openmpi/coll_tuned_scan_decision.ll 53833842
 openmpi/coll_tuned_scatter_decision.ll 59319587
 openmpi/comm.ll 879091597
