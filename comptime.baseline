@@ -11469,7 +11469,7 @@ jemalloc/tcache.ll 927474599
 jemalloc/tcache.pic.ll 927042356
 jemalloc/tcache.sym.ll 927042302
 jemalloc/thread_event.ll 152523533
-jemalloc/thread_event.pic.ll 152248031
+jemalloc/thread_event.pic.ll 152400585
 jemalloc/thread_event.sym.ll 152400281
 jemalloc/tsd.ll 173540657
 jemalloc/tsd.pic.ll 173336876
