@@ -35,7 +35,9 @@ jobs:
           TEXT: ${{ github.event.issue.body }}
 
       - name: Run LLVM DAG Grep
-        run: ${{ github.workspace }}/scripts/run_dag_grep.sh
+        run: |
+          ${{ github.workspace }}/scripts/run_dag_grep.sh
+          cat ${{ github.workspace }}/scripts/grep.md
 
       - name: Report
         uses: thollander/actions-comment-pull-request@v2
