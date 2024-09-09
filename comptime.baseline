@@ -18520,7 +18520,7 @@ minetest/test_noderesolver.cpp.ll 625756558
 minetest/test_noise.cpp.ll 300710541
 minetest/test_objdef.cpp.ll 283085964
 minetest/test_profiler.cpp.ll 212032353
-minetest/test_random.cpp.ll 313315174
+minetest/test_random.cpp.ll 313629229
 minetest/test_sao.cpp.ll 1069524941
 minetest/test_schematic.cpp.ll 552411396
 minetest/test_serialization.cpp.ll 1423567647
