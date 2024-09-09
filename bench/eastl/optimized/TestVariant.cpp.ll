@@ -6108,20 +6108,20 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i, label %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i
 
 _ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i:  ; preds = %entry
-  %cond1010.i.i.i.i.i = tail call i32 @llvm.scmp.i32.i64(i64 %sub.ptr.sub.i.i.i.i.i, i64 %sub.ptr.sub3.i.i.i.i.i)
+  %6 = icmp slt i64 %sub.ptr.sub.i.i.i.i.i, %sub.ptr.sub3.i.i.i.i.i
   br label %_ZN5eastl6invokeINS_4lessIvEEJRKNS_12basic_stringIcNS_9allocatorEEES7_EEEDcOT_DpOT0_.exit
 
 _ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i:         ; preds = %entry
   %call.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %spec.select.i.i.i.i.i.i, ptr noundef %spec.select.i.i7.i.i.i.i, i64 noundef %cond.i.i16.i.i.i.i) #19
   %call.i.fr.i.i.i.i.i = freeze i32 %call.i.i.i.i.i.i
   %cmp5.not.i.i.i.i.i = icmp eq i32 %call.i.fr.i.i.i.i.i, 0
-  %cond10.i.i.i.i.i = tail call i32 @llvm.scmp.i32.i64(i64 %sub.ptr.sub.i.i.i.i.i, i64 %sub.ptr.sub3.i.i.i.i.i)
-  %spec.select.i.i.i.i.i = select i1 %cmp5.not.i.i.i.i.i, i32 %cond10.i.i.i.i.i, i32 %call.i.fr.i.i.i.i.i
+  %7 = icmp slt i64 %sub.ptr.sub.i.i.i.i.i, %sub.ptr.sub3.i.i.i.i.i
+  %8 = icmp slt i32 %call.i.fr.i.i.i.i.i, 0
+  %9 = select i1 %cmp5.not.i.i.i.i.i, i1 %7, i1 %8
   br label %_ZN5eastl6invokeINS_4lessIvEEJRKNS_12basic_stringIcNS_9allocatorEEES7_EEEDcOT_DpOT0_.exit
 
 _ZN5eastl6invokeINS_4lessIvEEJRKNS_12basic_stringIcNS_9allocatorEEES7_EEEDcOT_DpOT0_.exit: ; preds = %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i
-  %6 = phi i32 [ %cond1010.i.i.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i ]
-  %cmp.i.i.i.i = icmp slt i32 %6, 0
+  %cmp.i.i.i.i = phi i1 [ %6, %_ZN5eastl7CompareEPKcS1_m.exit.thread.i.i.i.i.i ], [ %9, %_ZN5eastl7CompareEPKcS1_m.exit.i.i.i.i.i ]
   ret i1 %cmp.i.i.i.i
 }
 
@@ -6907,9 +6907,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #14

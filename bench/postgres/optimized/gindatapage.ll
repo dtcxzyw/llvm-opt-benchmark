@@ -1406,7 +1406,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef %.0.i.i) #11
-  br label %97
+  br label %98
 
 36:                                               ; preds = %BufferGetPage.exit
   %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
@@ -1426,14 +1426,14 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %48 = getelementptr i8, ptr %0, i64 126
   br label %49
 
-49:                                               ; preds = %.lr.ph, %.thread
-  %.03552 = phi i16 [ 1, %.lr.ph ], [ %.1, %.thread ]
-  %.03851 = phi i16 [ %43, %.lr.ph ], [ %.139, %.thread ]
+49:                                               ; preds = %.lr.ph, %.thread59
+  %.03552 = phi i16 [ 1, %.lr.ph ], [ %85, %.thread59 ]
+  %.03851 = phi i16 [ %43, %.lr.ph ], [ %84, %.thread59 ]
   %narrow = sub nuw i16 %.03851, %.03552
   %50 = lshr i16 %narrow, 1
   %51 = add i16 %50, %.03552
   %52 = icmp eq i16 %51, %42
-  br i1 %52, label %.thread, label %53
+  br i1 %52, label %.thread59, label %53
 
 53:                                               ; preds = %49
   %54 = zext i16 %51 to i64
@@ -1462,51 +1462,55 @@ BufferGetPage.exit:                               ; preds = %6, %12
   %.val9.i = load i16, ptr %71, align 2
   %72 = zext i16 %.val9.i to i64
   %73 = or disjoint i64 %70, %72
-  %74 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %64, i64 %73)
-  %75 = icmp eq i64 %64, %73
-  br i1 %75, label %76, label %.thread
+  %74 = icmp eq i64 %64, %73
+  br i1 %74, label %75, label %.thread
 
-76:                                               ; preds = %53
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
-  store i16 %51, ptr %77, align 8
+75:                                               ; preds = %53
+  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  store i16 %51, ptr %76, align 8
   %.037.val = load i16, ptr %56, align 2
-  %78 = getelementptr i8, ptr %56, i64 2
-  %.037.val45 = load i16, ptr %78, align 2
-  %79 = zext i16 %.037.val to i32
-  %80 = shl nuw i32 %79, 16
-  %81 = zext i16 %.037.val45 to i32
-  %82 = or disjoint i32 %80, %81
-  br label %97
+  %77 = getelementptr i8, ptr %56, i64 2
+  %.037.val45 = load i16, ptr %77, align 2
+  %78 = zext i16 %.037.val to i32
+  %79 = shl nuw i32 %78, 16
+  %80 = zext i16 %.037.val45 to i32
+  %81 = or disjoint i32 %79, %80
+  br label %98
 
-.thread:                                          ; preds = %49, %53
-  %.03648 = phi i32 [ %74, %53 ], [ -1, %49 ]
-  %83 = icmp sgt i32 %.03648, 0
-  %84 = add i16 %51, 1
-  %.139 = select i1 %83, i16 %.03851, i16 %51
-  %.1 = select i1 %83, i16 %84, i16 %.03552
-  %85 = icmp ugt i16 %.139, %.1
-  br i1 %85, label %49, label %._crit_edge, !llvm.loop !15
+.thread:                                          ; preds = %53
+  %82 = icmp ugt i64 %64, %73
+  %cond.fr = freeze i1 %82
+  %83 = add i16 %51, 1
+  %spec.select = select i1 %cond.fr, i16 %.03851, i16 %51
+  %spec.select69 = select i1 %cond.fr, i16 %83, i16 %.03552
+  br label %.thread59
 
-._crit_edge:                                      ; preds = %.thread, %36
-  %.038.lcssa = phi i16 [ %43, %36 ], [ %.139, %.thread ]
-  %86 = zext i16 %.038.lcssa to i64
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
-  store i16 %.038.lcssa, ptr %87, align 8
-  %88 = getelementptr i8, ptr %.0.i.i, i64 32
-  %89 = mul nuw nsw i64 %86, 10
-  %90 = getelementptr i8, ptr %88, i64 %89
-  %91 = getelementptr i8, ptr %90, i64 -10
-  %.val = load i16, ptr %91, align 2
-  %92 = getelementptr i8, ptr %90, i64 -8
-  %.val44 = load i16, ptr %92, align 2
-  %93 = zext i16 %.val to i32
-  %94 = shl nuw i32 %93, 16
-  %95 = zext i16 %.val44 to i32
-  %96 = or disjoint i32 %94, %95
-  br label %97
+.thread59:                                        ; preds = %.thread, %49
+  %84 = phi i16 [ %51, %49 ], [ %spec.select, %.thread ]
+  %85 = phi i16 [ %.03552, %49 ], [ %spec.select69, %.thread ]
+  %86 = icmp ugt i16 %84, %85
+  br i1 %86, label %49, label %._crit_edge, !llvm.loop !15
 
-97:                                               ; preds = %._crit_edge, %76, %21
-  %.0 = phi i32 [ %35, %21 ], [ %82, %76 ], [ %96, %._crit_edge ]
+._crit_edge:                                      ; preds = %.thread59, %36
+  %.038.lcssa = phi i16 [ %43, %36 ], [ %84, %.thread59 ]
+  %87 = zext i16 %.038.lcssa to i64
+  %88 = getelementptr inbounds i8, ptr %1, i64 8
+  store i16 %.038.lcssa, ptr %88, align 8
+  %89 = getelementptr i8, ptr %.0.i.i, i64 32
+  %90 = mul nuw nsw i64 %87, 10
+  %91 = getelementptr i8, ptr %89, i64 %90
+  %92 = getelementptr i8, ptr %91, i64 -10
+  %.val = load i16, ptr %92, align 2
+  %93 = getelementptr i8, ptr %91, i64 -8
+  %.val44 = load i16, ptr %93, align 2
+  %94 = zext i16 %.val to i32
+  %95 = shl nuw i32 %94, 16
+  %96 = zext i16 %.val44 to i32
+  %97 = or disjoint i32 %95, %96
+  br label %98
+
+98:                                               ; preds = %._crit_edge, %75, %21
+  %.0 = phi i32 [ %35, %21 ], [ %81, %75 ], [ %97, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -3309,9 +3313,6 @@ declare ptr @PageGetTempPage(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9

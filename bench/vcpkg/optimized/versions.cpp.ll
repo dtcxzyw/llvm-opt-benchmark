@@ -2116,7 +2116,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkgeqERKNS_11DateVersionES2_(ptr noun
   %19 = load i64, ptr %.sroa.015.023.i.i, align 8
   %20 = load i64, ptr %.sroa.09.022.i.i, align 8
   %.not.i8.i = icmp eq i64 %19, %20
-  br i1 %.not.i8.i, label %21, label %_ZN5vcpkg4Util13range_lexcompISt6vectorImSaImEES4_PFimmEEEiRKT_RKT0_T1_.exit.loopexit.i
+  br i1 %.not.i8.i, label %21, label %_ZN5vcpkg7compareERKNS_11DateVersionES2_.exit
 
 21:                                               ; preds = %.lr.ph.i.i
   %22 = getelementptr inbounds i8, ptr %.sroa.015.023.i.i, i64 8
@@ -2129,21 +2129,14 @@ define dso_local noundef zeroext i1 @_ZN5vcpkgeqERKNS_11DateVersionES2_(ptr noun
 .critedge.i.i:                                    ; preds = %21, %8
   %.sroa.09.0.lcssa.i.i = phi ptr [ %14, %8 ], [ %23, %21 ]
   %.sroa.015.0.lcssa.i.i = phi ptr [ %11, %8 ], [ %22, %21 ]
-  %26 = icmp eq ptr %.sroa.09.0.lcssa.i.i, %16
-  %27 = zext i1 %26 to i32
-  %28 = icmp eq ptr %.sroa.015.0.lcssa.i.i, %13
-  %.neg.i.i = sext i1 %28 to i32
-  %29 = add nsw i32 %.neg.i.i, %27
+  %26 = icmp eq ptr %.sroa.015.0.lcssa.i.i, %13
+  %27 = icmp ne ptr %.sroa.09.0.lcssa.i.i, %16
+  %28 = xor i1 %27, %26
   br label %_ZN5vcpkg7compareERKNS_11DateVersionES2_.exit
 
-_ZN5vcpkg4Util13range_lexcompISt6vectorImSaImEES4_PFimmEEEiRKT_RKT0_T1_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %30 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %19, i64 %20)
-  br label %_ZN5vcpkg7compareERKNS_11DateVersionES2_.exit
-
-_ZN5vcpkg7compareERKNS_11DateVersionES2_.exit:    ; preds = %2, %.critedge.i.i, %_ZN5vcpkg4Util13range_lexcompISt6vectorImSaImEES4_PFimmEEEiRKT_RKT0_T1_.exit.loopexit.i
-  %.0.i = phi i32 [ %29, %.critedge.i.i ], [ %30, %_ZN5vcpkg4Util13range_lexcompISt6vectorImSaImEES4_PFimmEEEiRKT_RKT0_T1_.exit.loopexit.i ], [ 1, %2 ]
-  %31 = icmp eq i32 %.0.i, 0
-  ret i1 %31
+_ZN5vcpkg7compareERKNS_11DateVersionES2_.exit:    ; preds = %.lr.ph.i.i, %2, %.critedge.i.i
+  %.0.i = phi i1 [ %28, %.critedge.i.i ], [ false, %2 ], [ false, %.lr.ph.i.i ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

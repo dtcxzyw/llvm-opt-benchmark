@@ -1277,7 +1277,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenceEPNS_13CXXTypeidExprE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_13CXXTypeidExprE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
   %3 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
@@ -1294,23 +1294,22 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
   %10 = getelementptr inbounds i8, ptr %9, i64 17
   %11 = load i16, ptr %10, align 1
   %12 = trunc i16 %11 to i8
-  %13 = and i8 %12, 4
-  %.not.i6.i.i = icmp eq i8 %13, 0
-  %14 = select i1 %.not.i6.i.i, i8 0, i8 12
+  %13 = shl i8 %12, 1
+  %14 = and i8 %13, 8
   %15 = and i8 %12, 19
   %16 = or disjoint i8 %14, %15
-  br label %22
+  br label %23
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %19 = load i16, ptr %18, align 1
   %20 = lshr i16 %19, 5
   %21 = trunc i16 %20 to i8
-  br label %22
+  %22 = and i8 %21, 27
+  br label %23
 
-22:                                               ; preds = %17, %6
-  %.0.in = phi i8 [ %16, %6 ], [ %21, %17 ]
-  %.0 = and i8 %.0.in, 27
+23:                                               ; preds = %17, %6
+  %.0 = phi i8 [ %16, %6 ], [ %22, %17 ]
   ret i8 %.0
 }
 

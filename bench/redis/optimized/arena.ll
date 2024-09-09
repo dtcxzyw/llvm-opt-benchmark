@@ -3127,28 +3127,21 @@ land.lhs.true:                                    ; preds = %entry
   %2 = getelementptr i8, ptr %slab, i64 32
   %slab.val14 = load i64, ptr %2, align 8
   %cmp6.not.i.i = icmp eq i64 %.val13, %slab.val14
-  br i1 %cmp6.not.i.i, label %if.end.i.i, label %if.then.i.i
+  br i1 %cmp6.not.i.i, label %edata_snad_comp.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true
-  %sub.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %.val13, i64 %slab.val14)
-  br label %edata_snad_comp.exit
+  %3 = icmp ugt i64 %.val13, %slab.val14
+  br i1 %3, label %if.then, label %if.else10
 
-if.end.i.i:                                       ; preds = %land.lhs.true
-  %3 = getelementptr i8, ptr %slab, i64 8
-  %slab.val = load ptr, ptr %3, align 8
-  %4 = getelementptr i8, ptr %0, i64 8
-  %.val12 = load ptr, ptr %4, align 8
-  %5 = ptrtoint ptr %slab.val to i64
-  %6 = ptrtoint ptr %.val12 to i64
-  %sub15.i.i = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %5)
-  br label %edata_snad_comp.exit
+edata_snad_comp.exit:                             ; preds = %land.lhs.true
+  %4 = getelementptr i8, ptr %slab, i64 8
+  %slab.val = load ptr, ptr %4, align 8
+  %5 = getelementptr i8, ptr %0, i64 8
+  %.val12 = load ptr, ptr %5, align 8
+  %6 = icmp ugt ptr %.val12, %slab.val
+  br i1 %6, label %if.then, label %if.else10
 
-edata_snad_comp.exit:                             ; preds = %if.then.i.i, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %sub.i.i, %if.then.i.i ], [ %sub15.i.i, %if.end.i.i ]
-  %cmp2 = icmp sgt i32 %retval.0.i.i, 0
-  br i1 %cmp2, label %if.then, label %if.else10
-
-if.then:                                          ; preds = %edata_snad_comp.exit
+if.then:                                          ; preds = %if.then.i.i, %edata_snad_comp.exit
   %.val = load i64, ptr %0, align 8
   %7 = and i64 %.val, 274609471488
   %cmp5.not = icmp eq i64 %7, 0
@@ -3211,7 +3204,7 @@ if.end:                                           ; preds = %edata_list_active_a
   store ptr %slab, ptr %slabcur, align 8
   br label %if.end11
 
-if.else10:                                        ; preds = %edata_snad_comp.exit, %entry
+if.else10:                                        ; preds = %if.then.i.i, %edata_snad_comp.exit, %entry
   %slabs_nonfull.i15 = getelementptr inbounds i8, ptr %bin, i64 200
   tail call void @edata_heap_insert(ptr noundef nonnull %slabs_nonfull.i15, ptr noundef %slab) #15
   br label %if.end11
@@ -7180,9 +7173,6 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14

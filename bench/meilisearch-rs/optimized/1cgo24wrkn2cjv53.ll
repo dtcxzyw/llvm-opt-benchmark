@@ -4283,132 +4283,106 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h5193d58b9e0
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load atomic i8, ptr %5 monotonic, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %.preheader, label %22
+  br i1 %7, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.preheader", label %27
 
-.preheader:                                       ; preds = %4
-  %8 = getelementptr i8, ptr %1, i64 8
-  %9 = icmp eq i32 %3, 1000000000
-  br i1 %9, label %.preheader.split.us, label %.preheader.split
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.preheader": ; preds = %4
+  %8 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
+  %9 = extractvalue { i64, i32 } %8, 0
+  %10 = extractvalue { i64, i32 } %8, 1
+  %.val1342 = load i64, ptr %1, align 8, !noundef !4
+  %11 = getelementptr i8, ptr %1, i64 8
+  %.val1443 = load i32, ptr %11, align 8
+  %12 = icmp eq i64 %9, %.val1342
+  %13 = icmp uge i32 %10, %.val1443
+  %14 = icmp sge i64 %9, %.val1342
+  %.sroa.0.0.i44 = select i1 %12, i1 %13, i1 %14
+  br i1 %.sroa.0.0.i44, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge", label %.lr.ph
 
-.preheader.split.us:                              ; preds = %.preheader, %18
-  %10 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
-  %11 = extractvalue { i64, i32 } %10, 0
-  %12 = extractvalue { i64, i32 } %10, 1
+.lr.ph:                                           ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.preheader"
+  %15 = icmp eq i32 %3, 1000000000
+  br i1 %15, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
+
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us": ; preds = %.lr.ph, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us"
+  %.val1446.us = phi i32 [ %.val14.us, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us" ], [ %.val1443, %.lr.ph ]
+  %.val1345.us = phi i64 [ %.val13.us, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us" ], [ %.val1342, %.lr.ph ]
+  %16 = phi i32 [ %23, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us" ], [ %10, %.lr.ph ]
+  %17 = phi i64 [ %22, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us" ], [ %9, %.lr.ph ]
+  %18 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.val1345.us, i32 noundef %.val1446.us, i64 noundef %17, i32 noundef %16)
+  %19 = extractvalue { i64, i32 } %18, 0
+  %20 = extractvalue { i64, i32 } %18, 1
+  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %19, i32 noundef %20)
+  %21 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
+  %22 = extractvalue { i64, i32 } %21, 0
+  %23 = extractvalue { i64, i32 } %21, 1
   %.val13.us = load i64, ptr %1, align 8, !noundef !4
-  %.val14.us = load i32, ptr %8, align 8
-  %13 = icmp eq i64 %11, %.val13.us
-  br i1 %13, label %16, label %14
+  %.val14.us = load i32, ptr %11, align 8
+  %24 = icmp eq i64 %22, %.val13.us
+  %25 = icmp uge i32 %23, %.val14.us
+  %26 = icmp sge i64 %22, %.val13.us
+  %.sroa.0.0.i.us = select i1 %24, i1 %25, i1 %26
+  br i1 %.sroa.0.0.i.us, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us"
 
-14:                                               ; preds = %.preheader.split.us
-  %15 = tail call i8 @llvm.scmp.i8.i64(i64 %11, i64 %.val13.us)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us"
-
-16:                                               ; preds = %.preheader.split.us
-  %17 = tail call i8 @llvm.ucmp.i8.i32(i32 %12, i32 %.val14.us)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us"
-
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us": ; preds = %16, %14
-  %.sroa.0.0.i.us = phi i8 [ %17, %16 ], [ %15, %14 ]
-  %switch.us = icmp ult i8 %.sroa.0.0.i.us, 2
-  br i1 %switch.us, label %.split.us, label %18
-
-18:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us"
-  %19 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.val13.us, i32 noundef %.val14.us, i64 noundef %11, i32 noundef %12)
-  %20 = extractvalue { i64, i32 } %19, 0
-  %21 = extractvalue { i64, i32 } %19, 1
-  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %20, i32 noundef %21)
-  br label %.preheader.split.us
-
-22:                                               ; preds = %4
+27:                                               ; preds = %4
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17he0ebdfaff23eeba3E(i64 %2, i32 noundef %3)
   store i8 0, ptr %0, align 8
   br label %39
 
-.preheader.split:                                 ; preds = %.preheader, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26"
-  %23 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
-  %24 = extractvalue { i64, i32 } %23, 0
-  %25 = extractvalue { i64, i32 } %23, 1
-  %.val13 = load i64, ptr %1, align 8, !noundef !4
-  %.val14 = load i32, ptr %8, align 8
-  %26 = icmp eq i64 %24, %.val13
-  br i1 %26, label %27, label %29
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24": ; preds = %.lr.ph, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26"
+  %.val1446 = phi i32 [ %.val14, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26" ], [ %.val1443, %.lr.ph ]
+  %.val1345 = phi i64 [ %.val13, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26" ], [ %.val1342, %.lr.ph ]
+  %28 = phi i32 [ %49, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26" ], [ %10, %.lr.ph ]
+  %29 = phi i64 [ %48, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26" ], [ %9, %.lr.ph ]
+  %30 = icmp eq i64 %29, %2
+  %31 = icmp uge i32 %28, %3
+  %32 = icmp sge i64 %29, %2
+  %.sroa.0.0.i23 = select i1 %30, i1 %31, i1 %32
+  br i1 %.sroa.0.0.i23, label %53, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26"
 
-27:                                               ; preds = %.preheader.split
-  %28 = tail call i8 @llvm.ucmp.i8.i32(i32 %25, i32 %.val14)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
-
-29:                                               ; preds = %.preheader.split
-  %30 = tail call i8 @llvm.scmp.i8.i64(i64 %24, i64 %.val13)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
-
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit": ; preds = %27, %29
-  %.sroa.0.0.i = phi i8 [ %28, %27 ], [ %30, %29 ]
-  %switch = icmp ult i8 %.sroa.0.0.i, 2
-  br i1 %switch, label %.split.us, label %31
-
-31:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
-  %32 = icmp eq i64 %24, %2
-  br i1 %32, label %41, label %43
-
-.split.us:                                        ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit", %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us"
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge": ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26", %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us", %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.preheader"
   %33 = atomicrmw xchg ptr %5, i8 1 seq_cst, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %38
 
-35:                                               ; preds = %.split.us
+35:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge"
   %36 = load i64, ptr %1, align 8, !noundef !4
-  %37 = load i32, ptr %8, align 8, !range !1533, !noundef !4
+  %37 = load i32, ptr %11, align 8, !range !1533, !noundef !4
   store i64 %36, ptr %0, align 8
   br label %39
 
-38:                                               ; preds = %.split.us
+38:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge"
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17he0ebdfaff23eeba3E(i64 undef, i32 noundef 1000000000)
   tail call void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.695ce54c0493ea6bfa978dacabdf8173.5.llvm.5336188084572713014, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.695ce54c0493ea6bfa978dacabdf8173.13) #46
   unreachable
 
-39:                                               ; preds = %55, %35, %22
-  %.sink = phi i32 [ 1000000000, %55 ], [ %37, %35 ], [ 1000000000, %22 ]
+39:                                               ; preds = %53, %35, %27
+  %.sink = phi i32 [ 1000000000, %53 ], [ %37, %35 ], [ 1000000000, %27 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sink, ptr %40, align 8
   ret void
 
-41:                                               ; preds = %31
-  %42 = tail call i8 @llvm.ucmp.i8.i32(i32 %25, i32 %3)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26": ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
+  %41 = icmp eq i64 %2, %.val1345
+  %42 = icmp ult i32 %3, %.val1446
+  %43 = icmp slt i64 %2, %.val1345
+  %.sroa.0.0.i25 = select i1 %41, i1 %42, i1 %43
+  %spec.select = select i1 %.sroa.0.0.i25, i32 %3, i32 %.val1446
+  %spec.select40 = select i1 %.sroa.0.0.i25, i64 %2, i64 %.val1345
+  %44 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %spec.select40, i32 noundef %spec.select, i64 noundef %29, i32 noundef %28)
+  %45 = extractvalue { i64, i32 } %44, 0
+  %46 = extractvalue { i64, i32 } %44, 1
+  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %45, i32 noundef %46)
+  %47 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
+  %48 = extractvalue { i64, i32 } %47, 0
+  %49 = extractvalue { i64, i32 } %47, 1
+  %.val13 = load i64, ptr %1, align 8, !noundef !4
+  %.val14 = load i32, ptr %11, align 8
+  %50 = icmp eq i64 %48, %.val13
+  %51 = icmp uge i32 %49, %.val14
+  %52 = icmp sge i64 %48, %.val13
+  %.sroa.0.0.i = select i1 %50, i1 %51, i1 %52
+  br i1 %.sroa.0.0.i, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
 
-43:                                               ; preds = %31
-  %44 = tail call i8 @llvm.scmp.i8.i64(i64 %24, i64 %2)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
-
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24": ; preds = %41, %43
-  %.sroa.0.0.i23 = phi i8 [ %42, %41 ], [ %44, %43 ]
-  %switch10 = icmp ult i8 %.sroa.0.0.i23, 2
-  br i1 %switch10, label %55, label %45
-
-45:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
-  %46 = icmp eq i64 %2, %.val13
-  br i1 %46, label %47, label %49
-
-47:                                               ; preds = %45
-  %48 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %.val14)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26"
-
-49:                                               ; preds = %45
-  %50 = tail call i8 @llvm.scmp.i8.i64(i64 %2, i64 %.val13)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26"
-
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26": ; preds = %47, %49
-  %.sroa.0.0.i25 = phi i8 [ %48, %47 ], [ %50, %49 ]
-  %51 = icmp eq i8 %.sroa.0.0.i25, -1
-  %spec.select = select i1 %51, i32 %3, i32 %.val14
-  %spec.select40 = select i1 %51, i64 %2, i64 %.val13
-  %52 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %spec.select40, i32 noundef %spec.select, i64 noundef %24, i32 noundef %25)
-  %53 = extractvalue { i64, i32 } %52, 0
-  %54 = extractvalue { i64, i32 } %52, 1
-  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %53, i32 noundef %54)
-  br label %.preheader.split
-
-55:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
+53:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
   store i8 0, ptr %0, align 8
   br label %39
 }
@@ -4421,7 +4395,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   br i1 %6, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %4, %26
+.split.us:                                        ; preds = %4, %24
   %9 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
   %10 = extractvalue { i64, i32 } %9, 0
   %11 = extractvalue { i64, i32 } %9, 1
@@ -4430,156 +4404,122 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %14 = extractvalue { i64, i32 } %12, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %15 = icmp eq i64 %10, %13
-  br i1 %15, label %18, label %16
+  %16 = icmp ugt i32 %11, %14
+  %17 = icmp sgt i64 %10, %13
+  %.sroa.0.0.i.i.i.us = select i1 %15, i1 %16, i1 %17
+  %.sroa.3.0.i.us = select i1 %.sroa.0.0.i.i.i.us, i32 %11, i32 %14
+  %.sroa.0.0.sroa.speculated.i.us = select i1 %.sroa.0.0.i.i.i.us, i64 %10, i64 %13
+  %18 = load i64, ptr %7, align 8, !noundef !4
+  %19 = load i32, ptr %8, align 8, !range !1533, !noundef !4
+  %20 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i.us, i32 noundef %.sroa.3.0.i.us, i64 noundef %18, i32 noundef %19)
+  %21 = extractvalue { i64, i32 } %20, 0
+  %22 = extractvalue { i64, i32 } %20, 1
+  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %10, i32 noundef %11, i64 noundef %21, i32 noundef %22)
+  %23 = load i64, ptr %5, align 8, !range !204, !noundef !4
+  %trunc.us = trunc nuw i64 %23 to i1
+  br i1 %trunc.us, label %24, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
 
-16:                                               ; preds = %.split.us
-  %17 = tail call i8 @llvm.scmp.i8.i64(i64 %10, i64 %13)
-  br label %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us
-
-18:                                               ; preds = %.split.us
-  %19 = tail call i8 @llvm.ucmp.i8.i32(i32 %11, i32 %14)
-  br label %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us
-
-_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us:  ; preds = %18, %16
-  %.sroa.0.0.i.i.i.us = phi i8 [ %19, %18 ], [ %17, %16 ]
-  %switch.i.us = icmp eq i8 %.sroa.0.0.i.i.i.us, 1
-  %.sroa.3.0.i.us = select i1 %switch.i.us, i32 %11, i32 %14
-  %.sroa.0.0.sroa.speculated.i.us = select i1 %switch.i.us, i64 %10, i64 %13
-  %20 = load i64, ptr %7, align 8, !noundef !4
-  %21 = load i32, ptr %8, align 8, !range !1533, !noundef !4
-  %22 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i.us, i32 noundef %.sroa.3.0.i.us, i64 noundef %20, i32 noundef %21)
-  %23 = extractvalue { i64, i32 } %22, 0
-  %24 = extractvalue { i64, i32 } %22, 1
-  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %10, i32 noundef %11, i64 noundef %23, i32 noundef %24)
-  %25 = load i64, ptr %5, align 8, !range !204, !noundef !4
-  %trunc.us = trunc nuw i64 %25 to i1
-  br i1 %trunc.us, label %26, label %.split59.us
-
-26:                                               ; preds = %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us
+24:                                               ; preds = %.split.us
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %.split.us
 
-.split:                                           ; preds = %4, %70
-  %27 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
-  %28 = extractvalue { i64, i32 } %27, 0
-  %29 = extractvalue { i64, i32 } %27, 1
-  %30 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
-  %31 = extractvalue { i64, i32 } %30, 0
-  %32 = extractvalue { i64, i32 } %30, 1
-  %33 = icmp eq i64 %2, %28
-  br i1 %33, label %34, label %36
+.split:                                           ; preds = %4
+  %25 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
+  %26 = extractvalue { i64, i32 } %25, 0
+  %27 = extractvalue { i64, i32 } %25, 1
+  %28 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
+  %29 = extractvalue { i64, i32 } %28, 0
+  %30 = extractvalue { i64, i32 } %28, 1
+  %31 = icmp eq i64 %2, %26
+  %32 = icmp ult i32 %3, %27
+  %33 = icmp slt i64 %2, %26
+  %.sroa.0.0.i62 = select i1 %31, i1 %32, i1 %33
+  br i1 %.sroa.0.0.i62, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23", label %.lr.ph
 
-34:                                               ; preds = %.split
-  %35 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %29)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
-
-36:                                               ; preds = %.split
-  %37 = tail call i8 @llvm.scmp.i8.i64(i64 %2, i64 %28)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
-
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit": ; preds = %34, %36
-  %.sroa.0.0.i = phi i8 [ %35, %34 ], [ %37, %36 ]
-  %38 = icmp eq i8 %.sroa.0.0.i, -1
-  br i1 %38, label %51, label %39
-
-39:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
+.lr.ph:                                           ; preds = %.split, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
+  %34 = phi i32 [ %64, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ], [ %30, %.split ]
+  %35 = phi i64 [ %63, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ], [ %29, %.split ]
+  %36 = phi i32 [ %61, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ], [ %27, %.split ]
+  %37 = phi i64 [ %60, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ], [ %26, %.split ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %40 = icmp eq i64 %28, %31
-  br i1 %40, label %41, label %43
+  %38 = icmp eq i64 %37, %35
+  %39 = icmp ugt i32 %36, %34
+  %40 = icmp sgt i64 %37, %35
+  %.sroa.0.0.i.i.i = select i1 %38, i1 %39, i1 %40
+  %.sroa.3.0.i = select i1 %.sroa.0.0.i.i.i, i32 %36, i32 %34
+  %.sroa.0.0.sroa.speculated.i = select i1 %.sroa.0.0.i.i.i, i64 %37, i64 %35
+  %41 = load i64, ptr %7, align 8, !noundef !4
+  %42 = load i32, ptr %8, align 8, !range !1533, !noundef !4
+  %43 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i, i32 noundef %.sroa.3.0.i, i64 noundef %41, i32 noundef %42)
+  %44 = extractvalue { i64, i32 } %43, 0
+  %45 = extractvalue { i64, i32 } %43, 1
+  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %37, i32 noundef %36, i64 noundef %44, i32 noundef %45)
+  %46 = load i64, ptr %5, align 8, !range !204, !noundef !4
+  %trunc = trunc nuw i64 %46 to i1
+  br i1 %trunc, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
 
-41:                                               ; preds = %39
-  %42 = tail call i8 @llvm.ucmp.i8.i32(i32 %29, i32 %32)
-  br label %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23": ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit", %.split
+  %.lcssa51 = phi i64 [ %29, %.split ], [ %63, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ]
+  %.lcssa = phi i32 [ %30, %.split ], [ %64, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ]
+  %47 = icmp eq i64 %.lcssa51, %2
+  %48 = icmp ult i32 %.lcssa, %3
+  %49 = icmp slt i64 %.lcssa51, %2
+  %.sroa.0.0.i22 = select i1 %47, i1 %48, i1 %49
+  br i1 %.sroa.0.0.i22, label %51, label %50
 
-43:                                               ; preds = %39
-  %44 = tail call i8 @llvm.scmp.i8.i64(i64 %28, i64 %31)
-  br label %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit
-
-_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit:     ; preds = %41, %43
-  %.sroa.0.0.i.i.i = phi i8 [ %42, %41 ], [ %44, %43 ]
-  %switch.i = icmp eq i8 %.sroa.0.0.i.i.i, 1
-  %.sroa.3.0.i = select i1 %switch.i, i32 %29, i32 %32
-  %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %28, i64 %31
-  %45 = load i64, ptr %7, align 8, !noundef !4
-  %46 = load i32, ptr %8, align 8, !range !1533, !noundef !4
-  %47 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i, i32 noundef %.sroa.3.0.i, i64 noundef %45, i32 noundef %46)
-  %48 = extractvalue { i64, i32 } %47, 0
-  %49 = extractvalue { i64, i32 } %47, 1
-  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %28, i32 noundef %29, i64 noundef %48, i32 noundef %49)
-  %50 = load i64, ptr %5, align 8, !range !204, !noundef !4
-  %trunc = trunc nuw i64 %50 to i1
-  br i1 %trunc, label %70, label %.split59.us
-
-51:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
-  %52 = icmp eq i64 %31, %2
-  br i1 %52, label %53, label %55
-
-53:                                               ; preds = %51
-  %54 = tail call i8 @llvm.ucmp.i8.i32(i32 %32, i32 %3)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23"
-
-55:                                               ; preds = %51
-  %56 = tail call i8 @llvm.scmp.i8.i64(i64 %31, i64 %2)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23"
-
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23": ; preds = %53, %55
-  %.sroa.0.0.i22 = phi i8 [ %54, %53 ], [ %56, %55 ]
-  %57 = icmp eq i8 %.sroa.0.0.i22, -1
-  br i1 %57, label %59, label %58
-
-58:                                               ; preds = %59, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23"
+50:                                               ; preds = %51, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23"
   store i8 0, ptr %0, align 8
-  br label %63
+  br label %55
 
-59:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23"
-  %60 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %2, i32 noundef %3, i64 noundef %31, i32 noundef %32)
-  %61 = extractvalue { i64, i32 } %60, 0
-  %62 = extractvalue { i64, i32 } %60, 1
-  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %61, i32 noundef %62)
-  br label %58
+51:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23"
+  %52 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %2, i32 noundef %3, i64 noundef %.lcssa51, i32 noundef %.lcssa)
+  %53 = extractvalue { i64, i32 } %52, 0
+  %54 = extractvalue { i64, i32 } %52, 1
+  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %53, i32 noundef %54)
+  br label %50
 
-63:                                               ; preds = %71, %58
-  %.us-phi61.sink = phi i32 [ %.us-phi61, %71 ], [ 1000000000, %58 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.us-phi61.sink, ptr %64, align 8
+55:                                               ; preds = %68, %50
+  %.us-phi59.sink = phi i32 [ %.us-phi59, %68 ], [ 1000000000, %50 ]
+  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.us-phi59.sink, ptr %56, align 8
   ret void
 
-.split59.us:                                      ; preds = %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us
-  %.us-phi = phi i1 [ %15, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us ], [ %40, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit ]
-  %.us-phi60 = phi i64 [ %10, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us ], [ %28, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit ]
-  %.us-phi61 = phi i32 [ %11, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us ], [ %29, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit ]
-  %.us-phi62 = phi i64 [ %13, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us ], [ %31, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit ]
-  %.us-phi63 = phi i32 [ %14, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit.us ], [ %32, %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit ]
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25": ; preds = %.lr.ph, %.split.us
+  %.us-phi = phi i1 [ %15, %.split.us ], [ %38, %.lr.ph ]
+  %.us-phi58 = phi i64 [ %10, %.split.us ], [ %37, %.lr.ph ]
+  %.us-phi59 = phi i32 [ %11, %.split.us ], [ %36, %.lr.ph ]
+  %.us-phi60 = phi i64 [ %13, %.split.us ], [ %35, %.lr.ph ]
+  %.us-phi61 = phi i32 [ %14, %.split.us ], [ %34, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br i1 %.us-phi, label %65, label %67
+  %57 = icmp ult i32 %.us-phi61, %.us-phi59
+  %58 = icmp slt i64 %.us-phi60, %.us-phi58
+  %.sroa.0.0.i24 = select i1 %.us-phi, i1 %57, i1 %58
+  br i1 %.sroa.0.0.i24, label %69, label %68
 
-65:                                               ; preds = %.split59.us
-  %66 = tail call i8 @llvm.ucmp.i8.i32(i32 %.us-phi63, i32 %.us-phi61)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
-
-67:                                               ; preds = %.split59.us
-  %68 = tail call i8 @llvm.scmp.i8.i64(i64 %.us-phi62, i64 %.us-phi60)
-  br label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
-
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25": ; preds = %65, %67
-  %.sroa.0.0.i24 = phi i8 [ %66, %65 ], [ %68, %67 ]
-  %69 = icmp eq i8 %.sroa.0.0.i24, -1
-  br i1 %69, label %72, label %71
-
-70:                                               ; preds = %_ZN4core3cmp6max_by17haa68edcd6891f9e5E.exit
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit": ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %.split
+  %59 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
+  %60 = extractvalue { i64, i32 } %59, 0
+  %61 = extractvalue { i64, i32 } %59, 1
+  %62 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
+  %63 = extractvalue { i64, i32 } %62, 0
+  %64 = extractvalue { i64, i32 } %62, 1
+  %65 = icmp eq i64 %2, %60
+  %66 = icmp ult i32 %3, %61
+  %67 = icmp slt i64 %2, %60
+  %.sroa.0.0.i = select i1 %65, i1 %66, i1 %67
+  br i1 %.sroa.0.0.i, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23", label %.lr.ph
 
-71:                                               ; preds = %72, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
-  store i64 %.us-phi60, ptr %0, align 8
-  br label %63
+68:                                               ; preds = %69, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
+  store i64 %.us-phi58, ptr %0, align 8
+  br label %55
 
-72:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
-  %73 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.us-phi60, i32 noundef %.us-phi61, i64 noundef %.us-phi62, i32 noundef %.us-phi63)
-  %74 = extractvalue { i64, i32 } %73, 0
-  %75 = extractvalue { i64, i32 } %73, 1
-  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %74, i32 noundef %75)
-  br label %71
+69:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
+  %70 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.us-phi58, i32 noundef %.us-phi59, i64 noundef %.us-phi60, i32 noundef %.us-phi61)
+  %71 = extractvalue { i64, i32 } %70, 0
+  %72 = extractvalue { i64, i32 } %70, 1
+  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %71, i32 noundef %72)
+  br label %68
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -153134,12 +153074,6 @@ declare i32 @llvm.umin.i32(i32, i32) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #41

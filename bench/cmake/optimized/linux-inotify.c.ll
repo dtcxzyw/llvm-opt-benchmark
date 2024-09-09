@@ -1089,7 +1089,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
 .thread.i.i:                                      ; preds = %92
   %94 = getelementptr inbounds i8, ptr %90, i64 16
   store ptr %74, ptr %94, align 8
-  %.pre41.i = load ptr, ptr %73, align 8
+  %.pre40.i = load ptr, ptr %73, align 8
   br label %98
 
 95:                                               ; preds = %92
@@ -1102,7 +1102,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br i1 %.not128.i.i, label %102, label %98
 
 98:                                               ; preds = %95, %.thread.i.i
-  %99 = phi ptr [ %.pre134.i.i, %95 ], [ %.pre41.i, %.thread.i.i ]
+  %99 = phi ptr [ %.pre134.i.i, %95 ], [ %.pre40.i, %.thread.i.i ]
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %68, %100
   %spec.select.idx.i.i = select i1 %101, i64 0, i64 8

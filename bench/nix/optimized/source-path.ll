@@ -1438,108 +1438,66 @@ define noundef zeroext i1 @_ZNK3nix10SourcePathltERKS0_(ptr nocapture noundef no
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8
-  %.sroa.0.0.i.i.i = tail call i8 @llvm.ucmp.i8.i64(i64 %14, i64 %16)
   %17 = icmp eq i64 %14, %16
-  br i1 %17, label %18, label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit
+  %18 = icmp ult i64 %14, %16
+  br i1 %17, label %19, label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 %24
-  %26 = icmp eq i64 %24, 0
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %20, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %22, i64 %25
+  %27 = icmp eq i64 %25, 0
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8
-  br i1 %26, label %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %27, label %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %22, i64 %.pre.i.i.i.i.i
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %22, i64 %24
-  br label %28
+.lr.ph.i.i.i.i.i:                                 ; preds = %19
+  %28 = getelementptr inbounds i8, ptr %23, i64 %.pre.i.i.i.i.i
+  %scevgep.i.i.i.i.i = getelementptr i8, ptr %23, i64 %25
+  br label %29
 
-28:                                               ; preds = %38, %.lr.ph.i.i.i.i.i
-  %.sroa.020.026.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i ], [ %39, %38 ]
-  %.sroa.016.025.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %40, %38 ]
-  %29 = icmp eq ptr %.sroa.016.025.i.i.i.i.i, %27
-  br i1 %29, label %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i, label %30
+29:                                               ; preds = %39, %.lr.ph.i.i.i.i.i
+  %.sroa.020.026.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %40, %39 ]
+  %.sroa.016.025.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %41, %39 ]
+  %30 = icmp eq ptr %.sroa.016.025.i.i.i.i.i, %28
+  br i1 %30, label %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i, label %31
 
-30:                                               ; preds = %28
-  %31 = load i8, ptr %.sroa.020.026.i.i.i.i.i, align 1
-  %32 = icmp eq i8 %31, 47
-  %spec.store.select.i.i.i.i.i = select i1 %32, i8 0, i8 %31
-  %33 = load i8, ptr %.sroa.016.025.i.i.i.i.i, align 1
-  %34 = icmp eq i8 %33, 47
-  %spec.store.select1.i.i.i.i.i = select i1 %34, i8 0, i8 %33
-  %35 = icmp slt i8 %spec.store.select.i.i.i.i.i, %spec.store.select1.i.i.i.i.i
-  br i1 %35, label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit, label %36
+31:                                               ; preds = %29
+  %32 = load i8, ptr %.sroa.020.026.i.i.i.i.i, align 1
+  %33 = icmp eq i8 %32, 47
+  %spec.store.select.i.i.i.i.i = select i1 %33, i8 0, i8 %32
+  %34 = load i8, ptr %.sroa.016.025.i.i.i.i.i, align 1
+  %35 = icmp eq i8 %34, 47
+  %spec.store.select1.i.i.i.i.i = select i1 %35, i8 0, i8 %34
+  %36 = icmp slt i8 %spec.store.select.i.i.i.i.i, %spec.store.select1.i.i.i.i.i
+  br i1 %36, label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit, label %37
 
-36:                                               ; preds = %30
-  %37 = icmp sgt i8 %spec.store.select.i.i.i.i.i, %spec.store.select1.i.i.i.i.i
-  br i1 %37, label %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i, label %38
+37:                                               ; preds = %31
+  %38 = icmp sgt i8 %spec.store.select.i.i.i.i.i, %spec.store.select1.i.i.i.i.i
+  br i1 %38, label %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i, label %39
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.sroa.020.026.i.i.i.i.i, i64 1
-  %40 = getelementptr inbounds i8, ptr %.sroa.016.025.i.i.i.i.i, i64 1
-  %41 = icmp eq ptr %39, %25
-  br i1 %41, label %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i, label %28, !llvm.loop !9
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %.sroa.020.026.i.i.i.i.i, i64 1
+  %41 = getelementptr inbounds i8, ptr %.sroa.016.025.i.i.i.i.i, i64 1
+  %42 = icmp eq ptr %40, %26
+  br i1 %42, label %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i, label %29, !llvm.loop !9
 
-_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i:          ; preds = %38, %18
-  %.sroa.016.0.lcssa.i.i.i.i.i = phi ptr [ %22, %18 ], [ %scevgep.i.i.i.i.i, %38 ]
-  %42 = getelementptr inbounds i8, ptr %22, i64 %.pre.i.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %.sroa.016.0.lcssa.i.i.i.i.i, %42
+_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i:          ; preds = %39, %19
+  %.sroa.016.0.lcssa.i.i.i.i.i = phi ptr [ %23, %19 ], [ %scevgep.i.i.i.i.i, %39 ]
+  %43 = getelementptr inbounds i8, ptr %23, i64 %.pre.i.i.i.i.i
+  %.not.i.i.i.i = icmp eq ptr %.sroa.016.0.lcssa.i.i.i.i.i, %43
   br i1 %.not.i.i.i.i, label %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i, label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit
 
-_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i:   ; preds = %36, %28, %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i
-  %43 = getelementptr inbounds i8, ptr %22, i64 %.pre.i.i.i.i.i
-  %44 = icmp eq i64 %.pre.i.i.i.i.i, 0
-  br i1 %44, label %_ZNK3nix9CanonPathltERKS0_.exit17.i.i.i.i, label %.lr.ph.i8.i.i.i.i
-
-.lr.ph.i8.i.i.i.i:                                ; preds = %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i
-  %scevgep.i9.i.i.i.i = getelementptr i8, ptr %21, i64 %.pre.i.i.i.i.i
-  br label %45
-
-45:                                               ; preds = %55, %.lr.ph.i8.i.i.i.i
-  %.sroa.020.026.i10.i.i.i.i = phi ptr [ %22, %.lr.ph.i8.i.i.i.i ], [ %56, %55 ]
-  %.sroa.016.025.i11.i.i.i.i = phi ptr [ %21, %.lr.ph.i8.i.i.i.i ], [ %57, %55 ]
-  %46 = icmp eq ptr %.sroa.016.025.i11.i.i.i.i, %25
-  br i1 %46, label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit, label %47
-
-47:                                               ; preds = %45
-  %48 = load i8, ptr %.sroa.020.026.i10.i.i.i.i, align 1
-  %49 = icmp eq i8 %48, 47
-  %spec.store.select.i12.i.i.i.i = select i1 %49, i8 0, i8 %48
-  %50 = load i8, ptr %.sroa.016.025.i11.i.i.i.i, align 1
-  %51 = icmp eq i8 %50, 47
-  %spec.store.select1.i13.i.i.i.i = select i1 %51, i8 0, i8 %50
-  %52 = icmp slt i8 %spec.store.select.i12.i.i.i.i, %spec.store.select1.i13.i.i.i.i
-  br i1 %52, label %_ZNK3nix9CanonPathltERKS0_.exit17.thread23.i.i.i.i, label %53
-
-53:                                               ; preds = %47
-  %54 = icmp sgt i8 %spec.store.select.i12.i.i.i.i, %spec.store.select1.i13.i.i.i.i
-  br i1 %54, label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit, label %55
-
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %.sroa.020.026.i10.i.i.i.i, i64 1
-  %57 = getelementptr inbounds i8, ptr %.sroa.016.025.i11.i.i.i.i, i64 1
-  %58 = icmp eq ptr %56, %43
-  br i1 %58, label %_ZNK3nix9CanonPathltERKS0_.exit17.i.i.i.i, label %45, !llvm.loop !9
-
-_ZNK3nix9CanonPathltERKS0_.exit17.i.i.i.i:        ; preds = %55, %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i
-  %.sroa.016.0.lcssa.i15.i.i.i.i = phi ptr [ %21, %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i ], [ %scevgep.i9.i.i.i.i, %55 ]
-  %59 = icmp ne ptr %.sroa.016.0.lcssa.i15.i.i.i.i, %25
-  %cond.fr.i.i.i.i = freeze i1 %59
-  br i1 %cond.fr.i.i.i.i, label %_ZNK3nix9CanonPathltERKS0_.exit17.thread23.i.i.i.i, label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit
-
-_ZNK3nix9CanonPathltERKS0_.exit17.thread23.i.i.i.i: ; preds = %47, %_ZNK3nix9CanonPathltERKS0_.exit17.i.i.i.i
+_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i:   ; preds = %37, %29, %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i
   br label %_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit
 
-_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit: ; preds = %30, %45, %53, %2, %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i, %_ZNK3nix9CanonPathltERKS0_.exit17.i.i.i.i, %_ZNK3nix9CanonPathltERKS0_.exit17.thread23.i.i.i.i
-  %.sroa.05.0.i.i = phi i8 [ %.sroa.0.0.i.i.i, %2 ], [ -1, %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i ], [ 1, %_ZNK3nix9CanonPathltERKS0_.exit17.thread23.i.i.i.i ], [ 0, %_ZNK3nix9CanonPathltERKS0_.exit17.i.i.i.i ], [ 0, %53 ], [ 0, %45 ], [ -1, %30 ]
-  %60 = icmp slt i8 %.sroa.05.0.i.i, 0
-  ret i1 %60
+_ZStssIJRN3nix13InputAccessorERKNS0_9CanonPathEEJS2_S5_EENSt26common_comparison_categoryIJDpDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalIRT0_EEEEEE4typeERKSt5tupleIJDpS8_EERKSG_IJDpSA_EE.exit: ; preds = %31, %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i, %2, %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i
+  %.sroa.05.0.i.i = phi i1 [ %18, %2 ], [ true, %_ZNK3nix9CanonPathltERKS0_.exit.i.i.i.i ], [ false, %_ZNK3nix9CanonPathltERKS0_.exit.thread.i.i.i.i ], [ true, %31 ]
+  ret i1 %.sroa.05.0.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11702,9 +11660,6 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24

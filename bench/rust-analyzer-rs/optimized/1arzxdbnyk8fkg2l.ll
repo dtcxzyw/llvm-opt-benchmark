@@ -931,7 +931,7 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h460b5f56e49b71dcE(p
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %49, %32, %73
   %.pn = phi { ptr, i32 } [ %74, %73 ], [ %33, %32 ], [ %50, %49 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..MapDeserializer$GT$17h290669abaa3f2454E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %11) #34
-          to label %common.resume unwind label %95
+          to label %common.resume unwind label %96
 
 .loopexit:                                        ; preds = %.noexc5.i.i.i.i, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he1e5b4cb539bf2adE.exit.thread.i", %53, %55
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -973,11 +973,11 @@ define hidden void @_ZN10serde_json5value2de12visit_object17h460b5f56e49b71dcE(p
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-common.resume:                                    ; preds = %.body, %86, %90, %64, %68
-  %common.resume.op = phi { ptr, i32 } [ %65, %68 ], [ %65, %64 ], [ %87, %90 ], [ %87, %86 ], [ %.pn, %.body ]
+common.resume:                                    ; preds = %.body, %87, %91, %64, %68
+  %common.resume.op = phi { ptr, i32 } [ %65, %68 ], [ %65, %64 ], [ %88, %91 ], [ %88, %87 ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-73:                                               ; preds = %81
+73:                                               ; preds = %82
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -988,47 +988,47 @@ common.resume:                                    ; preds = %.body, %86, %90, %6
   %77 = getelementptr inbounds i8, ptr %11, i64 96
   %.val4 = load ptr, ptr %77, align 8, !nonnull !9, !noundef !9
   %78 = icmp eq ptr %.val4, %.val
-  br i1 %78, label %79, label %81
+  br i1 %78, label %79, label %82
 
 79:                                               ; preds = %75
-  %.031.i = and i8 %.1.i, 1
-  %80 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %.031.i, ptr %80, align 1
-  br label %85
+  %80 = and i8 %.1.i, 1
+  %81 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %80, ptr %81, align 1
+  br label %86
 
-81:                                               ; preds = %75
-  %82 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h2169aebd67c61689E(i64 noundef %13, ptr noundef nonnull align 1 @anon.161371c9b38554f2a24dcdfa991db8bf.7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.161371c9b38554f2a24dcdfa991db8bf.5.llvm.16283260474565314852)
-          to label %83 unwind label %73
+82:                                               ; preds = %75
+  %83 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error14invalid_length17h2169aebd67c61689E(i64 noundef %13, ptr noundef nonnull align 1 @anon.161371c9b38554f2a24dcdfa991db8bf.7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.161371c9b38554f2a24dcdfa991db8bf.5.llvm.16283260474565314852)
+          to label %84 unwind label %73
 
-83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %82, ptr %84, align 8
-  br label %85
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %83, ptr %85, align 8
+  br label %86
 
-85:                                               ; preds = %79, %83
-  %storemerge = phi i8 [ 1, %83 ], [ 0, %79 ]
+86:                                               ; preds = %79, %84
+  %storemerge = phi i8 [ 1, %84 ], [ 0, %79 ]
   store i8 %storemerge, ptr %0, align 8
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd41c7e15befbef93E.llvm.9627074818807256315"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h37243a3f92c8df18E.llvm.9627074818807256315.exit.i15" unwind label %86
+          to label %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h37243a3f92c8df18E.llvm.9627074818807256315.exit.i15" unwind label %87
 
-86:                                               ; preds = %85
-  %87 = landingpad { ptr, i32 }
+87:                                               ; preds = %86
+  %88 = landingpad { ptr, i32 }
           cleanup
-  %88 = load i64, ptr %11, align 8, !range !193, !alias.scope !289, !noundef !9
-  %89 = icmp eq i64 %88, -9223372036854775803
-  br i1 %89, label %common.resume, label %90
+  %89 = load i64, ptr %11, align 8, !range !193, !alias.scope !289, !noundef !9
+  %90 = icmp eq i64 %89, -9223372036854775803
+  br i1 %90, label %common.resume, label %91
 
-90:                                               ; preds = %86
+91:                                               ; preds = %87
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17he5818a2144403992E.llvm.9627074818807256315"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11)
-          to label %common.resume unwind label %93
+          to label %common.resume unwind label %94
 
-"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h37243a3f92c8df18E.llvm.9627074818807256315.exit.i15": ; preds = %85
-  %91 = load i64, ptr %11, align 8, !range !193, !alias.scope !294, !noundef !9
-  %92 = icmp eq i64 %91, -9223372036854775803
-  br i1 %92, label %"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..MapDeserializer$GT$17h290669abaa3f2454E.exit", label %"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..MapDeserializer$GT$17h290669abaa3f2454E.exit.sink.split"
+"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h37243a3f92c8df18E.llvm.9627074818807256315.exit.i15": ; preds = %86
+  %92 = load i64, ptr %11, align 8, !range !193, !alias.scope !294, !noundef !9
+  %93 = icmp eq i64 %92, -9223372036854775803
+  br i1 %93, label %"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..MapDeserializer$GT$17h290669abaa3f2454E.exit", label %"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..MapDeserializer$GT$17h290669abaa3f2454E.exit.sink.split"
 
-93:                                               ; preds = %90
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %91
+  %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
@@ -1041,8 +1041,8 @@ common.resume:                                    ; preds = %.body, %86, %90, %6
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11)
   ret void
 
-95:                                               ; preds = %.body
-  %96 = landingpad { ptr, i32 }
+96:                                               ; preds = %.body
+  %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
