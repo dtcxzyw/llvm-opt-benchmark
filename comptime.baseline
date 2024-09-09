@@ -9868,7 +9868,7 @@ hdf5/H5HFtiny.c.ll 66598409
 hdf5/H5HG.c.ll 324206945
 hdf5/H5HGcache.c.ll 160365351
 hdf5/H5HGdbg.c.ll 86825817
-hdf5/H5HGquery.c.ll 36801496
+hdf5/H5HGquery.c.ll 36838342
 hdf5/H5HL.c.ll 244424791
 hdf5/H5HLcache.c.ll 238075740
 hdf5/H5HLdbg.c.ll 65225317
@@ -26820,7 +26820,7 @@ openspiel/dark_chess_test.cc.ll 435443645
 openspiel/dark_hex.cc.ll 2471379124
 openspiel/dark_hex_test.cc.ll 1291893746
 openspiel/data_logger.cc.ll 606013486
-openspiel/dds.cpp.ll 36112095
+openspiel/dds.cpp.ll 36148248
 openspiel/deep_sea.cc.ll 2467290938
 openspiel/deep_sea_test.cc.ll 173187454
 openspiel/deterministic_policy.cc.ll 1511714549
@@ -31339,7 +31339,7 @@ postgres/path_shlib.ll 235111807
 postgres/path_srv.ll 237632901
 postgres/pathkeys.ll 842575987
 postgres/pathnode.ll 789218041
-postgres/percentrepl.ll 56181854
+postgres/percentrepl.ll 56238293
 postgres/percentrepl_shlib.ll 56205418
 postgres/percentrepl_srv.ll 57514145
 postgres/pg_aggregate.ll 213851904
