@@ -17392,7 +17392,7 @@ logos-rs/591gacy1tm1ijbew.ll 57654253
 logos-rs/5f38ll801i7djw99.ll 156086313
 logos-rs/5g7mgn2gzfzcfbsf.ll 87408523
 logos-rs/8ce99eqzu17ptra.ll 83811871
-logos-rs/b5hidl2ahl1tksi.ll 37735400
+logos-rs/b5hidl2ahl1tksi.ll 37773138
 logos-rs/bt773r0511h3mpz.ll 59171221
 logos-rs/c1wmn335sjbonly.ll 208949721
 logos-rs/f8j7k4fzt8jpxp1.ll 349597402
@@ -27877,7 +27877,7 @@ openssl/libcrypto-shlib-a_verify.ll 77389661
 openssl/libcrypto-shlib-aes_ige.ll 160785313
 openssl/libcrypto-shlib-aes_misc.ll 34266084
 openssl/libcrypto-shlib-ameth_lib.ll 130243497
-openssl/libcrypto-shlib-api.ll 39984028
+openssl/libcrypto-shlib-api.ll 40024099
 openssl/libcrypto-shlib-arch.ll 63033221
 openssl/libcrypto-shlib-aria.ll 701538072
 openssl/libcrypto-shlib-asn1_dsa.ll 134095298
@@ -39822,7 +39822,7 @@ wireshark/packet-smtp.c.ll 493923827
 wireshark/packet-sna.c.ll 564928677
 wireshark/packet-sndcp-xid.c.ll 163086811
 wireshark/packet-sndcp.c.ll 82177730
-wireshark/packet-snmp.c.ll 786996888
+wireshark/packet-snmp.c.ll 787783897
 wireshark/packet-snort-config.c.ll 496583159
 wireshark/packet-snort.c.ll 587117539
 wireshark/packet-socketcan.c.ll 237924005
