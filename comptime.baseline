@@ -668,7 +668,7 @@ abc/ioWritePla.c.ll 360141881
 abc/ioWriteSmv.c.ll 238334012
 abc/ioWriteVerilog.c.ll 1306285471
 abc/ioaReadAig.c.ll 310703654
-abc/ioaUtil.c.ll 56974615
+abc/ioaUtil.c.ll 57031593
 abc/ioaWriteAig.c.ll 346577883
 abc/ivyBalance.c.ll 321626553
 abc/ivyCheck.c.ll 188989676
@@ -21564,7 +21564,7 @@ openblas/dtrmv_thread_TUU.c.ll 75901824
 openblas/dtrrfs.c.ll 201643133
 openblas/dtrsen.c.ll 121346610
 openblas/dtrsm_ilnncopy.c.ll 147142626
-openblas/dtrsm_ilnucopy.c.ll 140702699
+openblas/dtrsm_ilnucopy.c.ll 140843568
 openblas/dtrsm_iltncopy.c.ll 136015574
 openblas/dtrsm_iltucopy.c.ll 133464937
 openblas/dtrsm_iunncopy.c.ll 156651152
