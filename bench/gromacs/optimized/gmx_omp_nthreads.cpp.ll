@@ -705,10 +705,10 @@ declare void @_Z11gmx_warningPKcz(ptr noundef, ...) local_unnamed_addr #6
 declare noundef i32 @_Z23gmx_omp_get_max_threadsv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef range(i32 1, 10) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.gmx::LogEntryWriter", align 8
-  %6 = sext i32 %1 to i64
+  %6 = zext nneg i32 %1 to i64
   %7 = getelementptr inbounds [10 x ptr], ptr @__const._ZL28enumValueToEnvVariableString17ModuleMultiThread.moduleMultiThreadEnvVariableNames, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @getenv(ptr noundef %8) #12
@@ -733,11 +733,11 @@ define internal fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleM
   %or.cond.not = xor i1 %or.cond, true
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   %.not17 = icmp eq i32 %.pre, %18
-  %or.cond20 = select i1 %or.cond.not, i1 true, i1 %.not17
+  %or.cond21 = select i1 %or.cond.not, i1 true, i1 %.not17
   %19 = load i32, ptr @_ZL5modth, align 4
   %.not18 = icmp eq i32 %.pre, %19
-  %or.cond21 = select i1 %or.cond20, i1 %.not18, i1 false
-  br i1 %or.cond21, label %40, label %20
+  %or.cond22 = select i1 %or.cond21, i1 %.not18, i1 false
+  br i1 %or.cond22, label %40, label %20
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -764,6 +764,7 @@ define internal fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleM
 
 _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  %.pre20 = load i32, ptr %4, align 4
   br label %40
 
 33:                                               ; preds = %29, %23
@@ -778,22 +779,12 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %29
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 4), align 4
   %38 = load i32, ptr @_ZL5modth, align 4
   %39 = select i1 %or.cond3, i32 %37, i32 %38
-  store i32 %39, ptr %4, align 4
   br label %40
 
 40:                                               ; preds = %16, %20, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit, %35
-  %or.cond.i = icmp ult i32 %1, 10
-  br i1 %or.cond.i, label %_Z20gmx_omp_nthreads_set17ModuleMultiThreadi.exit, label %41
-
-41:                                               ; preds = %40
-  call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ20gmx_omp_nthreads_set17ModuleMultiThreadiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 511) #13
-  unreachable
-
-_Z20gmx_omp_nthreads_set17ModuleMultiThreadi.exit: ; preds = %40
-  %42 = load i32, ptr %4, align 4
-  %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 8), i64 0, i64 %43
-  store i32 %42, ptr %44, align 4
+  %41 = phi i32 [ %.pre, %20 ], [ %.pre20, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit ], [ %39, %35 ], [ %.pre, %16 ]
+  %42 = getelementptr inbounds [10 x i32], ptr getelementptr inbounds (i8, ptr @_ZL5modth, i64 8), i64 0, i64 %6
+  store i32 %41, ptr %42, align 4
   ret void
 }
 

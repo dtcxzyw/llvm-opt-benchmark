@@ -2920,9 +2920,10 @@ define internal fastcc void @_pack_roll_usage_msg(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pack_rec_msg(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %.off = add i32 %2, -1461
-  %switch = icmp ult i32 %.off, 3
+define internal fastcc void @_pack_rec_msg(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #0 {
+  %trunc = trunc nuw i32 %2 to i16
+  %trunc.off = add i16 %trunc, -1461
+  %switch = icmp ult i16 %trunc.off, 3
   br i1 %switch, label %5, label %7
 
 5:                                                ; preds = %4
@@ -3220,20 +3221,21 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_suspend_msg(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_modify_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_unpack_modify_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 698, ptr noundef nonnull @__func__._unpack_modify_msg) #5
   store ptr %5, ptr %0, align 8
-  switch i32 %2, label %15 [
-    i32 1428, label %16
-    i32 1429, label %6
-    i32 1430, label %7
-    i32 1496, label %8
-    i32 1476, label %9
-    i32 1451, label %10
-    i32 1481, label %11
-    i32 1431, label %12
-    i32 1501, label %13
-    i32 1502, label %14
+  %trunc = trunc nuw i32 %2 to i16
+  switch i16 %trunc, label %15 [
+    i16 1428, label %16
+    i16 1429, label %6
+    i16 1430, label %7
+    i16 1496, label %8
+    i16 1476, label %9
+    i16 1451, label %10
+    i16 1481, label %11
+    i16 1431, label %12
+    i16 1501, label %13
+    i16 1502, label %14
   ]
 
 6:                                                ; preds = %4
@@ -3747,9 +3749,10 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_roll_usage_msg(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_unpack_rec_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %.off = add i32 %2, -1461
-  %switch = icmp ult i32 %.off, 3
+define internal fastcc range(i32 -1, 1) i32 @_unpack_rec_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #0 {
+  %trunc = trunc nuw i32 %2 to i16
+  %trunc.off = add i16 %trunc, -1461
+  %switch = icmp ult i16 %trunc.off, 3
   br i1 %switch, label %5, label %9
 
 5:                                                ; preds = %4

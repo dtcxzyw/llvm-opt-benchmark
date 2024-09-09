@@ -246,11 +246,11 @@ if.end42:                                         ; preds = %lor.lhs.false, %if.
 
 for.body.i:                                       ; preds = %for.body.i, %if.end42
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i ], [ 0, %if.end42 ]
-  %res.05.i = phi i32 [ %add.i, %for.body.i ], [ 0, %if.end42 ]
+  %res.04.i = phi i32 [ %add.i, %for.body.i ], [ 0, %if.end42 ]
   %arrayidx.i = getelementptr i8, ptr %footer8, i64 %indvars.iv
   %7 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %7 to i32
-  %add.i = add i32 %res.05.i, %conv2.i
+  %add.i = add i32 %res.04.i, %conv2.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %vpc_checksum.exit, label %for.body.i, !llvm.loop !5
@@ -650,9 +650,9 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %calculate_geometry.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  %div4.i.i = sdiv i64 %cond.i.i, 17
-  %conv5.i.i = trunc nsw i64 %div4.i.i to i32
-  %sub.i.i = add nsw i32 %conv5.i.i, 1023
+  %div4.lhs.trunc.i.i = trunc nsw i64 %cond.i.i to i32
+  %div428.i.i = sdiv i32 %div4.lhs.trunc.i.i, 17
+  %sub.i.i = add nsw i32 %div428.i.i, 1023
   %div627.i.i = lshr i32 %sub.i.i, 10
   %conv7.i.i = trunc i32 %div627.i.i to i8
   %5 = and i32 %sub.i.i, 258048
@@ -660,28 +660,26 @@ if.else.i.i:                                      ; preds = %for.body.i
   %spec.select.i.i = select i1 %cmp9.i.i, i8 4, i8 %conv7.i.i
   %conv12.i.i = zext i8 %spec.select.i.i to i32
   %mul.i.i = shl nuw nsw i32 %conv12.i.i, 10
-  %cmp13.not.i.i = icmp ule i32 %mul.i.i, %conv5.i.i
+  %cmp13.not.i.i = icmp ule i32 %mul.i.i, %div428.i.i
   %cmp16.i.i = icmp ugt i8 %spec.select.i.i, 16
   %or.cond.i.i = or i1 %cmp16.i.i, %cmp13.not.i.i
-  %div20.i.i = sdiv i64 %cond.i.i, 31
-  %conv21.i.i = trunc nsw i64 %div20.i.i to i32
+  %div2029.i.i = sdiv i32 %div4.lhs.trunc.i.i, 31
   %heads.1.i = select i1 %or.cond.i.i, i8 16, i8 %spec.select.i.i
   %secs_per_cyl.1.i = select i1 %or.cond.i.i, i8 31, i8 17
-  %cyls_times_heads.1.i.i = select i1 %or.cond.i.i, i32 %conv21.i.i, i32 %conv5.i.i
+  %cyls_times_heads.1.i.i = select i1 %or.cond.i.i, i32 %div2029.i.i, i32 %div428.i.i
   %conv23.i.i = zext nneg i8 %heads.1.i to i32
   %mul24.i.i = shl nuw nsw i32 %conv23.i.i, 10
   %cmp25.not.i.i = icmp ult i32 %cyls_times_heads.1.i.i, %mul24.i.i
   br i1 %cmp25.not.i.i, label %calculate_geometry.exit.i, label %if.then27.i.i
 
 if.then27.i.i:                                    ; preds = %if.else.i.i
-  %div29.i.i = sdiv i64 %cond.i.i, 63
-  %conv30.i.i = trunc nsw i64 %div29.i.i to i32
+  %div2930.i.i = sdiv i32 %div4.lhs.trunc.i.i, 63
   br label %calculate_geometry.exit.i
 
 calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.else.i.i, %if.then.i.i
   %heads.2.i = phi i8 [ 16, %if.then.i.i ], [ %heads.1.i, %if.else.i.i ], [ 16, %if.then27.i.i ]
   %secs_per_cyl.2.i = phi i8 [ -1, %if.then.i.i ], [ %secs_per_cyl.1.i, %if.else.i.i ], [ 63, %if.then27.i.i ]
-  %cyls_times_heads.0.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.1.i.i, %if.else.i.i ], [ %conv30.i.i, %if.then27.i.i ]
+  %cyls_times_heads.0.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.1.i.i, %if.else.i.i ], [ %div2930.i.i, %if.then27.i.i ]
   %conv33.i.i = zext nneg i8 %heads.2.i to i32
   %div34.i.i = udiv i32 %cyls_times_heads.0.i.i, %conv33.i.i
   %inc.i = add i32 %i.011.i, 1
@@ -777,20 +775,20 @@ if.end19:                                         ; preds = %if.end15
 
 for.body.i28:                                     ; preds = %for.body.i28, %if.end19
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i28 ], [ 0, %if.end19 ]
-  %res.05.i = phi i32 [ %add.i31, %for.body.i28 ], [ 0, %if.end19 ]
+  %res.04.i = phi i32 [ %add.i31, %for.body.i28 ], [ 0, %if.end19 ]
   %arrayidx.i = getelementptr i8, ptr %footer, i64 %indvars.iv
   %13 = load i8, ptr %arrayidx.i, align 1
   %conv2.i30 = zext i8 %13 to i32
-  %add.i31 = add i32 %res.05.i, %conv2.i30
+  %add.i31 = add i32 %res.04.i, %conv2.i30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %vpc_checksum.exit, label %for.body.i28, !llvm.loop !5
 
 vpc_checksum.exit:                                ; preds = %for.body.i28
-  %14 = xor i32 %add.i31, -1
-  %15 = call noundef i32 @llvm.bswap.i32(i32 %14)
+  %not.i = xor i32 %add.i31, -1
+  %14 = call noundef i32 @llvm.bswap.i32(i32 %not.i)
   %checksum = getelementptr inbounds i8, ptr %footer, i64 64
-  store i32 %15, ptr %checksum, align 8
+  store i32 %14, ptr %checksum, align 8
   br i1 %cmp30, label %if.then53, label %if.else59
 
 if.then53:                                        ; preds = %vpc_checksum.exit
@@ -907,9 +905,9 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %calculate_geometry.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  %div4.i.i = sdiv i64 %cond.i.i, 17
-  %conv5.i.i = trunc nsw i64 %div4.i.i to i32
-  %sub.i.i = add nsw i32 %conv5.i.i, 1023
+  %div4.lhs.trunc.i.i = trunc nsw i64 %cond.i.i to i32
+  %div428.i.i = sdiv i32 %div4.lhs.trunc.i.i, 17
+  %sub.i.i = add nsw i32 %div428.i.i, 1023
   %div627.i.i = lshr i32 %sub.i.i, 10
   %conv7.i.i = trunc i32 %div627.i.i to i8
   %4 = and i32 %sub.i.i, 258048
@@ -917,28 +915,26 @@ if.else.i.i:                                      ; preds = %for.body.i
   %spec.select.i.i = select i1 %cmp9.i.i, i8 4, i8 %conv7.i.i
   %conv12.i.i = zext i8 %spec.select.i.i to i32
   %mul.i.i = shl nuw nsw i32 %conv12.i.i, 10
-  %cmp13.not.i.i = icmp ule i32 %mul.i.i, %conv5.i.i
+  %cmp13.not.i.i = icmp ule i32 %mul.i.i, %div428.i.i
   %cmp16.i.i = icmp ugt i8 %spec.select.i.i, 16
   %or.cond.i.i = or i1 %cmp16.i.i, %cmp13.not.i.i
-  %div20.i.i = sdiv i64 %cond.i.i, 31
-  %conv21.i.i = trunc nsw i64 %div20.i.i to i32
+  %div2029.i.i = sdiv i32 %div4.lhs.trunc.i.i, 31
   %heads.1.i = select i1 %or.cond.i.i, i8 16, i8 %spec.select.i.i
   %secs_per_cyl.1.i = select i1 %or.cond.i.i, i64 31, i64 17
-  %cyls_times_heads.1.i.i = select i1 %or.cond.i.i, i32 %conv21.i.i, i32 %conv5.i.i
+  %cyls_times_heads.1.i.i = select i1 %or.cond.i.i, i32 %div2029.i.i, i32 %div428.i.i
   %conv23.i.i = zext nneg i8 %heads.1.i to i32
   %mul24.i.i = shl nuw nsw i32 %conv23.i.i, 10
   %cmp25.not.i.i = icmp ult i32 %cyls_times_heads.1.i.i, %mul24.i.i
   br i1 %cmp25.not.i.i, label %calculate_geometry.exit.i, label %if.then27.i.i
 
 if.then27.i.i:                                    ; preds = %if.else.i.i
-  %div29.i.i = sdiv i64 %cond.i.i, 63
-  %conv30.i.i = trunc nsw i64 %div29.i.i to i32
+  %div2930.i.i = sdiv i32 %div4.lhs.trunc.i.i, 63
   br label %calculate_geometry.exit.i
 
 calculate_geometry.exit.i:                        ; preds = %if.then27.i.i, %if.else.i.i, %if.then.i.i
   %heads.2.i = phi i8 [ 16, %if.then.i.i ], [ %heads.1.i, %if.else.i.i ], [ 16, %if.then27.i.i ]
   %secs_per_cyl.2.i = phi i64 [ 255, %if.then.i.i ], [ %secs_per_cyl.1.i, %if.else.i.i ], [ 63, %if.then27.i.i ]
-  %cyls_times_heads.0.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.1.i.i, %if.else.i.i ], [ %conv30.i.i, %if.then27.i.i ]
+  %cyls_times_heads.0.i.i = phi i32 [ %conv2.i.i, %if.then.i.i ], [ %cyls_times_heads.1.i.i, %if.else.i.i ], [ %div2930.i.i, %if.then27.i.i ]
   %conv33.i.i = zext nneg i8 %heads.2.i to i32
   %div34.i.i = udiv i32 %cyls_times_heads.0.i.i, %conv33.i.i
   %inc.i = add i32 %i.011.i, 1
@@ -1580,20 +1576,20 @@ for.end:                                          ; preds = %if.end20, %if.end8
 
 for.body.i:                                       ; preds = %for.body.i, %for.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i ], [ 0, %for.end ]
-  %res.05.i = phi i32 [ %add.i, %for.body.i ], [ 0, %for.end ]
+  %res.04.i = phi i32 [ %add.i, %for.body.i ], [ 0, %for.end ]
   %arrayidx.i = getelementptr i8, ptr %dyndisk_header, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %2 to i32
-  %add.i = add i32 %res.05.i, %conv2.i
+  %add.i = add i32 %res.04.i, %conv2.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
   br i1 %exitcond.not, label %vpc_checksum.exit, label %for.body.i, !llvm.loop !5
 
 vpc_checksum.exit:                                ; preds = %for.body.i
-  %3 = xor i32 %add.i, -1
-  %4 = call noundef i32 @llvm.bswap.i32(i32 %3)
+  %not.i = xor i32 %add.i, -1
+  %3 = call noundef i32 @llvm.bswap.i32(i32 %not.i)
   %checksum = getelementptr inbounds i8, ptr %dyndisk_header, i64 36
-  store i32 %4, ptr %checksum, align 4
+  store i32 %3, ptr %checksum, align 4
   %call33 = call i32 @blk_co_pwrite(ptr noundef %blk, i64 noundef 512, i64 noundef 1024, ptr noundef nonnull %dyndisk_header, i32 noundef 0) #15
   %spec.store.select = call i32 @llvm.smin.i32(i32 %call33, i32 0)
   br label %fail

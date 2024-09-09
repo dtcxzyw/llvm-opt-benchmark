@@ -216,7 +216,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @general_allocate_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef %prompt_freeable, i32 noundef %type, i32 noundef %input_flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) unnamed_addr #0 {
+define internal fastcc i32 @general_allocate_string(ptr nocapture noundef %ui, ptr noundef %prompt, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef range(i32 1, 6) %type, i32 noundef %input_flags, ptr noundef %result_buf, i32 noundef %minsize, i32 noundef %maxsize, ptr noundef %test_buf) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @general_allocate_prompt(ptr noundef %prompt, i32 noundef %prompt_freeable, i32 noundef %type, i32 noundef %input_flags, ptr noundef %result_buf)
   %cmp.not = icmp eq ptr %call, null
@@ -368,7 +368,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @general_allocate_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef %prompt_freeable, i32 noundef %input_flags, ptr noundef %result_buf) unnamed_addr #0 {
+define internal fastcc i32 @general_allocate_boolean(ptr nocapture noundef %ui, ptr noundef %prompt, ptr noundef %action_desc, ptr noundef %ok_chars, ptr noundef %cancel_chars, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef %input_flags, ptr noundef %result_buf) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ok_chars, null
   br i1 %cmp, label %if.then, label %if.else
@@ -1746,7 +1746,7 @@ return:                                           ; preds = %for.cond, %if.end33
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @general_allocate_prompt(ptr noundef %prompt, i32 noundef %prompt_freeable, i32 noundef %type, i32 noundef %input_flags, ptr noundef %result_buf) unnamed_addr #0 {
+define internal fastcc noalias ptr @general_allocate_prompt(ptr noundef %prompt, i32 noundef range(i32 0, 2) %prompt_freeable, i32 noundef range(i32 1, 6) %type, i32 noundef %input_flags, ptr noundef %result_buf) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %prompt, null
   br i1 %cmp, label %if.then, label %if.else
@@ -1758,8 +1758,7 @@ if.then:                                          ; preds = %entry
   br label %if.end14
 
 if.else:                                          ; preds = %entry
-  %0 = add i32 %type, -1
-  %or.cond1 = icmp ult i32 %0, 3
+  %or.cond1 = icmp ult i32 %type, 4
   %cmp5 = icmp eq ptr %result_buf, null
   %or.cond2 = and i1 %or.cond1, %cmp5
   br i1 %or.cond2, label %if.then6, label %if.else7
@@ -1778,10 +1777,8 @@ if.else7:                                         ; preds = %if.else
 if.then9:                                         ; preds = %if.else7
   %out_string = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %prompt, ptr %out_string, align 8
-  %tobool.not = icmp ne i32 %prompt_freeable, 0
-  %cond = zext i1 %tobool.not to i32
   %flags = getelementptr inbounds i8, ptr %call, i64 64
-  store i32 %cond, ptr %flags, align 8
+  store i32 %prompt_freeable, ptr %flags, align 8
   %input_flags10 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %input_flags, ptr %input_flags10, align 8
   store i32 %type, ptr %call, align 8

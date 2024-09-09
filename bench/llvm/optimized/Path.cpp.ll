@@ -4212,7 +4212,7 @@ _ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3sys2fs9OpenFlagsEj(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvm5TwineERiRNS_15SmallVectorImplIcEEb8FSEntityNS_3sys2fs9OpenFlagsEj(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3, i32 noundef range(i32 0, 3) %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -4223,7 +4223,7 @@ define internal fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvm5TwineERiRNS
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 33
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  switch i32 %4, label %.split [
+  switch i32 %4, label %default.unreachable [
     i32 1, label %.split.us
     i32 2, label %.split.us66
     i32 0, label %.split.us75
@@ -4340,8 +4340,7 @@ _ZN4llvm5TwineC2EPKc.exit25.us:                   ; preds = %49, %.split.us75
   %59 = icmp ugt i32 %.062.us76, 1
   br i1 %59, label %.split.us75, label %.split64.us, !llvm.loop !57
 
-.split:                                           ; preds = %7
-  tail call void @_ZN4llvm3sys2fs16createUniquePathERKNS_5TwineERNS_15SmallVectorImplIcEEb(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
+default.unreachable:                              ; preds = %7
   unreachable
 
 .split64.us:                                      ; preds = %_ZN4llvm5TwineC2EPKc.exit25.us, %52, %.critedge.us77, %.critedge.us68, %44, %_ZN4llvm5TwineC2EPKc.exit21.us, %_ZN4llvm5TwineC2EPKc.exit.us, %29, %.critedge.us
@@ -4431,7 +4430,7 @@ define dso_local { i32, ptr } @_ZN4llvm3sys2fs19createTemporaryFileERKNS_5TwineE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, ptr } @_ZN4llvm3sys2fsL19createTemporaryFileERKNS_5TwineENS_9StringRefERiRNS_15SmallVectorImplIcEE8FSEntityNS1_9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc { i32, ptr } @_ZN4llvm3sys2fsL19createTemporaryFileERKNS_5TwineENS_9StringRefERiRNS_15SmallVectorImplIcEE8FSEntityNS1_9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef range(i32 1, 3) %5, i32 noundef %6) unnamed_addr #0 {
 _ZN4llvm5TwineC2EPKc.exit:
   %7 = alloca %"class.llvm::SmallString.10", align 8
   %8 = alloca %"class.llvm::Twine", align 8

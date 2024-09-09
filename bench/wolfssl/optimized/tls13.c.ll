@@ -154,7 +154,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %mac_algorithm = getelementptr inbounds i8, ptr %ssl, i64 708
   %1 = load i8, ptr %mac_algorithm, align 2
   %conv = zext i8 %1 to i32
-  %call = call fastcc i32 @DeriveKeyMsg(ptr noundef nonnull %ssl, ptr noundef nonnull %key, ptr noundef nonnull %secret, i32 noundef %conv)
+  %call = call fastcc i32 @DeriveKeyMsg(ptr noundef %ssl, ptr noundef %key, ptr noundef nonnull %secret, i32 noundef %conv)
   %cmp4.not = icmp eq i32 %call, 0
   br i1 %cmp4.not, label %do.end9, label %return
 
@@ -185,13 +185,14 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DeriveKeyMsg(ptr nocapture noundef readonly %ssl, ptr noundef %output, ptr noundef %secret, i32 noundef %hashAlgo) unnamed_addr #0 {
+define internal fastcc i32 @DeriveKeyMsg(ptr nocapture noundef nonnull readonly %ssl, ptr noundef nonnull %output, ptr noundef %secret, i32 noundef range(i32 0, 256) %hashAlgo) unnamed_addr #0 {
 entry:
   %hash = alloca [64 x i8], align 16
   %digest = alloca %union.Digest, align 16
-  switch i32 %hashAlgo, label %return [
-    i32 4, label %sw.bb
-    i32 5, label %sw.bb6
+  %trunc = trunc nuw i32 %hashAlgo to i8
+  switch i8 %trunc, label %return [
+    i8 4, label %sw.bb
+    i8 5, label %sw.bb6
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -258,7 +259,7 @@ if.end31:                                         ; preds = %if.end24
   %ssl.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %ssl, i64 1180
   %ssl.val18 = load i32, ptr %6, align 4
-  %call.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef %output, i32 noundef %hashSz.0.ph, ptr noundef %secret, i32 noundef %hashSz.0.ph, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @derivedLabel, i32 noundef 7, ptr noundef nonnull %hash, i32 noundef %hashSz.0.ph, i32 noundef %digestAlg.0.ph, ptr noundef %ssl.val, i32 noundef %ssl.val18) #11
+  %call.i = call i32 @wc_Tls13_HKDF_Expand_Label_ex(ptr noundef nonnull %output, i32 noundef %hashSz.0.ph, ptr noundef %secret, i32 noundef %hashSz.0.ph, ptr noundef nonnull @tls13ProtocolLabel, i32 noundef 6, ptr noundef nonnull @derivedLabel, i32 noundef 7, ptr noundef nonnull %hash, i32 noundef %hashSz.0.ph, i32 noundef %digestAlg.0.ph, ptr noundef %ssl.val, i32 noundef %ssl.val18) #11
   br label %return
 
 return:                                           ; preds = %sw.bb, %sw.bb6, %entry, %if.end24, %if.end21, %if.end31
@@ -285,7 +286,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %mac_algorithm = getelementptr inbounds i8, ptr %ssl, i64 708
   %2 = load i8, ptr %mac_algorithm, align 2
   %conv = zext i8 %2 to i32
-  %call = call fastcc i32 @DeriveKeyMsg(ptr noundef nonnull %ssl, ptr noundef nonnull %key, ptr noundef %1, i32 noundef %conv)
+  %call = call fastcc i32 @DeriveKeyMsg(ptr noundef %ssl, ptr noundef %key, ptr noundef %1, i32 noundef %conv)
   %cmp3.not = icmp eq i32 %call, 0
   br i1 %cmp3.not, label %do.end8, label %return
 
@@ -1937,7 +1938,7 @@ if.end112:                                        ; preds = %if.else, %if.end94
   %26 = phi i32 [ %.pre, %if.else ], [ %22, %if.end94 ]
   %add115 = add i32 %26, 32
   store i32 %add115, ptr %idx, align 8
-  call fastcc void @GetTls13SessionId(ptr noundef nonnull %ssl, ptr noundef %25, ptr noundef nonnull %idx)
+  call fastcc void @GetTls13SessionId(ptr noundef %ssl, ptr noundef %25, ptr noundef %idx)
   %27 = load i16, ptr %cond53, align 2
   %28 = load ptr, ptr %args, align 16
   %29 = load i32, ptr %idx, align 8
@@ -2017,7 +2018,7 @@ return:                                           ; preds = %if.end172, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @GetTls13SessionId(ptr nocapture noundef readonly %ssl, ptr noundef writeonly %output, ptr nocapture noundef %idx) unnamed_addr #6 {
+define internal fastcc void @GetTls13SessionId(ptr nocapture noundef nonnull readonly %ssl, ptr noundef writeonly %output, ptr nocapture noundef nonnull %idx) unnamed_addr #6 {
 entry:
   %session = getelementptr inbounds i8, ptr %ssl, i64 608
   %0 = load ptr, ptr %session, align 16
@@ -5245,7 +5246,7 @@ if.end183:                                        ; preds = %sw.bb173
   br i1 %or.cond76, label %if.end208, label %if.then197
 
 if.then197:                                       ; preds = %if.end183
-  %call198 = tail call fastcc i32 @SendTls13Certificate(ptr noundef nonnull %ssl)
+  %call198 = tail call fastcc i32 @SendTls13Certificate(ptr noundef %ssl)
   %error199 = getelementptr inbounds i8, ptr %ssl, i64 648
   store i32 %call198, ptr %error199, align 8
   %cmp201.not = icmp eq i32 %call198, 0
@@ -5265,7 +5266,7 @@ sw.bb213:                                         ; preds = %if.end208, %if.end6
   br i1 %or.cond77, label %if.end240, label %if.then229
 
 if.then229:                                       ; preds = %sw.bb213
-  %call230 = tail call fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull %ssl)
+  %call230 = tail call fastcc i32 @SendTls13CertificateVerify(ptr noundef %ssl)
   %error231 = getelementptr inbounds i8, ptr %ssl, i64 648
   store i32 %call230, ptr %error231, align 8
   %cmp233.not = icmp eq i32 %call230, 0
@@ -5276,7 +5277,7 @@ if.end240:                                        ; preds = %if.then229, %sw.bb2
   br label %sw.bb245
 
 sw.bb245:                                         ; preds = %if.end240, %if.end66
-  %call246 = tail call fastcc i32 @SendTls13Finished(ptr noundef nonnull %ssl)
+  %call246 = tail call fastcc i32 @SendTls13Finished(ptr noundef %ssl)
   %error247 = getelementptr inbounds i8, ptr %ssl, i64 648
   store i32 %call246, ptr %error247, align 8
   %cmp248.not = icmp eq i32 %call246, 0
@@ -5339,7 +5340,7 @@ declare i32 @ProcessReply(ptr noundef) local_unnamed_addr #1
 declare i32 @wolfSSL_connect(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SendTls13Certificate(ptr noundef %ssl) unnamed_addr #0 {
+define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull %ssl) unnamed_addr #0 {
 entry:
   %extSz = alloca i16, align 2
   store i16 0, ptr %extSz, align 2
@@ -5841,7 +5842,7 @@ return:                                           ; preds = %if.end218, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef %ssl) unnamed_addr #0 {
+define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull %ssl) unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.Scv13Args], align 16
   %sig1 = getelementptr inbounds i8, ptr %ssl, i64 432
@@ -6201,7 +6202,7 @@ return:                                           ; preds = %entry, %FreeScv13Ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SendTls13Finished(ptr noundef %ssl) unnamed_addr #0 {
+define internal fastcc i32 @SendTls13Finished(ptr noundef nonnull %ssl) unnamed_addr #0 {
 entry:
   %hash.i.i72 = alloca [64 x i8], align 16
   %hash.i.i61 = alloca [64 x i8], align 16
@@ -6213,7 +6214,7 @@ entry:
   %bf.load = load i64, ptr %buildingMsg, align 8
   %bf.set = or i64 %bf.load, 288230376151711744
   store i64 %bf.set, ptr %buildingMsg, align 8
-  %call = tail call i32 @CheckAvailableSize(ptr noundef %ssl, i32 noundef 178) #11
+  %call = tail call i32 @CheckAvailableSize(ptr noundef nonnull %ssl, i32 noundef 178) #11
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -7157,7 +7158,7 @@ sw.bb227:                                         ; preds = %sw.bb222, %if.end13
   br i1 %cmp231.not, label %if.end234, label %return
 
 if.end234:                                        ; preds = %sw.bb227
-  %call235 = tail call fastcc i32 @SendTls13EncryptedExtensions(ptr noundef nonnull %ssl)
+  %call235 = tail call fastcc i32 @SendTls13EncryptedExtensions(ptr noundef %ssl)
   store i32 %call235, ptr %error229, align 8
   %cmp237.not = icmp eq i32 %call235, 0
   br i1 %cmp237.not, label %if.end241, label %return
@@ -7178,7 +7179,7 @@ if.then253:                                       ; preds = %sw.bb246
   br i1 %tobool259.not, label %if.else269, label %if.then260
 
 if.then260:                                       ; preds = %if.then253
-  %call261 = tail call fastcc i32 @SendTls13CertificateRequest(ptr noundef nonnull %ssl)
+  %call261 = tail call fastcc i32 @SendTls13CertificateRequest(ptr noundef %ssl)
   %error262 = getelementptr inbounds i8, ptr %ssl, i64 648
   store i32 %call261, ptr %error262, align 8
   %cmp264.not = icmp eq i32 %call261, 0
@@ -7203,7 +7204,7 @@ sw.bb279:                                         ; preds = %if.end274, %if.end1
   br i1 %or.cond113, label %if.end302, label %if.then294
 
 if.then294:                                       ; preds = %sw.bb279
-  %call295 = tail call fastcc i32 @SendTls13Certificate(ptr noundef nonnull %ssl)
+  %call295 = tail call fastcc i32 @SendTls13Certificate(ptr noundef %ssl)
   %error296 = getelementptr inbounds i8, ptr %ssl, i64 648
   store i32 %call295, ptr %error296, align 8
   %cmp297.not = icmp eq i32 %call295, 0
@@ -7223,7 +7224,7 @@ sw.bb307:                                         ; preds = %if.end302, %if.end1
   br i1 %or.cond114, label %if.end331, label %if.then323
 
 if.then323:                                       ; preds = %sw.bb307
-  %call324 = tail call fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull %ssl)
+  %call324 = tail call fastcc i32 @SendTls13CertificateVerify(ptr noundef %ssl)
   %error325 = getelementptr inbounds i8, ptr %ssl, i64 648
   store i32 %call324, ptr %error325, align 8
   %cmp326.not = icmp eq i32 %call324, 0
@@ -7234,7 +7235,7 @@ if.end331:                                        ; preds = %if.then323, %sw.bb3
   br label %sw.bb336
 
 sw.bb336:                                         ; preds = %if.end331, %if.end134
-  %call337 = tail call fastcc i32 @SendTls13Finished(ptr noundef nonnull %ssl)
+  %call337 = tail call fastcc i32 @SendTls13Finished(ptr noundef %ssl)
   %error338 = getelementptr inbounds i8, ptr %ssl, i64 648
   store i32 %call337, ptr %error338, align 8
   %cmp339.not = icmp eq i32 %call337, 0
@@ -7329,7 +7330,7 @@ declare i32 @wolfSSL_accept(ptr noundef) local_unnamed_addr #1
 declare i32 @TLSX_KeyShare_DeriveSecret(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SendTls13EncryptedExtensions(ptr noundef %ssl) unnamed_addr #0 {
+define internal fastcc i32 @SendTls13EncryptedExtensions(ptr noundef nonnull %ssl) unnamed_addr #0 {
 entry:
   %key.i = alloca [64 x i8], align 16
   %length = alloca i16, align 2
@@ -7340,28 +7341,28 @@ entry:
   store i64 %bf.set, ptr %buildingMsg, align 8
   %encryptionOn = getelementptr inbounds i8, ptr %ssl, i64 996
   store i8 1, ptr %encryptionOn, align 4
-  %call = tail call i32 @TLSX_SupportedCurve_CheckPriority(ptr noundef %ssl) #11
+  %call = tail call i32 @TLSX_SupportedCurve_CheckPriority(ptr noundef nonnull %ssl) #11
   %cmp.not = icmp eq i32 %call, 0
-  br i1 %cmp.not, label %lor.lhs.false.i, label %return
+  br i1 %cmp.not, label %if.end, label %return
 
-lor.lhs.false.i:                                  ; preds = %entry
+if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %key.i)
   %arrays.i = getelementptr inbounds i8, ptr %ssl, i64 16
   %0 = load ptr, ptr %arrays.i, align 16
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %DeriveHandshakeSecret.exit.thread, label %if.end.i
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
+if.end.i:                                         ; preds = %if.end
   %secret.i = getelementptr inbounds i8, ptr %0, i64 125
   %mac_algorithm.i = getelementptr inbounds i8, ptr %ssl, i64 708
   %1 = load i8, ptr %mac_algorithm.i, align 2
   %conv.i = zext i8 %1 to i32
-  %call.i = call fastcc i32 @DeriveKeyMsg(ptr noundef nonnull readonly %ssl, ptr noundef nonnull %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
+  %call.i = call fastcc i32 @DeriveKeyMsg(ptr noundef readonly %ssl, ptr noundef %key.i, ptr noundef nonnull %secret.i, i32 noundef %conv.i)
   %cmp4.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp4.not.i, label %DeriveHandshakeSecret.exit, label %DeriveHandshakeSecret.exit.thread
 
-DeriveHandshakeSecret.exit.thread:                ; preds = %lor.lhs.false.i, %if.end.i
-  %retval.0.i.ph = phi i32 [ %call.i, %if.end.i ], [ -173, %lor.lhs.false.i ]
+DeriveHandshakeSecret.exit.thread:                ; preds = %if.end, %if.end.i
+  %retval.0.i.ph = phi i32 [ %call.i, %if.end.i ], [ -173, %if.end ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %key.i)
   br label %return
 
@@ -7478,7 +7479,7 @@ return:                                           ; preds = %DeriveHandshakeSecr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SendTls13CertificateRequest(ptr noundef %ssl) unnamed_addr #0 {
+define internal fastcc i32 @SendTls13CertificateRequest(ptr noundef nonnull %ssl) unnamed_addr #0 {
 entry:
   %reqSz = alloca i16, align 2
   %hashSigAlgoSz = alloca i16, align 2
@@ -7633,13 +7634,14 @@ declare i32 @PickHashSigAlgo(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare i32 @ProcessPeerCerts(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @CreateECCEncodedSig(ptr noundef %sigData, i32 noundef %sigDataSz, i32 noundef %hashAlgo) unnamed_addr #0 {
+define internal fastcc i32 @CreateECCEncodedSig(ptr noundef %sigData, i32 noundef range(i32 0, 65536) %sigDataSz, i32 noundef range(i32 0, 256) %hashAlgo) unnamed_addr #0 {
 entry:
   %digest = alloca %union.Digest, align 16
-  switch i32 %hashAlgo, label %sw.epilog.thread [
-    i32 4, label %sw.bb
-    i32 5, label %sw.bb6
-    i32 6, label %sw.bb16
+  %trunc = trunc nuw i32 %hashAlgo to i8
+  switch i8 %trunc, label %sw.epilog.thread [
+    i8 4, label %sw.bb
+    i8 5, label %sw.bb6
+    i8 6, label %sw.bb16
   ]
 
 sw.bb:                                            ; preds = %entry

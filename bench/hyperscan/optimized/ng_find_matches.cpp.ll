@@ -8483,7 +8483,7 @@ _ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graph
 declare noundef zeroext i1 @_ZN3ue216is_virtual_startENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_(ptr, i64, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125gatherPredecessorsByDepthERKN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIS1_NS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEj(ptr noalias nocapture writeonly align 8 %agg.result, ptr readonly %src.coerce0, i32 noundef %depth) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125gatherPredecessorsByDepthERKN3ue28NGHolderENS0_12graph_detail17vertex_descriptorINS0_9ue2_graphIS1_NS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEj(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr readonly %src.coerce0, i32 noundef range(i32 1, 0) %depth) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %tmp = alloca %"struct.std::pair.199", align 8
@@ -8497,8 +8497,7 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds %"class.ue2::flat_set.153", ptr %call5.i.i.i.i4.i.i132, i64 %conv
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
-  %cmp.not12.i = icmp eq i32 %depth, 0
-  br i1 %cmp.not12.i, label %invoke.cont5, label %for.inc.i
+  br label %for.inc.i
 
 for.inc.i:                                        ; preds = %entry, %for.inc.i
   %__cur.014.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call5.i.i.i.i4.i.i132, %entry ]
@@ -8514,9 +8513,8 @@ for.inc.i:                                        ; preds = %entry, %for.inc.i
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %invoke.cont5, label %for.inc.i, !llvm.loop !13
 
-invoke.cont5:                                     ; preds = %for.inc.i, %entry
-  %__cur.0.lcssa.i = phi ptr [ %call5.i.i.i.i4.i.i132, %entry ], [ %incdec.ptr.i, %for.inc.i ]
-  store ptr %__cur.0.lcssa.i, ptr %_M_finish.i.i.i, align 8
+invoke.cont5:                                     ; preds = %for.inc.i
+  store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i, align 8
   %m_header.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src.coerce0, i64 112
   %__begin1.sroa.0.0156 = load ptr, ptr %m_header.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.not157 = icmp eq ptr %__begin1.sroa.0.0156, %m_header.i.i.i.i.i.i
@@ -8848,8 +8846,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond.cleanup40,
 
 ehcleanup106:                                     ; preds = %lpad69.loopexit, %lpad69.loopexit.split-lp, %lpad14
   %.pn126.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad14 ], [ %lpad.loopexit, %lpad69.loopexit ], [ %lpad.loopexit.split-lp, %lpad69.loopexit.split-lp ]
-  %cmp.not3.i.i.i.i = icmp eq ptr %call5.i.i.i.i4.i.i132, %__cur.0.lcssa.i
-  br i1 %cmp.not3.i.i.i.i, label %if.then.i.i.i148, label %for.body.i.i.i.i
+  br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %ehcleanup106, %_ZSt8_DestroyIN3ue28flat_setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i145, %_ZSt8_DestroyIN3ue28flat_setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEvPT_.exit.i.i.i.i ], [ %call5.i.i.i.i4.i.i132, %ehcleanup106 ]
@@ -8870,10 +8867,10 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3ue28flat_setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i145 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
-  %cmp.not.i.i.i.i146 = icmp eq ptr %incdec.ptr.i.i.i.i145, %__cur.0.lcssa.i
+  %cmp.not.i.i.i.i146 = icmp eq ptr %__first.addr.04.i.i.i.i, %__cur.014.i
   br i1 %cmp.not.i.i.i.i146, label %if.then.i.i.i148, label %for.body.i.i.i.i, !llvm.loop !53
 
-if.then.i.i.i148:                                 ; preds = %_ZSt8_DestroyIN3ue28flat_setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEvPT_.exit.i.i.i.i, %ehcleanup106
+if.then.i.i.i148:                                 ; preds = %_ZSt8_DestroyIN3ue28flat_setINS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEvPT_.exit.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i4.i.i132) #24
   resume { ptr, i32 } %.pn126.pn.pn.pn
 }
@@ -10952,7 +10949,7 @@ cleanup:                                          ; preds = %_ZN5boost6detail10l
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18StateSet5StateESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #18 {
+define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18StateSet5StateESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #18 {
 entry:
   %__tmp.i.i.i32.i = alloca %"struct.(anonymous namespace)::StateSet::State", align 8
   %__tmp.i.i151.i.i = alloca %"struct.(anonymous namespace)::StateSet::State", align 8
@@ -11394,7 +11391,7 @@ while.end:                                        ; preds = %_ZSt27__unguarded_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18StateSet5StateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_T0_SG_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::StateSet::State") align 8 %__value) unnamed_addr #19 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_18StateSet5StateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_T0_SG_T1_T2_(ptr nocapture %__first.coerce, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::StateSet::State") align 8 %__value) unnamed_addr #19 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

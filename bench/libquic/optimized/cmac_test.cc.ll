@@ -71,7 +71,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef %name, ptr noundef %msg, i64 noundef %msg_len, ptr noundef %expected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL4testPKcPKhmS2_mS2_(ptr noundef %name, ptr noundef %msg, i64 noundef range(i64 0, 65) %msg_len, ptr noundef %expected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca [16 x i8], align 16
   %ctx = alloca %"class.std::unique_ptr", align 8
@@ -121,11 +121,15 @@ invoke.cont12:                                    ; preds = %invoke.cont
 
 for.cond.preheader:                               ; preds = %invoke.cont12
   %cmp19.not18 = icmp eq i64 %msg_len, 0
-  br i1 %cmp19.not18, label %if.then.i, label %for.body.us
+  br i1 %cmp19.not18, label %if.then.i, label %for.body.us.preheader
 
-for.body.us:                                      ; preds = %for.cond.preheader, %for.inc.us
-  %conv20.us = phi i64 [ %conv.us, %for.inc.us ], [ 1, %for.cond.preheader ]
-  %chunk_size.019.us = phi i32 [ %inc.us, %for.inc.us ], [ 1, %for.cond.preheader ]
+for.body.us.preheader:                            ; preds = %for.cond.preheader
+  %5 = trunc nuw nsw i64 %msg_len to i32
+  br label %for.body.us
+
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
+  %conv20.us = phi i64 [ %conv.us, %for.inc.us ], [ 1, %for.body.us.preheader ]
+  %chunk_size.019.us = phi i32 [ %inc.us, %for.inc.us ], [ 1, %for.body.us.preheader ]
   %call22.us = invoke i32 @CMAC_Reset(ptr noundef nonnull %call8)
           to label %invoke.cont21.us unwind label %lpad.loopexit.split-lp.loopexit.split.us
 
@@ -143,8 +147,8 @@ invoke.cont43.us:                                 ; preds = %while.cond.while.en
   br i1 %tobool45.not.us, label %if.then46, label %if.end49.us
 
 if.end49.us:                                      ; preds = %invoke.cont43.us
-  %5 = load i64, ptr %out_len, align 8
-  %cmp50.not.us = icmp eq i64 %5, 16
+  %6 = load i64, ptr %out_len, align 8
+  %cmp50.not.us = icmp eq i64 %6, 16
   br i1 %cmp50.not.us, label %if.end55.us, label %if.then51
 
 if.end55.us:                                      ; preds = %if.end49.us
@@ -156,10 +160,10 @@ invoke.cont57.us:                                 ; preds = %if.end55.us
   br i1 %cmp59.not.us, label %for.inc.us, label %if.then60
 
 for.inc.us:                                       ; preds = %invoke.cont57.us
-  %inc.us = add i32 %chunk_size.019.us, 1
-  %conv.us = zext i32 %inc.us to i64
-  %cmp19.not.us = icmp ult i64 %msg_len, %conv.us
-  br i1 %cmp19.not.us, label %cleanup, label %for.body.us, !llvm.loop !9
+  %inc.us = add nuw nsw i32 %chunk_size.019.us, 1
+  %conv.us = zext nneg i32 %inc.us to i64
+  %cmp19.not.us.not = icmp ult i32 %chunk_size.019.us, %5
+  br i1 %cmp19.not.us.not, label %for.body.us, label %cleanup, !llvm.loop !9
 
 while.body.us:                                    ; preds = %invoke.cont21.us, %while.cond.us
   %done.017.us = phi i64 [ %add.us, %while.cond.us ], [ 0, %invoke.cont21.us ]
@@ -188,8 +192,8 @@ lpad.loopexit.split.us:                           ; preds = %while.body.us
   br label %lpad
 
 if.then15:                                        ; preds = %invoke.cont12, %if.end7
-  %6 = load ptr, ptr @stderr, align 8
-  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.7, ptr noundef %name) #8
+  %7 = load ptr, ptr @stderr, align 8
+  %call17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.7, ptr noundef %name) #8
   br label %cleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then60, %invoke.cont, %lor.lhs.false
@@ -203,30 +207,30 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.then24:                                        ; preds = %invoke.cont21.us
-  %7 = load ptr, ptr @stderr, align 8
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
+  %8 = load ptr, ptr @stderr, align 8
+  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.8, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
   br label %cleanup
 
 if.then37:                                        ; preds = %invoke.cont34.us
-  %8 = load ptr, ptr @stderr, align 8
-  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.9, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
+  %9 = load ptr, ptr @stderr, align 8
+  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
   br label %cleanup
 
 if.then46:                                        ; preds = %invoke.cont43.us
-  %9 = load ptr, ptr @stderr, align 8
-  %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
+  %10 = load ptr, ptr @stderr, align 8
+  %call48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
   br label %cleanup
 
 if.then51:                                        ; preds = %if.end49.us
-  %10 = load ptr, ptr @stderr, align 8
-  %conv52 = trunc i64 %5 to i32
-  %call54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.11, ptr noundef %name, i32 noundef %chunk_size.019.us, i32 noundef %conv52) #8
+  %11 = load ptr, ptr @stderr, align 8
+  %conv52 = trunc i64 %6 to i32
+  %call54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.11, ptr noundef %name, i32 noundef %chunk_size.019.us, i32 noundef %conv52) #8
   br label %cleanup
 
 if.then60:                                        ; preds = %invoke.cont57.us
-  %11 = load ptr, ptr @stderr, align 8
-  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.12, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
-  invoke fastcc void @_ZL4dumpPKhS0_m(ptr noundef nonnull %out, ptr noundef %expected)
+  %12 = load ptr, ptr @stderr, align 8
+  %call62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.12, ptr noundef %name, i32 noundef %chunk_size.019.us) #8
+  invoke fastcc void @_ZL4dumpPKhS0_m(ptr noundef %out, ptr noundef %expected)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %for.inc.us, %if.then60, %if.then51, %if.then46, %if.then37, %if.then24, %if.then15
@@ -239,10 +243,10 @@ if.then.i:                                        ; preds = %for.cond.preheader,
           to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #10
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
   unreachable
 
 return:                                           ; preds = %if.then.i, %cleanup, %if.then4, %if.then
@@ -258,10 +262,10 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL4dumpPKhS0_m(ptr noundef %got, ptr noundef %want) unnamed_addr #0 {
+define internal fastcc void @_ZL4dumpPKhS0_m(ptr noundef nonnull %got, ptr noundef %want) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  tail call void @hexdump(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %got, i64 noundef 16)
+  tail call void @hexdump(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %got, i64 noundef 16)
   %1 = load ptr, ptr @stderr, align 8
   tail call void @hexdump(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %want, i64 noundef 16)
   %2 = load ptr, ptr @stderr, align 8

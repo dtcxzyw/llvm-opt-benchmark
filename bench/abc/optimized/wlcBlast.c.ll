@@ -3720,9 +3720,10 @@ define void @Wlc_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %22 = icmp slt i32 %3, 6
   %23 = icmp eq i32 %3, 0
   %24 = icmp ult i32 %3, 2
+  %.1.i = tail call i32 @llvm.umax.i32(i32 %3, i32 2)
   %25 = icmp ult i32 %3, 3
-  %.2.i = tail call i32 @llvm.umax.i32(i32 %3, i32 3)
-  %26 = icmp ult i32 %3, 4
+  %.2.i = select i1 %25, i32 3, i32 %.1.i
+  %26 = icmp eq i32 %.2.i, 3
   %.3.i = select i1 %26, i32 4, i32 %.2.i
   %27 = icmp eq i32 %.3.i, 4
   %28 = and i32 %.3.i, -2
@@ -3796,7 +3797,7 @@ define void @Wlc_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %.227.i = select i1 %25, i64 %60, i64 %54
   %61 = and i64 %.227.i, 255
   %62 = mul nuw nsw i64 %61, 257
-  %.328.i = select i1 %26, i64 %62, i64 %54
+  %.328.i = select i1 %26, i64 %62, i64 %.227.i
   %63 = and i64 %.328.i, 65535
   %64 = mul nuw nsw i64 %63, 65537
   %.429.i = select i1 %27, i64 %64, i64 %.328.i
@@ -3923,15 +3924,16 @@ define void @Wlc_BlastLut(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 no
   %16 = trunc i64 %1 to i1
   %17 = select i1 %16, i64 3, i64 0
   %.025.i = select i1 %15, i64 %17, i64 %1
+  %.0.i = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
   %18 = icmp ult i32 %3, 2
   %19 = and i64 %.025.i, 3
   %20 = mul nuw nsw i64 %19, 5
   %.126.i = select i1 %18, i64 %20, i64 %1
-  %.1.i = tail call i32 @llvm.umax.i32(i32 %3, i32 2)
-  %21 = icmp ult i32 %3, 3
+  %.1.i = select i1 %18, i32 2, i32 %.0.i
+  %21 = icmp eq i32 %.1.i, 2
   %22 = and i64 %.126.i, 15
   %23 = mul nuw nsw i64 %22, 17
-  %.227.i = select i1 %21, i64 %23, i64 %1
+  %.227.i = select i1 %21, i64 %23, i64 %.126.i
   %.2.i = select i1 %21, i32 3, i32 %.1.i
   %24 = icmp eq i32 %.2.i, 3
   %25 = and i64 %.227.i, 255
@@ -4802,7 +4804,7 @@ define void @Wlc_IntInsert(ptr nocapture noundef %0, ptr nocapture noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntInsert(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Vec_IntInsert(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -23796,7 +23798,7 @@ Wlc_ObjFanin1.exit:                               ; preds = %Wlc_ObjHasArray.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %1, %5

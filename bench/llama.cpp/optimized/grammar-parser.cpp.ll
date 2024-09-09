@@ -3633,20 +3633,19 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i32, ptr } @_ZN14grammar_parserL9parse_hexEPKci(ptr noundef %src, i32 noundef %size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-entry:
+define internal fastcc { i32, ptr } @_ZN14grammar_parserL9parse_hexEPKci(ptr noundef %src, i32 noundef range(i32 2, 9) %size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+land.rhs.preheader:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp31 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp32 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
   %idx.ext = zext nneg i32 %size to i64
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %idx.ext
-  %cmp31.not = icmp eq i32 %size, 0
-  br i1 %cmp31.not, label %for.end, label %land.rhs
+  br label %land.rhs
 
-land.rhs:                                         ; preds = %entry, %for.inc
-  %value.033 = phi i32 [ %value.2, %for.inc ], [ 0, %entry ]
-  %pos.032 = phi ptr [ %incdec.ptr, %for.inc ], [ %src, %entry ]
+land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc
+  %value.033 = phi i32 [ %value.2, %for.inc ], [ 0, %land.rhs.preheader ]
+  %pos.032 = phi ptr [ %incdec.ptr, %for.inc ], [ %src, %land.rhs.preheader ]
   %0 = load i8, ptr %pos.032, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %for.end, label %for.body
@@ -3689,10 +3688,10 @@ for.inc:                                          ; preds = %if.then, %if.then22
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !24
 
-for.end:                                          ; preds = %land.rhs, %if.else16, %for.inc, %entry
-  %pos.0.lcssa = phi ptr [ %src, %entry ], [ %incdec.ptr, %for.inc ], [ %pos.032, %if.else16 ], [ %pos.032, %land.rhs ]
-  %value.1 = phi i32 [ 0, %entry ], [ %value.2, %for.inc ], [ %shl, %if.else16 ], [ %value.033, %land.rhs ]
-  %cmp29.not = icmp eq ptr %pos.0.lcssa, %add.ptr
+for.end:                                          ; preds = %land.rhs, %if.else16, %for.inc
+  %pos.0.lcssa.ph = phi ptr [ %pos.032, %land.rhs ], [ %pos.032, %if.else16 ], [ %incdec.ptr, %for.inc ]
+  %value.1.ph = phi i32 [ %value.033, %land.rhs ], [ %shl, %if.else16 ], [ %value.2, %for.inc ]
+  %cmp29.not = icmp eq ptr %pos.0.lcssa.ph, %add.ptr
   br i1 %cmp29.not, label %if.end43, label %if.then30
 
 if.then30:                                        ; preds = %for.end
@@ -3762,8 +3761,8 @@ cleanup.action:                                   ; preds = %ehcleanup41.thread,
   br label %eh.resume
 
 if.end43:                                         ; preds = %for.end
-  %.fca.0.insert.i = insertvalue { i32, ptr } poison, i32 %value.1, 0
-  %.fca.1.insert.i = insertvalue { i32, ptr } %.fca.0.insert.i, ptr %add.ptr, 1
+  %.fca.0.insert.i = insertvalue { i32, ptr } poison, i32 %value.1.ph, 0
+  %.fca.1.insert.i = insertvalue { i32, ptr } %.fca.0.insert.i, ptr %pos.0.lcssa.ph, 1
   ret { i32, ptr } %.fca.1.insert.i
 
 eh.resume:                                        ; preds = %ehcleanup41, %cleanup.action

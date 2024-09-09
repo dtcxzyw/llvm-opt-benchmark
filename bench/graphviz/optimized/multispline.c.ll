@@ -748,7 +748,7 @@ mkTriGraph.exit:                                  ; preds = %.critedge.i, %gv_al
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 4, 57) %1) unnamed_addr #3 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -2574,7 +2574,7 @@ resetGraph.exit:                                  ; preds = %.lr.ph.i95, %888
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addEndpoint(ptr nocapture noundef readonly %0, double %1, double %2, i32 %.16.val.452.val, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @addEndpoint(ptr nocapture noundef readonly %0, double %1, double %2, i32 %.16.val.452.val, i32 noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %6 = alloca %struct.item, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -2585,15 +2585,16 @@ define internal fastcc void @addEndpoint(ptr nocapture noundef readonly %0, doub
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  switch i32 %4, label %56 [
-    i32 4, label %16
-    i32 6, label %21
-    i32 2, label %26
-    i32 3, label %31
-    i32 1, label %36
-    i32 9, label %41
-    i32 8, label %46
-    i32 12, label %51
+  %trunc = trunc nuw i32 %4 to i8
+  switch i8 %trunc, label %56 [
+    i8 4, label %16
+    i8 6, label %21
+    i8 2, label %26
+    i8 3, label %31
+    i8 1, label %36
+    i8 9, label %41
+    i8 8, label %46
+    i8 12, label %51
   ]
 
 16:                                               ; preds = %5
@@ -2908,7 +2909,7 @@ define internal range(i32 -1, 2) i32 @cmpItem(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef range(i64 4, 25) %3) unnamed_addr #0 {
   %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 %2)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
   br i1 %mul.ov, label %5, label %8
@@ -3171,7 +3172,7 @@ tweakEnd.exit30:                                  ; preds = %50, %53
 declare i32 @Proutespline(ptr noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finishEdge(ptr noundef %0, ptr %1, i32 %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @finishEdge(ptr noundef %0, ptr %1, i32 %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.pointf_s, align 8
   %.not = icmp ne i32 %3, 0
   %6 = icmp sgt i32 %2, 1

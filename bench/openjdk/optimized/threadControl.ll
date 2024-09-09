@@ -2596,7 +2596,7 @@ addDeferredEventMode.exit:                        ; preds = %32, %28, %threadSet
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setPopFrameThread(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @setPopFrameThread(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %3) #6
   %4 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
@@ -2608,22 +2608,21 @@ define internal fastcc void @setPopFrameThread(ptr noundef %0, i8 noundef zeroex
   %8 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1762) #6
   tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #6
-  br label %17
+  br label %16
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %11 = load i16, ptr %10, align 8
-  %12 = and i8 %1, 1
-  %13 = zext nneg i8 %12 to i16
-  %14 = shl nuw nsw i16 %13, 8
-  %15 = and i16 %11, -257
-  %16 = or disjoint i16 %15, %14
-  store i16 %16, ptr %10, align 8
-  br label %17
+  %11 = zext nneg i8 %1 to i16
+  %12 = load i16, ptr %10, align 8
+  %13 = shl nuw nsw i16 %11, 8
+  %14 = and i16 %12, -257
+  %15 = or disjoint i16 %14, %13
+  store i16 %15, ptr %10, align 8
+  br label %16
 
-17:                                               ; preds = %9, %6
-  %18 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %18) #6
+16:                                               ; preds = %9, %6
+  %17 = load ptr, ptr @threadLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %17) #6
   ret void
 }
 
@@ -4223,7 +4222,7 @@ define internal fastcc noundef ptr @nonTlsSearch(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setPopFrameEvent(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @setPopFrameEvent(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %3) #6
   %4 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
@@ -4235,33 +4234,32 @@ define internal fastcc void @setPopFrameEvent(ptr noundef %0, i8 noundef zeroext
   %8 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1801) #6
   tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #6
-  br label %20
+  br label %19
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i16, ptr %10, align 8
-  %12 = shl i8 %1, 6
-  %13 = and i8 %12, 64
-  %14 = zext nneg i8 %13 to i16
-  %15 = and i16 %11, -65
-  %16 = or disjoint i16 %15, %14
-  store i16 %16, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 248
-  %18 = load i64, ptr %17, align 8
-  %19 = add nsw i64 %18, 1
-  store i64 %19, ptr %17, align 8
-  br label %20
+  %12 = shl nuw nsw i8 %1, 6
+  %13 = zext nneg i8 %12 to i16
+  %14 = and i16 %11, -65
+  %15 = or disjoint i16 %14, %13
+  store i16 %15, ptr %10, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 248
+  %17 = load i64, ptr %16, align 8
+  %18 = add nsw i64 %17, 1
+  store i64 %18, ptr %16, align 8
+  br label %19
 
-20:                                               ; preds = %9, %6
-  %21 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %21) #6
+19:                                               ; preds = %9, %6
+  %20 = load ptr, ptr @threadLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %20) #6
   ret void
 }
 
 declare void @debugMonitorWait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setPopFrameProceed(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @setPopFrameProceed(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %3) #6
   %4 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
@@ -4278,7 +4276,7 @@ define internal fastcc void @setPopFrameProceed(ptr noundef %0, i8 noundef zeroe
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i16, ptr %10, align 8
-  %12 = shl i8 %1, 7
+  %12 = shl nuw i8 %1, 7
   %13 = zext i8 %12 to i16
   %14 = and i16 %11, -129
   %15 = or disjoint i16 %14, %13

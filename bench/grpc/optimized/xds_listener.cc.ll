@@ -4076,7 +4076,7 @@ _ZN9grpc_core12XdsExtensionC2EOS0_.exit.i.i:      ; preds = %_ZNSt7variantIJSt9m
   %38 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8, !noalias !155
   store ptr %38, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !noalias !155
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validation_fields4.i.i.i, i8 0, i64 24, i1 false), !noalias !155
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126HttpConnectionManagerParseEbRKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp.i.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %agg.tmp5.i.i, ptr noundef nonnull %errors.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126HttpConnectionManagerParseEbRKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp.i.i, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %agg.tmp5.i.i, ptr noundef %errors.i.i)
           to label %invoke.cont8.i.i unwind label %lpad7.i.i
 
 invoke.cont8.i.i:                                 ; preds = %_ZN9grpc_core12XdsExtensionC2EOS0_.exit.i.i
@@ -4775,7 +4775,7 @@ invoke.cont40.i.i:                                ; preds = %invoke.cont37.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i12.i) #21, !noalias !156
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %112, i64 %i.0243.i.i
   %118 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !156
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116FilterChainParseERKNS_15XdsResourceType13DecodeContextEPK36envoy_config_listener_v3_FilterChainPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %filter_chain.i.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %118, ptr noundef nonnull %errors.i10.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116FilterChainParseERKNS_15XdsResourceType13DecodeContextEPK36envoy_config_listener_v3_FilterChainPNS_16ValidationErrorsE(ptr noalias align 8 %filter_chain.i.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %118, ptr noundef %errors.i10.i)
           to label %invoke.cont42.i.i unwind label %lpad41.i.i, !noalias !156
 
 invoke.cont42.i.i:                                ; preds = %invoke.cont40.i.i
@@ -5286,7 +5286,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core19XdsLi
 
 _ZN9grpc_core12_GLOBAL__N_122InternalFilterChainMap13DestinationIpD2Ev.exit.i.i.i.i: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core19XdsListenerResource14FilterChainMap8SourceIpESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev.exit.i.i.i.i.i.i
   %second.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.012.i.i.i.i.i.i, i64 64
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132AddFilterChainDataForServerNamesERKNS_11FilterChainEPNS0_22InternalFilterChainMap13DestinationIpEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(184) %__begin2.sroa.0.029.i.i.i, ptr noundef nonnull %second.i.i.i.i, ptr noundef nonnull %errors.i10.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132AddFilterChainDataForServerNamesERKNS_11FilterChainEPNS0_22InternalFilterChainMap13DestinationIpEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(184) %__begin2.sroa.0.029.i.i.i, ptr noundef %second.i.i.i.i, ptr noundef %errors.i10.i)
           to label %_ZN9grpc_core12_GLOBAL__N_139AddFilterChainDataForDestinationIpRangeERKNS_11FilterChainEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22InternalFilterChainMap13DestinationIpESt4lessISA_ESaISt4pairIKSA_SC_EEEPNS_16ValidationErrorsE.exit.i.i.i unwind label %lpad.loopexit.split-lp.i.i.i, !noalias !156
 
 lpad.i.i.i63.i:                                   ; preds = %_ZN9grpc_core12_GLOBAL__N_122InternalFilterChainMap13DestinationIpC2Ev.exit.i.i.i.i
@@ -5928,7 +5928,7 @@ lpad40.i.i.i.i:                                   ; preds = %if.then.i.i.i.i60.i
 
 if.end50.i.i.i.i:                                 ; preds = %_ZNSt8optionalIN9grpc_core19XdsListenerResource14FilterChainMap9CidrRangeEE7emplaceIJRKS3_EEENSt9enable_ifIX18is_constructible_vIS3_DpT_EERS3_E4typeEDpOS9_.exit.i.i.i.i, %_ZN9grpc_core12_GLOBAL__N_122InternalFilterChainMap13DestinationIpD2Ev.exit59.i.i.i.i
   %second53.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i43.i.i.i.i, i64 64
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132AddFilterChainDataForServerNamesERKNS_11FilterChainEPNS0_22InternalFilterChainMap13DestinationIpEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(184) %__begin2.sroa.0.029.i.i.i, ptr noundef nonnull %second53.i.i.i.i, ptr noundef nonnull %errors.i10.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_132AddFilterChainDataForServerNamesERKNS_11FilterChainEPNS0_22InternalFilterChainMap13DestinationIpEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(184) %__begin2.sroa.0.029.i.i.i, ptr noundef %second53.i.i.i.i, ptr noundef %errors.i10.i)
           to label %cleanup.i.i.i.i unwind label %lpad10.i.i.i.i, !noalias !156
 
 cleanup.i.i.i.i:                                  ; preds = %if.end50.i.i.i.i, %invoke.cont27.i.i.i.i
@@ -6695,7 +6695,7 @@ invoke.cont58.i.i:                                ; preds = %_ZN9grpc_core16Vali
 
 if.then61.i.i:                                    ; preds = %invoke.cont58.i.i
   %326 = inttoptr i64 %325 to ptr
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116FilterChainParseERKNS_15XdsResourceType13DecodeContextEPK36envoy_config_listener_v3_FilterChainPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %filter_chain62.i.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %326, ptr noundef nonnull %errors.i10.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116FilterChainParseERKNS_15XdsResourceType13DecodeContextEPK36envoy_config_listener_v3_FilterChainPNS_16ValidationErrorsE(ptr noalias align 8 %filter_chain62.i.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %326, ptr noundef %errors.i10.i)
           to label %invoke.cont63.i.i unwind label %lpad57.i.i, !noalias !156
 
 invoke.cont63.i.i:                                ; preds = %if.then61.i.i
@@ -7448,7 +7448,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 declare void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr sret(%"class.std::optional.159") align 8, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_126HttpConnectionManagerParseEbRKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias align 8 %agg.result, i1 noundef zeroext %is_client, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %extension, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_126HttpConnectionManagerParseEbRKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, i1 noundef zeroext %is_client, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %extension, ptr noundef nonnull %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i = alloca %class.anon.380, align 1
@@ -7837,7 +7837,7 @@ invoke.cont93:                                    ; preds = %invoke.cont87
 
 if.then95:                                        ; preds = %invoke.cont93
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 17, ptr nonnull @.str.54)
-          to label %cleanup205.critedge unwind label %lpad97
+          to label %if.then.i190 unwind label %lpad97
 
 lpad68.loopexit:                                  ; preds = %for.body226, %if.then237, %invoke.cont253, %if.else, %invoke.cont275
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7957,12 +7957,7 @@ invoke.cont116:                                   ; preds = %invoke.cont112
   %53 = extractvalue { i64, ptr } %call117, 0
   %54 = extractvalue { i64, ptr } %call117, 1
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 %53, ptr %54)
-          to label %invoke.cont119 unwind label %lpad118
-
-invoke.cont119:                                   ; preds = %invoke.cont116
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110) #21
-  %.pre318 = load ptr, ptr %field91, align 8
-  br label %cleanup205.critedge
+          to label %cleanup205.critedge unwind label %lpad118
 
 lpad118:                                          ; preds = %invoke.cont116
   %55 = landingpad { ptr, i32 }
@@ -8347,12 +8342,14 @@ terminate.lpad.i186:                              ; preds = %if.then.i185
   call void @__clang_call_terminate(ptr %104) #25
   unreachable
 
-cleanup205.critedge:                              ; preds = %if.then95, %invoke.cont119
-  %105 = phi ptr [ %errors, %if.then95 ], [ %.pre318, %invoke.cont119 ]
-  %cmp.not.i189 = icmp eq ptr %105, null
+cleanup205.critedge:                              ; preds = %invoke.cont116
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110) #21
+  %.pre318 = load ptr, ptr %field91, align 8
+  %cmp.not.i189 = icmp eq ptr %.pre318, null
   br i1 %cmp.not.i189, label %cleanup205, label %if.then.i190
 
-if.then.i190:                                     ; preds = %cleanup205.critedge
+if.then.i190:                                     ; preds = %if.then95, %cleanup205.critedge
+  %105 = phi ptr [ %.pre318, %cleanup205.critedge ], [ %errors, %if.then95 ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %105)
           to label %cleanup205 unwind label %terminate.lpad.i191
 
@@ -11227,7 +11224,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeINSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116FilterChainParseERKNS_15XdsResourceType13DecodeContextEPK36envoy_config_listener_v3_FilterChainPNS_16ValidationErrorsE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %filter_chain_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116FilterChainParseERKNS_15XdsResourceType13DecodeContextEPK36envoy_config_listener_v3_FilterChainPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %filter_chain_proto, ptr noundef nonnull %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %field.i77 = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %extension.i = alloca %"class.std::optional.159", align 8
@@ -11464,7 +11461,7 @@ invoke.cont19.i:                                  ; preds = %invoke.cont16.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #21, !noalias !213
   %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %i.0311.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !213
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114CidrRangeParseEPK30envoy_config_core_v3_CidrRangePNS_16ValidationErrorsE(ptr noalias nonnull align 4 %cidr_range.i, ptr noundef %20, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114CidrRangeParseEPK30envoy_config_core_v3_CidrRangePNS_16ValidationErrorsE(ptr noalias align 4 %cidr_range.i, ptr noundef %20, ptr noundef %errors)
           to label %invoke.cont21.i unwind label %lpad20.loopexit.i, !noalias !213
 
 invoke.cont21.i:                                  ; preds = %invoke.cont19.i
@@ -11692,7 +11689,7 @@ invoke.cont50.i:                                  ; preds = %invoke.cont47.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40.i) #21, !noalias !213
   %arrayidx52.i = getelementptr inbounds ptr, ptr %36, i64 %i34.0313.i
   %44 = load ptr, ptr %arrayidx52.i, align 8, !noalias !213
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114CidrRangeParseEPK30envoy_config_core_v3_CidrRangePNS_16ValidationErrorsE(ptr noalias nonnull align 4 %cidr_range51.i, ptr noundef %44, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114CidrRangeParseEPK30envoy_config_core_v3_CidrRangePNS_16ValidationErrorsE(ptr noalias align 4 %cidr_range51.i, ptr noundef %44, ptr noundef %errors)
           to label %invoke.cont54.i unwind label %lpad53.loopexit.i, !noalias !213
 
 invoke.cont54.i:                                  ; preds = %invoke.cont50.i
@@ -12556,7 +12553,7 @@ _ZN9grpc_core12XdsExtensionC2EOS0_.exit:          ; preds = %if.then43, %sw.bb.i
   %155 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
   store ptr %155, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validation_fields4.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126HttpConnectionManagerParseEbRKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp44, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %agg.tmp45, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_126HttpConnectionManagerParseEbRKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp44, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %agg.tmp45, ptr noundef %errors)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %_ZN9grpc_core12XdsExtensionC2EOS0_.exit
@@ -13881,7 +13878,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_114CidrRangeParseEPK30envoy_config_core_v3_CidrRangePNS_16ValidationErrorsE(ptr noalias nocapture writeonly align 4 %agg.result, ptr nocapture noundef readonly %cidr_range_proto, ptr noundef nonnull %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_114CidrRangeParseEPK30envoy_config_core_v3_CidrRangePNS_16ValidationErrorsE(ptr noalias nocapture nonnull writeonly align 4 %agg.result, ptr nocapture noundef readonly %cidr_range_proto, ptr noundef nonnull %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
@@ -14474,7 +14471,7 @@ _ZNSt5arrayISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_co
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_132AddFilterChainDataForServerNamesERKNS_11FilterChainEPNS0_22InternalFilterChainMap13DestinationIpEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(184) %filter_chain, ptr noundef %destination_ip, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_132AddFilterChainDataForServerNamesERKNS_11FilterChainEPNS0_22InternalFilterChainMap13DestinationIpEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(184) %filter_chain, ptr noundef nonnull %destination_ip, ptr noundef nonnull %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"struct.grpc_core::XdsListenerResource::FilterChainMap::SourceIp", align 8
   %addr_str.i.i.i.i = alloca %"class.absl::lts_20230802::StatusOr", align 8
@@ -15328,7 +15325,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_131AddFilterChainDataForSourcePortERKNS_11FilterChainEjPSt3mapItNS_19XdsListenerResource14FilterChainMap24FilterChainDataSharedPtrESt4lessItESaISt4pairIKtS7_EEEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(184) %filter_chain, i32 noundef %port, ptr noundef %ports_map, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_131AddFilterChainDataForSourcePortERKNS_11FilterChainEjPSt3mapItNS_19XdsListenerResource14FilterChainMap24FilterChainDataSharedPtrESt4lessItESaISt4pairIKtS7_EEEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(184) %filter_chain, i32 noundef %port, ptr noundef %ports_map, ptr noundef nonnull %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %port.addr = alloca i32, align 4
   %ref.tmp = alloca %"struct.grpc_core::XdsListenerResource::FilterChainMap::FilterChainDataSharedPtr", align 8

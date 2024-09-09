@@ -825,7 +825,7 @@ if.then6:                                         ; preds = %qobject_type.exit
   br label %return
 
 if.end8:                                          ; preds = %qobject_type.exit
-  %call9 = tail call fastcc ptr @qobject_input_push(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %call.i, ptr noundef %obj)
+  %call9 = tail call fastcc ptr @qobject_input_push(ptr noundef %v, ptr noundef %name, ptr noundef %call.i, ptr noundef %obj)
   br i1 %tobool.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
@@ -977,7 +977,7 @@ if.then7:                                         ; preds = %qobject_type.exit
   br label %return
 
 if.end9:                                          ; preds = %qobject_type.exit
-  %call10 = tail call fastcc ptr @qobject_input_push(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %call.i, ptr noundef %list)
+  %call10 = tail call fastcc ptr @qobject_input_push(ptr noundef %v, ptr noundef %name, ptr noundef %call.i, ptr noundef %list)
   %tobool11 = icmp ne ptr %call10, null
   %or.cond = and i1 %tobool, %tobool11
   br i1 %or.cond, label %if.then13, label %return
@@ -1273,50 +1273,40 @@ if.end:                                           ; preds = %if.then, %qobject_u
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qobject_input_push(ptr nocapture noundef %qiv, ptr noundef %name, ptr noundef %obj, ptr noundef %qapi) unnamed_addr #0 {
+define internal fastcc ptr @qobject_input_push(ptr nocapture noundef %qiv, ptr noundef %name, ptr noundef nonnull %obj, ptr noundef %qapi) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #9
-  %tobool.not.i = icmp eq ptr %obj, null
-  br i1 %tobool.not.i, label %if.else16.thread, label %land.lhs.true.i
-
-if.else16.thread:                                 ; preds = %entry
-  store ptr %name, ptr %call, align 8
-  %obj536 = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr null, ptr %obj536, align 8
-  %qapi637 = getelementptr inbounds i8, ptr %call, i64 16
-  store ptr %qapi, ptr %qapi637, align 8
-  br label %if.else19
-
-land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %obj, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
   br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
-if.else.i.i:                                      ; preds = %land.lhs.true.i
+if.else.i.i:                                      ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i
-  %cmp.i = icmp eq i32 %obj.val.i, 4
-  br i1 %cmp.i, label %if.then8, label %if.else16
+qobject_type.exit.i:                              ; preds = %entry
+  store ptr %name, ptr %call, align 8
+  %obj53338 = getelementptr inbounds i8, ptr %call, i64 8
+  store ptr %obj, ptr %obj53338, align 8
+  %qapi63439 = getelementptr inbounds i8, ptr %call, i64 16
+  store ptr %qapi, ptr %qapi63439, align 8
+  switch i32 %obj.val.i, label %if.else19 [
+    i32 4, label %if.then8
+    i32 5, label %if.end20
+  ]
 
 if.then8:                                         ; preds = %qobject_type.exit.i
-  store ptr %name, ptr %call, align 8
-  %obj5 = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %obj, ptr %obj5, align 8
-  %qapi6 = getelementptr inbounds i8, ptr %call, i64 16
-  store ptr %qapi, ptr %qapi6, align 8
   %call9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #8
   %call10 = tail call ptr @qdict_first(ptr noundef nonnull %obj) #8
-  %tobool11.not42 = icmp eq ptr %call10, null
-  br i1 %tobool11.not42, label %for.end, label %for.body
+  %tobool11.not41 = icmp eq ptr %call10, null
+  br i1 %tobool11.not41, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.then8, %for.body
-  %entry3.043 = phi ptr [ %call14, %for.body ], [ %call10, %if.then8 ]
-  %call12 = tail call ptr @qdict_entry_key(ptr noundef nonnull %entry3.043) #8
+  %entry3.042 = phi ptr [ %call14, %for.body ], [ %call10, %if.then8 ]
+  %call12 = tail call ptr @qdict_entry_key(ptr noundef nonnull %entry3.042) #8
   %call13 = tail call i32 @g_hash_table_insert(ptr noundef %call9, ptr noundef %call12, ptr noundef null) #8
-  %call14 = tail call ptr @qdict_next(ptr noundef nonnull %obj, ptr noundef nonnull %entry3.043) #8
+  %call14 = tail call ptr @qdict_next(ptr noundef nonnull %obj, ptr noundef nonnull %entry3.042) #8
   %tobool11.not = icmp eq ptr %call14, null
   br i1 %tobool11.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -1327,20 +1317,11 @@ for.end:                                          ; preds = %for.body, %if.then8
   %.pre = load ptr, ptr %entry26.phi.trans.insert, align 8
   br label %do.body
 
-if.else16:                                        ; preds = %qobject_type.exit.i
-  %cmp.i2545.not = icmp eq i32 %obj.val.i, 5
-  store ptr %name, ptr %call, align 8
-  %obj547 = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %obj, ptr %obj547, align 8
-  %qapi648 = getelementptr inbounds i8, ptr %call, i64 16
-  store ptr %qapi, ptr %qapi648, align 8
-  br i1 %cmp.i2545.not, label %if.end20, label %if.else19
-
-if.else19:                                        ; preds = %if.else16.thread, %if.else16
+if.else19:                                        ; preds = %qobject_type.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 231, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_input_push) #7
   unreachable
 
-if.end20:                                         ; preds = %if.else16
+if.end20:                                         ; preds = %qobject_type.exit.i
   %1 = getelementptr i8, ptr %obj, i64 16
   %call2.val = load ptr, ptr %1, align 8
   %entry22 = getelementptr inbounds i8, ptr %call, i64 32
@@ -1479,7 +1460,7 @@ declare ptr @qdict_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @full_name_nth(ptr nocapture noundef %qiv, ptr noundef %name, i32 noundef %n) unnamed_addr #0 {
+define internal fastcc ptr @full_name_nth(ptr nocapture noundef %qiv, ptr noundef %name, i32 noundef range(i32 0, 2) %n) unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %errname = getelementptr inbounds i8, ptr %qiv, i64 240

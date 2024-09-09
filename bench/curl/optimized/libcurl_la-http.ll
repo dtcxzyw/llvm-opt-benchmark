@@ -1036,7 +1036,7 @@ entry:
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 2328
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp ne ptr %1, null
-  %spec.select = select i1 %tobool.not, i64 -1, i64 -65
+  %spec.select = select i1 %tobool.not, i64 64, i64 0
   %httpcode = getelementptr inbounds i8, ptr %data, i64 304
   %2 = load i32, ptr %httpcode, align 8
   %3 = add i32 %2, -100
@@ -1083,9 +1083,8 @@ if.then34:                                        ; preds = %lor.lhs.false25, %l
   %avail1.i = getelementptr inbounds i8, ptr %data, i64 3576
   %8 = load i64, ptr %avail1.i, align 8
   %9 = load i64, ptr %authhost, align 8
-  %and.i = and i64 %8, %spec.select
-  %and2.i = and i64 %and.i, %9
-  %and3.i = and i64 %and2.i, 4
+  %and.i = and i64 %9, %8
+  %and3.i = and i64 %and.i, 4
   %tobool.not.i = icmp eq i64 %and3.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
@@ -1095,8 +1094,8 @@ if.then.i:                                        ; preds = %if.then34
   br label %if.end42.thread111
 
 if.else.i:                                        ; preds = %if.then34
-  %and5.i = and i64 %and2.i, 64
-  %tobool6.not.i = icmp eq i64 %and5.i, 0
+  %and2.i = and i64 %and.i, %spec.select
+  %tobool6.not.i = icmp eq i64 %and2.i, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
@@ -1105,7 +1104,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %if.end42.thread111
 
 if.else9.i:                                       ; preds = %if.else.i
-  %and10.i = and i64 %and2.i, 2
+  %and10.i = and i64 %and.i, 2
   %tobool11.not.i = icmp eq i64 %and10.i, 0
   br i1 %tobool11.not.i, label %if.else14.i, label %if.then12.i
 
@@ -1115,12 +1114,12 @@ if.then12.i:                                      ; preds = %if.else9.i
   br label %if.end42.thread111
 
 if.else14.i:                                      ; preds = %if.else9.i
-  %and15.i = and i64 %and2.i, 8
+  %and15.i = and i64 %and.i, 8
   %tobool16.not.i = icmp eq i64 %and15.i, 0
   br i1 %tobool16.not.i, label %if.else19.i, label %land.lhs.true46
 
 if.else19.i:                                      ; preds = %if.else14.i
-  %and20.i = and i64 %and2.i, 32
+  %and20.i = and i64 %and.i, 32
   %tobool21.not.i = icmp eq i64 %and20.i, 0
   br i1 %tobool21.not.i, label %if.else24.i, label %if.then22.i
 
@@ -1130,7 +1129,7 @@ if.then22.i:                                      ; preds = %if.else19.i
   br label %if.end42.thread111
 
 if.else24.i:                                      ; preds = %if.else19.i
-  %and25.i = and i64 %and2.i, 1
+  %and25.i = and i64 %and.i, 1
   %tobool26.not.i = icmp eq i64 %and25.i, 0
   br i1 %tobool26.not.i, label %if.else29.i, label %if.then27.i
 
@@ -1140,7 +1139,7 @@ if.then27.i:                                      ; preds = %if.else24.i
   br label %if.end42.thread111
 
 if.else29.i:                                      ; preds = %if.else24.i
-  %and30.i = and i64 %and2.i, 128
+  %and30.i = and i64 %and.i, 128
   %tobool31.not.i = icmp eq i64 %and30.i, 0
   %picked35.i = getelementptr inbounds i8, ptr %data, i64 3568
   br i1 %tobool31.not.i, label %if.end42.thread, label %if.then32.i
@@ -1211,8 +1210,8 @@ if.then84:                                        ; preds = %lor.lhs.false73, %l
   %avail1.i57 = getelementptr inbounds i8, ptr %data, i64 3608
   %15 = load i64, ptr %avail1.i57, align 8
   %16 = load i64, ptr %authproxy, align 8
-  %and2.i59 = and i64 %15, %16
-  %and3.i60 = and i64 %and2.i59, 4
+  %and.i58 = and i64 %16, %15
+  %and3.i60 = and i64 %and.i58, 4
   %tobool.not.i61 = icmp eq i64 %and3.i60, 0
   br i1 %tobool.not.i61, label %if.else.i65, label %if.then.i62
 
@@ -1222,7 +1221,7 @@ if.then.i62:                                      ; preds = %if.then84
   br label %if.end97.thread
 
 if.else.i65:                                      ; preds = %if.then84
-  %and10.i71 = and i64 %and2.i59, 2
+  %and10.i71 = and i64 %and.i58, 2
   %tobool11.not.i72 = icmp eq i64 %and10.i71, 0
   br i1 %tobool11.not.i72, label %if.else14.i75, label %if.then12.i73
 
@@ -1232,7 +1231,7 @@ if.then12.i73:                                    ; preds = %if.else.i65
   br label %if.end97.thread
 
 if.else14.i75:                                    ; preds = %if.else.i65
-  %and15.i76 = and i64 %and2.i59, 8
+  %and15.i76 = and i64 %and.i58, 8
   %tobool16.not.i77 = icmp eq i64 %and15.i76, 0
   br i1 %tobool16.not.i77, label %if.else19.i80, label %if.then17.i78
 
@@ -1242,7 +1241,7 @@ if.then17.i78:                                    ; preds = %if.else14.i75
   br label %if.end97.thread
 
 if.else19.i80:                                    ; preds = %if.else14.i75
-  %and20.i81 = and i64 %and2.i59, 32
+  %and20.i81 = and i64 %and.i58, 32
   %tobool21.not.i82 = icmp eq i64 %and20.i81, 0
   br i1 %tobool21.not.i82, label %if.else24.i85, label %if.then22.i83
 
@@ -1252,7 +1251,7 @@ if.then22.i83:                                    ; preds = %if.else19.i80
   br label %if.end97.thread
 
 if.else24.i85:                                    ; preds = %if.else19.i80
-  %and25.i86 = and i64 %and2.i59, 1
+  %and25.i86 = and i64 %and.i58, 1
   %tobool26.not.i87 = icmp eq i64 %and25.i86, 0
   br i1 %tobool26.not.i87, label %if.else29.i90, label %if.then27.i88
 
@@ -1262,7 +1261,7 @@ if.then27.i88:                                    ; preds = %if.else24.i85
   br label %if.end97.thread
 
 if.else29.i90:                                    ; preds = %if.else24.i85
-  %and30.i91 = and i64 %and2.i59, 128
+  %and30.i91 = and i64 %and.i58, 128
   %tobool31.not.i92 = icmp eq i64 %and30.i91, 0
   %picked35.i93 = getelementptr inbounds i8, ptr %data, i64 3600
   br i1 %tobool31.not.i92, label %if.then90, label %if.then32.i94

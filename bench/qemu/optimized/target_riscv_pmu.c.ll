@@ -451,30 +451,25 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pmu_timer_trigger_irq(ptr noundef %cpu, i32 noundef %evt_idx) unnamed_addr #0 {
+define internal fastcc void @pmu_timer_trigger_irq(ptr noundef %cpu, i32 noundef range(i32 1, 3) %evt_idx) unnamed_addr #0 {
 entry:
   %env1 = getelementptr inbounds i8, ptr %cpu, i64 10176
-  %0 = add i32 %evt_idx, -3
-  %or.cond = icmp ult i32 %0, -2
-  br i1 %or.cond, label %if.end31, label %if.end
-
-if.end:                                           ; preds = %entry
   %pmu_event_ctr_map = getelementptr inbounds i8, ptr %cpu, i64 19184
-  %1 = load ptr, ptr %pmu_event_ctr_map, align 16
+  %0 = load ptr, ptr %pmu_event_ctr_map, align 16
   %conv = zext nneg i32 %evt_idx to i64
-  %2 = inttoptr i64 %conv to ptr
-  %call = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %2) #6
-  %3 = ptrtoint ptr %call to i64
-  %conv3 = trunc i64 %3 to i32
-  %4 = add i32 %conv3, -32
-  %or.cond.i.i = icmp ult i32 %4, -29
+  %1 = inttoptr i64 %conv to ptr
+  %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef nonnull %1) #6
+  %2 = ptrtoint ptr %call to i64
+  %conv3 = trunc i64 %2 to i32
+  %3 = add i32 %conv3, -32
+  %or.cond.i.i = icmp ult i32 %3, -29
   br i1 %or.cond.i.i, label %if.end31, label %riscv_pmu_counter_valid.exit.i
 
-riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end
+riscv_pmu_counter_valid.exit.i:                   ; preds = %entry
   %pmu_avail_ctrs.i.i = getelementptr inbounds i8, ptr %cpu, i64 19176
-  %5 = load i32, ptr %pmu_avail_ctrs.i.i, align 8
-  %conv.i.i = zext i32 %5 to i64
-  %sh_prom.i.i = and i64 %3, 4294967295
+  %4 = load i32, ptr %pmu_avail_ctrs.i.i, align 8
+  %conv.i.i = zext i32 %4 to i64
+  %sh_prom.i.i = and i64 %2, 4294967295
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %and.i.i = and i64 %shl.i.i, %conv.i.i
   %tobool.not.i.not.i = icmp eq i64 %and.i.i, 0
@@ -482,8 +477,8 @@ riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end
 
 land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_valid.exit.i
   %mcountinhibit.i = getelementptr inbounds i8, ptr %cpu, i64 15912
-  %6 = load i64, ptr %mcountinhibit.i, align 8
-  %and.i = and i64 %6, %shl.i.i
+  %5 = load i64, ptr %mcountinhibit.i, align 8
+  %and.i = and i64 %5, %shl.i.i
   %shl6.i = shl nuw nsw i64 2, %sh_prom.i.i
   %not.i = xor i64 %shl6.i, -1
   %and7.i = and i64 %shl.i.i, %not.i
@@ -491,8 +486,8 @@ land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_v
   br i1 %tobool.not.i, label %if.end6, label %if.end31
 
 if.end6:                                          ; preds = %land.lhs.true.i
-  %7 = getelementptr i8, ptr %cpu, i64 15184
-  %env1.val = load i32, ptr %7, align 16
+  %6 = getelementptr i8, ptr %cpu, i64 15184
+  %env1.val = load i32, ptr %6, align 16
   %cmp8 = icmp eq i32 %env1.val, 1
   %mhpmeventh_val = getelementptr inbounds i8, ptr %cpu, i64 17712
   %arrayidx = getelementptr [32 x i64], ptr %mhpmeventh_val, i64 0, i64 %sh_prom.i.i
@@ -502,33 +497,33 @@ if.end6:                                          ; preds = %land.lhs.true.i
   %mhpmevent_val.0 = select i1 %cmp8, ptr %arrayidx, ptr %arrayidx13
   %pmu_ctrs = getelementptr inbounds i8, ptr %cpu, i64 15920
   %irq_overflow_left = getelementptr [32 x %struct.PMUCTRState], ptr %pmu_ctrs, i64 0, i64 %sh_prom.i.i, i32 5
-  %8 = load i64, ptr %irq_overflow_left, align 8
-  %cmp17.not = icmp eq i64 %8, 0
+  %7 = load i64, ptr %irq_overflow_left, align 8
+  %cmp17.not = icmp eq i64 %7, 0
   br i1 %cmp17.not, label %if.then25, label %if.then19
 
 if.then19:                                        ; preds = %if.end6
   %call20 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
-  %9 = load i64, ptr %irq_overflow_left, align 8
-  %add = add i64 %9, %call20
+  %8 = load i64, ptr %irq_overflow_left, align 8
+  %add = add i64 %8, %call20
   %pmu_timer = getelementptr inbounds i8, ptr %cpu, i64 19168
-  %10 = load ptr, ptr %pmu_timer, align 16
-  tail call void @timer_mod_anticipate_ns(ptr noundef %10, i64 noundef %add) #6
+  %9 = load ptr, ptr %pmu_timer, align 16
+  tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add) #6
   store i64 0, ptr %irq_overflow_left, align 8
   br label %if.end31
 
 if.then25:                                        ; preds = %if.end6
-  %11 = load i64, ptr %mhpmevent_val.0, align 8
-  %and26 = and i64 %11, %of_bit_mask.0
+  %10 = load i64, ptr %mhpmevent_val.0, align 8
+  %and26 = and i64 %10, %of_bit_mask.0
   %tobool27.not = icmp eq i64 %and26, 0
   br i1 %tobool27.not, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.then25
-  %or = or i64 %11, %of_bit_mask.0
+  %or = or i64 %10, %of_bit_mask.0
   store i64 %or, ptr %mhpmevent_val.0, align 8
   %call29 = tail call i64 @riscv_cpu_update_mip(ptr noundef nonnull %env1, i64 noundef 8192, i64 noundef -1) #6
   br label %if.end31
 
-if.end31:                                         ; preds = %land.lhs.true.i, %riscv_pmu_counter_valid.exit.i, %if.end, %if.then25, %if.then28, %entry, %if.then19
+if.end31:                                         ; preds = %land.lhs.true.i, %riscv_pmu_counter_valid.exit.i, %entry, %if.then25, %if.then28, %if.then19
   ret void
 }
 

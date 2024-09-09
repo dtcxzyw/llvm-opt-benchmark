@@ -1590,8 +1590,8 @@ define void @cli_event_debug(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %5 = getelementptr inbounds i8, ptr %3, i64 20
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 255
-  %trunc = trunc i16 %6 to i8
-  %switch.tableidx = add i8 %trunc, -1
+  %trunc.i = trunc i16 %6 to i8
+  %switch.tableidx = add i8 %trunc.i, -1
   %8 = icmp ult i8 %switch.tableidx, 5
   br i1 %8, label %switch.lookup, label %evtype.exit
 
@@ -1655,13 +1655,14 @@ evtype.exit:                                      ; preds = %4, %switch.lookup
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ev_debug(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #4 {
-  switch i32 %0, label %20 [
-    i32 1, label %4
-    i32 2, label %6
-    i32 3, label %9
-    i32 4, label %12
-    i32 5, label %14
+define internal fastcc void @ev_debug(i32 noundef range(i32 0, 256) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #4 {
+  %trunc = trunc nuw i32 %0 to i8
+  switch i8 %trunc, label %20 [
+    i8 1, label %4
+    i8 2, label %6
+    i8 3, label %9
+    i8 4, label %12
+    i8 5, label %14
   ]
 
 4:                                                ; preds = %3
@@ -1805,8 +1806,8 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 n
   %36 = getelementptr inbounds %union.ev_val, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %31, align 8
   %38 = getelementptr inbounds %union.ev_val, ptr %37, i64 %indvars.iv
-  %trunc = trunc i16 %34 to i8
-  switch i8 %trunc, label %ev_diff.exit.thread [
+  %trunc.i = trunc i16 %34 to i8
+  switch i8 %trunc.i, label %ev_diff.exit.thread [
     i8 3, label %39
     i8 4, label %39
     i8 1, label %44
@@ -1911,12 +1912,13 @@ ev_diff.exit.thread:                              ; preds = %32, %57, %ev_diff.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @ev_diff(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #8 {
-  switch i32 %0, label %19 [
-    i32 3, label %5
-    i32 4, label %5
-    i32 1, label %10
-    i32 2, label %14
+define internal fastcc i32 @ev_diff(i32 noundef range(i32 0, 256) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #8 {
+  %trunc = trunc nuw i32 %0 to i8
+  switch i8 %trunc, label %19 [
+    i8 3, label %5
+    i8 4, label %5
+    i8 1, label %10
+    i8 2, label %14
   ]
 
 5:                                                ; preds = %4, %4

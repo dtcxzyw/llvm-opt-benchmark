@@ -21218,6 +21218,8 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !1491
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
+  %conv.i.i.i = trunc nuw nsw i64 %length to i32
+  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %add.ptr13.val.i.i.i = load i64, ptr %add.ptr13.i.i.i, align 1, !alias.scope !1490
@@ -21236,14 +21238,11 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %mul.i.i32.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689
   %shr.i4.i.i33.i.i = lshr i64 %mul.i.i32.i.i, 32
   %xor.i5.i.i34.i.i = xor i64 %shr.i4.i.i33.i.i, %mul.i.i32.i.i
-  %cmp203.i.i.i = icmp ugt i64 %length, 143
-  br i1 %cmp203.i.i.i, label %for.body21.preheader.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i
+  %cmp203.not.i.i.i = icmp eq i32 %div25.i.i.i, 8
+  br i1 %cmp203.not.i.i.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit.i.i, label %for.body21.preheader.i.i.i
 
 for.body21.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %conv.i.i.i = trunc nuw i64 %length to i32
-  %div25.i.i.i = lshr i32 %conv.i.i.i, 4
-  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div25.i.i.i, i32 9)
-  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %div25.i.i.i to i64
   br label %for.body21.i.i.i
 
 for.body21.i.i.i:                                 ; preds = %for.body21.i.i.i, %for.body21.preheader.i.i.i
@@ -21383,7 +21382,7 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i:     ; preds = %for.body.i29.i.i.i.
   br i1 %exitcond.not.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !1546
 
 for.end.i.i.i.i:                                  ; preds = %_ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i.i.i.i, %if.end9.i.i
-  %mul9.i.i.i.i = mul nuw i64 %div2.i.i.i.i, 576
+  %mul9.i.i.i.i = mul nuw nsw i64 %div2.i.i.i.i, 576
   %div1127.i.i.i.i = lshr i64 %sub10.i.i.i.i.recomposed, 6
   %cmp13.i.i.i.i = icmp ult i64 %sub10.i.i.i.i.recomposed, 1152
   tail call void @llvm.assume(i1 %cmp13.i.i.i.i)
@@ -33651,7 +33650,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPtEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -34362,7 +34361,7 @@ ehcleanup55:                                      ; preds = %ehcleanup51, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -34743,7 +34742,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPiEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -35454,7 +35453,7 @@ ehcleanup55:                                      ; preds = %ehcleanup51, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -36761,7 +36760,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -37472,7 +37471,7 @@ ehcleanup55:                                      ; preds = %ehcleanup51, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -38779,7 +38778,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPtEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -41505,7 +41504,7 @@ if.then30:                                        ; preds = %invoke.cont29
 if.end39:                                         ; preds = %if.then30, %invoke.cont29
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp41, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp41, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad42
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end39
@@ -42180,7 +42179,7 @@ cleanup91:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -43634,7 +43633,7 @@ if.then30:                                        ; preds = %invoke.cont29
 if.end38:                                         ; preds = %if.then30, %invoke.cont29
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp40, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp40, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad41
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end38
@@ -45117,7 +45116,7 @@ if.then30:                                        ; preds = %invoke.cont29
 if.end38:                                         ; preds = %if.then30, %invoke.cont29
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp40, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp40, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad41
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end38
@@ -45792,7 +45791,7 @@ cleanup90:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef writeonly %null_count, ptr nocapture noundef %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -46209,7 +46208,7 @@ if.then30:                                        ; preds = %invoke.cont29
 if.end38:                                         ; preds = %if.then30, %invoke.cont29
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp40, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp40, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad41
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end38
@@ -47009,7 +47008,7 @@ if.then25.i:                                      ; preds = %if.end17.i
 invoke.cont17:                                    ; preds = %if.then25.i, %if.end17.i, %if.then4.i, %call.i.noexc
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp19, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp19, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad20
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont17
@@ -47771,7 +47770,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -48607,7 +48606,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPiEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -49443,7 +49442,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -50279,7 +50278,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -51115,7 +51114,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPiEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -51951,7 +51950,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPlEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -53712,7 +53711,7 @@ if.then4.i:                                       ; preds = %if.then.i
 invoke.cont15:                                    ; preds = %if.then4.i, %if.then.i, %_ZNK5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEE12VisitEntriesIZNKS3_10CopyValuesEiPiEUlPKNS5_5EntryEE_EEvOT_.exit.i
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp17, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad18
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont15
@@ -55474,7 +55473,7 @@ if.then25.i:                                      ; preds = %if.end17.i
 invoke.cont17:                                    ; preds = %if.then25.i, %if.end17.i, %if.then4.i, %call.i.noexc
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp19, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp19, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad20
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont17
@@ -56236,7 +56235,7 @@ if.then25.i:                                      ; preds = %if.end17.i
 invoke.cont17:                                    ; preds = %if.then25.i, %if.end17.i, %if.then4.i, %call.i.noexc
   store i64 0, ptr %null_count, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %null_bitmap, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull align 8 %ref.tmp19, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull %null_count, ptr noundef nonnull %null_bitmap)
+  invoke fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias align 8 %ref.tmp19, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef %null_count, ptr noundef %null_bitmap)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad20
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %invoke.cont17
@@ -59430,9 +59429,6 @@ declare i64 @llvm.smax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20

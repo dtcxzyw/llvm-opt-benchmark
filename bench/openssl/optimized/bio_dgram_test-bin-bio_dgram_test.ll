@@ -397,7 +397,7 @@ if.end140.i:                                      ; preds = %if.end134.i
   %peer151.i = getelementptr inbounds i8, ptr %tx_msg.i, i64 56
   %local153.i = getelementptr inbounds i8, ptr %tx_msg.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %peer151.i, i8 0, i64 24, i1 false)
-  %call157.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef nonnull %tx_msg.i, i64 noundef 2, ptr noundef nonnull %num_processed.i)
+  %call157.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef %tx_msg.i, i64 noundef 2, ptr noundef %num_processed.i)
   %call160.i = call i32 @test_false(ptr noundef nonnull @.str, i32 noundef 250, ptr noundef nonnull @.str.39, i32 noundef %call157.i) #6
   %tobool161.not.i = icmp eq i32 %call160.i, 0
   br i1 %tobool161.not.i, label %err.i, label %lor.lhs.false162.i
@@ -413,7 +413,7 @@ if.end166.i:                                      ; preds = %lor.lhs.false162.i
   store ptr %call5.i, ptr %local.i, align 8
   store ptr %call9.i, ptr %peer151.i, align 8
   store ptr %call5.i, ptr %local153.i, align 16
-  %call176.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef nonnull %tx_msg.i, i64 noundef 2, ptr noundef nonnull %num_processed.i)
+  %call176.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef %tx_msg.i, i64 noundef 2, ptr noundef %num_processed.i)
   %tobool177.not.i = icmp eq i32 %call176.i, 0
   br i1 %tobool177.not.i, label %lor.rhs.i, label %lor.end.i
 
@@ -451,7 +451,7 @@ if.else198.i:                                     ; preds = %if.end185.i
   br label %if.end203.i
 
 if.end203.i:                                      ; preds = %if.else198.i, %if.then191.i
-  %call205.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef nonnull %tx_msg.i, i64 noundef 2, ptr noundef nonnull %num_processed.i)
+  %call205.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef %tx_msg.i, i64 noundef 2, ptr noundef %num_processed.i)
   %call208.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @.str.39, i32 noundef %call205.i) #6
   %tobool209.not.i = icmp eq i32 %call208.i, 0
   br i1 %tobool209.not.i, label %err.i, label %lor.lhs.false210.i
@@ -484,7 +484,7 @@ if.end214.i:                                      ; preds = %lor.lhs.false210.i
   %flags237.i = getelementptr inbounds i8, ptr %rx_msg.i, i64 72
   store i64 2147483648, ptr %flags237.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %rx_buf2.i, i8 0, i64 128, i1 false)
-  %call240.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef nonnull %rx_msg.i, i64 noundef 2, ptr noundef nonnull %num_processed.i)
+  %call240.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef %rx_msg.i, i64 noundef 2, ptr noundef %num_processed.i)
   %call243.i = call i32 @test_false(ptr noundef nonnull @.str, i32 noundef 300, ptr noundef nonnull @.str.44, i32 noundef %call240.i) #6
   %tobool244.not.i = icmp eq i32 %call243.i, 0
   br i1 %tobool244.not.i, label %err.i, label %lor.lhs.false245.i
@@ -541,7 +541,7 @@ if.else289.i:                                     ; preds = %if.end275.i
   br label %if.end294.i
 
 if.end294.i:                                      ; preds = %if.else289.i, %if.then282.i
-  %call296.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef nonnull %rx_msg.i, i64 noundef 2, ptr noundef nonnull %num_processed.i)
+  %call296.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef %rx_msg.i, i64 noundef 2, ptr noundef %num_processed.i)
   %call299.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @.str.44, i32 noundef %call296.i) #6
   %tobool300.not.i = icmp eq i32 %call299.i, 0
   br i1 %tobool300.not.i, label %err.i, label %lor.lhs.false301.i
@@ -593,7 +593,7 @@ if.end338.i:                                      ; preds = %if.end333.i
   br i1 %tobool341.not.i, label %err.i, label %if.end343.i
 
 if.end343.i:                                      ; preds = %if.end338.i
-  %call345.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef nonnull %tx_msg.i, i64 noundef 2, ptr noundef nonnull %num_processed.i)
+  %call345.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef %tx_msg.i, i64 noundef 2, ptr noundef %num_processed.i)
   %call348.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 359, ptr noundef nonnull @.str.39, i32 noundef %call345.i) #6
   %tobool349.not.i = icmp eq i32 %call348.i, 0
   br i1 %tobool349.not.i, label %err.i, label %lor.lhs.false350.i
@@ -607,7 +607,7 @@ lor.lhs.false350.i:                               ; preds = %if.end343.i
 if.end354.i:                                      ; preds = %lor.lhs.false350.i
   store i64 128, ptr %data_len219.i, align 8
   store i64 128, ptr %data_len231.i, align 16
-  %call360.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef nonnull %rx_msg.i, i64 noundef 2, ptr noundef nonnull %num_processed.i)
+  %call360.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef %rx_msg.i, i64 noundef 2, ptr noundef %num_processed.i)
   %call363.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 367, ptr noundef nonnull @.str.44, i32 noundef %call360.i) #6
   %tobool364.not.i = icmp eq i32 %call363.i, 0
   br i1 %tobool364.not.i, label %err.i, label %lor.lhs.false365.i
@@ -659,7 +659,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i
-  %call403.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef nonnull %tx_msg.i, i64 noundef 128, ptr noundef nonnull %num_processed.i)
+  %call403.i = call fastcc i32 @do_sendmmsg(ptr noundef %call82.i, ptr noundef %tx_msg.i, i64 noundef 128, ptr noundef %num_processed.i)
   %call406.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 392, ptr noundef nonnull @.str.59, i32 noundef %call403.i) #6
   %tobool407.not.i = icmp eq i32 %call406.i, 0
   br i1 %tobool407.not.i, label %err.i, label %lor.lhs.false408.i
@@ -688,7 +688,7 @@ for.body416.i:                                    ; preds = %for.body416.i, %for
   br i1 %exitcond109.not.i, label %for.end432.i, label %for.body416.i, !llvm.loop !7
 
 for.end432.i:                                     ; preds = %for.body416.i
-  %call434.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef nonnull %rx_msg.i, i64 noundef 128, ptr noundef nonnull %num_processed.i)
+  %call434.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef %rx_msg.i, i64 noundef 128, ptr noundef %num_processed.i)
   %call437.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 408, ptr noundef nonnull @.str.61, i32 noundef %call434.i) #6
   %tobool438.not.i = icmp eq i32 %call437.i, 0
   br i1 %tobool438.not.i, label %err.i, label %lor.lhs.false439.i
@@ -858,7 +858,7 @@ for.cond47.preheader:                             ; preds = %if.end42
 for.body50:                                       ; preds = %for.cond47.preheader, %if.end69
   %total.077 = phi i64 [ 0, %for.cond47.preheader ], [ %add71, %if.end69 ]
   %i.176 = phi i64 [ 0, %for.cond47.preheader ], [ %inc73, %if.end69 ]
-  %call53 = call fastcc i32 @random_data(ptr noundef nonnull %key, ptr noundef nonnull %scratch, i64 noundef %i.176)
+  %call53 = call fastcc i32 @random_data(ptr noundef %key, ptr noundef %scratch, i64 noundef %i.176)
   %call54 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 552, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.13, i32 noundef %call53, i32 noundef 1) #6
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %err, label %if.end57
@@ -921,7 +921,7 @@ for.cond93:                                       ; preds = %if.end112
 
 for.body96:                                       ; preds = %for.cond93.preheader, %for.cond93
   %i.279 = phi i64 [ %inc123, %for.cond93 ], [ 0, %for.cond93.preheader ]
-  %call99 = call fastcc i32 @random_data(ptr noundef nonnull %key, ptr noundef nonnull %scratch, i64 noundef %i.279)
+  %call99 = call fastcc i32 @random_data(ptr noundef %key, ptr noundef %scratch, i64 noundef %i.279)
   %call100 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 585, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.13, i32 noundef %call99, i32 noundef 1) #6
   %tobool101.not = icmp eq i32 %call100, 0
   br i1 %tobool101.not, label %err, label %if.end103
@@ -950,7 +950,7 @@ for.end124:                                       ; preds = %for.cond93, %for.co
   br i1 %tobool128.not, label %err, label %if.end130
 
 if.end130:                                        ; preds = %for.end124
-  %call133 = call fastcc i32 @random_data(ptr noundef nonnull %key, ptr noundef nonnull %scratch, i64 noundef 0)
+  %call133 = call fastcc i32 @random_data(ptr noundef %key, ptr noundef %scratch, i64 noundef 0)
   %call134 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 602, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.13, i32 noundef %call133, i32 noundef 1) #6
   %tobool135.not = icmp eq i32 %call134, 0
   br i1 %tobool135.not, label %err, label %if.end137
@@ -1447,28 +1447,26 @@ return:                                           ; preds = %if.end23, %if.end19
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_sendmmsg(ptr noundef %b, ptr noundef %msg, i64 noundef %num_msg, ptr noundef %num_processed) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_sendmmsg(ptr noundef %b, ptr noundef nonnull %msg, i64 noundef range(i64 2, 129) %num_msg, ptr noundef nonnull %num_processed) unnamed_addr #0 {
 entry:
-  %cmp9.not = icmp eq i64 %num_msg, 0
-  br i1 %cmp9.not, label %for.end, label %for.body
+  br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
-  %done.010 = phi i64 [ %add, %if.end ], [ 0, %entry ]
-  %add.ptr = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 %done.010
-  %sub = sub nuw nsw i64 %num_msg, %done.010
-  %call = tail call i32 @BIO_sendmmsg(ptr noundef %b, ptr noundef %add.ptr, i64 noundef 40, i64 noundef %sub, i64 noundef 0, ptr noundef %num_processed) #6
+  %done.09 = phi i64 [ 0, %entry ], [ %add, %if.end ]
+  %add.ptr = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 %done.09
+  %sub = sub nuw nsw i64 %num_msg, %done.09
+  %call = tail call i32 @BIO_sendmmsg(ptr noundef %b, ptr noundef nonnull %add.ptr, i64 noundef 40, i64 noundef %sub, i64 noundef 0, ptr noundef nonnull %num_processed) #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
   %0 = load i64, ptr %num_processed, align 8
-  %add = add i64 %0, %done.010
+  %add = add i64 %0, %done.09
   %cmp = icmp ult i64 %add, %num_msg
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
-for.end:                                          ; preds = %if.end, %entry
-  %done.0.lcssa = phi i64 [ 0, %entry ], [ %add, %if.end ]
-  store i64 %done.0.lcssa, ptr %num_processed, align 8
+for.end:                                          ; preds = %if.end
+  store i64 %add, ptr %num_processed, align 8
   br label %return
 
 return:                                           ; preds = %for.body, %for.end
@@ -1481,28 +1479,26 @@ declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_recvmmsg(ptr noundef %b, ptr noundef %msg, i64 noundef %num_msg, ptr noundef %num_processed) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_recvmmsg(ptr noundef %b, ptr noundef nonnull %msg, i64 noundef range(i64 2, 129) %num_msg, ptr noundef nonnull %num_processed) unnamed_addr #0 {
 entry:
-  %cmp9.not = icmp eq i64 %num_msg, 0
-  br i1 %cmp9.not, label %for.end, label %for.body
+  br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
-  %done.010 = phi i64 [ %add, %if.end ], [ 0, %entry ]
-  %add.ptr = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 %done.010
-  %sub = sub nuw nsw i64 %num_msg, %done.010
-  %call = tail call i32 @BIO_recvmmsg(ptr noundef %b, ptr noundef %add.ptr, i64 noundef 40, i64 noundef %sub, i64 noundef 0, ptr noundef %num_processed) #6
+  %done.09 = phi i64 [ 0, %entry ], [ %add, %if.end ]
+  %add.ptr = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 %done.09
+  %sub = sub nuw nsw i64 %num_msg, %done.09
+  %call = tail call i32 @BIO_recvmmsg(ptr noundef %b, ptr noundef nonnull %add.ptr, i64 noundef 40, i64 noundef %sub, i64 noundef 0, ptr noundef nonnull %num_processed) #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
   %0 = load i64, ptr %num_processed, align 8
-  %add = add i64 %0, %done.010
+  %add = add i64 %0, %done.09
   %cmp = icmp ult i64 %add, %num_msg
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
-for.end:                                          ; preds = %if.end, %entry
-  %done.0.lcssa = phi i64 [ 0, %entry ], [ %add, %if.end ]
-  store i64 %done.0.lcssa, ptr %num_processed, align 8
+for.end:                                          ; preds = %if.end
+  store i64 %add, ptr %num_processed, align 8
   br label %return
 
 return:                                           ; preds = %for.body, %for.end
@@ -1540,7 +1536,7 @@ declare ptr @BIO_s_dgram_mem() local_unnamed_addr #1
 declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @random_data(ptr noundef %key, ptr noundef %data, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @random_data(ptr noundef nonnull %key, ptr noundef nonnull %data, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %outl = alloca i32, align 4
   %counter = alloca [4 x i32], align 16
@@ -1557,7 +1553,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %err, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %call7 = call i32 @EVP_EncryptInit_ex2(ptr noundef nonnull %call, ptr noundef nonnull %call2, ptr noundef %key, ptr noundef nonnull %counter, ptr noundef null) #6
+  %call7 = call i32 @EVP_EncryptInit_ex2(ptr noundef nonnull %call, ptr noundef nonnull %call2, ptr noundef nonnull %key, ptr noundef nonnull %counter, ptr noundef null) #6
   %cmp8 = icmp eq i32 %call7, 0
   br i1 %cmp8, label %err, label %while.body
 

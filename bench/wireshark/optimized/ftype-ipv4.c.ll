@@ -143,21 +143,34 @@ define internal noalias ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef r
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %10 [
-    i32 0, label %13
-    i32 -1, label %13
+    i32 0, label %26
+    i32 -1, label %26
   ]
 
 10:                                               ; preds = %4
-  %11 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
-  %12 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %5, i32 noundef %11) #7
-  br label %15
+  %11 = zext i32 %9 to i64
+  %12 = lshr i64 %11, 1
+  %13 = and i64 %12, 1431655765
+  %14 = sub nsw i64 %11, %13
+  %15 = and i64 %14, 3689348814741910323
+  %16 = lshr i64 %14, 2
+  %17 = and i64 %16, 3689348814741910323
+  %18 = add nuw nsw i64 %17, %15
+  %19 = lshr i64 %18, 4
+  %20 = add nuw nsw i64 %19, %18
+  %21 = and i64 %20, 1085102592571150095
+  %22 = mul i64 %21, 72340172838076673
+  %23 = lshr i64 %22, 56
+  %24 = trunc nuw nsw i64 %23 to i32
+  %25 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %5, i32 noundef %24) #7
+  br label %28
 
-13:                                               ; preds = %4, %4
-  %14 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %5) #7
-  br label %15
+26:                                               ; preds = %4, %4
+  %27 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %5) #7
+  br label %28
 
-15:                                               ; preds = %13, %10
-  %.0 = phi ptr [ %12, %10 ], [ %14, %13 ]
+28:                                               ; preds = %26, %10
+  %.0 = phi ptr [ %25, %10 ], [ %27, %26 ]
   ret ptr %.0
 }
 
@@ -295,9 +308,6 @@ declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

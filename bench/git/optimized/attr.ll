@@ -2007,7 +2007,7 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_attr(ptr noundef %istate, ptr noundef %tree_oid, ptr noundef %path, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc ptr @read_attr(ptr noundef %istate, ptr noundef %tree_oid, ptr noundef %path, i32 noundef range(i32 2, 4) %flags) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @direction, align 4
   %cmp = icmp eq i32 %0, 2
@@ -2072,13 +2072,12 @@ if.end29:                                         ; preds = %if.then15, %if.then
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_attr_from_file(ptr noundef %path, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc ptr @read_attr_from_file(ptr noundef %path, i32 noundef range(i32 1, 4) %flags) unnamed_addr #1 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %st = alloca %struct.stat, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.read_attr_from_file.buf, i64 24, i1 false)
-  %and = and i32 %flags, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %tobool.not = icmp ult i32 %flags, 2
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -2185,7 +2184,7 @@ return:                                           ; preds = %while.end, %_.exit1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @handle_attr_line(ptr nocapture noundef %res, ptr noundef %line, ptr noundef %src, i32 noundef %lineno, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc void @handle_attr_line(ptr nocapture noundef %res, ptr noundef %line, ptr noundef %src, i32 noundef range(i32 -2147483647, -2147483648) %lineno, i32 noundef range(i32 1, 4) %flags) unnamed_addr #1 {
 entry:
   %err.i = alloca %struct.strbuf, align 8
   %states.i = alloca ptr, align 8
@@ -2559,7 +2558,7 @@ declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @fprintf_ln(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_attr(ptr noundef %src, i32 noundef %lineno, ptr noundef %cp, ptr noundef writeonly %e) unnamed_addr #1 {
+define internal fastcc ptr @parse_attr(ptr noundef %src, i32 noundef range(i32 -2147483647, -2147483648) %lineno, ptr noundef %cp, ptr noundef writeonly %e) unnamed_addr #1 {
 entry:
   %err.i = alloca %struct.strbuf, align 8
   %call = tail call i64 @strcspn(ptr noundef %cp, ptr noundef nonnull @blank) #20
@@ -2742,7 +2741,7 @@ declare ptr @git_pathdup(ptr noundef, ...) local_unnamed_addr #3
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_attr_from_index(ptr noundef %istate, ptr noundef %path, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc ptr @read_attr_from_index(ptr noundef %istate, ptr noundef %path, i32 noundef range(i32 2, 4) %flags) unnamed_addr #1 {
 entry:
   %size = alloca i64, align 8
   %tobool.not = icmp eq ptr %istate, null
@@ -2832,7 +2831,7 @@ for.body.i:                                       ; preds = %if.end41, %for.body
   br i1 %tobool1.not.i26, label %read_attr_from_buf.exit, label %for.body.i, !llvm.loop !31
 
 read_attr_from_buf.exit:                          ; preds = %for.body.i, %if.end41
-  call void @free(ptr noundef %call33) #21
+  call void @free(ptr noundef nonnull %call33) #21
   br label %return
 
 return:                                           ; preds = %if.then24, %read_attr_from_buf.exit, %if.else, %entry, %_.exit
@@ -2841,7 +2840,7 @@ return:                                           ; preds = %if.then24, %read_at
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_attr_from_blob(ptr nocapture noundef readonly %istate, ptr noundef %tree_oid, ptr noundef %path, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc ptr @read_attr_from_blob(ptr nocapture noundef readonly %istate, ptr noundef %tree_oid, ptr noundef %path, i32 noundef range(i32 2, 4) %flags) unnamed_addr #1 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %sz = alloca i64, align 8
@@ -2864,13 +2863,17 @@ if.end3:                                          ; preds = %if.end
   %2 = load i32, ptr %type, align 4
   %cmp = icmp ne i32 %2, 3
   %or.cond = select i1 %tobool6, i1 true, i1 %cmp
-  br i1 %or.cond, label %return.sink.split, label %if.end8
+  br i1 %or.cond, label %if.then7, label %if.end8
+
+if.then7:                                         ; preds = %if.end3
+  call void @free(ptr noundef %call5) #21
+  br label %return
 
 if.end8:                                          ; preds = %if.end3
   %call.i = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #21
   %3 = load i8, ptr %call5, align 1
   %tobool1.not8.i = icmp eq i8 %3, 0
-  br i1 %tobool1.not8.i, label %return.sink.split, label %for.body.i
+  br i1 %tobool1.not8.i, label %read_attr_from_buf.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end8, %for.body.i
   %sp.010.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %call5, %if.end8 ]
@@ -2885,15 +2888,14 @@ for.body.i:                                       ; preds = %if.end8, %for.body.
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 %idx.ext.i
   %5 = load i8, ptr %add.ptr.i, align 1
   %tobool1.not.i = icmp eq i8 %5, 0
-  br i1 %tobool1.not.i, label %return.sink.split, label %for.body.i, !llvm.loop !31
+  br i1 %tobool1.not.i, label %read_attr_from_buf.exit, label %for.body.i, !llvm.loop !31
 
-return.sink.split:                                ; preds = %for.body.i, %if.end8, %if.end3
-  %retval.0.ph = phi ptr [ null, %if.end3 ], [ %call.i, %if.end8 ], [ %call.i, %for.body.i ]
-  call void @free(ptr noundef %call5) #21
+read_attr_from_buf.exit:                          ; preds = %for.body.i, %if.end8
+  call void @free(ptr noundef nonnull %call5) #21
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %if.end, %entry, %read_attr_from_buf.exit, %if.then7
+  %retval.0 = phi ptr [ null, %if.then7 ], [ %call.i, %read_attr_from_buf.exit ], [ null, %entry ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -2915,11 +2917,11 @@ declare ptr @hashmap_iter_next(ptr noundef) local_unnamed_addr #3
 declare void @hashmap_iter_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @fill_one(ptr nocapture noundef %all_attrs, ptr nocapture noundef readonly %a, i32 noundef %rem) unnamed_addr #14 {
+define internal fastcc range(i32 0, -2147483648) i32 @fill_one(ptr nocapture noundef %all_attrs, ptr nocapture noundef readonly %a, i32 noundef range(i32 0, -2147483648) %rem) unnamed_addr #14 {
 entry:
   %num_attr = getelementptr inbounds i8, ptr %a, i64 32
   %0 = load i64, ptr %num_attr, align 8
-  %cmp12 = icmp sgt i32 %rem, 0
+  %cmp12 = icmp ne i32 %rem, 0
   %cmp113 = icmp ne i64 %0, 0
   %1 = select i1 %cmp12, i1 %cmp113, i1 false
   br i1 %1, label %for.body.lr.ph, label %for.end

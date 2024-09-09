@@ -99,7 +99,7 @@ define internal fastcc i64 @get_expanded_load_path(ptr nocapture noundef %0) unn
 13:                                               ; preds = %1
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
-  call fastcc void @rb_construct_expanded_load_path(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @rb_construct_expanded_load_path(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   %14 = load i32, ptr %2, align 4
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %18, label %15
@@ -135,7 +135,7 @@ define internal fastcc i64 @get_expanded_load_path(ptr nocapture noundef %0) unn
 26:                                               ; preds = %23
   store i32 1, ptr %4, align 4
   store i32 1, ptr %5, align 4
-  call fastcc void @rb_construct_expanded_load_path(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @rb_construct_expanded_load_path(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %4, ptr noundef %5)
   br label %33
 
 27:                                               ; preds = %23
@@ -149,11 +149,11 @@ define internal fastcc i64 @get_expanded_load_path(ptr nocapture noundef %0) unn
 
 31:                                               ; preds = %27
   store i64 %28, ptr %24, align 8
-  call fastcc void @rb_construct_expanded_load_path(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @rb_construct_expanded_load_path(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %6, ptr noundef %7)
   br label %33
 
 32:                                               ; preds = %27
-  call fastcc void @rb_construct_expanded_load_path(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @rb_construct_expanded_load_path(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %6, ptr noundef %7)
   br label %33
 
 33:                                               ; preds = %23, %26, %31, %32, %15, %22, %21
@@ -920,7 +920,7 @@ define hidden i64 @rb_resolve_feature_path(i64 %0, i64 noundef %1) #0 {
   %5 = tail call i64 @rb_str_encode_ospath(i64 noundef %4) #6
   store i64 %5, ptr %3, align 8
   %6 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %7 = call fastcc i32 @search_required(ptr noundef %6, i64 noundef %5, ptr noundef nonnull %3, ptr noundef nonnull @no_feature_p)
+  %7 = call fastcc i32 @search_required(ptr noundef %6, i64 noundef %5, ptr noundef %3, ptr noundef nonnull @no_feature_p)
   switch i32 %7, label %15 [
     i32 114, label %8
     i32 115, label %10
@@ -963,7 +963,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i11, %.lr.ph
 declare i64 @rb_str_encode_ospath(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @search_required(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @search_required(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   store volatile i64 0, ptr %2, align 8
@@ -1311,7 +1311,7 @@ define hidden i32 @rb_require_internal_silent(i64 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @require_internal(ptr noundef %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc i32 @require_internal(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -1516,7 +1516,7 @@ RSTRING_PTR.exit116:                              ; preds = %87, %93
 
 95:                                               ; preds = %84, %RSTRING_PTR.exit116
   %96 = load ptr, ptr %28, align 8
-  %97 = call fastcc i32 @search_required(ptr noundef %96, i64 noundef %32, ptr noundef nonnull %11, ptr noundef nonnull @rb_feature_p)
+  %97 = call fastcc i32 @search_required(ptr noundef %96, i64 noundef %32, ptr noundef %11, ptr noundef nonnull @rb_feature_p)
   %98 = load i16, ptr @ruby_find__require__return_semaphore, align 2
   %.not92 = icmp eq i16 %98, 0
   br i1 %.not92, label %107, label %99
@@ -2879,7 +2879,7 @@ declare void @rb_gc_register_mark_object(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_ary_shared_with_p(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rb_construct_expanded_load_path(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @rb_construct_expanded_load_path(ptr nocapture noundef %0, i32 noundef range(i32 0, 4) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 568
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 592
@@ -2968,10 +2968,11 @@ RSTRING_PTR.exit:                                 ; preds = %45, %51
   br i1 %.0, label %52, label %64
 
 52:                                               ; preds = %RSTRING_PTR.exit
-  switch i32 %1, label %64 [
+  switch i32 %1, label %default.unreachable [
     i32 1, label %53
     i32 2, label %55
     i32 3, label %57
+    i32 0, label %64
   ]
 
 53:                                               ; preds = %52
@@ -2999,6 +3000,9 @@ RARRAY_AREF.exit78:                               ; preds = %57, %60
   %62 = getelementptr i64, ptr %.0.i.i77, i64 %.063
   %63 = load i64, ptr %62, align 8
   br label %81
+
+default.unreachable:                              ; preds = %52
+  unreachable
 
 64:                                               ; preds = %53, %55, %52, %RSTRING_PTR.exit
   %65 = load i32, ptr %2, align 4
@@ -3226,7 +3230,7 @@ rb_array_len.exit48:                              ; preds = %50, %53
 declare i64 @rb_ary_clear(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @features_index_add(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @features_index_add(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = alloca %struct.features_index_add_single_args, align 8
   %5 = alloca %struct.features_index_add_single_args, align 8
   %6 = alloca %struct.features_index_add_single_args, align 8
@@ -3276,7 +3280,7 @@ thread-pre-split:                                 ; preds = %18, %3
   %.0 = phi i8 [ %25, %22 ], [ 0, %.loopexit ]
   %.not47 = icmp eq ptr %.144, null
   %27 = and i64 %2, 1
-  %.not31.i.i = icmp eq i64 %27, 0
+  %.not32.i.i = icmp eq i64 %27, 0
   %28 = ptrtoint ptr %14 to i64
   %29 = getelementptr i8, ptr %0, i64 632
   %30 = getelementptr inbounds i8, ptr %7, i64 8
@@ -3286,7 +3290,7 @@ thread-pre-split:                                 ; preds = %18, %3
   %34 = getelementptr inbounds i8, ptr %6, i64 8
   %35 = getelementptr inbounds i8, ptr %6, i64 16
   %36 = ptrtoint ptr %6 to i64
-  br i1 %.not31.i.i, label %.split.us.preheader, label %.split
+  br i1 %.not32.i.i, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %26
   %37 = select i1 %.not47, ptr %14, ptr %.144
@@ -3378,7 +3382,7 @@ thread-pre-split:                                 ; preds = %18, %3
 
 .split68.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  br i1 %.not31.i.i, label %.critedge.i.i56, label %features_index_add_single.exit57
+  br i1 %.not32.i.i, label %.critedge.i.i56, label %features_index_add_single.exit57
 
 .critedge.i.i56:                                  ; preds = %.split68.us
   call void @rb_unexpected_type(i64 noundef %2, i32 noundef 21) #25

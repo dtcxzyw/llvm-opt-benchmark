@@ -1025,7 +1025,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %152 = getelementptr inbounds i8, ptr %29, i64 24
   %153 = getelementptr inbounds i8, ptr %29, i64 28
   store i32 0, ptr %153, align 4
-  tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %152, ptr noundef nonnull %18)
+  tail call fastcc void @Vec_IntAppend(ptr noundef %152, ptr noundef nonnull %18)
   %.pre = load ptr, ptr %22, align 8
   br label %154
 
@@ -1097,7 +1097,7 @@ Vec_PtrFree.exit:                                 ; preds = %Vec_StrFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntAppend(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val67 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val67, 0
@@ -1657,7 +1657,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %194 = getelementptr inbounds i8, ptr %29, i64 24
   %195 = getelementptr inbounds i8, ptr %29, i64 28
   store i32 0, ptr %195, align 4
-  tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %194, ptr noundef nonnull %18)
+  tail call fastcc void @Vec_IntAppend(ptr noundef %194, ptr noundef nonnull %18)
   %.pre = load ptr, ptr %22, align 8
   br label %196
 
@@ -2238,7 +2238,7 @@ Vec_IntPush.exit145:                              ; preds = %.Vec_IntGrow.exit10
   %202 = getelementptr inbounds i8, ptr %29, i64 24
   %203 = getelementptr inbounds i8, ptr %29, i64 28
   store i32 0, ptr %203, align 4
-  tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %202, ptr noundef nonnull %14)
+  tail call fastcc void @Vec_IntAppend(ptr noundef %202, ptr noundef nonnull %14)
   %.pre = load ptr, ptr %22, align 8
   br label %204
 

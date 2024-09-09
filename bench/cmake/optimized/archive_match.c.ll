@@ -253,7 +253,7 @@ define dso_local i32 @archive_match_excluded(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not26, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call fastcc i32 @time_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %19 = tail call fastcc i32 @time_excluded(ptr noundef nonnull %0, ptr noundef %1)
   %.not27 = icmp eq i32 %19, 0
   br i1 %.not27, label %._crit_edge29, label %25
 
@@ -268,7 +268,7 @@ define dso_local i32 @archive_match_excluded(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not28, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call fastcc i32 @owner_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %24 = tail call fastcc i32 @owner_excluded(ptr noundef nonnull %0, ptr noundef %1)
   br label %25
 
 25:                                               ; preds = %20, %23, %18, %12, %2, %7
@@ -487,23 +487,23 @@ match_path_inclusion.exit53:                      ; preds = %57
 declare ptr @archive_entry_pathname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %33, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @archive_entry_ctime_is_set(ptr noundef %1) #13
+  %6 = tail call i32 @archive_entry_ctime_is_set(ptr noundef nonnull %1) #13
   %.not119 = icmp eq i32 %6, 0
   br i1 %.not119, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @archive_entry_ctime(ptr noundef %1) #13
+  %8 = tail call i64 @archive_entry_ctime(ptr noundef nonnull %1) #13
   br label %11
 
 9:                                                ; preds = %5
-  %10 = tail call i64 @archive_entry_mtime(ptr noundef %1) #13
+  %10 = tail call i64 @archive_entry_mtime(ptr noundef nonnull %1) #13
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -518,16 +518,16 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %16, label %17, label %33
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @archive_entry_ctime_is_set(ptr noundef %1) #13
+  %18 = tail call i32 @archive_entry_ctime_is_set(ptr noundef nonnull %1) #13
   %.not120 = icmp eq i32 %18, 0
   br i1 %.not120, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i64 @archive_entry_ctime_nsec(ptr noundef %1) #13
+  %20 = tail call i64 @archive_entry_ctime_nsec(ptr noundef nonnull %1) #13
   br label %23
 
 21:                                               ; preds = %17
-  %22 = tail call i64 @archive_entry_mtime_nsec(ptr noundef %1) #13
+  %22 = tail call i64 @archive_entry_mtime_nsec(ptr noundef nonnull %1) #13
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -554,16 +554,16 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %.not121, label %64, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @archive_entry_ctime_is_set(ptr noundef %1) #13
+  %37 = tail call i32 @archive_entry_ctime_is_set(ptr noundef nonnull %1) #13
   %.not122 = icmp eq i32 %37, 0
   br i1 %.not122, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call i64 @archive_entry_ctime(ptr noundef %1) #13
+  %39 = tail call i64 @archive_entry_ctime(ptr noundef nonnull %1) #13
   br label %42
 
 40:                                               ; preds = %36
-  %41 = tail call i64 @archive_entry_mtime(ptr noundef %1) #13
+  %41 = tail call i64 @archive_entry_mtime(ptr noundef nonnull %1) #13
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -578,16 +578,16 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %47, label %48, label %64
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @archive_entry_ctime_is_set(ptr noundef %1) #13
+  %49 = tail call i32 @archive_entry_ctime_is_set(ptr noundef nonnull %1) #13
   %.not123 = icmp eq i32 %49, 0
   br i1 %.not123, label %52, label %50
 
 50:                                               ; preds = %48
-  %51 = tail call i64 @archive_entry_ctime_nsec(ptr noundef %1) #13
+  %51 = tail call i64 @archive_entry_ctime_nsec(ptr noundef nonnull %1) #13
   br label %54
 
 52:                                               ; preds = %48
-  %53 = tail call i64 @archive_entry_mtime_nsec(ptr noundef %1) #13
+  %53 = tail call i64 @archive_entry_mtime_nsec(ptr noundef nonnull %1) #13
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -614,7 +614,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %.not124, label %85, label %67
 
 67:                                               ; preds = %64
-  %68 = tail call i64 @archive_entry_mtime(ptr noundef %1) #13
+  %68 = tail call i64 @archive_entry_mtime(ptr noundef nonnull %1) #13
   %69 = getelementptr inbounds i8, ptr %0, i64 248
   %70 = load i64, ptr %69, align 8
   %71 = icmp slt i64 %68, %70
@@ -625,7 +625,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %73, label %74, label %85
 
 74:                                               ; preds = %72
-  %75 = tail call i64 @archive_entry_mtime_nsec(ptr noundef %1) #13
+  %75 = tail call i64 @archive_entry_mtime_nsec(ptr noundef nonnull %1) #13
   %76 = getelementptr inbounds i8, ptr %0, i64 256
   %77 = load i64, ptr %76, align 8
   %78 = icmp slt i64 %75, %77
@@ -648,14 +648,14 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %.not125, label %107, label %88
 
 88:                                               ; preds = %85
-  %89 = tail call i64 @archive_entry_mtime(ptr noundef %1) #13
+  %89 = tail call i64 @archive_entry_mtime(ptr noundef nonnull %1) #13
   %90 = getelementptr inbounds i8, ptr %0, i64 296
   %91 = load i64, ptr %90, align 8
   %92 = icmp sgt i64 %89, %91
   br i1 %92, label %183, label %93
 
 93:                                               ; preds = %88
-  %94 = tail call i64 @archive_entry_mtime_nsec(ptr noundef %1) #13
+  %94 = tail call i64 @archive_entry_mtime_nsec(ptr noundef nonnull %1) #13
   %95 = load i64, ptr %90, align 8
   %96 = icmp eq i64 %89, %95
   br i1 %96, label %97, label %107
@@ -683,7 +683,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %110, label %183, label %111
 
 111:                                              ; preds = %107
-  %112 = tail call ptr @archive_entry_pathname(ptr noundef %1) #13
+  %112 = tail call ptr @archive_entry_pathname(ptr noundef nonnull %1) #13
   %113 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr @rb_ops_mbs, ptr %113, align 8
   %114 = icmp eq ptr %112, null
@@ -703,7 +703,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %.not126, label %151, label %123
 
 123:                                              ; preds = %119
-  %124 = tail call i64 @archive_entry_ctime(ptr noundef %1) #13
+  %124 = tail call i64 @archive_entry_ctime(ptr noundef nonnull %1) #13
   %125 = getelementptr inbounds i8, ptr %117, i64 160
   %126 = load i64, ptr %125, align 8
   %127 = icmp sgt i64 %126, %124
@@ -726,7 +726,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %.not130, label %151, label %183
 
 136:                                              ; preds = %131
-  %137 = tail call i64 @archive_entry_ctime_nsec(ptr noundef %1) #13
+  %137 = tail call i64 @archive_entry_ctime_nsec(ptr noundef nonnull %1) #13
   %138 = getelementptr inbounds i8, ptr %117, i64 168
   %139 = load i64, ptr %138, align 8
   %140 = icmp sgt i64 %139, %137
@@ -760,7 +760,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %.not132, label %182, label %154
 
 154:                                              ; preds = %151
-  %155 = tail call i64 @archive_entry_mtime(ptr noundef %1) #13
+  %155 = tail call i64 @archive_entry_mtime(ptr noundef nonnull %1) #13
   %156 = getelementptr inbounds i8, ptr %117, i64 144
   %157 = load i64, ptr %156, align 8
   %158 = icmp sgt i64 %157, %155
@@ -783,7 +783,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
   br i1 %.not136, label %182, label %183
 
 167:                                              ; preds = %162
-  %168 = tail call i64 @archive_entry_mtime_nsec(ptr noundef %1) #13
+  %168 = tail call i64 @archive_entry_mtime_nsec(ptr noundef nonnull %1) #13
   %169 = getelementptr inbounds i8, ptr %117, i64 152
   %170 = load i64, ptr %169, align 8
   %171 = icmp sgt i64 %170, %168
@@ -819,7 +819,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 2) i32 @owner_excluded(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 2) i32 @owner_excluded(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 384
@@ -828,7 +828,7 @@ define internal fastcc range(i32 -30, 2) i32 @owner_excluded(ptr noundef %0, ptr
   br i1 %.not, label %match_owner_id.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @archive_entry_uid(ptr noundef %1) #13
+  %8 = tail call i64 @archive_entry_uid(ptr noundef nonnull %1) #13
   %9 = load i64, ptr %5, align 8
   %10 = trunc i64 %9 to i32
   %.not.i = icmp eq i32 %10, 0
@@ -865,7 +865,7 @@ match_owner_id.exit:                              ; preds = %13, %2
   br i1 %.not23, label %match_owner_id.exit36, label %26
 
 26:                                               ; preds = %match_owner_id.exit
-  %27 = tail call i64 @archive_entry_gid(ptr noundef %1) #13
+  %27 = tail call i64 @archive_entry_gid(ptr noundef nonnull %1) #13
   %28 = load i64, ptr %24, align 8
   %29 = trunc i64 %28 to i32
   %.not.i29 = icmp eq i32 %29, 0
@@ -903,7 +903,7 @@ match_owner_id.exit36:                            ; preds = %32, %match_owner_id
 
 45:                                               ; preds = %match_owner_id.exit36
   %46 = getelementptr inbounds i8, ptr %0, i64 424
-  %47 = tail call ptr @archive_entry_uname(ptr noundef %1) #13
+  %47 = tail call ptr @archive_entry_uname(ptr noundef nonnull %1) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %48 = icmp eq ptr %47, null
   br i1 %48, label %match_owner_name_mbs.exit.thread, label %49
@@ -973,7 +973,7 @@ match_owner_name_mbs.exit.thread:                 ; preds = %65, %49, %45, %.pre
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds i8, ptr %0, i64 464
-  %75 = call ptr @archive_entry_gname(ptr noundef %1) #13
+  %75 = call ptr @archive_entry_gname(ptr noundef nonnull %1) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %match_owner_name_mbs.exit48.thread, label %77
@@ -1252,7 +1252,7 @@ define dso_local i32 @archive_match_exclude_pattern_from_file(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.archive_string, align 8
   %8 = alloca ptr, align 8
@@ -2904,7 +2904,7 @@ define dso_local range(i32 -30, 2) i32 @archive_match_time_excluded(ptr noundef 
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call fastcc i32 @time_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %14 = tail call fastcc i32 @time_excluded(ptr noundef nonnull %0, ptr noundef %1)
   br label %15
 
 15:                                               ; preds = %8, %2, %13, %7
@@ -3247,7 +3247,7 @@ define dso_local range(i32 -30, 2) i32 @archive_match_owner_excluded(ptr noundef
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call fastcc i32 @owner_excluded(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %14 = tail call fastcc i32 @owner_excluded(ptr noundef nonnull %0, ptr noundef %1)
   br label %15
 
 15:                                               ; preds = %8, %2, %13, %7

@@ -2300,7 +2300,7 @@ land.lhs.true13:                                  ; preds = %invoke.cont
   br i1 %cmp15, label %land.lhs.true16, label %if.end34
 
 land.lhs.true16:                                  ; preds = %land.lhs.true13
-  %call18 = call fastcc noundef i32 @_ZL23getShortestSubtagLengthPKc(ptr noundef nonnull %localeID)
+  %call18 = call fastcc noundef i32 @_ZL23getShortestSubtagLengthPKc(ptr noundef %localeID)
   %cmp19 = icmp eq i32 %call18, 1
   br i1 %cmp19, label %if.then20, label %if.end34
 
@@ -2510,7 +2510,7 @@ declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare void @_ZN6icu_7520CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL23getShortestSubtagLengthPKc(ptr nocapture noundef readonly %localeID) unnamed_addr #7 {
+define internal fastcc noundef i32 @_ZL23getShortestSubtagLengthPKc(ptr nocapture noundef nonnull readonly %localeID) unnamed_addr #7 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %localeID) #21
   %conv = trunc i64 %call to i32
@@ -4619,7 +4619,7 @@ ehcleanup:                                        ; preds = %lpad86, %lpad10, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11_getVariantPKccRN6icu_758ByteSinkEa(ptr noundef readonly %localeID, i8 noundef signext %prev, ptr noundef nonnull align 8 dereferenceable(8) %sink, i8 noundef signext %needSeparator) unnamed_addr #1 {
+define internal fastcc void @_ZL11_getVariantPKccRN6icu_758ByteSinkEa(ptr noundef readonly %localeID, i8 noundef signext %prev, ptr noundef nonnull align 8 dereferenceable(8) %sink, i8 noundef signext range(i8 0, 2) %needSeparator) unnamed_addr #1 {
 entry:
   %c = alloca i8, align 1
   %c47 = alloca i8, align 1
@@ -4786,7 +4786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13_canonicalizePKcRN6icu_758ByteSinkEjP10UErrorCode(ptr noundef %localeID, ptr noundef nonnull align 8 dereferenceable(8) %sink, i32 noundef %options, ptr noundef %err) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13_canonicalizePKcRN6icu_758ByteSinkEjP10UErrorCode(ptr noundef %localeID, ptr noundef nonnull align 8 dereferenceable(8) %sink, i32 noundef range(i32 0, 3) %options, ptr noundef %err) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %c47.i = alloca i8, align 1
   %tempBuffer = alloca %"class.icu_75::CharString", align 8
@@ -5420,8 +5420,7 @@ if.end237:                                        ; preds = %for.inc234, %for.co
           to label %invoke.cont240 unwind label %lpad55.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont240:                                   ; preds = %if.end237
-  %and241 = and i32 %options, 2
-  %cmp242.not = icmp eq i32 %and241, 0
+  %cmp242.not = icmp ult i32 %options, 2
   br i1 %cmp242.not, label %if.then243, label %if.end259
 
 if.then243:                                       ; preds = %invoke.cont240

@@ -80,8 +80,8 @@ define void @Gia_ParComputeSignature(ptr nocapture noundef readonly %0, i32 noun
   %25 = load ptr, ptr @stdout, align 8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %33, %.critedge
-  %.018.i = phi ptr [ %3, %.critedge ], [ %34, %33 ]
+.preheader.i:                                     ; preds = %35, %.critedge
+  %.018.i = phi ptr [ %3, %.critedge ], [ %36, %35 ]
   br label %26
 
 26:                                               ; preds = %26, %.preheader.i
@@ -92,19 +92,20 @@ define void @Gia_ParComputeSignature(ptr nocapture noundef readonly %0, i32 noun
   %30 = trunc i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = icmp ult i32 %31, 10
-  %.0.v.i.i = select i1 %32, i32 48, i32 55
-  %.0.i.i = add nuw nsw i32 %.0.v.i.i, %31
+  %33 = or disjoint i32 %31, 48
+  %34 = add nuw nsw i32 %31, 55
+  %.0.i.i = select i1 %32, i32 %33, i32 %34
   %fputc.i = call i32 @fputc(i32 %.0.i.i, ptr %25)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not20.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not20.i, label %33, label %26, !llvm.loop !7
+  br i1 %.not20.i, label %35, label %26, !llvm.loop !7
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %.018.i, i64 -8
-  %.not.i = icmp ult ptr %34, %3
+35:                                               ; preds = %26
+  %36 = getelementptr inbounds i8, ptr %.018.i, i64 -8
+  %.not.i = icmp ult ptr %36, %3
   br i1 %.not.i, label %Abc_TtPrintHexRev.exit, label %.preheader.i, !llvm.loop !8
 
-Abc_TtPrintHexRev.exit:                           ; preds = %33
+Abc_TtPrintHexRev.exit:                           ; preds = %35
   ret void
 }
 

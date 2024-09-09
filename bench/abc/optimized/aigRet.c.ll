@@ -225,7 +225,7 @@ define range(i32 0, 4096) i32 @Rtm_ManLatchMax(ptr nocapture noundef readonly %0
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.idx
   %14 = load i32, ptr %gep, align 8
   %15 = and i32 %14, 4095
-  %16 = tail call noundef i32 @llvm.smax.i32(i32 %.117, i32 %15)
+  %16 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.117, i32 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %13, !llvm.loop !4
@@ -506,7 +506,7 @@ define range(i32 1, 131073) i32 @Rtm_ObjGetDegreeFwd(ptr nocapture noundef reado
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = lshr i32 %12, 15
-  %14 = tail call noundef i32 @llvm.smax.i32(i32 %.09, i32 %13)
+  %14 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09, i32 %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %7, !llvm.loop !9
@@ -547,7 +547,7 @@ define range(i32 1, 131073) i32 @Rtm_ObjGetDegreeBwd(ptr nocapture noundef reado
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = lshr i32 %17, 15
-  %19 = tail call noundef i32 @llvm.smax.i32(i32 %.09, i32 %18)
+  %19 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09, i32 %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.loopexit, label %11, !llvm.loop !10
@@ -716,7 +716,7 @@ Rtm_ObjRemFirst.exit:                             ; preds = %Rtm_ObjRemFirst2.ex
 
 82:                                               ; preds = %79
   %83 = shl nsw i32 %81, 1
-  %84 = tail call noundef i32 @llvm.smax.i32(i32 %83, i32 1024)
+  %84 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %83, i32 1024)
   %85 = load ptr, ptr %13, align 8
   %.not15.i.i = icmp eq ptr %85, null
   %86 = zext nneg i32 %84 to i64
@@ -778,7 +778,7 @@ Rtm_ObjTransferToBig.exit.i:                      ; preds = %92, %._crit_edge.i.
 
 115:                                              ; preds = %109
   %116 = shl nsw i32 %114, 1
-  %117 = tail call noundef i32 @llvm.smax.i32(i32 %116, i32 1024)
+  %117 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %116, i32 1024)
   %118 = load ptr, ptr %13, align 8
   %.not24.i.i = icmp eq ptr %118, null
   %119 = zext nneg i32 %117 to i64
@@ -1007,7 +1007,7 @@ Rtm_ObjRemLast.exit:                              ; preds = %58, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Rtm_ObjAddFirst(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @Rtm_ObjAddFirst(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #2 {
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 4095
   %6 = icmp eq i32 %5, 10
@@ -1028,7 +1028,7 @@ define internal fastcc void @Rtm_ObjAddFirst(ptr nocapture noundef %0, ptr nocap
 
 12:                                               ; preds = %7
   %13 = shl nsw i32 %11, 1
-  %14 = tail call noundef i32 @llvm.smax.i32(i32 %13, i32 1024)
+  %14 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %13, i32 1024)
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not15.i = icmp eq ptr %16, null
@@ -1094,7 +1094,7 @@ Rtm_ObjTransferToBig.exit:                        ; preds = %._crit_edge.i, %23
 
 48:                                               ; preds = %40
   %49 = shl nsw i32 %47, 1
-  %50 = tail call noundef i32 @llvm.smax.i32(i32 %49, i32 1024)
+  %50 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %49, i32 1024)
   %51 = getelementptr inbounds i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
   %.not24.i = icmp eq ptr %52, null
@@ -1155,36 +1155,36 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
   %86 = phi i32 [ %4, %37 ], [ %.pre18, %Rtm_ObjTransferToBigger.exit ], [ %36, %Rtm_ObjTransferToBig.exit ]
   %87 = and i32 %86, 4094
   %88 = icmp ugt i32 %87, 9
-  %narrow.i = add i32 %86, 1
-  %89 = and i32 %narrow.i, 4095
-  br i1 %88, label %90, label %110
+  br i1 %88, label %89, label %110
 
-90:                                               ; preds = %85
-  %91 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %91, align 8
-  %92 = lshr i32 %86, 12
-  %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds i32, ptr %.val, i64 %93
+89:                                               ; preds = %85
+  %90 = getelementptr i8, ptr %0, i64 32
+  %.val = load ptr, ptr %90, align 8
+  %91 = lshr i32 %86, 12
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %.val, i64 %92
+  %narrow.i = add i32 %86, 1
+  %94 = and i32 %narrow.i, 4095
   %95 = and i32 %86, -4096
-  %96 = or disjoint i32 %89, %95
+  %96 = or disjoint i32 %94, %95
   store i32 %96, ptr %1, align 8
-  %97 = lshr i32 %89, 4
+  %97 = lshr i32 %94, 4
   %98 = and i32 %narrow.i, 15
   %99 = icmp ne i32 %98, 0
   %100 = zext i1 %99 to i32
   %101 = add nuw nsw i32 %97, %100
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr %94, i64 %102
+  %103 = getelementptr inbounds i32, ptr %93, i64 %102
   %.not.i15 = icmp eq i32 %101, 0
   br i1 %.not.i15, label %Rtm_ObjAddFirst2.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %90, %.lr.ph.i
-  %.02.i = phi i32 [ %105, %.lr.ph.i ], [ %2, %90 ]
-  %.0111.i = phi ptr [ %108, %.lr.ph.i ], [ %94, %90 ]
+.lr.ph.i:                                         ; preds = %89, %.lr.ph.i
+  %.02.i = phi i32 [ %105, %.lr.ph.i ], [ %2, %89 ]
+  %.0111.i = phi ptr [ %108, %.lr.ph.i ], [ %93, %89 ]
   %104 = load i32, ptr %.0111.i, align 4
   %105 = lshr i32 %104, 30
   %106 = shl i32 %104, 2
-  %107 = or i32 %106, %.02.i
+  %107 = or disjoint i32 %106, %.02.i
   store i32 %107, ptr %.0111.i, align 4
   %108 = getelementptr inbounds i8, ptr %.0111.i, i64 4
   %109 = icmp ult ptr %108, %103
@@ -1193,14 +1193,15 @@ Rtm_ObjTransferToBigger.exit:                     ; preds = %._crit_edge.i12, %5
 110:                                              ; preds = %85
   %111 = lshr i32 %86, 10
   %112 = and i32 %111, 1048572
-  %.masked.i = and i32 %2, 1048575
-  %113 = or i32 %112, %.masked.i
+  %113 = or disjoint i32 %112, %2
   %114 = shl nuw i32 %113, 12
-  %115 = or disjoint i32 %114, %89
-  store i32 %115, ptr %1, align 8
+  %narrow.i17 = add i32 %86, 1
+  %115 = and i32 %narrow.i17, 4095
+  %116 = or disjoint i32 %114, %115
+  store i32 %116, ptr %1, align 8
   br label %Rtm_ObjAddFirst2.exit
 
-Rtm_ObjAddFirst2.exit:                            ; preds = %.lr.ph.i, %90, %110
+Rtm_ObjAddFirst2.exit:                            ; preds = %.lr.ph.i, %89, %110
   ret void
 }
 
@@ -3308,7 +3309,7 @@ Vec_PtrPush.exit179:                              ; preds = %.Vec_PtrGrow.exit11
   %273 = getelementptr inbounds i8, ptr %272, i64 8
   %274 = load i32, ptr %273, align 8
   %275 = lshr i32 %274, 15
-  %276 = call noundef i32 @llvm.smax.i32(i32 %.09.i, i32 %275)
+  %276 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09.i, i32 %275)
   %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i187, 1
   %exitcond.not.i189 = icmp eq i64 %indvars.iv.next.i188, %wide.trip.count.i
   br i1 %exitcond.not.i189, label %.critedge.loopexit.i, label %269, !llvm.loop !9
@@ -3319,7 +3320,7 @@ Vec_PtrPush.exit179:                              ; preds = %.Vec_PtrGrow.exit11
 
 Rtm_ObjGetDegreeFwd.exit:                         ; preds = %261, %.critedge.loopexit.i
   %.0.lcssa.i191 = phi i32 [ %277, %.critedge.loopexit.i ], [ 1, %261 ]
-  %278 = call noundef i32 @llvm.smax.i32(i32 %.1277, i32 %.0.lcssa.i191)
+  %278 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.1277, i32 %.0.lcssa.i191)
   %279 = icmp sgt i32 %.0.lcssa.i191, %2
   br i1 %279, label %Rtm_ObjCheckRetimeFwd.exit, label %280
 
@@ -3468,7 +3469,7 @@ Rtm_ObjCheckRetimeFwd.exit:                       ; preds = %.lr.ph.i180, %Rtm_O
   %351 = getelementptr inbounds i8, ptr %350, i64 8
   %352 = load i32, ptr %351, align 8
   %353 = lshr i32 %352, 15
-  %354 = call noundef i32 @llvm.smax.i32(i32 %.09.i211, i32 %353)
+  %354 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.09.i211, i32 %353)
   %indvars.iv.next.i212 = add nuw nsw i64 %indvars.iv.i210, 1
   %exitcond.not.i213 = icmp eq i64 %indvars.iv.next.i212, %wide.trip.count.i202
   br i1 %exitcond.not.i213, label %.critedge.loopexit.i214, label %.lr.ph.i208, !llvm.loop !10
@@ -3479,7 +3480,7 @@ Rtm_ObjCheckRetimeFwd.exit:                       ; preds = %.lr.ph.i180, %Rtm_O
 
 Rtm_ObjGetDegreeBwd.exit:                         ; preds = %329, %.critedge.loopexit.i214
   %.0.lcssa.i207 = phi i32 [ %355, %.critedge.loopexit.i214 ], [ 1, %329 ]
-  %356 = call noundef i32 @llvm.smax.i32(i32 %.3280, i32 %.0.lcssa.i207)
+  %356 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.3280, i32 %.0.lcssa.i207)
   %357 = icmp sgt i32 %.0.lcssa.i207, %2
   br i1 %357, label %Rtm_ObjCheckRetimeBwd.exit, label %358
 
@@ -3614,7 +3615,7 @@ Rtm_ObjCheckRetimeBwd.exit:                       ; preds = %338, %Rtm_ObjGetDeg
   %gep.i230 = getelementptr inbounds i8, ptr %invariant.gep.i226, i64 %gep.idx.i229
   %411 = load i32, ptr %gep.i230, align 8
   %412 = and i32 %411, 4095
-  %413 = call noundef i32 @llvm.smax.i32(i32 %.117.i, i32 %412)
+  %413 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.117.i, i32 %412)
   %indvars.iv.next.i231 = add nuw nsw i64 %indvars.iv.i228, 1
   %exitcond.not.i232 = icmp eq i64 %indvars.iv.next.i231, %wide.trip.count.i227
   br i1 %exitcond.not.i232, label %.critedge2.i233, label %410, !llvm.loop !4

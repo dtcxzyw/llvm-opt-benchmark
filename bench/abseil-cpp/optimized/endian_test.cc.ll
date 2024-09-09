@@ -469,7 +469,7 @@ for.body.i1:                                      ; preds = %_ZN7testing15Assert
   %6 = call noundef i16 @llvm.bswap.i16(i16 %5)
   store i16 %6, ptr %actual_value.i, align 2
   store i16 %5, ptr %expected_value.i, align 2
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_114ManualByteSwapEPci(ptr noundef nonnull %expected_value.i, i32 noundef 2)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_114ManualByteSwapEPci(ptr noundef %expected_value.i, i32 noundef 2)
           to label %.noexc4 unwind label %lpad
 
 .noexc4:                                          ; preds = %for.body.i1
@@ -684,7 +684,7 @@ entry:
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl12_GLOBAL__N_114ManualByteSwapEPci(ptr nocapture noundef %bytes, i32 noundef %length) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl12_GLOBAL__N_114ManualByteSwapEPci(ptr nocapture noundef nonnull %bytes, i32 noundef range(i32 2, 9) %length) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i32, align 4
@@ -787,34 +787,29 @@ if.end12:                                         ; preds = %_ZN7testing8interna
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %9 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i16 = icmp eq ptr %9, null
-  br i1 %cmp.not.i.i16, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
+  br i1 %cmp.not.i.i16, label %for.body.preheader, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %if.end12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZdlPv(ptr noundef nonnull %9) #18
-  br label %_ZN7testing15AssertionResultD2Ev.exit
+  br label %for.body.preheader
 
-_ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end12, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
-  %cmp1417.not = icmp ult i32 %length, 2
-  br i1 %cmp1417.not, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit
+for.body.preheader:                               ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i, %if.end12
   %div10 = lshr i32 %length, 1
+  %10 = zext nneg i32 %length to i64
   %wide.trip.count = zext nneg i32 %div10 to i64
+  %11 = getelementptr i8, ptr %bytes, i64 %10
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %10 = trunc i64 %indvars.iv to i32
-  %11 = xor i32 %10, -1
-  %sub15 = add i32 %length, %11
+  %12 = xor i64 %indvars.iv, -1
   %arrayidx = getelementptr inbounds i8, ptr %bytes, i64 %indvars.iv
-  %idxprom16 = sext i32 %sub15 to i64
-  %arrayidx17 = getelementptr inbounds i8, ptr %bytes, i64 %idxprom16
-  %12 = load i8, ptr %arrayidx, align 1
-  %13 = load i8, ptr %arrayidx17, align 1
-  store i8 %13, ptr %arrayidx, align 1
-  store i8 %12, ptr %arrayidx17, align 1
+  %arrayidx17 = getelementptr i8, ptr %11, i64 %12
+  %13 = load i8, ptr %arrayidx, align 1
+  %14 = load i8, ptr %arrayidx17, align 1
+  store i8 %14, ptr %arrayidx, align 1
+  store i8 %13, ptr %arrayidx17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
@@ -824,7 +819,7 @@ ehcleanup13:                                      ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar) #17
   resume { ptr, i32 } %.pn.pn
 
-for.end:                                          ; preds = %for.body, %_ZN7testing15AssertionResultD2Ev.exit
+for.end:                                          ; preds = %for.body
   ret void
 }
 
@@ -1203,7 +1198,7 @@ for.body.i1:                                      ; preds = %_ZN7testing15Assert
   %6 = call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %actual_value.i, align 4
   store i32 %5, ptr %expected_value.i, align 4
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_114ManualByteSwapEPci(ptr noundef nonnull %expected_value.i, i32 noundef 4)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_114ManualByteSwapEPci(ptr noundef %expected_value.i, i32 noundef 4)
           to label %.noexc5 unwind label %lpad
 
 .noexc5:                                          ; preds = %for.body.i1
@@ -1721,7 +1716,7 @@ for.body.i1:                                      ; preds = %_ZN7testing15Assert
   %6 = call noundef i64 @llvm.bswap.i64(i64 %5)
   store i64 %6, ptr %actual_value.i, align 8
   store i64 %5, ptr %expected_value.i, align 8
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_114ManualByteSwapEPci(ptr noundef nonnull %expected_value.i, i32 noundef 8)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_114ManualByteSwapEPci(ptr noundef %expected_value.i, i32 noundef 8)
           to label %.noexc5 unwind label %lpad
 
 .noexc5:                                          ; preds = %for.body.i1

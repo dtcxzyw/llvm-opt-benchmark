@@ -580,7 +580,7 @@ declare i32 @EVP_MD_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_shake_squeeze_test(i32 noundef %tst, ptr noundef %in, i64 noundef %inlen, ptr noundef %expected_out, i64 noundef %expected_outlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_shake_squeeze_test(i32 noundef %tst, ptr noundef %in, i64 noundef range(i64 16, 33) %inlen, ptr noundef %expected_out, i64 noundef range(i64 250, 2001) %expected_outlen) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %tst to i64
   %arrayidx = getelementptr inbounds [32 x %struct.anon], ptr @stride_tests, i64 0, i64 %idxprom
@@ -605,21 +605,17 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool9.not, label %err, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end6
-  %cmp1218.not = icmp eq i64 %expected_outlen, 0
-  br i1 %cmp1218.not, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %incsz = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end24
-  %sz.020 = phi i64 [ %0, %while.body.lr.ph ], [ %1, %if.end24 ]
-  %i.019 = phi i64 [ 0, %while.body.lr.ph ], [ %add25, %if.end24 ]
-  %add = add i64 %sz.020, %i.019
+while.body:                                       ; preds = %while.cond.preheader, %if.end24
+  %sz.019 = phi i64 [ %0, %while.cond.preheader ], [ %1, %if.end24 ]
+  %i.018 = phi i64 [ 0, %while.cond.preheader ], [ %add25, %if.end24 ]
+  %add = add i64 %sz.019, %i.018
   %cmp14 = icmp ugt i64 %add, %expected_outlen
-  %sub = sub nuw nsw i64 %expected_outlen, %i.019
-  %spec.select = select i1 %cmp14, i64 %sub, i64 %sz.020
-  %add.ptr = getelementptr inbounds i8, ptr %call2, i64 %i.019
+  %sub = sub nuw nsw i64 %expected_outlen, %i.018
+  %spec.select = select i1 %cmp14, i64 %sub, i64 %sz.019
+  %add.ptr = getelementptr inbounds i8, ptr %call2, i64 %i.018
   %call18 = tail call i32 @EVP_DigestSqueeze(ptr noundef %call, ptr noundef %add.ptr, i64 noundef %spec.select) #4
   %cmp19 = icmp ne i32 %call18, 0
   %conv20 = zext i1 %cmp19 to i32
@@ -628,12 +624,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool22.not, label %err, label %if.end24
 
 if.end24:                                         ; preds = %while.body
-  %add25 = add i64 %spec.select, %i.019
+  %add25 = add i64 %spec.select, %i.018
   %1 = load i64, ptr %incsz, align 8
   %cmp12 = icmp ult i64 %add25, %expected_outlen
   br i1 %cmp12, label %while.body, label %while.end, !llvm.loop !9
 
-while.end:                                        ; preds = %if.end24, %while.cond.preheader
+while.end:                                        ; preds = %if.end24
   %call28 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.7, i32 noundef 373, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.33, ptr noundef %call2, i64 noundef %expected_outlen, ptr noundef %expected_out, i64 noundef %expected_outlen) #4
   %tobool29.not = icmp ne i32 %call28, 0
   %spec.select17 = zext i1 %tobool29.not to i32

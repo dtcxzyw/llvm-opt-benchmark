@@ -9162,7 +9162,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16detail10decr_countEPv(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EclENS_6system10error_codeEi"(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 %1, ptr %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1EclENS_6system10error_codeEi"(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 %1, ptr %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::system::error_code", align 8
   %6 = alloca %"struct.msgpack::v3::adaptor::pack", align 1
   %7 = alloca %"class.msgpack::v1::packer", align 8
@@ -9183,14 +9183,14 @@ define internal fastcc void @"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip
   store ptr %2, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %3, ptr %21, align 8
-  %cond = icmp eq i32 %3, 1
-  br i1 %cond, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEppEv.exit, label %._crit_edge
+  %cond.not = icmp eq i32 %3, 0
+  br i1 %cond.not, label %._crit_edge, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEppEv.exit
 
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert38 = getelementptr inbounds i8, ptr %0, i64 32
-  %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8
+  %.phi.trans.insert37 = getelementptr inbounds i8, ptr %0, i64 32
+  %.pre38 = load ptr, ptr %.phi.trans.insert37, align 8
   br label %276
 
 _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEppEv.exit: ; preds = %_ZNSt12__shared_ptrISt6vectorIN5boost4asio2ip20basic_resolver_entryINS3_3tcpEEESaIS6_EELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, %297, %4
@@ -9571,8 +9571,7 @@ _ZNK14asio_prefer_fn4implclIRKN5boost4asio9execution12any_executorIJNS4_12contex
   br label %_ZN5boost4asio9execution12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS1_6detail8blocking7never_tILi0EEENS1_11prefer_onlyINS8_10possibly_tILi0EEEEENSB_INS7_16outstanding_work9tracked_tILi0EEEEENSB_INSF_11untracked_tILi0EEEEENSB_INS7_12relationship6fork_tILi0EEEEENSB_INSM_14continuation_tILi0EEEEEEED2Ev.exit
 
 _ZN5boost4asio2ipneERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit.thread26: ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEppEv.exit, %_ZN5boost4asio2ipneERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %276, label %200
+  br i1 %cond.not, label %276, label %200
 
 200:                                              ; preds = %_ZN5boost4asio2ipneERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit.thread26
   %201 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5boost4asio5error17get_misc_categoryEvE8instance, i64 8), align 8
@@ -9731,7 +9730,7 @@ _ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i: ; pred
   unreachable
 
 276:                                              ; preds = %._crit_edge, %_ZN5boost4asio2ipneERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit.thread26
-  %277 = phi ptr [ %.pre39, %._crit_edge ], [ %26, %_ZN5boost4asio2ipneERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit.thread26 ]
+  %277 = phi ptr [ %.pre38, %._crit_edge ], [ %26, %_ZN5boost4asio2ipneERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit.thread26 ]
   %278 = phi ptr [ %.pre, %._crit_edge ], [ %24, %_ZN5boost4asio2ipneERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit.thread26 ]
   %279 = getelementptr inbounds i8, ptr %0, i64 8
   %280 = icmp ne ptr %278, null
@@ -9755,8 +9754,8 @@ _ZN5boost4asio2ipeqERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit.thread30
   %289 = load ptr, ptr %0, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 8
   %291 = load i32, ptr %290, align 8
-  %.not33 = icmp eq i32 %291, -1
-  br i1 %.not33, label %292, label %293
+  %.not = icmp eq i32 %291, -1
+  br i1 %.not, label %292, label %293
 
 292:                                              ; preds = %_ZN5boost4asio2ipeqERKNS1_23basic_resolver_iteratorINS1_3tcpEEES6_.exit.thread30
   store i64 4294967421, ptr %15, align 8

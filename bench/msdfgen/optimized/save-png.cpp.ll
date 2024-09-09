@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %pixels, i32 noundef %width, i32 noundef %height, i32 noundef %channels, i32 noundef %colorType, ptr nocapture noundef readonly %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %pixels, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels, i32 noundef range(i32 0, 7) %colorType, ptr nocapture noundef readonly %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %guard = alloca %"class.msdfgen::PngGuard", align 8
   %tobool = icmp ne ptr %pixels, null
@@ -213,7 +213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef readonly %pixels, i32 noundef %width, i32 noundef %height, i32 noundef %channels, i32 noundef %colorType, ptr nocapture noundef readonly %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef readonly %pixels, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 1, 5) %channels, i32 noundef range(i32 0, 7) %colorType, ptr nocapture noundef readonly %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = icmp ne ptr %pixels, null
   %tobool1 = icmp ne i32 %width, 0
@@ -225,19 +225,15 @@ entry:
 if.end:                                           ; preds = %entry
   %mul = mul i32 %height, %width
   %mul4 = mul i32 %mul, %channels
-  %conv = sext i32 %mul4 to i64
   %cmp.i.i = icmp slt i32 %mul4, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #13
   unreachable
 
-_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %if.end
-  %cmp.not.i.i.i.i = icmp eq i32 %channels, 0
-  br i1 %cmp.not.i.i.i.i, label %for.end, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+if.then.i.i.i.i.i:                                ; preds = %if.end
+  %conv = zext nneg i32 %mul4 to i64
   %call5.i.i.i.i1.i.i13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv) #14
   store i8 0, ptr %call5.i.i.i.i1.i.i13, align 1
   %sub.i.i.i.i.i = add nsw i64 %conv, -1
@@ -276,35 +272,23 @@ invoke.cont6:                                     ; preds = %invoke.cont6.prehea
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %invoke.cont6, !llvm.loop !7
 
-lpad5:                                            ; preds = %for.end
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %for.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i = icmp eq ptr %bytePixels.sroa.0.030, null
-  br i1 %tobool.not.i.i.i, label %eh.resume, label %if.then.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i13) #16
+  resume { ptr, i32 } %1
 
-if.then.i.i.i:                                    ; preds = %lpad5
-  tail call void @_ZdlPv(ptr noundef nonnull %bytePixels.sroa.0.030) #16
-  br label %eh.resume
+for.end:                                          ; preds = %invoke.cont6, %invoke.cont
+  %call11 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef nonnull %call5.i.i.i.i1.i.i13, i32 noundef %width, i32 noundef %height, i32 noundef %channels, i32 noundef %colorType, ptr noundef %filename)
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit18 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-for.end:                                          ; preds = %invoke.cont6, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %invoke.cont
-  %bytePixels.sroa.0.030 = phi ptr [ %call5.i.i.i.i1.i.i13, %invoke.cont ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i1.i.i13, %invoke.cont6 ]
-  %call11 = invoke fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef nonnull %bytePixels.sroa.0.030, i32 noundef %width, i32 noundef %height, i32 noundef %channels, i32 noundef %colorType, ptr noundef %filename)
-          to label %invoke.cont10 unwind label %lpad5
-
-invoke.cont10:                                    ; preds = %for.end
-  %tobool.not.i.i.i16 = icmp eq ptr %bytePixels.sroa.0.030, null
-  br i1 %tobool.not.i.i.i16, label %return, label %if.then.i.i.i17
-
-if.then.i.i.i17:                                  ; preds = %invoke.cont10
-  tail call void @_ZdlPv(ptr noundef nonnull %bytePixels.sroa.0.030) #16
+_ZNSt6vectorIhSaIhEED2Ev.exit18:                  ; preds = %for.end
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i13) #16
   br label %return
 
-return:                                           ; preds = %if.then.i.i.i17, %invoke.cont10, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %call11, %invoke.cont10 ], [ %call11, %if.then.i.i.i17 ]
+return:                                           ; preds = %entry, %_ZNSt6vectorIhSaIhEED2Ev.exit18
+  %retval.0 = phi i1 [ %call11, %_ZNSt6vectorIhSaIhEED2Ev.exit18 ], [ false, %entry ]
   ret i1 %retval.0
-
-eh.resume:                                        ; preds = %if.then.i.i.i, %lpad5
-  resume { ptr, i32 } %1
 }
 
 ; Function Attrs: mustprogress uwtable

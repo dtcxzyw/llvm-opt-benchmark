@@ -441,7 +441,7 @@ if.end12:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @checktab(ptr noundef %L, i32 noundef %arg, i32 noundef %what) unnamed_addr #0 {
+define internal fastcc void @checktab(ptr noundef %L, i32 noundef range(i32 1, 6) %arg, i32 noundef range(i32 1, 8) %what) unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef %arg) #4
   %cmp.not = icmp eq i32 %call, 5
@@ -479,8 +479,7 @@ lor.lhs.false8:                                   ; preds = %land.lhs.true5
 
 land.lhs.true12:                                  ; preds = %lor.lhs.false8, %land.lhs.true5
   %n.1 = phi i32 [ %inc9, %lor.lhs.false8 ], [ %n.0, %land.lhs.true5 ]
-  %and13 = and i32 %what, 4
-  %tobool14.not = icmp eq i32 %and13, 0
+  %tobool14.not = icmp ult i32 %what, 4
   br i1 %tobool14.not, label %if.then19, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %land.lhs.true12
@@ -809,7 +808,7 @@ while.end:                                        ; preds = %if.end64, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sort_comp(ptr noundef %L, i32 noundef %a, i32 noundef %b) unnamed_addr #0 {
+define internal fastcc i32 @sort_comp(ptr noundef %L, i32 noundef range(i32 -3, 0) %a, i32 noundef range(i32 -2, 0) %b) unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #4
   %cmp = icmp eq i32 %call, 0

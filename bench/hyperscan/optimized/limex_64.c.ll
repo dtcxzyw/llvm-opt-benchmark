@@ -2701,7 +2701,7 @@ do.end38:                                         ; preds = %while.body
   %add.ptr46 = getelementptr inbounds i8, ptr %add.ptr45, i64 %sp.0158
   %add.ptr47 = getelementptr inbounds i8, ptr %add.ptr46, i64 %idx.neg
   %sub = sub i64 %cond44, %sp.0158
-  %call48 = call fastcc signext i8 @nfaExecLimEx64_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr47, i64 noundef %sub, ptr noundef nonnull %ctx, i64 noundef %sp.0158, ptr noundef nonnull %final_look)
+  %call48 = call fastcc signext i8 @nfaExecLimEx64_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr47, i64 noundef %sub, ptr noundef %ctx, i64 noundef %sp.0158, ptr noundef %final_look)
   %cmp50 = icmp eq i8 %call48, 0
   br i1 %cmp50, label %do.end54, label %if.end70
 
@@ -2737,7 +2737,7 @@ if.end74:                                         ; preds = %if.end70
   %add.ptr76 = getelementptr inbounds i8, ptr %36, i64 %sp.1
   %add.ptr78 = getelementptr inbounds i8, ptr %add.ptr76, i64 %idx.neg
   %sub79 = sub nuw i64 %cond, %sp.1
-  %call80 = call fastcc signext i8 @nfaExecLimEx64_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr78, i64 noundef %sub79, ptr noundef nonnull %ctx, i64 noundef %sp.1, ptr noundef nonnull %final_look75)
+  %call80 = call fastcc signext i8 @nfaExecLimEx64_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr78, i64 noundef %sub79, ptr noundef %ctx, i64 noundef %sp.1, ptr noundef %final_look75)
   %cmp82 = icmp eq i8 %call80, 0
   %.pre176 = load i32, ptr %cur, align 8
   br i1 %cmp82, label %do.end86, label %scan_done
@@ -2989,7 +2989,7 @@ return:                                           ; preds = %if.end4, %if.end157
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef %ctx, i64 noundef %offset, ptr nocapture noundef writeonly %final_loc) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx64_Stream_First(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset, ptr nocapture noundef nonnull writeonly %final_loc) unnamed_addr #0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %limex, i64 704
   %accel.i = getelementptr inbounds i8, ptr %limex, i64 368
@@ -4407,7 +4407,7 @@ do.end34:                                         ; preds = %if.end29
   %add.ptr38 = getelementptr inbounds i8, ptr %add.ptr37, i64 %sp.1
   %add.ptr39 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.neg
   %sub40 = sub i64 %cond, %sp.1
-  call fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr39, i64 noundef %sub40, ptr noundef nonnull %ctx, i64 noundef %sp.1)
+  call fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr39, i64 noundef %sub40, ptr noundef %ctx, i64 noundef %sp.1)
   br label %if.end41
 
 if.end41:                                         ; preds = %do.end34, %if.end29
@@ -4420,7 +4420,7 @@ do.end47:                                         ; preds = %if.end41
   %add.ptr48 = getelementptr inbounds i8, ptr %13, i64 %sp.2
   %add.ptr50 = getelementptr inbounds i8, ptr %add.ptr48, i64 %idx.neg
   %sub51 = sub nuw i64 %add14, %sp.2
-  call fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr50, i64 noundef %sub51, ptr noundef nonnull %ctx, i64 noundef %sp.2)
+  call fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr50, i64 noundef %sub51, ptr noundef %ctx, i64 noundef %sp.2)
   br label %scan_done
 
 scan_done:                                        ; preds = %if.end41, %do.end47
@@ -4790,7 +4790,7 @@ return:                                           ; preds = %if.then.i256, %do.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef %ctx, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %limex, i64 704
   %accel.i = getelementptr inbounds i8, ptr %limex, i64 368
@@ -6358,7 +6358,7 @@ entry:
 
 do.end:                                           ; preds = %entry
   %sub = sub i64 %offset, %buflen
-  call fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull %ctx, i64 noundef %sub)
+  call fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef %ctx, i64 noundef %sub)
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %entry
@@ -6368,7 +6368,7 @@ if.end:                                           ; preds = %do.end, %entry
 
 do.end6:                                          ; preds = %if.end
   %sub7 = sub i64 %offset.addr.0, %hlen
-  call fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef nonnull %ctx, i64 noundef %sub7)
+  call fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %ctx, i64 noundef %sub7)
   br label %if.end9
 
 if.end9:                                          ; preds = %do.end6, %if.end
@@ -6540,7 +6540,7 @@ if.end19:                                         ; preds = %while.cond.i.backed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef %ctx, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %limex, i64 704
   %exceptionMask1 = getelementptr inbounds i8, ptr %limex, i64 408
@@ -6551,10 +6551,6 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %limex, i64 %idx.ext
   %2 = load i64, ptr %ctx, align 64
   %invariant.gep = getelementptr i8, ptr %input, i64 -1
-  %cmp.not255 = icmp eq i64 %length, 0
-  br i1 %cmp.not255, label %for.end, label %do.end.lr.ph
-
-do.end.lr.ph:                                     ; preds = %entry
   %shift = getelementptr inbounds i8, ptr %limex, i64 432
   %shiftAmount = getelementptr inbounds i8, ptr %limex, i64 500
   %shiftCount = getelementptr inbounds i8, ptr %limex, i64 496
@@ -6580,10 +6576,10 @@ do.end.lr.ph:                                     ; preds = %entry
   %cached_br.i = getelementptr inbounds i8, ptr %ctx, i64 32
   br label %do.end
 
-do.end:                                           ; preds = %do.end.lr.ph, %if.end81
-  %i.0258 = phi i64 [ %length, %do.end.lr.ph ], [ %dec, %if.end81 ]
-  %s.0257 = phi i64 [ %2, %do.end.lr.ph ], [ %and86, %if.end81 ]
-  %cmp3 = icmp eq i64 %s.0257, 0
+do.end:                                           ; preds = %entry, %if.end81
+  %i.0257 = phi i64 [ %length, %entry ], [ %dec, %if.end81 ]
+  %s.0256 = phi i64 [ %2, %entry ], [ %and86, %if.end81 ]
+  %cmp3 = icmp eq i64 %s.0256, 0
   br i1 %cmp3, label %do.end5, label %do.body7
 
 do.end5:                                          ; preds = %do.end
@@ -6592,7 +6588,7 @@ do.end5:                                          ; preds = %do.end
 
 do.body7:                                         ; preds = %do.end
   %3 = load i64, ptr %shift, align 16
-  %and = and i64 %3, %s.0257
+  %and = and i64 %3, %s.0256
   %4 = load i8, ptr %shiftAmount, align 4
   %sh_prom = zext nneg i8 %4 to i64
   %shl = shl i64 %and, %sh_prom
@@ -6609,7 +6605,7 @@ do.body7:                                         ; preds = %do.end
 
 sw.bb:                                            ; preds = %do.body7
   %6 = load i64, ptr %arrayidx10, align 8
-  %and11 = and i64 %6, %s.0257
+  %and11 = and i64 %6, %s.0256
   %7 = load i8, ptr %arrayidx13, align 1
   %sh_prom15 = zext nneg i8 %7 to i64
   %shl16 = shl i64 %and11, %sh_prom15
@@ -6619,7 +6615,7 @@ sw.bb:                                            ; preds = %do.body7
 sw.bb17:                                          ; preds = %sw.bb, %do.body7
   %succ.0 = phi i64 [ %shl, %do.body7 ], [ %or, %sw.bb ]
   %8 = load i64, ptr %arrayidx19, align 16
-  %and20 = and i64 %8, %s.0257
+  %and20 = and i64 %8, %s.0256
   %9 = load i8, ptr %arrayidx22, align 2
   %sh_prom24 = zext nneg i8 %9 to i64
   %shl25 = shl i64 %and20, %sh_prom24
@@ -6629,7 +6625,7 @@ sw.bb17:                                          ; preds = %sw.bb, %do.body7
 sw.bb27:                                          ; preds = %sw.bb17, %do.body7
   %succ.1 = phi i64 [ %shl, %do.body7 ], [ %or26, %sw.bb17 ]
   %10 = load i64, ptr %arrayidx29, align 8
-  %and30 = and i64 %10, %s.0257
+  %and30 = and i64 %10, %s.0256
   %11 = load i8, ptr %arrayidx32, align 1
   %sh_prom34 = zext nneg i8 %11 to i64
   %shl35 = shl i64 %and30, %sh_prom34
@@ -6639,7 +6635,7 @@ sw.bb27:                                          ; preds = %sw.bb17, %do.body7
 sw.bb37:                                          ; preds = %sw.bb27, %do.body7
   %succ.2 = phi i64 [ %shl, %do.body7 ], [ %or36, %sw.bb27 ]
   %12 = load i64, ptr %arrayidx39, align 16
-  %and40 = and i64 %12, %s.0257
+  %and40 = and i64 %12, %s.0256
   %13 = load i8, ptr %arrayidx42, align 4
   %sh_prom44 = zext nneg i8 %13 to i64
   %shl45 = shl i64 %and40, %sh_prom44
@@ -6649,7 +6645,7 @@ sw.bb37:                                          ; preds = %sw.bb27, %do.body7
 sw.bb47:                                          ; preds = %sw.bb37, %do.body7
   %succ.3 = phi i64 [ %shl, %do.body7 ], [ %or46, %sw.bb37 ]
   %14 = load i64, ptr %arrayidx49, align 8
-  %and50 = and i64 %14, %s.0257
+  %and50 = and i64 %14, %s.0256
   %15 = load i8, ptr %arrayidx52, align 1
   %sh_prom54 = zext nneg i8 %15 to i64
   %shl55 = shl i64 %and50, %sh_prom54
@@ -6659,7 +6655,7 @@ sw.bb47:                                          ; preds = %sw.bb37, %do.body7
 sw.bb57:                                          ; preds = %sw.bb47, %do.body7
   %succ.4 = phi i64 [ %shl, %do.body7 ], [ %or56, %sw.bb47 ]
   %16 = load i64, ptr %arrayidx59, align 16
-  %and60 = and i64 %16, %s.0257
+  %and60 = and i64 %16, %s.0256
   %17 = load i8, ptr %arrayidx62, align 2
   %sh_prom64 = zext nneg i8 %17 to i64
   %shl65 = shl i64 %and60, %sh_prom64
@@ -6669,7 +6665,7 @@ sw.bb57:                                          ; preds = %sw.bb47, %do.body7
 sw.bb67:                                          ; preds = %sw.bb57, %do.body7
   %succ.5 = phi i64 [ %shl, %do.body7 ], [ %or66, %sw.bb57 ]
   %18 = load i64, ptr %arrayidx69, align 8
-  %and70 = and i64 %18, %s.0257
+  %and70 = and i64 %18, %s.0256
   %19 = load i8, ptr %arrayidx72, align 1
   %sh_prom74 = zext nneg i8 %19 to i64
   %shl75 = shl i64 %and70, %sh_prom74
@@ -6678,12 +6674,12 @@ sw.bb67:                                          ; preds = %sw.bb57, %do.body7
 
 do.end78:                                         ; preds = %do.body7, %sw.bb67
   %succ.6 = phi i64 [ %shl, %do.body7 ], [ %or76, %sw.bb67 ]
-  %and.i = and i64 %s.0257, %0
+  %and.i = and i64 %s.0256, %0
   %cmp.i.not.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not.not, label %if.end81, label %if.end22.i
 
 if.end22.i:                                       ; preds = %do.end78
-  %add.i = add i64 %i.0258, %offset
+  %add.i = add i64 %i.0257, %offset
   %20 = load i64, ptr %cached_estate.i, align 16
   %cmp.i117.not = icmp eq i64 %and.i, %20
   br i1 %cmp.i117.not, label %if.then.i118, label %if.end13.i
@@ -6825,7 +6821,7 @@ if.then50.i:                                      ; preds = %do.end46.i
 
 if.end81:                                         ; preds = %for.cond.i.i, %if.then2.i, %if.then.i118, %if.then50.i, %do.end46.i, %do.end78
   %succ.7.ph = phi i64 [ %succ.6, %do.end78 ], [ %or.i, %if.then.i118 ], [ %or47.i, %if.then50.i ], [ %or47.i, %do.end46.i ], [ %or.i, %if.then2.i ], [ %or.i, %for.cond.i.i ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.0258
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.0257
   %41 = load i8, ptr %gep, align 1
   %idxprom = zext i8 %41 to i64
   %arrayidx83 = getelementptr inbounds [256 x i8], ptr %limex, i64 0, i64 %idxprom
@@ -6834,13 +6830,12 @@ if.end81:                                         ; preds = %for.cond.i.i, %if.t
   %arrayidx85 = getelementptr inbounds i64, ptr %add.ptr.i, i64 %idxprom84
   %43 = load i64, ptr %arrayidx85, align 8
   %and86 = and i64 %43, %succ.7.ph
-  %dec = add i64 %i.0258, -1
+  %dec = add i64 %i.0257, -1
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %for.end, label %do.end, !llvm.loop !25
 
-for.end:                                          ; preds = %if.end81, %entry
-  %s.0.lcssa = phi i64 [ %2, %entry ], [ %and86, %if.end81 ]
-  store i64 %s.0.lcssa, ptr %ctx, align 64
+for.end:                                          ; preds = %if.end81
+  store i64 %and86, ptr %ctx, align 64
   %accept = getelementptr inbounds i8, ptr %limex, i64 352
   %44 = load i64, ptr %accept, align 32
   %acceptOffset = getelementptr inbounds i8, ptr %limex, i64 280
@@ -6850,16 +6845,14 @@ for.end:                                          ; preds = %if.end81, %entry
   %acceptCount90 = getelementptr inbounds i8, ptr %limex, i64 276
   %46 = load i32, ptr %acceptCount90, align 4
   %tobool91.not = icmp eq i32 %46, 0
-  %and93 = and i64 %44, %s.0.lcssa
+  %and93 = and i64 %44, %and86
   %cmp94.not = icmp eq i64 %and93, 0
   %or.cond215 = select i1 %tobool91.not, i1 true, i1 %cmp94.not
   br i1 %or.cond215, label %return, label %if.then99
 
 if.then99:                                        ; preds = %for.end
-  %callback = getelementptr inbounds i8, ptr %ctx, i64 64
-  %47 = load ptr, ptr %callback, align 64
-  %context = getelementptr inbounds i8, ptr %ctx, i64 72
-  %48 = load ptr, ptr %context, align 8
+  %47 = load ptr, ptr %callback.i149, align 64
+  %48 = load ptr, ptr %context.i150, align 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.backedge, %if.then99

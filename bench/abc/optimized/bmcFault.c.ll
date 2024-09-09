@@ -1032,7 +1032,7 @@ Vec_IntFillExtra.exit:                            ; preds = %15, %._crit_edge.i
   %57 = getelementptr i8, ptr %1, i64 8
   %.val35 = load ptr, ptr %57, align 8
   %58 = add nsw i32 %.028, -1
-  call fastcc void @Cnf_AddCardinConstrRange(ptr noundef %0, ptr noundef %.val35, i32 noundef 0, i32 noundef %58, ptr noundef nonnull %4)
+  call fastcc void @Cnf_AddCardinConstrRange(ptr noundef %0, ptr noundef %.val35, i32 noundef 0, i32 noundef %58, ptr noundef %4)
   %.val31 = load ptr, ptr %57, align 8
   %59 = sext i32 %2 to i64
   %60 = getelementptr inbounds i32, ptr %.val31, i64 %59
@@ -1067,25 +1067,24 @@ declare void @sat_solver_setnvars(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Cnf_AddCardinConstrRange(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @Cnf_AddCardinConstrRange(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = sub nsw i32 %3, %2
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %common.ret33
 
 8:                                                ; preds = %5
   %9 = lshr i32 %6, 1
-  %10 = add i32 %9, %2
+  %10 = add nuw i32 %9, %2
   %11 = add nuw nsw i32 %6, 1
   %12 = lshr i32 %11, 1
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 %10)
   br label %13
 
 13:                                               ; preds = %8, %13
   %.032 = phi i32 [ %2, %8 ], [ %15, %13 ]
-  %14 = add nsw i32 %.032, %12
+  %14 = add nuw nsw i32 %.032, %12
   tail call fastcc void @Cnf_AddSorder(ptr noundef %0, ptr noundef %1, i32 noundef %.032, i32 noundef %14, ptr noundef %4)
-  %15 = add i32 %.032, 1
-  %exitcond.not = icmp eq i32 %.032, %smax
+  %15 = add nuw i32 %.032, 1
+  %exitcond.not = icmp eq i32 %.032, %10
   br i1 %exitcond.not, label %16, label %13, !llvm.loop !7
 
 common.ret33:                                     ; preds = %5, %16
@@ -3047,7 +3046,7 @@ define range(i32 0, 2) i32 @Gia_FormStrCount(ptr noundef %0, ptr nocapture nound
   %36 = load i32, ptr %.sink, align 4
   %37 = zext nneg i8 %22 to i32
   %38 = add nsw i32 %.sink102, %37
-  %39 = tail call noundef i32 @llvm.smax.i32(i32 %36, i32 %38)
+  %39 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %36, i32 %38)
   store i32 %39, ptr %.sink, align 4
   br label %40
 
@@ -7407,20 +7406,20 @@ define internal fastcc void @Cnf_AddCardinConstr(ptr noundef %0, ptr nocapture n
   %29 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
   %30 = shl nsw i32 %.13553, 1
+  %31 = or disjoint i32 %30, 1
   store i32 %30, ptr %2, align 4
-  %31 = shl nsw i32 %27, 1
-  %32 = or disjoint i32 %31, 1
+  %32 = shl nsw i32 %27, 1
+  %33 = or disjoint i32 %32, 1
+  store i32 %33, ptr %12, align 4
+  %34 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %13) #22
+  store i32 %30, ptr %2, align 4
+  %35 = shl nsw i32 %29, 1
+  %36 = or disjoint i32 %35, 1
+  store i32 %36, ptr %12, align 4
+  %37 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %13) #22
+  store i32 %31, ptr %2, align 4
   store i32 %32, ptr %12, align 4
-  %33 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %13) #22
-  store i32 %30, ptr %2, align 4
-  %34 = shl nsw i32 %29, 1
-  %35 = or disjoint i32 %34, 1
-  store i32 %35, ptr %12, align 4
-  %36 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %13) #22
-  %37 = or disjoint i32 %30, 1
-  store i32 %37, ptr %2, align 4
-  store i32 %31, ptr %12, align 4
-  store i32 %34, ptr %13, align 4
+  store i32 %35, ptr %13, align 4
   %38 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %14) #22
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9299,7 +9298,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Cnf_AddSorder(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @Cnf_AddSorder(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i32], align 4
   %8 = load i32, ptr %4, align 4
@@ -9314,22 +9313,22 @@ define internal fastcc void @Cnf_AddSorder(ptr noundef %0, ptr nocapture noundef
   %16 = load i32, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   %17 = shl nsw i32 %8, 1
+  %18 = or disjoint i32 %17, 1
   store i32 %17, ptr %7, align 4
-  %18 = shl nsw i32 %13, 1
-  %19 = or disjoint i32 %18, 1
-  %20 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
-  %22 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %21) #22
+  %19 = shl nsw i32 %13, 1
+  %20 = or disjoint i32 %19, 1
+  %21 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %20, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %22) #22
   store i32 %17, ptr %7, align 4
-  %23 = shl nsw i32 %16, 1
-  %24 = or disjoint i32 %23, 1
-  store i32 %24, ptr %20, align 4
-  %25 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %21) #22
-  %26 = or disjoint i32 %17, 1
-  store i32 %26, ptr %7, align 4
-  store i32 %18, ptr %20, align 4
-  store i32 %23, ptr %21, align 4
+  %24 = shl nsw i32 %16, 1
+  %25 = or disjoint i32 %24, 1
+  store i32 %25, ptr %21, align 4
+  %26 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %22) #22
+  store i32 %18, ptr %7, align 4
+  store i32 %19, ptr %21, align 4
+  store i32 %24, ptr %22, align 4
   %27 = getelementptr inbounds i8, ptr %7, i64 12
   %28 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %27) #22
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
@@ -9362,7 +9361,7 @@ define internal fastcc void @Cnf_AddSorder(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Cnf_AddCardinConstrMerge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @Cnf_AddCardinConstrMerge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = shl nsw i32 %4, 1
   %8 = sub nsw i32 %3, %2
   %9 = icmp slt i32 %7, %8

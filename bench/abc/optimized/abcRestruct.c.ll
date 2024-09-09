@@ -2396,7 +2396,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %.thread, %176
   %202 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val466, i64 %134, i32 3
   %203 = load i32, ptr %202, align 8
   %204 = and i32 %203, 16383
-  %205 = tail call i32 @llvm.umax.i32(i32 %201, i32 %204)
+  %205 = tail call range(i32 0, 16384) i32 @llvm.umax.i32(i32 %201, i32 %204)
   %206 = add nuw nsw i32 %205, 1
   %207 = lshr exact i32 %197, 1
   %208 = zext nneg i32 %207 to i64
@@ -2930,7 +2930,7 @@ Dec_GraphAddNodeXor.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %491 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val459, i64 %286, i32 3
   %492 = load i32, ptr %491, align 8
   %493 = and i32 %492, 16383
-  %494 = call i32 @llvm.umax.i32(i32 %490, i32 %493)
+  %494 = call range(i32 0, 16384) i32 @llvm.umax.i32(i32 %490, i32 %493)
   %495 = add nuw nsw i32 %494, 2
   %496 = lshr i32 %.sroa.033.0.i, 1
   %497 = zext nneg i32 %496 to i64
@@ -3765,8 +3765,8 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %980 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val451, i64 %759, i32 3
   %981 = load i32, ptr %980, align 8
   %982 = and i32 %981, 16383
-  %983 = call i32 @llvm.umax.i32(i32 %976, i32 %979)
-  %984 = call i32 @llvm.umax.i32(i32 %983, i32 %982)
+  %983 = call range(i32 0, 16384) i32 @llvm.umax.i32(i32 %976, i32 %979)
+  %984 = call range(i32 0, 16384) i32 @llvm.umax.i32(i32 %983, i32 %982)
   %985 = add nuw nsw i32 %984, 2
   %986 = lshr i32 %.sroa.031.0.i, 1
   %987 = zext nneg i32 %986 to i64
@@ -5719,7 +5719,7 @@ declare void @Dsd_TreeNodeGetInfoOne(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @Abc_NodeMffcLabelAig(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -5893,11 +5893,11 @@ declare void @llvm.va_end.p0(ptr) #14
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #16
+
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
@@ -5921,8 +5921,8 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { nofree nounwind }
-attributes #16 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nounwind }
 attributes #20 = { nounwind allocsize(1) }

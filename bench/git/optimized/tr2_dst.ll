@@ -158,11 +158,11 @@ if.then36:                                        ; preds = %if.end33
   br i1 %tobool38.not, label %if.else, label %if.then39
 
 if.then39:                                        ; preds = %if.then36
-  %call40 = tail call fastcc i32 @tr2_dst_try_auto_path(ptr noundef nonnull %dst, ptr noundef nonnull %call)
+  %call40 = tail call fastcc i32 @tr2_dst_try_auto_path(ptr noundef nonnull %dst, ptr noundef %call)
   br label %return
 
 if.else:                                          ; preds = %if.then36
-  %call41 = tail call fastcc i32 @tr2_dst_try_path(ptr noundef nonnull %dst, ptr noundef nonnull %call)
+  %call41 = tail call fastcc i32 @tr2_dst_try_path(ptr noundef nonnull %dst, ptr noundef %call)
   br label %return
 
 if.end42:                                         ; preds = %if.end33
@@ -171,7 +171,7 @@ if.end42:                                         ; preds = %if.end33
   br i1 %tobool44.not, label %if.end47, label %if.then45
 
 if.then45:                                        ; preds = %if.end42
-  %call46 = tail call fastcc i32 @tr2_dst_try_unix_domain_socket(ptr noundef nonnull %dst, ptr noundef nonnull %call)
+  %call46 = tail call fastcc i32 @tr2_dst_try_unix_domain_socket(ptr noundef nonnull %dst, ptr noundef %call)
   br label %return
 
 if.end47:                                         ; preds = %if.end42
@@ -200,7 +200,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
 declare i32 @is_directory(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tr2_dst_try_auto_path(ptr nocapture noundef %dst, ptr noundef %tgt_prefix) unnamed_addr #0 {
+define internal fastcc i32 @tr2_dst_try_auto_path(ptr nocapture noundef %dst, ptr noundef nonnull %tgt_prefix) unnamed_addr #0 {
 entry:
   %path.i = alloca %struct.strbuf, align 8
   %sentinel_path.i = alloca %struct.strbuf, align 8
@@ -213,7 +213,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %call1, i64 1
   %spec.select = select i1 %tobool.not, ptr %call, ptr %add.ptr
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tgt_prefix) #13
-  call void @strbuf_add(ptr noundef nonnull %path, ptr noundef %tgt_prefix, i64 noundef %call.i) #12
+  call void @strbuf_add(ptr noundef nonnull %path, ptr noundef nonnull %tgt_prefix, i64 noundef %call.i) #12
   %buf = getelementptr inbounds i8, ptr %path, i64 16
   %0 = load ptr, ptr %buf, align 8
   %len = getelementptr inbounds i8, ptr %path, i64 8
@@ -290,7 +290,7 @@ if.end.i:                                         ; preds = %if.endthread-pre-sp
 
 if.end7.i:                                        ; preds = %if.end.i
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tgt_prefix) #13
-  call void @strbuf_add(ptr noundef nonnull %path.i, ptr noundef %tgt_prefix, i64 noundef %call.i.i) #12
+  call void @strbuf_add(ptr noundef nonnull %path.i, ptr noundef nonnull %tgt_prefix, i64 noundef %call.i.i) #12
   %buf.i23 = getelementptr inbounds i8, ptr %path.i, i64 16
   %12 = load ptr, ptr %buf.i23, align 8
   %len.i24 = getelementptr inbounds i8, ptr %path.i, i64 8
@@ -473,7 +473,7 @@ tr2_dst_want_warning.exit:                        ; preds = %if.then24, %if.end5
 if.then27:                                        ; preds = %tr2_dst_want_warning.exit
   %32 = load i32, ptr %dst, align 4
   %call28 = call ptr @tr2_sysenv_display_name(i32 noundef %32) #12
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.8, ptr noundef %call28, ptr noundef %tgt_prefix) #12
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.8, ptr noundef %call28, ptr noundef nonnull %tgt_prefix) #12
   br label %return
 
 if.end31:                                         ; preds = %if.end29.i
@@ -576,9 +576,9 @@ return:                                           ; preds = %tr2_dst_want_warnin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @tr2_dst_try_path(ptr nocapture noundef %dst, ptr noundef %tgt_value) unnamed_addr #0 {
+define internal fastcc noundef i32 @tr2_dst_try_path(ptr nocapture noundef %dst, ptr noundef nonnull %tgt_value) unnamed_addr #0 {
 entry:
-  %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %tgt_value, i32 noundef 1089, i32 noundef 438) #12
+  %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %tgt_value, i32 noundef 1089, i32 noundef 438) #12
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end6
 
@@ -619,7 +619,7 @@ if.then2:                                         ; preds = %tr2_dst_want_warnin
   %call4 = tail call ptr @__errno_location() #15
   %4 = load i32, ptr %call4, align 4
   %call5 = tail call ptr @strerror(i32 noundef %4) #12
-  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.13, ptr noundef %tgt_value, ptr noundef %call3, ptr noundef %call5) #12
+  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.13, ptr noundef nonnull %tgt_value, ptr noundef %call3, ptr noundef %call5) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %tr2_dst_want_warning.exit
@@ -662,7 +662,7 @@ return:                                           ; preds = %if.end6, %tr2_dst_t
 declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tr2_dst_try_unix_domain_socket(ptr nocapture noundef %dst, ptr noundef %tgt_value) unnamed_addr #0 {
+define internal fastcc i32 @tr2_dst_try_unix_domain_socket(ptr nocapture noundef %dst, ptr noundef nonnull %tgt_value) unnamed_addr #0 {
 entry:
   %sa.i71 = alloca %struct.sockaddr_un, align 2
   %sa.i = alloca %struct.sockaddr_un, align 2
@@ -672,12 +672,12 @@ entry:
 do.body.i:                                        ; preds = %do.cond.i, %entry
   %str.addr.0.i = phi ptr [ %tgt_value, %entry ], [ %incdec.ptr.i, %do.cond.i ]
   %prefix.addr.0.i.idx = phi i64 [ 0, %entry ], [ %prefix.addr.0.i.add, %do.cond.i ]
-  %exitcond = icmp eq i64 %prefix.addr.0.i.idx, 15
-  br i1 %exitcond, label %if.end9, label %do.cond.i
-
-do.cond.i:                                        ; preds = %do.body.i
   %prefix.addr.0.i.ptr = getelementptr inbounds i8, ptr @.str.14, i64 %prefix.addr.0.i.idx
   %0 = load i8, ptr %prefix.addr.0.i.ptr, align 1
+  %exitcond = icmp eq i64 %prefix.addr.0.i.idx, 15
+  br i1 %exitcond, label %lor.lhs.false, label %do.cond.i
+
+do.cond.i:                                        ; preds = %do.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.i.add = add nuw nsw i64 %prefix.addr.0.i.idx, 1
@@ -685,14 +685,14 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %do.body.i18.preheader, !llvm.loop !8
 
 do.body.i18.preheader:                            ; preds = %do.cond.i
-  %scevgep130 = getelementptr i8, ptr %tgt_value, i64 14
+  %scevgep149 = getelementptr i8, ptr %tgt_value, i64 14
   br label %do.body.i18
 
 do.body.i18:                                      ; preds = %do.body.i18.preheader, %do.cond.i22
   %str.addr.0.i19 = phi ptr [ %incdec.ptr.i23, %do.cond.i22 ], [ %tgt_value, %do.body.i18.preheader ]
   %prefix.addr.0.i20.idx = phi i64 [ %prefix.addr.0.i20.add, %do.cond.i22 ], [ 0, %do.body.i18.preheader ]
-  %exitcond131 = icmp eq i64 %prefix.addr.0.i20.idx, 14
-  br i1 %exitcond131, label %if.end9, label %do.cond.i22
+  %exitcond150 = icmp eq i64 %prefix.addr.0.i20.idx, 14
+  br i1 %exitcond150, label %lor.lhs.false, label %do.cond.i22
 
 do.cond.i22:                                      ; preds = %do.body.i18
   %prefix.addr.0.i20.ptr = getelementptr inbounds i8, ptr @.str.15, i64 %prefix.addr.0.i20.idx
@@ -704,14 +704,14 @@ do.cond.i22:                                      ; preds = %do.body.i18
   br i1 %cmp.i25, label %do.body.i18, label %do.body.i28.preheader, !llvm.loop !8
 
 do.body.i28.preheader:                            ; preds = %do.cond.i22
-  %scevgep132 = getelementptr i8, ptr %tgt_value, i64 8
+  %scevgep151 = getelementptr i8, ptr %tgt_value, i64 8
   br label %do.body.i28
 
 do.body.i28:                                      ; preds = %do.body.i28.preheader, %do.cond.i32
   %str.addr.0.i29 = phi ptr [ %incdec.ptr.i33, %do.cond.i32 ], [ %tgt_value, %do.body.i28.preheader ]
   %prefix.addr.0.i30.idx = phi i64 [ %prefix.addr.0.i30.add, %do.cond.i32 ], [ 0, %do.body.i28.preheader ]
-  %exitcond133.not = icmp eq i64 %prefix.addr.0.i30.idx, 8
-  br i1 %exitcond133.not, label %if.end9, label %do.cond.i32
+  %exitcond152 = icmp eq i64 %prefix.addr.0.i30.idx, 8
+  br i1 %exitcond152, label %lor.lhs.false, label %do.cond.i32
 
 do.cond.i32:                                      ; preds = %do.body.i28
   %prefix.addr.0.i30.ptr = getelementptr inbounds i8, ptr @.str.5, i64 %prefix.addr.0.i30.idx
@@ -722,20 +722,17 @@ do.cond.i32:                                      ; preds = %do.body.i28
   %cmp.i35 = icmp eq i8 %5, %4
   br i1 %cmp.i35, label %do.body.i28, label %if.then11, !llvm.loop !8
 
-if.end9:                                          ; preds = %do.body.i, %do.body.i18, %do.body.i28
-  %path.0 = phi ptr [ %scevgep132, %do.body.i28 ], [ %scevgep130, %do.body.i18 ], [ %scevgep, %do.body.i ]
-  %tobool30.not = phi i1 [ false, %do.body.i28 ], [ true, %do.body.i18 ], [ false, %do.body.i ]
-  %tobool.not = icmp eq ptr %path.0, null
-  br i1 %tobool.not, label %if.then11, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end9
-  %6 = load i8, ptr %path.0, align 1
+lor.lhs.false:                                    ; preds = %do.body.i, %do.body.i18, %do.body.i28
+  %tobool30.not125 = phi i1 [ false, %do.body.i28 ], [ true, %do.body.i18 ], [ false, %do.body.i ]
+  %path.0121 = phi ptr [ %scevgep151, %do.body.i28 ], [ %scevgep149, %do.body.i18 ], [ %scevgep, %do.body.i ]
+  %tobool.not.i156 = icmp eq i8 %0, 0
+  %6 = load i8, ptr %path.0121, align 1
   switch i8 %6, label %if.then22 [
     i8 0, label %if.then11
     i8 47, label %lor.lhs.false20
   ]
 
-if.then11:                                        ; preds = %do.cond.i32, %lor.lhs.false, %if.end9
+if.then11:                                        ; preds = %do.cond.i32, %lor.lhs.false
   %7 = load i32, ptr @tr2_dst_want_warning.tr2env_dst_debug, align 4
   %cmp.i38 = icmp eq i32 %7, -1
   br i1 %cmp.i38, label %if.then.i39, label %tr2_dst_want_warning.exit
@@ -769,7 +766,7 @@ tr2_dst_want_warning.exit:                        ; preds = %if.then11, %if.end5
 if.then14:                                        ; preds = %tr2_dst_want_warning.exit
   %10 = load i32, ptr %dst, align 4
   %call15 = tail call ptr @tr2_sysenv_display_name(i32 noundef %10) #12
-  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.16, ptr noundef %tgt_value, ptr noundef %call15) #12
+  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.16, ptr noundef nonnull %tgt_value, ptr noundef %call15) #12
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %tr2_dst_want_warning.exit
@@ -796,7 +793,7 @@ tr2_dst_trace_disable.exit:                       ; preds = %if.end16, %if.then.
   br label %return
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false
-  %call21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path.0) #13
+  %call21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path.0121) #13
   %cmp = icmp ugt i64 %call21, 107
   br i1 %cmp, label %if.then22, label %if.end29
 
@@ -834,7 +831,7 @@ tr2_dst_want_warning.exit56:                      ; preds = %if.then22, %if.end5
 if.then25:                                        ; preds = %tr2_dst_want_warning.exit56
   %16 = load i32, ptr %dst, align 4
   %call27 = tail call ptr @tr2_sysenv_display_name(i32 noundef %16) #12
-  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.17, ptr noundef nonnull %path.0, ptr noundef %call27) #12
+  tail call void (ptr, ...) @warning(ptr noundef nonnull @.str.17, ptr noundef nonnull %path.0121, ptr noundef %call27) #12
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then25, %tr2_dst_want_warning.exit56
@@ -861,7 +858,7 @@ tr2_dst_trace_disable.exit68:                     ; preds = %if.end28, %if.then.
   br label %return
 
 if.end29:                                         ; preds = %lor.lhs.false20
-  br i1 %tobool30.not, label %if.end40, label %if.then31
+  br i1 %tobool30.not125, label %if.end40, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %sa.i)
@@ -876,7 +873,7 @@ if.then31.if.end35_crit_edge:                     ; preds = %if.then31
 if.end.i:                                         ; preds = %if.then31
   store i16 1, ptr %sa.i, align 2
   %sun_path.i = getelementptr inbounds i8, ptr %sa.i, i64 2
-  %call1.i = call i64 @gitstrlcpy(ptr noundef nonnull %sun_path.i, ptr noundef nonnull %path.0, i64 noundef 108) #12
+  %call1.i = call i64 @gitstrlcpy(ptr noundef nonnull %sun_path.i, ptr noundef nonnull %path.0121, i64 noundef 108) #12
   %call2.i = call i32 @connect(i32 noundef %call.i69, ptr nonnull %sa.i, i32 noundef 110) #12
   %cmp3.i = icmp eq i32 %call2.i, -1
   br i1 %cmp3.i, label %if.then4.i, label %tr2_dst_try_uds_connect.exit
@@ -897,11 +894,11 @@ if.end35:                                         ; preds = %if.then31.if.end35_
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %sa.i)
   %20 = load i32, ptr %call36.pre-phi, align 4
   %cmp37.not = icmp ne i32 %20, 91
-  %brmerge = or i1 %exitcond, %cmp37.not
+  %brmerge = or i1 %tobool.not.i156, %cmp37.not
   br i1 %brmerge, label %error, label %if.then43
 
 if.end40:                                         ; preds = %if.end29
-  br i1 %exitcond, label %error, label %if.then43
+  br i1 %tobool.not.i156, label %error, label %if.then43
 
 if.then43:                                        ; preds = %if.end35, %if.end40
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %sa.i71)
@@ -912,7 +909,7 @@ if.then43:                                        ; preds = %if.end35, %if.end40
 if.end.i74:                                       ; preds = %if.then43
   store i16 1, ptr %sa.i71, align 2
   %sun_path.i75 = getelementptr inbounds i8, ptr %sa.i71, i64 2
-  %call1.i76 = call i64 @gitstrlcpy(ptr noundef nonnull %sun_path.i75, ptr noundef nonnull %path.0, i64 noundef 108) #12
+  %call1.i76 = call i64 @gitstrlcpy(ptr noundef nonnull %sun_path.i75, ptr noundef nonnull %path.0121, i64 noundef 108) #12
   %call2.i77 = call i32 @connect(i32 noundef %call.i72, ptr nonnull %sa.i71, i32 noundef 110) #12
   %cmp3.i78 = icmp eq i32 %call2.i77, -1
   br i1 %cmp3.i78, label %if.then4.i81, label %tr2_dst_try_uds_connect.exit84
@@ -969,7 +966,7 @@ if.then51:                                        ; preds = %tr2_dst_want_warnin
   %call54 = tail call ptr @__errno_location() #15
   %26 = load i32, ptr %call54, align 4
   %call55 = call ptr @strerror(i32 noundef %26) #12
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.18, ptr noundef nonnull %path.0, ptr noundef %call53, ptr noundef %call55) #12
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.18, ptr noundef nonnull %path.0121, ptr noundef %call53, ptr noundef %call55) #12
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then51, %tr2_dst_want_warning.exit97

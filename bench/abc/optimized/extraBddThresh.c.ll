@@ -3635,7 +3635,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %36 = tail call ptr (...) @Abc_FrameReadManDd() #18
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %1, i32 16)
+  %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %1, i32 16)
   %38 = getelementptr inbounds i8, ptr %37, i64 4
   store i32 0, ptr %38, align 4
   store i32 %spec.store.select.i, ptr %37, align 8
@@ -3681,7 +3681,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   %54 = tail call ptr @Kit_TruthToBdd(ptr noundef %36, ptr noundef %0, i32 noundef %1, i32 noundef 0) #18
   tail call void @Cudd_Ref(ptr noundef %54) #18
   %55 = tail call ptr @Abc_ConvertBddToSop(ptr noundef null, ptr noundef %36, ptr noundef %54, ptr noundef %54, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %37, i32 noundef 1) #18
-  %56 = icmp slt i32 %1, 6
+  %56 = icmp ult i32 %1, 6
   %57 = add nsw i32 %1, -5
   %58 = shl nuw i32 1, %57
   %59 = select i1 %56, i32 1, i32 %58
@@ -3916,6 +3916,9 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13

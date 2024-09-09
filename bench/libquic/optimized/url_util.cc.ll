@@ -80,7 +80,6 @@ $_ZTIN3url15RawCanonOutputTIcLi1024EEE = comdat any
 @_ZN3url12_GLOBAL__N_116standard_schemesE = internal global ptr null, align 8
 @_ZN3url12_GLOBAL__N_116referrer_schemesE = internal global ptr null, align 8
 @_ZN3url12_GLOBAL__N_119kStandardURLSchemesE = internal constant [8 x %"struct.url::SchemeWithType"] [%"struct.url::SchemeWithType" { ptr @_ZN3url11kHttpSchemeE, i32 0 }, %"struct.url::SchemeWithType" { ptr @_ZN3url12kHttpsSchemeE, i32 0 }, %"struct.url::SchemeWithType" { ptr @_ZN3url11kFileSchemeE, i32 1 }, %"struct.url::SchemeWithType" { ptr @_ZN3url10kFtpSchemeE, i32 0 }, %"struct.url::SchemeWithType" { ptr @_ZN3url13kGopherSchemeE, i32 0 }, %"struct.url::SchemeWithType" { ptr @_ZN3url9kWsSchemeE, i32 0 }, %"struct.url::SchemeWithType" { ptr @_ZN3url10kWssSchemeE, i32 0 }, %"struct.url::SchemeWithType" { ptr @_ZN3url17kFileSystemSchemeE, i32 2 }], align 16
-@.str = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZN3url11kHttpSchemeE = external constant [0 x i8], align 1
 @_ZN3url12kHttpsSchemeE = external constant [0 x i8], align 1
@@ -3884,7 +3883,7 @@ _ZN3url12_GLOBAL__N_124DoCompareSchemeComponentItEEbPKT_RKNS_9ComponentEPKc.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_14SchemeWithTypeESaIS2_EEPKS2_m(ptr nocapture noundef %schemes, ptr nocapture noundef readonly %initial_schemes, i64 noundef %size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3url12_GLOBAL__N_111InitSchemesEPPSt6vectorINS_14SchemeWithTypeESaIS2_EEPKS2_m(ptr nocapture noundef %schemes, ptr nocapture noundef readonly %initial_schemes, i64 noundef range(i64 2, 9) %size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %schemes, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3892,59 +3891,37 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
-  %cmp.i.i = icmp ugt i64 %size, 576460752303423487
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-
-if.then.i.i:                                      ; preds = %if.end
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %if.then.i.i
-  unreachable
-
-_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i = icmp eq i64 %size, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont.thread, label %if.then.i.i.i.i.i
-
-invoke.cont.thread:                               ; preds = %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
-  store ptr %call, ptr %schemes, align 8
-  br label %for.end
-
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %size, 4
   %call5.i.i.i.i2.i.i6 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #15
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad
 
-call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
+call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end
   store ptr %call5.i.i.i.i2.i.i6, ptr %call, align 8
   %add.ptr.i.i.i = getelementptr %"struct.url::SchemeWithType", ptr %call5.i.i.i.i2.i.i6, i64 %size
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i2.i.i6, i8 0, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i6, i64 16
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %size, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call5.i.i.i.i2.i.i.noexc, %for.body.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i2.i.i6, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !14
 
-for.body.preheader:                               ; preds = %for.body.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
-  %add.ptr.i.i.i.sink = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %add.ptr.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   store ptr %call, ptr %schemes, align 8
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit
-  %i.09 = phi i64 [ %inc, %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %invoke.cont, %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit
+  %i.07 = phi i64 [ 0, %invoke.cont ], [ %inc, %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit ]
   %1 = load ptr, ptr %schemes, align 8
-  %arrayidx = getelementptr inbounds %"struct.url::SchemeWithType", ptr %initial_schemes, i64 %i.09
+  %arrayidx = getelementptr inbounds %"struct.url::SchemeWithType", ptr %initial_schemes, i64 %i.07
   %_M_finish.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -3991,13 +3968,13 @@ _ZNSt12_Vector_baseIN3url14SchemeWithTypeESaIS1_EE11_M_allocateEm.exit.i.i: ; pr
   %add.ptr.i.i = getelementptr inbounds %"struct.url::SchemeWithType", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i7, label %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
-if.then.i.i.i.i.i7:                               ; preds = %_ZNSt12_Vector_baseIN3url14SchemeWithTypeESaIS1_EE11_M_allocateEm.exit.i.i
+if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN3url14SchemeWithTypeESaIS1_EE11_M_allocateEm.exit.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %5, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
-_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i7, %_ZNSt12_Vector_baseIN3url14SchemeWithTypeESaIS1_EE11_M_allocateEm.exit.i.i
+_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN3url14SchemeWithTypeESaIS1_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %5, null
@@ -4015,17 +3992,17 @@ _ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu
   br label %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %inc = add nuw i64 %i.09, 1
+  %inc = add nuw nsw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, %size
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
-lpad:                                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i
+lpad:                                             ; preds = %if.end
   %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call) #13
   resume { ptr, i32 } %7
 
-for.end:                                          ; preds = %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit, %invoke.cont.thread, %entry
+for.end:                                          ; preds = %_ZNSt6vectorIN3url14SchemeWithTypeESaIS1_EE9push_backERKS1_.exit, %entry
   ret void
 }
 

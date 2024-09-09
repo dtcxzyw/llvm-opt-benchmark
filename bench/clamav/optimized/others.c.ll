@@ -368,7 +368,7 @@ load_module.exit.thread.i:                        ; preds = %41, %40
 
 73:                                               ; preds = %65
   store ptr %66, ptr @cli_unrar_skip_file, align 8
-  %74 = call fastcc ptr @get_module_function(ptr noundef nonnull %.211.i.i, ptr noundef nonnull @.str.102)
+  %74 = call fastcc ptr @get_module_function(ptr noundef %.211.i.i, ptr noundef nonnull @.str.102)
   store ptr %74, ptr @cli_unrar_close, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %77
@@ -2580,14 +2580,14 @@ define void @cli_virus_found_cb(ptr nocapture noundef readonly %0, ptr noundef %
 declare i32 @fmap_fd(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 35) i32 @append_virus(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 35) i32 @append_virus(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %64, label %9
+  br i1 %8, label %63, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2604,7 +2604,7 @@ define internal fastcc range(i32 0, 35) i32 @append_virus(ptr noundef %0, ptr no
 15:                                               ; preds = %12
   %16 = tail call i32 @cli_check_fp(ptr noundef nonnull %0, ptr noundef %1) #24
   %.not28 = icmp eq i32 %16, 1
-  br i1 %.not28, label %._crit_edge, label %64
+  br i1 %.not28, label %._crit_edge, label %63
 
 ._crit_edge:                                      ; preds = %15
   %.pre = load ptr, ptr %6, align 8
@@ -2619,7 +2619,7 @@ define internal fastcc range(i32 0, 35) i32 @append_virus(ptr noundef %0, ptr no
   %21 = load ptr, ptr %4, align 8
   %22 = call ptr @ffierror_fmt(ptr noundef %21) #24
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.121, ptr noundef %22) #24
-  br label %64
+  br label %63
 
 23:                                               ; preds = %17
   %24 = icmp eq i32 %2, 0
@@ -2668,7 +2668,7 @@ cli_virus_found_cb.exit:                          ; preds = %30, %25, %23
 
 47:                                               ; preds = %44
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.123) #24
-  br label %64
+  br label %63
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %40, align 8
@@ -2682,7 +2682,7 @@ cli_virus_found_cb.exit:                          ; preds = %30, %25, %23
 
 54:                                               ; preds = %51
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.124) #24
-  br label %64
+  br label %63
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %5, align 8
@@ -2694,17 +2694,18 @@ cli_virus_found_cb.exit:                          ; preds = %30, %25, %23
 58:                                               ; preds = %55, %39, %cli_virus_found_cb.exit
   %59 = phi i32 [ %.pre34, %55 ], [ %37, %39 ], [ %37, %cli_virus_found_cb.exit ]
   %60 = and i32 %59, 1
-  %61 = or i32 %60, %2
-  %or.cond = icmp eq i32 %61, 0
-  br i1 %or.cond, label %62, label %64
+  %.not32 = icmp ne i32 %60, 0
+  %trunc = trunc nuw i32 %2 to i1
+  %or.cond.not = select i1 %.not32, i1 true, i1 %trunc
+  br i1 %or.cond.not, label %63, label %61
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %0, i64 185
-  store i8 1, ptr %63, align 1
-  br label %64
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %0, i64 185
+  store i8 1, ptr %62, align 1
+  br label %63
 
-64:                                               ; preds = %20, %47, %54, %62, %3, %15, %58
-  %.0 = phi i32 [ 20, %54 ], [ 1, %62 ], [ 20, %47 ], [ 34, %20 ], [ 0, %3 ], [ 0, %15 ], [ 0, %58 ]
+63:                                               ; preds = %20, %47, %54, %61, %3, %15, %58
+  %.0 = phi i32 [ 20, %54 ], [ 1, %61 ], [ 20, %47 ], [ 34, %20 ], [ 0, %3 ], [ 0, %15 ], [ 0, %58 ]
   ret i32 %.0
 }
 
@@ -3532,8 +3533,8 @@ define zeroext i8 @cli_set_debug_flag(i8 noundef zeroext %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_module_function(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
-  %3 = tail call ptr @dlsym(ptr noundef %0, ptr noundef %1) #24
+define internal fastcc ptr @get_module_function(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 {
+  %3 = tail call ptr @dlsym(ptr noundef nonnull %0, ptr noundef %1) #24
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %10
 

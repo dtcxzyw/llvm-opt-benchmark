@@ -2056,7 +2056,7 @@ define range(i32 0, 2) i32 @If_CutCheck(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @enable_dbg_outs, align 4
   %.not = icmp eq i32 %4, 0
@@ -3750,7 +3750,7 @@ define noundef i32 @If_CutFilter2(ptr noundef %0, ptr nocapture noundef readnone
 33:                                               ; preds = %31
   %34 = load i32, ptr %30, align 8
   %35 = lshr i32 %34, 13
-  %36 = tail call range(i32 0, 1000000001) i32 @llvm.smin.i32(i32 %.061, i32 %35)
+  %36 = tail call range(i32 0, 524288) i32 @llvm.umin.i32(i32 %.061, i32 %35)
   %37 = load ptr, ptr %10, align 8
   %38 = getelementptr inbounds i8, ptr %30, i64 4
   %39 = load i32, ptr %38, align 4
@@ -3950,10 +3950,13 @@ declare void @llvm.va_start.p0(ptr) #14
 declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16

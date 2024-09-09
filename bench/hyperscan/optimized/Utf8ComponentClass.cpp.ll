@@ -5011,7 +5011,7 @@ _ZNSt3mapIjS_IhjSt4lessIhESaISt4pairIKhjEEES0_IjESaIS2_IKjS6_EEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN3ue2L6getMidERNS_18GlushkovBuildStateERSt3mapIjS2_IhjSt4lessIhESaISt4pairIKhjEEES3_IjESaIS5_IKjS9_EEERSB_h(ptr noundef nonnull align 8 dereferenceable(8) %bs, ptr noundef nonnull align 8 dereferenceable(48) %mids, ptr noundef nonnull align 4 dereferenceable(4) %prev, i8 noundef zeroext %byte_val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN3ue2L6getMidERNS_18GlushkovBuildStateERSt3mapIjS2_IhjSt4lessIhESaISt4pairIKhjEEES3_IjESaIS5_IKjS9_EEERSB_h(ptr noundef nonnull align 8 dereferenceable(8) %bs, ptr noundef nonnull align 8 dereferenceable(48) %mids, ptr noundef nonnull align 4 dereferenceable(4) %prev, i8 noundef zeroext range(i8 -128, -64) %byte_val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.58", align 1
@@ -5108,23 +5108,22 @@ if.end:                                           ; preds = %_ZNSt3mapIjS_IhjSt4
   %9 = load ptr, ptr %vfn10, align 8
   %call11 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, i8 0, i64 32, i1 false)
-  %conv.i.i = zext i8 %byte_val to i64
-  %rem.i.i.i.i = and i64 %conv.i.i, 63
+  %10 = and i8 %byte_val, 63
+  %rem.i.i.i.i = zext nneg i8 %10 to i64
   %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i
-  %div1.i.i.i.i = lshr i64 %conv.i.i, 6
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [4 x i64], ptr %ref.tmp12, i64 0, i64 %div1.i.i.i.i
-  %10 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
-  %or.i.i.i = or i64 %shl.i.i.i.i, %10
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %11 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
+  %or.i.i.i = or i64 %shl.i.i.i.i, %11
   store i64 %or.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
   %vtable13 = load ptr, ptr %call, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 72
-  %11 = load ptr, ptr %vfn14, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %call11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12)
-  %12 = load i32, ptr %prev, align 4
+  %12 = load ptr, ptr %vfn14, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %call11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12)
+  %13 = load i32, ptr %prev, align 4
   %vtable15 = load ptr, ptr %bs, align 8
   %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 48
-  %13 = load ptr, ptr %vfn16, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %bs, i32 noundef %12, i32 noundef %call11)
+  %14 = load ptr, ptr %vfn16, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %bs, i32 noundef %13, i32 noundef %call11)
   %call17 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %second.i, ptr noundef nonnull align 1 dereferenceable(1) %byte_val.addr)
   store i32 %call11, ptr %call17, align 4
   br label %return

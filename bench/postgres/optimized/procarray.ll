@@ -1470,7 +1470,7 @@ KnownAssignedXidsCompress.exit:                   ; preds = %._crit_edge.i, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @KnownAssignedXidsDisplay(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @KnownAssignedXidsDisplay(i32 noundef range(i32 12, 16) %0) unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = load ptr, ptr @procArray, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1921,7 +1921,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) l
   %111 = load ptr, ptr @TransactionIdIsInProgress.xids, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %112 = call fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef %111, ptr noundef nonnull %2, i32 noundef %0)
+  %112 = call fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef %111, ptr noundef %2, i32 noundef %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %113
 
@@ -2026,28 +2026,25 @@ declare zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef, i32 noundef) loca
 declare i32 @SubTransGetTopmostTransaction(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @pg_lfind32(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @pg_lfind32(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #6 {
   %4 = insertelement <4 x i32> poison, i32 %0, i64 0
   %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
   %6 = and i32 %2, -16
   %.not49 = icmp eq i32 %6, 0
-  br i1 %.not49, label %.preheader, label %.lr.ph.preheader
+  br i1 %.not49, label %.lr.ph45.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %7 = zext i32 %6 to i64
   br label %.lr.ph
 
-.preheader.loopexit:                              ; preds = %29
+.preheader:                                       ; preds = %29
   %8 = trunc nuw i64 %indvars.iv.next to i32
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.loopexit, %3
-  %.030.lcssa = phi i32 [ 0, %3 ], [ %8, %.preheader.loopexit ]
-  %9 = icmp ult i32 %.030.lcssa, %2
+  %9 = icmp ugt i32 %2, %8
   br i1 %9, label %.lr.ph45.preheader, label %.loopexit
 
-.lr.ph45.preheader:                               ; preds = %.preheader
-  %10 = zext i32 %.030.lcssa to i64
+.lr.ph45.preheader:                               ; preds = %3, %.preheader
+  %.030.lcssa56 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %3 ]
+  %10 = and i64 %.030.lcssa56, 4294967295
   br label %.lr.ph45
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
@@ -2080,7 +2077,7 @@ define internal fastcc noundef zeroext i1 @pg_lfind32(i32 noundef %0, ptr nocapt
 29:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %30 = icmp ult i64 %indvars.iv.next, %7
-  br i1 %30, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !33
+  br i1 %30, label %.lr.ph, label %.preheader, !llvm.loop !33
 
 .lr.ph45:                                         ; preds = %.lr.ph45, %.lr.ph45.preheader
   %indvars.iv52 = phi i64 [ %10, %.lr.ph45.preheader ], [ %indvars.iv.next53, %.lr.ph45 ]
@@ -2160,7 +2157,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsActive(i32 noundef %0) local
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetOldestNonRemovableTransactionId(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ComputeXidHorizonsResult, align 8
-  call fastcc void @ComputeXidHorizons(ptr noundef nonnull %2)
+  call fastcc void @ComputeXidHorizons(ptr noundef %2)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %42, label %4
 
@@ -2255,7 +2252,7 @@ GlobalVisHorizonKindForRel.exit:                  ; preds = %39, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ComputeXidHorizons(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @ComputeXidHorizons(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr @procArray, align 8
   %3 = tail call zeroext i1 @RecoveryInProgress() #15
   %4 = load ptr, ptr @ProcGlobal, align 8
@@ -2753,7 +2750,7 @@ GlobalVisUpdateApply.exit:                        ; preds = %FullTransactionIdNe
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetOldestTransactionIdConsideredRunning() local_unnamed_addr #0 {
   %1 = alloca %struct.ComputeXidHorizonsResult, align 8
-  call fastcc void @ComputeXidHorizons(ptr noundef nonnull %1)
+  call fastcc void @ComputeXidHorizons(ptr noundef %1)
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -2762,7 +2759,7 @@ define dso_local i32 @GetOldestTransactionIdConsideredRunning() local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local void @GetReplicationHorizons(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ComputeXidHorizonsResult, align 8
-  call fastcc void @ComputeXidHorizons(ptr noundef nonnull %3)
+  call fastcc void @ComputeXidHorizons(ptr noundef %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %0, align 4
@@ -3005,7 +3002,7 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned %0) local_unn
 126:                                              ; preds = %._crit_edge
   %127 = getelementptr inbounds i8, ptr %0, i64 32
   %128 = load ptr, ptr %127, align 8
-  %129 = call fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef %128, ptr noundef nonnull %2, i32 noundef %spec.store.select)
+  %129 = call fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef %128, ptr noundef %2, i32 noundef %spec.store.select)
   %130 = load i32, ptr %2, align 4
   %131 = load ptr, ptr @procArray, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 24
@@ -3227,7 +3224,7 @@ FullTransactionIdNewer.exit154:                   ; preds = %FullTransactionIdNe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr @procArray, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 4
@@ -6033,7 +6030,7 @@ define dso_local zeroext i1 @GlobalVisTestIsRemovableFullXid(ptr nocapture nound
 
 GlobalVisTestShouldUpdate.exit.thread:            ; preds = %9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call fastcc void @ComputeXidHorizons(ptr noundef nonnull %3)
+  call fastcc void @ComputeXidHorizons(ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %12 = load i64, ptr %4, align 8
   %13 = icmp ult i64 %1, %12
@@ -6071,7 +6068,7 @@ define dso_local zeroext i1 @GlobalVisTestIsRemovableXid(ptr nocapture noundef r
 
 GlobalVisTestShouldUpdate.exit.thread.i:          ; preds = %13
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call fastcc void @ComputeXidHorizons(ptr noundef nonnull %3)
+  call fastcc void @ComputeXidHorizons(ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %16 = load i64, ptr %9, align 8
   %17 = icmp ult i64 %8, %16
@@ -6101,7 +6098,7 @@ define dso_local i64 @GlobalVisTestNonRemovableFullHorizon(ptr nocapture noundef
 
 GlobalVisTestShouldUpdate.exit.thread:            ; preds = %4, %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  call fastcc void @ComputeXidHorizons(ptr noundef nonnull %2)
+  call fastcc void @ComputeXidHorizons(ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.0.0.copyload.pre = load i64, ptr %.phi.trans.insert, align 8
@@ -6131,7 +6128,7 @@ define dso_local i32 @GlobalVisTestNonRemovableHorizon(ptr nocapture noundef rea
 
 GlobalVisTestShouldUpdate.exit.thread.i:          ; preds = %4, %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  call fastcc void @ComputeXidHorizons(ptr noundef nonnull %2)
+  call fastcc void @ComputeXidHorizons(ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.0.0.copyload.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
@@ -6239,7 +6236,7 @@ GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %2
 
 GlobalVisTestShouldUpdate.exit.thread.i:          ; preds = %48
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call fastcc void @ComputeXidHorizons(ptr noundef nonnull %3)
+  call fastcc void @ComputeXidHorizons(ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %51 = load i64, ptr %43, align 8
   %52 = icmp ult i64 %1, %51
@@ -6350,7 +6347,7 @@ GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %2
 
 GlobalVisTestShouldUpdate.exit.thread.i.i:        ; preds = %52
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call fastcc void @ComputeXidHorizons(ptr noundef nonnull %3)
+  call fastcc void @ComputeXidHorizons(ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %55 = load i64, ptr %48, align 8
   %56 = icmp ult i64 %47, %55

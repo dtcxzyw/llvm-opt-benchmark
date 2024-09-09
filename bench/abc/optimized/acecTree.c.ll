@@ -1490,9 +1490,9 @@ Vec_BitStart.exit95:                              ; preds = %Vec_BitStart.exit, 
   %38 = getelementptr i8, ptr %35, i64 8
   br label %39
 
-39:                                               ; preds = %.lr.ph, %Vec_BitWriteEntry.exit96
-  %40 = phi ptr [ %34, %.lr.ph ], [ %110, %Vec_BitWriteEntry.exit96 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_BitWriteEntry.exit96 ]
+39:                                               ; preds = %.lr.ph, %Vec_BitWriteEntry.exit97
+  %40 = phi ptr [ %34, %.lr.ph ], [ %110, %Vec_BitWriteEntry.exit97 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_BitWriteEntry.exit97 ]
   %.val85 = load ptr, ptr %38, align 8
   %41 = getelementptr inbounds i32, ptr %.val85, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
@@ -1528,10 +1528,10 @@ Vec_BitStart.exit95:                              ; preds = %Vec_BitStart.exit, 
   %69 = getelementptr i8, ptr %68, i64 20
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, 524288
-  %.not99 = icmp eq i32 %71, 0
+  %.not.i = icmp eq i32 %71, 0
   %72 = and i32 %66, 31
   %73 = shl nuw i32 1, %72
-  br i1 %.not99, label %80, label %74
+  br i1 %.not.i, label %80, label %74
 
 74:                                               ; preds = %39
   %75 = ashr i32 %66, 5
@@ -1560,10 +1560,10 @@ Vec_BitWriteEntry.exit:                           ; preds = %74, %80
   %90 = getelementptr i8, ptr %89, i64 20
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %91, 1048576
-  %.not100 = icmp eq i32 %92, 0
+  %.not.i96 = icmp eq i32 %92, 0
   %93 = and i32 %88, 31
   %94 = shl nuw i32 1, %93
-  br i1 %.not100, label %102, label %95
+  br i1 %.not.i96, label %102, label %95
 
 95:                                               ; preds = %Vec_BitWriteEntry.exit
   %96 = load ptr, ptr %18, align 8
@@ -1573,7 +1573,7 @@ Vec_BitWriteEntry.exit:                           ; preds = %74, %80
   %100 = load i32, ptr %99, align 4
   %101 = or i32 %100, %94
   store i32 %101, ptr %99, align 4
-  br label %Vec_BitWriteEntry.exit96
+  br label %Vec_BitWriteEntry.exit97
 
 102:                                              ; preds = %Vec_BitWriteEntry.exit
   %103 = xor i32 %94, -1
@@ -1584,9 +1584,9 @@ Vec_BitWriteEntry.exit:                           ; preds = %74, %80
   %108 = load i32, ptr %107, align 4
   %109 = and i32 %108, %103
   store i32 %109, ptr %107, align 4
-  br label %Vec_BitWriteEntry.exit96
+  br label %Vec_BitWriteEntry.exit97
 
-Vec_BitWriteEntry.exit96:                         ; preds = %95, %102
+Vec_BitWriteEntry.exit97:                         ; preds = %95, %102
   %110 = phi ptr [ %96, %95 ], [ %104, %102 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val74 = load i32, ptr %36, align 4
@@ -1594,7 +1594,7 @@ Vec_BitWriteEntry.exit96:                         ; preds = %95, %102
   %112 = icmp slt i64 %indvars.iv.next, %111
   br i1 %112, label %39, label %.critedge2.loopexit, !llvm.loop !21
 
-.critedge2.loopexit:                              ; preds = %Vec_BitWriteEntry.exit96
+.critedge2.loopexit:                              ; preds = %Vec_BitWriteEntry.exit97
   %.val70.pre = load i32, ptr %26, align 4
   br label %.critedge2
 
@@ -1694,8 +1694,8 @@ Vec_BitWriteEntry.exit96:                         ; preds = %95, %102
 
 .critedge4:                                       ; preds = %.critedge6, %Vec_BitStart.exit95, %.critedge.preheader
   %163 = phi ptr [ %113, %.critedge.preheader ], [ %16, %Vec_BitStart.exit95 ], [ %113, %.critedge6 ]
-  %.not.i = icmp eq ptr %163, null
-  br i1 %.not.i, label %Vec_BitFree.exit, label %164
+  %.not.i98 = icmp eq ptr %163, null
+  br i1 %.not.i98, label %Vec_BitFree.exit, label %164
 
 164:                                              ; preds = %.critedge4
   tail call void @free(ptr noundef nonnull %163) #21
@@ -1705,14 +1705,14 @@ Vec_BitWriteEntry.exit96:                         ; preds = %95, %102
 Vec_BitFree.exit:                                 ; preds = %.critedge4, %164
   %165 = phi ptr [ %.val87, %.critedge4 ], [ %.pre, %164 ]
   tail call void @free(ptr noundef nonnull %10) #21
-  %.not.i97 = icmp eq ptr %165, null
-  br i1 %.not.i97, label %Vec_BitFree.exit98, label %166
+  %.not.i99 = icmp eq ptr %165, null
+  br i1 %.not.i99, label %Vec_BitFree.exit100, label %166
 
 166:                                              ; preds = %Vec_BitFree.exit
   tail call void @free(ptr noundef nonnull %165) #21
-  br label %Vec_BitFree.exit98
+  br label %Vec_BitFree.exit100
 
-Vec_BitFree.exit98:                               ; preds = %Vec_BitFree.exit, %166
+Vec_BitFree.exit100:                              ; preds = %Vec_BitFree.exit, %166
   tail call void @free(ptr noundef nonnull %19) #21
   ret void
 }

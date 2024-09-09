@@ -981,7 +981,7 @@ define i32 @mca_common_ompio_base_file_read_all(ptr noundef %0, ptr noundef %1, 
   br i1 %exitcond1458.not, label %._crit_edge1209, label %.preheader1029, !llvm.loop !15
 
 ._crit_edge1209:                                  ; preds = %._crit_edge1205
-  call fastcc void @read_heap_sort(ptr noundef nonnull %413, i32 noundef %.1671.lcssa, ptr noundef nonnull %418)
+  call fastcc void @read_heap_sort(ptr noundef %413, i32 noundef %.1671.lcssa, ptr noundef %418)
   %443 = shl nuw nsw i64 %411, 3
   %444 = call noalias ptr @malloc(i64 noundef %443) #11
   %445 = load i32, ptr %418, align 4
@@ -1743,9 +1743,9 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_heap_sort(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
-  %4 = add i32 %1, -1
-  %5 = zext i32 %1 to i64
+define internal fastcc void @read_heap_sort(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 1, -2147483648) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+  %4 = add nsw i32 %1, -1
+  %5 = zext nneg i32 %1 to i64
   %6 = shl nuw nsw i64 %5, 2
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #11
   %8 = icmp eq ptr %7, null
@@ -1757,8 +1757,8 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef readonly %0, i
 
 10:                                               ; preds = %3
   store i32 0, ptr %7, align 4
-  %11 = icmp sgt i32 %1, 1
-  br i1 %11, label %.lr.ph, label %._crit_edge
+  %11 = icmp ugt i32 %1, 1
+  br i1 %11, label %.lr.ph, label %._crit_edge139
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %10 ]
@@ -1767,29 +1767,22 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef readonly %0, i
   store i32 %13, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.preheader130.preheader, label %.lr.ph, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %.lr.ph, %10
-  %.not140 = icmp ult i32 %1, 2
-  br i1 %.not140, label %._crit_edge139, label %.preheader130.preheader
-
-.preheader130.preheader:                          ; preds = %._crit_edge
+.preheader130.preheader:                          ; preds = %.lr.ph
   %14 = lshr i32 %1, 1
   br label %.preheader130
 
 .loopexit:                                        ; preds = %51
   %15 = icmp sgt i32 %.1113134.in, 1
-  br i1 %15, label %.preheader130, label %.preheader, !llvm.loop !26
+  br i1 %15, label %.preheader130, label %.lr.ph138.preheader, !llvm.loop !26
 
 .preheader130:                                    ; preds = %.preheader130.preheader, %.loopexit
   %.1113134.in = phi i32 [ %.1113134, %.loopexit ], [ %14, %.preheader130.preheader ]
   %.1113134 = add nsw i32 %.1113134.in, -1
   br label %17
 
-.preheader:                                       ; preds = %.loopexit
-  br i1 %11, label %.lr.ph138.preheader, label %._crit_edge139
-
-.lr.ph138.preheader:                              ; preds = %.preheader
+.lr.ph138.preheader:                              ; preds = %.loopexit
   %16 = zext nneg i32 %4 to i64
   br label %.lr.ph138
 
@@ -1822,7 +1815,7 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef readonly %0, i
 
 36:                                               ; preds = %20, %35
   %.0104 = phi i32 [ %.0108132, %35 ], [ %21, %20 ]
-  %.not127.not = icmp slt i32 %19, %1
+  %.not127.not = icmp ult i32 %19, %1
   br i1 %.not127.not, label %37, label %51
 
 37:                                               ; preds = %36
@@ -1942,7 +1935,7 @@ define internal fastcc void @read_heap_sort(ptr nocapture noundef readonly %0, i
   %107 = icmp sgt i64 %indvars.iv142, 1
   br i1 %107, label %.lr.ph138, label %._crit_edge139, !llvm.loop !27
 
-._crit_edge139:                                   ; preds = %104, %._crit_edge, %.preheader
+._crit_edge139:                                   ; preds = %104, %10
   %108 = load i32, ptr %7, align 4
   store i32 %108, ptr %2, align 4
   tail call void @free(ptr noundef %7) #10

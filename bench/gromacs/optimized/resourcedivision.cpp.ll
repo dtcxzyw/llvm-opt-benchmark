@@ -582,7 +582,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i: ; preds = %_ZNK3gmx7CpuI
 
 _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, %185, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i
   %.0.i.i = phi i32 [ 16, %.thread.i.i ], [ 32, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i ], [ 24, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i ], [ 32, %187 ], [ 32, %185 ]
-  %191 = icmp sgt i32 %., %.0.i.i
+  %191 = icmp ugt i32 %., %.0.i.i
   br i1 %191, label %.critedge.i.preheader, label %192
 
 192:                                              ; preds = %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
@@ -601,9 +601,9 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, 
   %.0.i = phi i32 [ 1, %.critedge.i.preheader ], [ %196, %.critedge.i.backedge ]
   %196 = add nuw nsw i32 %.0.i, 1
   %197 = mul nuw nsw i32 %196, %149
-  %198 = sdiv i32 %., %197
-  %199 = srem i32 %., %197
-  %200 = icmp sgt i32 %198, 6
+  %198 = udiv i32 %., %197
+  %199 = urem i32 %., %197
+  %200 = icmp ugt i32 %198, 6
   %201 = icmp ult i32 %.0.i, 3
   %or.cond.i = and i1 %201, %200
   br i1 %or.cond.i, label %.critedge.i.backedge, label %202
@@ -611,8 +611,8 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, 
 202:                                              ; preds = %.critedge.i
   %203 = add nuw nsw i32 %.0.i, 2
   %204 = mul nuw nsw i32 %203, %149
-  %205 = sdiv i32 %., %204
-  %206 = icmp sle i32 %205, 1
+  %205 = udiv i32 %., %204
+  %206 = icmp ule i32 %205, 1
   %.not49.i = icmp eq i32 %199, 0
   %or.cond = or i1 %206, %.not49.i
   br i1 %or.cond, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %.critedge.i.backedge
@@ -624,8 +624,8 @@ _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, 
   br i1 %153, label %208, label %210
 
 208:                                              ; preds = %207
-  %209 = sdiv i32 %., %.val109
-  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %209, i32 1)
+  %209 = udiv i32 %., %.val109
+  %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %209, i32 1)
   br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
 210:                                              ; preds = %207
@@ -686,7 +686,7 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i: ; preds = %_ZNK3gmx7Cp
 
 _ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i: ; preds = %.thread.i53.i, %228, %226, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i
   %.0.i51.i = phi i32 [ 8, %.thread.i53.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i ], [ 16, %228 ], [ 16, %226 ]
-  %.not.i = icmp sgt i32 %., %.0.i51.i
+  %.not.i = icmp ugt i32 %., %.0.i51.i
   %..i = select i1 %.not.i, i32 %., i32 1
   br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
@@ -2184,6 +2184,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

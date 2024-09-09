@@ -7065,7 +7065,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 declare void @_ZN19OpenColorIO_v2_4dev17AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118Add_MidsFwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRKNS0_12GTPropertiesENS_12GradingStyleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(1024) %props, i32 noundef %style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118Add_MidsFwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRKNS0_12GTPropertiesENS_12GradingStyleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, ptr noundef nonnull align 8 dereferenceable(1024) %props, i32 noundef %style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %channelSuffix = alloca %"class.std::__cxx11::basic_string", align 8
   %pix = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8943,7 +8943,7 @@ ehcleanup620:                                     ; preds = %ehcleanup619, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_129Add_HighlightShadowFwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjbRKNS0_12GTPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, i1 noundef zeroext %isShadow, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_129Add_HighlightShadowFwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjbRKNS0_12GTPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %isShadow, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %channelSuffix = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -9258,7 +9258,7 @@ ehcleanup97:                                      ; preds = %lpad93, %lpad86, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Add_WhiteBlackFwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjbRKNS0_12GTPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, i1 noundef zeroext %isBlack, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Add_WhiteBlackFwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjbRKNS0_12GTPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %isBlack, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %pix = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -9965,7 +9965,7 @@ declare noundef ptr @_ZNK19OpenColorIO_v2_4dev16GpuShaderCreator12getPixelNameEv
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118Add_MidsPre_ShaderEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_13GpuShaderTextERKNS0_12GTPropertiesENS_12GradingStyleE(i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(1024) %props, i32 noundef %style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118Add_MidsPre_ShaderEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_13GpuShaderTextERKNS0_12GTPropertiesENS_12GradingStyleE(i32 noundef range(i32 0, 4) %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(1024) %props, i32 noundef %style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %channelValue = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -10090,10 +10090,11 @@ entry:
   %ref.tmp599 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp600 = alloca %"class.std::allocator", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %channelValue) #16
-  switch i32 %channel, label %if.else16 [
+  switch i32 %channel, label %default.unreachable [
     i32 0, label %if.then
     i32 1, label %if.then4
     i32 2, label %if.then11
+    i32 3, label %if.else16
   ]
 
 if.then:                                          ; preds = %entry
@@ -10112,6 +10113,9 @@ if.then4:                                         ; preds = %entry
 if.then11:                                        ; preds = %entry
   %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull @.str.99)
           to label %invoke.cont17.invoke unwind label %lpad
+
+default.unreachable:                              ; preds = %entry
+  unreachable
 
 if.else16:                                        ; preds = %entry
   %call18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull @.str.100)
@@ -11984,7 +11988,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_129Add_HighlightShadowPre_ShaderERNS_13GpuShaderTextEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_12GTPropertiesEb(ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull align 8 dereferenceable(1024) %props, i1 noundef zeroext %isShadow) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_129Add_HighlightShadowPre_ShaderERNS_13GpuShaderTextEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_12GTPropertiesEb(ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull align 8 dereferenceable(1024) %props, i1 noundef zeroext %isShadow) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %channelValue = alloca %"class.std::__cxx11::basic_string", align 8
   %start = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12040,10 +12044,11 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  switch i32 %channel, label %if.else40 [
+  switch i32 %channel, label %default.unreachable [
     i32 0, label %if.then
     i32 1, label %if.then18
     i32 2, label %if.then30
+    i32 3, label %if.else40
   ]
 
 if.then:                                          ; preds = %invoke.cont7
@@ -12084,6 +12089,9 @@ if.then30:                                        ; preds = %invoke.cont7
 invoke.cont31:                                    ; preds = %if.then30
   %cond-lvalue37.v = select i1 %isShadow, i64 256, i64 640
   br label %invoke.cont41.invoke
+
+default.unreachable:                              ; preds = %invoke.cont7
+  unreachable
 
 if.else40:                                        ; preds = %invoke.cont7
   %call42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull @.str.100)
@@ -12677,7 +12685,7 @@ ehcleanup250:                                     ; preds = %ehcleanup249, %lpad
 declare void @_ZNK19OpenColorIO_v2_4dev13GpuShaderText12floatKeywordB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127Add_FauxCubicFwdEval_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull %shaderCreator.0.val, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127Add_FauxCubicFwdEval_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull %shaderCreator.0.val, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %pix = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -13486,7 +13494,7 @@ eh.resume:                                        ; preds = %ehcleanup273, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127Add_FauxCubicRevEval_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull %shaderCreator.0.val, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_127Add_FauxCubicRevEval_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull %shaderCreator.0.val, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %pix = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -14587,7 +14595,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZN19OpenColorIO_v2_4dev13GpuShaderText10declareVarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Add_WhiteBlackPre_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS0_12GTPropertiesE(ptr nonnull %shaderCreator.0.val, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, i1 noundef zeroext %isBlack, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Add_WhiteBlackPre_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS0_12GTPropertiesE(ptr nonnull %shaderCreator.0.val, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, i1 noundef zeroext %isBlack, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %pix = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -14646,10 +14654,11 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont3
-  switch i32 %channel, label %if.else44 [
+  switch i32 %channel, label %default.unreachable [
     i32 0, label %if.then
     i32 1, label %if.then22
     i32 2, label %if.then34
+    i32 3, label %if.else44
   ]
 
 if.then:                                          ; preds = %invoke.cont10
@@ -14696,6 +14705,9 @@ if.then34:                                        ; preds = %invoke.cont10
 invoke.cont35:                                    ; preds = %if.then34
   %cond-lvalue41.v = select i1 %isBlack, i64 64, i64 832
   br label %invoke.cont45.invoke
+
+default.unreachable:                              ; preds = %invoke.cont10
+  unreachable
 
 if.else44:                                        ; preds = %invoke.cont10
   %call46 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %channelSuffix, ptr noundef nonnull @.str.100)
@@ -15353,7 +15365,7 @@ eh.resume:                                        ; preds = %ehcleanup286, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116Add_WBFwd_ShaderEjbRNS_13GpuShaderTextE(i32 noundef %channel, i1 noundef zeroext %linearExtrap, ptr noundef nonnull align 8 dereferenceable(764) %st) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116Add_WBFwd_ShaderEjbRNS_13GpuShaderTextE(i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %linearExtrap, ptr noundef nonnull align 8 dereferenceable(764) %st) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15634,7 +15646,7 @@ eh.resume:                                        ; preds = %lpad8, %lpad10, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116Add_WBRev_ShaderEjbRNS_13GpuShaderTextE(i32 noundef %channel, i1 noundef zeroext %linearExtrap, ptr noundef nonnull align 8 dereferenceable(764) %st) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116Add_WBRev_ShaderEjbRNS_13GpuShaderTextE(i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %linearExtrap, ptr noundef nonnull align 8 dereferenceable(764) %st) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17956,7 +17968,7 @@ ehcleanup220:                                     ; preds = %ehcleanup219, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Add_WhiteBlackRev_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjbRKNS0_12GTPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, i1 noundef zeroext %isBlack, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Add_WhiteBlackRev_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjbRKNS0_12GTPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %isBlack, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %channelSuffix = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -19008,7 +19020,7 @@ ehcleanup365:                                     ; preds = %ehcleanup364, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_129Add_HighlightShadowRev_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjbRKNS0_12GTPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, i1 noundef zeroext %isShadow, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_129Add_HighlightShadowRev_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjbRKNS0_12GTPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, i1 noundef zeroext %isShadow, ptr noundef nonnull align 8 dereferenceable(1024) %props) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %channelSuffix = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -19323,7 +19335,7 @@ ehcleanup97:                                      ; preds = %lpad93, %lpad86, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118Add_MidsRev_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRKNS0_12GTPropertiesENS_12GradingStyleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef %channel, ptr noundef nonnull align 8 dereferenceable(1024) %props, i32 noundef %style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118Add_MidsRev_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEjRKNS0_12GTPropertiesENS_12GradingStyleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %st, i32 noundef range(i32 0, 4) %channel, ptr noundef nonnull align 8 dereferenceable(1024) %props, i32 noundef %style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %channelSuffix = alloca %"class.std::__cxx11::basic_string", align 8
   %pix = alloca %"class.std::__cxx11::basic_string", align 8

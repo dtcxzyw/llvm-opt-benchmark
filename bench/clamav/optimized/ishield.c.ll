@@ -935,7 +935,7 @@ md5str.exit.i:                                    ; preds = %175
   ]
 
 230:                                              ; preds = %213
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36, ptr noundef %.0192.i, ptr noundef nonnull %spec.select234.i, i64 noundef %226, i64 noundef %228, ptr noundef nonnull %4) #13
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36, ptr noundef nonnull %.0192.i, ptr noundef nonnull %spec.select234.i, i64 noundef %226, i64 noundef %228, ptr noundef nonnull %4) #13
   br label %.thread325.i
 
 231:                                              ; preds = %213
@@ -948,7 +948,7 @@ md5str.exit.i:                                    ; preds = %175
   %238 = load i32, ptr %237, align 1
   %239 = getelementptr inbounds i8, ptr %.lcssa364, i64 72
   %240 = load i32, ptr %239, align 1
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37, ptr noundef %.0192.i, ptr noundef nonnull %spec.select234.i, i64 noundef %226, i64 noundef %228, ptr noundef nonnull %4, i64 noundef %224, i32 noundef %234, i32 noundef %236, i32 noundef %238, i32 noundef %240) #13
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %.0192.i, ptr noundef nonnull %spec.select234.i, i64 noundef %226, i64 noundef %228, ptr noundef nonnull %4, i64 noundef %224, i32 noundef %234, i32 noundef %236, i32 noundef %238, i32 noundef %240) #13
   %241 = getelementptr inbounds i8, ptr %.lcssa364, i64 84
   %242 = load i8, ptr %241, align 1
   %243 = and i8 %242, 1
@@ -1354,7 +1354,7 @@ define internal fastcc i32 @is_dump_and_scan(ptr noundef %0, i64 noundef %1, i64
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #0 {
   %5 = alloca %struct.z_stream_s, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
@@ -1364,7 +1364,7 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
 
 9:                                                ; preds = %4
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.46) #13
-  br label %96
+  br label %95
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1375,7 +1375,7 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
 
 14:                                               ; preds = %10
   tail call void @free(ptr noundef nonnull %8) #13
-  br label %96
+  br label %95
 
 15:                                               ; preds = %10
   %16 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %13, i32 noundef 578, i32 noundef 384) #13
@@ -1383,10 +1383,6 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %17, label %24, label %.preheader114
 
 .preheader114:                                    ; preds = %15
-  %.old7.not142 = icmp eq i64 %3, 0
-  br i1 %.old7.not142, label %.thread108, label %.preheader.lr.ph
-
-.preheader.lr.ph:                                 ; preds = %.preheader114
   %18 = getelementptr inbounds i8, ptr %7, i64 104
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   %20 = getelementptr inbounds i8, ptr %5, i64 24
@@ -1399,7 +1395,7 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %13) #13
   tail call void @free(ptr noundef nonnull %13) #13
   tail call void @free(ptr noundef nonnull %8) #13
-  br label %96
+  br label %95
 
 .preheader:                                       ; preds = %.preheader.outer, %41
   %.173 = phi i64 [ %28, %41 ], [ %.173.ph, %.preheader.outer ]
@@ -1523,13 +1519,13 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   %.not113 = icmp eq i64 %47, 0
   br i1 %.not113, label %77, label %.preheader.outer
 
-.preheader.outer:                                 ; preds = %.preheader.lr.ph, %.loopexit
-  %.179.ph = phi i64 [ 0, %.preheader.lr.ph ], [ %.4, %.loopexit ]
-  %.173.ph = phi i64 [ %3, %.preheader.lr.ph ], [ %47, %.loopexit ]
-  %.1.ph = phi i64 [ %1, %.preheader.lr.ph ], [ %52, %.loopexit ]
+.preheader.outer:                                 ; preds = %.preheader114, %.loopexit
+  %.179.ph = phi i64 [ 0, %.preheader114 ], [ %.4, %.loopexit ]
+  %.173.ph = phi i64 [ %3, %.preheader114 ], [ %47, %.loopexit ]
+  %.1.ph = phi i64 [ %1, %.preheader114 ], [ %52, %.loopexit ]
   br label %.preheader
 
-.thread108:                                       ; preds = %41, %.preheader114, %26, %45, %50, %31, %.thread
+.thread108:                                       ; preds = %41, %26, %45, %50, %31, %.thread
   call void @free(ptr noundef %8) #13
   br label %86
 
@@ -1563,27 +1559,26 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   %.not100112 = phi i1 [ false, %84 ], [ true, %.thread108 ]
   %.074 = phi i32 [ %85, %84 ], [ 0, %.thread108 ]
   %87 = call i32 @close(i32 noundef %16) #13
-  %88 = getelementptr inbounds i8, ptr %0, i64 48
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 40
-  %91 = load i32, ptr %90, align 8
-  %.not102 = icmp eq i32 %91, 0
-  br i1 %.not102, label %92, label %94
+  %88 = load ptr, ptr %22, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 40
+  %90 = load i32, ptr %89, align 8
+  %.not102 = icmp eq i32 %90, 0
+  br i1 %.not102, label %91, label %93
 
-92:                                               ; preds = %86
-  %93 = call i32 @cli_unlink(ptr noundef nonnull %13) #13
-  %.not103 = icmp eq i32 %93, 0
+91:                                               ; preds = %86
+  %92 = call i32 @cli_unlink(ptr noundef nonnull %13) #13
+  %.not103 = icmp eq i32 %92, 0
   %spec.select = select i1 %.not103, i32 %.074, i32 10
-  br label %94
+  br label %93
 
-94:                                               ; preds = %92, %86
-  %.175 = phi i32 [ %.074, %86 ], [ %spec.select, %92 ]
+93:                                               ; preds = %91, %86
+  %.175 = phi i32 [ %.074, %86 ], [ %spec.select, %91 ]
   call void @free(ptr noundef %13) #13
-  %95 = select i1 %.not100112, i32 22, i32 %.175
-  br label %96
+  %94 = select i1 %.not100112, i32 22, i32 %.175
+  br label %95
 
-96:                                               ; preds = %94, %24, %14, %9
-  %.0 = phi i32 [ 9, %24 ], [ %95, %94 ], [ 20, %14 ], [ 20, %9 ]
+95:                                               ; preds = %93, %24, %14, %9
+  %.0 = phi i32 [ 9, %24 ], [ %94, %93 ], [ 20, %14 ], [ 20, %9 ]
   ret i32 %.0
 }
 

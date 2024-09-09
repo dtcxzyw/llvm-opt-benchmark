@@ -775,12 +775,12 @@ trace_m25p80_programming_zero_to_one.exit.i:      ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %.pre.i = load ptr, ptr %pi.i, align 8
   %.pre = load ptr, ptr %storage.i, align 8
-  %.pre165 = load i32, ptr %cur_addr, align 8
-  %.pre166 = zext i32 %.pre165 to i64
+  %.pre164 = load i32, ptr %cur_addr, align 8
+  %.pre165 = zext i32 %.pre164 to i64
   br label %if.end63.i
 
 if.end63.i:                                       ; preds = %trace_m25p80_programming_zero_to_one.exit.i, %if.end57.i
-  %idxprom77.i.pre-phi = phi i64 [ %.pre166, %trace_m25p80_programming_zero_to_one.exit.i ], [ %idxprom.i, %if.end57.i ]
+  %idxprom77.i.pre-phi = phi i64 [ %.pre165, %trace_m25p80_programming_zero_to_one.exit.i ], [ %idxprom.i, %if.end57.i ]
   %49 = phi ptr [ %.pre, %trace_m25p80_programming_zero_to_one.exit.i ], [ %22, %if.end57.i ]
   %50 = phi ptr [ %.pre.i, %trace_m25p80_programming_zero_to_one.exit.i ], [ %20, %if.end57.i ]
   %flags.i = getelementptr inbounds i8, ptr %50, i64 28
@@ -2864,7 +2864,7 @@ sw.epilog193:                                     ; preds = %trace_m25p80_comple
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @flash_sync_dirty(ptr nocapture noundef %s, i64 noundef %newpage) unnamed_addr #0 {
+define internal fastcc void @flash_sync_dirty(ptr nocapture noundef %s, i64 noundef range(i64 -1, 4294967296) %newpage) unnamed_addr #0 {
 entry:
   %dirty_page = getelementptr inbounds i8, ptr %s, i64 272
   %0 = load i64, ptr %dirty_page, align 8
@@ -2983,18 +2983,19 @@ return:                                           ; preds = %if.end, %entry, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @flash_erase(ptr noundef %s, i32 noundef %offset, i32 noundef %cmd) unnamed_addr #0 {
+define internal fastcc void @flash_erase(ptr noundef %s, i32 noundef %offset, i32 noundef range(i32 0, 256) %cmd) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  switch i32 %cmd, label %sw.default [
-    i32 32, label %sw.epilog
-    i32 33, label %sw.epilog
-    i32 82, label %sw.bb1
-    i32 92, label %sw.bb1
-    i32 216, label %sw.bb2
-    i32 220, label %sw.bb2
-    i32 199, label %sw.bb3
-    i32 196, label %sw.bb4
+  %trunc = trunc nuw i32 %cmd to i8
+  switch i8 %trunc, label %sw.default [
+    i8 32, label %sw.epilog
+    i8 33, label %sw.epilog
+    i8 82, label %sw.bb1
+    i8 92, label %sw.bb1
+    i8 -40, label %sw.bb2
+    i8 -36, label %sw.bb2
+    i8 -57, label %sw.bb3
+    i8 -60, label %sw.bb4
   ]
 
 sw.bb1:                                           ; preds = %entry, %entry

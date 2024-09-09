@@ -934,17 +934,17 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 define internal fastcc void @Sim_SymmsBalanceCollect_rec(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
-  %.not22 = icmp eq i64 %4, 0
-  br i1 %.not22, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not21 = icmp eq i64 %4, 0
+  br i1 %.not21, label %.lr.ph, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %29, %tailrecurse ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %31, %tailrecurse ]
   tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef %.tr.lcssa)
-  br label %31
+  br label %33
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr23 = phi ptr [ %29, %tailrecurse ], [ %0, %2 ]
-  %5 = getelementptr i8, ptr %.tr23, i64 20
+  %.tr22 = phi ptr [ %31, %tailrecurse ], [ %0, %2 ]
+  %5 = getelementptr i8, ptr %.tr22, i64 20
   %.val = load i32, ptr %5, align 4
   %6 = and i32 %.val, 15
   switch i32 %6, label %tailrecurse [
@@ -953,12 +953,12 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   ]
 
 7:                                                ; preds = %.lr.ph, %.lr.ph
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef nonnull %.tr23)
-  br label %31
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef %1, ptr noundef nonnull %.tr22)
+  br label %33
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %.val.i = load ptr, ptr %.tr23, align 8
-  %8 = getelementptr i8, ptr %.tr23, i64 32
+  %.val.i = load ptr, ptr %.tr22, align 8
+  %8 = getelementptr i8, ptr %.tr22, i64 32
   %.val2.i = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val.i, i64 32
   %.val.val.i = load ptr, ptr %9, align 8
@@ -968,36 +968,36 @@ tailrecurse:                                      ; preds = %.lr.ph
   %11 = sext i32 %.val2.val.i to i64
   %12 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = lshr i32 %.val, 10
-  %.lobit.i = and i32 %15, 1
-  %16 = zext nneg i32 %.lobit.i to i64
-  %17 = xor i64 %14, %16
-  %18 = inttoptr i64 %17 to ptr
-  tail call fastcc void @Sim_SymmsBalanceCollect_rec(ptr noundef %18, ptr noundef %1)
-  %.val.i11 = load ptr, ptr %.tr23, align 8
+  %14 = lshr i32 %.val, 10
+  %15 = and i32 %14, 1
+  %16 = ptrtoint ptr %13 to i64
+  %17 = zext nneg i32 %15 to i64
+  %18 = xor i64 %16, %17
+  %19 = inttoptr i64 %18 to ptr
+  tail call fastcc void @Sim_SymmsBalanceCollect_rec(ptr noundef %19, ptr noundef %1)
+  %.val.i11 = load ptr, ptr %.tr22, align 8
   %.val2.i12 = load ptr, ptr %8, align 8
-  %19 = getelementptr i8, ptr %.val.i11, i64 32
-  %.val.val.i13 = load ptr, ptr %19, align 8
-  %20 = getelementptr i8, ptr %.val2.i12, i64 4
-  %.val2.val.i14 = load i32, ptr %20, align 4
-  %21 = getelementptr i8, ptr %.val.val.i13, i64 8
-  %.val.val.val.i15 = load ptr, ptr %21, align 8
-  %22 = sext i32 %.val2.val.i14 to i64
-  %23 = getelementptr inbounds ptr, ptr %.val.val.val.i15, i64 %22
-  %24 = load ptr, ptr %23, align 8
+  %20 = getelementptr i8, ptr %.val.i11, i64 32
+  %.val.val.i13 = load ptr, ptr %20, align 8
+  %21 = getelementptr i8, ptr %.val2.i12, i64 4
+  %.val2.val.i14 = load i32, ptr %21, align 4
+  %22 = getelementptr i8, ptr %.val.val.i13, i64 8
+  %.val.val.val.i15 = load ptr, ptr %22, align 8
+  %23 = sext i32 %.val2.val.i14 to i64
+  %24 = getelementptr inbounds ptr, ptr %.val.val.val.i15, i64 %23
+  %25 = load ptr, ptr %24, align 8
   %.val3.i16 = load i32, ptr %5, align 4
-  %25 = ptrtoint ptr %24 to i64
   %26 = lshr i32 %.val3.i16, 11
-  %.lobit.i17 = and i32 %26, 1
-  %27 = zext nneg i32 %.lobit.i17 to i64
-  %28 = xor i64 %27, %25
-  %29 = inttoptr i64 %28 to ptr
-  %30 = and i64 %28, 1
-  %.not = icmp eq i64 %30, 0
+  %27 = and i32 %26, 1
+  %28 = ptrtoint ptr %25 to i64
+  %29 = zext nneg i32 %27 to i64
+  %30 = xor i64 %29, %28
+  %31 = inttoptr i64 %30 to ptr
+  %32 = and i64 %30, 1
+  %.not = icmp eq i64 %32, 0
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
-31:                                               ; preds = %7, %tailrecurse._crit_edge
+33:                                               ; preds = %7, %tailrecurse._crit_edge
   ret void
 }
 

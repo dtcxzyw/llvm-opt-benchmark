@@ -353,7 +353,7 @@ entry:
   br i1 %cmp, label %if.then, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %root, i32 noundef 0, ptr noundef nonnull %nodeList, i32 noundef 1)
+  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %root, i32 noundef 0, ptr noundef %nodeList, i32 noundef 1)
   br label %if.end
 
 if.then:                                          ; preds = %entry
@@ -403,13 +403,13 @@ if.else:                                          ; preds = %first_line_err.exit
 
 if.end:                                           ; preds = %if.else, %if.then
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef nonnull %ap)
+  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @iterateTestsWithLevel(ptr noundef %root, i32 noundef %depth, ptr noundef %nodeList, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc void @iterateTestsWithLevel(ptr noundef %root, i32 noundef %depth, ptr noundef nonnull %nodeList, i32 noundef range(i32 0, 2) %mode) unnamed_addr #0 {
 entry:
   %str.i = alloca [256 x i8], align 16
   %pathToFunction = alloca [128 x i8], align 16
@@ -433,8 +433,8 @@ if.end3:                                          ; preds = %if.end
   %idxprom = sext i32 %depth to i64
   %arrayidx = getelementptr inbounds ptr, ptr %nodeList, i64 %idxprom
   store ptr %root, ptr %arrayidx, align 8
-  %cmp465 = icmp sgt i32 %depth, 0
-  br i1 %cmp465, label %for.body.preheader, label %for.end
+  %cmp467 = icmp sgt i32 %depth, 0
+  br i1 %cmp467, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end3
   %wide.trip.count = zext nneg i32 %depth to i64
@@ -481,7 +481,7 @@ if.else:                                          ; preds = %for.end
 if.end25:                                         ; preds = %if.else, %if.then22
   store i1 true, ptr @ON_LINE, align 1
   %cmp26 = icmp eq i32 %mode, 0
-  br i1 %cmp26, label %land.lhs.true, label %if.end92
+  br i1 %cmp26, label %land.lhs.true, label %if.end103.thread
 
 land.lhs.true:                                    ; preds = %if.end25
   %5 = load ptr, ptr %root, align 8
@@ -601,47 +601,43 @@ if.end91:                                         ; preds = %if.then88, %if.end8
   store i1 true, ptr @ON_LINE, align 1
   br label %if.end103
 
-if.end92:                                         ; preds = %if.end25
-  store i32 %depth, ptr @INDENT_LEVEL, align 4
-  %cmp94 = icmp eq i32 %mode, 1
-  br i1 %cmp94, label %if.end103.thread, label %if.end103
-
-if.end103:                                        ; preds = %land.lhs.true, %if.end91, %if.end92
+if.end103:                                        ; preds = %land.lhs.true, %if.end91
   store i32 %inc, ptr @INDENT_LEVEL, align 4
   %child = getelementptr inbounds i8, ptr %root, i64 16
   %20 = load ptr, ptr %child, align 8
   %tobool104.not = icmp eq ptr %20, null
-  br i1 %tobool104.not, label %if.end146, label %if.then116
+  br i1 %tobool104.not, label %if.end146, label %if.then105
 
-if.end103.thread:                                 ; preds = %if.end92
+if.end103.thread:                                 ; preds = %if.end25
+  store i32 %depth, ptr @INDENT_LEVEL, align 4
   %21 = load ptr, ptr %arrayidx15, align 8
   %22 = load ptr, ptr %21, align 8
   %tobool101.not = icmp eq ptr %22, null
   %cond102 = select i1 %tobool101.not, i32 47, i32 32
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.68, ptr noundef nonnull %pathToFunction, i32 noundef %cond102)
   store i32 %inc, ptr @INDENT_LEVEL, align 4
-  %child69 = getelementptr inbounds i8, ptr %root, i64 16
-  %23 = load ptr, ptr %child69, align 8
-  %tobool104.not70 = icmp eq ptr %23, null
-  br i1 %tobool104.not70, label %if.end146, label %if.end112.thread
+  %child63 = getelementptr inbounds i8, ptr %root, i64 16
+  %23 = load ptr, ptr %child63, align 8
+  %tobool104.not64 = icmp eq ptr %23, null
+  br i1 %tobool104.not64, label %if.end146, label %if.end112
 
-if.end112.thread:                                 ; preds = %if.end103.thread
-  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %23, i32 noundef %inc, ptr noundef nonnull %nodeList, i32 noundef 1)
-  br label %if.end146
-
-if.then116:                                       ; preds = %if.end103
+if.then105:                                       ; preds = %if.end103
   %24 = load i32, ptr @ERROR_COUNT, align 4
   %25 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4
   store i32 %depth, ptr @INDENT_LEVEL, align 4
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.69)
   store i32 %inc, ptr @INDENT_LEVEL, align 4
   %26 = load ptr, ptr %child, align 8
-  call fastcc void @iterateTestsWithLevel(ptr noundef %26, i32 noundef %inc, ptr noundef nonnull %nodeList, i32 noundef 0)
+  call fastcc void @iterateTestsWithLevel(ptr noundef %26, i32 noundef %inc, ptr noundef %nodeList, i32 noundef 0)
   store i32 %depth, ptr @INDENT_LEVEL, align 4
   call void (ptr, ...) @log_testinfo_i(ptr noundef nonnull @.str.70)
-  br i1 %cmp465, label %land.lhs.true120, label %if.else130
+  br i1 %cmp467, label %land.lhs.true120, label %if.else130
 
-land.lhs.true120:                                 ; preds = %if.then116
+if.end112:                                        ; preds = %if.end103.thread
+  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %23, i32 noundef %inc, ptr noundef %nodeList, i32 noundef 1)
+  br label %if.end146
+
+land.lhs.true120:                                 ; preds = %if.then105
   %27 = load i32, ptr @ERROR_COUNT, align 4
   %cmp121 = icmp sgt i32 %27, %24
   br i1 %cmp121, label %if.then123, label %if.else130
@@ -653,7 +649,7 @@ if.then123:                                       ; preds = %land.lhs.true120
   call void (ptr, ...) @log_testinfo(ptr noundef nonnull @.str.71, i32 noundef %sub124, ptr noundef nonnull %cond128, ptr noundef nonnull %pathToFunction)
   br label %if.end144
 
-if.else130:                                       ; preds = %land.lhs.true120, %if.then116
+if.else130:                                       ; preds = %land.lhs.true120, %if.then105
   %28 = load i32, ptr @GLOBAL_PRINT_COUNT, align 4
   %sub131 = sub nsw i32 %28, %25
   %cmp132 = icmp sgt i32 %sub131, 25
@@ -679,7 +675,7 @@ if.end144:                                        ; preds = %if.else130, %if.els
   store i1 true, ptr @ON_LINE, align 1
   br label %if.end146
 
-if.end146:                                        ; preds = %if.end103.thread, %if.end112.thread, %if.end144, %if.end103
+if.end146:                                        ; preds = %if.end112, %if.end103.thread, %if.end144, %if.end103
   br i1 %cmp, label %if.then149, label %if.end152
 
 if.then149:                                       ; preds = %if.end146
@@ -700,9 +696,8 @@ print_timeDelta.exit:                             ; preds = %if.then149, %if.the
   br label %if.end152
 
 if.end152:                                        ; preds = %print_timeDelta.exit, %if.end146
-  %cmp153 = icmp ne i32 %mode, 1
   %.b = load i1, ptr @ON_LINE, align 1
-  %or.cond2 = select i1 %cmp153, i1 %.b, i1 false
+  %or.cond2 = select i1 %cmp26, i1 %.b, i1 false
   br i1 %or.cond2, label %if.then158, label %if.end159
 
 if.then158:                                       ; preds = %if.end152
@@ -716,7 +711,7 @@ if.end159:                                        ; preds = %if.then158, %if.end
 if.then162:                                       ; preds = %if.end159
   %sibling = getelementptr inbounds i8, ptr %root, i64 8
   %32 = load ptr, ptr %sibling, align 8
-  call fastcc void @iterateTestsWithLevel(ptr noundef %32, i32 noundef %depth, ptr noundef nonnull %nodeList, i32 noundef %mode)
+  call fastcc void @iterateTestsWithLevel(ptr noundef %32, i32 noundef %depth, ptr noundef %nodeList, i32 noundef %mode)
   br label %if.end163
 
 if.end163:                                        ; preds = %if.end, %if.then162, %if.end159
@@ -733,7 +728,7 @@ entry:
 entry.split:                                      ; preds = %entry
   store i32 0, ptr @ERROR_COUNT, align 4
   store i32 0, ptr @ERRONEOUS_FUNCTION_COUNT, align 4
-  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %root, i32 noundef 0, ptr noundef nonnull %nodeList, i32 noundef 0)
+  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %root, i32 noundef 0, ptr noundef %nodeList, i32 noundef 0)
   br label %if.end
 
 if.then:                                          ; preds = %entry
@@ -1044,7 +1039,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @vlog_err(ptr nocapture noundef readonly %pattern, ptr noundef %ap) unnamed_addr #2 {
+define internal fastcc void @vlog_err(ptr nocapture noundef readonly %pattern, ptr noundef nonnull %ap) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr @ERR_MSG, align 4
   %cmp = icmp eq i32 %0, 0
@@ -1057,7 +1052,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr @INDENT_LEVEL, align 4
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %3, ptr noundef nonnull @.str)
   %4 = load ptr, ptr @stdout, align 8
-  %call5 = tail call i32 @vfprintf(ptr noundef %4, ptr noundef %pattern, ptr noundef %ap)
+  %call5 = tail call i32 @vfprintf(ptr noundef %4, ptr noundef %pattern, ptr noundef nonnull %ap)
   %5 = load ptr, ptr @stdout, align 8
   %call6 = tail call i32 @fflush(ptr noundef %5)
   %6 = load i8, ptr %pattern, align 1
@@ -1172,7 +1167,7 @@ first_line_err.exit:                              ; preds = %if.end.i.i, %if.the
   %3 = load i32, ptr %ONE_ERROR.ERROR_COUNT, align 4
   %inc7 = add nsw i32 %3, 1
   store i32 %inc7, ptr %ONE_ERROR.ERROR_COUNT, align 4
-  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef nonnull %ap)
+  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef %ap)
   br label %if.end21
 
 if.else9:                                         ; preds = %if.then
@@ -1204,7 +1199,7 @@ first_line_err.exit12:                            ; preds = %if.end.i.i7, %if.th
   %5 = load i32, ptr %ONE_ERROR.ERROR_COUNT16, align 4
   %inc18 = add nsw i32 %5, 1
   store i32 %inc18, ptr %ONE_ERROR.ERROR_COUNT16, align 4
-  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef nonnull %ap)
+  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef %ap)
   br label %if.end21
 
 if.end21:                                         ; preds = %first_line_err.exit, %if.else9, %first_line_err.exit12
@@ -1315,7 +1310,7 @@ if.then2:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef nonnull %ap)
+  call fastcc void @vlog_err(ptr noundef %pattern, ptr noundef %ap)
   br label %if.end6
 
 if.else:                                          ; preds = %go_offline_err.exit
@@ -2022,7 +2017,7 @@ if.end23:                                         ; preds = %if.end18
 
 showTests.exit:                                   ; preds = %if.end23
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %nodeList.i)
-  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %toRun.1, i32 noundef 0, ptr noundef nonnull %nodeList.i, i32 noundef 1)
+  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %toRun.1, i32 noundef 0, ptr noundef %nodeList.i, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %nodeList.i)
   br label %for.inc.thread
 
@@ -2101,7 +2096,7 @@ if.then56:                                        ; preds = %if.then53
   br i1 %cmp.i29, label %if.then.i31, label %entry.split.i30
 
 entry.split.i30:                                  ; preds = %if.then56
-  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %toRun.043.ph, i32 noundef 0, ptr noundef nonnull %nodeList.i28, i32 noundef 1)
+  call fastcc void @iterateTestsWithLevel(ptr noundef nonnull %toRun.043.ph, i32 noundef 0, ptr noundef %nodeList.i28, i32 noundef 1)
   br label %showTests.exit33
 
 if.then.i31:                                      ; preds = %if.then56

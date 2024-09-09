@@ -62,7 +62,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   br i1 %29, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !4
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i
-  %30 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %1, ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %3)
+  %30 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %1, ptr noundef nonnull %0, i32 noundef %2, ptr noundef %7, ptr noundef nonnull %3)
   br label %select.unfold.i91
 
 select.unfold.i91:                                ; preds = %select.unfold.i91, %Kit_TruthNot.exit
@@ -85,7 +85,7 @@ Kit_TruthNot.exit94:                              ; preds = %select.unfold.i91
   br i1 %37, label %108, label %select.unfold.preheader.i96
 
 Kit_TruthNot.exit94.thread:                       ; preds = %Vec_IntGrow.exit
-  %38 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %1, ptr noundef %0, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %3)
+  %38 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %1, ptr noundef %0, i32 noundef %2, ptr noundef %7, ptr noundef nonnull %3)
   %39 = getelementptr inbounds i8, ptr %7, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, -1
@@ -164,7 +164,7 @@ select.unfold.i109:                               ; preds = %select.unfold.i109,
   br i1 %67, label %select.unfold.i109, label %Kit_TruthNot.exit112, !llvm.loop !4
 
 Kit_TruthNot.exit112:                             ; preds = %select.unfold.i109
-  %68 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %3)
+  %68 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %8, ptr noundef nonnull %3)
   br label %select.unfold.i115
 
 select.unfold.i115:                               ; preds = %select.unfold.i115, %Kit_TruthNot.exit112
@@ -183,7 +183,7 @@ Kit_TruthNot.exit118:                             ; preds = %select.unfold.i115
   br i1 %74, label %select.unfold.preheader.i120, label %97
 
 Kit_TruthNot.exit118.thread:                      ; preds = %62
-  %75 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %3)
+  %75 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %8, ptr noundef nonnull %3)
   %76 = load i32, ptr %.068.sroa.gep74136140, align 4
   %77 = icmp sgt i32 %76, -1
   br i1 %77, label %Kit_TruthNot.exit130, label %97
@@ -263,7 +263,7 @@ Kit_TruthNot.exit130:                             ; preds = %select.unfold.i127,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.Kit_Sop_t_, align 8
   %7 = alloca %struct.Kit_Sop_t_, align 8
   %8 = alloca %struct.Kit_Sop_t_, align 8
@@ -428,14 +428,14 @@ select.unfold.i187:                               ; preds = %select.unfold.i187,
   br i1 %85, label %select.unfold.i187, label %Kit_TruthSharp.exit, !llvm.loop !10
 
 Kit_TruthSharp.exit:                              ; preds = %select.unfold.i187
-  %86 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %27, ptr noundef nonnull %1, i32 noundef %.0164, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %86 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %27, ptr noundef nonnull %1, i32 noundef %.0164, ptr noundef %6, ptr noundef nonnull %4)
   %87 = getelementptr inbounds i8, ptr %6, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, -1
   br i1 %89, label %94, label %select.unfold.i191
 
 Kit_TruthSharp.exit.thread:                       ; preds = %70
-  %90 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %27, ptr noundef %1, i32 noundef %.0164, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  %90 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %27, ptr noundef %1, i32 noundef %.0164, ptr noundef %6, ptr noundef nonnull %4)
   %91 = getelementptr inbounds i8, ptr %6, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, -1
@@ -461,14 +461,14 @@ select.unfold.i191:                               ; preds = %Kit_TruthSharp.exit
   br i1 %103, label %select.unfold.i191, label %Kit_TruthSharp.exit194, !llvm.loop !10
 
 Kit_TruthSharp.exit194:                           ; preds = %select.unfold.i191
-  %104 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %76, ptr noundef nonnull %75, i32 noundef %.0164, ptr noundef nonnull %7, ptr noundef nonnull %4)
+  %104 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %76, ptr noundef nonnull %75, i32 noundef %.0164, ptr noundef %7, ptr noundef nonnull %4)
   %105 = getelementptr inbounds i8, ptr %7, i64 4
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, -1
   br i1 %107, label %112, label %select.unfold.preheader.i196
 
 Kit_TruthSharp.exit194.thread:                    ; preds = %Kit_TruthSharp.exit.thread
-  %108 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %76, ptr noundef nonnull %75, i32 noundef %.0164, ptr noundef nonnull %7, ptr noundef nonnull %4)
+  %108 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %76, ptr noundef nonnull %75, i32 noundef %.0164, ptr noundef %7, ptr noundef nonnull %4)
   %109 = getelementptr inbounds i8, ptr %7, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, -1
@@ -541,7 +541,7 @@ Kit_TruthAnd.exit:                                ; preds = %select.unfold.i214,
   %145 = phi ptr [ %91, %Kit_TruthSharp.exit194.thread ], [ %87, %select.unfold.i214 ]
   %146 = phi ptr [ %108, %Kit_TruthSharp.exit194.thread ], [ %104, %select.unfold.i214 ]
   %147 = phi i32 [ %110, %Kit_TruthSharp.exit194.thread ], [ %106, %select.unfold.i214 ]
-  %148 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %27, ptr noundef nonnull %76, i32 noundef %.0164, ptr noundef nonnull %8, ptr noundef nonnull %4)
+  %148 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef nonnull %27, ptr noundef nonnull %76, i32 noundef %.0164, ptr noundef %8, ptr noundef nonnull %4)
   %149 = getelementptr inbounds i8, ptr %8, i64 4
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, -1
@@ -777,7 +777,7 @@ define range(i32 -1, 2) i32 @Kit_TruthIsop(ptr noundef %0, i32 noundef %1, ptr n
   br label %Vec_IntGrow.exit
 
 Vec_IntGrow.exit:                                 ; preds = %4, %17
-  %19 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %2)
+  %19 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %0, i32 noundef %1, ptr noundef %5, ptr noundef nonnull %2)
   %20 = getelementptr inbounds i8, ptr %5, i64 4
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %30 [
@@ -826,7 +826,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   br i1 %40, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !4
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %31
-  %41 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %41 = call fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %0, i32 noundef %1, ptr noundef %6, ptr noundef nonnull %2)
   %42 = getelementptr inbounds i8, ptr %6, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %43, -1
@@ -998,7 +998,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare i32 @Kit_TruthVarInSupport(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 6) %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.Kit_Sop_t_, align 8
@@ -1082,7 +1082,7 @@ define internal fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %0, i32 noundef %1, i
   %44 = xor i32 %43, -1
   %45 = and i32 %42, %44
   %46 = load i32, ptr %13, align 4
-  %47 = call fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %45, i32 noundef %46, i32 noundef %.0, ptr noundef nonnull %8, ptr noundef %4)
+  %47 = call fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %45, i32 noundef %46, i32 noundef %.0, ptr noundef %8, ptr noundef %4)
   %48 = getelementptr inbounds i8, ptr %8, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, -1
@@ -1099,7 +1099,7 @@ define internal fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %0, i32 noundef %1, i
   %56 = xor i32 %55, -1
   %57 = and i32 %54, %56
   %58 = load i32, ptr %14, align 4
-  %59 = call fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %57, i32 noundef %58, i32 noundef %.0, ptr noundef nonnull %9, ptr noundef %4)
+  %59 = call fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %57, i32 noundef %58, i32 noundef %.0, ptr noundef %9, ptr noundef %4)
   %60 = getelementptr inbounds i8, ptr %9, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, -1
@@ -1121,7 +1121,7 @@ define internal fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %0, i32 noundef %1, i
   %73 = load i32, ptr %13, align 4
   %74 = load i32, ptr %14, align 4
   %75 = and i32 %74, %73
-  %76 = call fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %72, i32 noundef %75, i32 noundef %.0, ptr noundef nonnull %10, ptr noundef %4)
+  %76 = call fastcc i32 @Kit_TruthIsop5_rec(i32 noundef %72, i32 noundef %75, i32 noundef %.0, ptr noundef %10, ptr noundef %4)
   %77 = getelementptr inbounds i8, ptr %10, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, -1

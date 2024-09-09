@@ -1003,12 +1003,11 @@ define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr nocapture no
 declare double @llvm.floor.f64(double) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @subdivideQuad(ptr nocapture noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @subdivideQuad(ptr nocapture noundef %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   %11 = getelementptr inbounds i8, ptr %0, i64 60
   %12 = getelementptr inbounds i8, ptr %0, i64 52
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 10)
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %76, %8
@@ -1091,7 +1090,7 @@ tailrecurse:                                      ; preds = %76, %8
   br label %.loopexit
 
 52:                                               ; preds = %46
-  %exitcond.not = icmp eq i32 %.tr112, %smax
+  %exitcond.not = icmp eq i32 %.tr112, 10
   br i1 %exitcond.not, label %91, label %53
 
 53:                                               ; preds = %52
@@ -1142,7 +1141,7 @@ ptSegDistSq.exit:                                 ; preds = %53, %61, %67
   %86 = fmul float %85, 5.000000e-01
   %87 = fadd float %84, %86
   %88 = fmul float %87, 5.000000e-01
-  %89 = add i32 %.tr112, 1
+  %89 = add nuw nsw i32 %.tr112, 1
   %90 = tail call fastcc zeroext i8 @subdivideQuad(ptr noundef nonnull %0, i32 noundef %89, float noundef %.tr113, float noundef %.tr114, float noundef %78, float noundef %84, float noundef %82, float noundef %88)
   %.not = icmp eq i8 %90, 0
   br i1 %.not, label %.loopexit, label %tailrecurse
@@ -1157,12 +1156,11 @@ ptSegDistSq.exit:                                 ; preds = %53, %61, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @subdivideCubic(ptr nocapture noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @subdivideCubic(ptr nocapture noundef %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %13 = getelementptr inbounds i8, ptr %0, i64 60
   %14 = getelementptr inbounds i8, ptr %0, i64 52
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 10)
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %109, %10
@@ -1283,7 +1281,7 @@ tailrecurse:                                      ; preds = %109, %10
   br label %.loopexit
 
 82:                                               ; preds = %76
-  %exitcond.not = icmp eq i32 %.tr178, %smax
+  %exitcond.not = icmp eq i32 %.tr178, 10
   br i1 %exitcond.not, label %136, label %83
 
 83:                                               ; preds = %82
@@ -1351,7 +1349,7 @@ ptSegDistSq.exit:                                 ; preds = %83, %91, %97
   %131 = fmul float %130, 5.000000e-01
   %132 = fadd float %129, %131
   %133 = fmul float %132, 5.000000e-01
-  %134 = add i32 %.tr178, 1
+  %134 = add nuw nsw i32 %.tr178, 1
   %135 = tail call fastcc zeroext i8 @subdivideCubic(ptr noundef nonnull %0, i32 noundef %134, float noundef %.tr179, float noundef %.tr180, float noundef %113, float noundef %125, float noundef %117, float noundef %129, float noundef %121, float noundef %133)
   %.not = icmp eq i8 %135, 0
   br i1 %.not, label %.loopexit, label %tailrecurse

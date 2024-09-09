@@ -715,7 +715,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i8 @lsi_reg_readb(ptr noundef %s, i32 noundef %offset) unnamed_addr #0 {
+define internal fastcc zeroext i8 @lsi_reg_readb(ptr noundef %s, i32 noundef range(i32 -2147483648, 262) %offset) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   switch i32 %offset, label %sw.caserange [
@@ -2315,11 +2315,11 @@ if.end:                                           ; preds = %trace_lsi_add_msg_b
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @lsi_script_scsi_interrupt(ptr noundef %s, i32 noundef %stat0, i32 noundef %stat1) unnamed_addr #0 {
+define internal fastcc void @lsi_script_scsi_interrupt(ptr noundef %s, i32 noundef range(i32 0, 129) %stat0, i32 noundef range(i32 0, 5) %stat1) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %conv = trunc i32 %stat1 to i8
-  %conv1 = trunc i32 %stat0 to i8
+  %conv = trunc nuw nsw i32 %stat1 to i8
+  %conv1 = trunc nuw i32 %stat0 to i8
   %sist1 = getelementptr inbounds i8, ptr %s, i64 3766
   %0 = load i8, ptr %sist1, align 2
   %sist0 = getelementptr inbounds i8, ptr %s, i64 3765
@@ -2349,19 +2349,15 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  %conv11.i.i = and i32 %stat1, 255
-  %conv12.i.i = and i32 %stat0, 255
   %conv13.i.i = zext i8 %0 to i32
   %conv14.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %stat1, i32 noundef %stat0, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #12
   br label %trace_lsi_script_scsi_interrupt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv15.i.i = and i32 %stat1, 255
-  %conv16.i.i = and i32 %stat0, 255
   %conv17.i.i = zext i8 %0 to i32
   %conv18.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i, i32 noundef %conv17.i.i, i32 noundef %conv18.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %stat1, i32 noundef %stat0, i32 noundef %conv17.i.i, i32 noundef %conv18.i.i) #12
   br label %trace_lsi_script_scsi_interrupt.exit
 
 trace_lsi_script_scsi_interrupt.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2401,7 +2397,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @lsi_reg_writeb(ptr noundef %s, i32 noundef %offset, i8 noundef zeroext %val) unnamed_addr #0 {
+define internal fastcc void @lsi_reg_writeb(ptr noundef %s, i32 noundef range(i32 -2147483648, 262) %offset, i8 noundef zeroext %val) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = sext i32 %offset to i64
@@ -3821,7 +3817,7 @@ sw.epilog:                                        ; preds = %if.then810, %do.bod
 declare void @bus_cold_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @lsi_script_dma_interrupt(ptr noundef %s, i32 noundef %stat) unnamed_addr #0 {
+define internal fastcc void @lsi_script_dma_interrupt(ptr noundef %s, i32 noundef range(i32 1, 17) %stat) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dstat = getelementptr inbounds i8, ptr %s, i64 3763
@@ -3851,19 +3847,17 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  %conv11.i.i = and i32 %stat, 255
   %conv12.i.i = zext i8 %0 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.137, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.137, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %stat, i32 noundef %conv12.i.i) #12
   br label %trace_lsi_script_dma_interrupt.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv13.i.i = and i32 %stat, 255
   %conv14.i.i = zext i8 %0 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.138, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.138, i32 noundef %stat, i32 noundef %conv14.i.i) #12
   br label %trace_lsi_script_dma_interrupt.exit
 
 trace_lsi_script_dma_interrupt.exit:              ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
-  %conv = trunc i32 %stat to i8
+  %conv = trunc nuw nsw i32 %stat to i8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i8, ptr %dstat, align 1
   %conv3 = or i8 %7, %conv
@@ -7340,7 +7334,7 @@ return:                                           ; preds = %trace_lsi_execute_s
 declare void @device_cold_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @lsi_do_dma(ptr noundef %s, i32 noundef %out) unnamed_addr #0 {
+define internal fastcc void @lsi_do_dma(ptr noundef %s, i32 noundef range(i32 0, 2) %out) unnamed_addr #0 {
 entry:
   %_now.i.i49 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -7596,7 +7590,7 @@ if.end75:                                         ; preds = %if.else72, %if.then
 declare ptr @scsi_device_find(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @lsi_bad_selection(ptr noundef %s, i32 noundef %id) unnamed_addr #0 {
+define internal fastcc void @lsi_bad_selection(ptr noundef %s, i32 noundef range(i32 0, 16) %id) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)

@@ -4419,7 +4419,7 @@ Vec_IntPush.exit262:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %353, label %._crit_edge311, label %354
 
 354:                                              ; preds = %.lr.ph310
-  tail call fastcc void @Au_NtkParseCBlifNum(ptr noundef nonnull %65, ptr noundef nonnull %351, ptr noundef %61)
+  tail call fastcc void @Au_NtkParseCBlifNum(ptr noundef nonnull %65, ptr noundef %351, ptr noundef %61)
   %355 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.28) #31
   %356 = icmp eq ptr %355, null
   br i1 %356, label %._crit_edge311, label %.lr.ph310
@@ -4655,7 +4655,7 @@ Vec_IntPush.exit283:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %470, label %._crit_edge, label %471
 
 471:                                              ; preds = %.lr.ph
-  tail call fastcc void @Au_NtkParseCBlifNum(ptr noundef nonnull %65, ptr noundef nonnull %468, ptr noundef %61)
+  tail call fastcc void @Au_NtkParseCBlifNum(ptr noundef nonnull %65, ptr noundef %468, ptr noundef %61)
   %472 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.28) #31
   %473 = icmp eq ptr %472, null
   br i1 %473, label %._crit_edge, label %.lr.ph
@@ -4922,8 +4922,8 @@ declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_a
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Au_NtkParseCBlifNum(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
-  %4 = tail call i32 @atoi(ptr nocapture noundef %1) #29
+define internal fastcc void @Au_NtkParseCBlifNum(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+  %4 = tail call i32 @atoi(ptr nocapture noundef nonnull %1) #29
   br label %5
 
 5:                                                ; preds = %94, %3
@@ -8082,7 +8082,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

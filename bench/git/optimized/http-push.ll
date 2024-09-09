@@ -965,7 +965,7 @@ if.then272:                                       ; preds = %if.end263
 
 if.end273:                                        ; preds = %if.end263
   call void @mark_edges_uninteresting(ptr noundef nonnull %revs, ptr noundef null, i32 noundef 0) #15
-  %call274 = call fastcc i32 @get_delta(ptr noundef nonnull %revs, ptr noundef nonnull %call236)
+  %call274 = call fastcc i32 @get_delta(ptr noundef %revs, ptr noundef %call236)
   call void @finish_all_active_slots() #15
   store i1 true, ptr @pushing, align 4
   %tobool275.not = icmp eq i32 %call274, 0
@@ -982,7 +982,7 @@ if.end278:                                        ; preds = %if.then276, %if.end
   br i1 %.b89, label %if.end289, label %lor.lhs.false280
 
 lor.lhs.false280:                                 ; preds = %if.end278
-  %call282 = call fastcc i32 @update_remote(ptr noundef nonnull %new_oid200, ptr noundef nonnull %call236)
+  %call282 = call fastcc i32 @update_remote(ptr noundef %new_oid200, ptr noundef %call236)
   %tobool283.not = icmp eq i32 %call282, 0
   br i1 %tobool283.not, label %if.end289, label %if.end285
 
@@ -1006,7 +1006,7 @@ if.then291:                                       ; preds = %if.end289
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then291, %if.end289
-  call fastcc void @unlock_remote(ptr noundef nonnull %call236)
+  call fastcc void @unlock_remote(ptr noundef %call236)
   call fastcc void @check_locks()
   call void @strvec_clear(ptr noundef nonnull %commit_argv) #15
   call void @release_revisions(ptr noundef nonnull %revs) #15
@@ -1045,7 +1045,7 @@ if.then309:                                       ; preds = %land.lhs.true306
   br i1 %.b77, label %if.then319, label %if.then312
 
 if.then312:                                       ; preds = %if.then309
-  call fastcc void @update_remote_info_refs(ptr noundef nonnull %info_ref_lock.1)
+  call fastcc void @update_remote_info_refs(ptr noundef %info_ref_lock.1)
   br label %if.then319
 
 if.else314:                                       ; preds = %land.lhs.true306, %if.then304
@@ -1060,7 +1060,7 @@ cleanup:                                          ; preds = %if.then109, %if.the
 
 if.then319:                                       ; preds = %if.then312, %if.then309, %cleanup
   %rc.0146 = phi i32 [ %rc.0, %cleanup ], [ %rc.2, %if.then309 ], [ %rc.2, %if.then312 ]
-  call fastcc void @unlock_remote(ptr noundef nonnull %info_ref_lock.1)
+  call fastcc void @unlock_remote(ptr noundef %info_ref_lock.1)
   br label %if.end321
 
 if.end321:                                        ; preds = %locking_available.exit, %if.else, %if.then319, %cleanup
@@ -1385,7 +1385,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @delete_remote_branch(ptr noundef %pattern, i32 noundef %force) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @delete_remote_branch(ptr noundef %pattern, i32 noundef range(i32 0, 2) %force) unnamed_addr #0 {
 entry:
   %head_oid = alloca %struct.object_id, align 4
   %symref = alloca ptr, align 8
@@ -1462,7 +1462,7 @@ if.then26:                                        ; preds = %for.end
   br label %return
 
 if.end29:                                         ; preds = %for.end
-  call fastcc void @fetch_symref(ptr noundef nonnull @.str.95, ptr noundef nonnull %symref, ptr noundef nonnull %head_oid)
+  call fastcc void @fetch_symref(ptr noundef nonnull @.str.95, ptr noundef %symref, ptr noundef %head_oid)
   %4 = load ptr, ptr %symref, align 8
   %tobool30.not = icmp eq ptr %4, null
   br i1 %tobool30.not, label %if.then31, label %for.cond35.preheader
@@ -1487,7 +1487,7 @@ if.then44:                                        ; preds = %for.body39
   br label %return
 
 if.end49:                                         ; preds = %for.body39
-  call fastcc void @fetch_symref(ptr noundef nonnull %5, ptr noundef nonnull %symref, ptr noundef nonnull %head_oid)
+  call fastcc void @fetch_symref(ptr noundef nonnull %5, ptr noundef %symref, ptr noundef %head_oid)
   %inc51 = add nuw nsw i32 %i.044, 1
   %.pr = load ptr, ptr %symref, align 8
   %tobool36 = icmp ne ptr %.pr, null
@@ -1581,7 +1581,7 @@ if.then84:                                        ; preds = %if.end80
   br label %return
 
 if.end91:                                         ; preds = %if.end80
-  %call92 = call fastcc i32 @verify_merge_base(ptr noundef nonnull %head_oid, ptr noundef %remote_ref.1)
+  %call92 = call fastcc i32 @verify_merge_base(ptr noundef %head_oid, ptr noundef %remote_ref.1)
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %if.then94, label %if.end101
 
@@ -1702,9 +1702,9 @@ declare i32 @prepare_revision_walk(ptr noundef) local_unnamed_addr #2
 declare void @mark_edges_uninteresting(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_delta(ptr noundef %revs, ptr noundef %lock) unnamed_addr #0 {
+define internal fastcc i32 @get_delta(ptr noundef nonnull %revs, ptr noundef nonnull %lock) unnamed_addr #0 {
 entry:
-  %call24 = tail call ptr @get_revision(ptr noundef %revs) #15
+  %call24 = tail call ptr @get_revision(ptr noundef nonnull %revs) #15
   %cmp.not25 = icmp eq ptr %call24, null
   br i1 %cmp.not25, label %for.cond.preheader, label %while.body
 
@@ -1741,7 +1741,7 @@ if.then:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %if.then, %while.body
   %count.1 = phi i32 [ %count.026, %while.body ], [ %add, %if.then ]
-  %call = tail call ptr @get_revision(ptr noundef %revs) #15
+  %call = tail call ptr @get_revision(ptr noundef nonnull %revs) #15
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %for.cond.preheader, label %while.body, !llvm.loop !14
 
@@ -1844,7 +1844,7 @@ while.end62:                                      ; preds = %if.end61, %while.co
 declare void @finish_all_active_slots() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @update_remote(ptr noundef %oid, ptr nocapture noundef readonly %lock) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @update_remote(ptr noundef nonnull %oid, ptr nocapture noundef nonnull readonly %lock) unnamed_addr #0 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %results = alloca %struct.slot_results, align 8
@@ -1872,7 +1872,7 @@ if.then4.i.i:                                     ; preds = %entry
 get_dav_token_headers.exit:                       ; preds = %entry, %if.then4.i.i
   call void @strbuf_release(ptr noundef nonnull %buf.i) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
-  %call1 = call ptr @oid_to_hex(ptr noundef %oid) #15
+  %call1 = call ptr @oid_to_hex(ptr noundef nonnull %oid) #15
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %out_buffer, ptr noundef nonnull @.str.112, ptr noundef %call1) #15
   %call2 = call ptr @get_active_slot() #15
   %results3 = getelementptr inbounds i8, ptr %call2, i64 32
@@ -1912,7 +1912,7 @@ return:                                           ; preds = %if.then, %if.else, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @unlock_remote(ptr noundef %lock) unnamed_addr #0 {
+define internal fastcc void @unlock_remote(ptr noundef nonnull %lock) unnamed_addr #0 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %results = alloca %struct.slot_results, align 8
@@ -2012,7 +2012,7 @@ if.end25:                                         ; preds = %while.cond, %if.end
   call void @free(ptr noundef %18) #15
   %19 = load ptr, ptr %token6.i, align 8
   call void @free(ptr noundef %19) #15
-  call void @free(ptr noundef %lock) #15
+  call void @free(ptr noundef nonnull %lock) #15
   ret void
 }
 
@@ -2051,7 +2051,7 @@ while.body:                                       ; preds = %entry, %if.end7
 if.then:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %results.i)
   store i32 1, ptr %refreshing, align 8
-  %call.i7 = call fastcc ptr @get_dav_token_headers(ptr noundef nonnull %lock.018, i32 noundef 5)
+  %call.i7 = call fastcc ptr @get_dav_token_headers(ptr noundef %lock.018, i32 noundef 5)
   %call1.i = call ptr @get_active_slot() #15
   %results2.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %results.i, ptr %results2.i, align 8
@@ -2116,7 +2116,7 @@ declare void @strvec_clear(ptr noundef) local_unnamed_addr #2
 declare void @release_revisions(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_remote_info_refs(ptr nocapture noundef readonly %lock) unnamed_addr #0 {
+define internal fastcc void @update_remote_info_refs(ptr nocapture noundef nonnull readonly %lock) unnamed_addr #0 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %buffer = alloca %struct.buffer, align 8
@@ -2418,7 +2418,7 @@ while.body:                                       ; preds = %entry, %while.body
   %lock.04 = phi ptr [ %4, %while.body ], [ %1, %entry ]
   %next1 = getelementptr inbounds i8, ptr %lock.04, i64 120
   %4 = load ptr, ptr %next1, align 8
-  tail call fastcc void @unlock_remote(ptr noundef nonnull %lock.04)
+  tail call fastcc void @unlock_remote(ptr noundef %lock.04)
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !19
 
@@ -3217,7 +3217,7 @@ release_request.exit.i:                           ; preds = %while.cond.i.i, %if
   %url.i.i = getelementptr inbounds i8, ptr %.us-phi, i64 16
   %12 = load ptr, ptr %url.i.i, align 8
   tail call void @free(ptr noundef %12) #15
-  tail call void @free(ptr noundef %.us-phi) #15
+  tail call void @free(ptr noundef nonnull %.us-phi) #15
   br label %return
 
 if.then7:                                         ; preds = %for.body
@@ -3957,7 +3957,7 @@ declare void @append_remote_object_url(ptr noundef, ptr noundef, ptr noundef, i3
 declare ptr @get_remote_object_url(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fetch_symref(ptr noundef %path, ptr nocapture noundef %symref, ptr noundef %oid) unnamed_addr #0 {
+define internal fastcc void @fetch_symref(ptr noundef %path, ptr nocapture noundef nonnull %symref, ptr noundef nonnull %oid) unnamed_addr #0 {
 entry:
   %buffer = alloca %struct.strbuf, align 8
   %0 = load ptr, ptr @repo, align 8
@@ -4022,7 +4022,7 @@ if.then7:                                         ; preds = %do.body.i
   br label %if.end13
 
 if.else:                                          ; preds = %do.cond.i
-  %call12 = call i32 @get_oid_hex(ptr noundef %6, ptr noundef %oid) #15
+  %call12 = call i32 @get_oid_hex(ptr noundef %6, ptr noundef nonnull %oid) #15
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then7
@@ -4034,9 +4034,9 @@ return:                                           ; preds = %if.end, %if.end13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @verify_merge_base(ptr noundef %head_oid, ptr noundef %remote) unnamed_addr #0 {
+define internal fastcc i32 @verify_merge_base(ptr noundef nonnull %head_oid, ptr noundef %remote) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @lookup_commit_or_die(ptr noundef %head_oid, ptr noundef nonnull @.str.95) #15
+  %call = tail call ptr @lookup_commit_or_die(ptr noundef nonnull %head_oid, ptr noundef nonnull @.str.95) #15
   %old_oid = getelementptr inbounds i8, ptr %remote, i64 8
   %name = getelementptr inbounds i8, ptr %remote, i64 176
   %call1 = tail call ptr @lookup_commit_or_die(ptr noundef nonnull %old_oid, ptr noundef nonnull %name) #15
@@ -4162,7 +4162,7 @@ return:                                           ; preds = %entry, %while.end
 declare ptr @repo_get_commit_tree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_send_request(ptr noundef %obj, ptr noundef %lock) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_send_request(ptr noundef %obj, ptr noundef nonnull %lock) unnamed_addr #0 {
 entry:
   %path.i = alloca [12 x i8], align 1
   %val.i = alloca i32, align 4
@@ -4258,7 +4258,7 @@ declare void @free_tree_buffer(ptr noundef) local_unnamed_addr #2
 declare i32 @parse_tree_gently(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_dav_token_headers(ptr nocapture noundef readonly %lock, i32 noundef %options) unnamed_addr #0 {
+define internal fastcc ptr @get_dav_token_headers(ptr nocapture noundef nonnull readonly %lock, i32 noundef range(i32 1, 6) %options) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_dav_token_headers.buf, i64 24, i1 false)
@@ -4309,8 +4309,7 @@ if.then4.i11:                                     ; preds = %if.then5
 
 if.end9:                                          ; preds = %if.then4.i11, %if.then5, %if.end
   %dav_headers.1 = phi ptr [ %dav_headers.0, %if.end ], [ %call8, %if.then5 ], [ %call8, %if.then4.i11 ]
-  %and10 = and i32 %options, 4
-  %tobool11.not = icmp eq i32 %and10, 0
+  %tobool11.not = icmp ult i32 %options, 4
   br i1 %tobool11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.end9

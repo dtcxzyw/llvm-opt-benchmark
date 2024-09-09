@@ -10,7 +10,7 @@ define double @Cudd_bddCorrelation(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  %7 = tail call fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   %8 = tail call i32 @st__foreach(ptr noundef nonnull %4, ptr noundef nonnull @CorrelCleanUp, ptr noundef null) #7
   tail call void @st__free_table(ptr noundef nonnull %4) #7
   br label %9
@@ -60,7 +60,7 @@ define internal range(i32 0, -2147483648) i32 @CorrelHash(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %1, %2
   br i1 %6, label %107, label %7
@@ -114,7 +114,7 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   store ptr %.1, ptr %36, align 8
   %41 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %.178, ptr %41, align 8
-  %42 = call i32 @st__lookup(ptr noundef %3, ptr noundef nonnull %36, ptr noundef nonnull %5) #7
+  %42 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef nonnull %36, ptr noundef nonnull %5) #7
   %.not95 = icmp eq i32 %42, 0
   br i1 %.not95, label %46, label %43
 
@@ -223,7 +223,7 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
 102:                                              ; preds = %97
   %103 = fadd double %86, %94
   store double %103, ptr %98, align 8
-  %104 = call i32 @st__insert(ptr noundef %3, ptr noundef nonnull %36, ptr noundef nonnull %98) #7
+  %104 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %36, ptr noundef nonnull %98) #7
   %105 = icmp eq i32 %104, -10000
   br i1 %105, label %106, label %107
 
@@ -269,7 +269,7 @@ define double @Cudd_bddCorrelationWeights(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %8 = tail call fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %9 = tail call i32 @st__foreach(ptr noundef nonnull %5, ptr noundef nonnull @CorrelCleanUp, ptr noundef null) #7
   tail call void @st__free_table(ptr noundef nonnull %5) #7
   br label %10
@@ -280,7 +280,7 @@ define double @Cudd_bddCorrelationWeights(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %1, %2
   br i1 %7, label %113, label %8
@@ -334,7 +334,7 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   store ptr %.1, ptr %37, align 8
   %42 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %.187, ptr %42, align 8
-  %43 = call i32 @st__lookup(ptr noundef %4, ptr noundef nonnull %37, ptr noundef nonnull %6) #7
+  %43 = call i32 @st__lookup(ptr noundef nonnull %4, ptr noundef nonnull %37, ptr noundef nonnull %6) #7
   %.not104 = icmp eq i32 %43, 0
   br i1 %.not104, label %47, label %44
 
@@ -449,7 +449,7 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
 108:                                              ; preds = %103
   %109 = fadd double %90, %100
   store double %109, ptr %104, align 8
-  %110 = call i32 @st__insert(ptr noundef %4, ptr noundef nonnull %37, ptr noundef nonnull %104) #7
+  %110 = call i32 @st__insert(ptr noundef nonnull %4, ptr noundef nonnull %37, ptr noundef nonnull %104) #7
   %111 = icmp eq i32 %110, -10000
   br i1 %111, label %112, label %113
 

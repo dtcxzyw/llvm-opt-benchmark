@@ -8811,7 +8811,7 @@ if.end13:                                         ; preds = %if.then11, %if.end
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr nocapture noundef %s, ptr nocapture noundef readonly %input, i64 noundef %input_size, i64 noundef %num_literals) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr nocapture noundef %s, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %input_size, i64 noundef %num_literals) unnamed_addr #2 {
 entry:
   %conv = uitofp i64 %input_size to double
   %conv1 = uitofp i64 %num_literals to double
@@ -8822,37 +8822,32 @@ entry:
 if.else:                                          ; preds = %entry
   %mul3 = fmul double %conv, 8.000000e+00
   %mul4 = fmul double %mul3, 0x3FEF5C28F5C28F5C
-  %div = fdiv double %mul4, 4.300000e+01
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %s, i8 0, i64 1024, i1 false)
-  %cmp532.not = icmp eq i64 %input_size, 0
-  br i1 %cmp532.not, label %while.body.i.preheader, label %for.body
+  br label %for.body
 
 for.body:                                         ; preds = %if.else, %for.body
-  %i.033 = phi i64 [ %add, %for.body ], [ 0, %if.else ]
-  %arrayidx = getelementptr inbounds i8, ptr %input, i64 %i.033
+  %i.032 = phi i64 [ 0, %if.else ], [ %add, %for.body ]
+  %arrayidx = getelementptr inbounds i8, ptr %input, i64 %i.032
   %0 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %0 to i64
   %arrayidx8 = getelementptr inbounds [256 x i32], ptr %s, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx8, align 4
   %inc = add i32 %1, 1
   store i32 %inc, ptr %arrayidx8, align 4
-  %add = add i64 %i.033, 43
+  %add = add i64 %i.032, 43
   %cmp5 = icmp ult i64 %add, %input_size
-  br i1 %cmp5, label %for.body, label %while.body.i.preheader, !llvm.loop !10
+  br i1 %cmp5, label %for.body, label %while.body.i, !llvm.loop !10
 
-while.body.i.preheader:                           ; preds = %for.body, %if.else
-  br label %while.body.i
-
-while.body.i:                                     ; preds = %while.body.i.preheader, %FastLog2.exit
-  %population.addr.i14.1.idx36 = phi i64 [ %incdec.ptr.i.add, %FastLog2.exit ], [ 0, %while.body.i.preheader ]
-  %sum.i16.135 = phi i64 [ %add5.i, %FastLog2.exit ], [ 0, %while.body.i.preheader ]
-  %retval1.i17.134 = phi double [ %7, %FastLog2.exit ], [ 0.000000e+00, %while.body.i.preheader ]
-  %population.addr.i14.1.ptr = getelementptr inbounds i8, ptr %s, i64 %population.addr.i14.1.idx36
-  %population.addr.i14.1.add = or disjoint i64 %population.addr.i14.1.idx36, 4
+while.body.i:                                     ; preds = %for.body, %FastLog2.exit
+  %population.addr.i14.1.idx35 = phi i64 [ %incdec.ptr.i.add, %FastLog2.exit ], [ 0, %for.body ]
+  %sum.i16.134 = phi i64 [ %add5.i, %FastLog2.exit ], [ 0, %for.body ]
+  %retval1.i17.133 = phi double [ %7, %FastLog2.exit ], [ 0.000000e+00, %for.body ]
+  %population.addr.i14.1.ptr = getelementptr inbounds i8, ptr %s, i64 %population.addr.i14.1.idx35
+  %population.addr.i14.1.add = or disjoint i64 %population.addr.i14.1.idx35, 4
   %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %s, i64 %population.addr.i14.1.add
   %2 = load i32, ptr %population.addr.i14.1.ptr, align 4
   %conv.i19 = zext i32 %2 to i64
-  %add.i = add i64 %sum.i16.135, %conv.i19
+  %add.i = add i64 %sum.i16.134, %conv.i19
   %conv2.i = uitofp i32 %2 to double
   %cmp.i28 = icmp ult i32 %2, 256
   br i1 %cmp.i28, label %if.then.i32, label %if.end.i29
@@ -8869,8 +8864,8 @@ if.end.i29:                                       ; preds = %while.body.i
 FastLog2.exit34:                                  ; preds = %if.end.i29, %if.then.i32
   %retval.i26.0 = phi double [ %3, %if.then.i32 ], [ %call.i31, %if.end.i29 ]
   %neg.i = fneg double %conv2.i
-  %4 = tail call double @llvm.fmuladd.f64(double %neg.i, double %retval.i26.0, double %retval1.i17.134)
-  %incdec.ptr.i.add = add nuw nsw i64 %population.addr.i14.1.idx36, 8
+  %4 = tail call double @llvm.fmuladd.f64(double %neg.i, double %retval.i26.0, double %retval1.i17.133)
+  %incdec.ptr.i.add = add nuw nsw i64 %population.addr.i14.1.idx35, 8
   %5 = load i32, ptr %incdec.ptr.i.ptr, align 4
   %conv4.i = zext i32 %5 to i64
   %add5.i = add i64 %add.i, %conv4.i
@@ -8891,10 +8886,11 @@ FastLog2.exit:                                    ; preds = %if.end.i23, %if.the
   %retval.i.0 = phi double [ %6, %if.then.i25 ], [ %call.i, %if.end.i23 ]
   %neg8.i = fneg double %conv6.i
   %7 = tail call double @llvm.fmuladd.f64(double %neg8.i, double %retval.i.0, double %4)
-  %cmp.i18 = icmp ult i64 %population.addr.i14.1.idx36, 1016
+  %cmp.i18 = icmp ult i64 %population.addr.i14.1.idx35, 1016
   br i1 %cmp.i18, label %while.body.i, label %while.end.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %FastLog2.exit
+  %div = fdiv double %mul4, 4.300000e+01
   %tobool9.i.not = icmp eq i64 %add5.i, 0
   %.pre = uitofp i64 %add5.i to double
   br i1 %tobool9.i.not, label %ShannonEntropy.exit, label %if.then10.i
@@ -8931,7 +8927,7 @@ return:                                           ; preds = %entry, %ShannonEntr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StoreCommands(ptr noundef %s, ptr nocapture noundef readonly %literals, i64 noundef %num_literals, ptr nocapture noundef readonly %commands, i64 noundef %num_commands, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
+define internal fastcc void @StoreCommands(ptr noundef %s, ptr nocapture noundef readonly %literals, i64 noundef %num_literals, ptr nocapture noundef readonly %commands, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %num_commands, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %s, i8 0, i64 1024, i1 false)
   %cmd_depth = getelementptr inbounds i8, ptr %s, i64 2304

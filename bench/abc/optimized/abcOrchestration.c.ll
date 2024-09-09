@@ -2744,7 +2744,7 @@ Abc_Clock.exit167:                                ; preds = %Abc_Clock.exit165, 
 Abc_Clock.exit169:                                ; preds = %219, %222
   %.0.i168.neg = phi i64 [ %.neg201, %222 ], [ 1, %219 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %225 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %30, ptr noundef nonnull %93, ptr noundef %188, i32 noundef %3, i32 noundef %5)
+  %225 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %30, ptr noundef %93, ptr noundef %188, i32 noundef %3, i32 noundef %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %226 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #20
   %227 = icmp slt i32 %226, 0
@@ -3404,7 +3404,7 @@ declare void @Abc_NtkDontCareClear(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_NtkDontCareCompute(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Abc_ManResubEval(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @Abc_ManResubEval(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -3418,7 +3418,7 @@ define internal fastcc noalias noundef ptr @Abc_ManResubEval(ptr noundef %0, ptr
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call i32 @Abc_ObjRequiredLevel(ptr noundef %1) #20
+  %16 = tail call i32 @Abc_ObjRequiredLevel(ptr noundef nonnull %1) #20
   br label %17
 
 17:                                               ; preds = %5, %15
@@ -3450,7 +3450,7 @@ Abc_Clock.exit:                                   ; preds = %17, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %29 = getelementptr inbounds i8, ptr %0, i64 128
   %30 = load ptr, ptr %29, align 8
-  %31 = call i32 @Abc_NodeMffcInside(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %30) #20
+  %31 = call i32 @Abc_NodeMffcInside(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %30) #20
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %31, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
@@ -8148,7 +8148,7 @@ Abc_Clock.exit753:                                ; preds = %Abc_Clock.exit751, 
 Abc_Clock.exit755:                                ; preds = %548, %551
   %.0.i754.neg = phi i64 [ %.neg845, %551 ], [ 1, %548 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
-  %554 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %74, ptr noundef nonnull %236, ptr noundef %517, i32 noundef %10, i32 noundef %12)
+  %554 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %74, ptr noundef %236, ptr noundef %517, i32 noundef %10, i32 noundef %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   %555 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %45) #20
   %556 = icmp slt i32 %555, 0
@@ -10020,7 +10020,7 @@ Abc_Clock.exit279:                                ; preds = %Abc_Clock.exit277, 
 Abc_Clock.exit281:                                ; preds = %232, %235
   %.0.i280.neg = phi i64 [ %.neg324, %235 ], [ 1, %232 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
-  %238 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %51, ptr noundef nonnull %149, ptr noundef %201, i32 noundef %5, i32 noundef %7)
+  %238 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %51, ptr noundef %149, ptr noundef %201, i32 noundef %5, i32 noundef %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   %239 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %26) #20
   %240 = icmp slt i32 %239, 0
@@ -11607,7 +11607,7 @@ Abc_Clock.exit901:                                ; preds = %Abc_Clock.exit899, 
 Abc_Clock.exit903:                                ; preds = %596, %599
   %.0.i902.neg1260 = phi i64 [ %.neg1259, %599 ], [ 1, %596 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76)
-  %602 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef nonnull %264, ptr noundef %565, i32 noundef %9, i32 noundef %11)
+  %602 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %565, i32 noundef %9, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75)
   %603 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %75) #20
   %604 = icmp slt i32 %603, 0
@@ -12385,7 +12385,7 @@ Abc_Clock.exit976:                                ; preds = %Abc_Clock.exit974, 
 Abc_Clock.exit978:                                ; preds = %957, %960
   %.0.i977.neg = phi i64 [ %.neg1170, %960 ], [ 1, %957 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
-  %963 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef nonnull %264, ptr noundef %926, i32 noundef %9, i32 noundef %11)
+  %963 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %926, i32 noundef %9, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
   %964 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %54) #20
   %965 = icmp slt i32 %964, 0
@@ -12624,7 +12624,7 @@ Abc_Clock.exit999:                                ; preds = %Abc_Clock.exit997, 
 Abc_Clock.exit1001:                               ; preds = %1068, %1071
   %.0.i1000.neg1252 = phi i64 [ %.neg1251, %1071 ], [ 1, %1068 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
-  %1074 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef nonnull %264, ptr noundef %1037, i32 noundef %9, i32 noundef %11)
+  %1074 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1037, i32 noundef %9, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
   %1075 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %47) #20
   %1076 = icmp slt i32 %1075, 0
@@ -13146,7 +13146,7 @@ Abc_Clock.exit1046:                               ; preds = %Abc_Clock.exit1044,
 Abc_Clock.exit1048:                               ; preds = %1317, %1320
   %.0.i1047.neg1248 = phi i64 [ %.neg1247, %1320 ], [ 1, %1317 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
-  %1323 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef nonnull %264, ptr noundef %1286, i32 noundef %9, i32 noundef %11)
+  %1323 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1286, i32 noundef %9, i32 noundef %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
   %1324 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %35) #20
   %1325 = icmp slt i32 %1324, 0
@@ -13814,7 +13814,7 @@ Vec_IntPush.exit1102:                             ; preds = %.Vec_IntGrow.exit10
 
 1650:                                             ; preds = %1642, %1636
   %1651 = call fastcc i64 @Abc_Clock()
-  %1652 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef nonnull %264, ptr noundef %1637, i32 noundef %9, i32 noundef %11)
+  %1652 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1637, i32 noundef %9, i32 noundef %11)
   %1653 = call fastcc i64 @Abc_Clock()
   %1654 = sub i64 %1653, %1651
   %1655 = load i64, ptr %195, align 8
@@ -14019,7 +14019,7 @@ Vec_IntPush.exit1115:                             ; preds = %.Vec_IntGrow.exit10
 
 1760:                                             ; preds = %1752, %1746
   %1761 = call fastcc i64 @Abc_Clock()
-  %1762 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef nonnull %264, ptr noundef %1747, i32 noundef %9, i32 noundef %11)
+  %1762 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %101, ptr noundef %264, ptr noundef %1747, i32 noundef %9, i32 noundef %11)
   %1763 = call fastcc i64 @Abc_Clock()
   %1764 = sub i64 %1763, %1761
   %1765 = load i64, ptr %195, align 8
@@ -15301,7 +15301,7 @@ Abc_Clock.exit411:                                ; preds = %Abc_Clock.exit409, 
 Abc_Clock.exit413:                                ; preds = %508, %511
   %.0.i412.neg = phi i64 [ %.neg518, %511 ], [ 1, %508 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
-  %514 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %62, ptr noundef nonnull %185, ptr noundef %477, i32 noundef %10, i32 noundef %12)
+  %514 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %62, ptr noundef %185, ptr noundef %477, i32 noundef %10, i32 noundef %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   %515 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %37) #20
   %516 = icmp slt i32 %515, 0
@@ -17422,7 +17422,7 @@ Abc_Clock.exit394:                                ; preds = %Abc_Clock.exit392, 
 Abc_Clock.exit396:                                ; preds = %496, %499
   %.0.i395.neg = phi i64 [ %.neg473, %499 ], [ 1, %496 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  %502 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %56, ptr noundef nonnull %173, ptr noundef %465, i32 noundef %10, i32 noundef %12)
+  %502 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %56, ptr noundef %173, ptr noundef %465, i32 noundef %10, i32 noundef %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
   %503 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %31) #20
   %504 = icmp slt i32 %503, 0
@@ -18749,7 +18749,7 @@ Abc_Clock.exit270:                                ; preds = %Abc_Clock.exit268, 
 Abc_Clock.exit272:                                ; preds = %250, %253
   %.0.i271.neg = phi i64 [ %.neg296, %253 ], [ 1, %250 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  %256 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %46, ptr noundef nonnull %135, ptr noundef %219, i32 noundef %8, i32 noundef %10)
+  %256 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %46, ptr noundef %135, ptr noundef %219, i32 noundef %8, i32 noundef %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
   %257 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %21) #20
   %258 = icmp slt i32 %257, 0
@@ -20038,7 +20038,7 @@ Abc_Clock.exit390:                                ; preds = %Abc_Clock.exit388, 
 Abc_Clock.exit392:                                ; preds = %521, %524
   %.0.i391.neg504 = phi i64 [ %.neg503, %524 ], [ 1, %521 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
-  %527 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %56, ptr noundef nonnull %180, ptr noundef %490, i32 noundef %11, i32 noundef %13)
+  %527 = call fastcc ptr @Abc_ManResubEval(ptr noundef nonnull %56, ptr noundef %180, ptr noundef %490, i32 noundef %11, i32 noundef %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   %528 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %34) #20
   %529 = icmp slt i32 %528, 0
@@ -20964,7 +20964,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -25547,6 +25547,9 @@ declare void @llvm.va_end.p0(ptr) #15
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -25557,9 +25560,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

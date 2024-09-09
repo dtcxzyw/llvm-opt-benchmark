@@ -1209,7 +1209,7 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.else.i:                                        ; preds = %while.body.i
   %25 = load ptr, ptr %codec.i, align 8
-  %call36.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %25, ptr noundef nonnull %buf.i, ptr noundef nonnull %retval.0.i4.i, i64 noundef %call32.i)
+  %call36.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %25, ptr noundef %buf.i, ptr noundef nonnull %retval.0.i4.i, i64 noundef %call32.i)
   %tobool.not.i = icmp eq i32 %call36.i, 0
   br i1 %tobool.not.i, label %while.cond.i, label %land.lhs.true58.i, !llvm.loop !4
 
@@ -1390,14 +1390,13 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @multibytecodec_encode(ptr noundef %codec, ptr noundef %state, ptr noundef %text, ptr noundef writeonly %inpos_t, ptr noundef %errors, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc ptr @multibytecodec_encode(ptr noundef %codec, ptr noundef %state, ptr noundef %text, ptr noundef writeonly %inpos_t, ptr noundef %errors, i32 noundef range(i32 0, 4) %flags) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.MultibyteEncodeBuffer, align 8
   %0 = getelementptr i8, ptr %text, i64 16
   %text.val = load i64, ptr %0, align 8
   %cmp = icmp eq i64 %text.val, 0
-  %and = and i32 %flags, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %tobool.not = icmp ult i32 %flags, 2
   %or.cond = and i1 %tobool.not, %cmp
   br i1 %or.cond, label %if.then, label %if.end
 
@@ -1485,7 +1484,7 @@ while.body.us:                                    ; preds = %while.cond.us
   ]
 
 lor.lhs.false.split.us:                           ; preds = %while.body.us
-  %call3625.us = call fastcc i32 @multibytecodec_encerror(ptr noundef nonnull %codec, ptr noundef %state, ptr noundef nonnull %buf, ptr noundef %errors, i64 noundef %call29.us)
+  %call3625.us = call fastcc i32 @multibytecodec_encerror(ptr noundef nonnull %codec, ptr noundef %state, ptr noundef %buf, ptr noundef %errors, i64 noundef %call29.us)
   %tobool37.not.us = icmp eq i32 %call3625.us, 0
   br i1 %tobool37.not.us, label %while.cond.us, label %errorexit
 
@@ -1507,7 +1506,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp30, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
-  %call3626 = call fastcc i32 @multibytecodec_encerror(ptr noundef nonnull %codec, ptr noundef %state, ptr noundef nonnull %buf, ptr noundef %errors, i64 noundef %call29)
+  %call3626 = call fastcc i32 @multibytecodec_encerror(ptr noundef nonnull %codec, ptr noundef %state, ptr noundef %buf, ptr noundef %errors, i64 noundef %call29)
   %tobool37.not = icmp eq i32 %call3626, 0
   br i1 %tobool37.not, label %if.else39, label %errorexit
 
@@ -1534,7 +1533,7 @@ for.cond:                                         ; preds = %while.end, %if.else
   br i1 %cmp59, label %if.end67, label %if.else61
 
 if.else61:                                        ; preds = %for.cond
-  %call62 = call fastcc i32 @multibytecodec_encerror(ptr noundef nonnull %codec, ptr noundef %state, ptr noundef nonnull %buf, ptr noundef %errors, i64 noundef %call58)
+  %call62 = call fastcc i32 @multibytecodec_encerror(ptr noundef nonnull %codec, ptr noundef %state, ptr noundef %buf, ptr noundef %errors, i64 noundef %call58)
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %for.cond, label %errorexit
 
@@ -1646,7 +1645,7 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @multibytecodec_encerror(ptr noundef %codec, ptr noundef %state, ptr noundef %buf, ptr noundef %errors, i64 noundef %e) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @multibytecodec_encerror(ptr noundef %codec, ptr noundef %state, ptr noundef nonnull %buf, ptr noundef %errors, i64 noundef range(i64 1, 0) %e) unnamed_addr #0 {
 entry:
   %inpos8 = alloca i64, align 8
   %inpos109 = alloca i64, align 8
@@ -2050,7 +2049,7 @@ lor.lhs.false122:                                 ; preds = %if.end116
   br i1 %cmp128, label %if.then129, label %do.end135
 
 if.then129:                                       ; preds = %lor.lhs.false122
-  %call130 = call fastcc i32 @expand_encodebuffer(ptr noundef nonnull %buf, i64 noundef %retstr.1.val)
+  %call130 = call fastcc i32 @expand_encodebuffer(ptr noundef %buf, i64 noundef %retstr.1.val)
   %cmp131 = icmp eq i32 %call130, -1
   br i1 %cmp131, label %if.then.i161, label %if.then129.do.end135_crit_edge
 
@@ -2181,7 +2180,7 @@ return:                                           ; preds = %if.end.i101, %if.th
 declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @expand_encodebuffer(ptr noundef %buf, i64 noundef %esize) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @expand_encodebuffer(ptr noundef nonnull %buf, i64 noundef range(i64 -1, -9223372036854775808) %esize) unnamed_addr #0 {
 entry:
   %outbuf = getelementptr inbounds i8, ptr %buf, i64 24
   %0 = load ptr, ptr %outbuf, align 8
@@ -2273,7 +2272,7 @@ declare ptr @PyUnicode_New(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare void @_PyUnicodeWriter_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @multibytecodec_decerror(ptr nocapture noundef readonly %codec, ptr noundef %buf, ptr noundef %errors, i64 noundef %e) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @multibytecodec_decerror(ptr nocapture noundef readonly %codec, ptr noundef nonnull %buf, ptr noundef %errors, i64 noundef range(i64 1, 0) %e) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i64 %e, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -3053,7 +3052,7 @@ _multibytecodec_MultibyteIncrementalEncoder_reset_impl.exit: ; preds = %if.then.
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @encoder_encode_stateful(ptr noundef %ctx, ptr noundef %unistr, i32 noundef %final) unnamed_addr #0 {
+define internal fastcc ptr @encoder_encode_stateful(ptr noundef %ctx, ptr noundef %unistr, i32 noundef range(i32 0, -2147483648) %final) unnamed_addr #0 {
 entry:
   %inpos = alloca i64, align 8
   %inbuf_tmp = alloca ptr, align 8
@@ -3861,7 +3860,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 if.else.i.i:                                      ; preds = %while.body.i.i
   %15 = load ptr, ptr %codec.i.i, align 8
   %16 = load ptr, ptr %errors.i.i, align 8
-  %call9.i.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %15, ptr noundef nonnull %buf.i, ptr noundef %16, i64 noundef %call.i.i)
+  %call9.i.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %15, ptr noundef %buf.i, ptr noundef %16, i64 noundef %call.i.i)
   %tobool.not.i.i = icmp eq i32 %call9.i.i, 0
   br i1 %tobool.not.i.i, label %while.cond.i.i, label %errorexit.i, !llvm.loop !7
 
@@ -3876,7 +3875,7 @@ if.end22.i:                                       ; preds = %while.body.i.i, %wh
 if.then25.i:                                      ; preds = %if.end22.i
   %17 = load ptr, ptr %codec.i.i, align 8
   %18 = load ptr, ptr %errors.i.i, align 8
-  %call26.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %17, ptr noundef nonnull %buf.i, ptr noundef %18, i64 noundef -2)
+  %call26.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %17, ptr noundef %buf.i, ptr noundef %18, i64 noundef -2)
   %tobool27.not.i = icmp eq i32 %call26.i, 0
   br i1 %tobool27.not.i, label %if.then25.if.end33_crit_edge.i, label %if.then28.i
 
@@ -4807,7 +4806,7 @@ while.body.i:                                     ; preds = %while.cond.i
 if.else.i:                                        ; preds = %while.body.i
   %17 = load ptr, ptr %codec.i, align 8
   %18 = load ptr, ptr %errors.i, align 8
-  %call9.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %17, ptr noundef nonnull %buf, ptr noundef %18, i64 noundef %call.i)
+  %call9.i = call fastcc i32 @multibytecodec_decerror(ptr noundef %17, ptr noundef %buf, ptr noundef %18, i64 noundef %call.i)
   %tobool.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool.not.i, label %while.cond.i, label %if.then.i70, !llvm.loop !7
 
@@ -4827,7 +4826,7 @@ if.end54:                                         ; preds = %if.end54.loopexit, 
 land.lhs.true61:                                  ; preds = %if.end54
   %19 = load ptr, ptr %codec.i, align 8
   %20 = load ptr, ptr %errors.i, align 8
-  %call62 = call fastcc i32 @multibytecodec_decerror(ptr noundef %19, ptr noundef nonnull %buf, ptr noundef %20, i64 noundef -2)
+  %call62 = call fastcc i32 @multibytecodec_decerror(ptr noundef %19, ptr noundef %buf, ptr noundef %20, i64 noundef -2)
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %land.lhs.true61.if.end66_crit_edge, label %if.then.i70
 

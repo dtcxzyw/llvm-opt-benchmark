@@ -229,16 +229,16 @@ define range(i32 0, 2) i32 @Lpk_Decompose_rec(ptr noundef %0, ptr noundef %1) lo
   %14 = lshr i32 %12, 12
   %15 = trunc i32 %13 to i8
   %16 = and i8 %15, 31
-  %.lhs.trunc = add nsw i8 %16, -1
+  %.lhs.trunc.i = add nsw i8 %16, -1
   %17 = trunc i32 %14 to i8
   %18 = and i8 %17, 15
-  %.rhs.trunc = add nsw i8 %18, -1
-  %19 = sdiv i8 %.lhs.trunc, %.rhs.trunc
-  %.sext = sext i8 %19 to i32
-  %20 = srem i8 %.lhs.trunc, %.rhs.trunc
+  %.rhs.trunc.i = add nsw i8 %18, -1
+  %19 = sdiv i8 %.lhs.trunc.i, %.rhs.trunc.i
+  %.sext.i = sext i8 %19 to i32
+  %20 = srem i8 %.lhs.trunc.i, %.rhs.trunc.i
   %21 = icmp sgt i8 %20, 0
   %22 = zext i1 %21 to i32
-  %23 = add nsw i32 %22, %.sext
+  %23 = add nsw i32 %22, %.sext.i
   %24 = lshr i32 %12, 16
   %25 = and i32 %24, 16383
   %26 = icmp sgt i32 %23, %25
@@ -272,15 +272,15 @@ define range(i32 0, 2) i32 @Lpk_Decompose_rec(ptr noundef %0, ptr noundef %1) lo
 
 42:                                               ; preds = %39
   %43 = load i64, ptr %10, align 8
-  %.neg136 = mul i64 %43, -1000000
+  %.neg133 = mul i64 %43, -1000000
   %44 = getelementptr inbounds i8, ptr %10, i64 8
   %45 = load i64, ptr %44, align 8
   %.neg = sdiv i64 %45, -1000
-  %.neg137 = add i64 %.neg, %.neg136
+  %.neg134 = add i64 %.neg, %.neg133
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %39, %42
-  %.0.i.neg = phi i64 [ %.neg137, %42 ], [ 1, %39 ]
+  %.0.i.neg = phi i64 [ %.neg134, %42 ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
@@ -375,15 +375,15 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit, %52
 
 106:                                              ; preds = %103
   %107 = load i64, ptr %8, align 8
-  %.neg139 = mul i64 %107, -1000000
+  %.neg136 = mul i64 %107, -1000000
   %108 = getelementptr inbounds i8, ptr %8, i64 8
   %109 = load i64, ptr %108, align 8
-  %.neg138 = sdiv i64 %109, -1000
-  %.neg140 = add i64 %.neg138, %.neg139
+  %.neg135 = sdiv i64 %109, -1000
+  %.neg137 = add i64 %.neg135, %.neg136
   br label %Abc_Clock.exit109
 
 Abc_Clock.exit109:                                ; preds = %103, %106
-  %.0.i108.neg = phi i64 [ %.neg140, %106 ], [ 1, %103 ]
+  %.0.i108.neg = phi i64 [ %.neg137, %106 ], [ 1, %103 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %110 = call ptr @Lpk_MuxAnalize(ptr noundef nonnull %0, ptr noundef nonnull %1) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -408,8 +408,8 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
   %122 = load i64, ptr %121, align 8
   %123 = add nsw i64 %120, %122
   store i64 %123, ptr %121, align 8
-  %.not141 = icmp eq ptr %110, null
-  br i1 %.not141, label %199, label %124
+  %.not138 = icmp eq ptr %110, null
+  br i1 %.not138, label %199, label %124
 
 124:                                              ; preds = %Abc_Clock.exit111
   %125 = getelementptr inbounds i8, ptr %110, i64 16
@@ -424,8 +424,8 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
   %131 = getelementptr inbounds i8, ptr %110, i64 20
   %132 = load i32, ptr %131, align 4
   %.not97 = icmp sgt i32 %132, %129
-  %or.cond135 = and i1 %63, %.not97
-  br i1 %or.cond135, label %134, label %156
+  %or.cond132 = and i1 %63, %.not97
+  br i1 %or.cond132, label %134, label %156
 
 133:                                              ; preds = %124
   br i1 %63, label %134, label %156
@@ -470,15 +470,15 @@ Abc_Clock.exit111:                                ; preds = %Abc_Clock.exit109, 
 
 159:                                              ; preds = %156
   %160 = load i64, ptr %6, align 8
-  %.neg146 = mul i64 %160, -1000000
+  %.neg143 = mul i64 %160, -1000000
   %161 = getelementptr inbounds i8, ptr %6, i64 8
   %162 = load i64, ptr %161, align 8
-  %.neg145 = sdiv i64 %162, -1000
-  %.neg147 = add i64 %.neg145, %.neg146
+  %.neg142 = sdiv i64 %162, -1000
+  %.neg144 = add i64 %.neg142, %.neg143
   br label %Abc_Clock.exit113
 
 Abc_Clock.exit113:                                ; preds = %156, %159
-  %.0.i112.neg = phi i64 [ %.neg147, %159 ], [ 1, %156 ]
+  %.0.i112.neg = phi i64 [ %.neg144, %159 ], [ 1, %156 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %163 = getelementptr inbounds i8, ptr %110, i64 32
   %164 = load i32, ptr %163, align 4
@@ -524,16 +524,16 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
 
 ._crit_edge:                                      ; preds = %189
   %.pre = load i32, ptr %11, align 8
-  %.pre149 = lshr i32 %.pre, 12
-  %.pre150 = and i32 %.pre149, 15
+  %.pre146 = lshr i32 %.pre, 12
+  %.pre147 = and i32 %.pre146, 15
   br label %191
 
 191:                                              ; preds = %._crit_edge, %Abc_Clock.exit115
-  %.pre-phi151 = phi i32 [ %.pre150, %._crit_edge ], [ %187, %Abc_Clock.exit115 ]
+  %.pre-phi148 = phi i32 [ %.pre147, %._crit_edge ], [ %187, %Abc_Clock.exit115 ]
   %192 = phi i32 [ %.pre, %._crit_edge ], [ %185, %Abc_Clock.exit115 ]
   %193 = lshr i32 %192, 7
   %194 = and i32 %193, 31
-  %195 = icmp ugt i32 %194, %.pre-phi151
+  %195 = icmp ugt i32 %194, %.pre-phi148
   br i1 %195, label %196, label %198
 
 196:                                              ; preds = %191
@@ -556,15 +556,15 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
 
 202:                                              ; preds = %.thread127
   %203 = load i64, ptr %4, align 8
-  %.neg143 = mul i64 %203, -1000000
+  %.neg140 = mul i64 %203, -1000000
   %204 = getelementptr inbounds i8, ptr %4, i64 8
   %205 = load i64, ptr %204, align 8
-  %.neg142 = sdiv i64 %205, -1000
-  %.neg144 = add i64 %.neg142, %.neg143
+  %.neg139 = sdiv i64 %205, -1000
+  %.neg141 = add i64 %.neg139, %.neg140
   br label %Abc_Clock.exit117
 
 Abc_Clock.exit117:                                ; preds = %.thread127, %202
-  %.0.i116.neg = phi i64 [ %.neg144, %202 ], [ 1, %.thread127 ]
+  %.0.i116.neg = phi i64 [ %.neg141, %202 ], [ 1, %.thread127 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %206 = getelementptr inbounds i8, ptr %49, i64 12
   %207 = getelementptr inbounds i8, ptr %49, i64 8

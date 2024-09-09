@@ -4032,12 +4032,13 @@ declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_spc_inq_sccsflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  switch i32 %3, label %6 [
-    i32 3, label %10
-    i32 4, label %.sink.split
-    i32 5, label %5
-    i32 6, label %5
+define internal fastcc noundef i32 @dissect_spc_inq_sccsflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+  %trunc = trunc nuw i32 %3 to i8
+  switch i8 %trunc, label %6 [
+    i8 3, label %10
+    i8 4, label %.sink.split
+    i8 5, label %5
+    i8 6, label %5
   ]
 
 5:                                                ; preds = %4, %4
@@ -4059,13 +4060,14 @@ define internal fastcc noundef i32 @dissect_spc_inq_sccsflags(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_spc_inq_bqueflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %switch.tableidx = add i32 %3, -3
-  %5 = icmp ult i32 %switch.tableidx, 4
+define internal fastcc noundef i32 @dissect_spc_inq_bqueflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+  %trunc = trunc nuw i32 %3 to i8
+  %switch.tableidx = add i8 %trunc, -3
+  %5 = icmp ult i8 %switch.tableidx, 4
   br i1 %5, label %switch.lookup, label %7
 
 switch.lookup:                                    ; preds = %4
-  %6 = zext nneg i32 %switch.tableidx to i64
+  %6 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_spc_inq_bqueflags, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
@@ -4080,15 +4082,16 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_spc_inq_reladrflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_spc_inq_reladrflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+  %trunc = trunc nuw i32 %3 to i8
   %5 = load i32, ptr @hf_scsi_inq_reladrflags, align 4
   %6 = load i32, ptr @ett_scsi_inq_reladrflags, align 4
-  %switch.tableidx = add i32 %3, -3
-  %7 = icmp ult i32 %switch.tableidx, 4
+  %switch.tableidx = add i8 %trunc, -3
+  %7 = icmp ult i8 %switch.tableidx, 4
   br i1 %7, label %switch.lookup, label %9
 
 switch.lookup:                                    ; preds = %4
-  %8 = zext nneg i32 %switch.tableidx to i64
+  %8 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_spc_inq_reladrflags, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
@@ -4390,7 +4393,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_naa_designator(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_naa_designator(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #10
   %6 = lshr i8 %5, 4
   %7 = load i32, ptr @ett_scsi_naa, align 4
@@ -4879,7 +4882,7 @@ define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr 
 61:                                               ; preds = %56, %59
   %62 = phi i32 [ %60, %59 ], [ %49, %56 ]
   %63 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %52, i32 noundef %62, i32 noundef %49) #10
-  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %63, ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef 0)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %63, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
   br label %64
 
 64:                                               ; preds = %61, %46
@@ -4903,7 +4906,7 @@ define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr 
   %70 = load i8, ptr %69, align 8
   %71 = and i8 %70, 127
   %72 = zext nneg i8 %71 to i32
-  %73 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %.089, i32 noundef %72)
+  %73 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.089, i32 noundef %72)
   %74 = add i32 %73, %.089
   %75 = sub i32 %.07888, %73
   %.not85 = icmp eq i32 %75, 0
@@ -4916,7 +4919,7 @@ define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr 
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -4945,7 +4948,7 @@ define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %13
   %16 = load i32, ptr @hf_scsi_blockdescs_density_code, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %0, i32 noundef %.01.us, i32 noundef 1, i32 noundef 0) #10
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %16, ptr noundef %0, i32 noundef %.01.us, i32 noundef 1, i32 noundef 0) #10
   %18 = or disjoint i32 %.01.us, 1
   %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %18) #10
   %20 = icmp slt i32 %19, 3
@@ -4953,7 +4956,7 @@ define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef
 
 21:                                               ; preds = %15
   %22 = load i32, ptr @hf_scsi_blockdescs_no_of_blocks24, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %18, i32 noundef 3, i32 noundef 0) #10
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %22, ptr noundef %0, i32 noundef %18, i32 noundef 3, i32 noundef 0) #10
   %24 = or disjoint i32 %.01.us, 5
   %25 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %24) #10
   %26 = icmp slt i32 %25, 3
@@ -4965,7 +4968,7 @@ define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef
 
 29:                                               ; preds = %27
   %30 = load i32, ptr @hf_scsi_blockdescs_no_of_blocks32, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %.01.us, i32 noundef 4, i32 noundef 0) #10
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %30, ptr noundef %0, i32 noundef %.01.us, i32 noundef 4, i32 noundef 0) #10
   %32 = or disjoint i32 %.01.us, 5
   %33 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %32) #10
   %34 = icmp slt i32 %33, 3
@@ -4974,7 +4977,7 @@ define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef
 35:                                               ; preds = %29, %21
   %.sink12 = phi i32 [ %24, %21 ], [ %32, %29 ]
   %36 = load i32, ptr @hf_scsi_blockdescs_block_length24, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %36, ptr noundef %0, i32 noundef %.sink12, i32 noundef 3, i32 noundef 0) #10
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %36, ptr noundef %0, i32 noundef %.sink12, i32 noundef 3, i32 noundef 0) #10
   %.1.us = add i32 %.01.us, 8
   %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.us) #10
   %39 = icmp sgt i32 %38, 0
@@ -4988,7 +4991,7 @@ define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef
 
 42:                                               ; preds = %.lr.ph.split
   %43 = load i32, ptr @hf_scsi_blockdescs_no_of_blocks64, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %43, ptr noundef %0, i32 noundef %.01, i32 noundef 8, i32 noundef 0) #10
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %43, ptr noundef %0, i32 noundef %.01, i32 noundef 8, i32 noundef 0) #10
   %45 = or disjoint i32 %.01, 8
   %46 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %45) #10
   %47 = icmp slt i32 %46, 1
@@ -4996,7 +4999,7 @@ define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef
 
 48:                                               ; preds = %42
   %49 = load i32, ptr @hf_scsi_blockdescs_density_code, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %49, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef 0) #10
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %49, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef 0) #10
   %51 = or disjoint i32 %.01, 12
   %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %51) #10
   %53 = icmp slt i32 %52, 4
@@ -5004,7 +5007,7 @@ define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef
 
 54:                                               ; preds = %48
   %55 = load i32, ptr @hf_scsi_blockdescs_block_length32, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %55, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0) #10
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %55, ptr noundef %0, i32 noundef %51, i32 noundef 4, i32 noundef 0) #10
   %57 = add i32 %.01, 16
   %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %57) #10
   %59 = icmp sgt i32 %58, 0
@@ -5017,7 +5020,7 @@ define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 65538) i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 65538) i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 0, 128) %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %7 = and i8 %6, 63
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
@@ -5068,7 +5071,7 @@ switch.lookup:                                    ; preds = %17
   %28 = add nuw nsw i32 %27, %26
   %29 = load i32, ptr @ett_scsi_page, align 4
   %30 = tail call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull %.059, ptr noundef nonnull @.str.1620) #10
-  %31 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %28, i32 noundef %29, ptr noundef null, ptr noundef nonnull @.str.1626, ptr noundef %30) #10
+  %31 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %3, i32 noundef %28, i32 noundef %29, ptr noundef null, ptr noundef nonnull @.str.1626, ptr noundef %30) #10
   %32 = load i32, ptr @hf_scsi_modepage_ps, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
   %34 = load i32, ptr @hf_scsi_modepage_spf, align 4
@@ -5206,7 +5209,7 @@ define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr
 70:                                               ; preds = %65, %68
   %71 = phi i32 [ %69, %68 ], [ %58, %65 ]
   %72 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %61, i32 noundef %71, i32 noundef %58) #10
-  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %72, ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef %51)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %72, ptr noundef %2, ptr noundef nonnull %7, i32 noundef %51)
   br label %73
 
 73:                                               ; preds = %70, %55
@@ -5230,7 +5233,7 @@ define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr
   %79 = load i8, ptr %78, align 8
   %80 = and i8 %79, 127
   %81 = zext nneg i8 %80 to i32
-  %82 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %.0102, i32 noundef %81)
+  %82 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0102, i32 noundef %81)
   %83 = add i32 %82, %.0102
   %84 = sub i32 %.088101, %82
   %.not98 = icmp eq i32 %84, 0
@@ -5349,7 +5352,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %13, %34
 74:                                               ; preds = %69, %72
   %75 = phi i32 [ %73, %72 ], [ %62, %69 ]
   %76 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %65, i32 noundef %75, i32 noundef %62) #10
-  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %76, ptr noundef nonnull %2, ptr noundef %7, i32 noundef 0)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %76, ptr noundef %2, ptr noundef %7, i32 noundef 0)
   br label %77
 
 77:                                               ; preds = %74, %59
@@ -5374,7 +5377,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %13, %34
   %86 = load i8, ptr %85, align 8
   %87 = and i8 %86, 127
   %88 = zext nneg i8 %87 to i32
-  %89 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %.096, i32 noundef %88)
+  %89 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.096, i32 noundef %88)
   %90 = add i32 %89, %.096
   %91 = sub nsw i32 %.195, %89
   %92 = icmp sgt i32 %91, 0
@@ -5505,7 +5508,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %12, %35
 84:                                               ; preds = %79, %82
   %85 = phi i32 [ %83, %82 ], [ %72, %79 ]
   %86 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %75, i32 noundef %85, i32 noundef %72) #10
-  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %86, ptr noundef nonnull %2, ptr noundef %7, i32 noundef %65)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %86, ptr noundef %2, ptr noundef %7, i32 noundef %65)
   br label %87
 
 87:                                               ; preds = %84, %69
@@ -5530,7 +5533,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %12, %35
   %96 = load i8, ptr %95, align 8
   %97 = and i8 %96, 127
   %98 = zext nneg i8 %97 to i32
-  %99 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %.0107, i32 noundef %98)
+  %99 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0107, i32 noundef %98)
   %100 = add i32 %99, %.0107
   %101 = sub nsw i32 %.1106, %99
   %102 = icmp sgt i32 %101, 0
@@ -9367,7 +9370,7 @@ proto_item_set_hidden.exit:                       ; preds = %98, %120, %117
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_scsi_sns_specific_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @dissect_scsi_sns_specific_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 16) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #10
   %6 = load i32, ptr @hf_scsi_sksv, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0) #10

@@ -4592,7 +4592,7 @@ Ga2_ManAddToAbsOneDynamic.exit:                   ; preds = %.split.i, %.split15
   br i1 %.not30, label %807, label %806
 
 806:                                              ; preds = %803
-  call fastcc void @Ga2_ManAddToAbsOneStatic(ptr noundef nonnull %0, ptr noundef nonnull %802, i32 noundef %1)
+  call fastcc void @Ga2_ManAddToAbsOneStatic(ptr noundef nonnull %0, ptr noundef %802, i32 noundef %1)
   %.pre169 = load ptr, ptr %791, align 8
   br label %807
 
@@ -4610,7 +4610,7 @@ Ga2_ManAddToAbsOneDynamic.exit:                   ; preds = %.split.i, %.split15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ga2_ManAddToAbsOneStatic(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc void @Ga2_ManAddToAbsOneStatic(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #4 {
   %4 = alloca [6 x i32], align 16
   %5 = alloca [6 x i32], align 16
   %6 = alloca i32, align 4
@@ -5220,7 +5220,7 @@ define void @Ga2_ManAddToAbs(ptr nocapture noundef %0, ptr nocapture noundef rea
 21:                                               ; preds = %.lr.ph122, %14
   %22 = phi ptr [ %13, %.lr.ph122 ], [ %20, %14 ]
   %indvars.iv121 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next, %14 ]
-  tail call fastcc void @Ga2_ManSetupNode(ptr noundef nonnull %0, ptr noundef nonnull %22, i32 noundef 1)
+  tail call fastcc void @Ga2_ManSetupNode(ptr noundef nonnull %0, ptr noundef %22, i32 noundef 1)
   %23 = load ptr, ptr %6, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 488
   %25 = load ptr, ptr %24, align 8
@@ -5332,7 +5332,7 @@ define void @Ga2_ManAddToAbs(ptr nocapture noundef %0, ptr nocapture noundef rea
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %79
-  tail call fastcc void @Ga2_ManSetupNode(ptr noundef nonnull %0, ptr noundef nonnull %78, i32 noundef 0)
+  tail call fastcc void @Ga2_ManSetupNode(ptr noundef nonnull %0, ptr noundef %78, i32 noundef 0)
   %Ga2_ObjLeaves.v.val66.pre = load ptr, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 8), align 8
   %Ga2_ObjLeaves.v.val.pre = load i32, ptr getelementptr inbounds (i8, ptr @Ga2_ObjLeaves.v, i64 4), align 4
   br label %86
@@ -5399,7 +5399,7 @@ define void @Ga2_ManAddToAbs(ptr nocapture noundef %0, ptr nocapture noundef rea
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val69, i64 %111
-  tail call fastcc void @Ga2_ManAddToAbsOneStatic(ptr noundef nonnull %0, ptr noundef nonnull %112, i32 noundef %105)
+  tail call fastcc void @Ga2_ManAddToAbsOneStatic(ptr noundef nonnull %0, ptr noundef %112, i32 noundef %105)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %.val = load i32, ptr %3, align 4
   %113 = sext i32 %.val to i64
@@ -5420,7 +5420,7 @@ define void @Ga2_ManAddToAbs(ptr nocapture noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ga2_ManSetupNode(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc void @Ga2_ManSetupNode(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #4 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %.val33 = load ptr, ptr %0, align 8
@@ -5859,7 +5859,7 @@ Ga2_ManCnfCompute.exit68:                         ; preds = %Ga2_ManCnfCompute.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 -1, 1) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %1, %5
@@ -9089,7 +9089,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %346 = and i32 %345, 1
   %347 = xor i32 %346, %341
   store i32 %347, ptr %33, align 4
-  %348 = icmp eq i32 %341, %346
+  %348 = icmp eq i32 %346, %341
   br i1 %348, label %1040, label %349
 
 349:                                              ; preds = %318
@@ -9528,7 +9528,7 @@ Vec_IntFill.exit:                                 ; preds = %543, %Vec_IntGrow.e
   %579 = zext i1 %578 to i32
   %580 = add nsw i32 %576, %579
   %581 = shl nsw i32 %572, 1
-  %582 = call noundef i32 @llvm.smax.i32(i32 %580, i32 %581)
+  %582 = call range(i32 -33554432, -2147483648) i32 @llvm.smax.i32(i32 %580, i32 %581)
   %583 = getelementptr i8, ptr %566, i64 24
   %.val30.i = load ptr, ptr %583, align 8
   %584 = getelementptr i8, ptr %.val30.i, i64 4

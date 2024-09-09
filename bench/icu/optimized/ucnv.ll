@@ -984,7 +984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL6_resetP10UConverter21UConverterResetChoicea(ptr noundef %converter, i32 noundef %choice, i8 noundef signext %callCallback) unnamed_addr #0 {
+define internal fastcc void @_ZL6_resetP10UConverter21UConverterResetChoicea(ptr noundef %converter, i32 noundef range(i32 0, 3) %choice, i8 noundef signext range(i8 0, 2) %callCallback) unnamed_addr #0 {
 entry:
   %errorCode = alloca i32, align 4
   %toUArgs = alloca %struct.UConverterToUnicodeArgs, align 8
@@ -997,7 +997,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end15, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %cmp2 = icmp slt i32 %choice, 2
+  %cmp2 = icmp ult i32 %choice, 2
   br i1 %cmp2, label %land.lhs.true, label %land.lhs.true9
 
 land.lhs.true:                                    ; preds = %if.then1
@@ -1042,7 +1042,7 @@ if.then11:                                        ; preds = %land.lhs.true9
   br label %if.end15
 
 if.end15:                                         ; preds = %land.lhs.true9, %if.then11, %if.end
-  %cmp16 = icmp slt i32 %choice, 2
+  %cmp16 = icmp ult i32 %choice, 2
   br i1 %cmp16, label %if.end19, label %if.end15.if.then21_crit_edge
 
 if.end15.if.then21_crit_edge:                     ; preds = %if.end15
@@ -1515,7 +1515,7 @@ if.end32:                                         ; preds = %lor.lhs.false19
   br i1 %cmp33, label %land.lhs.true34, label %if.end38
 
 land.lhs.true34:                                  ; preds = %if.end32
-  %call35 = call fastcc noundef signext i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr noundef nonnull %cnv, ptr noundef nonnull %target, ptr noundef %targetLimit, ptr noundef nonnull %offsets.addr, ptr noundef nonnull %err)
+  %call35 = call fastcc noundef signext i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr noundef %cnv, ptr noundef %target, ptr noundef %targetLimit, ptr noundef nonnull %offsets.addr, ptr noundef %err)
   %tobool36.not = icmp eq i8 %call35, 0
   br i1 %tobool36.not, label %if.end38, label %return
 
@@ -1549,7 +1549,7 @@ if.end46:                                         ; preds = %land.lhs.true42, %i
   %targetLimit52 = getelementptr inbounds i8, ptr %args, i64 40
   store ptr %targetLimit, ptr %targetLimit52, align 8
   store i16 56, ptr %args, align 8
-  call fastcc void @_ZL24_fromUnicodeWithCallbackP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef nonnull %args, ptr noundef nonnull %err)
+  call fastcc void @_ZL24_fromUnicodeWithCallbackP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef %args, ptr noundef %err)
   %10 = load ptr, ptr %source49, align 8
   store ptr %10, ptr %source, align 8
   %11 = load ptr, ptr %target51, align 8
@@ -1561,7 +1561,7 @@ return:                                           ; preds = %land.lhs.true42, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr nocapture noundef %cnv, ptr nocapture noundef %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr nocapture noundef writeonly %err) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr nocapture noundef nonnull %cnv, ptr nocapture noundef nonnull %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %cmp.not = icmp eq ptr %pOffsets, null
@@ -1658,7 +1658,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24_fromUnicodeWithCallbackP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef %pArgs, ptr noundef %err) unnamed_addr #0 {
+define internal fastcc void @_ZL24_fromUnicodeWithCallbackP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef nonnull %pArgs, ptr noundef nonnull %err) unnamed_addr #0 {
 entry:
   %replay = alloca [19 x i16], align 16
   %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
@@ -2091,7 +2091,7 @@ if.end32:                                         ; preds = %lor.lhs.false19
   br i1 %cmp33, label %land.lhs.true34, label %if.end38
 
 land.lhs.true34:                                  ; preds = %if.end32
-  %call35 = call fastcc noundef signext i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr noundef nonnull %cnv, ptr noundef nonnull %target, ptr noundef %spec.select, ptr noundef nonnull %offsets.addr, ptr noundef nonnull %err)
+  %call35 = call fastcc noundef signext i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr noundef %cnv, ptr noundef %target, ptr noundef %spec.select, ptr noundef nonnull %offsets.addr, ptr noundef %err)
   %tobool36.not = icmp eq i8 %call35, 0
   br i1 %tobool36.not, label %if.end38, label %return
 
@@ -2125,7 +2125,7 @@ if.end46:                                         ; preds = %land.lhs.true42, %i
   %targetLimit52 = getelementptr inbounds i8, ptr %args, i64 40
   store ptr %spec.select, ptr %targetLimit52, align 8
   store i16 56, ptr %args, align 8
-  call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %args, ptr noundef nonnull %err)
+  call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %args, ptr noundef %err)
   %10 = load ptr, ptr %source49, align 8
   store ptr %10, ptr %source, align 8
   %11 = load ptr, ptr %target51, align 8
@@ -2137,7 +2137,7 @@ return:                                           ; preds = %land.lhs.true42, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr nocapture noundef %cnv, ptr nocapture noundef %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr nocapture noundef writeonly %err) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr nocapture noundef nonnull %cnv, ptr nocapture noundef nonnull %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %cmp.not = icmp eq ptr %pOffsets, null
@@ -2234,7 +2234,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %pArgs, ptr noundef %err) unnamed_addr #0 {
+define internal fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %pArgs, ptr noundef nonnull %err) unnamed_addr #0 {
 entry:
   %replay = alloca [31 x i8], align 16
   %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
@@ -2952,7 +2952,7 @@ if.else:                                          ; preds = %if.then66
   br i1 %or.cond1, label %return, label %if.end81
 
 if.end81:                                         ; preds = %if.else, %land.lhs.true64, %if.then61
-  call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %args, ptr noundef nonnull %err)
+  call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %args, ptr noundef %err)
   %13 = load i32, ptr %err, align 4
   %cmp82 = icmp eq i32 %13, 15
   br i1 %cmp82, label %if.end97.thread122, label %if.end97
@@ -3043,7 +3043,7 @@ if.else143:                                       ; preds = %if.else110
 if.then146:                                       ; preds = %if.else143
   %add.ptr148 = getelementptr inbounds i8, ptr %buffer, i64 4
   store ptr %add.ptr148, ptr %targetLimit, align 8
-  call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %args, ptr noundef nonnull %err)
+  call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %args, ptr noundef %err)
   %21 = load i32, ptr %err, align 4
   %cmp150 = icmp eq i32 %21, 15
   br i1 %cmp150, label %if.then151, label %if.end152
@@ -3287,7 +3287,7 @@ if.else62:                                        ; preds = %if.end59
   br i1 %cmp63, label %if.then64, label %if.end86
 
 if.then64:                                        ; preds = %if.else62
-  %call65 = call fastcc noundef signext i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr noundef nonnull %targetCnv, ptr noundef nonnull %target, ptr noundef nonnull %targetLimit, ptr noundef null, ptr noundef nonnull %pErrorCode)
+  %call65 = call fastcc noundef signext i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr noundef %targetCnv, ptr noundef %target, ptr noundef nonnull %targetLimit, ptr noundef null, ptr noundef %pErrorCode)
   %tobool66.not = icmp eq i8 %call65, 0
   br i1 %tobool66.not, label %if.end68, label %if.end263
 
@@ -3428,7 +3428,7 @@ lor.lhs.false136:                                 ; preds = %lor.lhs.false133
 if.then143:                                       ; preds = %lor.lhs.false136, %lor.lhs.false133, %for.cond
   store ptr %22, ptr %source144, align 8
   store ptr %23, ptr %sourceLimit145, align 8
-  call fastcc void @_ZL24_fromUnicodeWithCallbackP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef nonnull %fromUArgs, ptr noundef nonnull %pErrorCode)
+  call fastcc void @_ZL24_fromUnicodeWithCallbackP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef %fromUArgs, ptr noundef %pErrorCode)
   %27 = load i32, ptr %pErrorCode, align 4
   %cmp.i154 = icmp slt i32 %27, 1
   br i1 %cmp.i154, label %if.end151, label %if.then148
@@ -3446,7 +3446,7 @@ if.end151:                                        ; preds = %if.then143, %lor.lh
   br i1 %cmp154, label %if.then155, label %if.end160
 
 if.then155:                                       ; preds = %if.end151
-  %call156 = call fastcc noundef signext i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr noundef nonnull %sourceCnv, ptr noundef nonnull %pivotTarget.addr.0, ptr noundef %pivotLimit.addr.1, ptr noundef null, ptr noundef nonnull %pErrorCode)
+  %call156 = call fastcc noundef signext i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr noundef %sourceCnv, ptr noundef %pivotTarget.addr.0, ptr noundef %pivotLimit.addr.1, ptr noundef null, ptr noundef %pErrorCode)
   %tobool157.not = icmp eq i8 %call156, 0
   br i1 %tobool157.not, label %for.cond.backedge, label %if.then158
 
@@ -3545,7 +3545,7 @@ if.end219.sink.split:                             ; preds = %land.lhs.true206, %
 
 if.end219:                                        ; preds = %if.end219.sink.split, %if.then193, %land.lhs.true180, %land.lhs.true178, %if.end176
   store ptr %pivotStart.addr.0, ptr %target220, align 8
-  call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %toUArgs, ptr noundef nonnull %pErrorCode)
+  call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %toUArgs, ptr noundef %pErrorCode)
   %42 = load ptr, ptr %target220, align 8
   store ptr %42, ptr %pivotTarget.addr.0, align 8
   %43 = load i32, ptr %pErrorCode, align 4
@@ -3699,7 +3699,7 @@ if.then27:                                        ; preds = %if.end23
   br label %return
 
 if.end28:                                         ; preds = %if.end23
-  %call29 = call fastcc noundef i32 @_ZL20ucnv_internalConvertP10UConverterS0_PciPKciP10UErrorCode(ptr noundef %call24, ptr noundef %call19, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef nonnull %source, i32 noundef %sourceLength, ptr noundef nonnull %pErrorCode)
+  %call29 = call fastcc noundef i32 @_ZL20ucnv_internalConvertP10UConverterS0_PciPKciP10UErrorCode(ptr noundef %call24, ptr noundef %call19, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %pErrorCode)
   call void @ucnv_close_75(ptr noundef %call19)
   call void @ucnv_close_75(ptr noundef %call24)
   br label %return
@@ -3710,7 +3710,7 @@ return:                                           ; preds = %if.end18, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL20ucnv_internalConvertP10UConverterS0_PciPKciP10UErrorCode(ptr noundef %outConverter, ptr noundef %inConverter, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL20ucnv_internalConvertP10UConverterS0_PciPKciP10UErrorCode(ptr noundef %outConverter, ptr noundef %inConverter, ptr noundef %target, i32 noundef range(i32 0, -2147483648) %targetCapacity, ptr noundef nonnull %source, i32 noundef range(i32 -1, -2147483648) %sourceLength, ptr noundef nonnull %pErrorCode) unnamed_addr #0 {
 entry:
   %source.addr = alloca ptr, align 8
   %pivotBuffer = alloca [1024 x i16], align 16
@@ -3737,44 +3737,39 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call i32 @u_terminateChars_75(ptr noundef %target, i32 noundef %targetCapacity, i32 noundef 0, ptr noundef %pErrorCode)
+  %call3 = tail call i32 @u_terminateChars_75(ptr noundef %target, i32 noundef %targetCapacity, i32 noundef 0, ptr noundef nonnull %pErrorCode)
   br label %return
 
 if.end4:                                          ; preds = %if.end
   store ptr %pivotBuffer, ptr %pivot2, align 8
   store ptr %pivotBuffer, ptr %pivot, align 8
   store ptr %target, ptr %myTarget, align 8
-  %cmp5 = icmp sgt i32 %targetCapacity, 0
-  br i1 %cmp5, label %if.then6, label %if.end12
+  %cmp5.not = icmp eq i32 %targetCapacity, 0
+  br i1 %cmp5.not, label %if.then15, label %if.end12
 
-if.then6:                                         ; preds = %if.end4
+if.end12:                                         ; preds = %if.end4
   %idx.ext7 = zext nneg i32 %targetCapacity to i64
   %add.ptr8 = getelementptr inbounds i8, ptr %target, i64 %idx.ext7
   %add.ptr11 = getelementptr inbounds i8, ptr %pivotBuffer, i64 2048
-  call void @ucnv_convertEx_75(ptr noundef %outConverter, ptr noundef %inConverter, ptr noundef nonnull %myTarget, ptr noundef nonnull %add.ptr8, ptr noundef nonnull %source.addr, ptr noundef nonnull %sourceLimit.0, ptr noundef nonnull %pivotBuffer, ptr noundef nonnull %pivot, ptr noundef nonnull %pivot2, ptr noundef nonnull %add.ptr11, i8 noundef signext 0, i8 noundef signext 1, ptr noundef %pErrorCode)
+  call void @ucnv_convertEx_75(ptr noundef %outConverter, ptr noundef %inConverter, ptr noundef nonnull %myTarget, ptr noundef nonnull %add.ptr8, ptr noundef nonnull %source.addr, ptr noundef nonnull %sourceLimit.0, ptr noundef nonnull %pivotBuffer, ptr noundef nonnull %pivot, ptr noundef nonnull %pivot2, ptr noundef nonnull %add.ptr11, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull %pErrorCode)
   %0 = load ptr, ptr %myTarget, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %target to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.then6, %if.end4
-  %targetLength.0 = phi i32 [ %conv, %if.then6 ], [ 0, %if.end4 ]
   %1 = load i32, ptr %pErrorCode, align 4
   %cmp13 = icmp eq i32 %1, 15
-  %cmp14 = icmp eq i32 %targetCapacity, 0
-  %or.cond = or i1 %cmp14, %cmp13
-  br i1 %or.cond, label %if.then15, label %return
+  br i1 %cmp13, label %if.then15, label %return
 
-if.then15:                                        ; preds = %if.end12
+if.then15:                                        ; preds = %if.end4, %if.end12
+  %targetLength.026 = phi i32 [ %conv, %if.end12 ], [ 0, %if.end4 ]
   %add.ptr17 = getelementptr inbounds i8, ptr %targetBuffer, i64 1024
   %add.ptr21 = getelementptr inbounds i8, ptr %pivotBuffer, i64 2048
   %sub.ptr.rhs.cast24 = ptrtoint ptr %targetBuffer to i64
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then15
-  %targetLength.1 = phi i32 [ %targetLength.0, %if.then15 ], [ %add, %do.body ]
+  %targetLength.1 = phi i32 [ %targetLength.026, %if.then15 ], [ %add, %do.body ]
   store i32 0, ptr %pErrorCode, align 4
   store ptr %targetBuffer, ptr %myTarget, align 8
   call void @ucnv_convertEx_75(ptr noundef %outConverter, ptr noundef %inConverter, ptr noundef nonnull %myTarget, ptr noundef nonnull %add.ptr17, ptr noundef nonnull %source.addr, ptr noundef nonnull %sourceLimit.0, ptr noundef nonnull %pivotBuffer, ptr noundef nonnull %pivot, ptr noundef nonnull %pivot2, ptr noundef nonnull %add.ptr21, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull %pErrorCode)
@@ -3792,7 +3787,7 @@ do.end:                                           ; preds = %do.body
   br label %return
 
 return:                                           ; preds = %if.end12, %do.end, %if.then2
-  %retval.0 = phi i32 [ %call3, %if.then2 ], [ %call28, %do.end ], [ %targetLength.0, %if.end12 ]
+  %retval.0 = phi i32 [ %call3, %if.then2 ], [ %call28, %do.end ], [ %conv, %if.end12 ]
   ret i32 %retval.0
 }
 
@@ -3804,7 +3799,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL23ucnv_convertAlgorithmica14UConverterTypeP10UConverterPciPKciP10UErrorCode(i8 noundef signext %convertToAlgorithmic, i32 noundef %algorithmicType, ptr noundef %cnv, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL23ucnv_convertAlgorithmica14UConverterTypeP10UConverterPciPKciP10UErrorCode(i8 noundef signext range(i8 0, 2) %convertToAlgorithmic, i32 noundef %algorithmicType, ptr noundef %cnv, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %pErrorCode) unnamed_addr #0 {
 entry:
   %algoConverterStatic = alloca %struct.UConverter, align 8
   %cmp = icmp eq ptr %pErrorCode, null
@@ -3873,7 +3868,7 @@ if.else:                                          ; preds = %if.end25
 if.end28:                                         ; preds = %if.else, %if.then27
   %to.0 = phi ptr [ %call21, %if.then27 ], [ %cnv, %if.else ]
   %from.0 = phi ptr [ %cnv, %if.then27 ], [ %call21, %if.else ]
-  %call29 = call fastcc noundef i32 @_ZL20ucnv_internalConvertP10UConverterS0_PciPKciP10UErrorCode(ptr noundef %to.0, ptr noundef %from.0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef nonnull %source, i32 noundef %sourceLength, ptr noundef nonnull %pErrorCode)
+  %call29 = call fastcc noundef i32 @_ZL20ucnv_internalConvertP10UConverterS0_PciPKciP10UErrorCode(ptr noundef %to.0, ptr noundef %from.0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %pErrorCode)
   call void @ucnv_close_75(ptr noundef %call21)
   br label %return
 

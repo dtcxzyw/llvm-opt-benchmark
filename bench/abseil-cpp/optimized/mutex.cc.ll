@@ -384,7 +384,7 @@ declare noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
 define dso_local void @_ZN4absl5Mutex14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %dtor = alloca { i64, i64 }, align 8
-  %call = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef nonnull %this, ptr noundef %name, i64 noundef 16, i64 noundef 64)
+  %call = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef %this, ptr noundef %name, i64 noundef 16, i64 noundef 64)
   %log = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %log, align 8
   %0 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
@@ -432,7 +432,7 @@ _ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit: ; preds = %_ZN4absl13base_int
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef %addr, ptr noundef readonly %name, i64 noundef %bits, i64 noundef %lockbit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef nonnull %addr, ptr noundef readonly %name, i64 noundef range(i64 2, 17) %bits, i64 noundef range(i64 1, 65) %lockbit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %rem = urem i64 %0, 1031
@@ -607,7 +607,7 @@ entry:
   br i1 %or.cond, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %entry
-  %call2 = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef nonnull %this, ptr noundef null, i64 noundef 16, i64 noundef 64)
+  %call2 = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef %this, ptr noundef null, i64 noundef 16, i64 noundef 64)
   %invariant3 = getelementptr inbounds i8, ptr %call2, i64 24
   store ptr %invariant, ptr %invariant3, align 8
   %arg4 = getelementptr inbounds i8, ptr %call2, i64 32
@@ -1436,9 +1436,8 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %fast_or = getelementptr inbounds i8, ptr %how, i64 8
   %2 = load i64, ptr %fast_or, align 8
-  %and3 = and i32 %flags, 1
-  %switch.i = icmp eq i32 %and3, 0
-  %..i = select i1 %switch.i, i64 -1, i64 -3
+  %trunc.i = trunc i32 %flags to i1
+  %..i = select i1 %trunc.i, i64 -3, i64 -1
   %and5 = and i64 %0, %..i
   %or = or i64 %2, %and5
   %fast_add = getelementptr inbounds i8, ptr %how, i64 16
@@ -1642,7 +1641,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %entry
-  %call2.i248 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef nonnull %this)
+  %call2.i248 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef %this)
   %cmp3.i = icmp eq ptr %call2.i248, null
   %name.i = getelementptr inbounds i8, ptr %call2.i248, i64 41
   %cond-lvalue.i = select i1 %cmp3.i, ptr @.str.35, ptr %name.i
@@ -1686,7 +1685,7 @@ if.then:                                          ; preds = %invoke.cont2
   %and3 = and i64 %0, 8
   %cmp4.not = icmp eq i64 %and3, 0
   %cond = select i1 %cmp4.not, i32 9, i32 8
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef %cond)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef %cond)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %invoke.cont2
@@ -2458,7 +2457,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %waitp, align 8
   %cmp2 = icmp eq ptr %1, @_ZN4abslL11kExclusiveSE
   %cond = select i1 %cmp2, i32 4, i32 6
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef %cond)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef %cond)
   br label %do.body
 
 do.body:                                          ; preds = %if.then, %entry
@@ -2529,9 +2528,8 @@ invoke.cont17:                                    ; preds = %do.body10.i, %for.c
 if.then21:                                        ; preds = %invoke.cont17
   %fast_or = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %fast_or, align 8
-  %and24 = and i32 %flags.addr.0, 1
-  %switch.i = icmp eq i32 %and24, 0
-  %..i = select i1 %switch.i, i64 -1, i64 -3
+  %trunc.i = trunc i32 %flags.addr.0 to i1
+  %..i = select i1 %trunc.i, i64 -3, i64 -1
   %and27 = and i64 %..i, %5
   %or = or i64 %10, %and27
   %fast_add = getelementptr inbounds i8, ptr %8, i64 16
@@ -2574,9 +2572,8 @@ do.body60:                                        ; preds = %if.then47
   unreachable
 
 do.end70:                                         ; preds = %if.then47
-  %and50 = and i32 %flags.addr.0, 1
-  %switch.i240 = icmp eq i32 %and50, 0
-  %..i241 = select i1 %switch.i240, i64 187, i64 185
+  %trunc.i240 = trunc i32 %flags.addr.0 to i1
+  %..i241 = select i1 %trunc.i240, i64 185, i64 187
   %and53 = and i64 %..i241, %5
   %17 = load ptr, ptr %waitp, align 8
   %cmp72 = icmp ne ptr %17, @_ZN4abslL11kExclusiveSE
@@ -2600,16 +2597,15 @@ if.else82:                                        ; preds = %do.end70
 if.else86:                                        ; preds = %if.else
   %slow_inc_need_zero = getelementptr inbounds i8, ptr %8, i64 32
   %22 = load i64, ptr %slow_inc_need_zero, align 8
-  %and89 = and i32 %flags.addr.0, 1
-  %switch.i242 = icmp eq i32 %and89, 0
-  %..i243 = select i1 %switch.i242, i64 -1, i64 -33
+  %trunc.i242 = trunc i32 %flags.addr.0 to i1
+  %..i243 = select i1 %trunc.i242, i64 -33, i64 -1
   %23 = and i64 %..i243, %22
   %and92 = and i64 %23, %5
   %cmp93 = icmp eq i64 %and92, 0
   br i1 %cmp93, label %if.then94, label %if.else132
 
 if.then94:                                        ; preds = %if.else86
-  %..i245 = select i1 %switch.i242, i64 -66, i64 -68
+  %..i245 = select i1 %trunc.i242, i64 -68, i64 -66
   %and99 = and i64 %..i245, %5
   %or101 = or disjoint i64 %and99, 65
   %24 = cmpxchg ptr %this, i64 %5, i64 %or101 acquire monotonic, align 8
@@ -2657,7 +2653,7 @@ if.else132:                                       ; preds = %if.else86
   br i1 %cmp134, label %land.lhs.true135, label %do.body195
 
 land.lhs.true135:                                 ; preds = %if.else132
-  %..i251 = select i1 %switch.i242, i64 -69, i64 -71
+  %..i251 = select i1 %trunc.i242, i64 -71, i64 -69
   %and140 = and i64 %..i251, %5
   %or142 = or disjoint i64 %and140, 68
   %34 = cmpxchg ptr %this, i64 %5, i64 %or142 acquire monotonic, align 8
@@ -2876,7 +2872,7 @@ if.then243:                                       ; preds = %do.end240
   %55 = load ptr, ptr %waitp, align 8
   %cmp245 = icmp eq ptr %55, @_ZN4abslL11kExclusiveSE
   %cond246 = select i1 %cmp245, i32 5, i32 7
-  call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef %cond246)
+  call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef %cond246)
   br label %if.end248
 
 if.end248:                                        ; preds = %if.then243, %do.end240
@@ -2920,7 +2916,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
 _ZN4absl5Mutex11TryLockSlowEv.exit:               ; preds = %land.lhs.true.i, %if.end.i
   %.sink.i = phi i32 [ 1, %if.end.i ], [ 0, %land.lhs.true.i ]
   %retval.0.i = phi i1 [ false, %if.end.i ], [ true, %land.lhs.true.i ]
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef %.sink.i)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef %.sink.i)
   br label %return
 
 return:                                           ; preds = %if.then, %if.else, %_ZN4absl5Mutex11TryLockSlowEv.exit
@@ -2948,12 +2944,12 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 return:                                           ; preds = %land.lhs.true, %if.end
   %.sink = phi i32 [ 1, %if.end ], [ 0, %land.lhs.true ]
   %retval.0 = phi i1 [ false, %if.end ], [ true, %land.lhs.true ]
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef %.sink)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef %.sink)
   ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %obj, i32 noundef %ev) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %obj, i32 noundef range(i32 0, 14) %ev) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pcs = alloca [40 x ptr], align 16
   %buffer = alloca [960 x i8], align 16
@@ -3061,7 +3057,7 @@ if.end20:                                         ; preds = %if.end, %for.body, 
   %13 = load ptr, ptr %msg, align 8
   %name = getelementptr inbounds i8, ptr %e.08.i, i64 41
   %cond-lvalue = select i1 %cmp, ptr @.str.35, ptr %name
-  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 452, ptr noundef nonnull @.str.52, ptr noundef %13, ptr noundef %obj, ptr noundef nonnull %cond-lvalue, ptr noundef nonnull %buffer)
+  call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 452, ptr noundef nonnull @.str.52, ptr noundef %13, ptr noundef nonnull %obj, ptr noundef nonnull %cond-lvalue, ptr noundef nonnull %buffer)
   %arrayidx22 = getelementptr inbounds [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %idxprom15
   %14 = load i32, ptr %arrayidx22, align 16
   %and = and i32 %14, 2
@@ -3197,7 +3193,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
 _ZN4absl5Mutex17ReaderTryLockSlowEv.exit:         ; preds = %land.lhs.true.i, %for.inc.i
   %.sink.i = phi i32 [ 2, %land.lhs.true.i ], [ 3, %for.inc.i ]
   %cmp.not34.i = phi i1 [ true, %land.lhs.true.i ], [ false, %for.inc.i ]
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef %.sink.i)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef %.sink.i)
   br label %return
 
 return:                                           ; preds = %if.end, %for.end, %_ZN4absl5Mutex17ReaderTryLockSlowEv.exit
@@ -3235,7 +3231,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
 return:                                           ; preds = %for.inc, %land.lhs.true
   %.sink = phi i32 [ 2, %land.lhs.true ], [ 3, %for.inc ]
   %cmp.not34 = phi i1 [ true, %land.lhs.true ], [ false, %for.inc ]
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef %.sink)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef %.sink)
   ret i1 %cmp.not34
 }
 
@@ -4078,7 +4074,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef nonnull %this)
+  %call2 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef %this)
   %cmp3 = icmp eq ptr %call2, null
   %name = getelementptr inbounds i8, ptr %call2, i64 41
   %cond-lvalue = select i1 %cmp3, ptr @.str.35, ptr %name
@@ -4266,7 +4262,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef nonnull %this)
+  %call2 = tail call fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef %this)
   %cmp3 = icmp eq ptr %call2, null
   %name = getelementptr inbounds i8, ptr %call2, i64 41
   %cond-lvalue = select i1 %cmp3, ptr @.str.35, ptr %name
@@ -4278,7 +4274,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef %addr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN4abslL13GetSynchEventEPKv(ptr noundef nonnull %addr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = ptrtoint ptr %addr to i64
   %rem = urem i64 %0, 1031
@@ -4344,7 +4340,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %if.end, %if.then7.i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl7CondVar14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
-  %call = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef nonnull %this, ptr noundef %name, i64 noundef 2, i64 noundef 1)
+  %call = tail call fastcc noundef ptr @_ZN4abslL16EnsureSynchEventEPSt6atomicIlEPKcll(ptr noundef %this, ptr noundef %name, i64 noundef 2, i64 noundef 1)
   %log = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %log, align 8
   %0 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
@@ -4604,7 +4600,7 @@ entry:
   br i1 %cmp4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef 10)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef 10)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -4700,7 +4696,7 @@ do.end28:                                         ; preds = %do.body
   br i1 %cmp4.not, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %do.end28
-  call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef 11)
+  call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef 11)
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %do.end28
@@ -4770,7 +4766,7 @@ if.end19:                                         ; preds = %if.end12.thread59, 
   br i1 %9, label %cleanup, label %if.then22
 
 if.then22:                                        ; preds = %if.end19.thread, %if.end19
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef 12)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef 12)
   br label %cleanup
 
 if.else25:                                        ; preds = %land.lhs.true, %for.body
@@ -4876,7 +4872,7 @@ if.end:                                           ; preds = %do.end, %if.then
   br i1 %cmp12.not, label %for.end, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef nonnull %this, i32 noundef 13)
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %this, i32 noundef 13)
   br label %for.end
 
 if.else:                                          ; preds = %land.lhs.true, %for.body

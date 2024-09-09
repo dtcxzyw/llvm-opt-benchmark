@@ -1799,7 +1799,7 @@ define dso_local range(i64 -1, -2) i64 @Curl_mime_read(ptr noundef %0, i64 nound
 
 6:                                                ; preds = %6, %4
   store i8 0, ptr %5, align 1
-  %7 = call fastcc i64 @readback_part(ptr noundef %3, ptr noundef %0, i64 noundef %2, ptr noundef nonnull %5)
+  %7 = call fastcc i64 @readback_part(ptr noundef %3, ptr noundef %0, i64 noundef %2, ptr noundef %5)
   %8 = icmp eq i64 %7, -2
   br i1 %8, label %6, label %9, !llvm.loop !11
 
@@ -1808,7 +1808,7 @@ define dso_local range(i64 -1, -2) i64 @Curl_mime_read(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %.not114 = icmp eq i64 %2, 0
   br i1 %.not114, label %.loopexit, label %.lr.ph
 
@@ -2689,7 +2689,7 @@ match_header.exit.i200:                           ; preds = %111, %.lr.ph.i197
   br i1 %.not152, label %.thread, label %.thread299
 
 .thread299:                                       ; preds = %129, %133
-  %134 = tail call fastcc ptr @escape_string(ptr noundef %0, ptr noundef nonnull %.pre, i32 noundef %4)
+  %134 = tail call fastcc ptr @escape_string(ptr noundef %0, ptr noundef %.pre, i32 noundef %4)
   %.not153 = icmp eq ptr %134, null
   br i1 %.not153, label %select.unfold249, label %.thread
 
@@ -2701,7 +2701,7 @@ match_header.exit.i200:                           ; preds = %111, %.lr.ph.i197
   br i1 %.not155, label %139, label %137
 
 137:                                              ; preds = %.thread
-  %138 = tail call fastcc ptr @escape_string(ptr noundef %0, ptr noundef nonnull %136, i32 noundef %4)
+  %138 = tail call fastcc ptr @escape_string(ptr noundef %0, ptr noundef %136, i32 noundef %4)
   %.not156 = icmp eq ptr %138, null
   br i1 %.not156, label %select.unfold249, label %139
 
@@ -2862,7 +2862,7 @@ content_type_match.exit224:                       ; preds = %185, %183, %182, %1
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @escape_string(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @escape_string(ptr noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.dynbuf, align 8
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %11, label %6
@@ -3533,7 +3533,7 @@ define internal range(i64 -1, 1) i64 @encoder_qp_size(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @read_part_content(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @read_part_content(ptr nocapture noundef %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 432
   %6 = load i64, ptr %5, align 8
   switch i64 %6, label %7 [
@@ -3564,10 +3564,6 @@ define internal fastcc noundef i64 @read_part_content(ptr nocapture noundef %0, 
   ]
 
 16:                                               ; preds = %13
-  %.not.i58 = icmp eq i64 %2, 0
-  br i1 %.not.i58, label %.sink.split, label %.lr.ph
-
-.lr.ph:                                           ; preds = %16
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 72
@@ -3577,10 +3573,10 @@ define internal fastcc noundef i64 @read_part_content(ptr nocapture noundef %0, 
   %23 = getelementptr inbounds i8, ptr %18, i64 8
   br label %24
 
-24:                                               ; preds = %.lr.ph, %readback_bytes.exit43
-  %.046.i63 = phi i64 [ 0, %.lr.ph ], [ %70, %readback_bytes.exit43 ]
-  %.047.i61 = phi ptr [ %1, %.lr.ph ], [ %71, %readback_bytes.exit43 ]
-  %.048.i59 = phi i64 [ %2, %.lr.ph ], [ %72, %readback_bytes.exit43 ]
+24:                                               ; preds = %16, %readback_bytes.exit43
+  %.046.i62 = phi i64 [ 0, %16 ], [ %70, %readback_bytes.exit43 ]
+  %.047.i60 = phi ptr [ %1, %16 ], [ %71, %readback_bytes.exit43 ]
+  %.048.i58 = phi i64 [ %2, %16 ], [ %72, %readback_bytes.exit43 ]
   %25 = load ptr, ptr %20, align 8
   %26 = load i32, ptr %19, align 8
   switch i32 %26, label %readback_bytes.exit43 [
@@ -3608,8 +3604,8 @@ define internal fastcc noundef i64 @read_part_content(ptr nocapture noundef %0, 
 readback_bytes.exit49:                            ; preds = %29
   %33 = sub nuw nsw i64 4, %31
   %34 = getelementptr inbounds i8, ptr @.str.42, i64 %31
-  %spec.select.i48 = tail call i64 @llvm.umin.i64(i64 %33, i64 %.048.i59)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047.i61, ptr nonnull align 1 %34, i64 %spec.select.i48, i1 false)
+  %spec.select.i48 = tail call i64 @llvm.umin.i64(i64 %33, i64 %.048.i58)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047.i60, ptr nonnull align 1 %34, i64 %spec.select.i48, i1 false)
   %35 = load i64, ptr %21, align 8
   %36 = add i64 %35, %spec.select.i48
   store i64 %36, ptr %21, align 8
@@ -3648,8 +3644,8 @@ readback_bytes.exit49.thread:                     ; preds = %29
   %.025.i40 = phi ptr [ %43, %42 ], [ %47, %46 ]
   %.pn = phi i64 [ 46, %42 ], [ 48, %46 ]
   %.024.i41 = sub nuw nsw i64 %.pn, %39
-  %spec.select.i42 = tail call i64 @llvm.umin.i64(i64 %.024.i41, i64 %.048.i59)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047.i61, ptr nonnull align 1 %.025.i40, i64 %spec.select.i42, i1 false)
+  %spec.select.i42 = tail call i64 @llvm.umin.i64(i64 %.024.i41, i64 %.048.i58)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047.i60, ptr nonnull align 1 %.025.i40, i64 %spec.select.i42, i1 false)
   %49 = load i64, ptr %21, align 8
   %50 = add i64 %49, %spec.select.i42
   store i64 %50, ptr %21, align 8
@@ -3675,8 +3671,8 @@ readback_bytes.exit49.thread:                     ; preds = %29
   %.025.i = phi ptr [ %53, %52 ], [ %57, %56 ]
   %.pn56 = phi i64 [ 46, %52 ], [ 50, %56 ]
   %.024.i = sub nsw i64 %.pn56, %39
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.024.i, i64 %.048.i59)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047.i61, ptr nonnull align 1 %.025.i, i64 %spec.select.i, i1 false)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.024.i, i64 %.048.i58)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047.i60, ptr nonnull align 1 %.025.i, i64 %spec.select.i, i1 false)
   %59 = load i64, ptr %21, align 8
   %60 = add i64 %59, %spec.select.i
   store i64 %60, ptr %21, align 8
@@ -3698,7 +3694,7 @@ readback_bytes.exit49.thread:                     ; preds = %29
   br label %readback_bytes.exit43
 
 64:                                               ; preds = %62
-  %65 = tail call fastcc i64 @readback_part(ptr noundef nonnull %25, ptr noundef %.047.i61, i64 noundef %.048.i59, ptr noundef %3)
+  %65 = tail call fastcc i64 @readback_part(ptr noundef nonnull %25, ptr noundef %.047.i60, i64 noundef %.048.i58, ptr noundef %3)
   switch i64 %65, label %readback_bytes.exit43 [
     i64 268435456, label %66
     i64 268435457, label %66
@@ -3708,8 +3704,8 @@ readback_bytes.exit49.thread:                     ; preds = %29
   ]
 
 66:                                               ; preds = %64, %64, %64, %64
-  %.not54.i = icmp eq i64 %.046.i63, 0
-  %spec.select = select i1 %.not54.i, i64 %65, i64 %.046.i63
+  %.not54.i = icmp eq i64 %.046.i62, 0
+  %spec.select = select i1 %.not54.i, i64 %65, i64 %.046.i62
   br label %mime_subparts_read.exit
 
 67:                                               ; preds = %64
@@ -3722,9 +3718,9 @@ readback_bytes.exit49.thread:                     ; preds = %29
 
 readback_bytes.exit43:                            ; preds = %readback_bytes.exit49, %48, %58, %67, %64, %63, %61, %readback_bytes.exit49.thread, %27, %24
   %.045.i = phi i64 [ 0, %24 ], [ %65, %64 ], [ 0, %67 ], [ 0, %63 ], [ 0, %61 ], [ %spec.select.i48, %readback_bytes.exit49 ], [ 0, %readback_bytes.exit49.thread ], [ 0, %27 ], [ %spec.select.i42, %48 ], [ %spec.select.i, %58 ]
-  %70 = add i64 %.045.i, %.046.i63
-  %71 = getelementptr inbounds i8, ptr %.047.i61, i64 %.045.i
-  %72 = sub i64 %.048.i59, %.045.i
+  %70 = add i64 %.045.i, %.046.i62
+  %71 = getelementptr inbounds i8, ptr %.047.i60, i64 %.045.i
+  %72 = sub i64 %.048.i58, %.045.i
   %.not.i = icmp eq i64 %72, 0
   br i1 %.not.i, label %mime_subparts_read.exit, label %24, !llvm.loop !25
 
@@ -3769,8 +3765,8 @@ readback_bytes.exit43:                            ; preds = %readback_bytes.exit
   %93 = tail call i64 %90(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %92) #15
   br label %mime_subparts_read.exit
 
-mime_subparts_read.exit:                          ; preds = %readback_bytes.exit43, %24, %66, %89
-  %.0 = phi i64 [ %93, %89 ], [ %spec.select, %66 ], [ %70, %readback_bytes.exit43 ], [ %.046.i63, %24 ]
+mime_subparts_read.exit:                          ; preds = %24, %readback_bytes.exit43, %66, %89
+  %.0 = phi i64 [ %93, %89 ], [ %spec.select, %66 ], [ %70, %readback_bytes.exit43 ], [ %.046.i62, %24 ]
   switch i64 %.0, label %94 [
     i64 -2, label %98
     i64 0, label %.sink.split
@@ -3786,8 +3782,8 @@ mime_subparts_read.exit:                          ; preds = %readback_bytes.exit
   store i64 %97, ptr %95, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %mime_subparts_read.exit, %mime_subparts_read.exit, %mime_subparts_read.exit, %mime_subparts_read.exit, %10, %78, %76, %16, %94
-  %.055.sink = phi i64 [ %.0, %94 ], [ %.0, %mime_subparts_read.exit ], [ %.0, %mime_subparts_read.exit ], [ %.0, %mime_subparts_read.exit ], [ %.0, %mime_subparts_read.exit ], [ 0, %10 ], [ 0, %78 ], [ 0, %76 ], [ 0, %16 ]
+.sink.split:                                      ; preds = %mime_subparts_read.exit, %mime_subparts_read.exit, %mime_subparts_read.exit, %mime_subparts_read.exit, %10, %78, %76, %94
+  %.055.sink = phi i64 [ %.0, %94 ], [ %.0, %mime_subparts_read.exit ], [ %.0, %mime_subparts_read.exit ], [ %.0, %mime_subparts_read.exit ], [ %.0, %mime_subparts_read.exit ], [ 0, %10 ], [ 0, %78 ], [ 0, %76 ]
   store i64 %.055.sink, ptr %5, align 8
   br label %98
 

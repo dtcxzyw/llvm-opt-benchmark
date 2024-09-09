@@ -160,13 +160,8 @@ invoke.cont59:                                    ; preds = %invoke.cont47
           to label %invoke.cont71 unwind label %lpad
 
 invoke.cont71:                                    ; preds = %invoke.cont59
-  %actual_value.sroa.0.0.extract.trunc.i64 = trunc i64 %call72 to i32
-  %19 = and i64 %call72, 6442450944
-  %or.cond.i67 = icmp eq i64 %19, 4294967296
-  %cmp5.i68 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i64, 2
-  %or.cond3.i69.not = and i1 %cmp5.i68, %or.cond.i67
-  %cmp125 = icmp ne i32 %actual_value.sroa.0.0.extract.trunc.i64, 0
-  %cmp = and i1 %cmp125, %or.cond3.i69.not
+  %19 = and i64 %call72, 8589934591
+  %cmp = icmp eq i64 %19, 4294967297
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %tcp_tx_zero_copy_enabled.i, align 8
   %vtable81 = load ptr, ptr %config, align 8
@@ -233,11 +228,9 @@ invoke.cont121:                                   ; preds = %invoke.cont107
 
 invoke.cont135:                                   ; preds = %invoke.cont121
   %actual_value.sroa.0.0.extract.trunc.i109 = trunc i64 %call136 to i32
-  %29 = and i64 %call136, 6442450944
-  %or.cond.i112 = icmp ne i64 %29, 4294967296
-  %cmp5.i113 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i109, 63
-  %or.cond3.i114 = or i1 %cmp5.i113, %or.cond.i112
-  %retval.0.i115 = select i1 %or.cond3.i114, i32 -1, i32 %actual_value.sroa.0.0.extract.trunc.i109
+  %29 = and i64 %call136, 8589934528
+  %or.cond3.i114.not = icmp eq i64 %29, 4294967296
+  %retval.0.i115 = select i1 %or.cond3.i114.not, i32 %actual_value.sroa.0.0.extract.trunc.i109, i32 -1
   store i32 %retval.0.i115, ptr %dscp.i, align 4
   %cmp145 = icmp sgt i32 %retval.0.i25, %retval.0.i34
   br i1 %cmp145, label %if.then, label %if.end

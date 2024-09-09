@@ -4650,7 +4650,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -5026,8 +5026,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %139 = getelementptr inbounds i8, ptr %54, i64 20
   %140 = load i32, ptr %139, align 4
   %141 = lshr i32 %140, 12
-  %142 = tail call i32 @llvm.umax.i32(i32 %138, i32 %141)
-  %143 = tail call i32 @llvm.umax.i32(i32 %136, i32 %142)
+  %142 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %138, i32 %141)
+  %143 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %136, i32 %142)
   %.not543.us.us = icmp ult i32 %136, %142
   %.0396.us.us = select i1 %.not543.us.us, ptr null, ptr %.fr
   %.3385.us.us = select i1 %.not543.us.us, ptr %.2384627.us.us, ptr %34
@@ -5319,8 +5319,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %266 = getelementptr inbounds i8, ptr %178, i64 20
   %267 = load i32, ptr %266, align 4
   %268 = lshr i32 %267, 12
-  %269 = tail call i32 @llvm.umax.i32(i32 %265, i32 %268)
-  %270 = tail call i32 @llvm.umax.i32(i32 %263, i32 %269)
+  %269 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %265, i32 %268)
+  %270 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %263, i32 %269)
   %.not543 = icmp ult i32 %263, %269
   %.0396 = select i1 %.not543, ptr null, ptr %.fr
   %.3385 = select i1 %.not543, ptr %.2384627, ptr %158
@@ -5596,8 +5596,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %400 = getelementptr inbounds i8, ptr %315, i64 20
   %401 = load i32, ptr %400, align 4
   %402 = lshr i32 %401, 12
-  %403 = tail call i32 @llvm.umax.i32(i32 %399, i32 %402)
-  %404 = tail call i32 @llvm.umax.i32(i32 %397, i32 %403)
+  %403 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %399, i32 %402)
+  %404 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %397, i32 %403)
   %.not542.us.us = icmp ult i32 %397, %403
   %.3399.us.us = select i1 %.not542.us.us, ptr null, ptr %.fr740
   %.10392.us.us = select i1 %.not542.us.us, ptr %.9391702.us.us, ptr %295
@@ -5889,8 +5889,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %527 = getelementptr inbounds i8, ptr %439, i64 20
   %528 = load i32, ptr %527, align 4
   %529 = lshr i32 %528, 12
-  %530 = tail call i32 @llvm.umax.i32(i32 %526, i32 %529)
-  %531 = tail call i32 @llvm.umax.i32(i32 %524, i32 %530)
+  %530 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %526, i32 %529)
+  %531 = tail call range(i32 0, 1048576) i32 @llvm.umax.i32(i32 %524, i32 %530)
   %.not542 = icmp ult i32 %524, %530
   %.3399 = select i1 %.not542, ptr null, ptr %.fr740
   %.10392 = select i1 %.not542, ptr %.9391702, ptr %419
@@ -9237,11 +9237,11 @@ declare void @llvm.va_end.p0(ptr) #12
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
+declare i32 @llvm.umax.i32(i32, i32) #14
+
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
@@ -9263,8 +9263,8 @@ attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsi
 attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind }
-attributes #14 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nounwind }
 attributes #18 = { nounwind allocsize(0) }

@@ -149,7 +149,7 @@ define dso_local void @changeDependencyOnOwner(i32 noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shdepChangeDep(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @shdepChangeDep(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1213, 1261) %3, i32 noundef %4, i32 noundef range(i32 111, 117) %5) unnamed_addr #0 {
   %7 = alloca [4 x %struct.ScanKeyData], align 16
   %8 = alloca [7 x i64], align 16
   %9 = alloca [7 x i8], align 1
@@ -248,26 +248,24 @@ define internal fastcc void @shdepChangeDep(ptr noundef %0, i32 noundef %1, i32 
   store i64 %17, ptr %56, align 16
   %57 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 0, ptr %57, align 8
-  %58 = zext i32 %3 to i64
+  %58 = zext nneg i32 %3 to i64
   %59 = getelementptr inbounds i8, ptr %8, i64 32
   store i64 %58, ptr %59, align 16
   %60 = zext i32 %4 to i64
   %61 = getelementptr inbounds i8, ptr %8, i64 40
   store i64 %60, ptr %61, align 8
-  %62 = zext i32 %5 to i64
-  %sext = shl i64 %62, 56
-  %63 = ashr exact i64 %sext, 56
-  %64 = getelementptr inbounds i8, ptr %8, i64 48
-  store i64 %63, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %0, i64 64
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr @heap_form_tuple(ptr noundef %66, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
-  call void @CatalogTupleInsert(ptr noundef %0, ptr noundef %67) #8
-  %.not49 = icmp eq ptr %67, null
+  %62 = zext nneg i32 %5 to i64
+  %63 = getelementptr inbounds i8, ptr %8, i64 48
+  store i64 %62, ptr %63, align 16
+  %64 = getelementptr inbounds i8, ptr %0, i64 64
+  %65 = load ptr, ptr %64, align 8
+  %66 = call ptr @heap_form_tuple(ptr noundef %65, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
+  call void @CatalogTupleInsert(ptr noundef %0, ptr noundef %66) #8
+  %.not49 = icmp eq ptr %66, null
   br i1 %.not49, label %.thread55, label %.thread
 
 .thread:                                          ; preds = %44, %41, %54
-  %.154 = phi ptr [ %67, %54 ], [ %.0.ph, %41 ], [ %.0.ph, %44 ]
+  %.154 = phi ptr [ %66, %54 ], [ %.0.ph, %41 ], [ %.0.ph, %44 ]
   call void @heap_freetuple(ptr noundef nonnull %.154) #8
   br label %.thread55
 
@@ -276,7 +274,7 @@ define internal fastcc void @shdepChangeDep(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @shdepDropDependency(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef range(i32 0, 1261) %5, i32 noundef %6, i32 noundef range(i32 0, 98) %7) unnamed_addr #0 {
   %9 = alloca [4 x %struct.ScanKeyData], align 16
   %10 = tail call zeroext i1 @IsSharedRelation(i32 noundef %1) #8
   %11 = load i32, ptr @MyDatabaseId, align 4
@@ -1022,7 +1020,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   %101 = getelementptr inbounds i8, ptr %98, i64 12
   %102 = load i8, ptr %101, align 4
   %103 = sext i8 %102 to i32
-  call fastcc void @storeObjectDescription(ptr noundef nonnull %7, i32 noundef %100, ptr noundef %98, i32 noundef %103, i32 noundef 0)
+  call fastcc void @storeObjectDescription(ptr noundef %7, i32 noundef %100, ptr noundef %98, i32 noundef %103, i32 noundef 0)
   br label %106
 
 104:                                              ; preds = %.lr.ph145
@@ -1038,7 +1036,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   %110 = getelementptr inbounds i8, ptr %107, i64 12
   %111 = load i8, ptr %110, align 4
   %112 = sext i8 %111 to i32
-  call fastcc void @storeObjectDescription(ptr noundef nonnull %8, i32 noundef %109, ptr noundef %107, i32 noundef %112, i32 noundef 0)
+  call fastcc void @storeObjectDescription(ptr noundef %8, i32 noundef %109, ptr noundef %107, i32 noundef %112, i32 noundef 0)
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
   br i1 %exitcond162.not, label %.preheader, label %.lr.ph145, !llvm.loop !14
@@ -1252,7 +1250,7 @@ define internal range(i32 -1, 2) i32 @shared_dependency_comparator(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @storeObjectDescription(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @storeObjectDescription(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 -128, 128) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @getObjectDescription(ptr noundef %2, i1 noundef zeroext false) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %28, label %8

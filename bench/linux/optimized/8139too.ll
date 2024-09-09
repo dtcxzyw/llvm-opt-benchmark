@@ -830,7 +830,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @read_eeprom(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @read_eeprom(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 6, 9) %2) unnamed_addr #2 align 16 {
   %4 = shl nuw nsw i32 6, %2
   %5 = or i32 %4, %1
   %6 = getelementptr i8, ptr %0, i64 80
@@ -852,33 +852,33 @@ define internal fastcc i32 @read_eeprom(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @iowrite8(i8 noundef zeroext %16, ptr noundef %6) #14
   %17 = tail call i32 @ioread8(ptr noundef %6) #14
   %18 = add nsw i32 %10, -1
-  %19 = icmp sgt i32 %10, 0
-  br i1 %19, label %9, label %20, !llvm.loop !15
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %19, label %9, !llvm.loop !15
 
-20:                                               ; preds = %9
+19:                                               ; preds = %9
   tail call void @iowrite8(i8 noundef zeroext -120, ptr noundef %6) #14
-  %21 = tail call i32 @ioread8(ptr noundef %6) #14
-  br label %22
+  %20 = tail call i32 @ioread8(ptr noundef %6) #14
+  br label %21
 
-22:                                               ; preds = %22, %20
-  %23 = phi i32 [ 16, %20 ], [ %31, %22 ]
-  %24 = phi i32 [ 0, %20 ], [ %29, %22 ]
+21:                                               ; preds = %21, %19
+  %22 = phi i32 [ 16, %19 ], [ %30, %21 ]
+  %23 = phi i32 [ 0, %19 ], [ %28, %21 ]
   tail call void @iowrite8(i8 noundef zeroext -116, ptr noundef %6) #14
-  %25 = tail call i32 @ioread8(ptr noundef %6) #14
-  %26 = shl i32 %24, 1
-  %27 = tail call i32 @ioread8(ptr noundef %6) #14
-  %28 = and i32 %27, 1
-  %29 = or disjoint i32 %28, %26
+  %24 = tail call i32 @ioread8(ptr noundef %6) #14
+  %25 = shl i32 %23, 1
+  %26 = tail call i32 @ioread8(ptr noundef %6) #14
+  %27 = and i32 %26, 1
+  %28 = or disjoint i32 %27, %25
   tail call void @iowrite8(i8 noundef zeroext -120, ptr noundef %6) #14
-  %30 = tail call i32 @ioread8(ptr noundef %6) #14
-  %31 = add nsw i32 %23, -1
-  %32 = icmp ugt i32 %23, 1
-  br i1 %32, label %22, label %33, !llvm.loop !16
+  %29 = tail call i32 @ioread8(ptr noundef %6) #14
+  %30 = add nsw i32 %22, -1
+  %31 = icmp ugt i32 %22, 1
+  br i1 %31, label %21, label %32, !llvm.loop !16
 
-33:                                               ; preds = %22
+32:                                               ; preds = %21
   tail call void @iowrite8(i8 noundef zeroext 0, ptr noundef %6) #14
-  %34 = tail call i32 @ioread8(ptr noundef %6) #14
-  ret i32 %29
+  %33 = tail call i32 @ioread8(ptr noundef %6) #14
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2427,7 +2427,7 @@ declare dso_local zeroext i1 @napi_schedule_prep(ptr noundef) local_unnamed_addr
 declare dso_local void @__napi_schedule(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8139_weird_interrupt(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc void @rtl8139_weird_interrupt(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 65535) %3, i32 noundef range(i32 0, 2049) %4) unnamed_addr #2 align 16 {
   %6 = alloca i16, align 2
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %10, !prof !5
@@ -2489,7 +2489,7 @@ define internal fastcc void @rtl8139_weird_interrupt(ptr noundef %0, ptr noundef
   br label %44
 
 44:                                               ; preds = %38, %34
-  %45 = and i32 %3, -33
+  %45 = and i32 %3, 65503
   br label %46
 
 46:                                               ; preds = %44, %29, %18
@@ -2530,26 +2530,25 @@ define internal fastcc void @rtl8139_weird_interrupt(ptr noundef %0, ptr noundef
   br label %68
 
 68:                                               ; preds = %64, %61
-  %69 = and i32 %47, 32768
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %80, label %71
+  %69 = icmp ult i32 %47, 32768
+  br i1 %69, label %79, label %70
 
-71:                                               ; preds = %68
+70:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #14
   store i16 0, ptr %6, align 2, !annotation !6
-  %72 = getelementptr inbounds i8, ptr %1, i64 16
-  %73 = load ptr, ptr %72, align 8
-  %74 = call i32 @pci_read_config_word(ptr noundef %73, i32 noundef 6, ptr noundef nonnull %6) #14
-  %75 = load ptr, ptr %72, align 8
-  %76 = load i16, ptr %6, align 2
-  %77 = call i32 @pci_write_config_word(ptr noundef %75, i32 noundef 6, i16 noundef zeroext %76) #14
-  %78 = load i16, ptr %6, align 2
-  %79 = zext i16 %78 to i32
-  call void (ptr, ptr, ...) @netdev_err(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %79) #15
+  %71 = getelementptr inbounds i8, ptr %1, i64 16
+  %72 = load ptr, ptr %71, align 8
+  %73 = call i32 @pci_read_config_word(ptr noundef %72, i32 noundef 6, ptr noundef nonnull %6) #14
+  %74 = load ptr, ptr %71, align 8
+  %75 = load i16, ptr %6, align 2
+  %76 = call i32 @pci_write_config_word(ptr noundef %74, i32 noundef 6, i16 noundef zeroext %75) #14
+  %77 = load i16, ptr %6, align 2
+  %78 = zext i16 %77 to i32
+  call void (ptr, ptr, ...) @netdev_err(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %78) #15
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #14
-  br label %80
+  br label %79
 
-80:                                               ; preds = %71, %68
+79:                                               ; preds = %70, %68
   ret void
 }
 

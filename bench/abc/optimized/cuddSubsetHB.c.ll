@@ -135,7 +135,7 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
 42:                                               ; preds = %38
   store i32 0, ptr @nodeDataPageIndex, align 4
   %43 = load double, ptr @max, align 8
-  %44 = tail call fastcc double @SubsetCountMintermAux(ptr noundef nonnull %1, double noundef %43, ptr noundef nonnull %26)
+  %44 = tail call fastcc double @SubsetCountMintermAux(ptr noundef nonnull %1, double noundef %43, ptr noundef %26)
   %.b.i = load i1, ptr @memOut, align 4
   br i1 %.b.i, label %45, label %SubsetCountMinterm.exit
 
@@ -372,7 +372,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
 
 100:                                              ; preds = %85
   store i32 0, ptr @pageIndex, align 4
-  %101 = tail call fastcc i32 @SubsetCountNodesAux(ptr noundef nonnull %1, ptr noundef nonnull %26, double noundef %ldexp.i108)
+  %101 = tail call fastcc i32 @SubsetCountNodesAux(ptr noundef nonnull %1, ptr noundef %26, double noundef %ldexp.i108)
   %.b.i109 = load i1, ptr @memOut, align 4
   br i1 %.b.i109, label %102, label %SubsetCountNodes.exit
 
@@ -442,7 +442,7 @@ SubsetCountNodes.exit:                            ; preds = %100
 
 135:                                              ; preds = %131, %119
   %136 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #6
-  %137 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %115, ptr noundef nonnull %26, i32 noundef %3, ptr noundef %120, ptr noundef %136)
+  %137 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %115, ptr noundef %26, i32 noundef %3, ptr noundef %120, ptr noundef %136)
   %.not = icmp eq ptr %137, null
   br i1 %.not, label %145, label %138
 
@@ -710,7 +710,7 @@ declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -732,7 +732,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %19, label %172, label %20
 
 20:                                               ; preds = %14
-  %21 = call i32 @st__lookup(ptr noundef %3, ptr noundef %1, ptr noundef nonnull %8) #6
+  %21 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %8) #6
   %.not110 = icmp eq i32 %21, 0
   br i1 %.not110, label %22, label %26
 
@@ -761,7 +761,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %41, label %53, label %42
 
 42:                                               ; preds = %26
-  %43 = call i32 @st__lookup(ptr noundef %3, ptr noundef %34, ptr noundef nonnull %9) #6
+  %43 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %34, ptr noundef nonnull %9) #6
   %.not111 = icmp eq i32 %43, 0
   br i1 %.not111, label %44, label %49
 
@@ -797,7 +797,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %62, label %74, label %63
 
 63:                                               ; preds = %58
-  %64 = call i32 @st__lookup(ptr noundef %3, ptr noundef %37, ptr noundef nonnull %10) #6
+  %64 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef %37, ptr noundef nonnull %10) #6
   %.not112 = icmp eq i32 %64, 0
   br i1 %.not112, label %65, label %70
 
@@ -837,7 +837,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %86, label %110, label %87
 
 87:                                               ; preds = %79
-  %88 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %34, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6)
+  %88 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %34, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6)
   %89 = icmp eq ptr %88, null
   br i1 %89, label %172, label %90
 
@@ -873,7 +873,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br label %133
 
 110:                                              ; preds = %79
-  %111 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %37, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6)
+  %111 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %37, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6)
   %112 = icmp eq ptr %111, null
   br i1 %112, label %172, label %113
 
@@ -1006,7 +1006,7 @@ declare void @st__free_gen(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, -2
@@ -1022,7 +1022,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   br label %122
 
 13:                                               ; preds = %3
-  %14 = call i32 @st__lookup(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %4) #6
+  %14 = call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %19, label %15
 
@@ -1226,7 +1226,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   br label %80
 
 80:                                               ; preds = %._crit_edge92, %._crit_edge92.thread
-  call void @st__free_table(ptr noundef %2) #6
+  call void @st__free_table(ptr noundef nonnull %2) #6
   br label %122
 
 ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
@@ -1284,7 +1284,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   br label %96
 
 96:                                               ; preds = %._crit_edge88, %._crit_edge88.thread
-  call void @st__free_table(ptr noundef %2) #6
+  call void @st__free_table(ptr noundef nonnull %2) #6
   br label %122
 
 .thread:                                          ; preds = %ResizeCountMintermPages.exitthread-pre-split, %88
@@ -1297,7 +1297,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   store ptr %84, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %100, i64 8
   store ptr null, ptr %102, align 8
-  %103 = call i32 @st__insert(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %100) #6
+  %103 = call i32 @st__insert(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %100) #6
   %104 = icmp eq i32 %103, -10000
   br i1 %104, label %105, label %122
 
@@ -1377,7 +1377,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   br label %121
 
 121:                                              ; preds = %._crit_edge84, %._crit_edge84.thread
-  call void @st__free_table(ptr noundef %2) #6
+  call void @st__free_table(ptr noundef nonnull %2) #6
   br label %122
 
 122:                                              ; preds = %.thread, %30, %19, %10, %121, %96, %80, %15
@@ -1530,7 +1530,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, double noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonnull %1, double noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1547,7 +1547,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, 
   br i1 %14, label %184, label %15
 
 15:                                               ; preds = %9
-  %16 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %4) #6
+  %16 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %4) #6
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %184
 
@@ -1583,7 +1583,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, 
   br label %48
 
 41:                                               ; preds = %22
-  %42 = call i32 @st__lookup(ptr noundef %1, ptr noundef %30, ptr noundef nonnull %5) #6
+  %42 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %30, ptr noundef nonnull %5) #6
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %184
 
@@ -1608,7 +1608,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, 
   br label %63
 
 56:                                               ; preds = %48
-  %57 = call i32 @st__lookup(ptr noundef %1, ptr noundef %33, ptr noundef nonnull %6) #6
+  %57 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %33, ptr noundef nonnull %6) #6
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %59, label %184
 
@@ -1722,7 +1722,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, 
   br label %88
 
 88:                                               ; preds = %._crit_edge159, %._crit_edge159.thread
-  call void @st__free_table(ptr noundef %1) #6
+  call void @st__free_table(ptr noundef nonnull %1) #6
   br label %184
 
 89:                                               ; preds = %63
@@ -1824,7 +1824,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, 
   br label %112
 
 112:                                              ; preds = %._crit_edge182, %._crit_edge182.thread
-  call void @st__free_table(ptr noundef %1) #6
+  call void @st__free_table(ptr noundef nonnull %1) #6
   br label %184
 
 .thread:                                          ; preds = %93, %..thread148_crit_edge, %69, %..thread_crit_edge
@@ -1851,7 +1851,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, 
   store i32 %124, ptr @pageIndex, align 4
   %125 = xor i64 %10, 1
   %126 = inttoptr i64 %125 to ptr
-  %127 = call i32 @st__lookup(ptr noundef %1, ptr noundef %126, ptr noundef nonnull %7) #6
+  %127 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %126, ptr noundef nonnull %7) #6
   %128 = icmp eq i32 %127, 1
   br i1 %128, label %129, label %182
 
@@ -1941,7 +1941,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, 
   br label %149
 
 149:                                              ; preds = %._crit_edge173, %._crit_edge173.thread
-  call void @st__free_table(ptr noundef %1) #6
+  call void @st__free_table(ptr noundef nonnull %1) #6
   br label %184
 
 150:                                              ; preds = %133
@@ -2034,7 +2034,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef %1, 
   br label %174
 
 174:                                              ; preds = %._crit_edge166, %._crit_edge166.thread
-  call void @st__free_table(ptr noundef %1) #6
+  call void @st__free_table(ptr noundef nonnull %1) #6
   br label %184
 
 .thread235:                                       ; preds = %150, %158

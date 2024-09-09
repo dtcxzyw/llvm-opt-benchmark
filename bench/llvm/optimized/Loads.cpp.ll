@@ -1837,7 +1837,7 @@ define dso_local noundef ptr @_ZN4llvm25findAvailablePtrLoadStoreERKNS_14MemoryL
   store ptr %72, ptr %4, align 8
   store i8 0, ptr %30, align 8
   store i8 0, ptr %31, align 1
-  %73 = call fastcc noundef ptr @_ZL21getAvailableLoadStorePN4llvm11InstructionEPKNS_5ValueEPNS_4TypeEbRKNS_10DataLayoutEPb(ptr noundef nonnull %58, ptr noundef %28, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(512) %26, ptr noundef %7)
+  %73 = call fastcc noundef ptr @_ZL21getAvailableLoadStorePN4llvm11InstructionEPKNS_5ValueEPNS_4TypeEbRKNS_10DataLayoutEPb(ptr noundef %58, ptr noundef %28, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(512) %26, ptr noundef %7)
   %.not44 = icmp eq ptr %73, null
   br i1 %.not44, label %74, label %.loopexit
 
@@ -2293,7 +2293,7 @@ declare noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZNK4llvm11Instruction19isDebugOrPseudoInstEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL21getAvailableLoadStorePN4llvm11InstructionEPKNS_5ValueEPNS_4TypeEbRKNS_10DataLayoutEPb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(512) %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL21getAvailableLoadStorePN4llvm11InstructionEPKNS_5ValueEPNS_4TypeEbRKNS_10DataLayoutEPb(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(512) %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8
   %9 = alloca %"class.llvm::APInt", align 8
@@ -2365,8 +2365,8 @@ switch.early.test.i:                              ; preds = %27
 
 43:                                               ; preds = %._crit_edge, %6
   %44 = phi i8 [ %.pre, %._crit_edge ], [ %10, %6 ]
-  %.not115 = icmp eq i8 %44, 62
-  br i1 %.not115, label %45, label %92
+  %.not113 = icmp eq i8 %44, 62
+  br i1 %.not113, label %45, label %92
 
 45:                                               ; preds = %43
   %46 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #12
@@ -2498,19 +2498,17 @@ _ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit: ; preds = %_ZN
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, -237
   %switch.and.i.i.i.i.i.i.i.i.i = and i32 %111, -3
-  %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %switch.and.i.i.i.i.i.i.i.i.i, 0
-  %spec.select.i.i93 = select i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i, ptr %0, ptr null
-  %.not84 = icmp eq ptr %spec.select.i.i93, null
-  %brmerge = or i1 %3, %.not84
+  %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp ne i32 %switch.and.i.i.i.i.i.i.i.i.i, 0
+  %brmerge = or i1 %3, %switch.selectcmp.i.i.i.i.i.i.i.i.i
   br i1 %brmerge, label %_ZL26AreEquivalentAddressValuesPKN4llvm5ValueES2_.exit, label %112
 
 112:                                              ; preds = %_ZN4llvm8dyn_castINS_10MemSetInstENS_11InstructionEEEDcPT0_.exit
-  %113 = getelementptr inbounds nuw i8, ptr %spec.select.i.i93, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = and i32 %114, 134217727
   %116 = zext nneg i32 %115 to i64
   %117 = sub nsw i64 0, %116
-  %118 = getelementptr inbounds %"class.llvm::Use", ptr %spec.select.i.i93, i64 %117
+  %118 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %117
   %119 = getelementptr inbounds i8, ptr %118, i64 32
   %120 = load ptr, ptr %119, align 8
   %121 = load i8, ptr %120, align 8
@@ -2649,7 +2647,7 @@ _ZN4llvm5APIntD2Ev.exit99:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %187
 
 187:                                              ; preds = %184, %181
-  %188 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i93) #11
+  %188 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
   %189 = call noundef ptr @_ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef nonnull align 8 dereferenceable(12) %9) #11
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
@@ -2718,7 +2716,7 @@ define dso_local noundef ptr @_ZN4llvm24FindAvailableLoadedValueEPNS_8LoadInstER
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %29
-  %33 = call fastcc noundef ptr @_ZL21getAvailableLoadStorePN4llvm11InstructionEPKNS_5ValueEPNS_4TypeEbRKNS_10DataLayoutEPb(ptr noundef nonnull %27, ptr noundef %11, ptr noundef %13, i1 noundef zeroext %14, ptr noundef nonnull align 8 dereferenceable(512) %8, ptr noundef %2)
+  %33 = call fastcc noundef ptr @_ZL21getAvailableLoadStorePN4llvm11InstructionEPKNS_5ValueEPNS_4TypeEbRKNS_10DataLayoutEPb(ptr noundef %27, ptr noundef %11, ptr noundef %13, i1 noundef zeroext %14, ptr noundef nonnull align 8 dereferenceable(512) %8, ptr noundef %2)
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %34, label %48
 

@@ -2072,7 +2072,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
   br i1 %.not96.i.i, label %183, label %175
 
 175:                                              ; preds = %171
-  %176 = tail call fastcc i32 @Prs_ManUtilSkipUntilWord(ptr noundef nonnull %2, ptr noundef nonnull @.str.54)
+  %176 = tail call fastcc i32 @Prs_ManUtilSkipUntilWord(ptr noundef %2, ptr noundef nonnull @.str.54)
   %.not113.i.i = icmp eq i32 %176, 0
   br i1 %.not113.i.i, label %179, label %177
 
@@ -2094,7 +2094,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
   br i1 %182, label %.preheader.i.i.i.preheader, label %.loopexit216.i.i
 
 183:                                              ; preds = %171
-  tail call fastcc void @Prs_ManInitializeNtk(ptr noundef nonnull %2, i32 noundef %168)
+  tail call fastcc void @Prs_ManInitializeNtk(ptr noundef %2, i32 noundef %168)
   %184 = tail call fastcc i32 @Prs_ManUtilSkipSpaces(ptr noundef nonnull %2)
   %.not97.i.i = icmp eq i32 %184, 0
   br i1 %.not97.i.i, label %185, label %Prs_ManReadDesign.exit
@@ -2111,7 +2111,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
   br label %Prs_ManReadDesign.exit
 
 188:                                              ; preds = %185
-  %189 = tail call fastcc i32 @Prs_ManReadArguments(ptr noundef nonnull %2)
+  %189 = tail call fastcc i32 @Prs_ManReadArguments(ptr noundef %2)
   %.not99.i.i = icmp eq i32 %189, 0
   br i1 %.not99.i.i, label %Prs_ManReadDesign.exit, label %190
 
@@ -2160,7 +2160,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
 207:                                              ; preds = %205
   %208 = icmp eq i32 %203, 5
   %209 = select i1 %208, i32 4, i32 %203
-  %210 = tail call fastcc i32 @Prs_ManReadDeclaration(ptr noundef nonnull %2, i32 noundef %209)
+  %210 = tail call fastcc i32 @Prs_ManReadDeclaration(ptr noundef %2, i32 noundef %209)
   br label %255
 
 211:                                              ; preds = %205
@@ -2172,7 +2172,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
   ]
 
 212:                                              ; preds = %211
-  %213 = tail call fastcc i32 @Prs_ManUtilSkipUntil(ptr noundef nonnull %2)
+  %213 = tail call fastcc i32 @Prs_ManUtilSkipUntil(ptr noundef %2)
   br label %255
 
 214:                                              ; preds = %211
@@ -2210,7 +2210,7 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
 
 .preheader.i.i:                                   ; preds = %222, %242
   %.0.i.i = phi i32 [ %235, %242 ], [ %215, %222 ]
-  %227 = tail call fastcc i32 @Prs_ManReadExpression(ptr noundef nonnull %2, i32 noundef %.0.i.i)
+  %227 = tail call fastcc i32 @Prs_ManReadExpression(ptr noundef %2, i32 noundef %.0.i.i)
   %.not106.i.i = icmp eq i32 %227, 0
   br i1 %.not106.i.i, label %Prs_ManReadDesign.exit, label %228
 
@@ -2266,15 +2266,15 @@ Prs_ManReadName.exit.thread.i:                    ; preds = %Prs_ManReadName.exi
   br label %Prs_ManReadDesign.exit
 
 247:                                              ; preds = %211
-  %248 = tail call fastcc i32 @Prs_ManReadAlways(ptr noundef nonnull %2)
+  %248 = tail call fastcc i32 @Prs_ManReadAlways(ptr noundef %2)
   br label %253
 
 249:                                              ; preds = %211
-  %250 = tail call fastcc i32 @Prs_ManReadFunction(ptr noundef nonnull %2)
+  %250 = tail call fastcc i32 @Prs_ManReadFunction(ptr noundef %2)
   br label %253
 
 251:                                              ; preds = %211
-  %252 = tail call fastcc i32 @Prs_ManReadInstance(ptr noundef nonnull %2, i32 noundef %203)
+  %252 = tail call fastcc i32 @Prs_ManReadInstance(ptr noundef %2, i32 noundef %203)
   br label %253
 
 253:                                              ; preds = %251, %249, %247
@@ -2409,7 +2409,7 @@ Hash_IntManDeref.exit.i:                          ; preds = %Hash_IntManStop.exi
   br i1 %.not28.i, label %301, label %300
 
 300:                                              ; preds = %Hash_IntManDeref.exit.i
-  tail call fastcc void @Prs_ManVecFree(ptr noundef nonnull %299)
+  tail call fastcc void @Prs_ManVecFree(ptr noundef %299)
   br label %301
 
 301:                                              ; preds = %300, %Hash_IntManDeref.exit.i
@@ -2745,7 +2745,7 @@ Abc_Clock.exit9:                                  ; preds = %Prs_ManMemory.exit,
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.196, double noundef %144)
   %145 = call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.15) #28
   call void @Prs_ManWriteVerilog(ptr noundef %145, ptr noundef nonnull %10) #28
-  call fastcc void @Prs_ManVecFree(ptr noundef nonnull %10)
+  call fastcc void @Prs_ManVecFree(ptr noundef %10)
   br label %146
 
 146:                                              ; preds = %Abc_Clock.exit, %Abc_Clock.exit9
@@ -2759,7 +2759,7 @@ declare void @Prs_ManWriteVerilog(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Prs_ManVecFree(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Prs_ManVecFree(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val8 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val8, 0
@@ -5482,7 +5482,7 @@ Prs_CreateBitSignal.exit108.thread:               ; preds = %122, %.lr.ph.i89, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Cba_NtkSetMap2(ptr nocapture %.0.val, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Cba_NtkSetMap2(ptr nocapture %.0.val, i32 noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 64
   %4 = add nsw i32 %0, 1
   tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %4)
@@ -12215,7 +12215,7 @@ define noundef ptr @Cba_ManReadVerilog(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %5, %3
   %.0.ph = phi ptr [ null, %3 ], [ %6, %5 ]
-  tail call fastcc void @Prs_ManVecFree(ptr noundef nonnull %2)
+  tail call fastcc void @Prs_ManVecFree(ptr noundef %2)
   br label %8
 
 8:                                                ; preds = %1, %7
@@ -13828,7 +13828,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManUtilSkipUntilWord(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManUtilSkipUntilWord(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #31
@@ -13877,7 +13877,7 @@ define internal fastcc i32 @Prs_ManIsKnownModule(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Prs_ManInitializeNtk(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Prs_ManInitializeNtk(ptr nocapture noundef nonnull %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #32
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %4, align 8
@@ -13978,7 +13978,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManReadArguments(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadArguments(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [3 x ptr], align 16
   %3 = alloca [3 x ptr], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -15155,7 +15155,7 @@ Prs_ManUtilSkipSpaces.exit281:                    ; preds = %353, %355, %360, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManReadDeclaration(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadDeclaration(ptr noundef nonnull %0, i32 noundef range(i32 -2147483648, 6) %1) unnamed_addr #0 {
   %3 = alloca [4 x ptr], align 16
   %4 = alloca [4 x ptr], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -16009,7 +16009,7 @@ Prs_ManUtilSkipComments.exit.i223:                ; preds = %.lr.ph38.i.i225, %2
 
 .loopexit321:                                     ; preds = %240, %242, %247, %.preheader.i213, %254, %246
   %258 = shl i32 %.269385, 2
-  %259 = tail call fastcc i32 @Prs_ManReadExpression(ptr noundef nonnull %0, i32 noundef %258)
+  %259 = tail call fastcc i32 @Prs_ManReadExpression(ptr noundef %0, i32 noundef %258)
   %.not87 = icmp eq i32 %259, 0
   br i1 %.not87, label %.critedge, label %.loopexit321._crit_edge
 
@@ -16429,7 +16429,7 @@ Vec_IntPush.exit295:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManUtilSkipUntil(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManUtilSkipUntil(ptr nocapture noundef nonnull %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -16543,7 +16543,7 @@ Prs_ManUtilSkipName.exit:                         ; preds = %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManReadExpression(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadExpression(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 0, ptr %4, align 4
@@ -17264,11 +17264,11 @@ Vec_IntPush.exit345:                              ; preds = %.Vec_IntGrow.exit10
   br label %405
 
 270:                                              ; preds = %264
-  tail call fastcc void @Vec_IntInsert(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0)
-  tail call fastcc void @Vec_IntInsert(ptr noundef nonnull %3, i32 noundef 1, i32 noundef %1)
+  tail call fastcc void @Vec_IntInsert(ptr noundef %3, i32 noundef 0, i32 noundef 0)
+  tail call fastcc void @Vec_IntInsert(ptr noundef %3, i32 noundef 1, i32 noundef %1)
   %271 = getelementptr inbounds i8, ptr %0, i64 56
   %272 = load ptr, ptr %271, align 8
-  tail call fastcc void @Prs_NtkAddBox(ptr noundef %272, i32 noundef %.2, i32 noundef 0, ptr noundef nonnull %3)
+  tail call fastcc void @Prs_NtkAddBox(ptr noundef %272, i32 noundef %.2, i32 noundef 0, ptr noundef %3)
   br label %405
 
 273:                                              ; preds = %216
@@ -17552,8 +17552,8 @@ Vec_IntPush.exit345:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %370, label %371, label %.critedge
 
 371:                                              ; preds = %369
-  tail call fastcc void @Vec_IntInsert(ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0)
-  tail call fastcc void @Vec_IntInsert(ptr noundef nonnull %3, i32 noundef 3, i32 noundef 0)
+  tail call fastcc void @Vec_IntInsert(ptr noundef %3, i32 noundef 2, i32 noundef 0)
+  tail call fastcc void @Vec_IntInsert(ptr noundef %3, i32 noundef 3, i32 noundef 0)
   br label %.critedge
 
 .critedge:                                        ; preds = %277, %277, %369, %293, %210, %371, %Vec_IntPush.exit345
@@ -17655,7 +17655,7 @@ Prs_ManUtilSkipComments.exit.i373:                ; preds = %.lr.ph38.i.i375, %3
   br i1 %.0199, label %399, label %395
 
 395:                                              ; preds = %.loopexit
-  %396 = tail call fastcc i32 @Prs_ManUtilSkipUntilWord(ptr noundef nonnull %0, ptr noundef nonnull @.str.155)
+  %396 = tail call fastcc i32 @Prs_ManUtilSkipUntilWord(ptr noundef %0, ptr noundef nonnull @.str.155)
   %397 = load ptr, ptr %50, align 8
   %398 = getelementptr inbounds i8, ptr %397, i64 -1
   store ptr %398, ptr %50, align 8
@@ -17676,7 +17676,7 @@ Prs_ManUtilSkipComments.exit.i373:                ; preds = %.lr.ph38.i.i375, %3
 402:                                              ; preds = %399, %399, %395
   %403 = getelementptr inbounds i8, ptr %0, i64 56
   %404 = load ptr, ptr %403, align 8
-  tail call fastcc void @Prs_NtkAddBox(ptr noundef %404, i32 noundef %.0200, i32 noundef 0, ptr noundef nonnull %3)
+  tail call fastcc void @Prs_NtkAddBox(ptr noundef %404, i32 noundef %.0200, i32 noundef 0, ptr noundef %3)
   br label %405
 
 405:                                              ; preds = %366, %289, %278, %249, %402, %400, %.loopexit471, %.thread429, %295, %287, %284, %275, %270, %268, %262, %226, %223, %214, %208, %203, %197, %191, %.loopexit477, %Prs_ManFindClosingParenthesis.exit.thread, %.loopexit484
@@ -17685,7 +17685,7 @@ Prs_ManUtilSkipComments.exit.i373:                ; preds = %.lr.ph38.i.i375, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManReadAlways(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadAlways(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -18346,7 +18346,7 @@ Prs_ManUtilSkipComments.exit.i179:                ; preds = %.lr.ph38.i.i181, %8
 204:                                              ; preds = %200
   %205 = getelementptr inbounds i8, ptr %0, i64 56
   %206 = load ptr, ptr %205, align 8
-  tail call fastcc void @Prs_NtkAddBox(ptr noundef %206, i32 noundef 40, i32 noundef 0, ptr noundef nonnull %130)
+  tail call fastcc void @Prs_NtkAddBox(ptr noundef %206, i32 noundef 40, i32 noundef 0, ptr noundef %130)
   br label %207
 
 207:                                              ; preds = %204, %202, %198, %194, %190, %184, %179, %176, %172, %165, %162, %158, %153, %148, %145, %139, %133, %126, %123, %119, %114, %109, %106, %102, %98, %94, %.loopexit231, %67, %65, %.loopexit234.thread, %.loopexit237, %.loopexit240.thread, %.loopexit243
@@ -18355,7 +18355,7 @@ Prs_ManUtilSkipComments.exit.i179:                ; preds = %.lr.ph38.i.i181, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManReadFunction(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadFunction(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 212
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -18597,7 +18597,7 @@ Prs_ManUtilSkipUntilWord.exit41:                  ; preds = %71
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Prs_ManReadInstance(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Prs_ManReadInstance(ptr noundef nonnull %0, i32 noundef range(i32 17, 16) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -19650,7 +19650,7 @@ Prs_ManReadSignalList2.exit.thread149:            ; preds = %Prs_ManUtilSkipSpac
   %277 = getelementptr inbounds i8, ptr %0, i64 56
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call fastcc void @Prs_NtkAddBox(ptr noundef %278, i32 noundef %.038152, i32 noundef %.012.i141, ptr noundef nonnull %279)
+  tail call fastcc void @Prs_NtkAddBox(ptr noundef %278, i32 noundef %.038152, i32 noundef %.012.i141, ptr noundef %279)
   br label %280
 
 280:                                              ; preds = %276, %274, %271, %Prs_ManReadSignalList2.exit.thread, %262, %.loopexit179, %Prs_ManReadName.exit.thread.thread, %.loopexit184, %.loopexit190, %.loopexit196
@@ -19702,7 +19702,7 @@ define internal fastcc noundef ptr @Prs_ManFindClosingParenthesis(ptr readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntInsert(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Vec_IntInsert(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 4) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -19778,7 +19778,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   %38 = sext i32 %35 to i64
   %39 = add nsw i64 %38, -1
-  %40 = sext i32 %1 to i64
+  %40 = zext nneg i32 %1 to i64
   br label %41
 
 41:                                               ; preds = %.lr.ph, %41
@@ -19810,7 +19810,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Prs_NtkAddBox(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @Prs_NtkAddBox(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 208
   %6 = getelementptr i8, ptr %0, i64 212
   %.val13 = load i32, ptr %6, align 4
@@ -20248,7 +20248,7 @@ declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

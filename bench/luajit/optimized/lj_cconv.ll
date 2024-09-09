@@ -1344,7 +1344,7 @@ if.then112:                                       ; preds = %if.then99
   %32 = load i32, ptr %size.i, align 4
   %conv.i101 = zext i32 %32 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %dp, i8 0, i64 %conv.i101, i1 false)
-  call fastcc void @cconv_substruct_tab(ptr noundef %cts, ptr noundef nonnull %d, ptr noundef %dp, ptr noundef %31, ptr noundef nonnull %i.i, i32 noundef %flags)
+  call fastcc void @cconv_substruct_tab(ptr noundef %cts, ptr noundef nonnull %d, ptr noundef %dp, ptr noundef %31, ptr noundef %i.i, i32 noundef %flags)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
   br label %return
 
@@ -1723,13 +1723,9 @@ ctype_rawchild.exit.i:                            ; preds = %do.body.i.i
   %8 = load i32, ptr %size.i, align 4
   %mul.i = mul i32 %8, %len
   %cmp.i22 = icmp ugt i32 %mul.i, %sz
-  br i1 %cmp.i22, label %if.then.i, label %for.cond.preheader.i
+  br i1 %cmp.i22, label %if.then.i, label %for.body.preheader.i
 
-for.cond.preheader.i:                             ; preds = %ctype_rawchild.exit.i
-  %cmp127.not.i = icmp eq i32 %len, 0
-  br i1 %cmp127.not.i, label %for.end.i, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %for.cond.preheader.i
+for.body.preheader.i:                             ; preds = %ctype_rawchild.exit.i
   %wide.trip.count.i = zext i32 %len to i64
   br label %for.body.i
 
@@ -1739,42 +1735,41 @@ if.then.i:                                        ; preds = %ctype_rawchild.exit
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %ofs.028.i = phi i32 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
-  %idx.ext.i = zext i32 %ofs.028.i to i64
+  %ofs.027.i = phi i32 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
+  %idx.ext.i = zext i32 %ofs.027.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %dp, i64 %idx.ext.i
   %add.ptr3.i = getelementptr inbounds %union.TValue, ptr %o, i64 %indvars.iv.i
   tail call void @lj_cconv_ct_tv(ptr noundef nonnull %cts, ptr noundef nonnull %arrayidx.i.i.i, ptr noundef %add.ptr.i, ptr noundef %add.ptr3.i, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %add.i = add i32 %ofs.028.i, %8
+  %add.i = add i32 %ofs.027.i, %8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
-for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
-  %ofs.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %add.i, %for.body.i ]
-  %cmp4.i = icmp eq i32 %ofs.0.lcssa.i, %8
+for.end.i:                                        ; preds = %for.body.i
+  %cmp4.i = icmp eq i32 %ofs.027.i, 0
   br i1 %cmp4.i, label %for.cond6.preheader.i, label %if.else.i
 
 for.cond6.preheader.i:                            ; preds = %for.end.i
-  %cmp730.i = icmp ult i32 %8, %sz
-  br i1 %cmp730.i, label %for.body8.lr.ph.i, label %if.end17
+  %cmp729.i = icmp ult i32 %add.i, %sz
+  br i1 %cmp729.i, label %for.body8.lr.ph.i, label %if.end17
 
 for.body8.lr.ph.i:                                ; preds = %for.cond6.preheader.i
   %conv.i = zext i32 %8 to i64
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %for.body8.i, %for.body8.lr.ph.i
-  %ofs.131.i = phi i32 [ %8, %for.body8.lr.ph.i ], [ %add12.i, %for.body8.i ]
-  %idx.ext9.i = zext i32 %ofs.131.i to i64
+  %ofs.130.i = phi i32 [ %add.i, %for.body8.lr.ph.i ], [ %add12.i, %for.body8.i ]
+  %idx.ext9.i = zext i32 %ofs.130.i to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %dp, i64 %idx.ext9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr10.i, ptr align 1 %dp, i64 %conv.i, i1 false)
-  %add12.i = add i32 %ofs.131.i, %8
+  %add12.i = add i32 %ofs.130.i, %8
   %cmp7.i = icmp ult i32 %add12.i, %sz
   br i1 %cmp7.i, label %for.body8.i, label %if.end17, !llvm.loop !11
 
 if.else.i:                                        ; preds = %for.end.i
-  %idx.ext14.i = zext i32 %ofs.0.lcssa.i to i64
+  %idx.ext14.i = zext i32 %add.i to i64
   %add.ptr15.i = getelementptr inbounds i8, ptr %dp, i64 %idx.ext14.i
-  %sub.i = sub i32 %sz, %ofs.0.lcssa.i
+  %sub.i = sub i32 %sz, %add.i
   %conv16.i = zext i32 %sub.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr15.i, i8 0, i64 %conv16.i, i1 false)
   br label %if.end17
@@ -1784,7 +1779,7 @@ if.then13:                                        ; preds = %if.else4
   store i32 0, ptr %i.i, align 4
   %conv.i23 = zext i32 %sz to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %dp, i8 0, i64 %conv.i23, i1 false)
-  call fastcc void @cconv_substruct_init(ptr noundef %cts, ptr noundef nonnull %d, ptr noundef %dp, ptr noundef %o, i32 noundef %len, ptr noundef nonnull %i.i)
+  call fastcc void @cconv_substruct_init(ptr noundef %cts, ptr noundef nonnull %d, ptr noundef %dp, ptr noundef %o, i32 noundef %len, ptr noundef %i.i)
   %9 = load i32, ptr %i.i, align 4
   %cmp.i24 = icmp ult i32 %9, %len
   br i1 %cmp.i24, label %if.then.i26, label %cconv_struct_init.exit
@@ -1836,7 +1831,7 @@ declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #
 declare hidden ptr @lj_tab_getinth(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cconv_substruct_tab(ptr noundef %cts, ptr nocapture noundef readonly %d, ptr noundef %dp, ptr noundef %t, ptr nocapture noundef %ip, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc void @cconv_substruct_tab(ptr noundef %cts, ptr nocapture noundef readonly %d, ptr noundef %dp, ptr noundef %t, ptr nocapture noundef nonnull %ip, i32 noundef %flags) unnamed_addr #1 {
 entry:
   %sib = getelementptr inbounds i8, ptr %d, i64 8
   %0 = load i16, ptr %sib, align 8
@@ -2011,7 +2006,7 @@ while.end:                                        ; preds = %while.cond.backedge
 declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cconv_substruct_init(ptr noundef %cts, ptr nocapture noundef readonly %d, ptr noundef %dp, ptr noundef %o, i32 noundef %len, ptr nocapture noundef %ip) unnamed_addr #1 {
+define internal fastcc void @cconv_substruct_init(ptr noundef %cts, ptr nocapture noundef readonly %d, ptr noundef %dp, ptr noundef %o, i32 noundef range(i32 1, 0) %len, ptr nocapture noundef nonnull %ip) unnamed_addr #1 {
 entry:
   %sib = getelementptr inbounds i8, ptr %d, i64 8
   %0 = load i16, ptr %sib, align 8

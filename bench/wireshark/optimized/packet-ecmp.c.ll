@@ -1525,7 +1525,7 @@ define internal fastcc noundef i32 @add_option_codes(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_ecmp_no_of_attributes, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %2, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %8 = load i32, ptr @ett_ecmp_attribute, align 4
@@ -1699,7 +1699,7 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @interrogate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @interrogate(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %.not = icmp eq i32 %2, 0
@@ -1921,7 +1921,7 @@ define internal fastcc void @get_parameter_definitions(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @file_open(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @file_open(i32 noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %37, label %5
 
@@ -1985,7 +1985,7 @@ define internal fastcc void @file_open(i32 noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @file_read(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @file_read(i32 noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %11, label %5
 
@@ -2018,7 +2018,7 @@ define internal fastcc void @file_read(i32 noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @file_write(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @file_write(i32 noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %14, label %5
 
@@ -2043,7 +2043,7 @@ define internal fastcc void @file_write(i32 noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @file_close(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @file_close(i32 noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %14, label %5
 
@@ -2068,7 +2068,7 @@ define internal fastcc void @file_close(i32 noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @file_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @file_info(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %.not = icmp eq i32 %2, 0
@@ -2190,7 +2190,7 @@ get_file_attribute.exit:                          ; preds = %41, %44, %47, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @file_pos(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @file_pos(i32 noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %13, label %5
 
@@ -2224,7 +2224,7 @@ define internal fastcc void @file_pos(i32 noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @file_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @file_list(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %.not = icmp eq i32 %2, 0
@@ -2316,7 +2316,7 @@ define internal fastcc void @file_list(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length(ptr noundef %3) #4
   %7 = trunc i32 %6 to i16
   %.not = icmp eq i32 %2, 0
@@ -2538,7 +2538,7 @@ define internal fastcc void @cyclic_setup(ptr noundef %0, i16 noundef zeroext %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @program_control(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @program_control(i32 noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %5 = load i32, ptr @ett_ecmp_program_control_message, align 4
   br i1 %.not, label %16, label %6
@@ -2566,7 +2566,7 @@ define internal fastcc void @program_control(i32 noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @program_status(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @program_status(i32 noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %5 = load i32, ptr @ett_ecmp_program_status_message, align 4
   br i1 %.not, label %10, label %6
@@ -2611,9 +2611,8 @@ define internal fastcc void @tunnel_frame(i32 noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @modbus_pdu(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @modbus_pdu(i32 noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.modbus_data_t, align 4
-  %.not = icmp eq i32 %1, 0
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %0) #4
   %8 = load i32, ptr @hf_ecmp_modbus_pdu_size, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %2, i32 noundef %0, i32 noundef 2, i32 noundef 0) #4
@@ -2621,7 +2620,7 @@ define internal fastcc void @modbus_pdu(i32 noundef %0, i32 noundef %1, ptr noun
   %11 = getelementptr inbounds i8, ptr %6, i64 4
   %12 = getelementptr inbounds i8, ptr %6, i64 6
   %13 = zext i16 %7 to i32
-  %. = zext i1 %.not to i32
+  %. = xor i32 %1, 1
   store i32 %., ptr %6, align 4
   store i16 0, ptr %11, align 4
   store i8 0, ptr %12, align 2
@@ -3322,14 +3321,14 @@ declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef,
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_cyclic_setup_attributes(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_cyclic_setup_attributes(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_ecmp_cyclic_setup_attrib_count, align 4
   %7 = add nuw nsw i32 %1, 1
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %3, i32 noundef %1, i32 noundef 1, i32 noundef 0) #4
   %9 = load i32, ptr @ett_cyclic_setup_attribs, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #4
   %11 = zext i16 %2 to i32
-  %12 = icmp slt i32 %7, %11
+  %12 = icmp ult i32 %7, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %75
@@ -3453,7 +3452,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8 0, 3) %0, i32 noundef range(i32 10, 27) %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = icmp eq i16 %2, 0
   br i1 %7, label %8, label %12
 
@@ -3496,7 +3495,7 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext %0, i32 
   %.079138.us = phi i16 [ %.180.us, %34 ], [ 0, %.thread.us.preheader ]
   %.082137.us = phi i16 [ %.183.us, %34 ], [ 0, %.thread.us.preheader ]
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %.176140.us) #4
-  %23 = add i32 %.176140.us, 1
+  %23 = add nuw nsw i32 %.176140.us, 1
   %24 = add i16 %.079138.us, 1
   %.not9499.us = icmp ult i16 %24, 16
   %25 = zext i16 %.082137.us to i64

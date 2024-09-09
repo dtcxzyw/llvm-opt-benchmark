@@ -1672,8 +1672,8 @@ Vec_IntFree.exit127:                              ; preds = %Vec_IntFree.exit, %
 declare ptr @Wlc_NtkBitBlast(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @Vec_MemHashAlloc(ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #3 {
-  %3 = add i32 %1, -1
+define internal fastcc void @Vec_MemHashAlloc(ptr nocapture noundef writeonly %0, i32 noundef range(i32 1000, 10001) %1) unnamed_addr #3 {
+  %3 = add nsw i32 %1, -1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.backedge, %2
@@ -1727,26 +1727,16 @@ Vec_IntStartFull.exit:                            ; preds = %Abc_PrimeCudd.exit,
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %11, ptr %20, align 8
   %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %or.cond.i = icmp ult i32 %3, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %1
   %22 = getelementptr inbounds i8, ptr %21, i64 4
   store i32 0, ptr %22, align 4
-  store i32 %spec.store.select.i, ptr %21, align 8
-  %.not.i4 = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not.i4, label %Vec_IntAlloc.exit, label %23
-
-23:                                               ; preds = %Vec_IntStartFull.exit
-  %24 = sext i32 %spec.store.select.i to i64
-  %25 = shl nsw i64 %24, 2
-  %26 = tail call noalias ptr @malloc(i64 noundef %25) #18
-  br label %Vec_IntAlloc.exit
-
-Vec_IntAlloc.exit:                                ; preds = %Vec_IntStartFull.exit, %23
-  %27 = phi ptr [ %26, %23 ], [ null, %Vec_IntStartFull.exit ]
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %21, ptr %29, align 8
+  store i32 %1, ptr %21, align 8
+  %23 = shl nuw nsw i32 %1, 2
+  %24 = zext nneg i32 %23 to i64
+  %25 = tail call noalias ptr @malloc(i64 noundef %24) #18
+  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %25, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %21, ptr %27, align 8
   ret void
 }
 

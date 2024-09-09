@@ -91,7 +91,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.47 = private unnamed_addr constant [34 x i8] c"Wrong image type %d, expected %d\0A\00", align 1
 @.str.48 = private unnamed_addr constant [72 x i8] c"this image format (kernel_noload) cannot be loaded on this machine type\00", align 1
 @.str.49 = private unnamed_addr constant [55 x i8] c"Unable to load u-boot images with compression type %d\0A\00", align 1
-@.str.50 = private unnamed_addr constant [34 x i8] c"Unsupported u-boot image type %d\0A\00", align 1
 @.str.51 = private unnamed_addr constant [20 x i8] c"Error reading file\0A\00", align 1
 @.str.52 = private unnamed_addr constant [37 x i8] c"Unable to decompress gzipped image!\0A\00", align 1
 @.str.53 = private unnamed_addr constant [8 x i8] c"machine\00", align 1
@@ -1433,8 +1432,8 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   br i1 %exitcond.not.i.i, label %if.end6.i.i, label %for.body.i.i, !llvm.loop !11
 
 if.end6.i.i:                                      ; preds = %for.body.i.i, %if.end.i.i
-  %cmp5.i.not.i.i = icmp eq i16 %37, 0
-  br i1 %cmp5.i.not.i.i, label %load_symbols64.exit.i, label %for.body.i.i.i
+  %cmp5.not.i.i.i = icmp eq i16 %37, 0
+  br i1 %cmp5.not.i.i.i, label %load_symbols64.exit.i, label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1444,8 +1443,8 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 for.body.i.i.i:                                   ; preds = %if.end6.i.i, %for.cond.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ], [ 0, %if.end6.i.i ]
   %arrayidx.i.i.i = getelementptr %struct.elf64_shdr, ptr %call1.i.i.i, i64 %indvars.iv.i.i.i
-  %sh_type.i50.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
-  %58 = load i32, ptr %sh_type.i50.i.i, align 4
+  %sh_type.i49.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
+  %58 = load i32, ptr %sh_type.i49.i.i, align 4
   %cmp1.i.i.i = icmp eq i32 %58, 2
   br i1 %cmp1.i.i.i, label %find_section64.exit.i.i, label %for.cond.i.i.i
 
@@ -2168,8 +2167,8 @@ for.cond.i.i206.i:                                ; preds = %for.body.i.i202.i
 for.body.i.i202.i:                                ; preds = %if.end6.i198.i, %for.cond.i.i206.i
   %indvars.iv.i.i203.i = phi i64 [ %indvars.iv.next.i.i207.i, %for.cond.i.i206.i ], [ 0, %if.end6.i198.i ]
   %arrayidx.i.i204.i = getelementptr %struct.elf64_shdr, ptr %call1.i.i172.i, i64 %indvars.iv.i.i203.i
-  %sh_type.i39.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i204.i, i64 4
-  %185 = load i32, ptr %sh_type.i39.i.i, align 4
+  %sh_type.i38.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i204.i, i64 4
+  %185 = load i32, ptr %sh_type.i38.i.i, align 4
   %cmp1.i.i205.i = icmp eq i32 %185, 4
   br i1 %cmp1.i.i205.i, label %find_section64.exit.i209.i, label %for.cond.i.i206.i
 
@@ -2774,8 +2773,8 @@ for.body.i.i176:                                  ; preds = %for.cond.preheader.
   br i1 %exitcond.not.i.i189, label %if.end7.i.i, label %for.body.i.i176, !llvm.loop !22
 
 if.end7.i.i:                                      ; preds = %for.body.i.i176, %if.end.i.i174
-  %cmp5.i.not.i.i190 = icmp eq i16 %258, 0
-  br i1 %cmp5.i.not.i.i190, label %load_symbols32.exit.i, label %for.body.i.i.i191
+  %cmp5.not.i.i.i190 = icmp eq i16 %258, 0
+  br i1 %cmp5.not.i.i.i190, label %load_symbols32.exit.i, label %for.body.i.i.i191
 
 for.cond.i.i.i196:                                ; preds = %for.body.i.i.i191
   %indvars.iv.next.i.i.i197 = add nuw nsw i64 %indvars.iv.i.i.i192, 1
@@ -2785,8 +2784,8 @@ for.cond.i.i.i196:                                ; preds = %for.body.i.i.i191
 for.body.i.i.i191:                                ; preds = %if.end7.i.i, %for.cond.i.i.i196
   %indvars.iv.i.i.i192 = phi i64 [ %indvars.iv.next.i.i.i197, %for.cond.i.i.i196 ], [ 0, %if.end7.i.i ]
   %arrayidx.i.i.i193 = getelementptr %struct.elf32_shdr, ptr %call1.i.i.i67, i64 %indvars.iv.i.i.i192
-  %sh_type.i50.i.i194 = getelementptr inbounds i8, ptr %arrayidx.i.i.i193, i64 4
-  %279 = load i32, ptr %sh_type.i50.i.i194, align 4
+  %sh_type.i49.i.i194 = getelementptr inbounds i8, ptr %arrayidx.i.i.i193, i64 4
+  %279 = load i32, ptr %sh_type.i49.i.i194, align 4
   %cmp1.i.i.i195 = icmp eq i32 %279, 2
   br i1 %cmp1.i.i.i195, label %find_section32.exit.i.i, label %for.cond.i.i.i196
 
@@ -3523,8 +3522,8 @@ for.cond.i.i207.i:                                ; preds = %for.body.i.i203.i
 for.body.i.i203.i:                                ; preds = %if.end7.i199.i, %for.cond.i.i207.i
   %indvars.iv.i.i204.i = phi i64 [ %indvars.iv.next.i.i208.i, %for.cond.i.i207.i ], [ 0, %if.end7.i199.i ]
   %arrayidx.i.i205.i = getelementptr %struct.elf32_shdr, ptr %call1.i.i173.i, i64 %indvars.iv.i.i204.i
-  %sh_type.i39.i.i138 = getelementptr inbounds i8, ptr %arrayidx.i.i205.i, i64 4
-  %407 = load i32, ptr %sh_type.i39.i.i138, align 4
+  %sh_type.i38.i.i138 = getelementptr inbounds i8, ptr %arrayidx.i.i205.i, i64 4
+  %407 = load i32, ptr %sh_type.i38.i.i138, align 4
   %cmp1.i.i206.i = icmp eq i32 %407, 4
   br i1 %cmp1.i.i206.i, label %find_section32.exit.i210.i, label %for.cond.i.i207.i
 
@@ -4119,7 +4118,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @load_uboot_image(ptr noundef %filename, ptr noundef writeonly %ep, ptr noundef %loadaddr, ptr noundef writeonly %is_linux, i8 noundef zeroext %image_type, ptr noundef readonly %translate_fn, ptr noundef %translate_opaque, ptr noundef %as) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @load_uboot_image(ptr noundef %filename, ptr noundef writeonly %ep, ptr noundef %loadaddr, ptr noundef writeonly %is_linux, i8 noundef zeroext range(i8 2, 4) %image_type, ptr noundef readonly %translate_fn, ptr noundef %translate_opaque, ptr noundef %as) unnamed_addr #0 {
 entry:
   %h = alloca %struct.uboot_image_header, align 4
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 0) #23
@@ -4148,7 +4147,7 @@ if.end4:                                          ; preds = %if.end
 if.end7:                                          ; preds = %if.end4
   %ih_type = getelementptr inbounds i8, ptr %h, i64 30
   %7 = load i8, ptr %ih_type, align 2
-  %conv8 = zext i8 %image_type to i32
+  %conv8 = zext nneg i8 %image_type to i32
   %cmp9.not = icmp eq i8 %7, %image_type
   br i1 %cmp9.not, label %if.end25, label %if.then11
 
@@ -4165,13 +4164,10 @@ if.then19:                                        ; preds = %if.then11
   br label %out
 
 if.end25:                                         ; preds = %if.end7
-  switch i8 %image_type, label %sw.default79 [
-    i8 14, label %sw.bb
-    i8 2, label %sw.bb36
-    i8 3, label %sw.bb78
-  ]
+  %switch = icmp eq i8 %image_type, 3
+  br i1 %switch, label %sw.bb78, label %sw.bb36
 
-sw.bb:                                            ; preds = %if.then11, %if.end25
+sw.bb:                                            ; preds = %if.then11
   %tobool.not = icmp eq ptr %loadaddr, null
   br i1 %tobool.not, label %if.then30, label %lor.lhs.false
 
@@ -4191,9 +4187,9 @@ if.end32:                                         ; preds = %lor.lhs.false
   %add35 = add i32 %conv33, %6
   br label %sw.bb36
 
-sw.bb36:                                          ; preds = %if.end32, %if.end25
-  %13 = phi i32 [ %add35, %if.end32 ], [ %6, %if.end25 ]
-  %14 = phi i32 [ %conv33, %if.end32 ], [ %4, %if.end25 ]
+sw.bb36:                                          ; preds = %if.end25, %if.end32
+  %13 = phi i32 [ %6, %if.end25 ], [ %add35, %if.end32 ]
+  %14 = phi i32 [ %4, %if.end25 ], [ %conv33, %if.end32 ]
   %conv38 = zext i32 %14 to i64
   %tobool39.not = icmp eq ptr %translate_fn, null
   br i1 %tobool39.not, label %if.end42, label %if.then40
@@ -4279,11 +4275,6 @@ sw.bb78:                                          ; preds = %if.end25
   %19 = load i64, ptr %loadaddr, align 8
   br label %sw.epilog83
 
-sw.default79:                                     ; preds = %if.end25
-  %20 = load ptr, ptr @stderr, align 8
-  %call82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.50, i32 noundef %conv8) #26
-  br label %out
-
 sw.epilog83:                                      ; preds = %if.end58, %if.else74, %sw.default72, %sw.bb71, %if.then64, %sw.bb78
   %do_uncompress.1 = phi i32 [ 0, %sw.bb78 ], [ %do_uncompress.0, %if.then64 ], [ %do_uncompress.0, %sw.default72 ], [ %do_uncompress.0, %sw.bb71 ], [ %do_uncompress.0, %if.else74 ], [ %do_uncompress.0, %if.end58 ]
   %address.1 = phi i64 [ %19, %sw.bb78 ], [ %address.0, %if.then64 ], [ %address.0, %sw.default72 ], [ %address.0, %sw.bb71 ], [ %address.0, %if.else74 ], [ %address.0, %if.end58 ]
@@ -4294,8 +4285,8 @@ sw.epilog83:                                      ; preds = %if.end58, %if.else7
   br i1 %cmp91.not, label %if.end95, label %if.then93
 
 if.then93:                                        ; preds = %sw.epilog83
-  %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 19, i64 1, ptr %21) #26
+  %20 = load ptr, ptr @stderr, align 8
+  %21 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 19, i64 1, ptr %20) #26
   br label %out
 
 if.end95:                                         ; preds = %sw.epilog83
@@ -4310,8 +4301,8 @@ if.then97:                                        ; preds = %if.end95
   br i1 %cmp102, label %if.then104, label %if.end106
 
 if.then104:                                       ; preds = %if.then97
-  %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 36, i64 1, ptr %23) #26
+  %22 = load ptr, ptr @stderr, align 8
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 36, i64 1, ptr %22) #26
   br label %out
 
 if.end106:                                        ; preds = %if.then97
@@ -4321,15 +4312,15 @@ if.end106:                                        ; preds = %if.then97
 
 if.end109:                                        ; preds = %if.end106, %if.end95
   %conv111.pre-phi = phi i64 [ %.pre, %if.end106 ], [ %conv84, %if.end95 ]
-  %25 = phi i32 [ %conv107, %if.end106 ], [ %2, %if.end95 ]
+  %24 = phi i32 [ %conv107, %if.end106 ], [ %2, %if.end95 ]
   %data.1 = phi ptr [ %call98, %if.end106 ], [ %call85, %if.end95 ]
   %call114 = tail call ptr @rom_add_blob(ptr noundef %filename, ptr noundef %data.1, i64 noundef %conv111.pre-phi, i64 noundef %conv111.pre-phi, i64 noundef %address.1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %as, i1 noundef zeroext true)
-  %26 = sext i32 %25 to i64
+  %25 = sext i32 %24 to i64
   br label %out
 
-out:                                              ; preds = %if.end4, %if.end, %if.end109, %if.then104, %if.then93, %sw.default79, %sw.default, %if.then30, %if.then19
-  %ret.0 = phi i64 [ -1, %if.end ], [ -1, %if.end4 ], [ -1, %sw.default79 ], [ -1, %if.then93 ], [ -1, %if.then104 ], [ %26, %if.end109 ], [ -1, %sw.default ], [ -1, %if.then30 ], [ -1, %if.then19 ]
-  %data.0 = phi ptr [ null, %if.end ], [ null, %if.end4 ], [ null, %sw.default79 ], [ %call85, %if.then93 ], [ %call98, %if.then104 ], [ %data.1, %if.end109 ], [ null, %sw.default ], [ null, %if.then30 ], [ null, %if.then19 ]
+out:                                              ; preds = %if.end4, %if.end, %if.end109, %if.then104, %if.then93, %sw.default, %if.then30, %if.then19
+  %ret.0 = phi i64 [ -1, %if.end ], [ -1, %if.end4 ], [ -1, %if.then93 ], [ -1, %if.then104 ], [ %25, %if.end109 ], [ -1, %sw.default ], [ -1, %if.then30 ], [ -1, %if.then19 ]
+  %data.0 = phi ptr [ null, %if.end ], [ null, %if.end4 ], [ %call85, %if.then93 ], [ %call98, %if.then104 ], [ %data.1, %if.end109 ], [ null, %sw.default ], [ null, %if.then30 ], [ null, %if.then19 ]
   tail call void @g_free(ptr noundef %data.0) #23
   %call116 = tail call i32 @close(i32 noundef %call) #23
   br label %return

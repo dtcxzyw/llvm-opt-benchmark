@@ -708,7 +708,7 @@ Q_.exit.i:                                        ; preds = %if.end.i.i, %if.the
   %retval.0.i.i6.i = select i1 %tobool.not.i.i5.i, ptr @.str.20, ptr @clean_colors
   %call1.i7.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %retval.0.i.i6.i)
   call fastcc void @pretty_print_dels()
-  %call2.i = call fastcc ptr @list_and_choose(ptr noundef nonnull %menu_opts.i, ptr noundef nonnull %menu_stuff.i)
+  %call2.i = call fastcc ptr @list_and_choose(ptr noundef %menu_opts.i, ptr noundef %menu_stuff.i)
   %58 = load i32, ptr %call2.i, align 4
   %cmp.not.i = icmp eq i32 %58, -1
   br i1 %cmp.not.i, label %if.else.i40, label %if.then.i37
@@ -830,7 +830,7 @@ if.end214:                                        ; preds = %if.end208
 
 if.then219:                                       ; preds = %if.end214
   %73 = load i32, ptr %quiet, align 4
-  %call220 = call fastcc i32 @remove_dirs(ptr noundef nonnull %abs_path, ptr noundef %prefix, i32 noundef %spec.select101, i32 noundef %72, i32 noundef %73, ptr noundef nonnull %gone)
+  %call220 = call fastcc i32 @remove_dirs(ptr noundef %abs_path, ptr noundef %prefix, i32 noundef %spec.select101, i32 noundef %72, i32 noundef %73, ptr noundef %gone)
   %tobool221.not = icmp ne i32 %call220, 0
   %inc223 = zext i1 %tobool221.not to i32
   %spec.select = add nsw i32 %errors.081112, %inc223
@@ -1107,7 +1107,7 @@ declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @dir_clear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @remove_dirs(ptr noundef %path, ptr noundef %prefix, i32 noundef %force_flag, i32 noundef %dry_run, i32 noundef %quiet, ptr nocapture noundef %dir_gone) unnamed_addr #0 {
+define internal fastcc i32 @remove_dirs(ptr noundef nonnull %path, ptr noundef %prefix, i32 noundef range(i32 0, 3) %force_flag, i32 noundef %dry_run, i32 noundef %quiet, ptr nocapture noundef nonnull %dir_gone) unnamed_addr #0 {
 entry:
   %quoted = alloca %struct.strbuf, align 8
   %realpath = alloca %struct.strbuf, align 8
@@ -1125,8 +1125,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %dels, i64 24
   store i8 1, ptr %1, align 8
   store i32 1, ptr %dir_gone, align 4
-  %and = and i32 %force_flag, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %tobool.not = icmp ult i32 %force_flag, 2
   br i1 %tobool.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -1308,7 +1307,7 @@ if.else:                                          ; preds = %strbuf_setlen.exit
   br i1 %cmp45, label %if.then47, label %if.else60
 
 if.then47:                                        ; preds = %if.else
-  %call48 = call fastcc i32 @remove_dirs(ptr noundef nonnull %path, ptr noundef %prefix, i32 noundef %force_flag, i32 noundef %dry_run, i32 noundef %quiet, ptr noundef nonnull %gone)
+  %call48 = call fastcc i32 @remove_dirs(ptr noundef %path, ptr noundef %prefix, i32 noundef %force_flag, i32 noundef %dry_run, i32 noundef %quiet, ptr noundef %gone)
   %tobool49.not = icmp eq i32 %call48, 0
   %spec.select = select i1 %tobool49.not, i32 %ret.1126, i32 1
   %27 = load i32, ptr %gone, align 4
@@ -1799,7 +1798,7 @@ entry:
   %conv = trunc i64 %0 to i32
   %nr = getelementptr inbounds i8, ptr %menu_stuff, i64 4
   store i32 %conv, ptr %nr, align 4
-  %call = call fastcc ptr @list_and_choose(ptr noundef nonnull %menu_opts, ptr noundef nonnull %menu_stuff)
+  %call = call fastcc ptr @list_and_choose(ptr noundef %menu_opts, ptr noundef %menu_stuff)
   %1 = load ptr, ptr @del_list, align 8
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @del_list, i64 8), align 8
   %cmp11.not = icmp eq i64 %2, 0
@@ -2036,7 +2035,7 @@ for.end:                                          ; preds = %for.body, %land.rhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @list_and_choose(ptr nocapture noundef readonly %opts, ptr nocapture noundef readonly %stuff) unnamed_addr #0 {
+define internal fastcc ptr @list_and_choose(ptr nocapture noundef nonnull readonly %opts, ptr nocapture noundef nonnull readonly %stuff) unnamed_addr #0 {
 entry:
   %copts.i.i = alloca %struct.column_options, align 8
   %menu_list.i = alloca %struct.string_list, align 8
@@ -2852,7 +2851,7 @@ if.then.i86:                                      ; preds = %if.end75
 st_add.exit:                                      ; preds = %for.cond65.preheader, %if.end75
   %nr.2164 = phi i32 [ %nr.2, %if.end75 ], [ 0, %for.cond65.preheader ]
   %conv76 = sext i32 %nr.2164 to i64
-  %add.i85 = add nuw nsw i64 %conv76, 1
+  %add.i85 = add nsw i64 %conv76, 1
   %call78 = call ptr @xcalloc(i64 noundef %add.i85, i64 noundef 4) #14
   %122 = load i32, ptr %nr1, align 4
   %cmp81135 = icmp sgt i32 %122, 0

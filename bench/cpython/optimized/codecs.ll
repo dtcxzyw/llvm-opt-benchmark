@@ -1826,7 +1826,7 @@ if.end.i.i.i.i:                                   ; preds = %Py_DECREF.exit.i.i
   br label %if.end
 
 if.end:                                           ; preds = %Py_DECREF.exit.i.i, %if.end.i.i.i.i
-  %call1 = tail call fastcc ptr @_PyCodec_EncodeInternal(ptr noundef %object, ptr noundef nonnull %0, ptr noundef %encoding, ptr noundef %errors)
+  %call1 = tail call fastcc ptr @_PyCodec_EncodeInternal(ptr noundef %object, ptr noundef %0, ptr noundef %encoding, ptr noundef %errors)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1835,7 +1835,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_PyCodec_EncodeInternal(ptr noundef %object, ptr noundef %encoder, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc noundef ptr @_PyCodec_EncodeInternal(ptr noundef %object, ptr noundef nonnull %encoder, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %errors, null
   %conv1.i = select i1 %cmp.not.i, i64 1, i64 2
@@ -1881,7 +1881,7 @@ if.end10.i:                                       ; preds = %if.then5.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end10.i, %_Py_NewRef.exit.i
-  %call1 = tail call ptr @PyObject_Call(ptr noundef %encoder, ptr noundef nonnull %call.i, ptr noundef null) #9
+  %call1 = tail call ptr @PyObject_Call(ptr noundef nonnull %encoder, ptr noundef nonnull %call.i, ptr noundef null) #9
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %Py_XDECREF.exit, label %if.end4
 
@@ -1995,16 +1995,12 @@ Py_XDECREF.exit36.sink.split:                     ; preds = %if.end.i.i32, %if.e
   br label %Py_XDECREF.exit36
 
 Py_XDECREF.exit36:                                ; preds = %Py_XDECREF.exit36.sink.split, %entry, %if.then9.i, %if.end.i.i, %if.then.i29, %if.end.i.i32
-  %cmp.not.i37 = icmp eq ptr %encoder, null
-  br i1 %cmp.not.i37, label %return, label %if.then.i38
-
-if.then.i38:                                      ; preds = %Py_XDECREF.exit36
   %20 = load i64, ptr %encoder, align 8
   %21 = and i64 %20, 2147483648
   %cmp.i2.not.i39 = icmp eq i64 %21, 0
   br i1 %cmp.i2.not.i39, label %if.end.i.i41, label %return
 
-if.end.i.i41:                                     ; preds = %if.then.i38
+if.end.i.i41:                                     ; preds = %Py_XDECREF.exit36
   %dec.i.i42 = add i64 %20, -1
   store i64 %dec.i.i42, ptr %encoder, align 8
   %cmp.i.i43 = icmp eq i64 %dec.i.i42, 0
@@ -2016,8 +2012,8 @@ return.sink.split:                                ; preds = %if.end.i.i41, %if.e
   tail call void @_Py_Dealloc(ptr noundef nonnull %encoder.sink) #9
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end.i.i41, %if.then.i38, %Py_XDECREF.exit36, %if.end.i, %Py_DECREF.exit20
-  %retval.0 = phi ptr [ %7, %Py_DECREF.exit20 ], [ %7, %if.end.i ], [ null, %Py_XDECREF.exit36 ], [ null, %if.then.i38 ], [ null, %if.end.i.i41 ], [ %retval.0.ph, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end.i.i41, %Py_XDECREF.exit36, %if.end.i, %Py_DECREF.exit20
+  %retval.0 = phi ptr [ %7, %Py_DECREF.exit20 ], [ %7, %if.end.i ], [ null, %Py_XDECREF.exit36 ], [ null, %if.end.i.i41 ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -2057,7 +2053,7 @@ if.end.i.i.i.i:                                   ; preds = %Py_DECREF.exit.i.i
   br label %if.end
 
 if.end:                                           ; preds = %Py_DECREF.exit.i.i, %if.end.i.i.i.i
-  %call1 = tail call fastcc ptr @_PyCodec_DecodeInternal(ptr noundef %object, ptr noundef nonnull %0, ptr noundef %encoding, ptr noundef %errors)
+  %call1 = tail call fastcc ptr @_PyCodec_DecodeInternal(ptr noundef %object, ptr noundef %0, ptr noundef %encoding, ptr noundef %errors)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2066,7 +2062,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_PyCodec_DecodeInternal(ptr noundef %object, ptr noundef %decoder, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #0 {
+define internal fastcc noundef ptr @_PyCodec_DecodeInternal(ptr noundef %object, ptr noundef nonnull %decoder, ptr noundef %encoding, ptr noundef %errors) unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %errors, null
   %conv1.i = select i1 %cmp.not.i, i64 1, i64 2
@@ -2112,7 +2108,7 @@ if.end10.i:                                       ; preds = %if.then5.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end10.i, %_Py_NewRef.exit.i
-  %call1 = tail call ptr @PyObject_Call(ptr noundef %decoder, ptr noundef nonnull %call.i, ptr noundef null) #9
+  %call1 = tail call ptr @PyObject_Call(ptr noundef nonnull %decoder, ptr noundef nonnull %call.i, ptr noundef null) #9
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -2215,16 +2211,12 @@ Py_XDECREF.exit.sink.split:                       ; preds = %if.end.i.i24, %if.e
 
 Py_XDECREF.exit:                                  ; preds = %Py_XDECREF.exit.sink.split, %if.end.i.i, %if.then9.i, %entry, %if.then.i, %if.end.i.i24
   %result.055 = phi ptr [ %call1, %if.then.i ], [ %call1, %if.end.i.i24 ], [ null, %entry ], [ null, %if.then9.i ], [ null, %if.end.i.i ], [ %result.055.ph, %Py_XDECREF.exit.sink.split ]
-  %cmp.not.i28 = icmp eq ptr %decoder, null
-  br i1 %cmp.not.i28, label %Py_XDECREF.exit36, label %if.then.i29
-
-if.then.i29:                                      ; preds = %Py_XDECREF.exit
   %18 = load i64, ptr %decoder, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i2.not.i30 = icmp eq i64 %19, 0
   br i1 %cmp.i2.not.i30, label %if.end.i.i32, label %Py_XDECREF.exit36
 
-if.end.i.i32:                                     ; preds = %if.then.i29
+if.end.i.i32:                                     ; preds = %Py_XDECREF.exit
   %dec.i.i33 = add i64 %18, -1
   store i64 %dec.i.i33, ptr %decoder, align 8
   %cmp.i.i34 = icmp eq i64 %dec.i.i33, 0
@@ -2234,7 +2226,7 @@ if.then1.i.i35:                                   ; preds = %if.end.i.i32
   tail call void @_Py_Dealloc(ptr noundef nonnull %decoder) #9
   br label %Py_XDECREF.exit36
 
-Py_XDECREF.exit36:                                ; preds = %Py_XDECREF.exit, %if.then.i29, %if.end.i.i32, %if.then1.i.i35
+Py_XDECREF.exit36:                                ; preds = %Py_XDECREF.exit, %if.end.i.i32, %if.then1.i.i35
   %cmp.not.i37 = icmp eq ptr %result.055, null
   br i1 %cmp.not.i37, label %return, label %if.then.i38
 
@@ -2393,7 +2385,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %if.end
 
 if.end:                                           ; preds = %_Py_NewRef.exit.i.i, %if.then1.i.i.i, %if.end.i.i.i
-  %call1 = tail call fastcc ptr @_PyCodec_EncodeInternal(ptr noundef %object, ptr noundef nonnull %0, ptr noundef %encoding, ptr noundef %errors)
+  %call1 = tail call fastcc ptr @_PyCodec_EncodeInternal(ptr noundef %object, ptr noundef %0, ptr noundef %encoding, ptr noundef %errors)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -2437,7 +2429,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %if.end
 
 if.end:                                           ; preds = %_Py_NewRef.exit.i.i, %if.then1.i.i.i, %if.end.i.i.i
-  %call1 = tail call fastcc ptr @_PyCodec_DecodeInternal(ptr noundef %object, ptr noundef nonnull %0, ptr noundef %encoding, ptr noundef %errors)
+  %call1 = tail call fastcc ptr @_PyCodec_DecodeInternal(ptr noundef %object, ptr noundef %0, ptr noundef %encoding, ptr noundef %errors)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -4414,7 +4406,7 @@ if.then1.i332.i:                                  ; preds = %if.end.i329.i
   br label %PyCodec_SurrogatePassErrors.exit
 
 if.end19.i:                                       ; preds = %if.end15.i
-  %call20.i = call fastcc i32 @get_standard_encoding(ptr noundef nonnull %call16.i, ptr noundef nonnull %bytelength.i)
+  %call20.i = call fastcc i32 @get_standard_encoding(ptr noundef %call16.i, ptr noundef %bytelength.i)
   %8 = load i64, ptr %call12.i, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i365.not.i = icmp eq i64 %9, 0
@@ -4820,7 +4812,7 @@ if.then1.i242.i:                                  ; preds = %if.end.i239.i
   br label %PyCodec_SurrogatePassErrors.exit
 
 if.end115.i:                                      ; preds = %if.end111.i
-  %call116.i = call fastcc i32 @get_standard_encoding(ptr noundef nonnull %call112.i, ptr noundef nonnull %bytelength.i)
+  %call116.i = call fastcc i32 @get_standard_encoding(ptr noundef %call112.i, ptr noundef %bytelength.i)
   %48 = load i64, ptr %call108.i, align 8
   %49 = and i64 %48, 2147483648
   %cmp.i405.not.i = icmp eq i64 %49, 0
@@ -5363,7 +5355,7 @@ declare ptr @PyUnicodeEncodeError_GetEncoding(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr nocapture noundef readonly %encoding, ptr nocapture noundef writeonly %bytelength) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr nocapture noundef nonnull readonly %encoding, ptr nocapture noundef nonnull writeonly %bytelength) unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %encoding, align 1
   %idxprom = zext i8 %0 to i64

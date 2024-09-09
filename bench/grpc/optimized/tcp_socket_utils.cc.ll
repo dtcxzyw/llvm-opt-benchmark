@@ -246,13 +246,8 @@ invoke.cont59:                                    ; preds = %invoke.cont47
           to label %invoke.cont71 unwind label %lpad
 
 invoke.cont71:                                    ; preds = %invoke.cont59
-  %actual_value.sroa.0.0.extract.trunc.i68 = trunc i64 %call72 to i32
-  %19 = and i64 %call72, 6442450944
-  %or.cond.i71 = icmp eq i64 %19, 4294967296
-  %cmp5.i72 = icmp slt i32 %actual_value.sroa.0.0.extract.trunc.i68, 2
-  %or.cond3.i73.not = and i1 %cmp5.i72, %or.cond.i71
-  %cmp134 = icmp ne i32 %actual_value.sroa.0.0.extract.trunc.i68, 0
-  %cmp = and i1 %cmp134, %or.cond3.i73.not
+  %19 = and i64 %call72, 8589934591
+  %cmp = icmp eq i64 %19, 4294967297
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %tcp_tx_zero_copy_enabled.i, align 8
   %vtable81 = load ptr, ptr %config, align 8
@@ -307,11 +302,9 @@ invoke.cont107:                                   ; preds = %invoke.cont95
 
 invoke.cont121:                                   ; preds = %invoke.cont107
   %actual_value.sroa.0.0.extract.trunc.i104 = trunc i64 %call122 to i32
-  %27 = and i64 %call122, 6442450944
-  %or.cond.i107 = icmp ne i64 %27, 4294967296
-  %cmp5.i108 = icmp sgt i32 %actual_value.sroa.0.0.extract.trunc.i104, 63
-  %or.cond3.i109 = or i1 %cmp5.i108, %or.cond.i107
-  %retval.0.i110 = select i1 %or.cond3.i109, i32 -1, i32 %actual_value.sroa.0.0.extract.trunc.i104
+  %27 = and i64 %call122, 8589934528
+  %or.cond3.i109.not = icmp eq i64 %27, 4294967296
+  %retval.0.i110 = select i1 %or.cond3.i109.not, i32 %actual_value.sroa.0.0.extract.trunc.i104, i32 -1
   store i32 %retval.0.i110, ptr %dscp.i, align 8
   %28 = load atomic i8, ptr @_ZGVZN17grpc_event_engine12experimental18PosixSocketWrapper26IsSocketReusePortSupportedEvE19kSupportSoReusePort acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %28, 0
@@ -2749,7 +2742,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFiiiiEEC2ERKS1_.exit:              ; preds = %if.then2, %invoke.cont.i23
-  %call3 = invoke fastcc noundef i32 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112CreateSocketESt8functionIFiiiiEEiii(ptr noundef nonnull %agg.tmp, i32 noundef 10, i32 noundef %type, i32 noundef %protocol)
+  %call3 = invoke fastcc noundef i32 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112CreateSocketESt8functionIFiiiiEEiii(ptr noundef %agg.tmp, i32 noundef 10, i32 noundef %type, i32 noundef %protocol)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt8functionIFiiiiEEC2ERKS1_.exit
@@ -2817,7 +2810,7 @@ if.then10:                                        ; preds = %if.end8
   br i1 %cmp11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end8.thread, %if.then10
-  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(132) %addr)
+  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE(ptr noalias align 8 %ref.tmp13, ptr noundef nonnull align 4 dereferenceable(132) %addr)
   %19 = load i64, ptr %ref.tmp13, align 8
   store i64 %19, ptr %agg.result, align 8
   store i64 54, ptr %ref.tmp13, align 8
@@ -2913,7 +2906,7 @@ terminate.lpad.i.i55:                             ; preds = %if.then.i.i53
   unreachable
 
 _ZNSt8functionIFiiiiEEC2ERKS1_.exit59:            ; preds = %if.end23, %invoke.cont.i57
-  %call28 = invoke fastcc noundef i32 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112CreateSocketESt8functionIFiiiiEEiii(ptr noundef nonnull %agg.tmp25, i32 noundef %family.0, i32 noundef %type, i32 noundef %protocol)
+  %call28 = invoke fastcc noundef i32 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112CreateSocketESt8functionIFiiiiEEiii(ptr noundef %agg.tmp25, i32 noundef %family.0, i32 noundef %type, i32 noundef %protocol)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %_ZNSt8functionIFiiiiEEC2ERKS1_.exit59
@@ -2937,7 +2930,7 @@ _ZNSt8functionIFiiiiEED2Ev.exit66:                ; preds = %invoke.cont27, %if.
   br i1 %cmp29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %_ZNSt8functionIFiiiiEED2Ev.exit66
-  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE(ptr noalias nonnull align 8 %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(132) %addr)
+  call fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE(ptr noalias align 8 %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(132) %addr)
   %33 = load i64, ptr %ref.tmp31, align 8
   store i64 %33, ptr %agg.result, align 8
   store i64 54, ptr %ref.tmp31, align 8
@@ -3010,7 +3003,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112CreateSocketESt8functionIFiiiiEEiii(ptr noundef %socket_factory, i32 noundef %family, i32 noundef %type, i32 noundef %protocol) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN17grpc_event_engine12experimental12_GLOBAL__N_112CreateSocketESt8functionIFiiiiEEiii(ptr noundef nonnull %socket_factory, i32 noundef range(i32 0, 65536) %family, i32 noundef %type, i32 noundef %protocol) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca i32, align 4
   %__args.addr2.i = alloca i32, align 4
@@ -3095,7 +3088,7 @@ if.end19:                                         ; preds = %do.end, %land.lhs.t
 declare noundef zeroext i1 @_ZN17grpc_event_engine12experimental25ResolvedAddressIsV4MappedERKNS0_11EventEngine15ResolvedAddressEPS2_(ptr noundef nonnull align 4 dereferenceable(132), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(132) %addr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_110ErrorForFdEiRKNS0_11EventEngine15ResolvedAddressE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(132) %addr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.absl::lts_20230802::AlphaNum", align 8

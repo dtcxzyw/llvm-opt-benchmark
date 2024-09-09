@@ -563,7 +563,7 @@ if.end.i28.i:                                     ; preds = %_ZNK3ue29CharReachc
 
 call1.i29.noexc.i:                                ; preds = %if.end.i28.i
   %repeatMax.val.i30.i = load i32, ptr %max, align 4, !noalias !32
-  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias nonnull align 8 %ref.tmp.i, i32 noundef 12, i32 noundef %call1.i2940.i, i32 %repeatMax.val.i30.i)
+  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias align 8 %ref.tmp.i, i32 noundef 12, i32 noundef %call1.i2940.i, i32 %repeatMax.val.i30.i)
           to label %.noexc.i unwind label %lpad.i, !noalias !12
 
 .noexc.i:                                         ; preds = %call1.i29.noexc.i
@@ -692,7 +692,7 @@ if.end.i52.i:                                     ; preds = %if.then6.i
 
 call1.i53.noexc.i:                                ; preds = %if.end.i52.i
   %repeatMax.val.i54.i = load i32, ptr %max, align 4, !noalias !40
-  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias nonnull align 8 %ref.tmp7.i, i32 noundef 13, i32 noundef %call1.i5370.i, i32 %repeatMax.val.i54.i)
+  invoke fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias align 8 %ref.tmp7.i, i32 noundef 13, i32 noundef %call1.i5370.i, i32 %repeatMax.val.i54.i)
           to label %.noexc71.i unwind label %lpad.i, !noalias !12
 
 .noexc71.i:                                       ; preds = %call1.i53.noexc.i
@@ -1962,10 +1962,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias align 8 %agg.result, i32 noundef %nfa_type, i32 noundef %rtype, i32 %repeatMax.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L10makeLbrNfaI8lbr_vermEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 12, 14) %nfa_type, i32 noundef %rtype, i32 %repeatMax.0.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i32 %rtype, 5
-  br i1 %cmp, label %if.then, label %if.end
+  br i1 %cmp, label %if.then, label %invoke.cont
 
 if.then:                                          ; preds = %entry
   %repeatMax.0.val.off = add i32 %repeatMax.0.val, -2147483647
@@ -1991,68 +1991,52 @@ _ZNK3ue25depthcvjEv.exit:                         ; preds = %if.end7.i
   %conv = zext nneg i32 %add.i to i64
   %mul = shl nuw nsw i64 %conv, 3
   %0 = add nuw nsw i64 %mul, 140
-  br label %if.end
+  br label %invoke.cont
 
-if.end:                                           ; preds = %_ZNK3ue25depthcvjEv.exit, %entry
+invoke.cont:                                      ; preds = %entry, %_ZNK3ue25depthcvjEv.exit
   %tableLen.0 = phi i64 [ %0, %_ZNK3ue25depthcvjEv.exit ], [ 140, %entry ]
   tail call void @_ZN3ue212bytecode_ptrI3NFAEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i64 noundef %tableLen.0, i64 noundef 64)
   %1 = load ptr, ptr %agg.result, align 8, !alias.scope !68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1) %1, i8 0, i64 %tableLen.0, i1 false)
-  %cmp.not.i.i = icmp ult i32 %nfa_type, 256
-  br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
+  %conv.i.i = trunc nuw nsw i32 %nfa_type to i8
+  %2 = load ptr, ptr %agg.result, align 8
+  %type = getelementptr inbounds i8, ptr %2, i64 8
+  store i8 %conv.i.i, ptr %type, align 8
+  %cmp.not.i.i = icmp ult i64 %tableLen.0, 4294967296
+  br i1 %cmp.not.i.i, label %invoke.cont5, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end
+if.then.i.i:                                      ; preds = %invoke.cont
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #14
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i)
-          to label %invoke.cont.i.i7.invoke unwind label %lpad.i.i
+          to label %invoke.cont.i.i unwind label %lpad.i.i
+
+invoke.cont.i.i:                                  ; preds = %if.then.i.i
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #15
+          to label %.noexc unwind label %lpad
+
+.noexc:                                           ; preds = %invoke.cont.i.i
+  unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception.i.i) #14
   br label %lpad.body
 
-invoke.cont:                                      ; preds = %if.end
-  %conv.i.i = trunc nuw i32 %nfa_type to i8
-  %3 = load ptr, ptr %agg.result, align 8
-  %type = getelementptr inbounds i8, ptr %3, i64 8
-  store i8 %conv.i.i, ptr %type, align 8
-  %cmp.not.i.i3 = icmp ult i64 %tableLen.0, 4294967296
-  br i1 %cmp.not.i.i3, label %invoke.cont5, label %if.then.i.i4
-
-if.then.i.i4:                                     ; preds = %invoke.cont
-  %exception.i.i5 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %exception.i.i5)
-          to label %invoke.cont.i.i7.invoke unwind label %lpad.i.i6
-
-invoke.cont.i.i7.invoke:                          ; preds = %if.then.i.i4, %if.then.i.i
-  %4 = phi ptr [ %exception.i.i, %if.then.i.i ], [ %exception.i.i5, %if.then.i.i4 ]
-  invoke void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #15
-          to label %invoke.cont.i.i7.cont unwind label %lpad
-
-invoke.cont.i.i7.cont:                            ; preds = %invoke.cont.i.i7.invoke
-  unreachable
-
-lpad.i.i6:                                        ; preds = %if.then.i.i4
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i5) #14
-  br label %lpad.body
-
 invoke.cont5:                                     ; preds = %invoke.cont
-  %conv.i.i8 = trunc nuw i64 %tableLen.0 to i32
-  %6 = load ptr, ptr %agg.result, align 8
-  %length = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %conv.i.i8, ptr %length, align 4
+  %conv.i.i3 = trunc nuw i64 %tableLen.0 to i32
+  %4 = load ptr, ptr %agg.result, align 8
+  %length = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %conv.i.i3, ptr %length, align 4
   ret void
 
-lpad:                                             ; preds = %invoke.cont.i.i7.invoke
-  %7 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %invoke.cont.i.i
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
-lpad.body:                                        ; preds = %lpad, %lpad.i.i6, %lpad.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %2, %lpad.i.i ], [ %7, %lpad ], [ %5, %lpad.i.i6 ]
+lpad.body:                                        ; preds = %lpad.i.i, %lpad
+  %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %3, %lpad.i.i ]
   tail call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #14
   resume { ptr, i32 } %eh.lpad-body
 }

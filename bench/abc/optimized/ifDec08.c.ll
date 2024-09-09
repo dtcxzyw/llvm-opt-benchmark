@@ -1441,15 +1441,15 @@ define range(i32 0, 2) i32 @If_CutPerformCheck08(ptr nocapture noundef readnone 
   %11 = shl nuw i32 1, %10
   %12 = select i1 %9, i32 1, i32 %11
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph.preheader.i, label %.lr.ph.i12
+  br i1 %13, label %.lr.ph.preheader.i, label %If_Dec08Copy.exit
 
 .lr.ph.preheader.i:                               ; preds = %8
   %wide.trip.count.i = zext nneg i32 %12 to i64
   %14 = shl nuw nsw i64 %wide.trip.count.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %14, i1 false)
-  br label %.lr.ph.i12
+  br label %If_Dec08Copy.exit
 
-.lr.ph.i12:                                       ; preds = %.lr.ph.preheader.i, %8
+If_Dec08Copy.exit:                                ; preds = %.lr.ph.preheader.i, %8
   %15 = icmp eq i32 %3, 6
   %16 = add nsw i32 %3, -6
   %17 = shl nuw i32 1, %16
@@ -1457,20 +1457,20 @@ define range(i32 0, 2) i32 @If_CutPerformCheck08(ptr nocapture noundef readnone 
   %18 = select i1 %15, i32 1, i32 %.fr.i
   %19 = icmp sgt i32 %18, 0
   %wide.trip.count51.i.i = zext nneg i32 %18 to i64
-  br i1 %19, label %.lr.ph.split.us.split.us.preheader.i, label %If_Dec08Support.exit.thread
+  br i1 %19, label %.split.us.split.us.preheader.i, label %If_Dec08Support.exit.thread
 
-.lr.ph.split.us.split.us.preheader.i:             ; preds = %.lr.ph.i12
-  %wide.trip.count50.i = zext nneg i32 %3 to i64
-  br label %.lr.ph.split.us.split.us.i
+.split.us.split.us.preheader.i:                   ; preds = %If_Dec08Copy.exit
+  %wide.trip.count52.i = zext nneg i32 %3 to i64
+  br label %.split.us.split.us.i
 
-.lr.ph.split.us.split.us.i:                       ; preds = %If_Dec08HasVar.exit.thread.us.us.i, %.lr.ph.split.us.split.us.preheader.i
-  %indvars.iv47.i = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader.i ], [ %indvars.iv.next48.i, %If_Dec08HasVar.exit.thread.us.us.i ]
-  %.021.us.us.i = phi i32 [ 0, %.lr.ph.split.us.split.us.preheader.i ], [ %55, %If_Dec08HasVar.exit.thread.us.us.i ]
-  %20 = icmp ult i64 %indvars.iv47.i, 6
+.split.us.split.us.i:                             ; preds = %If_Dec08HasVar.exit.thread.us.us.i, %.split.us.split.us.preheader.i
+  %indvars.iv49.i = phi i64 [ 0, %.split.us.split.us.preheader.i ], [ %indvars.iv.next50.i, %If_Dec08HasVar.exit.thread.us.us.i ]
+  %.021.us.us.i = phi i32 [ 0, %.split.us.split.us.preheader.i ], [ %55, %If_Dec08HasVar.exit.thread.us.us.i ]
+  %20 = icmp ult i64 %indvars.iv49.i, 6
   br i1 %20, label %.lr.ph.i.us.us.i, label %.preheader.lr.ph.i.us.us.i
 
-.preheader.lr.ph.i.us.us.i:                       ; preds = %.lr.ph.split.us.split.us.i
-  %21 = add nsw i64 %indvars.iv47.i, -6
+.preheader.lr.ph.i.us.us.i:                       ; preds = %.split.us.split.us.i
+  %21 = add nsw i64 %indvars.iv49.i, -6
   %22 = icmp eq i64 %21, 31
   %23 = trunc nsw i64 %21 to i32
   %24 = shl i32 2, %23
@@ -1511,15 +1511,15 @@ define range(i32 0, 2) i32 @If_CutPerformCheck08(ptr nocapture noundef readnone 
   br i1 %37, label %.preheader.us.i.us.us.i, label %If_Dec08HasVar.exit.thread.us.us.i, !llvm.loop !33
 
 If_Dec08HasVar.exit.us.us.i:                      ; preds = %.preheader.lr.ph.i.us.us.i
-  %38 = trunc nuw nsw i64 %indvars.iv47.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv49.i to i32
   %39 = shl nuw nsw i32 1, %38
   %40 = or i32 %39, %.021.us.us.i
   br label %If_Dec08HasVar.exit.thread.us.us.i
 
-.lr.ph.i.us.us.i:                                 ; preds = %.lr.ph.split.us.split.us.i
-  %41 = trunc nuw nsw i64 %indvars.iv47.i to i32
+.lr.ph.i.us.us.i:                                 ; preds = %.split.us.split.us.i
+  %41 = trunc nuw nsw i64 %indvars.iv49.i to i32
   %42 = shl nuw nsw i32 1, %41
-  %43 = getelementptr inbounds [6 x i64], ptr @Truth6, i64 0, i64 %indvars.iv47.i
+  %43 = getelementptr inbounds [6 x i64], ptr @Truth6, i64 0, i64 %indvars.iv49.i
   %44 = load i64, ptr %43, align 8
   %45 = xor i64 %44, -1
   %46 = zext nneg i32 %42 to i64
@@ -1536,13 +1536,13 @@ If_Dec08HasVar.exit.us.us.i:                      ; preds = %.preheader.lr.ph.i.
   br i1 %.not35.i.us.us.i, label %54, label %If_Dec08HasVar.exit.thread14.us.us.i
 
 If_Dec08HasVar.exit.thread14.us.us.loopexit.i:    ; preds = %28
-  %.pre.i = trunc nuw nsw i64 %indvars.iv47.i to i32
-  %.pre52.i = shl nuw i32 1, %.pre.i
+  %.pre.i = trunc nuw nsw i64 %indvars.iv49.i to i32
+  %.pre54.i = shl nuw i32 1, %.pre.i
   br label %If_Dec08HasVar.exit.thread14.us.us.i
 
 If_Dec08HasVar.exit.thread14.us.us.i:             ; preds = %47, %If_Dec08HasVar.exit.thread14.us.us.loopexit.i
-  %.pre-phi53.i = phi i32 [ %.pre52.i, %If_Dec08HasVar.exit.thread14.us.us.loopexit.i ], [ %42, %47 ]
-  %53 = or i32 %.pre-phi53.i, %.021.us.us.i
+  %.pre-phi55.i = phi i32 [ %.pre54.i, %If_Dec08HasVar.exit.thread14.us.us.loopexit.i ], [ %42, %47 ]
+  %53 = or i32 %.pre-phi55.i, %.021.us.us.i
   br label %If_Dec08HasVar.exit.thread.us.us.i
 
 54:                                               ; preds = %47
@@ -1552,9 +1552,9 @@ If_Dec08HasVar.exit.thread14.us.us.i:             ; preds = %47, %If_Dec08HasVar
 
 If_Dec08HasVar.exit.thread.us.us.i:               ; preds = %._crit_edge.us.i.us.us.i, %54, %If_Dec08HasVar.exit.thread14.us.us.i, %If_Dec08HasVar.exit.us.us.i
   %55 = phi i32 [ %40, %If_Dec08HasVar.exit.us.us.i ], [ %53, %If_Dec08HasVar.exit.thread14.us.us.i ], [ %.021.us.us.i, %54 ], [ %.021.us.us.i, %._crit_edge.us.i.us.us.i ]
-  %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
-  %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count50.i
-  br i1 %exitcond51.not.i, label %If_Dec08Support.exit, label %.lr.ph.split.us.split.us.i, !llvm.loop !35
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
+  br i1 %exitcond53.not.i, label %If_Dec08Support.exit, label %.split.us.split.us.i, !llvm.loop !35
 
 If_Dec08Support.exit:                             ; preds = %If_Dec08HasVar.exit.thread.us.us.i
   %.not = icmp eq i32 %55, 0
@@ -1563,15 +1563,15 @@ If_Dec08Support.exit:                             ; preds = %If_Dec08HasVar.exit
 56:                                               ; preds = %If_Dec08Support.exit
   %57 = add nsw i32 %55, 1
   %58 = and i32 %57, %55
-  %.not15 = icmp eq i32 %58, 0
-  br i1 %.not15, label %59, label %If_Dec08Support.exit.thread
+  %.not14 = icmp eq i32 %58, 0
+  br i1 %.not14, label %59, label %If_Dec08Support.exit.thread
 
 59:                                               ; preds = %56
   %60 = call i32 @If_Dec08Perform(ptr noundef nonnull %6, i32 noundef %3, i32 poison)
   br label %If_Dec08Support.exit.thread
 
-If_Dec08Support.exit.thread:                      ; preds = %.lr.ph.i12, %59, %If_Dec08Support.exit, %56, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %56 ], [ 0, %If_Dec08Support.exit ], [ %60, %59 ], [ 0, %.lr.ph.i12 ]
+If_Dec08Support.exit.thread:                      ; preds = %If_Dec08Copy.exit, %59, %If_Dec08Support.exit, %56, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %56 ], [ 0, %If_Dec08Support.exit ], [ %60, %59 ], [ 0, %If_Dec08Copy.exit ]
   ret i32 %.0
 }
 

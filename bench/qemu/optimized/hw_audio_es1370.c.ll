@@ -1063,7 +1063,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @es1370_run_channel(ptr noundef %s, i64 noundef %chan, i32 noundef %free_or_avail) unnamed_addr #0 {
+define internal fastcc void @es1370_run_channel(ptr noundef %s, i64 noundef range(i64 0, 3) %chan, i32 noundef %free_or_avail) unnamed_addr #0 {
 entry:
   %_now.i.i79.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -1138,16 +1138,14 @@ if.end.i:                                         ; preds = %land.end
   %leftover.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load i32, ptr %leftover.i, align 4
   %add7.i = add i32 %shl6.i, %13
-  %arrayidx.idx = mul i64 %chan, 20
-  %sub.ptr.div.i = sdiv exact i64 %arrayidx.idx, 20
-  %conv.i = trunc i64 %sub.ptr.div.i to i32
+  %conv.i = trunc nuw nsw i64 %chan to i32
   %cond.i = tail call i32 @llvm.smin.i32(i32 %add7.i, i32 %shl.i)
   %cond16.i = tail call i32 @llvm.smin.i32(i32 %and5, i32 %cond.i)
   %conv17.i = sext i32 %cond16.i to i64
   %shl18.i = shl nuw nsw i32 %shr2.i, 2
   %add20.i = add i32 %12, %shl18.i
   %add21.i = add i32 %add20.i, %13
-  %cmp22.i = icmp eq i32 %conv.i, 2
+  %cmp22.i = icmp eq i64 %chan, 2
   br i1 %cmp22.i, label %while.cond.preheader.i, label %if.else.i
 
 while.cond.preheader.i:                           ; preds = %if.end.i
@@ -1185,9 +1183,7 @@ if.end38.i:                                       ; preds = %while.body.i
 
 if.else.i:                                        ; preds = %if.end.i
   %dac_voice.i = getelementptr inbounds i8, ptr %s, i64 2976
-  %sext.i = shl i64 %sub.ptr.div.i, 32
-  %idxprom.i = ashr exact i64 %sext.i, 32
-  %arrayidx47.i = getelementptr [2 x ptr], ptr %dac_voice.i, i64 0, i64 %idxprom.i
+  %arrayidx47.i = getelementptr [2 x ptr], ptr %dac_voice.i, i64 0, i64 %chan
   %15 = load ptr, ptr %arrayidx47.i, align 8
   %cmp49.not94.i = icmp eq i32 %cond16.i, 0
   br i1 %cmp49.not94.i, label %if.end78.i, label %while.body51.lr.ph.i
