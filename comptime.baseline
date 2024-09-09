@@ -11470,7 +11470,7 @@ jemalloc/tcache.pic.ll 927042356
 jemalloc/tcache.sym.ll 927042302
 jemalloc/thread_event.ll 152523533
 jemalloc/thread_event.pic.ll 152248031
-jemalloc/thread_event.sym.ll 152248024
+jemalloc/thread_event.sym.ll 152400281
 jemalloc/tsd.ll 173540657
 jemalloc/tsd.pic.ll 173336876
 jemalloc/tsd.sym.ll 173336889
@@ -41559,7 +41559,7 @@ z3/theory_user_propagator.cpp.ll 1810719624
 z3/theory_utvpi.cpp.ll 8202828872
 z3/theory_wmaxsat.cpp.ll 2317357051
 z3/timeit.cpp.ll 85299845
-z3/timeout.cpp.ll 52779997
+z3/timeout.cpp.ll 52832782
 z3/totalizer.cpp.ll 639845976
 z3/trace.cpp.ll 52126367
 z3/tseitin_cnf_tactic.cpp.ll 3050052830
