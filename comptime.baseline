@@ -157,7 +157,7 @@ abc/aigCuts.c.ll 541758866
 abc/aigDfs.c.ll 594760924
 abc/aigDup.c.ll 908889388
 abc/aigFrames.c.ll 177161936
-abc/aigJust.c.ll 202051576
+abc/aigJust.c.ll 202253649
 abc/aigMan.c.ll 347548136
 abc/aigMem.c.ll 167275886
 abc/aigMffc.c.ll 163608528
@@ -213,7 +213,7 @@ abc/blocksort.c.ll 1175120683
 abc/bmcBCore.c.ll 302749132
 abc/bmcBmc.c.ll 282789938
 abc/bmcBmc2.c.ll 622444784
-abc/bmcBmc3.c.ll 1563322537
+abc/bmcBmc3.c.ll 1564890053
 abc/bmcBmcAnd.c.ll 1167657023
 abc/bmcBmcG.c.ll 581437088
 abc/bmcBmcS.c.ll 1082295493
@@ -709,7 +709,7 @@ abc/llb1Core.c.ll 89518714
 abc/llb1Group.c.ll 349947268
 abc/llb1Hint.c.ll 192074923
 abc/llb1Man.c.ll 242105225
-abc/llb1Matrix.c.ll 223348760
+abc/llb1Matrix.c.ll 223572149
 abc/llb1Pivot.c.ll 211055557
 abc/llb1Reach.c.ll 481240564
 abc/llb1Sched.c.ll 174096162
@@ -1913,7 +1913,7 @@ assimp/X3DImporter_Networking.cpp.ll 319961305
 assimp/X3DImporter_Postprocess.cpp.ll 1141211174
 assimp/X3DImporter_Rendering.cpp.ll 1939803667
 assimp/X3DImporter_Shape.cpp.ll 368901273
-assimp/X3DImporter_Texturing.cpp.ll 446500709
+assimp/X3DImporter_Texturing.cpp.ll 446947228
 assimp/X3DXmlHelper.cpp.ll 1446487839
 assimp/XFileExporter.cpp.ll 563101935
 assimp/XFileImporter.cpp.ll 1526776920
@@ -2206,7 +2206,7 @@ bullet3/btSoftSoftCollisionAlgorithm.ll 93351047
 bullet3/btSphereBoxCollisionAlgorithm.ll 213456709
 bullet3/btSphereSphereCollisionAlgorithm.ll 133353096
 bullet3/btSphereTriangleCollisionAlgorithm.ll 119997635
-bullet3/btStaticPlaneShape.ll 131476090
+bullet3/btStaticPlaneShape.ll 131607577
 bullet3/btStridingMeshInterface.ll 284254032
 bullet3/btSubSimplexConvexCast.ll 165966181
 bullet3/btTetrahedronShape.ll 110738308
@@ -2401,7 +2401,7 @@ casadi/cvodes_sptfqmr.c.ll 98723619
 casadi/dae_builder.cpp.ll 2691089510
 casadi/dae_builder_internal.cpp.ll 10446664186
 casadi/daebuilder.cpp.ll 340116265
-casadi/determinant.cpp.ll 262288373
+casadi/determinant.cpp.ll 262550696
 casadi/dm_instantiator.cpp.ll 9314244601
 casadi/dot.cpp.ll 287165093
 casadi/dple.cpp.ll 2913656508
@@ -2443,7 +2443,7 @@ casadi/implicit_to_nlp_meta.cpp.ll 161911921
 casadi/importer.cpp.ll 442330873
 casadi/importer_internal.cpp.ll 1210539493
 casadi/integration_tools.cpp.ll 9668075718
-casadi/integrator.cpp.ll 7416969091
+casadi/integrator.cpp.ll 7424401017
 casadi/interpolant.cpp.ll 2284958420
 casadi/inverse.cpp.ll 252677191
 casadi/io_instruction.cpp.ll 443334616
@@ -3477,7 +3477,7 @@ cmake/cmPolicies.cxx.ll 2040613198
 cmake/cmProcess.cxx.ll 930230309
 cmake/cmProcessOutput.cxx.ll 145213208
 cmake/cmProcessTools.cxx.ll 497530177
-cmake/cmProjectCommand.cxx.ll 1014155777
+cmake/cmProjectCommand.cxx.ll 1015170543
 cmake/cmPropertyDefinition.cxx.ll 221034282
 cmake/cmPropertyMap.cxx.ll 793720322
 cmake/cmQTWrapCPPCommand.cxx.ll 504354102
@@ -5948,7 +5948,7 @@ darktable/FiffParser.cpp.ll 194858040
 darktable/FileReader.cpp.ll 63830539
 darktable/FileWriter.cpp.ll 52871182
 darktable/FujiDecompressor.cpp.ll 3566341273
-darktable/HasselbladDecompressor.cpp.ll 296512897
+darktable/HasselbladDecompressor.cpp.ll 296809481
 darktable/HasselbladLJpegDecoder.cpp.ll 127677981
 darktable/IiqDecoder.cpp.ll 1444761427
 darktable/JpegDecompressor.cpp.ll 298796871
@@ -6786,7 +6786,7 @@ duckdb/vector_hash.cpp.ll 4755086705
 duckdb/vector_storage.cpp.ll 824622859
 eastl/BenchmarkAlgorithm.cpp.ll 7870096492
 eastl/BenchmarkBitset.cpp.ll 1012669189
-eastl/BenchmarkDeque.cpp.ll 3757099842
+eastl/BenchmarkDeque.cpp.ll 3760861260
 eastl/BenchmarkHash.cpp.ll 3084550019
 eastl/BenchmarkHeap.cpp.ll 1130561871
 eastl/BenchmarkList.cpp.ll 1013258044
@@ -7277,7 +7277,7 @@ folly/MuxIOThreadPoolExecutor.cpp.ll 2412021382
 folly/NestedCommandLineApp.cpp.ll 1642374051
 folly/NetOps.cpp.ll 82903139
 folly/ObjectToString.cpp.ll 106750613
-folly/ObserverManager.cpp.ll 3582948585
+folly/ObserverManager.cpp.ll 3586540835
 folly/OpenSSLCertUtils.cpp.ll 558821938
 folly/OpenSSLHash.cpp.ll 399972151
 folly/OpenSSLSession.cpp.ll 161212996
@@ -7763,7 +7763,7 @@ git/read-tree.ll 288936214
 git/reader.ll 355691318
 git/rebase-interactive.ll 163814109
 git/rebase.ll 1346783067
-git/receive-pack.ll 1281263661
+git/receive-pack.ll 1282545675
 git/record.ll 651993116
 git/ref-cache.ll 211072075
 git/ref-filter.ll 1676063443
@@ -10411,7 +10411,7 @@ hwloc/hwloc-distrib.ll 411848300
 hwloc/hwloc-gather-cpuid.ll 675060574
 hwloc/hwloc-info.ll 1072924044
 hwloc/hwloc-patch.ll 96424860
-hwloc/hwloc-ps.ll 354009308
+hwloc/hwloc-ps.ll 354363416
 hwloc/hwloc_dump_hwdata-hwloc-dump-hwdata-knl.ll 190942110
 hwloc/hwloc_dump_hwdata-hwloc-dump-hwdata.ll 62329977
 hwloc/lstopo-lstopo-ascii.ll 265537131
@@ -11057,7 +11057,7 @@ icu/uiter.ll 405498001
 icu/uitercollationiterator.ll 325671274
 icu/ulist.ll 101862412
 icu/ulistformatter.ll 213399874
-icu/uloc.ll 893470921
+icu/uloc.ll 894364467
 icu/uloc_keytype.ll 600529041
 icu/uloc_tag.ll 2121920767
 icu/ulocale.ll 136831680
@@ -16680,7 +16680,7 @@ llvm/RegionPrinter.cpp.ll 1787906633
 llvm/RegionStore.cpp.ll 11755699263
 llvm/RegisterBank.cpp.ll 116155491
 llvm/RegisterBankEmitter.cpp.ll 2174415903
-llvm/RegisterBankInfo.cpp.ll 2549716723
+llvm/RegisterBankInfo.cpp.ll 2552269294
 llvm/RegisterClassInfo.cpp.ll 571907401
 llvm/RegisterCoalescer.cpp.ll 8691451960
 llvm/RegisterInfoEmitter.cpp.ll 13263510218
@@ -18627,7 +18627,7 @@ mitsuba3/cpuinfo.cpp.ll 244466729
 mitsuba3/cube.cpp.ll 683531481
 mitsuba3/cylinder.cpp.ll 4147161071
 mitsuba3/d65.cpp.ll 888474819
-mitsuba3/depth.cpp.ll 210497762
+mitsuba3/depth.cpp.ll 210708356
 mitsuba3/dielectric.cpp.ll 1690962648
 mitsuba3/diffuse.cpp.ll 860226767
 mitsuba3/direct.cpp.ll 1166415556
@@ -22545,7 +22545,7 @@ opencv/latch.cpp.ll 771919993
 opencv/layer.cpp.ll 986836717
 opencv/layer_factory.cpp.ll 386231316
 opencv/layer_norm.cpp.ll 628550646
-opencv/layers_common.cpp.ll 1468296408
+opencv/layers_common.cpp.ll 1469766648
 opencv/layers_rvp052.cpp.ll 36147779
 opencv/lbpfeatures.cpp.ll 377179068
 opencv/lbph_faces.cpp.ll 1384941895
@@ -24404,7 +24404,7 @@ openjdk/jfrStackTraceMark.ll 62100445
 openjdk/jfrStackTraceRepository.ll 353365997
 openjdk/jfrStorage.ll 1587441596
 openjdk/jfrStorageControl.ll 68308581
-openjdk/jfrStringPool.ll 1571956919
+openjdk/jfrStringPool.ll 1573533153
 openjdk/jfrStringPoolBuffer.ll 45357382
 openjdk/jfrStringPoolWriter.ll 125581502
 openjdk/jfrSymbolTable.ll 755039473
@@ -25012,7 +25012,7 @@ openjdk/templateTable_x86.ll 2679908546
 openjdk/tenuredGeneration.ll 264736011
 openjdk/testHelpers.ll 80516864
 openjdk/thread.ll 331750017
-openjdk/threadControl.ll 789057894
+openjdk/threadControl.ll 789848417
 openjdk/threadCrashProtection_posix.ll 46108773
 openjdk/threadCritical_posix.ll 41971415
 openjdk/threadHeapSampler.ll 116593991
@@ -26368,7 +26368,7 @@ openmpi/pmix_few.ll 42282301
 openmpi/pmix_finalize.ll 154303366
 openmpi/pmix_getcwd.ll 41389323
 openmpi/pmix_getid.ll 42040481
-openmpi/pmix_globals.ll 1084237219
+openmpi/pmix_globals.ll 1085323938
 openmpi/pmix_hash.ll 1918011499
 openmpi/pmix_hash_table.ll 275445514
 openmpi/pmix_hotel.ll 63328041
@@ -27493,7 +27493,7 @@ openssl/libcrypto-lib-e_aes_cbc_hmac_sha1.ll 496628181
 openssl/libcrypto-lib-e_aes_cbc_hmac_sha256.ll 538079055
 openssl/libcrypto-lib-e_aria.ll 371236640
 openssl/libcrypto-lib-e_bf.ll 70807228
-openssl/libcrypto-lib-e_camellia.ll 92581943
+openssl/libcrypto-lib-e_camellia.ll 92674530
 openssl/libcrypto-lib-e_cast.ll 70867634
 openssl/libcrypto-lib-e_chacha20_poly1305.ll 191347558
 openssl/libcrypto-lib-e_des.ll 103130285
@@ -30322,7 +30322,7 @@ pbrt-v4/mesh.cpp.ll 3482476189
 pbrt-v4/mipmap.cpp.ll 1647239579
 pbrt-v4/noise.cpp.ll 197455586
 pbrt-v4/options.cpp.ll 745187174
-pbrt-v4/parallel.cpp.ll 981938141
+pbrt-v4/parallel.cpp.ll 982922841
 pbrt-v4/paramdict.cpp.ll 3027039389
 pbrt-v4/parser.cpp.ll 5312956548
 pbrt-v4/pbrt.cpp.ll 197719041
@@ -32952,7 +32952,7 @@ qemu/meson-generated_.._qapi_qapi-visit-acpi.c.ll 77501914
 qemu/meson-generated_.._qapi_qapi-visit-audio.c.ll 282712189
 qemu/meson-generated_.._qapi_qapi-visit-authz.c.ll 92538059
 qemu/meson-generated_.._qapi_qapi-visit-block-core.c.ll 2058964006
-qemu/meson-generated_.._qapi_qapi-visit-block-export.c.ll 161243630
+qemu/meson-generated_.._qapi_qapi-visit-block-export.c.ll 161405266
 qemu/meson-generated_.._qapi_qapi-visit-block.c.ll 97051627
 qemu/meson-generated_.._qapi_qapi-visit-char.c.ll 308158015
 qemu/meson-generated_.._qapi_qapi-visit-compat.c.ll 53114692
@@ -37310,7 +37310,7 @@ vcpkg/commands.deactivate.cpp.ll 148766073
 vcpkg/commands.depend-info.cpp.ll 4426624700
 vcpkg/commands.download.cpp.ll 1349893862
 vcpkg/commands.edit.cpp.ll 1589590644
-vcpkg/commands.env.cpp.ll 1574406324
+vcpkg/commands.env.cpp.ll 1575982833
 vcpkg/commands.export.cpp.ll 3308149111
 vcpkg/commands.find.cpp.ll 2006734192
 vcpkg/commands.format-manifest.cpp.ll 1938682871
@@ -37973,7 +37973,7 @@ wasmtime-rs/263ogtoav7aled9i.ll 36436476
 wasmtime-rs/26keceyvawbp259v.ll 40394825
 wasmtime-rs/26njb8b27j72a4cj.ll 435949863
 wasmtime-rs/26ojeoir4492zp4o.ll 533261710
-wasmtime-rs/26trd4atg57wyjbd.ll 11304735506
+wasmtime-rs/26trd4atg57wyjbd.ll 11316040715
 wasmtime-rs/27g7khr3xg8dgvq3.ll 54815557
 wasmtime-rs/27pp1heeu8t47xv3.ll 171323591
 wasmtime-rs/27y5mf4j2qnj7fax.ll 2695789940
@@ -39603,7 +39603,7 @@ wireshark/packet-obd-ii.c.ll 421413209
 wireshark/packet-obex.c.ll 741886708
 wireshark/packet-ocfs2.c.ll 198615874
 wireshark/packet-ocp1.c.ll 1132025174
-wireshark/packet-oer.c.ll 333326004
+wireshark/packet-oer.c.ll 333659489
 wireshark/packet-oipf.c.ll 51492312
 wireshark/packet-olsr.c.ll 242757983
 wireshark/packet-omron-fins.c.ll 720082808
@@ -40567,7 +40567,7 @@ yosys/async2sync.ll 4573701176
 yosys/attrmap.ll 1988574105
 yosys/attrmvcp.ll 3751960252
 yosys/autoname.ll 2461027846
-yosys/binding.ll 385234218
+yosys/binding.ll 385620390
 yosys/blackbox.ll 157192148
 yosys/blif.ll 14936135607
 yosys/blifparse.ll 4222418221
