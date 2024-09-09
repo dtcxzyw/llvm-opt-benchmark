@@ -6008,7 +6008,7 @@ darktable/darktable.c.ll 94447468
 darktable/disk.c.ll 116975129
 darktable/duplicate.c.ll 156052430
 darktable/email.c.ll 86160230
-darktable/export.c.ll 532367634
+darktable/export.c.ll 531824816
 darktable/export_metadata.c.ll 166725304
 darktable/exr.cc.ll 424294110
 darktable/filmstrip.c.ll 53922146
@@ -6985,7 +6985,7 @@ faiss/IndexIVF.cpp.ll 2367078024
 faiss/IndexIVFAdditiveQuantizer.cpp.ll 736551686
 faiss/IndexIVFAdditiveQuantizerFastScan.cpp.ll 796418674
 faiss/IndexIVFFastScan.cpp.ll 7471558419
-faiss/IndexIVFFlat.cpp.ll 1734764160
+faiss/IndexIVFFlat.cpp.ll 1733019744
 faiss/IndexIVFIndependentQuantizer.cpp.ll 293706044
 faiss/IndexIVFPQ.cpp.ll 82403717495
 faiss/IndexIVFPQFastScan.cpp.ll 436827618
@@ -9989,7 +9989,7 @@ hdf5/H5Tconv_float.c.ll 8497215870
 hdf5/H5Tconv_integer.c.ll 24182987131
 hdf5/H5Tconv_reference.c.ll 123727313
 hdf5/H5Tconv_string.c.ll 123165260
-hdf5/H5Tconv_vlen.c.ll 265109894
+hdf5/H5Tconv_vlen.c.ll 264844036
 hdf5/H5Tcset.c.ll 69396741
 hdf5/H5Tdbg.c.ll 96880250
 hdf5/H5Tdeprec.c.ll 66566727
@@ -10714,7 +10714,7 @@ icu/collationtailoring.ll 92701726
 icu/collationweights.ll 320965064
 icu/compactdecimalformat.ll 111952504
 icu/coptccal.ll 90618168
-icu/cpdtrans.ll 365665175
+icu/cpdtrans.ll 365298103
 icu/csdetect.ll 332511674
 icu/csr2022.ll 141164343
 icu/csrmbcs.ll 168657126
@@ -13771,7 +13771,7 @@ linux/intel_pconfig.ll 52907066
 linux/intel_pipe_crc.ll 129344120
 linux/intel_pmdemand.ll 220794162
 linux/intel_ppgtt.ll 133642803
-linux/intel_pps.ll 522433304
+linux/intel_pps.ll 521901194
 linux/intel_psr.ll 1024993179
 linux/intel_pstate.ll 697204609
 linux/intel_pxp.ll 81346756
@@ -14482,7 +14482,7 @@ linux/seq_queue.ll 218956372
 linux/seq_system.ll 59358505
 linux/seq_timer.ll 152321540
 linux/serial_base_bus.ll 68598688
-linux/serial_core.ll 871123494
+linux/serial_core.ll 870249434
 linux/serio.ll 266942529
 linux/serport.ll 87764349
 linux/services.ll 1010402739
@@ -18353,7 +18353,7 @@ minetest/l_inventory.cpp.ll 733153272
 minetest/l_item.cpp.ll 941333608
 minetest/l_itemstackmeta.cpp.ll 93933860
 minetest/l_localplayer.cpp.ll 361553557
-minetest/l_mainmenu.cpp.ll 1663014935
+minetest/l_mainmenu.cpp.ll 1661324579
 minetest/l_mainmenu_sound.cpp.ll 120516663
 minetest/l_mapgen.cpp.ll 2143277507
 minetest/l_metadata.cpp.ll 339435206
@@ -26420,7 +26420,7 @@ openmpi/pmix_tool.ll 1423701634
 openmpi/pmix_tool_ops.ll 159109264
 openmpi/pmix_value_array.ll 44868461
 openmpi/pmix_vmem.ll 91194792
-openmpi/pmixcc.ll 397573214
+openmpi/pmixcc.ll 397172922
 openmpi/pml_base_bsend.ll 133058433
 openmpi/pml_base_frame.ll 85463051
 openmpi/pml_base_recvreq.ll 43361370
@@ -31314,7 +31314,7 @@ postgres/parse_clause.ll 1087919183
 postgres/parse_coerce.ll 687862953
 postgres/parse_collate.ll 207442732
 postgres/parse_cte.ll 444396140
-postgres/parse_expr.ll 877370831
+postgres/parse_expr.ll 876491109
 postgres/parse_func.ll 625996550
 postgres/parse_manifest.ll 262005853
 postgres/parse_manifest_shlib.ll 261756083
@@ -34257,7 +34257,7 @@ ruby/ossl_x509name.ll 206468044
 ruby/ossl_x509req.ll 180779852
 ruby/ossl_x509store.ll 181075636
 ruby/pack.ll 1221593584
-ruby/parse.ll 8129388391
+ruby/parse.ll 8121201782
 ruby/parse_depth_limit.ll 42546077
 ruby/parser.ll 742313026
 ruby/parser_st.ll 814196818
@@ -34309,7 +34309,7 @@ ruby/shape.ll 409509221
 ruby/shift_jis.ll 173204400
 ruby/signal.ll 429836983
 ruby/socket.ll 309902911
-ruby/sprintf.ll 1851768263
+ruby/sprintf.ll 1849907325
 ruby/st.ll 1030480868
 ruby/static_literals.ll 251998103
 ruby/strftime.ll 1355563268
@@ -38846,7 +38846,7 @@ wireshark/msg_reg_req.c.ll 162668716
 wireshark/msg_reg_rsp.c.ll 87691553
 wireshark/msg_rep.c.ll 274459577
 wireshark/msg_rng_req.c.ll 102926016
-wireshark/msg_rng_rsp.c.ll 151493983
+wireshark/msg_rng_rsp.c.ll 151339379
 wireshark/msg_ucd.c.ll 156491401
 wireshark/msg_ulmap.c.ll 1150231260
 wireshark/mtp3_summary_dialog.cpp.ll 741203707
@@ -39873,7 +39873,7 @@ wireshark/packet-tdmop.c.ll 87797759
 wireshark/packet-tds.c.ll 2200318500
 wireshark/packet-teamspeak2.c.ll 176729423
 wireshark/packet-teap.c.ll 130297309
-wireshark/packet-tecmp.c.ll 667588978
+wireshark/packet-tecmp.c.ll 666919599
 wireshark/packet-telnet.c.ll 497763933
 wireshark/packet-teredo.c.ll 88642422
 wireshark/packet-tetra.c.ll 857158905
