@@ -20501,7 +20501,7 @@ nuttx/sched_waitid.c.ll 103284321
 nuttx/sched_waitpid.c.ll 81005249
 nuttx/sched_yield.c.ll 36038717
 nuttx/sem_clockwait.c.ll 49391094
-nuttx/sem_getvalue.c.ll 40019266
+nuttx/sem_getvalue.c.ll 40059290
 nuttx/sem_holder.c.ll 207708475
 nuttx/sem_init.c.ll 40328799
 nuttx/sem_post.c.ll 50913063
@@ -38083,7 +38083,7 @@ wasmtime-rs/30grvq3ik5vq8b2f.ll 300452984
 wasmtime-rs/320v7ko74ke0k4k4.ll 5448760871
 wasmtime-rs/322ukxfdvnm2wdbn.ll 46586662
 wasmtime-rs/322yw2dra6hhv794.ll 53976023
-wasmtime-rs/3286lx3sgd08a7e2.ll 35839977
+wasmtime-rs/3286lx3sgd08a7e2.ll 35875819
 wasmtime-rs/32ocpkosjxmve1yg.ll 254358660
 wasmtime-rs/33560kyrqz2cm6nd.ll 64414842
 wasmtime-rs/33a0abwzenlyzuoq.ll 36757487
