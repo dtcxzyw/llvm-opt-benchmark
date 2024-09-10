@@ -972,7 +972,7 @@ abc/sswSim.c.ll 1015320897
 abc/sswSimSat.c.ll 97412788
 abc/sswSweep.c.ll 394636332
 abc/sswUnique.c.ll 197317038
-abc/st.c.ll 278379987
+abc/st.c.ll 278658512
 abc/stmm.c.ll 271856792
 abc/super.c.ll 97713635
 abc/superAnd.c.ll 317292116
@@ -1988,7 +1988,7 @@ box2d/b2_polygon_circle_contact.cpp.ll 44564091
 box2d/b2_polygon_contact.cpp.ll 44572686
 box2d/b2_polygon_shape.cpp.ll 213189097
 box2d/b2_prismatic_joint.cpp.ll 306151475
-box2d/b2_pulley_joint.cpp.ll 175827508
+box2d/b2_pulley_joint.cpp.ll 176003628
 box2d/b2_revolute_joint.cpp.ll 245378331
 box2d/b2_rope.cpp.ll 393117551
 box2d/b2_settings.cpp.ll 42465303
@@ -6314,7 +6314,7 @@ diesel-rs/1s59klw960rzefhp.ll 37211943
 diesel-rs/1siyfs74f49yh72n.ll 336473291
 diesel-rs/1tv2nlr963c938o2.ll 166842495
 diesel-rs/1twmu4mg7wlgn5nl.ll 196941283
-diesel-rs/1vuxmtz2yhpbr3bd.ll 620317546
+diesel-rs/1vuxmtz2yhpbr3bd.ll 620938129
 diesel-rs/1w3hseqr9jtprha4.ll 60784718
 diesel-rs/1xjmwmr0lwqscmwt.ll 360711049
 diesel-rs/1y5afe719vt3j8l4.ll 468614638
@@ -9735,7 +9735,7 @@ hdf5/H5Cint.c.ll 481039733
 hdf5/H5Clog.c.ll 128829039
 hdf5/H5Clog_json.c.ll 139721708
 hdf5/H5Clog_trace.c.ll 127805500
-hdf5/H5Cprefetched.c.ll 58508149
+hdf5/H5Cprefetched.c.ll 58566841
 hdf5/H5Cquery.c.ll 97271405
 hdf5/H5Ctag.c.ll 530695631
 hdf5/H5Ctest.c.ll 45262395
@@ -11296,7 +11296,7 @@ ipopt/IpRestoIpoptNLP.ll 1727284469
 ipopt/IpRestoIterateInitializer.ll 762958712
 ipopt/IpRestoIterationOutput.ll 984288304
 ipopt/IpRestoMinC_1Nrm.ll 1468914551
-ipopt/IpRestoPenaltyConvCheck.ll 49248272
+ipopt/IpRestoPenaltyConvCheck.ll 49297728
 ipopt/IpRestoRestoPhase.ll 433614464
 ipopt/IpScaledMatrix.ll 521343087
 ipopt/IpSlackBasedTSymScalingMethod.ll 227621344
@@ -11319,7 +11319,7 @@ ipopt/IpTaggedObject.ll 145660498
 ipopt/IpTransposeMatrix.ll 256673120
 ipopt/IpTripletHelper.ll 857020666
 ipopt/IpTripletToCSRConverter.ll 529334276
-ipopt/IpUserScaling.ll 82822225
+ipopt/IpUserScaling.ll 82905054
 ipopt/IpUtils.ll 50229530
 ipopt/IpVector.ll 300495302
 ipopt/IpWarmStartIterateInitializer.ll 1436336276
@@ -14247,7 +14247,7 @@ linux/phy_device.ll 628001736
 linux/physaddr.ll 57586974
 linux/physical_location.ll 58106776
 linux/pi.ll 222783554
-linux/pid.ll 221428275
+linux/pid.ll 221650028
 linux/pid_list.ll 138260026
 linux/pid_namespace.ll 138816174
 linux/pids.ll 101546257
@@ -19857,7 +19857,7 @@ node/libnode.crypto_aes.ll 1557965252
 node/libnode.crypto_bio.ll 376589167
 node/libnode.crypto_cipher.ll 1979372427
 node/libnode.crypto_clienthello.ll 111406825
-node/libnode.crypto_common.ll 1348847461
+node/libnode.crypto_common.ll 1350196443
 node/libnode.crypto_context.ll 1937890922
 node/libnode.crypto_dh.ll 2657941763
 node/libnode.crypto_dsa.ll 1467281500
@@ -24071,7 +24071,7 @@ openjdk/g1BarrierSetC1.ll 400607596
 openjdk/g1BarrierSetC2.ll 480217110
 openjdk/g1BarrierSetRuntime.ll 76341926
 openjdk/g1BatchedTask.ll 2617550323
-openjdk/g1BiasedArray.ll 50814201
+openjdk/g1BiasedArray.ll 50865041
 openjdk/g1BlockOffsetTable.ll 2543226506
 openjdk/g1CardSet.ll 3683959653
 openjdk/g1CardSetMemory.ll 101007664
@@ -24765,7 +24765,7 @@ openjdk/postaloc.ll 1128093403
 openjdk/predicates.ll 432958662
 openjdk/preserveException.ll 88160361
 openjdk/preservedMarks.ll 229892182
-openjdk/pretouchTask.ll 83712129
+openjdk/pretouchTask.ll 83796089
 openjdk/printCLDMetaspaceInfoClosure.ll 141682555
 openjdk/printMetaspaceInfoKlassClosure.ll 67002467
 openjdk/procMapsParser.ll 77658436
@@ -26802,7 +26802,7 @@ openspiel/contracts.cc.ll 88687484
 openspiel/coop_box_pushing.cc.ll 2326918762
 openspiel/coop_box_pushing_test.cc.ll 158638605
 openspiel/coordinated_mp.cc.ll 1473492858
-openspiel/coordinated_mp_test.cc.ll 270272322
+openspiel/coordinated_mp_test.cc.ll 270542620
 openspiel/corr_dev_builder.cc.ll 2264409293
 openspiel/corr_dev_builder_test.cc.ll 1872855993
 openspiel/corr_dist.cc.ll 5053282053
@@ -28144,7 +28144,7 @@ openssl/libcrypto-shlib-err_prn.ll 89981674
 openssl/libcrypto-shlib-err_save.ll 141548509
 openssl/libcrypto-shlib-ess_asn1.ll 63911847
 openssl/libcrypto-shlib-ess_err.ll 36344470
-openssl/libcrypto-shlib-ess_lib.ll 142315891
+openssl/libcrypto-shlib-ess_lib.ll 142458416
 openssl/libcrypto-shlib-evp_asn1.ll 67390367
 openssl/libcrypto-shlib-evp_cnf.ll 51518868
 openssl/libcrypto-shlib-evp_enc.ll 550753467
@@ -28524,13 +28524,13 @@ openssl/libdefault-lib-hmacdrbg_kdf.ll 83638398
 openssl/libdefault-lib-kbkdf.ll 145481480
 openssl/libdefault-lib-kdf_exch.ll 67633333
 openssl/libdefault-lib-kdf_legacy_kmgmt.ll 52019017
-openssl/libdefault-lib-kmac_prov.ll 208245893
+openssl/libdefault-lib-kmac_prov.ll 208454219
 openssl/libdefault-lib-krb5kdf.ll 199997233
 openssl/libdefault-lib-mac_legacy_kmgmt.ll 145251269
 openssl/libdefault-lib-mac_legacy_sig.ll 85185927
 openssl/libdefault-lib-md5_prov.ll 46681468
 openssl/libdefault-lib-md5_sha1_prov.ll 54795926
-openssl/libdefault-lib-null_prov.ll 47562510
+openssl/libdefault-lib-null_prov.ll 47610175
 openssl/libdefault-lib-pbkdf2.ll 178135150
 openssl/libdefault-lib-pkcs12kdf.ll 169028857
 openssl/libdefault-lib-poly1305_prov.ll 61508634
@@ -30155,7 +30155,7 @@ openusd/warped_motion.c.ll 894480370
 openusd/weakBase.cpp.ll 108296385
 openusd/writableAsset.cpp.ll 37200336
 openusd/write.c.ll 1162482788
-openusd/xform.cpp.ll 306940151
+openusd/xform.cpp.ll 307247116
 openusd/xformCache.cpp.ll 1134944143
 openusd/xformCommonAPI.cpp.ll 2532336326
 openusd/xformOp.cpp.ll 1704599901
@@ -30281,7 +30281,7 @@ ozz-animation/skeleton_builder.cc.ll 294979214
 ozz-animation/skeleton_utils.cc.ll 70791163
 ozz-animation/skinning_job.cc.ll 1827308025
 ozz-animation/soa_math_archive.cc.ll 200668415
-ozz-animation/stream.cc.ll 97297457
+ozz-animation/stream.cc.ll 97394997
 ozz-animation/string_archive.cc.ll 178196412
 ozz-animation/track.cc.ll 678919169
 ozz-animation/track_builder.cc.ll 1069720867
@@ -31821,7 +31821,7 @@ proj/airy.cpp.ll 64811702
 proj/aitoff.cpp.ll 94304747
 proj/august.cpp.ll 44951676
 proj/auth.cpp.ll 41080074
-proj/axisswap.cpp.ll 146963144
+proj/axisswap.cpp.ll 147110205
 proj/bacon.cpp.ll 63341647
 proj/bertin1953.cpp.ll 56057772
 proj/bipc.cpp.ll 81042753
@@ -34974,7 +34974,7 @@ serde-rs-json/31rqwntzv9cs2y0f.ll 235520496
 serde-rs-json/36shr7j8gl5gy6fn.ll 273849996
 serde-rs-json/39yr1w8rzrjpq99q.ll 285742927
 serde-rs-json/3o41byb1p1zh3720.ll 333928712
-serde-rs-json/3qi6t24uzagdhzb3.ll 203044177
+serde-rs-json/3qi6t24uzagdhzb3.ll 203247344
 serde-rs-json/43g80rn1n8wsbc9e.ll 753226923
 serde-rs-json/4vnl4vg8ssbe8wb6.ll 825100967
 serde-rs-json/avcnj5n6q0l8tf3.ll 782432565
@@ -37711,7 +37711,7 @@ verilator/V3WidthCommit.cpp.ll 1311520186
 verilator/V3WidthSel.cpp.ll 1484955697
 verilator/Verilator.cpp.ll 1574366759
 wasmedge/alias.cpp.ll 5695422033
-wasmedge/allocator.cpp.ll 48996064
+wasmedge/allocator.cpp.ll 49045113
 wasmedge/aot_section.cpp.ll 5793479831
 wasmedge/argument_parser.cpp.ll 747554580
 wasmedge/blake3.cpp.ll 44032219
@@ -38792,7 +38792,7 @@ wireshark/ipaddr.c.ll 127387607
 wireshark/ipfix.c.ll 85684973
 wireshark/iptrace.c.ll 149706329
 wireshark/iseries.c.ll 225457682
-wireshark/jsmn.c.ll 170637827
+wireshark/jsmn.c.ll 170808492
 wireshark/json.c.ll 43748260
 wireshark/json_dumper.c.ll 225052839
 wireshark/k12.c.ll 317175583
@@ -39519,7 +39519,7 @@ wireshark/packet-mp4ves.c.ll 181151569
 wireshark/packet-mpeg-audio.c.ll 157943555
 wireshark/packet-mpeg-descriptor.c.ll 832209842
 wireshark/packet-mpeg-dsmcc.c.ll 646419315
-wireshark/packet-mpeg-pes.c.ll 211294402
+wireshark/packet-mpeg-pes.c.ll 211505758
 wireshark/packet-mpeg-sect.c.ll 88469375
 wireshark/packet-mpls-echo.c.ll 517763212
 wireshark/packet-mpls-pm.c.ll 152266059
@@ -40040,7 +40040,7 @@ wireshark/packet_format_group_box.cpp.ll 279334115
 wireshark/packet_list.cpp.ll 2861454340
 wireshark/packet_list_header.cpp.ll 536992039
 wireshark/packet_list_model.cpp.ll 1934552201
-wireshark/packet_list_record.cpp.ll 936091747
+wireshark/packet_list_record.cpp.ll 937027844
 wireshark/packet_list_utils.c.ll 73750784
 wireshark/packet_range.c.ll 210503673
 wireshark/packet_range_group_box.cpp.ll 623983437
@@ -40723,7 +40723,7 @@ yosys/portlist.ll 668514954
 yosys/prep.ll 273308987
 yosys/preproc.ll 2207991898
 yosys/printattrs.ll 261025308
-yosys/proc.ll 197251409
+yosys/proc.ll 197448863
 yosys/proc_arst.ll 5088329596
 yosys/proc_clean.ll 1849214014
 yosys/proc_dff.ll 10945846027
