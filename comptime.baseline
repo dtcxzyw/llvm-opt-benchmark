@@ -606,7 +606,7 @@ abc/hopUtil.c.ll 333877498
 abc/huffman.c.ll 174986602
 abc/ifCache.c.ll 392812629
 abc/ifCom.c.ll 82687342
-abc/ifCore.c.ll 87809498
+abc/ifCore.c.ll 87897907
 abc/ifCut.c.ll 753741028
 abc/ifDec07.c.ll 1228341703
 abc/ifDec08.c.ll 683949432
@@ -1424,7 +1424,7 @@ actix-rs/36k4ilf7c2a7aflt.ll 37295111
 actix-rs/36qa1hw006t0trtl.ll 3020568821
 actix-rs/38w83wyqv1thu0n9.ll 2350551008
 actix-rs/3a93ytv6s0x7lrtz.ll 421733679
-actix-rs/3afp9uuicyvwgbsz.ll 2701352345
+actix-rs/3afp9uuicyvwgbsz.ll 2698442368
 actix-rs/3arfg1ogrgyw4qv2.ll 2488173533
 actix-rs/3aw7yof7lyf9sw54.ll 38151854
 actix-rs/3e7udiep9b6z8k1a.ll 35209726
@@ -2988,7 +2988,7 @@ clap-rs/1rbie63mhpvpjak.ll 2212989992
 clap-rs/1zp92zvstj9lufi9.ll 5671907655
 clap-rs/28kpmq8k0hu4re4f.ll 2218004473
 clap-rs/2n53bxup1mqegzwp.ll 127906852
-clap-rs/3b4nqkxyl1xqdcre.ll 3226586874
+clap-rs/3b4nqkxyl1xqdcre.ll 3230236386
 clap-rs/3n9sdy3q5n8p0ad5.ll 2809415946
 clap-rs/41aqvwa12uhzibvi.ll 54263389
 clap-rs/421wxj3t0b5xgmkw.ll 1598404714
@@ -3851,7 +3851,7 @@ coreutils-rs/12z6icc2yyeo0v0b.ll 365560129
 coreutils-rs/12zaot09cnei5hk4.ll 356366691
 coreutils-rs/142lvpbd2x51gts0.ll 311726820
 coreutils-rs/147qzz7k7oxyhday.ll 112286609
-coreutils-rs/1487bf2zeluccyme.ll 3065607054
+coreutils-rs/1487bf2zeluccyme.ll 3068956495
 coreutils-rs/14n639pndvcsra0l.ll 44827268
 coreutils-rs/14s1cf9f5bgeoqdh.ll 1763198463
 coreutils-rs/15tcgzlzcfi5o6oa.ll 115980900
@@ -4149,7 +4149,7 @@ coreutils-rs/2q67wsuvgcfp7smk.ll 158265347
 coreutils-rs/2q9g8yg7hkth8ect.ll 307311987
 coreutils-rs/2qo70e4zd6mgrgtt.ll 909790832
 coreutils-rs/2qpv5coidj7i7jas.ll 41410168
-coreutils-rs/2qsl5bwp4bvo535d.ll 2100230289
+coreutils-rs/2qsl5bwp4bvo535d.ll 2102679236
 coreutils-rs/2qvjoysgjze8iv5i.ll 152519032
 coreutils-rs/2r18nukclemmw57c.ll 406525243
 coreutils-rs/2rclbnx2h7vkgkhf.ll 36752526
@@ -4995,7 +4995,7 @@ cpython/getpath.ll 288041894
 cpython/getplatform.ll 34285737
 cpython/getversion.ll 37579664
 cpython/grpmodule.ll 157521436
-cpython/hamt.ll 792906989
+cpython/hamt.ll 793699978
 cpython/hashtable.ll 154472660
 cpython/heaptype.ll 308464297
 cpython/heaptype_relative.ll 97655985
@@ -5789,7 +5789,7 @@ cvc5/sygus_repair_const.cpp.ll 3747665632
 cvc5/sygus_sampler.cpp.ll 5146625801
 cvc5/sygus_simple_sym.cpp.ll 1373949251
 cvc5/sygus_solver.cpp.ll 3403998532
-cvc5/sygus_stats.cpp.ll 70181957
+cvc5/sygus_stats.cpp.ll 70252238
 cvc5/sygus_unif.cpp.ll 1183007658
 cvc5/sygus_unif_io.cpp.ll 8108757549
 cvc5/sygus_unif_rl.cpp.ll 7332706986
@@ -6093,7 +6093,7 @@ darktable/introspection_rawdenoise.c.ll 932213966
 darktable/introspection_rawoverexposed.c.ll 158819613
 darktable/introspection_rawprepare.c.ll 593809540
 darktable/introspection_relight.c.ll 106973120
-darktable/introspection_retouch.c.ll 1696732070
+darktable/introspection_retouch.c.ll 1699131244
 darktable/introspection_rgbcurve.c.ll 1354469911
 darktable/introspection_rgblevels.c.ll 499751519
 darktable/introspection_rotatepixels.c.ll 151243619
@@ -6136,7 +6136,7 @@ darktable/ratings.c.ll 87599895
 darktable/rawspeed-identify.cpp.ll 473258605
 darktable/recentcollect.c.ll 145017385
 darktable/select.c.ll 74523270
-darktable/session.c.ll 59404485
+darktable/session.c.ll 59463945
 darktable/slideshow.c.ll 209882879
 darktable/snapshots.c.ll 272350254
 darktable/styles.c.ll 264218618
@@ -6151,7 +6151,7 @@ darktable/xcf.c.ll 170396888
 delta-rs/11f8x98axanecwnw.ll 42493774733
 delta-rs/11w0at10aiwuq3yr.ll 36934451191
 delta-rs/145iz0hplas008bu.ll 936579457
-delta-rs/17fowff2nvfrfdbu.ll 5101614511
+delta-rs/17fowff2nvfrfdbu.ll 5108141315
 delta-rs/18hy949kj2hgmhpt.ll 1860726922
 delta-rs/19o44o7ada9hlwut.ll 764809959
 delta-rs/1ccryk2t8gtcl1j4.ll 4954096513
@@ -6171,7 +6171,7 @@ delta-rs/20d38kflwyye7r28.ll 2117902101
 delta-rs/20ta78igzxvrdtgp.ll 1036976441
 delta-rs/22gnjb10gks9zxxp.ll 2625028439
 delta-rs/23y9k0xysj13ovsb.ll 41626752
-delta-rs/264wku5om6u5pdmz.ll 34647930219
+delta-rs/264wku5om6u5pdmz.ll 34697444111
 delta-rs/26brbbjk91eotd4o.ll 1602008788
 delta-rs/2braxl0lj34anf5z.ll 36450186293
 delta-rs/2die4ejnk5ryh9i0.ll 139619459
@@ -6222,7 +6222,7 @@ delta-rs/47qjbhol909h8zu7.ll 29244508761
 delta-rs/47v8d7rk426ud397.ll 6753498384
 delta-rs/4bgg6x0arskfcu6w.ll 1984035763
 delta-rs/4dbpnkyij7o2iiab.ll 726655532
-delta-rs/4gmkuentbgxoit0g.ll 3794425027
+delta-rs/4gmkuentbgxoit0g.ll 3799010579
 delta-rs/4hbajsv9e0zw688t.ll 1438164967
 delta-rs/4imd7xbfeanhlkqt.ll 957042147
 delta-rs/4jpyf52a2nk6q4dy.ll 707347113
@@ -6272,7 +6272,7 @@ delta-rs/s2xrj2sh770tx8d.ll 35773145222
 delta-rs/tyvgsemgcx0yw30.ll 3425869256
 delta-rs/v2ww4w96jtc8bk1.ll 710905474
 delta-rs/wrhqeq9ewpf5gr8.ll 532616060
-delta-rs/yhu8pdn9ocvwhg1.ll 7597700095
+delta-rs/yhu8pdn9ocvwhg1.ll 7607411142
 delta-rs/znqw5q2v5mkwwil.ll 803310872
 diesel-rs/11am4rvtd1l8ovt5.ll 416989285
 diesel-rs/124a8wycdxz58o0.ll 427111216
@@ -6512,7 +6512,7 @@ diesel-rs/gepqftqgym352s.ll 715053234
 diesel-rs/hcabtpzc2789gsv.ll 166819374
 diesel-rs/hznnvx0rqzdhedj.ll 506613898
 diesel-rs/hzs18qosoh3soq6.ll 677612027
-diesel-rs/ivb4nc5xs1gnmkx.ll 4719598022
+diesel-rs/ivb4nc5xs1gnmkx.ll 4728254652
 diesel-rs/j37a14ywgmm1lay.ll 296682563
 diesel-rs/jrwozg4p14xnxt2.ll 200348972
 diesel-rs/kfsmzrv9s6bcc4a.ll 357717985
@@ -6646,7 +6646,7 @@ duckdb/deserialized_statement_verifier.cpp.ll 213287724
 duckdb/external_statement_verifier.cpp.ll 53459717
 duckdb/generated_extension_loader.cpp.ll 102354810
 duckdb/generators.cpp.ll 329005726
-duckdb/is_distinct_from.cpp.ll 99219347674
+duckdb/is_distinct_from.cpp.ll 99060605219
 duckdb/no_operator_caching_verifier.cpp.ll 55369349
 duckdb/null_operations.cpp.ll 275834786
 duckdb/parsed_statement_verifier.cpp.ll 212374675
@@ -6655,7 +6655,7 @@ duckdb/statement_verifier.cpp.ll 287898994
 duckdb/ub_duckdb_adbc.cpp.ll 2444670511
 duckdb/ub_duckdb_adbc_nanoarrow.cpp.ll 233134855
 duckdb/ub_duckdb_aggr_algebraic.cpp.ll 3614903285
-duckdb/ub_duckdb_aggr_distr.cpp.ll 10461665271
+duckdb/ub_duckdb_aggr_distr.cpp.ll 10474103156
 duckdb/ub_duckdb_aggr_distributive.cpp.ll 36948201919
 duckdb/ub_duckdb_aggr_holistic.cpp.ll 52966876204
 duckdb/ub_duckdb_aggr_nested.cpp.ll 10416862887
@@ -6665,7 +6665,7 @@ duckdb/ub_duckdb_bind_expression.cpp.ll 6446862849
 duckdb/ub_duckdb_bind_query_node.cpp.ll 5288292608
 duckdb/ub_duckdb_bind_statement.cpp.ll 12332014690
 duckdb/ub_duckdb_bind_tableref.cpp.ll 8375762068
-duckdb/ub_duckdb_catalog.cpp.ll 5861263469
+duckdb/ub_duckdb_catalog.cpp.ll 5867832508
 duckdb/ub_duckdb_catalog_default_entries.cpp.ll 573200036
 duckdb/ub_duckdb_catalog_entries.cpp.ll 6885931139
 duckdb/ub_duckdb_catalog_entries_dependency.cpp.ll 128563261
@@ -6698,7 +6698,7 @@ duckdb/ub_duckdb_func_debug.cpp.ll 152664406
 duckdb/ub_duckdb_func_enum.cpp.ll 390441175
 duckdb/ub_duckdb_func_generic.cpp.ll 2602781181
 duckdb/ub_duckdb_func_generic_main.cpp.ll 312291242
-duckdb/ub_duckdb_func_list.cpp.ll 8621494641
+duckdb/ub_duckdb_func_list.cpp.ll 8611722044
 duckdb/ub_duckdb_func_list_nested.cpp.ll 5743512760
 duckdb/ub_duckdb_func_map_nested.cpp.ll 2524081082
 duckdb/ub_duckdb_func_math.cpp.ll 15081283577
@@ -6743,11 +6743,11 @@ duckdb/ub_duckdb_optimizer_compressed_materialization.cpp.ll 668232811
 duckdb/ub_duckdb_optimizer_join_order.cpp.ll 6856609380
 duckdb/ub_duckdb_optimizer_matcher.cpp.ll 551656220
 duckdb/ub_duckdb_optimizer_pullup.cpp.ll 575186945
-duckdb/ub_duckdb_optimizer_pushdown.cpp.ll 1529915114
+duckdb/ub_duckdb_optimizer_pushdown.cpp.ll 1531464247
 duckdb/ub_duckdb_optimizer_rules.cpp.ll 2525173605
 duckdb/ub_duckdb_optimizer_statistics_expr.cpp.ll 663162531
 duckdb/ub_duckdb_optimizer_statistics_op.cpp.ll 1634501873
-duckdb/ub_duckdb_parallel.cpp.ll 4434728730
+duckdb/ub_duckdb_parallel.cpp.ll 4439252792
 duckdb/ub_duckdb_parsed_data.cpp.ll 3568868053
 duckdb/ub_duckdb_parser.cpp.ll 4174955148
 duckdb/ub_duckdb_parser_tableref.cpp.ll 1662974124
@@ -6913,7 +6913,7 @@ entt/iterator.cpp.ll 338480086
 entt/locator.cpp.ll 671908294
 entt/memory.cpp.ll 1720310178
 entt/meta_any.cpp.ll 16050099147
-entt/meta_base.cpp.ll 2551735985
+entt/meta_base.cpp.ll 2554330802
 entt/meta_container.cpp.ll 13406955349
 entt/meta_context.cpp.ll 7580368861
 entt/meta_conv.cpp.ll 1340329220
@@ -7347,7 +7347,7 @@ folly/ThreadCachedArena.cpp.ll 467759695
 folly/ThreadId.cpp.ll 56586560
 folly/ThreadLocalDetail.cpp.ll 460598709
 folly/ThreadName.cpp.ll 59744905
-folly/ThreadPoolExecutor.cpp.ll 1334609203
+folly/ThreadPoolExecutor.cpp.ll 1335958102
 folly/ThreadWheelTimekeeper.cpp.ll 456016257
 folly/ThreadedExecutor.cpp.ll 1536793450
 folly/ThreadedRepeatingFunctionRunner.cpp.ll 147933599
@@ -10349,7 +10349,7 @@ hermes/rustgen.cpp.ll 5148696356
 hermes/synth.cpp.ll 1956023461
 hermes/zip.c.ll 4316076203
 html5ever-rs/102v6xburpu2qkif.ll 134061945
-html5ever-rs/126f7y4y0nk6dpjh.ll 552639422
+html5ever-rs/126f7y4y0nk6dpjh.ll 553192545
 html5ever-rs/16nt8vgyvcmyshf2.ll 137500625
 html5ever-rs/19ci5iy6gkdi8zuj.ll 224794446
 html5ever-rs/1c9wisiomueezeur.ll 553514208
@@ -10527,9 +10527,9 @@ hyperscan/limex_64.c.ll 2110170459
 hyperscan/limex_compile.cpp.ll 28150713019
 hyperscan/limex_native.c.ll 2004005582
 hyperscan/limex_simd128.c.ll 2729185316
-hyperscan/limex_simd256.c.ll 4279831497
+hyperscan/limex_simd256.c.ll 4288380497
 hyperscan/limex_simd384.c.ll 5578362742
-hyperscan/limex_simd512.c.ll 7588424967
+hyperscan/limex_simd512.c.ll 7608228844
 hyperscan/literals.cpp.ll 1655403942
 hyperscan/logical_combination.cpp.ll 4769997314
 hyperscan/match.c.ll 1401275110
@@ -11261,7 +11261,7 @@ ipopt/IpLibraryLoader.ll 121784836
 ipopt/IpLimMemQuasiNewtonUpdater.ll 3038691464
 ipopt/IpLinearSolvers.ll 35546398
 ipopt/IpLinearSolversRegOp.ll 136812650
-ipopt/IpLoqoMuOracle.ll 90543633
+ipopt/IpLoqoMuOracle.ll 90634293
 ipopt/IpLowRankAugSystemSolver.ll 1498217532
 ipopt/IpLowRankSSAugSystemSolver.ll 1186936087
 ipopt/IpLowRankUpdateSymMatrix.ll 517029705
@@ -11565,7 +11565,7 @@ just-rs/15cobjmzhaiu6jpj.ll 13947624016
 just-rs/15iymzte00kmcyqz.ll 3772242207
 just-rs/1t8x2pim4pkxeam1.ll 3554503260
 just-rs/1uppz7l1e89fp8n7.ll 3941644341
-just-rs/23nlf67cmm9na4ci.ll 6926489002
+just-rs/23nlf67cmm9na4ci.ll 6917226280
 just-rs/2sblcsgax6v4zfcc.ll 4553505158
 just-rs/2sotx4bdu006z307.ll 4689560770
 just-rs/3022oi333lxf39jd.ll 4751306913
@@ -12077,7 +12077,7 @@ libquic/secure_hash.cc.ll 102331008
 libquic/sequence_token.cc.ll 94566769
 libquic/server.cc.ll 284996248
 libquic/sha1.c.ll 79627549
-libquic/sha256.c.ll 115710747
+libquic/sha256.c.ll 115826834
 libquic/sha512.c.ll 109395903
 libquic/shared_memory_posix.cc.ll 316431947
 libquic/shift.c.ll 129811287
@@ -12693,7 +12693,7 @@ lief/SpanStream.cpp.ll 12399344713
 lief/SpcIndirectData.cpp.ll 7081133357
 lief/SpcSpOpusInfo.cpp.ll 65540110
 lief/StackSize.cpp.ll 6906436899
-lief/SubFramework.cpp.ll 61602924
+lief/SubFramework.cpp.ll 61664674
 lief/SymbolCommand.cpp.ll 62444332
 lief/SymbolVersion.cpp.ll 96944952
 lief/SymbolVersionAux.cpp.ll 39985960
@@ -14657,7 +14657,7 @@ linux/timekeeping.ll 618389110
 linux/timeout.ll 202428741
 linux/timer.ll 649886191
 linux/timer_list.ll 120032620
-linux/timerfd.ll 173571629
+linux/timerfd.ll 173745441
 linux/tkip.ll 162791477
 linux/tlb.ll 229172036
 linux/tls.ll 168774428
@@ -16078,7 +16078,7 @@ llvm/MCAssembler.cpp.ll 1259230097
 llvm/MCCodeEmitter.cpp.ll 37452097
 llvm/MCCodeView.cpp.ll 1491352660
 llvm/MCContext.cpp.ll 5439074617
-llvm/MCDXContainerStreamer.cpp.ll 132262662
+llvm/MCDXContainerStreamer.cpp.ll 132395106
 llvm/MCDXContainerWriter.cpp.ll 272301954
 llvm/MCDisassembler.cpp.ll 88302844
 llvm/MCDwarf.cpp.ll 3230730512
@@ -17844,7 +17844,7 @@ meilisearch-rs/4p6euf9p6jz4j36m.ll 54154191756
 meilisearch-rs/4rtt9oltj0ubuf08.ll 29033664519
 meilisearch-rs/4rynht2gwvphprvy.ll 17638501492
 meilisearch-rs/4spgntyrk3g2e624.ll 1664120847
-meilisearch-rs/4tsjgmg5dc8wpnes.ll 3622493589
+meilisearch-rs/4tsjgmg5dc8wpnes.ll 3626168281
 meilisearch-rs/50l87gnpqq82g6pe.ll 1043995794
 meilisearch-rs/54ajasddlqavlxt2.ll 2078720305
 meilisearch-rs/55beptyn1v6yeqaz.ll 15717646126
@@ -18361,7 +18361,7 @@ minetest/l_minimap.cpp.ll 131417248
 minetest/l_modchannels.cpp.ll 138978120
 minetest/l_nodemeta.cpp.ll 218948768
 minetest/l_noise.cpp.ll 279660954
-minetest/l_object.cpp.ll 2182499508
+minetest/l_object.cpp.ll 2180078417
 minetest/l_particles.cpp.ll 768861888
 minetest/l_particles_local.cpp.ll 715758338
 minetest/l_playermeta.cpp.ll 45066571
@@ -18405,7 +18405,7 @@ minetest/mod_configuration.cpp.ll 1440266839
 minetest/modalMenu.cpp.ll 405657149
 minetest/modchannels.cpp.ll 348060304
 minetest/mods.cpp.ll 1351395968
-minetest/mt_opengl_loader.cpp.ll 4781151669
+minetest/mt_opengl_loader.cpp.ll 4774485980
 minetest/nameidmapping.cpp.ll 174218426
 minetest/networkpacket.cpp.ll 355620482
 minetest/nodedef.cpp.ll 4726274181
@@ -20814,7 +20814,7 @@ ockam-rs/2cpf09j9we15y4k3.ll 3298465883
 ockam-rs/2cqk2bthd7hdsbp.ll 1088616958
 ockam-rs/2du6nahlp8ywbcuy.ll 394295598
 ockam-rs/2f3dirlrqkj4irco.ll 509955029
-ockam-rs/2ffdkde2ipa00t7y.ll 4571014132
+ockam-rs/2ffdkde2ipa00t7y.ll 4565349238
 ockam-rs/2j1nspj6sq4ph8p4.ll 1033431844
 ockam-rs/2jdafynperrjfnwp.ll 64725787858
 ockam-rs/2keyje0weqp6fpxc.ll 44270201
@@ -20871,7 +20871,7 @@ ockam-rs/371lbzotxaob5lvd.ll 44867093901
 ockam-rs/37pfoqtlnttaeb5z.ll 1820705210
 ockam-rs/37q648fnmlksdgjw.ll 35363039860
 ockam-rs/37wpz1tx0oad4jej.ll 25771628953
-ockam-rs/3814z5tzzmmk2te1.ll 2947219576
+ockam-rs/3814z5tzzmmk2te1.ll 2943768146
 ockam-rs/38dsvl86wvgjj4p9.ll 556134069
 ockam-rs/38s5hbhbeh1uyvuz.ll 1884230716
 ockam-rs/39162e6lwdaotcdm.ll 989750062
@@ -20936,7 +20936,7 @@ ockam-rs/4f34xiu6efu0qenm.ll 3303871100
 ockam-rs/4gv6ak02caawu3g.ll 1313781601
 ockam-rs/4h15go5rbmdr09f8.ll 60139755947
 ockam-rs/4i2q0c0wyur8autb.ll 985619699
-ockam-rs/4i4les6ijtr4jgtl.ll 7252896427
+ockam-rs/4i4les6ijtr4jgtl.ll 7245626146
 ockam-rs/4ie0aygpnuk5bzdx.ll 649987776
 ockam-rs/4j4a1v5i1sqbggrm.ll 5294104624
 ockam-rs/4jyxbm4i1a8dsfue.ll 486172579
@@ -20965,7 +20965,7 @@ ockam-rs/52fqus5emz1tvu3e.ll 401661740
 ockam-rs/52hk8y4wcm3nv0fi.ll 2886615979
 ockam-rs/52y68yp3clcn1au1.ll 37499200
 ockam-rs/5332wkk5omjw03ok.ll 1606800170
-ockam-rs/53knze3nqsbtlge8.ll 4875945458
+ockam-rs/53knze3nqsbtlge8.ll 4881796613
 ockam-rs/53krb1x93msdq8b8.ll 35326483
 ockam-rs/53z3co6kybnoqs47.ll 1208267066
 ockam-rs/546kmyffuelq6tnl.ll 3404702648
@@ -21005,7 +21005,7 @@ ockam-rs/96cf98834y6yscu.ll 1680179952
 ockam-rs/aq9jti6tz0dykb7.ll 2799707302
 ockam-rs/bnoag1yx4g38hzj.ll 5447369046
 ockam-rs/bws0hnih6ct4ces.ll 1196418511
-ockam-rs/cahtbyi0e0azi7k.ll 43978334581
+ockam-rs/cahtbyi0e0azi7k.ll 44034504372
 ockam-rs/cd833f4p6cpvkv4.ll 429033339
 ockam-rs/cts9nubscl1ph7i.ll 8961295273
 ockam-rs/dhoovpx53ppvqd6.ll 1338611373
@@ -21024,12 +21024,12 @@ ockam-rs/lromp2udmqheonc.ll 3712069283
 ockam-rs/luz5e0okyn0ri51.ll 1955140699
 ockam-rs/ngozxy1taodyzc2.ll 3095675319
 ockam-rs/nrwuhm35t9aj6gm.ll 980889715
-ockam-rs/obnl8wv2za00d1i.ll 5625989215
+ockam-rs/obnl8wv2za00d1i.ll 5631786347
 ockam-rs/on09w5afel7x9qz.ll 5557648861
 ockam-rs/pwlgj8q4pvsve1y.ll 6531941068
 ockam-rs/qxtmaqcgbb7tk7b.ll 675846407
 ockam-rs/r526c2e8kd9diy6.ll 3017509859
-ockam-rs/scbbgml6cvr1nwt.ll 82136651374
+ockam-rs/scbbgml6cvr1nwt.ll 82033531622
 ockam-rs/seo2uy2quv4tag3.ll 6748914581
 ockam-rs/u40izb4s9621smy.ll 353880896
 ockam-rs/u4cgd14nodyt386.ll 24302606309
@@ -25248,7 +25248,7 @@ openjdk/zTask.ll 46978574
 openjdk/zThread.ll 70274298
 openjdk/zThreadLocalAllocBuffer.ll 98233336
 openjdk/zTracer.ll 1136133161
-openjdk/zUncoloredRoot.ll 120142785
+openjdk/zUncoloredRoot.ll 120263085
 openjdk/zUncommitter.ll 663811799
 openjdk/zUnload.ll 293853284
 openjdk/zUnmapper.ll 701721905
@@ -25346,7 +25346,7 @@ openmpi/btl_sm_component.ll 548514435
 openmpi/btl_sm_get.ll 40804440
 openmpi/btl_sm_module.ll 323526867
 openmpi/btl_sm_put.ll 40798236
-openmpi/btl_sm_send.ll 215443161
+openmpi/btl_sm_send.ll 215658828
 openmpi/btl_sm_sendi.ll 206033953
 openmpi/btl_tcp.ll 297225868
 openmpi/btl_tcp_component.ll 527823863
@@ -25915,7 +25915,7 @@ openmpi/libmpi_c_profile_la-rget_accumulate.ll 111629745
 openmpi/libmpi_c_profile_la-rput.ll 93099668
 openmpi/libmpi_c_profile_la-rsend.ll 102157462
 openmpi/libmpi_c_profile_la-rsend_init.ll 89730232
-openmpi/libmpi_c_profile_la-scan.ll 116128815
+openmpi/libmpi_c_profile_la-scan.ll 116245447
 openmpi/libmpi_c_profile_la-scan_init.ll 97406967
 openmpi/libmpi_c_profile_la-scatter.ll 119357949
 openmpi/libmpi_c_profile_la-scatter_init.ll 108884860
@@ -27320,7 +27320,7 @@ openssl/libcrypto-lib-bio_dump.ll 104348389
 openssl/libcrypto-lib-bio_enc.ll 143821412
 openssl/libcrypto-lib-bio_err.ll 45527951
 openssl/libcrypto-lib-bio_lib.ll 351098233
-openssl/libcrypto-lib-bio_md.ll 66631328
+openssl/libcrypto-lib-bio_md.ll 66697998
 openssl/libcrypto-lib-bio_meth.ll 73917527
 openssl/libcrypto-lib-bio_ndef.ll 66075648
 openssl/libcrypto-lib-bio_ok.ll 191706153
@@ -32761,9 +32761,9 @@ qemu/hw_net_can_can_kvaser_pci.c.ll 70694933
 qemu/hw_net_can_can_sja1000.c.ll 374460959
 qemu/hw_net_can_ctucan_core.c.ll 276475973
 qemu/hw_net_can_ctucan_pci.c.ll 79078847
-qemu/hw_net_e1000.c.ll 1019389477
+qemu/hw_net_e1000.c.ll 1020779622
 qemu/hw_net_e1000e.c.ll 332808536
-qemu/hw_net_e1000e_core.c.ll 2787609090
+qemu/hw_net_e1000e_core.c.ll 2784488545
 qemu/hw_net_e1000x_common.c.ll 302143186
 qemu/hw_net_eepro100.c.ll 536375181
 qemu/hw_net_igb_core.c.ll 2821504161
@@ -34387,7 +34387,7 @@ rust-analyzer-rs/1a1zl56kycqv0u1p.ll 794490848
 rust-analyzer-rs/1a2athgpe0u8z37j.ll 603440245
 rust-analyzer-rs/1a9wgp98jzqk22uy.ll 898853487
 rust-analyzer-rs/1arzxdbnyk8fkg2l.ll 4977579002
-rust-analyzer-rs/1au8fupciwcmum6.ll 22006508588
+rust-analyzer-rs/1au8fupciwcmum6.ll 21975882161
 rust-analyzer-rs/1b6xp6lrqkqaedig.ll 31222943400
 rust-analyzer-rs/1bjrygtvfxna7kin.ll 5564294302
 rust-analyzer-rs/1bm9kynael7uiqrn.ll 3206751533
@@ -34410,7 +34410,7 @@ rust-analyzer-rs/1inhtflzeuuko7d8.ll 952513290
 rust-analyzer-rs/1j91i64oabb508eh.ll 24158576802
 rust-analyzer-rs/1jnytxsf9ijspdxz.ll 2406818042
 rust-analyzer-rs/1l7la04std2aqrwi.ll 14567421746
-rust-analyzer-rs/1llrnjwin3zvhpvx.ll 4867617016
+rust-analyzer-rs/1llrnjwin3zvhpvx.ll 4872842215
 rust-analyzer-rs/1lnhy2v45voxjwry.ll 25540431342
 rust-analyzer-rs/1lra012089cno2qn.ll 38485093994
 rust-analyzer-rs/1n2nbybgay5hs9t3.ll 4569775698
@@ -34533,7 +34533,7 @@ rust-analyzer-rs/2rmfmj0e763aielg.ll 731199254
 rust-analyzer-rs/2s0syxcsgn6lrmiu.ll 643251050
 rust-analyzer-rs/2sdl9pczykpr2qbv.ll 141998982
 rust-analyzer-rs/2t4zu5bl0pfbsu9w.ll 141130256
-rust-analyzer-rs/2u22uu4kc5lsbxda.ll 7739579825
+rust-analyzer-rs/2u22uu4kc5lsbxda.ll 7749539570
 rust-analyzer-rs/2vdmgd60mzz2ds9w.ll 1277632951
 rust-analyzer-rs/2vxuaelrlwl3fq0k.ll 5845120147
 rust-analyzer-rs/2w4lvnbcibp86ysy.ll 828251002
@@ -34564,7 +34564,7 @@ rust-analyzer-rs/34iz1ce50suppavh.ll 516471513
 rust-analyzer-rs/34mt038wmdb51tcz.ll 827003499
 rust-analyzer-rs/34o0k5fwqjwjv8eq.ll 100289478
 rust-analyzer-rs/34ze0f0ocdzocujf.ll 51520194
-rust-analyzer-rs/357j944nkpwuonjr.ll 25380862356
+rust-analyzer-rs/357j944nkpwuonjr.ll 25345319710
 rust-analyzer-rs/35xql9rmx256nioy.ll 164746075
 rust-analyzer-rs/3617desu5431r5eq.ll 72670036
 rust-analyzer-rs/36cskjvhktchzlnh.ll 4487902747
@@ -34767,7 +34767,7 @@ rust-analyzer-rs/58xaix613yc6ngmz.ll 16449776086
 rust-analyzer-rs/5990sj91y3dzw7ns.ll 1793407254
 rust-analyzer-rs/59bwirtmy79na3s9.ll 290941068
 rust-analyzer-rs/59dl6i7wymyjqg05.ll 2871681268
-rust-analyzer-rs/59xtetyz59tgy0g8.ll 9099659515
+rust-analyzer-rs/59xtetyz59tgy0g8.ll 9109088770
 rust-analyzer-rs/5a391sezfv8ojps9.ll 1139064078
 rust-analyzer-rs/5aa2crkpwvrgj48h.ll 135587288
 rust-analyzer-rs/5ac99zaxn7b9r9xv.ll 2436731680
@@ -34899,7 +34899,7 @@ rustfmt-rs/1mznjg1e09hdetpr.ll 10327627494
 rustfmt-rs/2iek5i6kf8wd1vt9.ll 9570002291
 rustfmt-rs/2tgwtv970e5remme.ll 9841399694
 rustfmt-rs/2vbyym84o66crvo9.ll 11363064211
-rustfmt-rs/3lziz8ad42d63lzu.ll 13157454544
+rustfmt-rs/3lziz8ad42d63lzu.ll 13170867744
 rustfmt-rs/3n0n7c4xrusd0kzl.ll 9389240304
 rustfmt-rs/3sx1t619hmuq0zz7.ll 9313830015
 rustfmt-rs/3xcdaapyewyrfogi.ll 10662059364
@@ -37023,7 +37023,7 @@ tinyrenderer/our_gl.cpp.ll 459660957
 tinyrenderer/tgaimage.cpp.ll 293974545
 tls-rs/1edtspt3qu76t3sp.ll 2150696505
 tls-rs/1oa4q9ydtxtlathz.ll 4563386639
-tls-rs/1pt3w3786vo2dyk0.ll 4674123202
+tls-rs/1pt3w3786vo2dyk0.ll 4668295143
 tls-rs/2c05x43dk4j7ivkd.ll 3895397640
 tls-rs/2xhpv4vf07do7r8g.ll 4105522131
 tls-rs/3yqe92tf6sl9vkq1.ll 1379949480
@@ -37059,7 +37059,7 @@ tokio-rs/15kmqhfhcfvxajm3.ll 158768577
 tokio-rs/18r5vqnw0wlric57.ll 137036298
 tokio-rs/1dbnrm0lkrql25xx.ll 197152689
 tokio-rs/1ebb7hycx8cvqjzi.ll 200307034
-tokio-rs/1k577qo9p6sw2dlc.ll 2065001284
+tokio-rs/1k577qo9p6sw2dlc.ll 2067645779
 tokio-rs/1rl1r5ea6bzd5c9z.ll 2109563557
 tokio-rs/1sipdl3xqse6sn3u.ll 144361775
 tokio-rs/26wlg4yx86ilo6a1.ll 2698359605
@@ -37260,7 +37260,7 @@ typst-rs/5antv5sfgwt5l2ke.ll 1160686143
 typst-rs/5bbfp39e2yjrl2ey.ll 595845033
 typst-rs/5e0rue5wyvshgkgw.ll 257819348
 typst-rs/5g4ubztl8zkyojuq.ll 497265236
-typst-rs/5z4no3nnr5v1s13.ll 40969554747
+typst-rs/5z4no3nnr5v1s13.ll 40926074412
 typst-rs/7qbo95uqhhgrojq.ll 797983364
 typst-rs/al9nyr8ju52xbc2.ll 1601259165
 typst-rs/aovf7fvpf4y65zc.ll 1070860665
@@ -37799,7 +37799,7 @@ wasmtime-rs/13ds1tq11rpvttmq.ll 294123537
 wasmtime-rs/13ix6g1ibmr6sbv8.ll 167220070
 wasmtime-rs/142pswrf9m1eqg4t.ll 189701338
 wasmtime-rs/14hteh3k2fjy6q0p.ll 40386425
-wasmtime-rs/14o4a7b6y6onx84q.ll 6007947440
+wasmtime-rs/14o4a7b6y6onx84q.ll 6001784078
 wasmtime-rs/1529oxey4c08dlxm.ll 37928753
 wasmtime-rs/15mm17rjct5r7ki2.ll 277820289
 wasmtime-rs/15r4qp2xhord7now.ll 34854901
@@ -38147,7 +38147,7 @@ wasmtime-rs/3j5az2u1297eqbxq.ll 54278538
 wasmtime-rs/3j8bjddensch0i6e.ll 37510610
 wasmtime-rs/3jkt1715klpg2nav.ll 38615328
 wasmtime-rs/3jo37amx687aam22.ll 223316287
-wasmtime-rs/3jqdez78s6gt3fnc.ll 3930786062
+wasmtime-rs/3jqdez78s6gt3fnc.ll 3936286839
 wasmtime-rs/3jvsnafccd0sdg64.ll 116509158
 wasmtime-rs/3kewh5xkafprzpyy.ll 44192507
 wasmtime-rs/3kfvm76kbgzrwkht.ll 252574197
@@ -38240,7 +38240,7 @@ wasmtime-rs/44baghvcx0nqcdqn.ll 74643735
 wasmtime-rs/44nozas2wc0gcg9d.ll 46714594
 wasmtime-rs/44oyxmdjsi7rdwcj.ll 762502403
 wasmtime-rs/44sxwrgj75blok5i.ll 82087299
-wasmtime-rs/45190zkycf5izngt.ll 10122559267
+wasmtime-rs/45190zkycf5izngt.ll 10132936832
 wasmtime-rs/456j0x8j3xyjpk7h.ll 187568571
 wasmtime-rs/45c8qwnzerjdnfhr.ll 38660160
 wasmtime-rs/45xu7h74s8u1clim.ll 59787986
@@ -38281,7 +38281,7 @@ wasmtime-rs/4d8mvqooyz2pts8g.ll 71353370
 wasmtime-rs/4diti6b2lhtz5ay2.ll 78619936
 wasmtime-rs/4dz86ia1a3gl2049.ll 39477276
 wasmtime-rs/4e3fhrux4dr494hj.ll 34848693
-wasmtime-rs/4e6qh6p6vske1jz4.ll 3577011068
+wasmtime-rs/4e6qh6p6vske1jz4.ll 3572455205
 wasmtime-rs/4efh2cg2mezvnp3n.ll 1352443994
 wasmtime-rs/4el14vofoaqird7q.ll 44176420
 wasmtime-rs/4ertetnjfua4ibfn.ll 50355582
