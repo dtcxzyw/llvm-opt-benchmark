@@ -2245,7 +2245,7 @@ define void @"_ZN134_$LT$sparse..index..inverted_index..inverted_index_mmap..Inv
   %6 = load i64, ptr %5, align 8, !alias.scope !415, !noalias !418, !noundef !4
   %7 = trunc i64 %6 to i32
   %.not.i = icmp ult i32 %4, %7
-  br i1 %.not.i, label %8, label %_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit.thread
+  br i1 %.not.i, label %8, label %_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit
 
 8:                                                ; preds = %3
   %9 = zext i32 %4 to i64
@@ -2274,7 +2274,7 @@ define void @"_ZN134_$LT$sparse..index..inverted_index..inverted_index_mmap..Inv
 
 25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit.i"
   %26 = icmp ugt i64 %23, %16
-  br i1 %26, label %28, label %_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit
+  br i1 %26, label %28, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12.i"
 
 27:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit.i"
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h4b03447ddded9b9bE(i64 noundef %21, i64 noundef %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20b2b994cad5c991457c4b7e848f440a.47) #18, !noalias !424
@@ -2284,22 +2284,30 @@ define void @"_ZN134_$LT$sparse..index..inverted_index..inverted_index_mmap..Inv
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %23, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.20b2b994cad5c991457c4b7e848f440a.47) #18, !noalias !424
   unreachable
 
-_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit.thread: ; preds = %3
-  store ptr null, ptr %0, align 8
-  br label %32
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12.i": ; preds = %25
+  %29 = sub nuw i64 %23, %21
+  %30 = getelementptr inbounds i8, ptr %14, i64 %21
+  %31 = insertvalue { ptr, i64 } poison, ptr %30, 0
+  %32 = udiv i64 %29, 12
+  %33 = insertvalue { ptr, i64 } %31, i64 %32, 1
+  br label %_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit
 
-_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit: ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %14, i64 %21
-  %30 = sub nuw i64 %23, %21
-  %31 = udiv i64 %30, 12
-  store ptr %29, ptr %0, align 8
+_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit: ; preds = %3, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12.i"
+  %.merged.i = phi { ptr, i64 } [ %33, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12.i" ], [ { ptr null, i64 undef }, %3 ]
+  %34 = extractvalue { ptr, i64 } %.merged.i, 0
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %38, label %36
+
+36:                                               ; preds = %_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit
+  %37 = extractvalue { ptr, i64 } %.merged.i, 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %31, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %37, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %32
+  br label %38
 
-32:                                               ; preds = %_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit, %_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit.thread
+38:                                               ; preds = %_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE.exit, %36
+  store ptr %34, ptr %0, align 8
   ret void
 }
 
@@ -2436,7 +2444,7 @@ define { ptr, i64 } @_ZN6sparse5index14inverted_index19inverted_index_mmap17Inve
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = trunc i64 %5 to i32
   %.not = icmp ult i32 %3, %6
-  br i1 %.not, label %7, label %31
+  br i1 %.not, label %7, label %33
 
 7:                                                ; preds = %2
   %8 = zext i32 %3 to i64
@@ -2478,15 +2486,14 @@ define { ptr, i64 } @_ZN6sparse5index14inverted_index19inverted_index_mmap17Inve
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12": ; preds = %24
   %28 = sub nuw i64 %22, %20
   %29 = getelementptr inbounds i8, ptr %13, i64 %20
-  %30 = udiv i64 %28, 12
-  br label %31
+  %30 = insertvalue { ptr, i64 } poison, ptr %29, 0
+  %31 = udiv i64 %28, 12
+  %32 = insertvalue { ptr, i64 } %30, i64 %31, 1
+  br label %33
 
-31:                                               ; preds = %2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12"
-  %.sroa.3.0 = phi i64 [ %30, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12" ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ %29, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12" ], [ null, %2 ]
-  %32 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %33 = insertvalue { ptr, i64 } %32, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %33
+33:                                               ; preds = %2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12"
+  %.merged = phi { ptr, i64 } [ %32, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f77d738870ab651E.exit12" ], [ { ptr null, i64 undef }, %2 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

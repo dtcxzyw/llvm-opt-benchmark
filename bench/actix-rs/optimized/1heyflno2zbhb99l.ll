@@ -8648,7 +8648,7 @@ define { i64, i32 } @_ZN10actix_http6config13ServiceConfig19keep_alive_deadline1
   %4 = load i32, ptr %3, align 8, !range !1124, !noundef !4
   %5 = and i32 %4, 1073741822
   %.not = icmp eq i32 %5, 1000000000
-  br i1 %.not, label %18, label %6
+  br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %2, i64 48
@@ -8661,16 +8661,11 @@ define { i64, i32 } @_ZN10actix_http6config13ServiceConfig19keep_alive_deadline1
   %13 = getelementptr inbounds i8, ptr %10, i64 64
   %14 = load i32, ptr %13, align 8, !range !1132, !noalias !1131, !noundef !4
   %15 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17hc3e1f3ca43de614cE"(i64 noundef %12, i32 noundef %14, i64 noundef %8, i32 noundef %4)
-  %16 = extractvalue { i64, i32 } %15, 0
-  %17 = extractvalue { i64, i32 } %15, 1
-  br label %18
+  br label %16
 
-18:                                               ; preds = %1, %6
-  %.sroa.4.0 = phi i32 [ %17, %6 ], [ 1000000000, %1 ]
-  %.sroa.0.0 = phi i64 [ %16, %6 ], [ undef, %1 ]
-  %19 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
-  %20 = insertvalue { i64, i32 } %19, i32 %.sroa.4.0, 1
-  ret { i64, i32 } %20
+16:                                               ; preds = %1, %6
+  %.merged = phi { i64, i32 } [ %15, %6 ], [ { i64 undef, i32 1000000000 }, %1 ]
+  ret { i64, i32 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8683,7 +8678,7 @@ define { i64, i32 } @_ZN10actix_http6config13ServiceConfig23client_request_deadl
   %7 = icmp ne i64 %4, 0
   %8 = icmp ne i32 %6, 0
   %.0 = or i1 %7, %8
-  br i1 %.0, label %9, label %19
+  br i1 %.0, label %9, label %17
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %2, i64 96
@@ -8694,16 +8689,11 @@ define { i64, i32 } @_ZN10actix_http6config13ServiceConfig23client_request_deadl
   %14 = getelementptr inbounds i8, ptr %11, i64 64
   %15 = load i32, ptr %14, align 8, !range !1132, !noalias !1139, !noundef !4
   %16 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17hc3e1f3ca43de614cE"(i64 noundef %13, i32 noundef %15, i64 noundef %4, i32 noundef %6)
-  %17 = extractvalue { i64, i32 } %16, 0
-  %18 = extractvalue { i64, i32 } %16, 1
-  br label %19
+  br label %17
 
-19:                                               ; preds = %1, %9
-  %.sroa.3.0 = phi i32 [ %18, %9 ], [ 1000000000, %1 ]
-  %.sroa.0.0 = phi i64 [ %17, %9 ], [ undef, %1 ]
-  %20 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
-  %21 = insertvalue { i64, i32 } %20, i32 %.sroa.3.0, 1
-  ret { i64, i32 } %21
+17:                                               ; preds = %1, %9
+  %.merged = phi { i64, i32 } [ %16, %9 ], [ { i64 undef, i32 1000000000 }, %1 ]
+  ret { i64, i32 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8716,7 +8706,7 @@ define { i64, i32 } @_ZN10actix_http6config13ServiceConfig26client_disconnect_de
   %7 = icmp ne i64 %4, 0
   %8 = icmp ne i32 %6, 0
   %.0 = or i1 %7, %8
-  br i1 %.0, label %9, label %19
+  br i1 %.0, label %9, label %17
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %2, i64 96
@@ -8727,16 +8717,11 @@ define { i64, i32 } @_ZN10actix_http6config13ServiceConfig26client_disconnect_de
   %14 = getelementptr inbounds i8, ptr %11, i64 64
   %15 = load i32, ptr %14, align 8, !range !1132, !noalias !1146, !noundef !4
   %16 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17hc3e1f3ca43de614cE"(i64 noundef %13, i32 noundef %15, i64 noundef %4, i32 noundef %6)
-  %17 = extractvalue { i64, i32 } %16, 0
-  %18 = extractvalue { i64, i32 } %16, 1
-  br label %19
+  br label %17
 
-19:                                               ; preds = %1, %9
-  %.sroa.3.0 = phi i32 [ %18, %9 ], [ 1000000000, %1 ]
-  %.sroa.0.0 = phi i64 [ %17, %9 ], [ undef, %1 ]
-  %20 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
-  %21 = insertvalue { i64, i32 } %20, i32 %.sroa.3.0, 1
-  ret { i64, i32 } %21
+17:                                               ; preds = %1, %9
+  %.merged = phi { i64, i32 } [ %16, %9 ], [ { i64 undef, i32 1000000000 }, %1 ]
+  ret { i64, i32 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable

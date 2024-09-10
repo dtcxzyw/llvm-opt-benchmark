@@ -909,29 +909,24 @@ declare noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm7getNameENS_3MVT15SimpleValueTypeE(i16 noundef zeroext %0) local_unnamed_addr #3 {
   switch i16 %0, label %4 [
-    i16 1, label %8
+    i16 1, label %6
     i16 510, label %2
     i16 506, label %3
   ]
 
 2:                                                ; preds = %1
-  br label %8
+  br label %6
 
 3:                                                ; preds = %1
-  br label %8
+  br label %6
 
 4:                                                ; preds = %1
   %5 = tail call { ptr, i64 } @_ZN4llvm11getEnumNameENS_3MVT15SimpleValueTypeE(i16 noundef zeroext %0)
-  %6 = extractvalue { ptr, i64 } %5, 0
-  %7 = extractvalue { ptr, i64 } %5, 1
-  br label %8
+  br label %6
 
-8:                                                ; preds = %1, %4, %3, %2
-  %.sroa.5.0 = phi i64 [ %7, %4 ], [ 18, %3 ], [ 18, %2 ], [ 7, %1 ]
-  %.sroa.0.0 = phi ptr [ %6, %4 ], [ @.str.12, %3 ], [ @.str.12, %2 ], [ @.str.11, %1 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+6:                                                ; preds = %1, %4, %3, %2
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %5, %4 ], [ { ptr @.str.12, i64 18 }, %3 ], [ { ptr @.str.12, i64 18 }, %2 ], [ { ptr @.str.11, i64 7 }, %1 ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

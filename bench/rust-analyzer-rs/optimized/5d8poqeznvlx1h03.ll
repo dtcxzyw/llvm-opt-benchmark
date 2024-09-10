@@ -49,9 +49,11 @@ define hidden { ptr, ptr } @_ZN4core3ops8function6FnOnce9call_once17h662bf2eea87
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he94fc2dccbe50b84E.llvm.10379957774825582801"(i64 noundef %0, i64 %1) unnamed_addr #1 {
-  %3 = insertvalue { i64, i64 } poison, i64 %0, 0
-  %4 = insertvalue { i64, i64 } %3, i64 %1, 1
-  ret { i64, i64 } %4
+  %3 = icmp eq i64 %0, -9223372036854775807
+  %4 = insertvalue { i64, i64 } poison, i64 %0, 0
+  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %.merged = select i1 %3, { i64, i64 } { i64 -9223372036854775807, i64 undef }, { i64, i64 } %5
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -69,7 +71,9 @@ define hidden void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.1
   unreachable
 
 5:                                                ; preds = %2
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %0, i64 noundef %1) #21
+  %6 = icmp eq i64 %0, -9223372036854775807
+  %7 = select i1 %6, i64 undef, i64 %1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %0, i64 noundef %7) #21
   unreachable
 }
 
@@ -1221,14 +1225,13 @@ define hidden { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u2
   %7 = getelementptr inbounds i8, ptr %4, i64 104
   store ptr %7, ptr %0, align 8, !alias.scope !92
   %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = insertvalue { ptr, ptr } poison, ptr %4, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d2145f4e80ce795E.llvm.10379957774825582801.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d2145f4e80ce795E.llvm.10379957774825582801.exit.thread": ; preds = %1, %6
-  %.sroa.3.0 = phi ptr [ %8, %6 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %4, %6 ], [ null, %1 ]
-  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %10
+  %.merged = phi { ptr, ptr } [ %10, %6 ], [ { ptr null, ptr undef }, %1 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

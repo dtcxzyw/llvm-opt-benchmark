@@ -14273,19 +14273,19 @@ _ZN6duckdb8string_t8FinalizeEv.exit.i:            ; preds = %if.else.i.i, %for.b
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %date.i) #29
   %.fca.0.load.pre.i = load i64, ptr %retval.i, align 8
   %.fca.1.load.pre.i = load ptr, ptr %8, align 8
+  %16 = insertvalue { i64, ptr } poison, i64 %.fca.0.load.pre.i, 0
+  %17 = insertvalue { i64, ptr } %16, ptr %.fca.1.load.pre.i, 1
   br label %"_ZZN6duckdb14StrfTimeFormat22ConvertTimestampVectorERNS_6VectorES2_mENK3$_0clENS_11timestamp_tERNS_12ValidityMaskEm.exit"
 
 if.else.i:                                        ; preds = %entry, %entry
-  %16 = getelementptr inbounds i8, ptr %dataptr, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !272
+  %18 = getelementptr inbounds i8, ptr %dataptr, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !272
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #29
   call void @_ZN6duckdb9Timestamp8ToStringB5cxx11ENS_11timestamp_tE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i64 %input.coerce)
-  %call20.i = invoke { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
+  %call20.i = invoke { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.else.i
-  %18 = extractvalue { i64, ptr } %call20.i, 0
-  %19 = extractvalue { i64, ptr } %call20.i, 1
   %20 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !12
   %21 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i29.i = icmp eq ptr %20, %21
@@ -14330,12 +14330,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i: ; preds = %i
   resume { ptr, i32 } %23
 
 "_ZZN6duckdb14StrfTimeFormat22ConvertTimestampVectorERNS_6VectorES2_mENK3$_0clENS_11timestamp_tERNS_12ValidityMaskEm.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZN6duckdb8string_t8FinalizeEv.exit.i
-  %.fca.1.load.i = phi ptr [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.fca.1.load.pre.i, %_ZN6duckdb8string_t8FinalizeEv.exit.i ]
-  %.fca.0.load.i = phi i64 [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.fca.0.load.pre.i, %_ZN6duckdb8string_t8FinalizeEv.exit.i ]
-  %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.fca.0.load.i, 0
-  %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %.fca.1.load.i, 1
+  %.fca.1.insert.i.merged = phi { i64, ptr } [ %call20.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %17, %_ZN6duckdb8string_t8FinalizeEv.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
-  ret { i64, ptr } %.fca.1.insert.i
+  ret { i64, ptr } %.fca.1.insert.i.merged
 }
 
 declare void @_ZN6duckdb9Timestamp7ConvertENS_11timestamp_tERNS_6date_tERNS_7dtime_tE(i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2

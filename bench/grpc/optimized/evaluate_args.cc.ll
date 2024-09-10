@@ -872,16 +872,11 @@ entry:
 if.end:                                           ; preds = %entry
   %address_str = getelementptr inbounds i8, ptr %0, i64 248
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %address_str) #21
-  %1 = extractvalue { i64, ptr } %call, 0
-  %2 = extractvalue { i64, ptr } %call, 1
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.sroa.3.0 = phi ptr [ %2, %if.end ], [ @.str.8, %entry ]
-  %retval.sroa.0.0 = phi i64 [ %1, %if.end ], [ 0, %entry ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
-  ret { i64, ptr } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, ptr } [ %call, %if.end ], [ { i64 0, ptr @.str.8 }, %entry ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nounwind
@@ -937,16 +932,11 @@ entry:
 if.end:                                           ; preds = %entry
   %address_str = getelementptr inbounds i8, ptr %0, i64 424
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %address_str) #21
-  %1 = extractvalue { i64, ptr } %call, 0
-  %2 = extractvalue { i64, ptr } %call, 1
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.sroa.3.0 = phi ptr [ %2, %if.end ], [ @.str.8, %entry ]
-  %retval.sroa.0.0 = phi i64 [ %1, %if.end ], [ 0, %entry ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
-  ret { i64, ptr } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, ptr } [ %call, %if.end ], [ { i64 0, ptr @.str.8 }, %entry ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

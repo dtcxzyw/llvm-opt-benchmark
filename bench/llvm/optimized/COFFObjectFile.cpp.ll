@@ -6987,32 +6987,29 @@ _ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit: ; preds = %15, %17
   call void @llvm.assume(i1 true) [ "align"(ptr %.sink3.i.i, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %.sink3.i.i, align 1
   %.not = icmp ult i32 %.0.copyload.i.i.i, %.0.copyload.i.i.i.i.i
-  br i1 %.not, label %27, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread
+  br i1 %.not, label %25, label %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread
 
 _ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread: ; preds = %12, %2, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = tail call { i64, ptr } %23(ptr noundef nonnull align 8 dereferenceable(232) %0) #28
-  %25 = extractvalue { i64, ptr } %24, 0
-  %26 = extractvalue { i64, ptr } %24, 1
   br label %31
 
-27:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
+25:                                               ; preds = %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
-  %28 = zext i32 %.0.copyload.i.i.i to i64
-  %29 = getelementptr inbounds %"struct.llvm::object::coff_symbol.3", ptr %8, i64 %28
-  %30 = getelementptr inbounds %"struct.llvm::object::coff_symbol", ptr %6, i64 %28
-  %storemerge.in = select i1 %.not.i, ptr %29, ptr %30
+  %26 = zext i32 %.0.copyload.i.i.i to i64
+  %27 = getelementptr inbounds %"struct.llvm::object::coff_symbol.3", ptr %8, i64 %26
+  %28 = getelementptr inbounds %"struct.llvm::object::coff_symbol", ptr %6, i64 %26
+  %storemerge.in = select i1 %.not.i, ptr %27, ptr %28
   %storemerge = ptrtoint ptr %storemerge.in to i64
+  %29 = insertvalue { i64, ptr } poison, i64 %storemerge, 0
+  %30 = insertvalue { i64, ptr } %29, ptr %0, 1
   br label %31
 
-31:                                               ; preds = %27, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread
-  %.sroa.013.0 = phi i64 [ %storemerge, %27 ], [ %25, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread ]
-  %.sroa.3.0 = phi ptr [ %0, %27 ], [ %26, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.013.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %.fca.1.insert
+31:                                               ; preds = %25, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread
+  %.fca.1.insert.merged = phi { i64, ptr } [ %30, %25 ], [ %24, %_ZNK4llvm6object14COFFObjectFile18getNumberOfSymbolsEv.exit.thread ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable

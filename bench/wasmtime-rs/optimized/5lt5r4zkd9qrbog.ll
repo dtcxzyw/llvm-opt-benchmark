@@ -8186,7 +8186,7 @@ define hidden { ptr, i64 } @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr nonnull align 1 %6, i64 %8, ptr nonnull align 1 @anon.3a4e41e0094de0b8ba6604e391603d5d.365, i64 8)
-  br i1 %9, label %17, label %10
+  br i1 %9, label %15, label %10
 
 10:                                               ; preds = %2
   call void @_ZN4core3str7pattern11StrSearcher3new17heb1c26811addaa28E(ptr nonnull sret({ { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 1 %6, i64 %8, ptr nonnull align 1 @anon.3a4e41e0094de0b8ba6604e391603d5d.290, i64 2)
@@ -8208,16 +8208,9 @@ define hidden { ptr, i64 } @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.367) #15
   unreachable
 
-15:                                               ; preds = %10
-  %16 = extractvalue { ptr, i64 } %11, 1
-  br label %17
-
-17:                                               ; preds = %2, %15
-  %.sroa.3.0 = phi i64 [ %16, %15 ], [ 10, %2 ]
-  %.sroa.0.0 = phi ptr [ %12, %15 ], [ @anon.3a4e41e0094de0b8ba6604e391603d5d.368, %2 ]
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %19 = insertvalue { ptr, i64 } %18, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %19
+15:                                               ; preds = %10, %2
+  %.merged = phi { ptr, i64 } [ { ptr @anon.3a4e41e0094de0b8ba6604e391603d5d.368, i64 10 }, %2 ], [ %11, %10 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

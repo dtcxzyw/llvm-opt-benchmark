@@ -74,7 +74,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator6reduce17h2e08
   %10 = add i64 %9, 1
   store i64 %10, ptr %8, align 8, !alias.scope !15
   %11 = icmp eq ptr %7, %3
-  br i1 %11, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda3c09b87a48ea0fE.exit.thread", label %12
+  br i1 %11, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit", label %12
 
 12:                                               ; preds = %6
   %13 = ptrtoint ptr %3 to i64
@@ -96,14 +96,18 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator6reduce17h2e08
   %20 = add i64 %.022.i.i, 1
   %21 = add nuw i64 %.0.i.i, 1
   %22 = icmp eq i64 %21, %16
-  br i1 %22, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda3c09b87a48ea0fE.exit.thread", label %17
+  br i1 %22, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit", label %17
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda3c09b87a48ea0fE.exit.thread": ; preds = %17, %6, %1
-  %.sroa.2.0 = phi ptr [ null, %1 ], [ %4, %6 ], [ %.sroa.3.0.i.i.i.i.i, %17 ]
-  %.sroa.0.0 = phi i64 [ undef, %1 ], [ %9, %6 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %17 ]
-  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.2.0, 1
-  ret { i64, ptr } %24
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit": ; preds = %17, %6
+  %.pn25.i.i = phi i64 [ %9, %6 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %17 ]
+  %.pn23.i.i = phi ptr [ %4, %6 ], [ %.sroa.3.0.i.i.i.i.i, %17 ]
+  %.pn.i.i = insertvalue { i64, ptr } poison, i64 %.pn25.i.i, 0
+  %.merged.i.i = insertvalue { i64, ptr } %.pn.i.i, ptr %.pn23.i.i, 1
+  br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda3c09b87a48ea0fE.exit.thread"
+
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda3c09b87a48ea0fE.exit.thread": ; preds = %1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit"
+  %.merged = phi { i64, ptr } [ %.merged.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit" ], [ { i64 undef, ptr null }, %1 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -135,13 +139,13 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 define hidden { i64, i64 } @_ZN9itertools9Itertools12position_min17h6dfda8075a43c178E(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
-  %4 = icmp ne ptr %0, %1
-  br i1 %4, label %5, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit
+  %4 = icmp eq ptr %0, %1
+  br i1 %4, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = icmp eq ptr %6, %1
-  br i1 %7, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit, label %8
+  br i1 %7, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit.i", label %8
 
 8:                                                ; preds = %5
   %9 = ptrtoint ptr %1 to i64
@@ -163,14 +167,24 @@ define hidden { i64, i64 } @_ZN9itertools9Itertools12position_min17h6dfda8075a43
   %16 = add i64 %.022.i.i.i, 1
   %17 = add nuw i64 %.0.i.i.i, 1
   %18 = icmp eq i64 %17, %12
-  br i1 %18, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit, label %13
+  br i1 %18, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit.i", label %13
 
-_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit: ; preds = %13, %2, %5
-  %.sroa.0.0.i = phi i64 [ undef, %2 ], [ 0, %5 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %13 ]
-  %. = zext i1 %4 to i64
-  %19 = insertvalue { i64, i64 } poison, i64 %., 0
-  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.0.0.i, 1
-  ret { i64, i64 } %20
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit.i": ; preds = %13, %5
+  %.pn25.i.i.i = phi i64 [ 0, %5 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %13 ]
+  %.pn23.i.i.i = phi ptr [ %0, %5 ], [ %.sroa.3.0.i.i.i.i.i.i, %13 ]
+  %.pn.i.i.i = insertvalue { i64, ptr } poison, i64 %.pn25.i.i.i, 0
+  %.merged.i.i.i = insertvalue { i64, ptr } %.pn.i.i.i, ptr %.pn23.i.i.i, 1
+  br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit
+
+_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit: ; preds = %2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit.i"
+  %.merged.i = phi { i64, ptr } [ %.merged.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h66f3295375d4efb8E.exit.i" ], [ { i64 undef, ptr null }, %2 ]
+  %19 = extractvalue { i64, ptr } %.merged.i, 1
+  %20 = icmp ne ptr %19, null
+  %. = zext i1 %20 to i64
+  %21 = extractvalue { i64, ptr } %.merged.i, 0
+  %22 = insertvalue { i64, i64 } poison, i64 %., 0
+  %23 = insertvalue { i64, i64 } %22, i64 %21, 1
+  ret { i64, i64 } %23
 }
 
 ; Function Attrs: nonlazybind uwtable

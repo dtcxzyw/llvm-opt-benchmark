@@ -3662,21 +3662,17 @@ define { ptr, ptr } @"_ZN58_$LT$uu_shuf..WrappedRng$u20$as$u20$rand_core..RngCor
 "_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hfee6f42f9b9fa00fE.llvm.16077577169749974150.exit.i.i": ; preds = %12
   store ptr %10, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !969
-  br label %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit"
-
-"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit": ; preds = %6, %8, %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hfee6f42f9b9fa00fE.llvm.16077577169749974150.exit.i.i"
-  %.sroa.0.0.i = phi ptr [ null, %6 ], [ %13, %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hfee6f42f9b9fa00fE.llvm.16077577169749974150.exit.i.i" ], [ null, %8 ]
-  %19 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %19 = insertvalue { ptr, ptr } poison, ptr %13, 0
   %20 = insertvalue { ptr, ptr } %19, ptr @anon.db8cd90c5aaf017621f1a0a381070a48.19.llvm.16077577169749974150, 1
-  br label %24
+  br label %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit"
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = tail call { ptr, ptr } @"_ZN68_$LT$rand..rngs..thread..ThreadRng$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17ha3f625d27e76703eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22, ptr noalias noundef nonnull align 1 %1, i64 noundef %2)
-  br label %24
+  br label %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit"
 
-24:                                               ; preds = %21, %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit"
-  %.pn = phi { ptr, ptr } [ %23, %21 ], [ %20, %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit" ]
+"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17hfcc3aa8847c2c35fE.exit": ; preds = %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hfee6f42f9b9fa00fE.llvm.16077577169749974150.exit.i.i", %8, %6, %21
+  %.pn = phi { ptr, ptr } [ %23, %21 ], [ { ptr null, ptr undef }, %6 ], [ %20, %"_ZN83_$LT$uu_shuf..rand_read_adapter..ReadRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hfee6f42f9b9fa00fE.llvm.16077577169749974150.exit.i.i" ], [ { ptr null, ptr undef }, %8 ]
   ret { ptr, ptr } %.pn
 }
 

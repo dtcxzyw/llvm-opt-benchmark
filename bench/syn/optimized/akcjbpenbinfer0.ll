@@ -9721,8 +9721,8 @@ define { ptr, i64 } @"_ZN3syn3lit5value31_$LT$impl$u20$syn..lit..Lit$GT$6suffix1
     i64 3, label %.sink.split
     i64 4, label %5
     i64 5, label %6
-    i64 6, label %12
-    i64 7, label %12
+    i64 6, label %14
+    i64 7, label %14
   ]
 
 default.unreachable:                              ; preds = %1
@@ -9735,22 +9735,21 @@ default.unreachable:                              ; preds = %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %1, %1, %1, %5, %6
-  %.sink24 = phi i64 [ 40, %6 ], [ 40, %5 ], [ 24, %1 ], [ 24, %1 ], [ 24, %1 ], [ 24, %1 ]
-  %.sink22 = phi i64 [ 48, %6 ], [ 48, %5 ], [ 32, %1 ], [ 32, %1 ], [ 32, %1 ], [ 32, %1 ]
+  %.sink26 = phi i64 [ 40, %6 ], [ 40, %5 ], [ 24, %1 ], [ 24, %1 ], [ 24, %1 ], [ 24, %1 ]
+  %.sink24 = phi i64 [ 48, %6 ], [ 48, %5 ], [ 32, %1 ], [ 32, %1 ], [ 32, %1 ], [ 32, %1 ]
   %.sink = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %.sink, align 8, !nonnull !4, !align !86, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %7, i64 %.sink24
+  %8 = getelementptr inbounds i8, ptr %7, i64 %.sink26
   %9 = load ptr, ptr %8, align 8, !noalias !4, !nonnull !4, !align !213, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %7, i64 %.sink22
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.sink24
   %11 = load i64, ptr %10, align 8, !noalias !4, !noundef !4
-  br label %12
+  %12 = insertvalue { ptr, i64 } poison, ptr %9, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %11, 1
+  br label %14
 
-12:                                               ; preds = %.sink.split, %1, %1
-  %.sroa.8.0 = phi i64 [ 0, %1 ], [ 0, %1 ], [ %11, %.sink.split ]
-  %.sroa.0.0 = phi ptr [ @anon.84a734ed744bb6bb5bba1e6f655a55f5.6.llvm.17896666486873179654, %1 ], [ @anon.84a734ed744bb6bb5bba1e6f655a55f5.6.llvm.17896666486873179654, %1 ], [ %9, %.sink.split ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.8.0, 1
-  ret { ptr, i64 } %14
+14:                                               ; preds = %.sink.split, %1, %1
+  %.merged = phi { ptr, i64 } [ { ptr @anon.84a734ed744bb6bb5bba1e6f655a55f5.6.llvm.17896666486873179654, i64 0 }, %1 ], [ { ptr @anon.84a734ed744bb6bb5bba1e6f655a55f5.6.llvm.17896666486873179654, i64 0 }, %1 ], [ %13, %.sink.split ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable

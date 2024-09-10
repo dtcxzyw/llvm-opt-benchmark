@@ -24,13 +24,13 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %7 = load i64, ptr %0, align 8, !range !8, !alias.scope !5, !noundef !4
   %.not.not.i = icmp eq i64 %7, 0
-  br i1 %.not.not.i, label %20, label %8
+  br i1 %.not.not.i, label %18, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !5, !noundef !4
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %21
+  br i1 %11, label %12, label %19
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.i), !noalias !5
@@ -42,23 +42,18 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   store i64 1, ptr %0, align 8, !alias.scope !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.i), !noalias !5
-  br label %21
+  br label %19
 
-17:                                               ; preds = %1, %21
-  %.sroa.3.0 = phi ptr [ %24, %21 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %23, %21 ], [ null, %1 ]
-  %18 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %19
+17:                                               ; preds = %1, %19
+  %.merged = phi { ptr, ptr } [ %20, %19 ], [ { ptr null, ptr undef }, %1 ]
+  ret { ptr, ptr } %.merged
 
-20:                                               ; preds = %5
+18:                                               ; preds = %5
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d83f042c0192c9388333a759feb3eae.2.llvm.16174777062172242219) #11
   unreachable
 
-21:                                               ; preds = %8, %12
-  %22 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h8794900ae6d9142fE.llvm.16174777062172242219(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %24 = extractvalue { ptr, ptr } %22, 1
+19:                                               ; preds = %8, %12
+  %20 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h8794900ae6d9142fE.llvm.16174777062172242219(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
   br label %17
 }
 
@@ -76,13 +71,13 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %7 = load i64, ptr %0, align 8, !range !8, !alias.scope !9, !noundef !4
   %.not.not.i = icmp eq i64 %7, 0
-  br i1 %.not.not.i, label %20, label %8
+  br i1 %.not.not.i, label %18, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !9, !noundef !4
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %21
+  br i1 %11, label %12, label %19
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.i), !noalias !9
@@ -94,23 +89,18 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
   store i64 1, ptr %0, align 8, !alias.scope !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.i), !noalias !9
-  br label %21
+  br label %19
 
-17:                                               ; preds = %1, %21
-  %.sroa.3.0 = phi ptr [ %24, %21 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %23, %21 ], [ null, %1 ]
-  %18 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %19
+17:                                               ; preds = %1, %19
+  %.merged = phi { ptr, ptr } [ %20, %19 ], [ { ptr null, ptr undef }, %1 ]
+  ret { ptr, ptr } %.merged
 
-20:                                               ; preds = %5
+18:                                               ; preds = %5
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d83f042c0192c9388333a759feb3eae.2.llvm.16174777062172242219) #11
   unreachable
 
-21:                                               ; preds = %8, %12
-  %22 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h5c58493124dfd64cE.llvm.16174777062172242219(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %24 = extractvalue { ptr, ptr } %22, 1
+19:                                               ; preds = %8, %12
+  %20 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h5c58493124dfd64cE.llvm.16174777062172242219(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
   br label %17
 }
 
@@ -155,15 +145,15 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN110_$LT$alloc
 
 18:                                               ; preds = %12, %8
   %19 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h5c58493124dfd64cE.llvm.16174777062172242219(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-  %20 = extractvalue { ptr, ptr } %19, 0
-  %21 = extractvalue { ptr, ptr } %19, 1
-  %22 = icmp eq ptr %20, null
-  %23 = select i1 %22, ptr null, ptr %21
   br label %"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9fedc66e7b7e928E.llvm.16174777062172242219.exit"
 
 "_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9fedc66e7b7e928E.llvm.16174777062172242219.exit": ; preds = %1, %18
-  %.sroa.0.0.i = phi ptr [ %23, %18 ], [ null, %1 ]
-  ret ptr %.sroa.0.0.i
+  %.merged.i = phi { ptr, ptr } [ %19, %18 ], [ { ptr null, ptr undef }, %1 ]
+  %20 = extractvalue { ptr, ptr } %.merged.i, 0
+  %21 = icmp eq ptr %20, null
+  %22 = extractvalue { ptr, ptr } %.merged.i, 1
+  %spec.select = select i1 %21, ptr null, ptr %22
+  ret ptr %spec.select
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

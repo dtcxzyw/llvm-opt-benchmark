@@ -296,23 +296,18 @@ define { i32, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__22HdComputedBufferSou
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %2, i32 noundef 1, ptr noundef nonnull @.str.2)
-  br label %17
+  br label %15
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = tail call { i32, i64 } %13(ptr noundef nonnull align 8 dereferenceable(12) %4)
-  %15 = extractvalue { i32, i64 } %14, 0
-  %16 = extractvalue { i32, i64 } %14, 1
-  br label %17
+  br label %15
 
-17:                                               ; preds = %10, %5
-  %.sroa.0.0 = phi i32 [ %15, %10 ], [ -1, %5 ]
-  %.sroa.3.0 = phi i64 [ %16, %10 ], [ 0, %5 ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { i32, i64 } %.fca.1.insert
+15:                                               ; preds = %10, %5
+  %.fca.1.insert.merged = phi { i32, i64 } [ %14, %10 ], [ { i32 -1, i64 0 }, %5 ]
+  ret { i32, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

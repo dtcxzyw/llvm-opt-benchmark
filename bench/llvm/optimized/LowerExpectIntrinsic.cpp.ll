@@ -507,9 +507,12 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_
   %204 = and i32 %203, 67108863
   %205 = add nsw i32 %204, -1
   %206 = zext i32 %205 to i64
+  %.fca.0.insert.i.i.i.i.i = insertvalue { ptr, i64 } poison, ptr %spec.select.i.i.i, 0
   %.not.i.i.i.i = icmp eq i64 %201, %206
-  %207 = and i64 %201, 4294967295
-  %208 = select i1 %.not.i.i.i.i, i64 4294967294, i64 %207
+  %.fca.1.insert.i4.i.i.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i.i.i, i64 4294967294, 1
+  %spec.select.i.i31.i.i = select i1 %.not.i.i.i.i, { ptr, i64 } %.fca.1.insert.i4.i.i.i.i, { ptr, i64 } %200
+  %207 = extractvalue { ptr, i64 } %spec.select.i.i31.i.i, 1
+  %208 = and i64 %207, 4294967295
   %209 = load i32, ptr %180, align 4
   %210 = icmp eq i32 %209, 89
   br i1 %210, label %211, label %214
@@ -547,7 +550,7 @@ _ZL15getBranchWeightjPN4llvm8CallInstEi.exit.i.i: ; preds = %214, %211
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %21, i64 noundef 16) #14
   call void @_ZN4llvm15SmallVectorImplIjE6assignEmj(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %233, i32 noundef %.sink7.i.i.i)
   %234 = icmp eq i64 %208, 4294967294
-  %235 = add nuw nsw i64 %208, 1
+  %235 = add i64 %207, 1
   %236 = and i64 %235, 4294967295
   %237 = select i1 %234, i64 0, i64 %236
   %238 = load ptr, ptr %14, align 8

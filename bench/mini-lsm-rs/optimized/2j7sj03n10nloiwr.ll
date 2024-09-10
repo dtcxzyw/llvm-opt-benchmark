@@ -11327,7 +11327,7 @@ define { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached17he99c3
   %68 = getelementptr inbounds i8, ptr %0, i64 136
   %69 = load ptr, ptr %68, align 8, !noundef !4
   %.not = icmp eq ptr %69, null
-  br i1 %.not, label %996, label %70
+  br i1 %.not, label %998, label %70
 
 70:                                               ; preds = %2
   %71 = getelementptr inbounds i8, ptr %69, i64 16
@@ -13961,12 +13961,12 @@ common.resume:                                    ; preds = %981, %986, %.body.i
 
 "_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread": ; preds = %152, %156
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65), !noalias !2136
-  br label %999
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit"
 
 "_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit": ; preds = %939, %943
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63), !noalias !2152
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65), !noalias !2136
-  br i1 %switch.i, label %999, label %979
+  br i1 %switch.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit", label %979
 
 979:                                              ; preds = %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -14019,12 +14019,12 @@ common.resume:                                    ; preds = %981, %986, %.body.i
   %990 = load ptr, ptr %7, align 8, !alias.scope !2673, !nonnull !4, !noundef !4
   %991 = atomicrmw sub ptr %990, i64 1 release, align 8, !noalias !2673
   %992 = icmp eq i64 %991, 1
-  br i1 %992, label %993, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit"
+  br i1 %992, label %993, label %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i"
 
 993:                                              ; preds = %989
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0a4da7c92fa646bfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit"
+  br label %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i"
 
 994:                                              ; preds = %986
   %995 = landingpad { ptr, i32 }
@@ -14032,23 +14032,25 @@ common.resume:                                    ; preds = %981, %986, %.body.i
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #41
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit": ; preds = %989, %993
+"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i": ; preds = %993, %989
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %999
+  br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit"
 
-996:                                              ; preds = %2
-  %997 = tail call { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable10read_block17h603858a7c3fde5d4E(ptr noundef nonnull align 8 %0, i64 noundef %1)
-  %.fca.0.extract = extractvalue { i64, ptr } %997, 0
-  %998 = extractvalue { i64, ptr } %997, 1
-  br label %999
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit": ; preds = %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread", %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit", %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i"
+  %switch = phi i64 [ 1, %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i" ], [ 0, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit" ], [ 0, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread" ]
+  %.sroa.3.0.i = phi ptr [ %988, %"_ZN13mini_lsm_mvcc5table7SsTable17read_block_cached28_$u7b$$u7b$closure$u7d$$u7d$17hefd575f4ce42213dE.exit.i" ], [ %865, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit" ], [ %150, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread" ]
+  %996 = insertvalue { i64, ptr } poison, i64 %switch, 0
+  %997 = insertvalue { i64, ptr } %996, ptr %.sroa.3.0.i, 1
+  br label %1000
 
-999:                                              ; preds = %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread", %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit", %996
-  %.pn = phi ptr [ %998, %996 ], [ %988, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit" ], [ %150, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread" ], [ %865, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit" ]
-  %.sroa.0.0 = phi i64 [ %.fca.0.extract, %996 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit" ], [ 0, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit.thread" ], [ 0, %"_ZN4moka4sync5cache22Cache$LT$K$C$V$C$S$GT$12try_get_with17h521c303a592e2ca1E.exit" ]
-  %1000 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %1001 = insertvalue { i64, ptr } %1000, ptr %.pn, 1
-  ret { i64, ptr } %1001
+998:                                              ; preds = %2
+  %999 = tail call { i64, ptr } @_ZN13mini_lsm_mvcc5table7SsTable10read_block17h603858a7c3fde5d4E(ptr noundef nonnull align 8 %0, i64 noundef %1)
+  br label %1000
+
+1000:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit", %998
+  %.merged = phi { i64, ptr } [ %999, %998 ], [ %997, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hdd4d2f9a225003a2E.exit" ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

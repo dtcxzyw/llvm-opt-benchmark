@@ -10407,8 +10407,8 @@ if.then:                                          ; preds = %entry
   invoke void @_ZN11mpq_managerILb1EE3invERK3mpqRS1_(ptr noundef nonnull align 8 dereferenceable(728) %1, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %_Z3invRK8rational.exit unwind label %lpad.i
 
-common.resume:                                    ; preds = %eh.resume, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %lpad.val30, %eh.resume ]
+common.resume:                                    ; preds = %ehcleanup, %ehcleanup27, %if.then.i.i64, %lpad.i
+  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %.pn9, %ehcleanup ], [ %.merged, %ehcleanup27 ], [ %.merged, %if.then.i.i64 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then
@@ -10490,10 +10490,8 @@ if.then.i.i17:                                    ; preds = %lpad3
 
 ehcleanup:                                        ; preds = %if.then.i.i17, %lpad3, %lpad
   %.pn9 = phi { ptr, i32 } [ %9, %lpad ], [ %10, %lpad3 ], [ %10, %if.then.i.i17 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn9, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn9, 1
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #26
-  br label %eh.resume
+  br label %common.resume
 
 if.end:                                           ; preds = %entry
   %m_pdd_stack.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -10588,13 +10586,13 @@ if.then.i.i51:                                    ; preds = %lpad12
 
 catch.dispatch:                                   ; preds = %if.then.i.i51, %lpad12, %lpad5
   %.pn = phi { ptr, i32 } [ %19, %lpad5 ], [ %20, %lpad12 ], [ %20, %if.then.i.i51 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
   %22 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2dd11pdd_manager7mem_outE) #26
   %matches = icmp eq i32 %ehselector.slot.2, %22
   br i1 %matches, label %catch, label %ehcleanup27
 
 catch:                                            ; preds = %catch.dispatch
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   %23 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.2) #26
   invoke void @_ZN2dd11pdd_manager2gcEv(ptr noundef nonnull align 8 dereferenceable(952) %this)
           to label %.noexc unwind label %lpad18
@@ -10626,8 +10624,6 @@ if.then.i.i59:                                    ; preds = %if.end16
 lpad18:                                           ; preds = %.noexc, %catch
   %26 = landingpad { ptr, i32 }
           cleanup
-  %27 = extractvalue { ptr, i32 } %26, 0
-  %28 = extractvalue { ptr, i32 } %26, 1
   invoke void @__cxa_end_catch()
           to label %ehcleanup27 unwind label %terminate.lpad
 
@@ -10637,40 +10633,30 @@ if.end22:                                         ; preds = %if.then21, %invoke.
           to label %while.cond unwind label %lpad23, !llvm.loop !96
 
 lpad23:                                           ; preds = %if.end22
-  %29 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  %31 = extractvalue { ptr, i32 } %29, 1
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %catch.dispatch, %lpad18, %lpad23
-  %ehselector.slot.3 = phi i32 [ %31, %lpad23 ], [ %28, %lpad18 ], [ %ehselector.slot.2, %catch.dispatch ]
-  %exn.slot.3 = phi ptr [ %30, %lpad23 ], [ %27, %lpad18 ], [ %exn.slot.2, %catch.dispatch ]
-  %32 = load ptr, ptr %m_pdd_stack.i, align 8
-  %tobool.not.i.i63 = icmp eq ptr %32, null
-  br i1 %tobool.not.i.i63, label %eh.resume, label %if.then.i.i64
+  %.merged = phi { ptr, i32 } [ %27, %lpad23 ], [ %26, %lpad18 ], [ %.pn, %catch.dispatch ]
+  %28 = load ptr, ptr %m_pdd_stack.i, align 8
+  %tobool.not.i.i63 = icmp eq ptr %28, null
+  br i1 %tobool.not.i.i63, label %common.resume, label %if.then.i.i64
 
 if.then.i.i64:                                    ; preds = %ehcleanup27
-  %arrayidx.i.i66 = getelementptr inbounds i8, ptr %32, i64 -4
+  %arrayidx.i.i66 = getelementptr inbounds i8, ptr %28, i64 -4
   store i32 %retval.0.i.i, ptr %arrayidx.i.i66, align 4
-  br label %eh.resume
+  br label %common.resume
 
 return:                                           ; preds = %if.then.i.i59, %if.end16, %.noexc.i
   %retval.0 = phi i1 [ true, %.noexc.i ], [ %cmp8.not.not.not.not.not, %if.end16 ], [ %cmp8.not.not.not.not.not, %if.then.i.i59 ]
   ret i1 %retval.0
 
-eh.resume:                                        ; preds = %if.then.i.i64, %ehcleanup27, %ehcleanup
-  %ehselector.slot.1 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.3, %ehcleanup27 ], [ %ehselector.slot.3, %if.then.i.i64 ]
-  %exn.slot.1 = phi ptr [ %exn.slot.0, %ehcleanup ], [ %exn.slot.3, %ehcleanup27 ], [ %exn.slot.3, %if.then.i.i64 ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
-  %lpad.val30 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
-  br label %common.resume
-
 terminate.lpad:                                   ; preds = %lpad18
-  %33 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #25
+  %30 = extractvalue { ptr, i32 } %29, 0
+  tail call void @__clang_call_terminate(ptr %30) #25
   unreachable
 }
 

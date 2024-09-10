@@ -2149,10 +2149,10 @@ if.end22:                                         ; preds = %if.else, %if.then17
   %fneg3.i.i11.i = fneg float %div3.i.i
   %retval.sroa.0.0.vec.insert.i.i12.i = insertelement <2 x float> poison, float %fneg.i.i9.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i13.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i12.i, float %fneg2.i.i10.i, i64 1
-  %retval.sroa.0.0.i14.i = select i1 %cmp.i8.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i13.i, <2 x float> %ns.sroa.0.4.vec.insert
-  %retval.sroa.3.0.i15.i = select i1 %cmp.i8.i, float %fneg3.i.i11.i, float %div3.i.i
-  store <2 x float> %retval.sroa.0.0.i14.i, ptr %shading.i89, align 8
-  store float %retval.sroa.3.0.i15.i, ptr %ns.sroa.2.0.n.sroa_idx.i, align 8
+  %retval.sroa.0.4.vec.insert.i.pn.i14.i = select i1 %cmp.i8.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i13.i, <2 x float> %ns.sroa.0.4.vec.insert
+  %fneg3.i.pn.i15.i = select i1 %cmp.i8.i, float %fneg3.i.i11.i, float %div3.i.i
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.pn.i14.i, ptr %shading.i89, align 8
+  store float %fneg3.i.pn.i15.i, ptr %ns.sroa.2.0.n.sroa_idx.i, align 8
   %dpdu.i91 = getelementptr inbounds i8, ptr %this, i64 140
   store <2 x float> %agg.tmp25.sroa.0.0.copyload, ptr %dpdu.i91, align 4
   %dpdus.sroa.2.0.dpdu.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 148
@@ -3465,24 +3465,15 @@ land.rhs.i:                                       ; preds = %cond.true
 land.end.i:                                       ; preds = %cond.true
   %shr.i.mask.i.i = and i64 %0, -144115188075855872
   %cond.i.i.i = icmp eq i64 %shr.i.mask.i.i, 864691128455135232
-  br i1 %cond.i.i.i, label %sw.bb18.i.i.i, label %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit
+  br i1 %cond.i.i.i, label %sw.bb18.i.i.i, label %cond.end
 
 sw.bb18.i.i.i:                                    ; preds = %land.end.i
   %call.i.i.i.i = tail call { <2 x float>, <2 x float> } @_ZNK4pbrt16DiffuseAreaLight1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(352) %1, <2 x float> %retval.sroa.0.4.vec.insert.i, float %div.i.i6.i.i, <2 x float> %agg.tmp4.sroa.0.0.copyload, float %agg.tmp4.sroa.2.0.copyload, <2 x float> %agg.tmp5.sroa.0.0.copyload, <2 x float> %w.coerce0, float %w.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
-  br label %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit
-
-_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit: ; preds = %land.end.i, %sw.bb18.i.i.i
-  %call30.pn.i.i.i = phi { <2 x float>, <2 x float> } [ %call.i.i.i.i, %sw.bb18.i.i.i ], [ zeroinitializer, %land.end.i ]
-  %2 = extractvalue { <2 x float>, <2 x float> } %call30.pn.i.i.i, 0
-  %3 = extractvalue { <2 x float>, <2 x float> } %call30.pn.i.i.i, 1
   br label %cond.end
 
-cond.end:                                         ; preds = %entry, %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit
-  %retval.sroa.4.0 = phi <2 x float> [ %3, %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit ], [ zeroinitializer, %entry ]
-  %retval.sroa.0.0 = phi <2 x float> [ %2, %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit ], [ zeroinitializer, %entry ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.4.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+cond.end:                                         ; preds = %entry, %sw.bb18.i.i.i, %land.end.i
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %call.i.i.i.i, %sw.bb18.i.i.i ], [ zeroinitializer, %land.end.i ], [ zeroinitializer, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

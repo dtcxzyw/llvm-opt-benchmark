@@ -329,9 +329,11 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN113_$LT$core.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17h351c5a9d3c2ca310E.llvm.12703545329642850438"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
-  ret { ptr, i64 } %4
+  %3 = icmp eq ptr %0, null
+  %4 = insertvalue { ptr, i64 } poison, ptr %0, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %1, 1
+  %.merged = select i1 %3, { ptr, i64 } { ptr null, i64 undef }, { ptr, i64 } %5
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -341,9 +343,11 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN113_$LT$core.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
-  ret { ptr, i64 } %4
+  %3 = icmp eq ptr %0, null
+  %4 = insertvalue { ptr, i64 } poison, ptr %0, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %1, 1
+  %.merged = select i1 %3, { ptr, i64 } { ptr null, i64 undef }, { ptr, i64 } %5
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1652,17 +1656,21 @@ define hidden void @"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diesel..query
   %3 = load ptr, ptr %1, align 8, !align !7, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !align !7, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = load i64, ptr %8, align 8
+  %6 = icmp eq ptr %3, null
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load ptr, ptr %7, align 8, !align !7, !noundef !4
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp eq ptr %8, null
+  %12 = select i1 %6, i64 undef, i64 %5
+  %13 = select i1 %11, i64 undef, i64 %10
   store ptr %3, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %7, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %9, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %12, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %8, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %13, ptr %16, align 8
   ret void
 }
 

@@ -2982,7 +2982,7 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit:   ; preds = %38, %35, %_ZNK4llvm
 define dso_local { i64, i16 } @_ZNK4llvm26BlockFrequencyInfoImplBase20getFloatingBlockFreqERKNS0_9BlockNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %3, -1
-  br i1 %.not, label %9, label %4
+  br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2992,14 +2992,13 @@ define dso_local { i64, i16 } @_ZNK4llvm26BlockFrequencyInfoImplBase20getFloatin
   %.sroa.03.0.copyload = load i64, ptr %8, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.3.0.copyload = load i16, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %9
+  %9 = insertvalue { i64, i16 } poison, i64 %.sroa.03.0.copyload, 0
+  %10 = insertvalue { i64, i16 } %9, i16 %.sroa.3.0.copyload, 1
+  br label %11
 
-9:                                                ; preds = %2, %4
-  %.sroa.03.0 = phi i64 [ %.sroa.03.0.copyload, %4 ], [ 0, %2 ]
-  %.sroa.3.0 = phi i16 [ %.sroa.3.0.copyload, %4 ], [ 0, %2 ]
-  %.fca.0.insert = insertvalue { i64, i16 } poison, i64 %.sroa.03.0, 0
-  %.fca.1.insert = insertvalue { i64, i16 } %.fca.0.insert, i16 %.sroa.3.0, 1
-  ret { i64, i16 } %.fca.1.insert
+11:                                               ; preds = %2, %4
+  %.fca.1.insert.merged = phi { i64, i16 } [ %10, %4 ], [ zeroinitializer, %2 ]
+  ret { i64, i16 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

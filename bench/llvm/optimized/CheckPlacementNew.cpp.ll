@@ -906,8 +906,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.i.i.i:
   store i8 6, ptr %.sroa.214.0..sroa_idx.i.i.i, align 8
   %.sroa.0.0.copyload.i48.i.i.i = load i64, ptr %77, align 8
   %79 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder9evalBinOpEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS_18BinaryOperatorKindENS0_4SValES8_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(412) %40, ptr noundef nonnull %15, i32 noundef 2, ptr %.fca.0.extract19.i.i.i, i8 %.fca.1.extract20.i.i.i, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %16, i64 %.sroa.0.0.copyload.i48.i.i.i) #17
-  %.fca.0.extract4.i.i.i = extractvalue { ptr, i8 } %79, 0
-  %.fca.1.extract5.i.i.i = extractvalue { ptr, i8 } %79, 1
   %80 = load ptr, ptr %15, align 8
   %.not.i.i49.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i49.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i, label %81
@@ -966,6 +964,8 @@ _ZN4llvm5APIntC2Ejmbb.exit.i.i.i:                 ; preds = %109, %102
   %112 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %.sroa.0.0.copyload.i52.i.i.i = load i64, ptr %83, align 8
   %113 = call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %112, i64 noundef %.0.i.i.i.i, i64 %.sroa.0.0.copyload.i52.i.i.i) #17
+  %.fca.0.insert.i53.i.i.i = insertvalue { ptr, i8 } poison, ptr %113, 0
+  %.fca.1.insert.i54.i.i.i = insertvalue { ptr, i8 } %.fca.0.insert.i53.i.i.i, i8 6, 1
   %114 = load i32, ptr %100, align 8
   %115 = icmp ugt i32 %114, 64
   br i1 %115, label %116, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i
@@ -980,8 +980,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i.i.i:                 ; preds = %109, %102
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i: ; preds = %119, %116, %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i, %81, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.i.i.i, %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit.i.i.i
-  %.sroa.042.0.i.i.i = phi ptr [ %113, %116 ], [ %113, %119 ], [ %113, %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i ], [ %.fca.0.extract4.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.i.i.i ], [ %.fca.0.extract4.i.i.i, %81 ], [ null, %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit.i.i.i ]
-  %.sroa.4.0.i.i.i = phi i8 [ 6, %116 ], [ 6, %119 ], [ 6, %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i ], [ %.fca.1.extract5.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.i.i.i ], [ %.fca.1.extract5.i.i.i, %81 ], [ 1, %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit.i.i.i ]
+  %.fca.1.insert.merged.i.i.i = phi { ptr, i8 } [ %.fca.1.insert.i54.i.i.i, %116 ], [ %.fca.1.insert.i54.i.i.i, %119 ], [ %.fca.1.insert.i54.i.i.i, %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i ], [ %79, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.i.i.i ], [ %79, %81 ], [ { ptr null, i8 1 }, %_ZNK5clang10CXXNewExpr12getArraySizeEv.exit.i.i.i ]
   br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextERb.exit.i.i, label %120
 
 120:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i
@@ -992,6 +991,8 @@ _ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXX
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
+  %.fca.0.extract3.i.i = extractvalue { ptr, i8 } %.fca.1.insert.merged.i.i.i, 0
+  %.fca.1.extract4.i.i = extractvalue { ptr, i8 } %.fca.1.insert.merged.i.i.i, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   %121 = getelementptr inbounds i8, ptr %1, i64 56
   %122 = load i32, ptr %1, align 8
@@ -1047,7 +1048,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i:
 _ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewExprERNS1_4ento14CheckerContextE.exit.i.i: ; preds = %145, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i18.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %143, 0
-  %146 = icmp eq i8 %.sroa.4.0.i.i.i, 6
+  %146 = icmp eq i8 %.fca.1.extract4.i.i, 6
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %143, 1
   %147 = icmp eq i8 %.fca.1.extract.i.i, 6
   %or.cond.i.i = select i1 %146, i1 %147, i1 false
@@ -1060,11 +1061,11 @@ _ZNK12_GLOBAL__N_119PlacementNewChecker20getExtentSizeOfPlaceEPKN5clang10CXXNewE
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %148
-  %153 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.042.0.i.i.i) #20
+  %153 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract3.i.i) #20
   br label %_ZNK4llvm6APSIntltERKS0_.exit.i.i
 
 154:                                              ; preds = %148
-  %155 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.042.0.i.i.i) #20
+  %155 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract3.i.i) #20
   br label %_ZNK4llvm6APSIntltERKS0_.exit.i.i
 
 _ZNK4llvm6APSIntltERKS0_.exit.i.i:                ; preds = %154, %152
@@ -1079,11 +1080,11 @@ _ZNK4llvm6APSIntltERKS0_.exit.i.i:                ; preds = %154, %152
   br i1 %151, label %159, label %161
 
 159:                                              ; preds = %158
-  %160 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.042.0.i.i.i) #20
+  %160 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract3.i.i) #20
   br label %_ZNK4llvm6APSIntgeERKS0_.exit.i.i
 
 161:                                              ; preds = %158
-  %162 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.042.0.i.i.i) #20
+  %162 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract3.i.i) #20
   br label %_ZNK4llvm6APSIntgeERKS0_.exit.i.i
 
 _ZNK4llvm6APSIntgeERKS0_.exit.i.i:                ; preds = %161, %159
@@ -1153,11 +1154,11 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i: ; preds
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %180
-  %184 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.042.0.i.i.i) #20
+  %184 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract3.i.i) #20
   br label %_ZNK4llvm6APSIntgtERKS0_.exit.i.i
 
 185:                                              ; preds = %180
-  %186 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.042.0.i.i.i) #20
+  %186 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract3.i.i) #20
   br label %_ZNK4llvm6APSIntgtERKS0_.exit.i.i
 
 _ZNK4llvm6APSIntgtERKS0_.exit.i.i:                ; preds = %185, %183
@@ -1184,7 +1185,7 @@ _ZNK4llvm6APSIntgtERKS0_.exit.i.i:                ; preds = %185, %183
   br label %_ZNK4llvm6APSIntmiERKS0_.exit.i.i
 
 _ZNK4llvm6APSIntmiERKS0_.exit.i.i:                ; preds = %195, %193
-  %196 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmIERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.042.0.i.i.i) #17, !noalias !16
+  %196 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmIERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract3.i.i) #17, !noalias !16
   %197 = load i32, ptr %189, align 8, !noalias !16
   %198 = load i64, ptr %10, align 8, !noalias !16
   %199 = load i8, ptr %149, align 4, !noalias !13
@@ -1211,7 +1212,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit.i.i:                ; preds = %195, %193
   %208 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS_6APSIntEEE, i64 16), ptr %208, align 8, !alias.scope !19
   %209 = getelementptr inbounds i8, ptr %20, i64 72
-  store ptr %.sroa.042.0.i.i.i, ptr %209, align 8, !alias.scope !19
+  store ptr %.fca.0.extract3.i.i, ptr %209, align 8, !alias.scope !19
   %210 = getelementptr inbounds i8, ptr %20, i64 80
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS_6APSIntEEE, i64 16), ptr %210, align 8, !alias.scope !19
   %211 = getelementptr inbounds i8, ptr %20, i64 88
@@ -1273,12 +1274,12 @@ _ZNK4llvm19formatv_object_basecvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 233:                                              ; preds = %229
   %234 = load i64, ptr %.fca.0.extract.i.i, align 8
-  %235 = load i64, ptr %.sroa.042.0.i.i.i, align 8
+  %235 = load i64, ptr %.fca.0.extract3.i.i, align 8
   %236 = icmp eq i64 %234, %235
   br i1 %236, label %238, label %245
 
 _ZNK4llvm6APSInteqERKS0_.exit.i.i:                ; preds = %229
-  %237 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.042.0.i.i.i) #20
+  %237 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.fca.0.extract3.i.i) #20
   br i1 %237, label %238, label %245
 
 238:                                              ; preds = %_ZNK4llvm6APSInteqERKS0_.exit.i.i, %233
@@ -1316,7 +1317,7 @@ _ZNK4llvm6APSInteqERKS0_.exit.i.i:                ; preds = %229
   %249 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS_6APSIntEEE, i64 16), ptr %249, align 8, !alias.scope !35
   %250 = getelementptr inbounds i8, ptr %24, i64 48
-  store ptr %.sroa.042.0.i.i.i, ptr %250, align 8, !alias.scope !35
+  store ptr %.fca.0.extract3.i.i, ptr %250, align 8, !alias.scope !35
   %251 = getelementptr inbounds i8, ptr %24, i64 56
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail30stream_operator_format_adapterIRKNS_6APSIntEEE, i64 16), ptr %251, align 8, !alias.scope !35
   %252 = getelementptr inbounds i8, ptr %24, i64 64

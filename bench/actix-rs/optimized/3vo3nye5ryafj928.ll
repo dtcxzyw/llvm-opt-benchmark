@@ -77,20 +77,15 @@ define void @"_ZN4core6option15Option$LT$T$GT$6map_or17hde28a60fc0bda33cE"(ptr s
 define { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$8as_deref17hfef80d8a3870225cE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !3, !noundef !4
   %3 = icmp eq i64 %2, -9223372036854775808
-  br i1 %3, label %8, label %4
+  br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = tail call { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17hea228d89a956d486E"(ptr nonnull align 8 %0)
-  %6 = extractvalue { ptr, i64 } %5, 0
-  %7 = extractvalue { ptr, i64 } %5, 1
-  br label %8
+  br label %6
 
-8:                                                ; preds = %1, %4
-  %.sroa.3.0 = phi i64 [ %7, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %6, %4 ], [ null, %1 ]
-  %9 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %10 = insertvalue { ptr, i64 } %9, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %10
+6:                                                ; preds = %1, %4
+  %.merged = phi { ptr, i64 } [ %5, %4 ], [ { ptr null, i64 undef }, %1 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

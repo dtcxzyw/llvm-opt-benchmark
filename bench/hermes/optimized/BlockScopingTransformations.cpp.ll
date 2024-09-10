@@ -32817,26 +32817,19 @@ while.end:                                        ; preds = %while.cond
 
 sw.bb:                                            ; preds = %while.end, %while.end
   %call4 = tail call fastcc { ptr, i8 } @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations22visitAndRewriteForInOfEPNS_6ESTree4NodeES5_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %0, ptr noundef %labeledStmt)
-  %2 = extractvalue { ptr, i8 } %call4, 0
-  %3 = extractvalue { ptr, i8 } %call4, 1
   br label %return
 
 sw.bb5:                                           ; preds = %while.end
   %call7 = tail call fastcc { ptr, i8 } @_ZN6hermes3sem12_GLOBAL__N_127BlockScopingTransformations18visitAndRewriteForEPNS_6ESTree16ForStatementNodeEPNS3_4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %0, ptr noundef %labeledStmt)
-  %4 = extractvalue { ptr, i8 } %call7, 0
-  %5 = extractvalue { ptr, i8 } %call7, 1
   br label %return
 
 sw.default:                                       ; preds = %while.end
-  %6 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %0)
+  %2 = tail call fastcc { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem12_GLOBAL__N_127BlockScopingTransformationsELb0EE5visitERS4_PNS0_4NodeES8_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %0)
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb5, %sw.bb
-  %retval.sroa.3.0 = phi i8 [ 0, %sw.default ], [ %5, %sw.bb5 ], [ %3, %sw.bb ]
-  %retval.sroa.0.0 = phi ptr [ undef, %sw.default ], [ %4, %sw.bb5 ], [ %2, %sw.bb ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
-  ret { ptr, i8 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i8 } [ { ptr undef, i8 0 }, %sw.default ], [ %call7, %sw.bb5 ], [ %call4, %sw.bb ]
+  ret { ptr, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)

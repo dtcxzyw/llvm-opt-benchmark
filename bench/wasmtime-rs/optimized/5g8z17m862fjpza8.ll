@@ -204,30 +204,23 @@ define { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$
   %13 = tail call { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hcc5cf1593977d161E"(i64 %11, i64 %12)
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %27, label %22
+  br i1 %15, label %23, label %20
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !align !4, !noundef !3
   store i8 1, ptr %18, align 1
   %19 = tail call { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17hfaa8d82d75b3922eE"()
-  %20 = extractvalue { i64, i64 } %19, 0
-  %21 = extractvalue { i64, i64 } %19, 1
-  br label %27
+  br label %23
 
-22:                                               ; preds = %7
-  %23 = extractvalue { i64, i64 } %13, 1
-  %24 = tail call { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h494f337a693ea836E"(i64 %23)
-  %25 = extractvalue { i64, i64 } %24, 0
-  %26 = extractvalue { i64, i64 } %24, 1
-  br label %27
+20:                                               ; preds = %7
+  %21 = extractvalue { i64, i64 } %13, 1
+  %22 = tail call { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h494f337a693ea836E"(i64 %21)
+  br label %23
 
-27:                                               ; preds = %7, %22, %16
-  %.sroa.4.0 = phi i64 [ %26, %22 ], [ %21, %16 ], [ undef, %7 ]
-  %.sroa.0.0 = phi i64 [ %25, %22 ], [ %20, %16 ], [ 2, %7 ]
-  %28 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %29 = insertvalue { i64, i64 } %28, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %29
+23:                                               ; preds = %7, %20, %16
+  %.merged = phi { i64, i64 } [ %22, %20 ], [ %19, %16 ], [ { i64 2, i64 undef }, %7 ]
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

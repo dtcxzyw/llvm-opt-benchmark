@@ -1771,10 +1771,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %18
 
 18:                                               ; preds = %4, %._crit_edge.i, %17
-  %.sroa.8.011 = phi ptr [ %.sroa.8.026.i, %17 ], [ %2, %4 ], [ %15, %._crit_edge.i ]
-  %19 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %20 = insertvalue { ptr, ptr } %19, ptr %.sroa.8.011, 1
-  ret { ptr, ptr } %20
+  %.sroa.8.026.i.pn = phi ptr [ %.sroa.8.026.i, %17 ], [ %2, %4 ], [ %15, %._crit_edge.i ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.026.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
@@ -1828,10 +1828,10 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   br label %19
 
 19:                                               ; preds = %4, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2cbf4ebe4e45824E.exit.thread.sink.split.i", %18
-  %.sroa.8.011 = phi ptr [ %.sroa.8.025.i, %18 ], [ %.sroa.8.024.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2cbf4ebe4e45824E.exit.thread.sink.split.i" ], [ %2, %4 ]
-  %20 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.8.011, 1
-  ret { ptr, ptr } %21
+  %.sroa.8.025.i.pn = phi ptr [ %.sroa.8.025.i, %18 ], [ %.sroa.8.024.ph.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd2cbf4ebe4e45824E.exit.thread.sink.split.i" ], [ %2, %4 ]
+  %.pn = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %.merged = insertvalue { ptr, ptr } %.pn, ptr %.sroa.8.025.i.pn, 1
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -8375,20 +8375,15 @@ define { ptr, i64 } @_ZN9actix_web4rmap11ResourceMap10match_name17h1c1b6d2901ffd
   %6 = extractvalue { i64, ptr } %4, 1
   %7 = icmp eq ptr %6, null
   %8 = select i1 %switch.i, i1 true, i1 %7
-  br i1 %8, label %13, label %9
+  br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
   %10 = tail call { ptr, i64 } @_ZN12actix_router8resource11ResourceDef4name17h3674edb55412bc24E(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %6)
-  %11 = extractvalue { ptr, i64 } %10, 0
-  %12 = extractvalue { ptr, i64 } %10, 1
-  br label %13
+  br label %11
 
-13:                                               ; preds = %3, %9
-  %.sroa.3.0 = phi i64 [ %12, %9 ], [ undef, %3 ]
-  %.sroa.0.0 = phi ptr [ %11, %9 ], [ null, %3 ]
-  %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %15 = insertvalue { ptr, i64 } %14, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %15
+11:                                               ; preds = %3, %9
+  %.merged = phi { ptr, i64 } [ %10, %9 ], [ { ptr null, i64 undef }, %3 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

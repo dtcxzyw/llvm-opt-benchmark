@@ -3759,17 +3759,19 @@ if.then11:                                        ; preds = %if.then
   %mmu_idx = getelementptr inbounds i8, ptr %l, i64 68
   %2 = load i32, ptr %mmu_idx, align 4
   %call14 = tail call fastcc { i64, i64 } @do_ld16_mmio_beN(ptr noundef %cpu, ptr noundef %1, i64 noundef 0, i64 noundef %addr, i32 noundef 16, i32 noundef %2, i64 noundef %ra)
-  %3 = extractvalue { i64, i64 } %call14, 0
-  %4 = extractvalue { i64, i64 } %call14, 1
   %memop = getelementptr inbounds i8, ptr %l, i64 64
-  %5 = load i32, ptr %memop, align 8
-  %and15 = and i32 %5, 16
+  %3 = load i32, ptr %memop, align 8
+  %and15 = and i32 %3, 16
   %cmp = icmp eq i32 %and15, 0
   br i1 %cmp, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.then11
+  %4 = extractvalue { i64, i64 } %call14, 1
+  %5 = extractvalue { i64, i64 } %call14, 0
   %6 = tail call i64 @llvm.bswap.i64(i64 %4)
-  %7 = tail call i64 @llvm.bswap.i64(i64 %3)
+  %7 = tail call i64 @llvm.bswap.i64(i64 %5)
+  %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %6, 0
+  %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %7, 1
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -4026,16 +4028,20 @@ do.body.i:                                        ; preds = %required_atomicity.
   unreachable
 
 load_atom_16.exit:                                ; preds = %if.then.i, %sw.bb.i, %sw.bb12.i, %sw.bb15.i, %sw.bb19.i, %sw.bb23.i, %if.then.i.i, %atomic16_read_rw.exit.i.i
-  %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i, %if.then.i ], [ %retval.sroa.0.0.extract.trunc14.i, %sw.bb.i ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %if.then.i.i ], [ %extract.t2.i.i.i, %atomic16_read_rw.exit.i.i ], [ %or.i48.i, %sw.bb23.i ], [ %35, %sw.bb19.i ], [ %or.i38.i, %sw.bb15.i ], [ %or.i.i, %sw.bb12.i ]
-  %retval.sroa.5.0.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i, %if.then.i ], [ %retval.sroa.5.0.extract.trunc18.i, %sw.bb.i ], [ %retval.sroa.2.0.extract.trunc.i.i.i, %if.then.i.i ], [ %extract.t5.i.i.i, %atomic16_read_rw.exit.i.i ], [ %or.i59.i, %sw.bb23.i ], [ %36, %sw.bb19.i ], [ %or.i43.i, %sw.bb15.i ], [ %or.i34.i, %sw.bb12.i ]
+  %retval.sroa.0.0.extract.trunc.i.pn.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i, %if.then.i ], [ %retval.sroa.0.0.extract.trunc14.i, %sw.bb.i ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %if.then.i.i ], [ %extract.t2.i.i.i, %atomic16_read_rw.exit.i.i ], [ %or.i48.i, %sw.bb23.i ], [ %35, %sw.bb19.i ], [ %or.i38.i, %sw.bb15.i ], [ %or.i.i, %sw.bb12.i ]
+  %retval.sroa.2.0.extract.trunc.i.pn.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i, %if.then.i ], [ %retval.sroa.5.0.extract.trunc18.i, %sw.bb.i ], [ %retval.sroa.2.0.extract.trunc.i.i.i, %if.then.i.i ], [ %extract.t5.i.i.i, %atomic16_read_rw.exit.i.i ], [ %or.i59.i, %sw.bb23.i ], [ %36, %sw.bb19.i ], [ %or.i43.i, %sw.bb15.i ], [ %or.i34.i, %sw.bb12.i ]
+  %.fca.0.insert.i.pn.i = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.extract.trunc.i.pn.i, 0
+  %.fca.1.insert.merged.i = insertvalue { i64, i64 } %.fca.0.insert.i.pn.i, i64 %retval.sroa.2.0.extract.trunc.i.pn.i, 1
   %49 = load i32, ptr %memop23, align 8
   %and27 = and i32 %49, 16
   %tobool28.not = icmp eq i32 %and27, 0
   br i1 %tobool28.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %load_atom_16.exit
-  %50 = tail call i64 @llvm.bswap.i64(i64 %retval.sroa.5.0.i)
-  %51 = tail call i64 @llvm.bswap.i64(i64 %retval.sroa.0.0.i)
+  %50 = tail call i64 @llvm.bswap.i64(i64 %retval.sroa.2.0.extract.trunc.i.pn.i)
+  %51 = tail call i64 @llvm.bswap.i64(i64 %retval.sroa.0.0.extract.trunc.i.pn.i)
+  %.fca.0.insert.i.i68 = insertvalue { i64, i64 } poison, i64 %50, 0
+  %.fca.1.insert.i.i69 = insertvalue { i64, i64 } %.fca.0.insert.i.i68, i64 %51, 1
   br label %return
 
 if.end35:                                         ; preds = %entry
@@ -4056,13 +4062,16 @@ if.then40:                                        ; preds = %if.end35
   %call50 = call fastcc i64 @do_ld_8(ptr noundef %cpu, ptr noundef nonnull %arrayidx48, i32 noundef %54, i32 noundef 0, i32 noundef %or, i64 noundef %ra)
   %and51 = and i32 %53, 16
   %cmp52 = icmp eq i32 %and51, 0
-  %.fca.0.insert.i69 = insertvalue { i64, i64 } poison, i64 %call46, 0
-  %.fca.1.insert.i70 = insertvalue { i64, i64 } %.fca.0.insert.i69, i64 %call50, 1
-  %.fca.0.insert.i71 = insertvalue { i64, i64 } poison, i64 %call50, 0
-  %.fca.1.insert.i72 = insertvalue { i64, i64 } %.fca.0.insert.i71, i64 %call46, 1
-  %call55.pn = select i1 %cmp52, { i64, i64 } %.fca.1.insert.i70, { i64, i64 } %.fca.1.insert.i72
-  %ret.1.off64 = extractvalue { i64, i64 } %call55.pn, 1
-  %ret.1.off0 = extractvalue { i64, i64 } %call55.pn, 0
+  br i1 %cmp52, label %if.then54, label %if.else57
+
+if.then54:                                        ; preds = %if.then40
+  %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %call46, 0
+  %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %call50, 1
+  br label %return
+
+if.else57:                                        ; preds = %if.then40
+  %.fca.0.insert.i70 = insertvalue { i64, i64 } poison, i64 %call50, 0
+  %.fca.1.insert.i71 = insertvalue { i64, i64 } %.fca.0.insert.i70, i64 %call46, 1
   br label %return
 
 if.end61:                                         ; preds = %if.end35
@@ -4099,30 +4108,29 @@ if.else76:                                        ; preds = %if.end61
   %60 = load i32, ptr %mmu_idx67, align 4
   %61 = load i32, ptr %memop68, align 8
   %call97 = call fastcc i64 @do_ld_beN(ptr noundef %cpu, ptr noundef nonnull %arrayidx86, i64 noundef %57, i32 noundef %60, i32 noundef 0, i32 noundef %61, i64 noundef %ra)
-  %.fca.0.insert.i75 = insertvalue { i64, i64 } poison, i64 %call97, 0
-  %.fca.1.insert.i76 = insertvalue { i64, i64 } %.fca.0.insert.i75, i64 %retval.sroa.2.0.extract.trunc.i, 1
+  %.fca.0.insert.i74 = insertvalue { i64, i64 } poison, i64 %call97, 0
+  %.fca.1.insert.i75 = insertvalue { i64, i64 } %.fca.0.insert.i74, i64 %retval.sroa.2.0.extract.trunc.i, 1
   br label %if.end100
 
 if.end100:                                        ; preds = %if.else76, %if.then64
   %62 = phi i32 [ %.pre, %if.then64 ], [ %61, %if.else76 ]
-  %call74.pn = phi { i64, i64 } [ %call74, %if.then64 ], [ %.fca.1.insert.i76, %if.else76 ]
-  %ret.2.off64 = extractvalue { i64, i64 } %call74.pn, 1
-  %ret.2.off0 = extractvalue { i64, i64 } %call74.pn, 0
+  %call74.pn = phi { i64, i64 } [ %call74, %if.then64 ], [ %.fca.1.insert.i75, %if.else76 ]
   %and102 = and i32 %62, 16
   %cmp103 = icmp eq i32 %and102, 0
   br i1 %cmp103, label %if.then105, label %return
 
 if.then105:                                       ; preds = %if.end100
+  %ret.2.off64 = extractvalue { i64, i64 } %call74.pn, 1
+  %ret.2.off0 = extractvalue { i64, i64 } %call74.pn, 0
   %63 = tail call i64 @llvm.bswap.i64(i64 %ret.2.off64)
   %64 = tail call i64 @llvm.bswap.i64(i64 %ret.2.off0)
+  %.fca.0.insert.i.i76 = insertvalue { i64, i64 } poison, i64 %63, 0
+  %.fca.1.insert.i.i77 = insertvalue { i64, i64 } %.fca.0.insert.i.i76, i64 %64, 1
   br label %return
 
-return:                                           ; preds = %if.end100, %if.then105, %if.then17, %if.then11, %if.then29, %load_atom_16.exit, %if.then40
-  %retval.sroa.0.0 = phi i64 [ %ret.1.off0, %if.then40 ], [ %6, %if.then17 ], [ %3, %if.then11 ], [ %50, %if.then29 ], [ %retval.sroa.0.0.i, %load_atom_16.exit ], [ %63, %if.then105 ], [ %ret.2.off0, %if.end100 ]
-  %retval.sroa.4.0 = phi i64 [ %ret.1.off64, %if.then40 ], [ %7, %if.then17 ], [ %4, %if.then11 ], [ %51, %if.then29 ], [ %retval.sroa.5.0.i, %load_atom_16.exit ], [ %64, %if.then105 ], [ %ret.2.off64, %if.end100 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { i64, i64 } %.fca.1.insert
+return:                                           ; preds = %if.end100, %if.then105, %if.then54, %if.else57, %if.then17, %if.then11, %if.then29, %load_atom_16.exit
+  %.fca.1.insert.merged = phi { i64, i64 } [ %.fca.1.insert.i.i, %if.then17 ], [ %call14, %if.then11 ], [ %.fca.1.insert.i.i69, %if.then29 ], [ %.fca.1.insert.merged.i, %load_atom_16.exit ], [ %.fca.1.insert.i, %if.then54 ], [ %.fca.1.insert.i71, %if.else57 ], [ %.fca.1.insert.i.i77, %if.then105 ], [ %call74.pn, %if.end100 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

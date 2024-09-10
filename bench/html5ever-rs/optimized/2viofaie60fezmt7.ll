@@ -9,9 +9,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h59b7ccfa93ac958eE.llvm.10562867175124784169"(i64 noundef %0, i64 %1) unnamed_addr #0 {
-  %3 = insertvalue { i64, i64 } poison, i64 %0, 0
-  %4 = insertvalue { i64, i64 } %3, i64 %1, 1
-  ret { i64, i64 } %4
+  %3 = icmp eq i64 %0, -9223372036854775807
+  %4 = insertvalue { i64, i64 } poison, i64 %0, 0
+  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %.merged = select i1 %3, { i64, i64 } { i64 -9223372036854775807, i64 undef }, { i64, i64 } %5
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -193,35 +195,46 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hbd1ff734fa
   %5 = load i64, ptr %0, align 8, !alias.scope !21, !noundef !13
   %6 = sub i64 %5, %4
   %7 = icmp ugt i64 %1, %6
-  br i1 %7, label %9, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6ee70426b69fe442E.exit.thread"
+  br i1 %7, label %10, label %8
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6ee70426b69fe442E.exit.thread": ; preds = %2, %._crit_edge.i
+8:                                                ; preds = %._crit_edge.i, %2
   %.pre-phi.i = phi i64 [ %.pre8.i, %._crit_edge.i ], [ %6, %2 ]
-  %8 = icmp ule i64 %1, %.pre-phi.i
-  tail call void @llvm.assume(i1 %8)
-  ret void
+  %9 = icmp ule i64 %1, %.pre-phi.i
+  tail call void @llvm.assume(i1 %9)
+  br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6ee70426b69fe442E.exit"
 
-9:                                                ; preds = %2
-  %10 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hf8213212cf4c36f7E.llvm.16976975650955182070"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4, i64 noundef %1)
-  %.fca.0.extract.i = extractvalue { i64, i64 } %10, 0
-  switch i64 %.fca.0.extract.i, label %12 [
-    i64 -9223372036854775807, label %._crit_edge.i
-    i64 0, label %11
-  ]
+10:                                               ; preds = %2
+  %11 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hf8213212cf4c36f7E.llvm.16976975650955182070"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4, i64 noundef %1)
+  %.fca.0.extract.i = extractvalue { i64, i64 } %11, 0
+  %12 = icmp eq i64 %.fca.0.extract.i, -9223372036854775807
+  br i1 %12, label %._crit_edge.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6ee70426b69fe442E.exit"
 
-._crit_edge.i:                                    ; preds = %9
+._crit_edge.i:                                    ; preds = %10
   %.pre.i = load i64, ptr %0, align 8, !alias.scope !21
   %.pre8.i = sub i64 %.pre.i, %4
-  br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6ee70426b69fe442E.exit.thread"
+  br label %8
 
-11:                                               ; preds = %9
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6ee70426b69fe442E.exit": ; preds = %8, %10
+  %.merged.i = phi { i64, i64 } [ { i64 -9223372036854775807, i64 undef }, %8 ], [ %11, %10 ]
+  %13 = extractvalue { i64, i64 } %.merged.i, 0
+  switch i64 %13, label %15 [
+    i64 -9223372036854775807, label %_ZN5alloc7raw_vec14handle_reserve17had58ffe066ab6fa9E.llvm.10562867175124784169.exit
+    i64 0, label %14
+  ]
+
+14:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6ee70426b69fe442E.exit"
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17hefb917d2eb4d2968E() #12
   unreachable
 
-12:                                               ; preds = %9
-  %.fca.1.extract.i = extractvalue { i64, i64 } %10, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef %.fca.0.extract.i, i64 noundef %.fca.1.extract.i) #12
+15:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6ee70426b69fe442E.exit"
+  %16 = extractvalue { i64, i64 } %.merged.i, 1
+  %17 = icmp eq i64 %13, -9223372036854775807
+  %.fca.1.extract.i = select i1 %17, i64 undef, i64 %16
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef %13, i64 noundef %.fca.1.extract.i) #12
   unreachable
+
+_ZN5alloc7raw_vec14handle_reserve17had58ffe066ab6fa9E.llvm.10562867175124784169.exit: ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6ee70426b69fe442E.exit"
+  ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -239,7 +252,9 @@ define hidden void @_ZN5alloc7raw_vec14handle_reserve17had58ffe066ab6fa9E.llvm.1
   unreachable
 
 5:                                                ; preds = %2
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef %0, i64 noundef %1) #12
+  %6 = icmp eq i64 %0, -9223372036854775807
+  %.fca.1.extract = select i1 %6, i64 undef, i64 %1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef %0, i64 noundef %.fca.1.extract) #12
   unreachable
 }
 

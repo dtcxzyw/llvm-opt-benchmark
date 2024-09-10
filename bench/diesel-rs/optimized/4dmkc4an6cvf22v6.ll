@@ -6126,17 +6126,17 @@ select.unfold:                                    ; preds = %7, %1
   %20 = load ptr, ptr %19, align 8, !alias.scope !1250, !noalias !1247, !nonnull !4, !align !166
   %21 = getelementptr inbounds i8, ptr %2, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !1250, !noalias !1247
-  %.sroa.3.0.i.i = select i1 %trunc.i.i, i64 0, i64 %22
-  %.sroa.0.0.i.i = select i1 %trunc.i.i, ptr @anon.4ecf52d27cf3a2b5cf5817e9e2e41738.9.llvm.2648289344551647319, ptr %20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1247
+  %.fca.0.extract = select i1 %trunc.i.i, ptr @anon.4ecf52d27cf3a2b5cf5817e9e2e41738.9.llvm.2648289344551647319, ptr %20
+  %23 = select i1 %trunc.i.i, i64 0, i64 %22
   br label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit
 
 _ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit: ; preds = %7, %select.unfold
-  %.sroa.3.0.i.i.pn = phi i64 [ %.sroa.3.0.i.i, %select.unfold ], [ %14, %7 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %select.unfold ], [ %12, %7 ]
-  %23 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %24 = insertvalue { ptr, i64 } %23, i64 %.sroa.3.0.i.i.pn, 1
-  ret { ptr, i64 } %24
+  %.pn = phi i64 [ %23, %select.unfold ], [ %14, %7 ]
+  %.sroa.0.0 = phi ptr [ %.fca.0.extract, %select.unfold ], [ %12, %7 ]
+  %24 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %25 = insertvalue { ptr, i64 } %24, i64 %.pn, 1
+  ret { ptr, i64 } %25
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6524,7 +6524,7 @@ define { ptr, i64 } @"_ZN122_$LT$diesel..sqlite..connection..row..SqliteField$u2
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = load i64, ptr %2, align 8, !range !116, !noundef !4
   %4 = icmp eq i64 %3, 2
-  br i1 %4, label %22, label %5
+  br i1 %4, label %24, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6538,39 +6538,43 @@ define { ptr, i64 } @"_ZN122_$LT$diesel..sqlite..connection..row..SqliteField$u2
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4
   %15 = getelementptr inbounds { ptr, i64 }, ptr %14, i64 %12
-  br i1 %.not.i, label %16, label %.thread
+  br i1 %.not.i, label %16, label %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr %15, align 8, !noundef !4
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread, label %19
+  br i1 %18, label %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %15, i64 8
   %21 = load i64, ptr %20, align 8, !noundef !4
+  br label %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit
+
+_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit: ; preds = %5, %16, %19
+  %.sroa.4.0.i = phi i64 [ %21, %19 ], [ undef, %5 ], [ undef, %16 ]
+  %.sroa.0.0.i = phi ptr [ %17, %19 ], [ null, %5 ], [ null, %16 ]
+  %22 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %23 = insertvalue { ptr, i64 } %22, i64 %.sroa.4.0.i, 1
   br label %.thread
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %2, i64 40
-  %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = load i32, ptr %25, align 8, !noundef !4
-  %27 = sext i32 %26 to i64
-  %28 = icmp ugt i64 %24, %27
-  br i1 %28, label %31, label %.thread
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %26 = load i64, ptr %25, align 8, !noundef !4
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = load i32, ptr %27, align 8, !noundef !4
+  %29 = sext i32 %28 to i64
+  %30 = icmp ugt i64 %26, %29
+  br i1 %30, label %31, label %.thread
 
-.thread:                                          ; preds = %19, %16, %5, %22, %31
-  %.sroa.4.0 = phi i64 [ %.sroa.3.0.i, %31 ], [ undef, %22 ], [ %21, %19 ], [ undef, %5 ], [ undef, %16 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i9, %31 ], [ null, %22 ], [ %17, %19 ], [ null, %5 ], [ null, %16 ]
-  %29 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %30 = insertvalue { ptr, i64 } %29, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %30
+.thread:                                          ; preds = %24, %31, %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit
+  %.merged = phi { ptr, i64 } [ %23, %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit ], [ %43, %31 ], [ { ptr null, i64 undef }, %24 ]
+  ret { ptr, i64 } %.merged
 
-31:                                               ; preds = %22
+31:                                               ; preds = %24
   %32 = getelementptr inbounds i8, ptr %2, i64 32
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds i8, ptr %33, i64 16
-  %35 = getelementptr inbounds { i64, [2 x i64] }, ptr %34, i64 %27
+  %35 = getelementptr inbounds { i64, [2 x i64] }, ptr %34, i64 %29
   %36 = load i64, ptr %35, align 8, !range !56, !alias.scope !1316, !noundef !4
   %37 = icmp eq i64 %36, -9223372036854775808
   %38 = getelementptr inbounds i8, ptr %35, i64 8
@@ -6578,7 +6582,9 @@ define { ptr, i64 } @"_ZN122_$LT$diesel..sqlite..connection..row..SqliteField$u2
   %40 = getelementptr inbounds i8, ptr %35, i64 16
   %41 = load i64, ptr %40, align 8, !alias.scope !1316
   %.sroa.3.0.i = select i1 %37, i64 undef, i64 %41
-  %.sroa.0.0.i9 = select i1 %37, ptr null, ptr %39
+  %.sroa.0.0.i10 = select i1 %37, ptr null, ptr %39
+  %42 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i10, 0
+  %43 = insertvalue { ptr, i64 } %42, i64 %.sroa.3.0.i, 1
   br label %.thread
 }
 

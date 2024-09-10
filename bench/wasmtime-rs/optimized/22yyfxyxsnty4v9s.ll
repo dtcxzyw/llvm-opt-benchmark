@@ -21787,25 +21787,20 @@ default.unreachable3:                             ; preds = %2
 define { ptr, ptr } @"_ZN73_$LT$wasmtime_wasi..stream..StreamError$u20$as$u20$core..error..Error$GT$6source17h2edac355a2b4214fE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !502, !noundef !9
   %switch = icmp eq i64 %2, 0
-  br i1 %switch, label %3, label %6
+  br i1 %switch, label %3, label %4
 
-3:                                                ; preds = %1, %6
-  %.sroa.3.0 = phi ptr [ %14, %6 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %13, %6 ], [ null, %1 ]
-  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %5
+3:                                                ; preds = %1, %4
+  %.merged = phi { ptr, ptr } [ %10, %4 ], [ { ptr null, ptr undef }, %1 ]
+  ret { ptr, ptr } %.merged
 
-6:                                                ; preds = %1
+4:                                                ; preds = %1
   %.0 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = tail call { ptr, ptr } @"_ZN6anyhow5error67_$LT$impl$u20$core..ops..deref..Deref$u20$for$u20$anyhow..Error$GT$5deref17h4d3a82f890d810ffE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.0)
-  %8 = extractvalue { ptr, ptr } %7, 0
-  %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
-  %11 = load ptr, ptr %10, align 8, !invariant.load !9, !nonnull !9
-  %12 = tail call { ptr, ptr } %11(ptr noundef align 1 %8)
-  %13 = extractvalue { ptr, ptr } %12, 0
-  %14 = extractvalue { ptr, ptr } %12, 1
+  %5 = tail call { ptr, ptr } @"_ZN6anyhow5error67_$LT$impl$u20$core..ops..deref..Deref$u20$for$u20$anyhow..Error$GT$5deref17h4d3a82f890d810ffE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.0)
+  %6 = extractvalue { ptr, ptr } %5, 0
+  %7 = extractvalue { ptr, ptr } %5, 1
+  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %9 = load ptr, ptr %8, align 8, !invariant.load !9, !nonnull !9
+  %10 = tail call { ptr, ptr } %9(ptr noundef align 1 %6)
   br label %3
 }
 

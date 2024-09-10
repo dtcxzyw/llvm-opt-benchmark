@@ -1137,13 +1137,15 @@ sw.bb:                                            ; preds = %entry
   %call6 = tail call noundef ptr @_ZN6hermes6parser11JSONFactory9getStringEPNS_12UniqueStringE(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef %2)
   %call8 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 0) #18
   %3 = ptrtoint ptr %call6 to i64
+  %4 = insertvalue { i64, i8 } poison, i64 %3, 0
+  %5 = insertvalue { i64, i8 } %4, i8 1, 1
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   %call11 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 0) #18
-  %4 = load i32, ptr %token_.i, align 8
-  %cmp.not = icmp eq i32 %4, 111
-  br i1 %cmp.not, label %7, label %if.then
+  %6 = load i32, ptr %token_.i, align 8
+  %cmp.not = icmp eq i32 %6, 111
+  br i1 %cmp.not, label %9, label %if.then
 
 if.then:                                          ; preds = %sw.bb9
   %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
@@ -1152,45 +1154,43 @@ if.then:                                          ; preds = %sw.bb9
   store ptr @.str.6, ptr %ref.tmp15, align 8
   store i8 3, ptr %LHSKind.i, align 8
   %sm_.i = getelementptr inbounds i8, ptr %this, i64 1136
-  %5 = load ptr, ptr %sm_.i, align 8
+  %7 = load ptr, ptr %sm_.i, align 8
   %range_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %range_.i.i, align 8
   %retval.sroa.2.0.range_.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.range_.sroa_idx.i.i, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %5, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp15, i32 noundef 2) #18
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %7, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.2.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp15, i32 noundef 2) #18
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   %numeric_.i = getelementptr inbounds i8, ptr %this, i64 88
-  %6 = load double, ptr %numeric_.i, align 8
-  br label %9
+  %8 = load double, ptr %numeric_.i, align 8
+  br label %11
 
-7:                                                ; preds = %sw.bb9
+9:                                                ; preds = %sw.bb9
   %numeric_.i19 = getelementptr inbounds i8, ptr %this, i64 88
-  %8 = load double, ptr %numeric_.i19, align 8
-  %fneg20 = fneg double %8
-  br label %9
+  %10 = load double, ptr %numeric_.i19, align 8
+  %fneg20 = fneg double %10
+  br label %11
 
-9:                                                ; preds = %sw.bb16, %7
-  %10 = phi double [ %fneg20, %7 ], [ %6, %sw.bb16 ]
-  %11 = load ptr, ptr %this, align 8
-  %call22 = tail call noundef ptr @_ZN6hermes6parser11JSONFactory9getNumberEd(ptr noundef nonnull align 8 dereferenceable(120) %11, double noundef %10)
+11:                                               ; preds = %sw.bb16, %9
+  %12 = phi double [ %fneg20, %9 ], [ %8, %sw.bb16 ]
+  %13 = load ptr, ptr %this, align 8
+  %call22 = tail call noundef ptr @_ZN6hermes6parser11JSONFactory9getNumberEd(ptr noundef nonnull align 8 dereferenceable(120) %13, double noundef %12)
   %call24 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 0) #18
-  %12 = ptrtoint ptr %call22 to i64
+  %14 = ptrtoint ptr %call22 to i64
+  %15 = insertvalue { i64, i8 } poison, i64 %14, 0
+  %16 = insertvalue { i64, i8 } %15, i8 1, 1
   br label %return
 
 sw.bb26:                                          ; preds = %entry
   %call28 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 0) #18
   %call29 = tail call { i64, i8 } @_ZN6hermes6parser10JSONParser11parseObjectEv(ptr noundef nonnull align 8 dereferenceable(1144) %this)
-  %13 = extractvalue { i64, i8 } %call29, 0
-  %14 = extractvalue { i64, i8 } %call29, 1
   br label %return
 
 sw.bb30:                                          ; preds = %entry
   %call32 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_, i32 noundef 0) #18
   %call33 = tail call { i64, i8 } @_ZN6hermes6parser10JSONParser10parseArrayEv(ptr noundef nonnull align 8 dereferenceable(1144) %this)
-  %15 = extractvalue { i64, i8 } %call33, 0
-  %16 = extractvalue { i64, i8 } %call33, 1
   br label %return
 
 sw.bb35:                                          ; preds = %entry
@@ -1220,12 +1220,9 @@ sw.default:                                       ; preds = %entry
   call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %17, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i.i14, ptr %retval.sroa.2.0.copyload.i.i16, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp53, i32 noundef 2) #18
   br label %return
 
-return:                                           ; preds = %sw.default, %sw.bb47, %sw.bb41, %sw.bb35, %sw.bb30, %sw.bb26, %9, %if.then, %sw.bb
-  %retval.sroa.0.0 = phi i64 [ undef, %sw.default ], [ ptrtoint (ptr @_ZN6hermes6parser8JSONNull9instance_E to i64), %sw.bb47 ], [ ptrtoint (ptr @_ZN6hermes6parser11JSONBoolean6false_E to i64), %sw.bb41 ], [ ptrtoint (ptr @_ZN6hermes6parser11JSONBoolean5true_E to i64), %sw.bb35 ], [ %15, %sw.bb30 ], [ %13, %sw.bb26 ], [ %12, %9 ], [ undef, %if.then ], [ %3, %sw.bb ]
-  %retval.sroa.8.0 = phi i8 [ 0, %sw.default ], [ 1, %sw.bb47 ], [ 1, %sw.bb41 ], [ 1, %sw.bb35 ], [ %16, %sw.bb30 ], [ %14, %sw.bb26 ], [ 1, %9 ], [ 0, %if.then ], [ 1, %sw.bb ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.8.0, 1
-  ret { i64, i8 } %.fca.1.insert
+return:                                           ; preds = %sw.default, %sw.bb47, %sw.bb41, %sw.bb35, %sw.bb30, %sw.bb26, %11, %if.then, %sw.bb
+  %.fca.1.insert.merged = phi { i64, i8 } [ { i64 undef, i8 0 }, %sw.default ], [ { i64 ptrtoint (ptr @_ZN6hermes6parser8JSONNull9instance_E to i64), i8 1 }, %sw.bb47 ], [ { i64 ptrtoint (ptr @_ZN6hermes6parser11JSONBoolean6false_E to i64), i8 1 }, %sw.bb41 ], [ { i64 ptrtoint (ptr @_ZN6hermes6parser11JSONBoolean5true_E to i64), i8 1 }, %sw.bb35 ], [ %call33, %sw.bb30 ], [ %call29, %sw.bb26 ], [ %16, %11 ], [ { i64 undef, i8 0 }, %if.then ], [ %5, %sw.bb ]
+  ret { i64, i8 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

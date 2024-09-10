@@ -1682,7 +1682,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm11GlobalValue10getSectionEv(ptr noundef 
   %2 = alloca %"class.llvm::DenseSet.470", align 8
   %3 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %3, 1
-  br i1 %.not, label %4, label %17
+  br i1 %.not, label %4, label %15
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -1698,26 +1698,19 @@ define dso_local { ptr, i64 } @_ZNK4llvm11GlobalValue10getSectionEv(ptr noundef 
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %8, i64 noundef %12, i64 noundef 8) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %.not6 = icmp eq ptr %7, null
-  br i1 %.not6, label %21, label %13
+  br i1 %.not6, label %17, label %13
 
 13:                                               ; preds = %4
   %14 = call { ptr, i64 } @_ZNK4llvm12GlobalObject10getSectionEv(ptr noundef nonnull align 8 dereferenceable(56) %7)
-  %15 = extractvalue { ptr, i64 } %14, 0
-  %16 = extractvalue { ptr, i64 } %14, 1
-  br label %21
+  br label %17
 
-17:                                               ; preds = %1
-  %18 = tail call { ptr, i64 } @_ZNK4llvm12GlobalObject10getSectionEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %19 = extractvalue { ptr, i64 } %18, 0
-  %20 = extractvalue { ptr, i64 } %18, 1
-  br label %21
+15:                                               ; preds = %1
+  %16 = tail call { ptr, i64 } @_ZNK4llvm12GlobalObject10getSectionEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  br label %17
 
-21:                                               ; preds = %4, %17, %13
-  %.sroa.4.0 = phi i64 [ %20, %17 ], [ %16, %13 ], [ 0, %4 ]
-  %.sroa.0.0 = phi ptr [ %19, %17 ], [ %15, %13 ], [ @.str.2, %4 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+17:                                               ; preds = %4, %15, %13
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %16, %15 ], [ %14, %13 ], [ { ptr @.str.2, i64 0 }, %4 ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

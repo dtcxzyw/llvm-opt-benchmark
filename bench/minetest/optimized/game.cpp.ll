@@ -37930,8 +37930,6 @@ if.then.i.i877:                                   ; preds = %lpad13
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i877, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i878
-  %exn.slot.0 = extractvalue { ptr, i32 } %20, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %20, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp8) #40
   br label %ehcleanup718
 
@@ -38240,8 +38238,6 @@ ehcleanup109:                                     ; preds = %if.then.i.i950, %_Z
 
 ehcleanup114:                                     ; preds = %ehcleanup109, %lpad91, %ehcleanup87, %lpad70, %lpad62, %lpad58
   %.pn859.pn.pn.pn = phi { ptr, i32 } [ %56, %lpad62 ], [ %55, %lpad58 ], [ %57, %lpad70 ], [ %62, %ehcleanup109 ], [ %61, %lpad91 ], [ %58, %ehcleanup87 ]
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn859.pn.pn.pn, 0
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn859.pn.pn.pn, 1
   %65 = load ptr, ptr %name.i, align 8, !tbaa !11
   %cmp.i.i.i.i956 = icmp eq ptr %65, %32
   br i1 %cmp.i.i.i.i956, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i958, label %if.then.i.i.i957
@@ -38897,8 +38893,6 @@ if.then.i.i1149:                                  ; preds = %lpad328
   br label %ehcleanup332
 
 ehcleanup332:                                     ; preds = %if.then.i.i1149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1150
-  %exn.slot.6 = extractvalue { ptr, i32 } %175, 0
-  %ehselector.slot.6 = extractvalue { ptr, i32 } %175, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp324) #40
   br label %ehcleanup702
 
@@ -39093,8 +39087,6 @@ if.then.i.i1252:                                  ; preds = %lpad435
   br label %ehcleanup439
 
 ehcleanup439:                                     ; preds = %if.then.i.i1252, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1253
-  %exn.slot.7 = extractvalue { ptr, i32 } %197, 0
-  %ehselector.slot.7 = extractvalue { ptr, i32 } %197, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp431) #40
   br label %ehcleanup702
 
@@ -39487,13 +39479,13 @@ _ZN9SoundSpecaSERKS_.exit1369:                    ; preds = %if.else669
 
 ehcleanup676:                                     ; preds = %cleanup.action642, %lpad489
   %.pn855 = phi { ptr, i32 } [ %241, %lpad489 ], [ %.pn845.pn.pn.pn.pn.pn.pn.pn.pn, %cleanup.action642 ]
-  %exn.slot.17 = extractvalue { ptr, i32 } %.pn855, 0
   %ehselector.slot.17 = extractvalue { ptr, i32 } %.pn855, 1
   %259 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI24InvalidPositionException) #40
   %matches = icmp eq i32 %ehselector.slot.17, %259
   br i1 %matches, label %catch, label %ehcleanup702
 
 catch:                                            ; preds = %ehcleanup676
+  %exn.slot.17 = extractvalue { ptr, i32 } %.pn855, 0
   %260 = call ptr @__cxa_begin_catch(ptr %exn.slot.17) #40
   %.not30 = icmp eq ptr @_ZTH11errorstream, null
   br i1 %.not30, label %_ZTW11errorstream.exit1370, label %261
@@ -39566,21 +39558,15 @@ lpad677:                                          ; preds = %invoke.cont689, %if
   %271 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %invoke.cont698 unwind label %terminate.lpad
-
-invoke.cont698:                                   ; preds = %lpad677
-  %272 = extractvalue { ptr, i32 } %271, 1
-  %273 = extractvalue { ptr, i32 } %271, 0
-  br label %ehcleanup702
+          to label %ehcleanup702 unwind label %terminate.lpad
 
 cleanup701:                                       ; preds = %invoke.cont694, %_ZN9SoundSpecaSERKS_.exit1369, %_ZN9SoundSpecaSERKS_.exit, %if.then405
   %retval.2 = phi i1 [ false, %invoke.cont694 ], [ false, %if.then405 ], [ false, %_ZN9SoundSpecaSERKS_.exit1369 ], [ true, %_ZN9SoundSpecaSERKS_.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %predicted_node) #40
   br label %cleanup709
 
-ehcleanup702:                                     ; preds = %invoke.cont698, %ehcleanup676, %ehcleanup439, %ehcleanup332
-  %ehselector.slot.18 = phi i32 [ %272, %invoke.cont698 ], [ %ehselector.slot.17, %ehcleanup676 ], [ %ehselector.slot.7, %ehcleanup439 ], [ %ehselector.slot.6, %ehcleanup332 ]
-  %exn.slot.18 = phi ptr [ %273, %invoke.cont698 ], [ %exn.slot.17, %ehcleanup676 ], [ %exn.slot.7, %ehcleanup439 ], [ %exn.slot.6, %ehcleanup332 ]
+ehcleanup702:                                     ; preds = %lpad677, %ehcleanup676, %ehcleanup439, %ehcleanup332
+  %.merged = phi { ptr, i32 } [ %.pn855, %ehcleanup676 ], [ %197, %ehcleanup439 ], [ %175, %ehcleanup332 ], [ %271, %lpad677 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %predicted_node) #40
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %id) #40
   br label %ehcleanup718
@@ -39596,18 +39582,15 @@ cleanup717:                                       ; preds = %cleanup709, %if.the
   ret i1 %retval.5
 
 ehcleanup718:                                     ; preds = %ehcleanup702, %_ZN17InventoryLocationD2Ev.exit961, %ehcleanup
-  %ehselector.slot.19 = phi i32 [ %ehselector.slot.5, %_ZN17InventoryLocationD2Ev.exit961 ], [ %ehselector.slot.18, %ehcleanup702 ], [ %ehselector.slot.0, %ehcleanup ]
-  %exn.slot.19 = phi ptr [ %exn.slot.5, %_ZN17InventoryLocationD2Ev.exit961 ], [ %exn.slot.18, %ehcleanup702 ], [ %exn.slot.0, %ehcleanup ]
+  %lpad.val729.merged = phi { ptr, i32 } [ %.pn859.pn.pn.pn, %_ZN17InventoryLocationD2Ev.exit961 ], [ %.merged, %ehcleanup702 ], [ %20, %ehcleanup ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position) #40
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.19, 0
-  %lpad.val729 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.19, 1
-  resume { ptr, i32 } %lpad.val729
+  resume { ptr, i32 } %lpad.val729.merged
 
 terminate.lpad:                                   ; preds = %lpad677
-  %274 = landingpad { ptr, i32 }
+  %272 = landingpad { ptr, i32 }
           catch ptr null
-  %275 = extractvalue { ptr, i32 } %274, 0
-  call void @__clang_call_terminate(ptr %275) #43
+  %273 = extractvalue { ptr, i32 } %272, 0
+  call void @__clang_call_terminate(ptr %273) #43
   unreachable
 }
 

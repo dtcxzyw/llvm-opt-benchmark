@@ -90,11 +90,8 @@ __rust_try.llvm.12432872059018301874.exit:        ; preds = %.body.i.i.i.i
   br label %37
 
 37:                                               ; preds = %__rust_try.llvm.12432872059018301874.exit, %36
-  %.sroa.6.06 = phi ptr [ undef, %36 ], [ %33, %__rust_try.llvm.12432872059018301874.exit ]
-  %38 = phi ptr [ null, %36 ], [ %32, %__rust_try.llvm.12432872059018301874.exit ]
-  %39 = insertvalue { ptr, ptr } poison, ptr %38, 0
-  %40 = insertvalue { ptr, ptr } %39, ptr %.sroa.6.06, 1
-  ret { ptr, ptr } %40
+  %.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %36 ], [ %29, %__rust_try.llvm.12432872059018301874.exit ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

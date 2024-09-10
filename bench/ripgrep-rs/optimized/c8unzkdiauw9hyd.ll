@@ -4053,7 +4053,7 @@ define hidden { i64, ptr } @_ZN6ignore9gitignore9Gitignore7matched17h32d0d7f4779
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !alias.scope !951, !noundef !4
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %18, label %7
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4064,16 +4064,11 @@ define hidden { i64, ptr } @_ZN6ignore9gitignore9Gitignore7matched17h32d0d7f4779
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = extractvalue { ptr, i64 } %12, 1
   %15 = tail call { i64, ptr } @_ZN6ignore9gitignore9Gitignore16matched_stripped17h267aafc5914c8f8fE.llvm.9621075337328414724(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14, i1 noundef zeroext %2)
-  %16 = extractvalue { i64, ptr } %15, 0
-  %17 = extractvalue { i64, ptr } %15, 1
-  br label %18
+  br label %16
 
-18:                                               ; preds = %3, %7
-  %.sroa.3.0 = phi ptr [ %17, %7 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ %16, %7 ], [ 0, %3 ]
-  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %20 = insertvalue { i64, ptr } %19, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %20
+16:                                               ; preds = %3, %7
+  %.merged = phi { i64, ptr } [ %15, %7 ], [ { i64 0, ptr undef }, %3 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4081,7 +4076,7 @@ define hidden { i64, ptr } @_ZN6ignore9gitignore9Gitignore7matched17h35af04aa829
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !alias.scope !960, !noundef !4
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %17, label %7
+  br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !alias.scope !963, !noalias !966, !nonnull !4, !align !543, !noundef !4
@@ -4091,16 +4086,11 @@ define hidden { i64, ptr } @_ZN6ignore9gitignore9Gitignore7matched17h35af04aa829
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
   %14 = tail call { i64, ptr } @_ZN6ignore9gitignore9Gitignore16matched_stripped17h267aafc5914c8f8fE.llvm.9621075337328414724(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %13, i1 noundef zeroext %2)
-  %15 = extractvalue { i64, ptr } %14, 0
-  %16 = extractvalue { i64, ptr } %14, 1
-  br label %17
+  br label %15
 
-17:                                               ; preds = %3, %7
-  %.sroa.3.0 = phi ptr [ %16, %7 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ %15, %7 ], [ 0, %3 ]
-  %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %19 = insertvalue { i64, ptr } %18, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %19
+15:                                               ; preds = %3, %7
+  %.merged = phi { i64, ptr } [ %14, %7 ], [ { i64 0, ptr undef }, %3 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4108,23 +4098,18 @@ define hidden { i64, ptr } @_ZN6ignore9gitignore9Gitignore7matched17h504d5d77e3b
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !alias.scope !969, !noundef !4
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %15, label %8
+  br i1 %7, label %13, label %8
 
 8:                                                ; preds = %4
   %9 = tail call { ptr, i64 } @_ZN6ignore9gitignore9Gitignore5strip17ha0b401457ffbc52dE.llvm.9621075337328414724(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = tail call { i64, ptr } @_ZN6ignore9gitignore9Gitignore16matched_stripped17h267aafc5914c8f8fE.llvm.9621075337328414724(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %11, i1 noundef zeroext %3)
-  %13 = extractvalue { i64, ptr } %12, 0
-  %14 = extractvalue { i64, ptr } %12, 1
-  br label %15
+  br label %13
 
-15:                                               ; preds = %4, %8
-  %.sroa.3.0 = phi ptr [ %14, %8 ], [ undef, %4 ]
-  %.sroa.0.0 = phi i64 [ %13, %8 ], [ 0, %4 ]
-  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %17
+13:                                               ; preds = %4, %8
+  %.merged = phi { i64, ptr } [ %12, %8 ], [ { i64 0, ptr undef }, %4 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

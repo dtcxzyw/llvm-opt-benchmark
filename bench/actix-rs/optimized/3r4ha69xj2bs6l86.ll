@@ -7783,16 +7783,11 @@ define hidden { i64, ptr } @"_ZN74_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$future
 
 7:                                                ; preds = %2
   %8 = tail call { i64, ptr } @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$5flush17h832d13e494d1452bE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
   br label %"_ZN88_$LT$actix_codec..framed..Framed$LT$T$C$U$GT$$u20$as$u20$futures_sink..Sink$LT$I$GT$$GT$10poll_ready17h290e68b022900244E.exit"
 
 "_ZN88_$LT$actix_codec..framed..Framed$LT$T$C$U$GT$$u20$as$u20$futures_sink..Sink$LT$I$GT$$GT$10poll_ready17h290e68b022900244E.exit": ; preds = %2, %7
-  %.sroa.0.0.i = phi i64 [ %9, %7 ], [ 0, %2 ]
-  %.sroa.3.0.i = phi ptr [ %10, %7 ], [ null, %2 ]
-  %11 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %12 = insertvalue { i64, ptr } %11, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %12
+  %.merged.i = phi { i64, ptr } [ %8, %7 ], [ zeroinitializer, %2 ]
+  ret { i64, ptr } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7805,16 +7800,11 @@ define hidden { i64, ptr } @"_ZN74_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$future
 
 7:                                                ; preds = %2
   %8 = tail call { i64, ptr } @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$5flush17h193d77e6e26dec29E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-  %9 = extractvalue { i64, ptr } %8, 0
-  %10 = extractvalue { i64, ptr } %8, 1
   br label %"_ZN88_$LT$actix_codec..framed..Framed$LT$T$C$U$GT$$u20$as$u20$futures_sink..Sink$LT$I$GT$$GT$10poll_ready17ha83964095e2d4a9bE.exit"
 
 "_ZN88_$LT$actix_codec..framed..Framed$LT$T$C$U$GT$$u20$as$u20$futures_sink..Sink$LT$I$GT$$GT$10poll_ready17ha83964095e2d4a9bE.exit": ; preds = %2, %7
-  %.sroa.0.0.i = phi i64 [ %9, %7 ], [ 0, %2 ]
-  %.sroa.3.0.i = phi ptr [ %10, %7 ], [ null, %2 ]
-  %11 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %12 = insertvalue { i64, ptr } %11, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %12
+  %.merged.i = phi { i64, ptr } [ %8, %7 ], [ zeroinitializer, %2 ]
+  ret { i64, ptr } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7937,11 +7927,10 @@ define hidden { ptr, ptr } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$9get_ind
   %7 = getelementptr inbounds { i64, i32, i32 }, ptr %6, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = getelementptr inbounds i8, ptr %7, i64 12
-  %.sroa.3.0 = select i1 %.not, ptr %9, ptr undef
-  %.sroa.0.0 = select i1 %.not, ptr %8, ptr null
-  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %11
+  %10 = insertvalue { ptr, ptr } poison, ptr %8, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
+  %.merged = select i1 %.not, { ptr, ptr } %11, { ptr, ptr } { ptr null, ptr undef }
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
