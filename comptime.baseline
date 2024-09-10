@@ -17644,7 +17644,7 @@ luau/IrAnalysis.cpp.ll 3430455663
 luau/IrBuilder.cpp.ll 1382518215
 luau/IrBuilder.test.cpp.ll 7909588644
 luau/IrCallWrapperX64.cpp.ll 354549636
-luau/IrCallWrapperX64.test.cpp.ll 1204871727
+luau/IrCallWrapperX64.test.cpp.ll 1203666671
 luau/IrDump.cpp.ll 537887869
 luau/IrLowering.test.cpp.ll 2783576327
 luau/IrLoweringA64.cpp.ll 1433121834
@@ -22257,7 +22257,7 @@ opencv/fed.cpp.ll 173207299
 opencv/fence.cpp.ll 36387290
 opencv/ffilldemo.cpp.ll 180610250
 opencv/fgs_filter.cpp.ll 668860087
-opencv/file_data_provider.cpp.ll 74381599
+opencv/file_data_provider.cpp.ll 74456020
 opencv/file_input_output.cpp.ll 257531264
 opencv/filestorage.cpp.ll 274134674
 opencv/filesystem.cpp.ll 353217119
