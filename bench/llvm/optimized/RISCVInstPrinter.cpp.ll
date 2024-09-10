@@ -1738,41 +1738,39 @@ define dso_local void @_ZN4llvm16RISCVInstPrinter11printVTypeIEPKNS_6MCInstEjRKN
   %12 = trunc i64 %11 to i32
   %13 = and i64 %11, 7
   %14 = icmp eq i64 %13, 4
-  br i1 %14, label %20, label %15
+  br i1 %14, label %18, label %15
 
 15:                                               ; preds = %5
-  %16 = lshr i32 %12, 3
-  %17 = and i32 %16, 7
-  %18 = shl nuw nsw i32 8, %17
-  %19 = icmp ult i32 %18, 65
+  %16 = and i32 %12, 32
+  %17 = icmp eq i32 %16, 0
   %.not = icmp ult i32 %12, 256
-  %or.cond = and i1 %.not, %19
-  br i1 %or.cond, label %28, label %20
+  %or.cond = and i1 %.not, %17
+  br i1 %or.cond, label %26, label %18
 
-20:                                               ; preds = %15, %5
-  %21 = and i64 %11, 4294967295
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  %23 = load i8, ptr %22, align 1, !noalias !24
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %26
+18:                                               ; preds = %15, %5
+  %19 = and i64 %11, 4294967295
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 51
+  %21 = load i8, ptr %20, align 1, !noalias !24
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %24
 
-25:                                               ; preds = %20
-  call void @_ZNK4llvm13MCInstPrinter9formatHexEl(ptr dead_on_unwind nonnull writable sret(%"class.llvm::format_object") align 8 %6, ptr noundef nonnull align 8 dereferenceable(58) %0, i64 noundef %21) #19
+23:                                               ; preds = %18
+  call void @_ZNK4llvm13MCInstPrinter9formatHexEl(ptr dead_on_unwind nonnull writable sret(%"class.llvm::format_object") align 8 %6, ptr noundef nonnull align 8 dereferenceable(58) %0, i64 noundef %19) #19
   br label %_ZNK4llvm13MCInstPrinter9formatImmEl.exit
 
-26:                                               ; preds = %20
-  call void @_ZNK4llvm13MCInstPrinter9formatDecEl(ptr dead_on_unwind nonnull writable sret(%"class.llvm::format_object") align 8 %6, ptr noundef nonnull align 8 dereferenceable(58) %0, i64 noundef %21) #19
+24:                                               ; preds = %18
+  call void @_ZNK4llvm13MCInstPrinter9formatDecEl(ptr dead_on_unwind nonnull writable sret(%"class.llvm::format_object") align 8 %6, ptr noundef nonnull align 8 dereferenceable(58) %0, i64 noundef %19) #19
   br label %_ZNK4llvm13MCInstPrinter9formatImmEl.exit
 
-_ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %25, %26
-  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(16) %6) #19
-  br label %29
+_ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %23, %24
+  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(16) %6) #19
+  br label %27
 
-28:                                               ; preds = %15
+26:                                               ; preds = %15
   tail call void @_ZN4llvm10RISCVVType10printVTypeEjRNS_11raw_ostreamE(i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(48) %4) #19
-  br label %29
+  br label %27
 
-29:                                               ; preds = %28, %_ZNK4llvm13MCInstPrinter9formatImmEl.exit
+27:                                               ; preds = %26, %_ZNK4llvm13MCInstPrinter9formatImmEl.exit
   ret void
 }
 
