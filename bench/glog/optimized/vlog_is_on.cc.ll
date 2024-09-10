@@ -26,68 +26,56 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMatch_EPKcmS2_m(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = icmp eq i64 %1, 0
-  %6 = icmp eq i64 %3, 0
-  br i1 %5, label %.loopexit, label %.lr.ph
+.split:
+  %4 = icmp eq i64 %1, 0
+  br i1 %4, label %.loopexit42, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %22
-  %7 = phi i1 [ %25, %22 ], [ %6, %4 ]
-  %.051 = phi i64 [ %23, %22 ], [ 0, %4 ]
-  br i1 %7, label %8, label %15
+.lr.ph:                                           ; preds = %.split, %11
+  %.051 = phi i64 [ %12, %11 ], [ 0, %.split ]
+  %5 = getelementptr inbounds i8, ptr %0, i64 %.051
+  %6 = load i8, ptr %5, align 1
+  %7 = getelementptr inbounds i8, ptr %2, i64 %.051
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %6, %8
+  %10 = icmp eq i8 %6, 63
+  %or.cond41 = or i1 %10, %9
+  br i1 %or.cond41, label %11, label %14
 
-8:                                                ; preds = %.lr.ph
-  %9 = add i64 %.051, 1
-  %10 = icmp eq i64 %9, %1
-  br i1 %10, label %11, label %.loopexit
+11:                                               ; preds = %.lr.ph
+  %12 = add nuw i64 %.051, 1
+  %13 = icmp eq i64 %12, %1
+  br i1 %13, label %.loopexit42, label %.lr.ph, !llvm.loop !4
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 %.051
-  %13 = load i8, ptr %12, align 1
-  %14 = icmp eq i8 %13, 42
+14:                                               ; preds = %.lr.ph
+  %15 = icmp eq i8 %6, 42
+  br i1 %15, label %16, label %.loopexit
+
+16:                                               ; preds = %14
+  %17 = add i64 %.051, 1
+  %18 = icmp eq i64 %17, %1
+  br i1 %18, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %0, i64 %17
+  %20 = sub i64 %1, %17
+  br label %21
+
+21:                                               ; preds = %21, %.preheader
+  %.1 = phi i64 [ %.051, %.preheader ], [ %25, %21 ]
+  %22 = getelementptr inbounds i8, ptr %2, i64 %.1
+  %23 = sub i64 %3, %.1
+  %24 = tail call noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMatch_EPKcmS2_m(ptr noundef %19, i64 noundef %20, ptr noundef %22, i64 noundef %23)
+  %25 = add i64 %.1, 1
+  %.not = icmp eq i64 %25, %3
+  %or.cond = or i1 %24, %.not
+  br i1 %or.cond, label %.loopexit, label %21, !llvm.loop !6
+
+.loopexit42:                                      ; preds = %11, %.split
+  %26 = icmp eq i64 %1, %3
   br label %.loopexit
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %0, i64 %.051
-  %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %2, i64 %.051
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp eq i8 %17, %19
-  %21 = icmp eq i8 %17, 63
-  %or.cond41 = or i1 %21, %20
-  br i1 %or.cond41, label %22, label %26
-
-22:                                               ; preds = %15
-  %23 = add nuw i64 %.051, 1
-  %24 = icmp eq i64 %23, %1
-  %25 = icmp eq i64 %23, %3
-  br i1 %24, label %.loopexit, label %.lr.ph, !llvm.loop !4
-
-26:                                               ; preds = %15
-  %27 = icmp eq i8 %17, 42
-  br i1 %27, label %28, label %.loopexit
-
-28:                                               ; preds = %26
-  %29 = add i64 %.051, 1
-  %30 = icmp eq i64 %29, %1
-  br i1 %30, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 %29
-  %32 = sub i64 %1, %29
-  br label %33
-
-33:                                               ; preds = %33, %.preheader
-  %.1 = phi i64 [ %.051, %.preheader ], [ %37, %33 ]
-  %34 = getelementptr inbounds i8, ptr %2, i64 %.1
-  %35 = sub i64 %3, %.1
-  %36 = tail call noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMatch_EPKcmS2_m(ptr noundef %31, i64 noundef %32, ptr noundef %34, i64 noundef %35)
-  %37 = add i64 %.1, 1
-  %.not = icmp eq i64 %37, %3
-  %or.cond = or i1 %36, %.not
-  br i1 %or.cond, label %.loopexit, label %33, !llvm.loop !6
-
-.loopexit:                                        ; preds = %22, %33, %4, %26, %28, %8, %11
-  %.036 = phi i1 [ false, %8 ], [ %14, %11 ], [ true, %28 ], [ false, %26 ], [ %6, %4 ], [ %36, %33 ], [ %25, %22 ]
+.loopexit:                                        ; preds = %21, %.loopexit42, %14, %16
+  %.036 = phi i1 [ true, %16 ], [ false, %14 ], [ %26, %.loopexit42 ], [ %24, %21 ]
   ret i1 %.036
 }
 
