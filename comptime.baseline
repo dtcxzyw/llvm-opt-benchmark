@@ -2350,7 +2350,7 @@ casadi/cs_fkeep.c.ll 64550194
 casadi/cs_gaxpy.c.ll 51328014
 casadi/cs_happly.c.ll 51082953
 casadi/cs_ipvec.c.ll 45827060
-casadi/cs_leaf.c.ll 46828029
+casadi/cs_leaf.c.ll 46875039
 casadi/cs_lsolve.c.ll 51882339
 casadi/cs_ltsolve.c.ll 53715362
 casadi/cs_lu.c.ll 102248202
@@ -35336,7 +35336,7 @@ slurm/task_cgroup.ll 77557096
 slurm/task_cgroup_devices.ll 68661143
 slurm/task_cgroup_memory.ll 88372418
 slurm/task_state.ll 110711193
-slurm/token.ll 41463033
+slurm/token.ll 41504658
 slurm/topo_info.ll 42604794
 slurm/topology.ll 80576902
 slurm/topology_block.ll 117627475
