@@ -5759,8 +5759,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119areCompatibleVTYPE
   %32 = and i32 %31, 7
   %33 = shl nuw nsw i32 8, %32
   %34 = icmp ult i32 %29, %33
-  %35 = icmp ugt i32 %29, 63
-  %or.cond = or i1 %34, %35
+  %35 = icmp ugt i32 %28, 2
+  %or.cond = or i1 %35, %34
   br i1 %or.cond, label %91, label %36
 
 36:                                               ; preds = %25, %15, %6, %3
