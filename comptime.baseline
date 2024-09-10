@@ -26513,7 +26513,7 @@ openmpi/psquash_flex128.ll 103949263
 openmpi/psquash_native.ll 68808138
 openmpi/pstat_base_open.ll 39662039
 openmpi/pstat_base_select.ll 37985639
-openmpi/pstat_linux_module.ll 792135199
+openmpi/pstat_linux_module.ll 792927450
 openmpi/pstrg_base_frame.ll 89689327
 openmpi/pstrg_base_select.ll 75765200
 openmpi/pstrg_base_stubs.ll 107461121
@@ -28817,7 +28817,7 @@ openssl/openssl-bin-version.ll 74071783
 openssl/openssl-bin-x509.ll 805267997
 openssl/ossl_store_test-bin-ossl_store_test.ll 86704704
 openssl/ossltest-dso-e_ossltest.ll 245027786
-openssl/p_minimal-dso-p_minimal.ll 34569434
+openssl/p_minimal-dso-p_minimal.ll 34604062
 openssl/p_test-dso-p_test.ll 72860906
 openssl/packettest-bin-packettest.ll 404625358
 openssl/packettest-bin-quic_vlint.ll 80301519
@@ -39917,7 +39917,7 @@ wireshark/packet-udld.c.ll 75344177
 wireshark/packet-udp.c.ll 391582167
 wireshark/packet-udpcp.c.ll 156818482
 wireshark/packet-uds.c.ll 769818391
-wireshark/packet-udt.c.ll 134444928
+wireshark/packet-udt.c.ll 134579562
 wireshark/packet-uftp.c.ll 320545611
 wireshark/packet-uftp4.c.ll 559552858
 wireshark/packet-uftp5.c.ll 563177558
