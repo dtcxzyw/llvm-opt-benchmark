@@ -19007,7 +19007,7 @@ mold/output-chunks.cc.RV32LE.cc.ll 14941770913
 mold/output-chunks.cc.RV64BE.cc.ll 14963280986
 mold/output-chunks.cc.RV64LE.cc.ll 14872927896
 mold/output-chunks.cc.S390X.cc.ll 14917993946
-mold/output-chunks.cc.SH4.cc.ll 14841228882
+mold/output-chunks.cc.SH4.cc.ll 14856072853
 mold/output-chunks.cc.SPARC64.cc.ll 14938890953
 mold/output-chunks.cc.X86_64.cc.ll 15416953776
 mold/passes.cc.ALPHA.cc.ll 30477277695
