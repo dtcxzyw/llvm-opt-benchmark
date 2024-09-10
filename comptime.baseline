@@ -1017,7 +1017,7 @@ abc/wlnNtk.c.ll 654935932
 abc/wlnObj.c.ll 342171852
 abc/wlnRead.c.ll 3148318078
 abc/wlnRetime.c.ll 1078823266
-abc/wlnRtl.c.ll 99383586
+abc/wlnRtl.c.ll 99483005
 abc/wlnWlc.c.ll 440692893
 abc/wlnWriteVer.c.ll 521405243
 abc/xsatCnfReader.c.ll 178854266
@@ -13435,7 +13435,7 @@ linux/groups.ll 119153337
 linux/gso.ll 102279812
 linux/gss_generic_token.ll 80057803
 linux/gss_krb5_crypto.ll 223631933
-linux/gss_krb5_seal.ll 48058111
+linux/gss_krb5_seal.ll 48106296
 linux/gss_krb5_unseal.ll 53151934
 linux/gss_krb5_wrap.ll 87749705
 linux/gss_mech_switch.ll 146879691
@@ -20519,7 +20519,7 @@ nuttx/sig_findaction.c.ll 39571834
 nuttx/sig_initialize.c.ll 71094626
 nuttx/sig_isemptyset.c.ll 39338842
 nuttx/sig_ismember.c.ll 40851897
-nuttx/sig_kill.c.ll 43737203
+nuttx/sig_kill.c.ll 43780972
 nuttx/sig_nanosleep.c.ll 56825738
 nuttx/sig_pause.c.ll 36792133
 nuttx/sig_pending.c.ll 52370996
@@ -26002,7 +26002,7 @@ openmpi/libmpi_c_profile_la-win_test.ll 69172924
 openmpi/libmpi_c_profile_la-win_unlock.ll 73306499
 openmpi/libmpi_c_profile_la-win_unlock_all.ll 69106059
 openmpi/libmpi_c_profile_la-win_wait.ll 69109396
-openmpi/libmpi_c_profile_la-wtime.ll 39283337
+openmpi/libmpi_c_profile_la-wtime.ll 39322638
 openmpi/libmpi_fortran_base_la-f90_accessors.ll 49867619
 openmpi/libmpi_fortran_base_la-strings.ll 107085279
 openmpi/libmpi_mpit_profile_la-category_changed.ll 37761883
@@ -33135,7 +33135,7 @@ qemu/stubs_replay.c.ll 37212117
 qemu/stubs_runstate-check.c.ll 34773952
 qemu/stubs_semihost-all.c.ll 34266904
 qemu/stubs_semihost.c.ll 39410705
-qemu/stubs_sysbus.c.ll 34238155
+qemu/stubs_sysbus.c.ll 34272459
 qemu/stubs_target-get-monitor-def.c.ll 34566167
 qemu/stubs_target-monitor-defs.c.ll 34276113
 qemu/stubs_trace-control.c.ll 44028240
