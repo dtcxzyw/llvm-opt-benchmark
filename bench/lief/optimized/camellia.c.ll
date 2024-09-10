@@ -2107,7 +2107,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %67, i64 16, i1 false)
   %68 = getelementptr inbounds [2 x [16 x i8]], ptr @camellia_test_ecb_plain, i64 0, i64 %indvars.iv156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %68, i64 16, i1 false)
-  %69 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %69 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %67, ptr noundef nonnull %5)
   %bcmp100.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %.not101.us = icmp eq i32 %bcmp100.us, 0
   br i1 %.not101.us, label %32, label %.split140.us
@@ -2125,7 +2125,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %74, i64 16, i1 false)
   %75 = getelementptr inbounds [3 x [2 x [16 x i8]]], ptr @camellia_test_ecb_cipher, i64 0, i64 %24, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %75, i64 16, i1 false)
-  %76 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %76 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull %11, i32 poison, ptr noundef nonnull %74, ptr noundef nonnull %5)
   %bcmp100 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) %7, i64 16)
   %.not101 = icmp eq i32 %bcmp100, 0
   br i1 %.not101, label %70, label %.split140.us
@@ -2272,7 +2272,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %137, i64 16, i1 false)
   %138 = getelementptr inbounds [3 x [16 x i8]], ptr @camellia_test_cbc_plain, i64 0, i64 %indvars.iv163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %138, i64 16, i1 false)
-  %139 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %139 = call i32 @mbedtls_camellia_crypt_ecb(ptr noundef nonnull readonly %11, i32 poison, ptr noundef nonnull %137, ptr noundef nonnull %5)
   br label %141
 
 140:                                              ; preds = %mbedtls_camellia_crypt_cbc.exit.us

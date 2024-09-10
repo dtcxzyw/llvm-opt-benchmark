@@ -3,7 +3,6 @@ source_filename = "bench/llvm/original/MCInstPrinter.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.__gnu_cxx::__ops::_Iter_negate" = type { %class.anon.3 }
 %class.anon.3 = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %"struct.llvm::PatternsForOpcode" = type { i32, i16, i16 }
 %"struct.llvm::AliasPattern" = type { i32, i32, i8, i8 }
@@ -356,7 +355,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
-  %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_negate", align 8
+  %5 = alloca %class.anon.3, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -407,52 +406,52 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
   %32 = load ptr, ptr %25, align 8
   %33 = getelementptr inbounds %"struct.llvm::AliasPattern", ptr %32, i64 %28
   %34 = getelementptr inbounds %"struct.llvm::AliasPattern", ptr %33, i64 %31
-  %.not2649 = icmp eq i16 %30, 0
-  br i1 %.not2649, label %.thread, label %.lr.ph
+  %.not2645 = icmp eq i16 %30, 0
+  br i1 %.not2645, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.541.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.642.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
   br label %36
 
 36:                                               ; preds = %.lr.ph, %82
-  %.02450 = phi ptr [ %33, %.lr.ph ], [ %83, %82 ]
+  %.02446 = phi ptr [ %33, %.lr.ph ], [ %83, %82 ]
   %37 = load ptr, ptr %6, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #13
   %40 = trunc i64 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %.02450, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.02446, i64 8
   %42 = load i8, ptr %41, align 4
   %43 = zext i8 %42 to i32
   %.not27 = icmp eq i32 %40, %43
   br i1 %.not27, label %44, label %.thread
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds nuw i8, ptr %.02450, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.02446, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %.02450, i64 9
+  %48 = getelementptr inbounds nuw i8, ptr %.02446, i64 9
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i64
   %51 = load ptr, ptr %35, align 8
   %52 = getelementptr inbounds %"struct.llvm::AliasPatternCond", ptr %51, i64 %47
   store i32 0, ptr %8, align 4
   store i8 0, ptr %9, align 1
-  %53 = getelementptr inbounds %"struct.llvm::AliasPatternCond", ptr %52, i64 %50
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
-  store ptr %7, ptr %.sroa.440.0..sroa_idx, align 8
-  store ptr %0, ptr %.sroa.541.0..sroa_idx, align 8
-  store ptr %8, ptr %.sroa.642.0..sroa_idx, align 8
-  store ptr %3, ptr %.sroa.7.0..sroa_idx, align 8
-  store ptr %9, ptr %.sroa.8.0..sroa_idx, align 8
+  store ptr %7, ptr %.sroa.2.0..sroa_idx, align 8
+  store ptr %0, ptr %.sroa.3.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %9, ptr %.sroa.6.0..sroa_idx, align 8
+  %53 = getelementptr inbounds %"struct.llvm::AliasPatternCond", ptr %52, i64 %50
   %54 = ptrtoint ptr %53 to i64
-  %.not45 = icmp ult i8 %49, 4
-  br i1 %.not45, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader
+  %.not41 = icmp ult i8 %49, 4
+  br i1 %.not41, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %44
   %55 = lshr i64 %50, 2
@@ -528,17 +527,17 @@ _ZSt7advanceIPKN4llvm17PatternsForOpcodeElEvRT_T0_.exit.i.i.i: ; preds = %4, %_Z
 
 "_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %57, %60, %63, %71, %75, %79
   %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %71 ], [ %.1.i.i.i.i.i, %75 ], [ %.2.i.i.i.i.i, %79 ], [ %.02931.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %58, %57 ], [ %61, %60 ], [ %64, %63 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   %81 = icmp eq ptr %53, %.028.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br i1 %81, label %.loopexit, label %82
 
 82:                                               ; preds = %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit"
-  %83 = getelementptr inbounds i8, ptr %.02450, i64 12
+  %83 = getelementptr inbounds i8, ptr %.02446, i64 12
   %.not26 = icmp eq ptr %83, %34
   br i1 %.not26, label %.thread, label %36
 
 .loopexit:                                        ; preds = %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit", %"_ZN4llvm6all_ofIRNS_8ArrayRefINS_16AliasPatternCondEEEZNS_13MCInstPrinter18matchAliasPatternsEPKNS_6MCInstEPKNS_15MCSubtargetInfoERKNS_17AliasMatchingDataEE3$_1EEbOT_T0_.exit.thread"
-  %84 = load i32, ptr %.02450, align 4
+  %84 = load i32, ptr %.02446, align 4
   %85 = icmp eq i32 %84, -1
   br i1 %85, label %.thread, label %86
 

@@ -295,8 +295,7 @@ if.end24:                                         ; preds = %if.then3, %if.else,
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN22SphereTriangleDetector7collideERK9btVector3RS0_S3_RfS4_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %sphereCenter, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %point, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %resultNormal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %depth, ptr nocapture nonnull readnone align 4 %timeOfImpact, float noundef %contactBreakingThreshold) local_unnamed_addr #1 align 2 {
 entry:
-  %lp.i = alloca %class.btVector3, align 4
-  %lnormal.i = alloca %class.btVector3, align 8
+  %normal = alloca %class.btVector3, align 4
   %pa = alloca %class.btVector3, align 4
   %pb = alloca %class.btVector3, align 4
   %m_triangle = getelementptr inbounds i8, ptr %this, i64 16
@@ -342,21 +341,25 @@ entry:
   %17 = fneg float %sub.i26
   %neg30.i = fmul float %sub8.i, %17
   %18 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub8.i29, float %neg30.i)
+  %retval.sroa.3.12.vec.insert.i42 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %18, i64 0
+  %19 = getelementptr inbounds i8, ptr %normal, i64 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i42, ptr %19, align 4
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %normal, i64 4
   %mul8.i.i = fmul float %16, %16
-  %19 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %mul8.i.i)
-  %20 = tail call noundef float @llvm.fmuladd.f32(float %18, float %18, float %19)
-  %cmp = fcmp ult float %20, 0x3D10000000000000
+  %20 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %mul8.i.i)
+  %21 = tail call noundef float @llvm.fmuladd.f32(float %18, float %18, float %20)
+  %cmp = fcmp ult float %21, 0x3D10000000000000
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sqrt = tail call float @llvm.sqrt.f32(float %20)
+  %sqrt = tail call float @llvm.sqrt.f32(float %21)
   %div.i = fdiv float 1.000000e+00, %sqrt
   %mul.i.i = fmul float %14, %div.i
-  %21 = insertelement <2 x float> poison, float %mul.i.i, i64 0
+  store float %mul.i.i, ptr %normal, align 4
   %mul4.i.i = fmul float %16, %div.i
-  %normal.sroa.0.4.vec.insert = insertelement <2 x float> %21, float %mul4.i.i, i64 1
+  store float %mul4.i.i, ptr %arrayidx5.i.i, align 4
   %mul7.i.i = fmul float %18, %div.i
-  %normal.sroa.17.8.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul7.i.i, i64 0
+  store float %mul7.i.i, ptr %19, align 4
   %22 = load float, ptr %sphereCenter, align 4
   %sub.i45 = fsub float %22, %5
   %arrayidx5.i46 = getelementptr inbounds i8, ptr %sphereCenter, i64 4
@@ -374,39 +377,29 @@ if.then:                                          ; preds = %entry
 if.then21:                                        ; preds = %if.then
   %mul = fneg float %26
   %mul.i59 = fneg float %mul.i.i
-  %normal.sroa.0.0.vec.insert119 = insertelement <2 x float> poison, float %mul.i59, i64 0
+  store float %mul.i59, ptr %normal, align 4
   %mul4.i = fneg float %mul4.i.i
-  %normal.sroa.0.4.vec.insert131 = insertelement <2 x float> %normal.sroa.0.0.vec.insert119, float %mul4.i, i64 1
+  store float %mul4.i, ptr %arrayidx5.i.i, align 4
   %mul7.i = fneg float %mul7.i.i
-  %normal.sroa.17.8.vec.insert143 = insertelement <2 x float> %normal.sroa.17.8.vec.insert, float %mul7.i, i64 0
+  store float %mul7.i, ptr %19, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then21, %if.then
+  %27 = phi float [ %mul7.i, %if.then21 ], [ %mul7.i.i, %if.then ]
+  %28 = phi float [ %mul4.i, %if.then21 ], [ %mul4.i.i, %if.then ]
+  %29 = phi float [ %mul.i59, %if.then21 ], [ %mul.i.i, %if.then ]
   %distanceFromPlane.0 = phi float [ %mul, %if.then21 ], [ %26, %if.then ]
-  %normal.sroa.0.1 = phi <2 x float> [ %normal.sroa.0.4.vec.insert131, %if.then21 ], [ %normal.sroa.0.4.vec.insert, %if.then ]
-  %normal.sroa.17.1 = phi <2 x float> [ %normal.sroa.17.8.vec.insert143, %if.then21 ], [ %normal.sroa.17.8.vec.insert, %if.then ]
   %cmp24 = fcmp olt float %distanceFromPlane.0, %add
   br i1 %cmp24, label %if.then25, label %return
 
 if.then25:                                        ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lnormal.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %lp.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %sphereCenter, i64 16, i1 false)
-  store <2 x float> %normal.sroa.0.1, ptr %lnormal.i, align 8
-  %normal.sroa.17.0.lnormal.i.sroa_idx = getelementptr inbounds i8, ptr %lnormal.i, i64 8
-  store <2 x float> %normal.sroa.17.1, ptr %normal.sroa.17.0.lnormal.i.sroa_idx, align 8
-  %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly %m_vertices1.i, ptr noundef nonnull align 4 dereferenceable(16) %lnormal.i, ptr noundef nonnull %lp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lnormal.i)
-  br i1 %call.i61, label %if.end47.thread152, label %if.else
+  %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull readnone align 8 poison, ptr noundef nonnull readonly %m_vertices1.i, ptr noundef nonnull readonly align 4 dereferenceable(16) %normal, ptr noundef nonnull readonly %sphereCenter)
+  br i1 %call.i61, label %if.end47.thread115, label %if.else
 
-if.end47.thread152:                               ; preds = %if.then25
-  %normal.sroa.0.0.vec.extract121 = extractelement <2 x float> %normal.sroa.0.1, i64 0
-  %mul.i62 = fmul float %distanceFromPlane.0, %normal.sroa.0.0.vec.extract121
-  %normal.sroa.0.4.vec.extract133 = extractelement <2 x float> %normal.sroa.0.1, i64 1
-  %mul4.i64 = fmul float %distanceFromPlane.0, %normal.sroa.0.4.vec.extract133
-  %normal.sroa.17.8.vec.extract145 = extractelement <2 x float> %normal.sroa.17.1, i64 0
-  %mul8.i66 = fmul float %distanceFromPlane.0, %normal.sroa.17.8.vec.extract145
+if.end47.thread115:                               ; preds = %if.then25
+  %mul.i62 = fmul float %distanceFromPlane.0, %29
+  %mul4.i64 = fmul float %distanceFromPlane.0, %28
+  %mul8.i66 = fmul float %distanceFromPlane.0, %27
   %sub.i72 = fsub float %22, %mul.i62
   %sub8.i75 = fsub float %23, %mul4.i64
   %sub14.i78 = fsub float %24, %mul8.i66
@@ -416,12 +409,12 @@ if.end47.thread152:                               ; preds = %if.then25
   br label %if.then49
 
 if.else:                                          ; preds = %if.then25
-  %vtable164 = load ptr, ptr %0, align 8
-  %vfn165 = getelementptr inbounds i8, ptr %vtable164, i64 208
-  %27 = load ptr, ptr %vfn165, align 8
-  %call36166 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  %cmp37167 = icmp sgt i32 %call36166, 0
-  br i1 %cmp37167, label %for.body.lr.ph, label %return
+  %vtable123 = load ptr, ptr %0, align 8
+  %vfn124 = getelementptr inbounds i8, ptr %vtable123, i64 208
+  %30 = load ptr, ptr %vfn124, align 8
+  %call36125 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  %cmp37126 = icmp sgt i32 %call36125, 0
+  br i1 %cmp37126, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.else
   %mul34 = fmul float %add, %add
@@ -432,49 +425,49 @@ for.body.lr.ph:                                   ; preds = %if.else
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %hasContact.1172 = phi i1 [ false, %for.body.lr.ph ], [ %hasContact.2, %for.inc ]
-  %minDistSqr.0171 = phi float [ %mul34, %for.body.lr.ph ], [ %minDistSqr.1, %for.inc ]
-  %i.0170 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %contactPoint.sroa.6.1169 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.6.2, %for.inc ]
-  %contactPoint.sroa.0.1168 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.0.2, %for.inc ]
-  %28 = load ptr, ptr %m_triangle, align 8
-  %vtable39 = load ptr, ptr %28, align 8
+  %hasContact.1131 = phi i1 [ false, %for.body.lr.ph ], [ %hasContact.2, %for.inc ]
+  %minDistSqr.0130 = phi float [ %mul34, %for.body.lr.ph ], [ %minDistSqr.1, %for.inc ]
+  %i.0129 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %contactPoint.sroa.6.1128 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.6.2, %for.inc ]
+  %contactPoint.sroa.0.1127 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.0.2, %for.inc ]
+  %31 = load ptr, ptr %m_triangle, align 8
+  %vtable39 = load ptr, ptr %31, align 8
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 216
-  %29 = load ptr, ptr %vfn40, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(128) %28, i32 noundef %i.0170, ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 4 dereferenceable(16) %pb)
-  %30 = load float, ptr %sphereCenter, align 4
-  %31 = load float, ptr %pa, align 4
-  %sub.i.i = fsub float %30, %31
-  %32 = load float, ptr %arrayidx5.i46, align 4
-  %33 = load float, ptr %arrayidx7.i.i, align 4
-  %sub8.i.i = fsub float %32, %33
-  %34 = load float, ptr %arrayidx11.i49, align 4
-  %35 = load float, ptr %arrayidx13.i.i, align 4
-  %sub14.i.i = fsub float %34, %35
+  %32 = load ptr, ptr %vfn40, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(128) %31, i32 noundef %i.0129, ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 4 dereferenceable(16) %pb)
+  %33 = load float, ptr %sphereCenter, align 4
+  %34 = load float, ptr %pa, align 4
+  %sub.i.i = fsub float %33, %34
+  %35 = load float, ptr %arrayidx5.i46, align 4
+  %36 = load float, ptr %arrayidx7.i.i, align 4
+  %sub8.i.i = fsub float %35, %36
+  %37 = load float, ptr %arrayidx11.i49, align 4
+  %38 = load float, ptr %arrayidx13.i.i, align 4
+  %sub14.i.i = fsub float %37, %38
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %sub.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %sub8.i.i, i64 1
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i.i, i64 0
-  %36 = load float, ptr %pb, align 4
-  %sub.i4.i = fsub float %36, %31
-  %37 = load float, ptr %arrayidx5.i5.i, align 4
-  %sub8.i7.i = fsub float %37, %33
-  %38 = load float, ptr %arrayidx11.i8.i, align 4
-  %sub14.i10.i = fsub float %38, %35
+  %39 = load float, ptr %pb, align 4
+  %sub.i4.i = fsub float %39, %34
+  %40 = load float, ptr %arrayidx5.i5.i, align 4
+  %sub8.i7.i = fsub float %40, %36
+  %41 = load float, ptr %arrayidx11.i8.i, align 4
+  %sub14.i10.i = fsub float %41, %38
   %mul8.i.i85 = fmul float %sub8.i.i, %sub8.i7.i
-  %39 = call float @llvm.fmuladd.f32(float %sub.i4.i, float %sub.i.i, float %mul8.i.i85)
-  %40 = call noundef float @llvm.fmuladd.f32(float %sub14.i10.i, float %sub14.i.i, float %39)
-  %cmp.i = fcmp ogt float %40, 0.000000e+00
+  %42 = call float @llvm.fmuladd.f32(float %sub.i4.i, float %sub.i.i, float %mul8.i.i85)
+  %43 = call noundef float @llvm.fmuladd.f32(float %sub14.i10.i, float %sub14.i.i, float %42)
+  %cmp.i = fcmp ogt float %43, 0.000000e+00
   br i1 %cmp.i, label %if.then.i, label %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit
 
 if.then.i:                                        ; preds = %for.body
   %mul8.i20.i = fmul float %sub8.i7.i, %sub8.i7.i
-  %41 = call float @llvm.fmuladd.f32(float %sub.i4.i, float %sub.i4.i, float %mul8.i20.i)
-  %42 = call noundef float @llvm.fmuladd.f32(float %sub14.i10.i, float %sub14.i10.i, float %41)
-  %cmp5.i = fcmp olt float %40, %42
+  %44 = call float @llvm.fmuladd.f32(float %sub.i4.i, float %sub.i4.i, float %mul8.i20.i)
+  %45 = call noundef float @llvm.fmuladd.f32(float %sub14.i10.i, float %sub14.i10.i, float %44)
+  %cmp5.i = fcmp olt float %43, %45
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  %div.i86 = fdiv float %40, %42
+  %div.i86 = fdiv float %43, %45
   %mul.i.i.i = fmul float %sub.i4.i, %div.i86
   %mul4.i.i.i = fmul float %sub8.i7.i, %div.i86
   %mul8.i.i.i = fmul float %sub14.i10.i, %div.i86
@@ -500,37 +493,37 @@ _Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit: ; preds = %for.body, %if.then6
   %diff.sroa.0.0.i = phi <2 x float> [ %diff.sroa.0.4.vec.insert.i, %if.then6.i ], [ %diff.sroa.0.4.vec.insert109.i, %if.else.i ], [ %retval.sroa.0.4.vec.insert.i.i, %for.body ]
   %diff.sroa.15.0.i = phi <2 x float> [ %diff.sroa.15.8.vec.insert.i, %if.then6.i ], [ %diff.sroa.15.8.vec.insert120.i, %if.else.i ], [ %retval.sroa.3.12.vec.insert.i.i, %for.body ]
   %diff.sroa.0.0.vec.extract100.i = extractelement <2 x float> %diff.sroa.0.0.i, i64 0
-  %43 = fmul <2 x float> %diff.sroa.0.0.i, %diff.sroa.0.0.i
-  %mul8.i57.i = extractelement <2 x float> %43, i64 1
-  %44 = call float @llvm.fmuladd.f32(float %diff.sroa.0.0.vec.extract100.i, float %diff.sroa.0.0.vec.extract100.i, float %mul8.i57.i)
+  %46 = fmul <2 x float> %diff.sroa.0.0.i, %diff.sroa.0.0.i
+  %mul8.i57.i = extractelement <2 x float> %46, i64 1
+  %47 = call float @llvm.fmuladd.f32(float %diff.sroa.0.0.vec.extract100.i, float %diff.sroa.0.0.vec.extract100.i, float %mul8.i57.i)
   %diff.sroa.15.8.vec.extract122.i = extractelement <2 x float> %diff.sroa.15.0.i, i64 0
-  %45 = call noundef float @llvm.fmuladd.f32(float %diff.sroa.15.8.vec.extract122.i, float %diff.sroa.15.8.vec.extract122.i, float %44)
-  %cmp42 = fcmp olt float %45, %minDistSqr.0171
+  %48 = call noundef float @llvm.fmuladd.f32(float %diff.sroa.15.8.vec.extract122.i, float %diff.sroa.15.8.vec.extract122.i, float %47)
+  %cmp42 = fcmp olt float %48, %minDistSqr.0130
   br i1 %cmp42, label %if.then43, label %for.inc
 
 if.then43:                                        ; preds = %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit
   %mul8.i.i40.i = fmul float %sub14.i10.i, %t.0.i
-  %add14.i.i = fadd float %35, %mul8.i.i40.i
+  %add14.i.i = fadd float %38, %mul8.i.i40.i
   %retval.sroa.3.12.vec.insert.i52.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i, i64 0
   %mul.i.i36.i = fmul float %sub.i4.i, %t.0.i
-  %add.i.i = fadd float %31, %mul.i.i36.i
+  %add.i.i = fadd float %34, %mul.i.i36.i
   %retval.sroa.0.0.vec.insert.i50.i = insertelement <2 x float> poison, float %add.i.i, i64 0
   %mul4.i.i38.i = fmul float %sub8.i7.i, %t.0.i
-  %add8.i.i = fadd float %33, %mul4.i.i38.i
+  %add8.i.i = fadd float %36, %mul4.i.i38.i
   %retval.sroa.0.4.vec.insert.i51.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i50.i, float %add8.i.i, i64 1
   br label %for.inc
 
 for.inc:                                          ; preds = %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit, %if.then43
-  %contactPoint.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i51.i, %if.then43 ], [ %contactPoint.sroa.0.1168, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %contactPoint.sroa.6.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i52.i, %if.then43 ], [ %contactPoint.sroa.6.1169, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %minDistSqr.1 = phi float [ %45, %if.then43 ], [ %minDistSqr.0171, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %hasContact.2 = phi i1 [ true, %if.then43 ], [ %hasContact.1172, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %inc = add nuw nsw i32 %i.0170, 1
-  %46 = load ptr, ptr %m_triangle, align 8
-  %vtable = load ptr, ptr %46, align 8
+  %contactPoint.sroa.0.2 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i51.i, %if.then43 ], [ %contactPoint.sroa.0.1127, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %contactPoint.sroa.6.2 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i52.i, %if.then43 ], [ %contactPoint.sroa.6.1128, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %minDistSqr.1 = phi float [ %48, %if.then43 ], [ %minDistSqr.0130, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %hasContact.2 = phi i1 [ true, %if.then43 ], [ %hasContact.1131, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %inc = add nuw nsw i32 %i.0129, 1
+  %49 = load ptr, ptr %m_triangle, align 8
+  %vtable = load ptr, ptr %49, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
-  %47 = load ptr, ptr %vfn, align 8
-  %call36 = call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(128) %46)
+  %50 = load ptr, ptr %vfn, align 8
+  %call36 = call noundef i32 %50(ptr noundef nonnull align 8 dereferenceable(128) %49)
   %cmp37 = icmp slt i32 %inc, %call36
   br i1 %cmp37, label %for.body, label %if.end47, !llvm.loop !11
 
@@ -539,43 +532,43 @@ if.end47:                                         ; preds = %for.inc
 
 if.end47.if.then49_crit_edge:                     ; preds = %if.end47
   %.pre = load float, ptr %sphereCenter, align 4
-  %.pre175 = load float, ptr %arrayidx5.i46, align 4
-  %.pre176 = load float, ptr %arrayidx11.i49, align 4
+  %.pre134 = load float, ptr %arrayidx5.i46, align 4
+  %.pre135 = load float, ptr %arrayidx11.i49, align 4
   br label %if.then49
 
-if.then49:                                        ; preds = %if.end47.if.then49_crit_edge, %if.end47.thread152
-  %48 = phi float [ %24, %if.end47.thread152 ], [ %.pre176, %if.end47.if.then49_crit_edge ]
-  %49 = phi float [ %23, %if.end47.thread152 ], [ %.pre175, %if.end47.if.then49_crit_edge ]
-  %50 = phi float [ %22, %if.end47.thread152 ], [ %.pre, %if.end47.if.then49_crit_edge ]
-  %contactPoint.sroa.6.0160 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i81, %if.end47.thread152 ], [ %contactPoint.sroa.6.2, %if.end47.if.then49_crit_edge ]
-  %contactPoint.sroa.0.0159 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i80, %if.end47.thread152 ], [ %contactPoint.sroa.0.2, %if.end47.if.then49_crit_edge ]
-  %contactPoint.sroa.0.0.vec.extract = extractelement <2 x float> %contactPoint.sroa.0.0159, i64 0
-  %sub.i87 = fsub float %50, %contactPoint.sroa.0.0.vec.extract
-  %contactPoint.sroa.0.4.vec.extract = extractelement <2 x float> %contactPoint.sroa.0.0159, i64 1
-  %sub8.i90 = fsub float %49, %contactPoint.sroa.0.4.vec.extract
-  %contactPoint.sroa.6.8.vec.extract = extractelement <2 x float> %contactPoint.sroa.6.0160, i64 0
-  %sub14.i93 = fsub float %48, %contactPoint.sroa.6.8.vec.extract
+if.then49:                                        ; preds = %if.end47.if.then49_crit_edge, %if.end47.thread115
+  %51 = phi float [ %24, %if.end47.thread115 ], [ %.pre135, %if.end47.if.then49_crit_edge ]
+  %52 = phi float [ %23, %if.end47.thread115 ], [ %.pre134, %if.end47.if.then49_crit_edge ]
+  %53 = phi float [ %22, %if.end47.thread115 ], [ %.pre, %if.end47.if.then49_crit_edge ]
+  %contactPoint.sroa.6.0121 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i81, %if.end47.thread115 ], [ %contactPoint.sroa.6.2, %if.end47.if.then49_crit_edge ]
+  %contactPoint.sroa.0.0120 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i80, %if.end47.thread115 ], [ %contactPoint.sroa.0.2, %if.end47.if.then49_crit_edge ]
+  %contactPoint.sroa.0.0.vec.extract = extractelement <2 x float> %contactPoint.sroa.0.0120, i64 0
+  %sub.i87 = fsub float %53, %contactPoint.sroa.0.0.vec.extract
+  %contactPoint.sroa.0.4.vec.extract = extractelement <2 x float> %contactPoint.sroa.0.0120, i64 1
+  %sub8.i90 = fsub float %52, %contactPoint.sroa.0.4.vec.extract
+  %contactPoint.sroa.6.8.vec.extract = extractelement <2 x float> %contactPoint.sroa.6.0121, i64 0
+  %sub14.i93 = fsub float %51, %contactPoint.sroa.6.8.vec.extract
   %retval.sroa.3.12.vec.insert.i96 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i93, i64 0
   %mul8.i.i100 = fmul float %sub8.i90, %sub8.i90
-  %51 = call float @llvm.fmuladd.f32(float %sub.i87, float %sub.i87, float %mul8.i.i100)
-  %52 = call noundef float @llvm.fmuladd.f32(float %sub14.i93, float %sub14.i93, float %51)
+  %54 = call float @llvm.fmuladd.f32(float %sub.i87, float %sub.i87, float %mul8.i.i100)
+  %55 = call noundef float @llvm.fmuladd.f32(float %sub14.i93, float %sub14.i93, float %54)
   %mul54 = fmul float %add, %add
-  %cmp55 = fcmp olt float %52, %mul54
+  %cmp55 = fcmp olt float %55, %mul54
   br i1 %cmp55, label %if.then56, label %return
 
 if.then56:                                        ; preds = %if.then49
-  %cmp57 = fcmp ogt float %52, 0x3E80000000000000
-  %contactToCentre.sroa.4.0.resultNormal.sroa_idx = getelementptr inbounds i8, ptr %resultNormal, i64 8
+  %cmp57 = fcmp ogt float %55, 0x3E80000000000000
   br i1 %cmp57, label %if.then58, label %if.else61
 
 if.then58:                                        ; preds = %if.then56
-  %sqrt163 = call float @llvm.sqrt.f32(float %52)
+  %sqrt122 = call float @llvm.sqrt.f32(float %55)
+  %contactToCentre.sroa.4.0.resultNormal.sroa_idx = getelementptr inbounds i8, ptr %resultNormal, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i96, ptr %contactToCentre.sroa.4.0.resultNormal.sroa_idx, align 4
   %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %resultNormal, i64 4
   %mul8.i.i.i.i = fmul float %sub8.i90, %sub8.i90
-  %53 = call float @llvm.fmuladd.f32(float %sub.i87, float %sub.i87, float %mul8.i.i.i.i)
-  %54 = call noundef float @llvm.fmuladd.f32(float %sub14.i93, float %sub14.i93, float %53)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %54)
+  %56 = call float @llvm.fmuladd.f32(float %sub.i87, float %sub.i87, float %mul8.i.i.i.i)
+  %57 = call noundef float @llvm.fmuladd.f32(float %sub14.i93, float %sub14.i93, float %56)
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %57)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %mul.i.i.i103 = fmul float %sub.i87, %div.i.i
   store float %mul.i.i.i103, ptr %resultNormal, align 4
@@ -583,20 +576,19 @@ if.then58:                                        ; preds = %if.then56
   store float %mul4.i.i.i104, ptr %arrayidx5.i.i.i.i, align 4
   %mul7.i.i.i = fmul float %sub14.i93, %div.i.i
   store float %mul7.i.i.i, ptr %contactToCentre.sroa.4.0.resultNormal.sroa_idx, align 4
-  %sub = fsub float %mul.i, %sqrt163
+  %sub = fsub float %mul.i, %sqrt122
   br label %if.end63
 
 if.else61:                                        ; preds = %if.then56
-  store <2 x float> %normal.sroa.0.1, ptr %resultNormal, align 4
-  store <2 x float> %normal.sroa.17.1, ptr %contactToCentre.sroa.4.0.resultNormal.sroa_idx, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %resultNormal, ptr noundef nonnull align 4 dereferenceable(16) %normal, i64 16, i1 false)
   br label %if.end63
 
 if.end63:                                         ; preds = %if.else61, %if.then58
   %mul.i.sink = phi float [ %mul.i, %if.else61 ], [ %sub, %if.then58 ]
   %fneg62 = fneg float %mul.i.sink
-  store <2 x float> %contactPoint.sroa.0.0159, ptr %point, align 4
-  %55 = getelementptr inbounds i8, ptr %point, i64 8
-  store <2 x float> %contactPoint.sroa.6.0160, ptr %55, align 4
+  store <2 x float> %contactPoint.sroa.0.0120, ptr %point, align 4
+  %58 = getelementptr inbounds i8, ptr %point, i64 8
+  store <2 x float> %contactPoint.sroa.6.0121, ptr %58, align 4
   store float %fneg62, ptr %depth, align 4
   br label %return
 
@@ -695,14 +687,10 @@ if.end12:                                         ; preds = %entry, %if.then6, %
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN22SphereTriangleDetector12facecontainsERK9btVector3PS1_RS0_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef readonly %vertices, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal) local_unnamed_addr #4 align 2 {
 entry:
-  %lp = alloca %class.btVector3, align 4
-  %lnormal = alloca %class.btVector3, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %lp, ptr noundef nonnull align 4 dereferenceable(16) %p, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %lnormal, ptr noundef nonnull align 4 dereferenceable(16) %normal, i64 16, i1 false)
-  %call = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull align 8 poison, ptr noundef %vertices, ptr noundef nonnull align 4 dereferenceable(16) %lnormal, ptr noundef nonnull %lp)
+  %call = tail call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull align 8 poison, ptr noundef %vertices, ptr noundef nonnull align 4 dereferenceable(16) %normal, ptr noundef nonnull %p)
   ret i1 %call
 }
 
@@ -813,7 +801,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22SphereTriangleDetectorD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #11
   ret void
 }
 
@@ -829,25 +817,18 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { builtin nounwind }
+attributes #11 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

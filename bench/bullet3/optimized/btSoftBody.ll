@@ -48927,7 +48927,7 @@ if.end:                                           ; preds = %invoke.cont79, %if.
 
 if.then90:                                        ; preds = %invoke.cont16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %normal, ptr noundef nonnull align 8 dereferenceable(16) %m_normal.i, i64 16, i1 false)
-  %call92 = call fastcc { <2 x float>, <2 x float> } @_ZL28generateUnitOrthogonalVectorRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %normal)
+  %call92 = call fastcc { <2 x float>, <2 x float> } @_ZL28generateUnitOrthogonalVectorRK9btVector3(ptr noundef nonnull align 4 dereferenceable(16) %m_normal.i)
   %105 = extractvalue { <2 x float>, <2 x float> } %call92, 0
   store <2 x float> %105, ptr %t1, align 8
   %106 = getelementptr inbounds i8, ptr %t1, i64 8

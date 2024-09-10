@@ -35,12 +35,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.134" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.135" = type { [32 x i8] }
-%"class.clang::BlockEntrance" = type { %"class.clang::ProgramPoint" }
 %"class.clang::CallEnter" = type { %"class.clang::ProgramPoint" }
 %"class.clang::CFGElement" = type { %"class.llvm::PointerIntPair.159", %"class.llvm::PointerIntPair.159" }
 %"class.llvm::PointerIntPair.159" = type { %"struct.llvm::detail::PunnedPointer.160" }
 %"struct.llvm::detail::PunnedPointer.160" = type { [8 x i8] }
 %"class.clang::ento::NodeBuilder" = type { ptr, ptr, i8, i8, ptr }
+%"class.clang::BlockEntrance" = type { %"class.clang::ProgramPoint" }
 %"class.clang::ento::NodeBuilderWithSinks" = type { %"class.clang::ento::NodeBuilder", %"class.llvm::SmallVector.169", ptr }
 %"class.llvm::SmallVector.169" = type { %"class.llvm::SmallVectorImpl.132", %"struct.llvm::SmallVectorStorage.170" }
 %"struct.llvm::SmallVectorStorage.170" = type { [16 x i8] }
@@ -836,136 +836,134 @@ define dso_local void @_ZN5clang4ento10CoreEngine16dispatchWorkItemEPNS0_12Explo
   %5 = alloca %"class.clang::ento::NodeBuilderContext", align 8
   %6 = alloca %"class.clang::ento::NodeBuilderContext", align 8
   %7 = alloca %"class.clang::BlockEdge", align 8
-  %8 = alloca %"class.clang::BlockEntrance", align 8
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit, %4
-  %.0.copyload.i.i.i.i = load i64, ptr %9, align 8
-  %13 = trunc i64 %.0.copyload.i.i.i.i to i32
-  %.0.copyload.i.i.i5.i = load i64, ptr %10, align 8
-  %14 = trunc i64 %.0.copyload.i.i.i5.i to i32
-  %15 = shl i32 %13, 3
-  %16 = and i32 %15, 48
-  %17 = shl i32 %14, 1
-  %18 = and i32 %17, 12
-  %19 = or disjoint i32 %18, %16
-  %.0.copyload.i.i.i6.i = load i64, ptr %11, align 8
-  %20 = trunc i64 %.0.copyload.i.i.i6.i to i32
-  %21 = and i32 %20, 3
-  %22 = or disjoint i32 %19, %21
-  switch i32 %22, label %46 [
-    i32 0, label %23
-    i32 1, label %24
+  %.0.copyload.i.i.i.i = load i64, ptr %8, align 8
+  %12 = trunc i64 %.0.copyload.i.i.i.i to i32
+  %.0.copyload.i.i.i5.i = load i64, ptr %9, align 8
+  %13 = trunc i64 %.0.copyload.i.i.i5.i to i32
+  %14 = shl i32 %12, 3
+  %15 = and i32 %14, 48
+  %16 = shl i32 %13, 1
+  %17 = and i32 %16, 12
+  %18 = or disjoint i32 %17, %15
+  %.0.copyload.i.i.i6.i = load i64, ptr %10, align 8
+  %19 = trunc i64 %.0.copyload.i.i.i6.i to i32
+  %20 = and i32 %19, 3
+  %21 = or disjoint i32 %18, %20
+  switch i32 %21, label %45 [
+    i32 0, label %22
+    i32 1, label %23
     i32 2, label %.loopexit
-    i32 15, label %25
-    i32 16, label %37
+    i32 15, label %24
+    i32 16, label %36
     i32 22, label %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit
   ]
 
-23:                                               ; preds = %tailrecurse
+22:                                               ; preds = %tailrecurse
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   call void @_ZN5clang4ento10CoreEngine15HandleBlockEdgeERKNS_9BlockEdgeEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %1)
   br label %.loopexit
 
-24:                                               ; preds = %tailrecurse
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
-  call void @_ZN5clang4ento10CoreEngine19HandleBlockEntranceERKNS_13BlockEntranceEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %1)
+23:                                               ; preds = %tailrecurse
+  call void @_ZN5clang4ento10CoreEngine19HandleBlockEntranceERKNS_13BlockEntranceEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %1)
   br label %.loopexit
 
-25:                                               ; preds = %tailrecurse
+24:                                               ; preds = %tailrecurse
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.1.0.copyload = load i64, ptr %.sroa.1.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %26 = and i64 %.sroa.1.0.copyload, -4
-  %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef ptr @_ZN5clang19AnalysisDeclContext6getCFGEv(ptr noundef nonnull align 8 dereferenceable(248) %29) #16
-  %31 = load ptr, ptr %30, align 8
+  %25 = and i64 %.sroa.1.0.copyload, -4
+  %26 = inttoptr i64 %25 to ptr
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef ptr @_ZN5clang19AnalysisDeclContext6getCFGEv(ptr noundef nonnull align 8 dereferenceable(248) %28) #16
+  %30 = load ptr, ptr %29, align 8
   %.sroa.1.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.1.0.copyload.i.i.i = load i64, ptr %.sroa.1.0..sroa_idx.i.i.i, align 8
-  %32 = and i64 %.sroa.1.0.copyload.i.i.i, -8
-  %33 = inttoptr i64 %32 to ptr
+  %31 = and i64 %.sroa.1.0.copyload.i.i.i, -8
+  %32 = inttoptr i64 %31 to ptr
   store ptr %0, ptr %6, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %31, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %33, ptr %35, align 8
-  %36 = load ptr, ptr %0, align 8
-  call void @_ZN5clang4ento10ExprEngine16processCallEnterERNS0_18NodeBuilderContextENS_9CallEnterEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(796) %36, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull byval(%"class.clang::CallEnter") align 8 %2, ptr noundef %1) #16
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %30, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %32, ptr %34, align 8
+  %35 = load ptr, ptr %0, align 8
+  call void @_ZN5clang4ento10ExprEngine16processCallEnterERNS0_18NodeBuilderContextENS_9CallEnterEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(796) %35, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull byval(%"class.clang::CallEnter") align 8 %2, ptr noundef %1) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %.loopexit
 
-37:                                               ; preds = %tailrecurse
-  %38 = load ptr, ptr %0, align 8
-  tail call void @_ZN5clang4ento10ExprEngine15processCallExitEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(796) %38, ptr noundef %1) #16
+36:                                               ; preds = %tailrecurse
+  %37 = load ptr, ptr %0, align 8
+  tail call void @_ZN5clang4ento10ExprEngine15processCallExitEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(796) %37, ptr noundef %1) #16
   br label %.loopexit
 
 _ZN5clang4ento12ExplodedNode12getFirstPredEv.exit: ; preds = %tailrecurse
-  %39 = load i64, ptr %12, align 8
-  %40 = icmp ne i64 %39, 0
-  %41 = and i64 %39, 1
-  %42 = icmp eq i64 %41, 0
-  tail call void @llvm.assume(i1 %40)
-  tail call void @llvm.assume(i1 %42)
-  %43 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode9NodeGroup5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %45, i64 48, i1 false)
+  %38 = load i64, ptr %11, align 8
+  %39 = icmp ne i64 %38, 0
+  %40 = and i64 %38, 1
+  %41 = icmp eq i64 %40, 0
+  tail call void @llvm.assume(i1 %39)
+  tail call void @llvm.assume(i1 %41)
+  %42 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode9NodeGroup5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #16
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %44, i64 48, i1 false)
   br label %tailrecurse
 
-46:                                               ; preds = %tailrecurse
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %50 = load i32, ptr %49, align 8
+45:                                               ; preds = %tailrecurse
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %49 = load i32, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %47, align 8
+  %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = lshr exact i64 %56, 4
-  %58 = trunc i64 %57 to i32
-  %59 = icmp eq i32 %50, %58
-  br i1 %59, label %60, label %61
+  %55 = sub i64 %53, %54
+  %56 = lshr exact i64 %55, 4
+  %57 = trunc i64 %56 to i32
+  %58 = icmp eq i32 %49, %57
+  br i1 %58, label %59, label %60
 
-60:                                               ; preds = %46
-  tail call void @_ZN5clang4ento10CoreEngine15HandleBlockExitEPKNS_8CFGBlockEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull %48, ptr noundef %1)
+59:                                               ; preds = %45
+  tail call void @_ZN5clang4ento10CoreEngine15HandleBlockExitEPKNS_8CFGBlockEPNS0_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull %47, ptr noundef %1)
   br label %_ZN5clang4ento10CoreEngine14HandlePostStmtEPKNS_8CFGBlockEjPNS0_12ExplodedNodeE.exit
 
-61:                                               ; preds = %46
+60:                                               ; preds = %45
   %.sroa.1.0..sroa_idx.i.i.i12 = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.1.0.copyload.i.i.i13 = load i64, ptr %.sroa.1.0..sroa_idx.i.i.i12, align 8
-  %62 = and i64 %.sroa.1.0.copyload.i.i.i13, -8
-  %63 = inttoptr i64 %62 to ptr
+  %61 = and i64 %.sroa.1.0.copyload.i.i.i13, -8
+  %62 = inttoptr i64 %61 to ptr
   store ptr %0, ptr %5, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %48, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %63, ptr %65, align 8
-  %66 = load ptr, ptr %0, align 8
-  %67 = zext i32 %50 to i64
-  %68 = xor i64 %67, -1
-  %69 = add nsw i64 %57, %68
-  %70 = and i64 %69, 4294967295
-  %71 = getelementptr inbounds %"class.clang::CFGElement", ptr %53, i64 %70
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %71, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %71, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %47, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %62, ptr %64, align 8
+  %65 = load ptr, ptr %0, align 8
+  %66 = zext i32 %49 to i64
+  %67 = xor i64 %66, -1
+  %68 = add nsw i64 %56, %67
+  %69 = and i64 %68, 4294967295
+  %70 = getelementptr inbounds %"class.clang::CFGElement", ptr %52, i64 %69
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %70, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %70, i64 8
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  call void @_ZN5clang4ento10ExprEngine17processCFGElementENS_10CFGElementEPNS0_12ExplodedNodeEjPNS0_18NodeBuilderContextE(ptr noundef nonnull align 8 dereferenceable(796) %66, i64 %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, ptr noundef %1, i32 noundef %50, ptr noundef nonnull %5) #16
+  call void @_ZN5clang4ento10ExprEngine17processCFGElementENS_10CFGElementEPNS0_12ExplodedNodeEjPNS0_18NodeBuilderContextE(ptr noundef nonnull align 8 dereferenceable(796) %65, i64 %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, ptr noundef %1, i32 noundef %49, ptr noundef nonnull %5) #16
   br label %_ZN5clang4ento10CoreEngine14HandlePostStmtEPKNS_8CFGBlockEjPNS0_12ExplodedNodeE.exit
 
-_ZN5clang4ento10CoreEngine14HandlePostStmtEPKNS_8CFGBlockEjPNS0_12ExplodedNodeE.exit: ; preds = %60, %61
+_ZN5clang4ento10CoreEngine14HandlePostStmtEPKNS_8CFGBlockEjPNS0_12ExplodedNodeE.exit: ; preds = %59, %60
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %_ZN5clang4ento10CoreEngine14HandlePostStmtEPKNS_8CFGBlockEjPNS0_12ExplodedNodeE.exit, %37, %25, %24, %23
+.loopexit:                                        ; preds = %tailrecurse, %_ZN5clang4ento10CoreEngine14HandlePostStmtEPKNS_8CFGBlockEjPNS0_12ExplodedNodeE.exit, %36, %24, %23, %22
   ret void
 }
 

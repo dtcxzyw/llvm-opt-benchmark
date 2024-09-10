@@ -98,9 +98,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.pbrt::MediumProperties" = type { %"class.pbrt::SampledSpectrum", %"class.pbrt::SampledSpectrum", %"class.pbrt::PhaseFunction", %"class.pbrt::SampledSpectrum" }
 %"class.pbrt::PhaseFunction" = type { %"class.pbrt::TaggedPointer.226" }
 %"class.pbrt::TaggedPointer.226" = type { i64 }
-%class.anon.221 = type { ptr, ptr, ptr, ptr }
 %"class.pbrt::HomogeneousMajorantIterator" = type <{ %"struct.pbrt::RayMajorantSegment", i8, [3 x i8] }>
 %"struct.pbrt::RayMajorantSegment" = type { float, float, %"class.pbrt::SampledSpectrum" }
+%class.anon.221 = type { ptr, ptr, ptr, ptr }
 %"class.pbrt::RNG" = type { i64, i64 }
 %"class.pbrt::BlackbodySpectrum" = type { float, float }
 %class.anon.239 = type { %"class.pbrt::SampledWavelengths" }
@@ -10810,7 +10810,6 @@ entry:
   %ref.tmp96.i.i685.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 4
   %ref.tmp108.i.i686.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %ref.tmp109.i.i687.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
-  %agg.tmp21.i688.i.i.i.i.i.i.i = alloca %class.anon.221, align 8
   %retval.i173.i.i400.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i.i160.i.i401.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i85.i.i402.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -10830,7 +10829,6 @@ entry:
   %ref.tmp96.i.i416.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 4
   %ref.tmp108.i.i417.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %ref.tmp109.i.i418.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
-  %agg.tmp21.i419.i.i.i.i.i.i.i = alloca %class.anon.221, align 8
   %retval.i172.i.i116.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i.i159.i.i117.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i84.i.i118.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -10851,7 +10849,6 @@ entry:
   %ref.tmp96.i.i133.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 4
   %ref.tmp108.i.i134.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %ref.tmp109.i.i135.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
-  %agg.tmp21.i136.i.i.i.i.i.i.i = alloca %class.anon.221, align 8
   %retval.i172.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i.i159.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i84.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -10872,7 +10869,6 @@ entry:
   %ref.tmp96.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 4
   %ref.tmp108.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %ref.tmp109.i.i19.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
-  %agg.tmp21.i20.i.i.i.i.i.i.i = alloca %class.anon.221, align 8
   %retval.i173.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i.i160.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %retval.i85.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -10892,7 +10888,7 @@ entry:
   %ref.tmp97.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 4
   %ref.tmp109.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %ref.tmp110.i.i.i.i.i.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
-  %agg.tmp21.i.i.i.i.i.i.i.i = alloca %class.anon.221, align 8
+  %agg.tmp2750.i.i.i.i = alloca %class.anon.221, align 8
   %ref.tmp.i.i.i.i.i = alloca %"class.pstd::optional", align 8
   %lambda.i.i.i.i = alloca %"class.pbrt::SampledWavelengths", align 8
   %Ld.i.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
@@ -11099,12 +11095,12 @@ while.cond.preheader.i.i.i.i:                     ; preds = %for.body.i.i25.i.i.
   %add4.i.i.i.i.i.i = fadd float %6, %mul2.i.i.i.i.i.i
   %mul3.i.i.i.i.i.i = fmul float %14, %20
   %add6.i.i.i.i.i.i = fadd float %8, %mul3.i.i.i.i.i.i
-  %cmp.i347.i.i.i.i = fcmp une float %10, 0.000000e+00
-  %cmp4.i349.i.i.i.i = fcmp une float %12, 0.000000e+00
-  %or.cond.i350.i.i.i.i = select i1 %cmp.i347.i.i.i.i, i1 true, i1 %cmp4.i349.i.i.i.i
-  %cmp6.i351.i.i.i.i = fcmp une float %14, 0.000000e+00
-  %or.cond352.i.i.i.i = select i1 %or.cond.i350.i.i.i.i, i1 true, i1 %cmp6.i351.i.i.i.i
-  br i1 %or.cond352.i.i.i.i, label %while.body.lr.ph.i.i.i.i, label %for.body.i117.i.i.i.i.preheader
+  %cmp.i331.i.i.i.i = fcmp une float %10, 0.000000e+00
+  %cmp4.i333.i.i.i.i = fcmp une float %12, 0.000000e+00
+  %or.cond.i334.i.i.i.i = select i1 %cmp.i331.i.i.i.i, i1 true, i1 %cmp4.i333.i.i.i.i
+  %cmp6.i335.i.i.i.i = fcmp une float %14, 0.000000e+00
+  %or.cond336.i.i.i.i = select i1 %or.cond.i334.i.i.i.i, i1 true, i1 %cmp6.i335.i.i.i.i
+  br i1 %or.cond336.i.i.i.i, label %while.body.lr.ph.i.i.i.i, label %for.body.i117.i.i.i.i.preheader
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %while.cond.preheader.i.i.i.i
   %ray.sroa.9.0.agg.tmp12.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12.i.i.i.i, i64 8
@@ -11131,9 +11127,9 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %while.cond.preheade
   %agg.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %si.i.i.i, i64 12
   %agg.tmp.sroa.0.sroa.5.0.this.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %si.i.i.i, i64 16
   %agg.tmp.sroa.0.sroa.6.0.this.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %si.i.i.i, i64 20
-  %agg.tmp2750.sroa.8.0.agg.tmp21.i419.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i419.i.i.i.i.i.i.i, i64 8
-  %agg.tmp2750.sroa.9.0.agg.tmp21.i419.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i419.i.i.i.i.i.i.i, i64 16
-  %agg.tmp2750.sroa.10.0.agg.tmp21.i419.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i419.i.i.i.i.i.i.i, i64 24
+  %agg.tmp27.sroa.2.0.agg.tmp2750.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2750.i.i.i.i, i64 8
+  %agg.tmp27.sroa.3.0.agg.tmp2750.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2750.i.i.i.i, i64 16
+  %agg.tmp27.sroa.4.0.agg.tmp2750.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2750.i.i.i.i, i64 24
   %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i447.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i408.i.i.i.i.i.i.i, i64 4
   %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i448.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i408.i.i.i.i.i.i.i, i64 8
   %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i449.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i408.i.i.i.i.i.i.i, i64 12
@@ -11162,9 +11158,6 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %while.cond.preheade
   %.fca.1.gep.i.i.i474.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i404.i.i.i.i.i.i.i, i64 8
   %41 = getelementptr inbounds i8, ptr %ref.tmp22.i.i410.i.i.i.i.i.i.i, i64 8
   %.fca.1.gep.i.i551.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i406.i.i.i.i.i.i.i, i64 8
-  %agg.tmp2750.sroa.8.0.agg.tmp21.i136.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i136.i.i.i.i.i.i.i, i64 8
-  %agg.tmp2750.sroa.9.0.agg.tmp21.i136.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i136.i.i.i.i.i.i.i, i64 16
-  %agg.tmp2750.sroa.10.0.agg.tmp21.i136.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i136.i.i.i.i.i.i.i, i64 24
   %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i164.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i124.i.i.i.i.i.i.i, i64 4
   %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i165.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i124.i.i.i.i.i.i.i, i64 8
   %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i166.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i124.i.i.i.i.i.i.i, i64 12
@@ -11193,9 +11186,6 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %while.cond.preheade
   %.fca.1.gep.i.i.i191.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i120.i.i.i.i.i.i.i, i64 8
   %47 = getelementptr inbounds i8, ptr %ref.tmp22.i.i127.i.i.i.i.i.i.i, i64 8
   %.fca.1.gep.i.i205.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i122.i.i.i.i.i.i.i, i64 8
-  %agg.tmp2750.sroa.8.0.agg.tmp21.i20.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i20.i.i.i.i.i.i.i, i64 8
-  %agg.tmp2750.sroa.9.0.agg.tmp21.i20.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i20.i.i.i.i.i.i.i, i64 16
-  %agg.tmp2750.sroa.10.0.agg.tmp21.i20.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i20.i.i.i.i.i.i.i, i64 24
   %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i48.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i14.i.i.i.i.i.i.i, i64 4
   %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i49.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i14.i.i.i.i.i.i.i, i64 8
   %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i50.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i14.i.i.i.i.i.i.i, i64 12
@@ -11224,9 +11214,6 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %while.cond.preheade
   %.fca.1.gep.i.i.i65.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i10.i.i.i.i.i.i.i, i64 8
   %53 = getelementptr inbounds i8, ptr %ref.tmp22.i.i.i.i.i.i.i.i.i, i64 8
   %.fca.1.gep.i.i68.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i12.i.i.i.i.i.i.i, i64 8
-  %agg.tmp2750.sroa.8.0.agg.tmp21.i.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i.i.i.i.i.i.i.i, i64 8
-  %agg.tmp2750.sroa.9.0.agg.tmp21.i.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i.i.i.i.i.i.i.i, i64 16
-  %agg.tmp2750.sroa.10.0.agg.tmp21.i.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i.i.i.i.i.i.i.i, i64 24
   %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i.i.i.i.i.i.i.i, i64 4
   %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i.i.i.i.i.i.i.i, i64 8
   %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i.i.i.i.i.i.i.i, i64 12
@@ -11255,9 +11242,6 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %while.cond.preheade
   %.fca.1.gep.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i.i.i.i.i.i.i.i, i64 8
   %59 = getelementptr inbounds i8, ptr %ref.tmp23.i.i.i.i.i.i.i.i.i, i64 8
   %.fca.1.gep.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i.i.i.i.i.i.i, i64 8
-  %agg.tmp2750.sroa.8.0.agg.tmp21.i688.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i688.i.i.i.i.i.i.i, i64 8
-  %agg.tmp2750.sroa.9.0.agg.tmp21.i688.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i688.i.i.i.i.i.i.i, i64 16
-  %agg.tmp2750.sroa.10.0.agg.tmp21.i688.i.i.i.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp21.i688.i.i.i.i.i.i.i, i64 24
   %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i716.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i676.i.i.i.i.i.i.i, i64 4
   %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i717.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i676.i.i.i.i.i.i.i, i64 8
   %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i718.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.i.i676.i.i.i.i.i.i.i, i64 12
@@ -11299,18 +11283,18 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %while.cond.preheade
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i", %while.body.lr.ph.i.i.i.i
-  %ray.sroa.30.0358.i.i.i.i = phi i64 [ %18, %while.body.lr.ph.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
-  %ray.sroa.28.0357.i.i.i.i = phi float [ %16, %while.body.lr.ph.i.i.i.i ], [ %342, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
-  %ray.sroa.22.0356.i.i.i.i = phi float [ %14, %while.body.lr.ph.i.i.i.i ], [ %sub6.i.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
-  %ray.sroa.14.0355.i.i.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i12.i.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %retval.sroa.0.4.vec.insert.i.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
-  %ray.sroa.9.0354.i.i.i.i = phi float [ %8, %while.body.lr.ph.i.i.i.i ], [ %call.fca.1.extract.i.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
-  %ray.sroa.0.0353.i.i.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %call.fca.0.extract.i.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
-  store <2 x float> %ray.sroa.0.0353.i.i.i.i, ptr %agg.tmp12.i.i.i.i, align 8
-  store float %ray.sroa.9.0354.i.i.i.i, ptr %ray.sroa.9.0.agg.tmp12.sroa_idx.i.i.i.i, align 8
-  store <2 x float> %ray.sroa.14.0355.i.i.i.i, ptr %ray.sroa.14.0.agg.tmp12.sroa_idx.i.i.i.i, align 4
-  store float %ray.sroa.22.0356.i.i.i.i, ptr %ray.sroa.22.0.agg.tmp12.sroa_idx.i.i.i.i, align 4
-  store float %ray.sroa.28.0357.i.i.i.i, ptr %ray.sroa.28.0.agg.tmp12.sroa_idx.i.i.i.i, align 8
-  store i64 %ray.sroa.30.0358.i.i.i.i, ptr %medium.i31.i.i.i.i, align 8
+  %ray.sroa.30.0342.i.i.i.i = phi i64 [ %18, %while.body.lr.ph.i.i.i.i ], [ %storemerge.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
+  %ray.sroa.28.0341.i.i.i.i = phi float [ %16, %while.body.lr.ph.i.i.i.i ], [ %342, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
+  %ray.sroa.22.0340.i.i.i.i = phi float [ %14, %while.body.lr.ph.i.i.i.i ], [ %sub6.i.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
+  %ray.sroa.14.0339.i.i.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i12.i.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %retval.sroa.0.4.vec.insert.i.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
+  %ray.sroa.9.0338.i.i.i.i = phi float [ %8, %while.body.lr.ph.i.i.i.i ], [ %call.fca.1.extract.i.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
+  %ray.sroa.0.0337.i.i.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %call.fca.0.extract.i.i.i.i.i.i.i.i, %"_ZZZNK4pbrt12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiENKUlNS_6Point3IfEEE_clESB_.exit.i.i.i.i" ]
+  store <2 x float> %ray.sroa.0.0337.i.i.i.i, ptr %agg.tmp12.i.i.i.i, align 8
+  store float %ray.sroa.9.0338.i.i.i.i, ptr %ray.sroa.9.0.agg.tmp12.sroa_idx.i.i.i.i, align 8
+  store <2 x float> %ray.sroa.14.0339.i.i.i.i, ptr %ray.sroa.14.0.agg.tmp12.sroa_idx.i.i.i.i, align 4
+  store float %ray.sroa.22.0340.i.i.i.i, ptr %ray.sroa.22.0.agg.tmp12.sroa_idx.i.i.i.i, align 4
+  store float %ray.sroa.28.0341.i.i.i.i, ptr %ray.sroa.28.0.agg.tmp12.sroa_idx.i.i.i.i, align 8
+  store i64 %ray.sroa.30.0342.i.i.i.i, ptr %medium.i31.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @_ZNK4pbrt9Primitive9IntersectERKNS_3RayEf(ptr nonnull sret(%"class.pstd::optional") align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %aggregate.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp12.i.i.i.i, float noundef %20)
   %69 = load i8, ptr %set.i.i.i.i, align 8, !noalias !104
@@ -11374,49 +11358,49 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
   br label %for.body.i117.i.i.i.i.preheader
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i.i
-  %and.i40.i.i.i.i = and i64 %ray.sroa.30.0358.i.i.i.i, 144115188075855871
+  %and.i40.i.i.i.i = and i64 %ray.sroa.30.0342.i.i.i.i, 144115188075855871
   %cmp.i41.not.i.i.i.i = icmp eq i64 %and.i40.i.i.i.i, 0
   br i1 %cmp.i41.not.i.i.i.i, label %for.body.i104.i.i.i.i.preheader, label %cond.false.i.i.i.i
 
 if.end.thread.i.i.i.i:                            ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %and.i40275.i.i.i.i = and i64 %ray.sroa.30.0358.i.i.i.i, 144115188075855871
-  %cmp.i41276.not.i.i.i.i = icmp eq i64 %and.i40275.i.i.i.i, 0
-  br i1 %cmp.i41276.not.i.i.i.i, label %for.body.i117.i.i.i.i.preheader, label %if.end.thread.cond.end_crit_edge.i.i.i.i
+  %and.i40259.i.i.i.i = and i64 %ray.sroa.30.0342.i.i.i.i, 144115188075855871
+  %cmp.i41260.not.i.i.i.i = icmp eq i64 %and.i40259.i.i.i.i, 0
+  br i1 %cmp.i41260.not.i.i.i.i, label %for.body.i117.i.i.i.i.preheader, label %if.end.thread.cond.end_crit_edge.i.i.i.i
 
 if.end.thread.cond.end_crit_edge.i.i.i.i:         ; preds = %if.end.thread.i.i.i.i
-  %.pre.i.i.i.i = extractelement <2 x float> %ray.sroa.0.0353.i.i.i.i, i64 0
-  %.pre410.i.i.i.i = extractelement <2 x float> %ray.sroa.0.0353.i.i.i.i, i64 1
+  %.pre.i.i.i.i = extractelement <2 x float> %ray.sroa.0.0337.i.i.i.i, i64 0
+  %.pre394.i.i.i.i = extractelement <2 x float> %ray.sroa.0.0337.i.i.i.i, i64 1
   br label %cond.end.i.i.i.i
 
 cond.false.i.i.i.i:                               ; preds = %if.end.i.i.i.i
-  %p1.sroa.0.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %ray.sroa.0.0353.i.i.i.i, i64 0
+  %p1.sroa.0.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %ray.sroa.0.0337.i.i.i.i, i64 0
   %sub.i.i.i.i.i.i = fsub float %p1.sroa.0.0.vec.extract.i.i.i.i.i, %div.i.i.i.i.i.i.i.i.i
-  %p1.sroa.0.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %ray.sroa.0.0353.i.i.i.i, i64 1
+  %p1.sroa.0.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %ray.sroa.0.0337.i.i.i.i, i64 1
   %sub4.i.i.i.i.i.i = fsub float %p1.sroa.0.4.vec.extract.i.i.i.i.i, %div.i.i3.i.i.i.i.i.i.i
-  %sub6.i.i.i.i.i.i = fsub float %ray.sroa.9.0354.i.i.i.i, %div.i.i6.i.i.i.i.i.i.i
+  %sub6.i.i.i.i.i.i = fsub float %ray.sroa.9.0338.i.i.i.i, %div.i.i6.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = fmul float %sub.i.i.i.i.i.i, %sub.i.i.i.i.i.i
   %mul.i1.i.i.i.i.i.i.i = fmul float %sub4.i.i.i.i.i.i, %sub4.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i = fadd float %mul.i.i.i.i.i.i.i.i, %mul.i1.i.i.i.i.i.i.i
   %mul.i2.i.i.i.i.i.i.i = fmul float %sub6.i.i.i.i.i.i, %sub6.i.i.i.i.i.i
   %add3.i.i.i.i.i.i.i = fadd float %add.i.i.i.i.i.i.i, %mul.i2.i.i.i.i.i.i.i
   %sqrt.i.i.i.i.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i.i.i.i)
-  %77 = fmul <2 x float> %ray.sroa.14.0355.i.i.i.i, %ray.sroa.14.0355.i.i.i.i
-  %78 = fmul <2 x float> %ray.sroa.14.0355.i.i.i.i, %ray.sroa.14.0355.i.i.i.i
+  %77 = fmul <2 x float> %ray.sroa.14.0339.i.i.i.i, %ray.sroa.14.0339.i.i.i.i
+  %78 = fmul <2 x float> %ray.sroa.14.0339.i.i.i.i, %ray.sroa.14.0339.i.i.i.i
   %shift = shufflevector <2 x float> %78, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %79 = fadd <2 x float> %77, %shift
   %add.i.i43.i.i.i.i = extractelement <2 x float> %79, i64 0
-  %mul.i2.i.i.i.i.i.i = fmul float %ray.sroa.22.0356.i.i.i.i, %ray.sroa.22.0356.i.i.i.i
+  %mul.i2.i.i.i.i.i.i = fmul float %ray.sroa.22.0340.i.i.i.i, %ray.sroa.22.0340.i.i.i.i
   %add3.i.i.i.i.i.i = fadd float %mul.i2.i.i.i.i.i.i, %add.i.i43.i.i.i.i
   %sqrt.i.i.i.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i.i.i)
   %div.i.i.i.i = fdiv float %sqrt.i.i.i.i.i.i, %sqrt.i.i.i.i.i
   br label %cond.end.i.i.i.i
 
 cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i, %if.end.thread.cond.end_crit_edge.i.i.i.i
-  %tobool.i.i413.i.i.i.i = phi i1 [ false, %if.end.thread.cond.end_crit_edge.i.i.i.i ], [ true, %cond.false.i.i.i.i ]
-  %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i = phi float [ %.pre410.i.i.i.i, %if.end.thread.cond.end_crit_edge.i.i.i.i ], [ %p1.sroa.0.4.vec.extract.i.i.i.i.i, %cond.false.i.i.i.i ]
+  %tobool.i.i397.i.i.i.i = phi i1 [ false, %if.end.thread.cond.end_crit_edge.i.i.i.i ], [ true, %cond.false.i.i.i.i ]
+  %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i = phi float [ %.pre394.i.i.i.i, %if.end.thread.cond.end_crit_edge.i.i.i.i ], [ %p1.sroa.0.4.vec.extract.i.i.i.i.i, %cond.false.i.i.i.i ]
   %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i = phi float [ %.pre.i.i.i.i, %if.end.thread.cond.end_crit_edge.i.i.i.i ], [ %p1.sroa.0.0.vec.extract.i.i.i.i.i, %cond.false.i.i.i.i ]
-  %and.i40281286.i.i.i.i = phi i64 [ %and.i40275.i.i.i.i, %if.end.thread.cond.end_crit_edge.i.i.i.i ], [ %and.i40.i.i.i.i, %cond.false.i.i.i.i ]
+  %and.i40265270.i.i.i.i = phi i64 [ %and.i40259.i.i.i.i, %if.end.thread.cond.end_crit_edge.i.i.i.i ], [ %and.i40.i.i.i.i, %cond.false.i.i.i.i ]
   %cond.i.i.i.i = phi float [ %20, %if.end.thread.cond.end_crit_edge.i.i.i.i ], [ %div.i.i.i.i, %cond.false.i.i.i.i ]
   %80 = load i64, ptr %rng.i.i.i.i, align 8
   %mul.i.i46.i.i.i.i = mul i64 %80, 6364136223846793005
@@ -11434,7 +11418,12 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %mul.i.i.i.i.i = fmul float %conv.i.i.i.i.i, 0x3DF0000000000000
   %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i.i.i, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float %mul.i.i.i.i.i, float 0x3FEFFFFFE0000000
-  %shr.i.i.i.i.i.i.i = lshr i64 %ray.sroa.30.0358.i.i.i.i, 57
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2750.i.i.i.i)
+  store ptr %T_ray.i.i.i.i, ptr %agg.tmp2750.i.i.i.i, align 8
+  store ptr %r_l.i.i.i.i, ptr %agg.tmp27.sroa.2.0.agg.tmp2750.sroa_idx.i.i.i.i, align 8
+  store ptr %r_u.i.i.i.i, ptr %agg.tmp27.sroa.3.0.agg.tmp2750.sroa_idx.i.i.i.i, align 8
+  store ptr %rng.i.i.i.i, ptr %agg.tmp27.sroa.4.0.agg.tmp2750.sroa_idx.i.i.i.i, align 8
+  %shr.i.i.i.i.i.i.i = lshr i64 %ray.sroa.30.0342.i.i.i.i, 57
   %conv.i.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i to i32
   switch i32 %conv.i.i.i.i.i.i.i, label %sw.default.i.i.i.i.i.i.i [
     i32 1, label %sw.bb.i.i.i.i.i.i.i
@@ -11444,11 +11433,6 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   ]
 
 sw.bb.i.i.i.i.i.i.i:                              ; preds = %cond.end.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp21.i.i.i.i.i.i.i.i)
-  store ptr %T_ray.i.i.i.i, ptr %agg.tmp21.i.i.i.i.i.i.i.i, align 8
-  store ptr %r_l.i.i.i.i, ptr %agg.tmp2750.sroa.8.0.agg.tmp21.i.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %r_u.i.i.i.i, ptr %agg.tmp2750.sroa.9.0.agg.tmp21.i.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %rng.i.i.i.i, ptr %agg.tmp2750.sroa.10.0.agg.tmp21.i.i.i.i.sroa_idx.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %iter.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7.i.i.i.i.i.i.i.i.i)
@@ -11462,29 +11446,29 @@ sw.bb.i.i.i.i.i.i.i:                              ; preds = %cond.end.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp97.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp109.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp110.i.i.i.i.i.i.i.i.i)
-  %v.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 0
-  %84 = fmul <2 x float> %ray.sroa.14.0355.i.i.i.i, %ray.sroa.14.0355.i.i.i.i
+  %v.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 0
+  %84 = fmul <2 x float> %ray.sroa.14.0339.i.i.i.i, %ray.sroa.14.0339.i.i.i.i
   %mul.i.i.i.i.i.i.i.i.i.i.i.i = extractelement <2 x float> %84, i64 0
-  %v.sroa.0.4.vec.extract.i.i.i.i.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 1
+  %v.sroa.0.4.vec.extract.i.i.i.i.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 1
   %mul.i1.i.i.i.i.i.i.i.i.i.i.i = fmul float %v.sroa.0.4.vec.extract.i.i.i.i.i.i.i.i.i.i.i, %v.sroa.0.4.vec.extract.i.i.i.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i.i.i = fadd float %mul.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i1.i.i.i.i.i.i.i.i.i.i.i
-  %mul.i2.i.i.i.i.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0356.i.i.i.i, %ray.sroa.22.0356.i.i.i.i
+  %mul.i2.i.i.i.i.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0340.i.i.i.i, %ray.sroa.22.0340.i.i.i.i
   %add3.i.i.i.i.i.i.i.i.i.i.i = fadd float %mul.i2.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i.i.i.i.i.i.i
   %sqrt.i.i.i.i.i.i.i.i.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i.i.i.i.i.i.i.i)
   %mul.i.i.i.i.i.i.i.i.i = fmul float %sqrt.i.i.i.i.i.i.i.i.i.i, %cond.i.i.i.i
   %div.i.i.i.i.i.i.i.i.i.i.i = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i.i.i.i, %sqrt.i.i.i.i.i.i.i.i.i.i
   %div2.i.i.i.i.i.i.i.i.i.i.i = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i.i.i.i.i.i.i.i, %sqrt.i.i.i.i.i.i.i.i.i.i
-  %div3.i.i.i.i.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0356.i.i.i.i, %sqrt.i.i.i.i.i.i.i.i.i.i
+  %div3.i.i.i.i.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0340.i.i.i.i, %sqrt.i.i.i.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %div.i.i.i.i.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i.i.i.i.i.i.i.i, float %div2.i.i.i.i.i.i.i.i.i.i.i, i64 1
-  %85 = inttoptr i64 %and.i40281286.i.i.i.i to ptr
+  %85 = inttoptr i64 %and.i40265270.i.i.i.i to ptr
   store float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, ptr %agg.tmp7.i.i.i.i.i.i.i.i.i, align 8
   store float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, ptr %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.9.0354.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.9.0338.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i, align 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i, align 4
   store float %div3.i.i.i.i.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.14.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.28.0357.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i, align 8
-  store i64 %ray.sroa.30.0358.i.i.i.i, ptr %medium.i.i.i.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.28.0341.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i.i.i.i.i.i.i.i, align 8
+  store i64 %ray.sroa.30.0342.i.i.i.i, ptr %medium.i.i.i.i.i.i.i.i.i.i, align 8
   call void @_ZNK4pbrt17HomogeneousMedium9SampleRayENS_3RayEfRKNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pbrt::HomogeneousMajorantIterator") align 4 %iter.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %85, ptr noundef nonnull %agg.tmp7.i.i.i.i.i.i.i.i.i, float noundef %mul.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %for.body.i.i.i.i.i.i.i.i.i.i.i
@@ -11720,7 +11704,7 @@ invoke.cont76.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i114.i.i.i
   %mul3.i.i.i.i.i.i.i.i.i.i.i = fmul float %div3.i.i.i.i.i.i.i.i.i.i.i, %add.i.i.i.i.i52.i.i.i.i
   %add.i.i123.i.i.i.i.i.i.i.i.i = fadd float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, %mul.i.i122.i.i.i.i.i.i.i.i.i
   %add4.i.i.i.i.i.i.i.i.i.i.i = fadd float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, %mul2.i.i.i.i.i.i.i.i.i.i.i
-  %add6.i.i.i.i.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0354.i.i.i.i, %mul3.i.i.i.i.i.i.i.i.i.i.i
+  %add6.i.i.i.i.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0338.i.i.i.i, %mul3.i.i.i.i.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i3.i.i.i.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i123.i.i.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i.i.i.i.i.i.i.i, float %add4.i.i.i.i.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt17HomogeneousMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(124) %85, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i.i.i.i.i.i.i.i, float %add6.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
@@ -11730,7 +11714,7 @@ invoke.cont76.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i114.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %agg.tmp92.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i.i.i.i.i.i.i.i, align 8
   %agg.tmp92.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %agg.tmp92.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i.i.i.i.i, align 8
-  %call94.i.i.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp21.i.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp86.i.i.i.i.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp92.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp92.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i)
+  %call94.i.i.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2750.i.i.i.i, ptr noundef nonnull %agg.tmp86.i.i.i.i.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp92.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp92.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i)
   br i1 %call94.i.i.i.i.i.i.i.i.i, label %if.end96.i.i.i.i.i.i.i.i.i, label %while.end126.i.i.i.i.i.i.i.i.i
 
 if.end96.i.i.i.i.i.i.i.i.i:                       ; preds = %invoke.cont76.i.i.i.i.i.i.i.i.i
@@ -11862,7 +11846,6 @@ for.body.i.i214.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i214.i.i
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %for.body.i.i214.i.i.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i.i.i.i.i.i.i.i, align 8
   %.fca.1.load.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp21.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %iter.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i.i.i.i.i.i.i.i)
@@ -11879,11 +11862,6 @@ for.body.i.i214.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i214.i.i
   br label %"_ZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_.exit.i.i.i.i"
 
 sw.bb4.i.i.i.i.i.i.i:                             ; preds = %cond.end.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp21.i20.i.i.i.i.i.i.i)
-  store ptr %T_ray.i.i.i.i, ptr %agg.tmp21.i20.i.i.i.i.i.i.i, align 8
-  store ptr %r_l.i.i.i.i, ptr %agg.tmp2750.sroa.8.0.agg.tmp21.i20.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %r_u.i.i.i.i, ptr %agg.tmp2750.sroa.9.0.agg.tmp21.i20.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %rng.i.i.i.i, ptr %agg.tmp2750.sroa.10.0.agg.tmp21.i20.i.i.i.sroa_idx.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i12.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %iter.i.i13.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7.i.i14.i.i.i.i.i.i.i)
@@ -11898,29 +11876,29 @@ sw.bb4.i.i.i.i.i.i.i:                             ; preds = %cond.end.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp96.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp108.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp109.i.i19.i.i.i.i.i.i.i)
-  %v.sroa.0.0.vec.extract.i.i.i.i33.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 0
-  %128 = fmul <2 x float> %ray.sroa.14.0355.i.i.i.i, %ray.sroa.14.0355.i.i.i.i
+  %v.sroa.0.0.vec.extract.i.i.i.i33.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 0
+  %128 = fmul <2 x float> %ray.sroa.14.0339.i.i.i.i, %ray.sroa.14.0339.i.i.i.i
   %mul.i.i.i.i.i34.i.i.i.i.i.i.i = extractelement <2 x float> %128, i64 0
-  %v.sroa.0.4.vec.extract.i.i.i.i35.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 1
+  %v.sroa.0.4.vec.extract.i.i.i.i35.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 1
   %mul.i1.i.i.i.i36.i.i.i.i.i.i.i = fmul float %v.sroa.0.4.vec.extract.i.i.i.i35.i.i.i.i.i.i.i, %v.sroa.0.4.vec.extract.i.i.i.i35.i.i.i.i.i.i.i
   %add.i.i.i.i37.i.i.i.i.i.i.i = fadd float %mul.i.i.i.i.i34.i.i.i.i.i.i.i, %mul.i1.i.i.i.i36.i.i.i.i.i.i.i
-  %mul.i2.i.i.i.i38.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0356.i.i.i.i, %ray.sroa.22.0356.i.i.i.i
+  %mul.i2.i.i.i.i38.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0340.i.i.i.i, %ray.sroa.22.0340.i.i.i.i
   %add3.i.i.i.i39.i.i.i.i.i.i.i = fadd float %mul.i2.i.i.i.i38.i.i.i.i.i.i.i, %add.i.i.i.i37.i.i.i.i.i.i.i
   %sqrt.i.i.i40.i.i.i.i.i.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i39.i.i.i.i.i.i.i)
   %mul.i.i41.i.i.i.i.i.i.i = fmul float %sqrt.i.i.i40.i.i.i.i.i.i.i, %cond.i.i.i.i
   %div.i.i.i.i42.i.i.i.i.i.i.i = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i33.i.i.i.i.i.i.i, %sqrt.i.i.i40.i.i.i.i.i.i.i
   %div2.i.i.i.i43.i.i.i.i.i.i.i = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i35.i.i.i.i.i.i.i, %sqrt.i.i.i40.i.i.i.i.i.i.i
-  %div3.i.i.i.i44.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0356.i.i.i.i, %sqrt.i.i.i40.i.i.i.i.i.i.i
+  %div3.i.i.i.i44.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0340.i.i.i.i, %sqrt.i.i.i40.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i.i.i.i45.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %div.i.i.i.i42.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i.i46.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i45.i.i.i.i.i.i.i, float %div2.i.i.i.i43.i.i.i.i.i.i.i, i64 1
-  %129 = inttoptr i64 %and.i40281286.i.i.i.i to ptr
+  %129 = inttoptr i64 %and.i40265270.i.i.i.i to ptr
   store float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, ptr %agg.tmp7.i.i14.i.i.i.i.i.i.i, align 8
   store float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, ptr %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i48.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.9.0354.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i49.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.9.0338.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i49.i.i.i.i.i.i.i, align 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i46.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i50.i.i.i.i.i.i.i, align 4
   store float %div3.i.i.i.i44.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.14.0.agg.tmp7.i.sroa_idx.i51.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.28.0357.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i52.i.i.i.i.i.i.i, align 8
-  store i64 %ray.sroa.30.0358.i.i.i.i, ptr %medium.i.i.i53.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.28.0341.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i52.i.i.i.i.i.i.i, align 8
+  store i64 %ray.sroa.30.0342.i.i.i.i, ptr %medium.i.i.i53.i.i.i.i.i.i.i, align 8
   call void @_ZNK4pbrt10GridMedium9SampleRayENS_3RayEfRKNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pbrt::DDAMajorantIterator") align 8 %iter.i.i13.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(520) %129, ptr noundef nonnull %agg.tmp7.i.i14.i.i.i.i.i.i.i, float noundef %mul.i.i41.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i15.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %for.body.i.i.i.i54.i.i.i.i.i.i.i
@@ -12178,7 +12156,7 @@ invoke.cont75.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i113.i.i.i
   %mul3.i.i.i.i82.i.i.i.i.i.i.i = fmul float %div3.i.i.i.i44.i.i.i.i.i.i.i, %add.i.i74.i.i.i.i.i.i.i
   %add.i.i122.i.i.i.i.i.i.i.i.i = fadd float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, %mul.i.i121.i.i.i.i.i.i.i.i.i
   %add4.i.i.i.i83.i.i.i.i.i.i.i = fadd float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, %mul2.i.i.i.i81.i.i.i.i.i.i.i
-  %add6.i.i.i.i84.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0354.i.i.i.i, %mul3.i.i.i.i82.i.i.i.i.i.i.i
+  %add6.i.i.i.i84.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0338.i.i.i.i, %mul3.i.i.i.i82.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i3.i.i.i85.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i122.i.i.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i86.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i85.i.i.i.i.i.i.i, float %add4.i.i.i.i83.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt10GridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i18.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(520) %129, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i86.i.i.i.i.i.i.i, float %add6.i.i.i.i84.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
@@ -12195,7 +12173,7 @@ invoke.cont88.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont75.i.i.i
   %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.sigma_maj90.sroa_idx.i.i.i.i.i.i.i.i.i, align 4
   %agg.tmp91.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i15.i.i.i.i.i.i.i, align 8
   %agg.tmp91.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %agg.tmp91.sroa.2.0.T_maj.sroa_idx.i.i.i.i.i.i.i.i.i, align 8
-  %call93.i.i.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp21.i20.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp85.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i)
+  %call93.i.i.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2750.i.i.i.i, ptr noundef nonnull %agg.tmp85.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i)
   br i1 %call93.i.i.i.i.i.i.i.i.i, label %if.end95.i.i.i.i.i.i.i.i.i, label %cleanup.loopexit245.i.i.i.i.i.i.i.i.i
 
 if.end95.i.i.i.i.i.i.i.i.i:                       ; preds = %invoke.cont88.i.i.i.i.i.i.i.i.i
@@ -12337,7 +12315,6 @@ for.body.i.i213.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i213.i.i
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i.i.i.i.i.i.i.i, %for.body.i.i213.i.i.i.i.i.i.i.i.i
   %.fca.0.load.i.i66.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i12.i.i.i.i.i.i.i, align 8
   %.fca.1.load.i.i69.i.i.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i68.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp21.i20.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i12.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %iter.i.i13.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i14.i.i.i.i.i.i.i)
@@ -12355,11 +12332,6 @@ for.body.i.i213.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i213.i.i
   br label %"_ZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_.exit.i.i.i.i"
 
 sw.bb8.i.i.i.i.i.i.i:                             ; preds = %cond.end.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp21.i136.i.i.i.i.i.i.i)
-  store ptr %T_ray.i.i.i.i, ptr %agg.tmp21.i136.i.i.i.i.i.i.i, align 8
-  store ptr %r_l.i.i.i.i, ptr %agg.tmp2750.sroa.8.0.agg.tmp21.i136.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %r_u.i.i.i.i, ptr %agg.tmp2750.sroa.9.0.agg.tmp21.i136.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %rng.i.i.i.i, ptr %agg.tmp2750.sroa.10.0.agg.tmp21.i136.i.i.i.sroa_idx.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i122.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %iter.i.i123.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7.i.i124.i.i.i.i.i.i.i)
@@ -12374,29 +12346,29 @@ sw.bb8.i.i.i.i.i.i.i:                             ; preds = %cond.end.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp96.i.i133.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp108.i.i134.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp109.i.i135.i.i.i.i.i.i.i)
-  %v.sroa.0.0.vec.extract.i.i.i.i149.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 0
-  %181 = fmul <2 x float> %ray.sroa.14.0355.i.i.i.i, %ray.sroa.14.0355.i.i.i.i
+  %v.sroa.0.0.vec.extract.i.i.i.i149.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 0
+  %181 = fmul <2 x float> %ray.sroa.14.0339.i.i.i.i, %ray.sroa.14.0339.i.i.i.i
   %mul.i.i.i.i.i150.i.i.i.i.i.i.i = extractelement <2 x float> %181, i64 0
-  %v.sroa.0.4.vec.extract.i.i.i.i151.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 1
+  %v.sroa.0.4.vec.extract.i.i.i.i151.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 1
   %mul.i1.i.i.i.i152.i.i.i.i.i.i.i = fmul float %v.sroa.0.4.vec.extract.i.i.i.i151.i.i.i.i.i.i.i, %v.sroa.0.4.vec.extract.i.i.i.i151.i.i.i.i.i.i.i
   %add.i.i.i.i153.i.i.i.i.i.i.i = fadd float %mul.i.i.i.i.i150.i.i.i.i.i.i.i, %mul.i1.i.i.i.i152.i.i.i.i.i.i.i
-  %mul.i2.i.i.i.i154.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0356.i.i.i.i, %ray.sroa.22.0356.i.i.i.i
+  %mul.i2.i.i.i.i154.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0340.i.i.i.i, %ray.sroa.22.0340.i.i.i.i
   %add3.i.i.i.i155.i.i.i.i.i.i.i = fadd float %mul.i2.i.i.i.i154.i.i.i.i.i.i.i, %add.i.i.i.i153.i.i.i.i.i.i.i
   %sqrt.i.i.i156.i.i.i.i.i.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i155.i.i.i.i.i.i.i)
   %mul.i.i157.i.i.i.i.i.i.i = fmul float %sqrt.i.i.i156.i.i.i.i.i.i.i, %cond.i.i.i.i
   %div.i.i.i.i158.i.i.i.i.i.i.i = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i149.i.i.i.i.i.i.i, %sqrt.i.i.i156.i.i.i.i.i.i.i
   %div2.i.i.i.i159.i.i.i.i.i.i.i = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i151.i.i.i.i.i.i.i, %sqrt.i.i.i156.i.i.i.i.i.i.i
-  %div3.i.i.i.i160.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0356.i.i.i.i, %sqrt.i.i.i156.i.i.i.i.i.i.i
+  %div3.i.i.i.i160.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0340.i.i.i.i, %sqrt.i.i.i156.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i.i.i.i161.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %div.i.i.i.i158.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i.i162.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i161.i.i.i.i.i.i.i, float %div2.i.i.i.i159.i.i.i.i.i.i.i, i64 1
-  %182 = inttoptr i64 %and.i40281286.i.i.i.i to ptr
+  %182 = inttoptr i64 %and.i40265270.i.i.i.i to ptr
   store float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, ptr %agg.tmp7.i.i124.i.i.i.i.i.i.i, align 8
   store float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, ptr %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i164.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.9.0354.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i165.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.9.0338.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i165.i.i.i.i.i.i.i, align 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i162.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i166.i.i.i.i.i.i.i, align 4
   store float %div3.i.i.i.i160.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.14.0.agg.tmp7.i.sroa_idx.i167.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.28.0357.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i168.i.i.i.i.i.i.i, align 8
-  store i64 %ray.sroa.30.0358.i.i.i.i, ptr %medium.i.i.i169.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.28.0341.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i168.i.i.i.i.i.i.i, align 8
+  store i64 %ray.sroa.30.0342.i.i.i.i, ptr %medium.i.i.i169.i.i.i.i.i.i.i, align 8
   call void @_ZNK4pbrt13RGBGridMedium9SampleRayENS_3RayEfRKNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pbrt::DDAMajorantIterator") align 8 %iter.i.i123.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(408) %182, ptr noundef nonnull %agg.tmp7.i.i124.i.i.i.i.i.i.i, float noundef %mul.i.i157.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i125.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %for.body.i.i.i.i170.i.i.i.i.i.i.i
@@ -12650,7 +12622,7 @@ invoke.cont75.i.i322.i.i.i.i.i.i.i:               ; preds = %for.body.i113.i.i31
   %mul3.i.i.i.i325.i.i.i.i.i.i.i = fmul float %div3.i.i.i.i160.i.i.i.i.i.i.i, %add.i.i217.i.i.i.i.i.i.i
   %add.i.i122.i.i326.i.i.i.i.i.i.i = fadd float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, %mul.i.i121.i.i323.i.i.i.i.i.i.i
   %add4.i.i.i.i327.i.i.i.i.i.i.i = fadd float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, %mul2.i.i.i.i324.i.i.i.i.i.i.i
-  %add6.i.i.i.i328.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0354.i.i.i.i, %mul3.i.i.i.i325.i.i.i.i.i.i.i
+  %add6.i.i.i.i328.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0338.i.i.i.i, %mul3.i.i.i.i325.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i3.i.i.i329.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i122.i.i326.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i330.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i329.i.i.i.i.i.i.i, float %add4.i.i.i.i327.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i131.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(408) %182, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i330.i.i.i.i.i.i.i, float %add6.i.i.i.i328.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
@@ -12667,7 +12639,7 @@ invoke.cont88.i.i332.i.i.i.i.i.i.i:               ; preds = %invoke.cont75.i.i32
   %agg.tmp87.sroa.2.0.copyload.i.i334.i.i.i.i.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.sigma_maj90.sroa_idx.i.i186.i.i.i.i.i.i.i, align 4
   %agg.tmp91.sroa.0.0.copyload.i.i335.i.i.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i125.i.i.i.i.i.i.i, align 8
   %agg.tmp91.sroa.2.0.copyload.i.i336.i.i.i.i.i.i.i = load <2 x float>, ptr %agg.tmp91.sroa.2.0.T_maj.sroa_idx.i.i187.i.i.i.i.i.i.i, align 8
-  %call93.i.i337.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp21.i136.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp85.i.i132.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i333.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i334.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.0.0.copyload.i.i335.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.2.0.copyload.i.i336.i.i.i.i.i.i.i)
+  %call93.i.i337.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2750.i.i.i.i, ptr noundef nonnull %agg.tmp85.i.i132.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i333.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i334.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.0.0.copyload.i.i335.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.2.0.copyload.i.i336.i.i.i.i.i.i.i)
   br i1 %call93.i.i337.i.i.i.i.i.i.i, label %if.end95.i.i340.i.i.i.i.i.i.i, label %cleanup.loopexit245.i.i338.i.i.i.i.i.i.i
 
 if.end95.i.i340.i.i.i.i.i.i.i:                    ; preds = %invoke.cont88.i.i332.i.i.i.i.i.i.i
@@ -12809,7 +12781,6 @@ for.body.i.i213.i.i395.i.i.i.i.i.i.i:             ; preds = %for.body.i.i213.i.i
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i202.i.i.i.i.i.i.i, %for.body.i.i213.i.i395.i.i.i.i.i.i.i
   %.fca.0.load.i.i203.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i122.i.i.i.i.i.i.i, align 8
   %.fca.1.load.i.i206.i.i.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i205.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp21.i136.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i122.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %iter.i.i123.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i124.i.i.i.i.i.i.i)
@@ -12827,11 +12798,6 @@ for.body.i.i213.i.i395.i.i.i.i.i.i.i:             ; preds = %for.body.i.i213.i.i
   br label %"_ZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_.exit.i.i.i.i"
 
 sw.bb12.i.i.i.i.i.i.i:                            ; preds = %cond.end.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp21.i419.i.i.i.i.i.i.i)
-  store ptr %T_ray.i.i.i.i, ptr %agg.tmp21.i419.i.i.i.i.i.i.i, align 8
-  store ptr %r_l.i.i.i.i, ptr %agg.tmp2750.sroa.8.0.agg.tmp21.i419.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %r_u.i.i.i.i, ptr %agg.tmp2750.sroa.9.0.agg.tmp21.i419.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %rng.i.i.i.i, ptr %agg.tmp2750.sroa.10.0.agg.tmp21.i419.i.i.i.sroa_idx.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i406.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %iter.i.i407.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7.i.i408.i.i.i.i.i.i.i)
@@ -12845,29 +12811,29 @@ sw.bb12.i.i.i.i.i.i.i:                            ; preds = %cond.end.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp96.i.i416.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp108.i.i417.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp109.i.i418.i.i.i.i.i.i.i)
-  %v.sroa.0.0.vec.extract.i.i.i.i432.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 0
-  %234 = fmul <2 x float> %ray.sroa.14.0355.i.i.i.i, %ray.sroa.14.0355.i.i.i.i
+  %v.sroa.0.0.vec.extract.i.i.i.i432.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 0
+  %234 = fmul <2 x float> %ray.sroa.14.0339.i.i.i.i, %ray.sroa.14.0339.i.i.i.i
   %mul.i.i.i.i.i433.i.i.i.i.i.i.i = extractelement <2 x float> %234, i64 0
-  %v.sroa.0.4.vec.extract.i.i.i.i434.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 1
+  %v.sroa.0.4.vec.extract.i.i.i.i434.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 1
   %mul.i1.i.i.i.i435.i.i.i.i.i.i.i = fmul float %v.sroa.0.4.vec.extract.i.i.i.i434.i.i.i.i.i.i.i, %v.sroa.0.4.vec.extract.i.i.i.i434.i.i.i.i.i.i.i
   %add.i.i.i.i436.i.i.i.i.i.i.i = fadd float %mul.i.i.i.i.i433.i.i.i.i.i.i.i, %mul.i1.i.i.i.i435.i.i.i.i.i.i.i
-  %mul.i2.i.i.i.i437.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0356.i.i.i.i, %ray.sroa.22.0356.i.i.i.i
+  %mul.i2.i.i.i.i437.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0340.i.i.i.i, %ray.sroa.22.0340.i.i.i.i
   %add3.i.i.i.i438.i.i.i.i.i.i.i = fadd float %mul.i2.i.i.i.i437.i.i.i.i.i.i.i, %add.i.i.i.i436.i.i.i.i.i.i.i
   %sqrt.i.i.i439.i.i.i.i.i.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i438.i.i.i.i.i.i.i)
   %mul.i.i440.i.i.i.i.i.i.i = fmul float %sqrt.i.i.i439.i.i.i.i.i.i.i, %cond.i.i.i.i
   %div.i.i.i.i441.i.i.i.i.i.i.i = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i432.i.i.i.i.i.i.i, %sqrt.i.i.i439.i.i.i.i.i.i.i
   %div2.i.i.i.i442.i.i.i.i.i.i.i = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i434.i.i.i.i.i.i.i, %sqrt.i.i.i439.i.i.i.i.i.i.i
-  %div3.i.i.i.i443.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0356.i.i.i.i, %sqrt.i.i.i439.i.i.i.i.i.i.i
+  %div3.i.i.i.i443.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0340.i.i.i.i, %sqrt.i.i.i439.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i.i.i.i444.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %div.i.i.i.i441.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i.i445.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i444.i.i.i.i.i.i.i, float %div2.i.i.i.i442.i.i.i.i.i.i.i, i64 1
-  %235 = inttoptr i64 %and.i40281286.i.i.i.i to ptr
+  %235 = inttoptr i64 %and.i40265270.i.i.i.i to ptr
   store float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, ptr %agg.tmp7.i.i408.i.i.i.i.i.i.i, align 8
   store float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, ptr %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i447.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.9.0354.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i448.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.9.0338.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i448.i.i.i.i.i.i.i, align 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i445.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i449.i.i.i.i.i.i.i, align 4
   store float %div3.i.i.i.i443.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.14.0.agg.tmp7.i.sroa_idx.i450.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.28.0357.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i451.i.i.i.i.i.i.i, align 8
-  store i64 %ray.sroa.30.0358.i.i.i.i, ptr %medium.i.i.i452.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.28.0341.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i451.i.i.i.i.i.i.i, align 8
+  store i64 %ray.sroa.30.0342.i.i.i.i, ptr %medium.i.i.i452.i.i.i.i.i.i.i, align 8
   call void @_ZNK4pbrt11CloudMedium9SampleRayENS_3RayEfRKNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pbrt::HomogeneousMajorantIterator") align 4 %iter.i.i407.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(252) %235, ptr noundef nonnull %agg.tmp7.i.i408.i.i.i.i.i.i.i, float noundef %mul.i.i440.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i409.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %for.body.i.i.i.i453.i.i.i.i.i.i.i
@@ -13103,7 +13069,7 @@ invoke.cont75.i.i598.i.i.i.i.i.i.i:               ; preds = %for.body.i114.i.i59
   %mul3.i.i.i.i601.i.i.i.i.i.i.i = fmul float %div3.i.i.i.i443.i.i.i.i.i.i.i, %add.i.i488.i.i.i.i.i.i.i
   %add.i.i123.i.i602.i.i.i.i.i.i.i = fadd float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, %mul.i.i122.i.i599.i.i.i.i.i.i.i
   %add4.i.i.i.i603.i.i.i.i.i.i.i = fadd float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, %mul2.i.i.i.i600.i.i.i.i.i.i.i
-  %add6.i.i.i.i604.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0354.i.i.i.i, %mul3.i.i.i.i601.i.i.i.i.i.i.i
+  %add6.i.i.i.i604.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0338.i.i.i.i, %mul3.i.i.i.i601.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i3.i.i.i605.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i123.i.i602.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i606.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i605.i.i.i.i.i.i.i, float %add4.i.i.i.i603.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt11CloudMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i414.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(252) %235, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i606.i.i.i.i.i.i.i, float %add6.i.i.i.i604.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
@@ -13113,7 +13079,7 @@ invoke.cont75.i.i598.i.i.i.i.i.i.i:               ; preds = %for.body.i114.i.i59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Le.i.i.i468.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Le4.i.i.i469.i.i.i.i.i.i.i, i64 16, i1 false)
   %agg.tmp91.sroa.0.0.copyload.i.i607.i.i.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i409.i.i.i.i.i.i.i, align 8
   %agg.tmp91.sroa.2.0.copyload.i.i608.i.i.i.i.i.i.i = load <2 x float>, ptr %agg.tmp91.sroa.2.0.T_maj.sroa_idx.i.i470.i.i.i.i.i.i.i, align 8
-  %call93.i.i609.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp21.i419.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp85.i.i415.i.i.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i480.i.i.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i481.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.0.0.copyload.i.i607.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.2.0.copyload.i.i608.i.i.i.i.i.i.i)
+  %call93.i.i609.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2750.i.i.i.i, ptr noundef nonnull %agg.tmp85.i.i415.i.i.i.i.i.i.i, <2 x float> %seg.sroa.7.0.copyload.i.i480.i.i.i.i.i.i.i, <2 x float> %seg.sroa.13.0.copyload.i.i481.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.0.0.copyload.i.i607.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.2.0.copyload.i.i608.i.i.i.i.i.i.i)
   br i1 %call93.i.i609.i.i.i.i.i.i.i, label %if.end95.i.i616.i.i.i.i.i.i.i, label %while.end125.i.i610.i.i.i.i.i.i.i
 
 if.end95.i.i616.i.i.i.i.i.i.i:                    ; preds = %invoke.cont75.i.i598.i.i.i.i.i.i.i
@@ -13245,7 +13211,6 @@ for.body.i.i214.i.i611.i.i.i.i.i.i.i:             ; preds = %for.body.i.i214.i.i
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %for.body.i.i214.i.i611.i.i.i.i.i.i.i, %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit213.thread.i.i548.i.i.i.i.i.i.i
   %.fca.0.load.i.i549.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i406.i.i.i.i.i.i.i, align 8
   %.fca.1.load.i.i552.i.i.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i551.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp21.i419.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i406.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %iter.i.i407.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i408.i.i.i.i.i.i.i)
@@ -13262,11 +13227,6 @@ for.body.i.i214.i.i611.i.i.i.i.i.i.i:             ; preds = %for.body.i.i214.i.i
   br label %"_ZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_.exit.i.i.i.i"
 
 sw.default.i.i.i.i.i.i.i:                         ; preds = %cond.end.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp21.i688.i.i.i.i.i.i.i)
-  store ptr %T_ray.i.i.i.i, ptr %agg.tmp21.i688.i.i.i.i.i.i.i, align 8
-  store ptr %r_l.i.i.i.i, ptr %agg.tmp2750.sroa.8.0.agg.tmp21.i688.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %r_u.i.i.i.i, ptr %agg.tmp2750.sroa.9.0.agg.tmp21.i688.i.i.i.sroa_idx.i.i.i.i, align 8
-  store ptr %rng.i.i.i.i, ptr %agg.tmp2750.sroa.10.0.agg.tmp21.i688.i.i.i.sroa_idx.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i674.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %iter.i.i675.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7.i.i676.i.i.i.i.i.i.i)
@@ -13281,29 +13241,29 @@ sw.default.i.i.i.i.i.i.i:                         ; preds = %cond.end.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp96.i.i685.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp108.i.i686.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp109.i.i687.i.i.i.i.i.i.i)
-  %v.sroa.0.0.vec.extract.i.i.i.i701.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 0
-  %278 = fmul <2 x float> %ray.sroa.14.0355.i.i.i.i, %ray.sroa.14.0355.i.i.i.i
+  %v.sroa.0.0.vec.extract.i.i.i.i701.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 0
+  %278 = fmul <2 x float> %ray.sroa.14.0339.i.i.i.i, %ray.sroa.14.0339.i.i.i.i
   %mul.i.i.i.i.i702.i.i.i.i.i.i.i = extractelement <2 x float> %278, i64 0
-  %v.sroa.0.4.vec.extract.i.i.i.i703.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0355.i.i.i.i, i64 1
+  %v.sroa.0.4.vec.extract.i.i.i.i703.i.i.i.i.i.i.i = extractelement <2 x float> %ray.sroa.14.0339.i.i.i.i, i64 1
   %mul.i1.i.i.i.i704.i.i.i.i.i.i.i = fmul float %v.sroa.0.4.vec.extract.i.i.i.i703.i.i.i.i.i.i.i, %v.sroa.0.4.vec.extract.i.i.i.i703.i.i.i.i.i.i.i
   %add.i.i.i.i705.i.i.i.i.i.i.i = fadd float %mul.i.i.i.i.i702.i.i.i.i.i.i.i, %mul.i1.i.i.i.i704.i.i.i.i.i.i.i
-  %mul.i2.i.i.i.i706.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0356.i.i.i.i, %ray.sroa.22.0356.i.i.i.i
+  %mul.i2.i.i.i.i706.i.i.i.i.i.i.i = fmul float %ray.sroa.22.0340.i.i.i.i, %ray.sroa.22.0340.i.i.i.i
   %add3.i.i.i.i707.i.i.i.i.i.i.i = fadd float %mul.i2.i.i.i.i706.i.i.i.i.i.i.i, %add.i.i.i.i705.i.i.i.i.i.i.i
   %sqrt.i.i.i708.i.i.i.i.i.i.i = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i707.i.i.i.i.i.i.i)
   %mul.i.i709.i.i.i.i.i.i.i = fmul float %sqrt.i.i.i708.i.i.i.i.i.i.i, %cond.i.i.i.i
   %div.i.i.i.i710.i.i.i.i.i.i.i = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i701.i.i.i.i.i.i.i, %sqrt.i.i.i708.i.i.i.i.i.i.i
   %div2.i.i.i.i711.i.i.i.i.i.i.i = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i703.i.i.i.i.i.i.i, %sqrt.i.i.i708.i.i.i.i.i.i.i
-  %div3.i.i.i.i712.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0356.i.i.i.i, %sqrt.i.i.i708.i.i.i.i.i.i.i
+  %div3.i.i.i.i712.i.i.i.i.i.i.i = fdiv float %ray.sroa.22.0340.i.i.i.i, %sqrt.i.i.i708.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i.i.i.i713.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %div.i.i.i.i710.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i.i714.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i713.i.i.i.i.i.i.i, float %div2.i.i.i.i711.i.i.i.i.i.i.i, i64 1
-  %279 = inttoptr i64 %and.i40281286.i.i.i.i to ptr
+  %279 = inttoptr i64 %and.i40265270.i.i.i.i to ptr
   store float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, ptr %agg.tmp7.i.i676.i.i.i.i.i.i.i, align 8
   store float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, ptr %agg.tmp.sroa.4.0.agg.tmp7.i.sroa_idx.i716.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.9.0354.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i717.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.9.0338.i.i.i.i, ptr %agg.tmp.sroa.6.0.agg.tmp7.i.sroa_idx.i717.i.i.i.i.i.i.i, align 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i714.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.8.0.agg.tmp7.i.sroa_idx.i718.i.i.i.i.i.i.i, align 4
   store float %div3.i.i.i.i712.i.i.i.i.i.i.i, ptr %agg.tmp.sroa.14.0.agg.tmp7.i.sroa_idx.i719.i.i.i.i.i.i.i, align 4
-  store float %ray.sroa.28.0357.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i720.i.i.i.i.i.i.i, align 8
-  store i64 %ray.sroa.30.0358.i.i.i.i, ptr %medium.i.i.i721.i.i.i.i.i.i.i, align 8
+  store float %ray.sroa.28.0341.i.i.i.i, ptr %agg.tmp.sroa.18.0.agg.tmp7.i.sroa_idx.i720.i.i.i.i.i.i.i, align 8
+  store i64 %ray.sroa.30.0342.i.i.i.i, ptr %medium.i.i.i721.i.i.i.i.i.i.i, align 8
   call void @_ZNK4pbrt13NanoVDBMedium9SampleRayENS_3RayEfRKNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pbrt::DDAMajorantIterator") align 8 %iter.i.i675.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(404) %279, ptr noundef nonnull %agg.tmp7.i.i676.i.i.i.i.i.i.i, float noundef %mul.i.i709.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %T_maj.i.i677.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %for.body.i.i.i.i722.i.i.i.i.i.i.i
@@ -13557,7 +13517,7 @@ invoke.cont75.i.i874.i.i.i.i.i.i.i:               ; preds = %for.body.i113.i.i86
   %mul3.i.i.i.i877.i.i.i.i.i.i.i = fmul float %div3.i.i.i.i712.i.i.i.i.i.i.i, %add.i.i769.i.i.i.i.i.i.i
   %add.i.i122.i.i878.i.i.i.i.i.i.i = fadd float %ray.sroa.0.0.vec.extract224.pre-phi.i.i.i.i, %mul.i.i121.i.i875.i.i.i.i.i.i.i
   %add4.i.i.i.i879.i.i.i.i.i.i.i = fadd float %ray.sroa.0.4.vec.extract227.pre-phi.i.i.i.i, %mul2.i.i.i.i876.i.i.i.i.i.i.i
-  %add6.i.i.i.i880.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0354.i.i.i.i, %mul3.i.i.i.i877.i.i.i.i.i.i.i
+  %add6.i.i.i.i880.i.i.i.i.i.i.i = fadd float %ray.sroa.9.0338.i.i.i.i, %mul3.i.i.i.i877.i.i.i.i.i.i.i
   %retval.sroa.0.0.vec.insert.i3.i.i.i881.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %add.i.i122.i.i878.i.i.i.i.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i4.i.i.i882.i.i.i.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i3.i.i.i881.i.i.i.i.i.i.i, float %add4.i.i.i.i879.i.i.i.i.i.i.i, i64 1
   call void @_ZNK4pbrt13NanoVDBMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsE(ptr nonnull sret(%"struct.pbrt::MediumProperties") align 8 %mp.i.i683.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(404) %279, <2 x float> %retval.sroa.0.4.vec.insert.i4.i.i.i882.i.i.i.i.i.i.i, float %add6.i.i.i.i880.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(32) %lambda.i.i.i.i)
@@ -13574,7 +13534,7 @@ invoke.cont88.i.i884.i.i.i.i.i.i.i:               ; preds = %invoke.cont75.i.i87
   %agg.tmp87.sroa.2.0.copyload.i.i886.i.i.i.i.i.i.i = load <2 x float>, ptr %agg.tmp87.sroa.2.0.sigma_maj90.sroa_idx.i.i738.i.i.i.i.i.i.i, align 4
   %agg.tmp91.sroa.0.0.copyload.i.i887.i.i.i.i.i.i.i = load <2 x float>, ptr %T_maj.i.i677.i.i.i.i.i.i.i, align 8
   %agg.tmp91.sroa.2.0.copyload.i.i888.i.i.i.i.i.i.i = load <2 x float>, ptr %agg.tmp91.sroa.2.0.T_maj.sroa_idx.i.i739.i.i.i.i.i.i.i, align 8
-  %call93.i.i889.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp21.i688.i.i.i.i.i.i.i, ptr noundef nonnull %agg.tmp85.i.i684.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i885.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i886.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.0.0.copyload.i.i887.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.2.0.copyload.i.i888.i.i.i.i.i.i.i)
+  %call93.i.i889.i.i.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN4pbrt18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS1_17IntersectShadowTrEiS5_S9_ENKSA_clEiEUlNS_6Point3IfEEE_EEvS3_S9_T_T0_ENKUlSE_NS_16MediumPropertiesENS_15SampledSpectrumESJ_E_clESE_SI_SJ_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp2750.i.i.i.i, ptr noundef nonnull %agg.tmp85.i.i684.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.0.0.copyload.i.i885.i.i.i.i.i.i.i, <2 x float> %agg.tmp87.sroa.2.0.copyload.i.i886.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.0.0.copyload.i.i887.i.i.i.i.i.i.i, <2 x float> %agg.tmp91.sroa.2.0.copyload.i.i888.i.i.i.i.i.i.i)
   br i1 %call93.i.i889.i.i.i.i.i.i.i, label %if.end95.i.i892.i.i.i.i.i.i.i, label %cleanup.loopexit245.i.i890.i.i.i.i.i.i.i
 
 if.end95.i.i892.i.i.i.i.i.i.i:                    ; preds = %invoke.cont88.i.i884.i.i.i.i.i.i.i
@@ -13716,7 +13676,6 @@ for.body.i.i213.i.i947.i.i.i.i.i.i.i:             ; preds = %for.body.i.i213.i.i
 "_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i.i.i.i.i": ; preds = %_ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEED2Ev.exit212.i.i754.i.i.i.i.i.i.i, %for.body.i.i213.i.i947.i.i.i.i.i.i.i
   %.fca.0.load.i.i755.i.i.i.i.i.i.i = load <2 x float>, ptr %retval.i.i674.i.i.i.i.i.i.i, align 8
   %.fca.1.load.i.i758.i.i.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i757.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp21.i688.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i674.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %iter.i.i675.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7.i.i676.i.i.i.i.i.i.i)
@@ -13736,6 +13695,7 @@ for.body.i.i213.i.i947.i.i.i.i.i.i.i:             ; preds = %for.body.i.i213.i.i
 "_ZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_.exit.i.i.i.i": ; preds = %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i.i.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i.i.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i.i.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i.i.i.i.i", %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i.i.i.i.i"
   %.fca.0.load.i.i755.pn.i.i.i.i.i.i.i = phi <2 x float> [ %.fca.0.load.i.i755.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ], [ %.fca.0.load.i.i549.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ], [ %.fca.0.load.i.i203.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ], [ %.fca.0.load.i.i66.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ], [ %.fca.0.load.i.i.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ]
   %.fca.1.load.i.i758.pn.i.i.i.i.i.i.i = phi <2 x float> [ %.fca.1.load.i.i758.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13NanoVDBMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ], [ %.fca.1.load.i.i552.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_11CloudMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ], [ %.fca.1.load.i.i206.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_13RGBGridMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ], [ %.fca.1.load.i.i69.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_10GridMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ], [ %.fca.1.load.i.i.i.i.i.i.i.i.i, %"_ZZN4pbrt11SampleT_majIZNS_18TraceTransmittanceIZZNKS_12CPUAggregate17IntersectShadowTrEiPNS_9WorkQueueINS_17ShadowRayWorkItemEEEPNS_3SOAINS_16PixelSampleStateEEEENK3$_0clEiEUlNS_3RayEfE_ZZNKS2_17IntersectShadowTrEiS6_SA_ENKSB_clEiEUlNS_6Point3IfEEE_EEvS4_SA_T_T0_EUlSF_NS_16MediumPropertiesENS_15SampledSpectrumESK_E_EESK_SC_ffRNS_3RNGERKNS_18SampledWavelengthsESH_ENKUlSH_E_clIPNS_17HomogeneousMediumEEEDaSH_.exit.i.i.i.i.i.i.i" ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2750.i.i.i.i)
   %T_maj.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %.fca.0.load.i.i755.pn.i.i.i.i.i.i.i, i64 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i.i.i.i.i)
   store <2 x float> %.fca.0.load.i.i755.pn.i.i.i.i.i.i.i, ptr %ret.i.i.i.i.i, align 8
@@ -13845,7 +13805,7 @@ for.body.i96.i.i.i.i:                             ; preds = %for.body.i96.i.i.i.
   br i1 %exitcond.not.i102.i.i.i.i, label %if.end49.i.i.i.i, label %for.body.i96.i.i.i.i, !llvm.loop !112
 
 if.end49.i.i.i.i:                                 ; preds = %for.body.i96.i.i.i.i
-  br i1 %tobool.i.i413.i.i.i.i, label %for.body.i104.i.i.i.i.preheader, label %for.body.i117.i.i.i.i.preheader
+  br i1 %tobool.i.i397.i.i.i.i, label %for.body.i104.i.i.i.i.preheader, label %for.body.i117.i.i.i.i.preheader
 
 for.body.i104.i.i.i.i.preheader:                  ; preds = %if.end49.i.i.i.i, %if.end.i.i.i.i
   br label %for.body.i104.i.i.i.i

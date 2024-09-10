@@ -179,7 +179,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %class.anon.605 = type { ptr, ptr, ptr }
-%"struct.__gnu_cxx::__ops::_Iter_negate.764" = type { %class.anon.605 }
 %"struct.llvm::SDVTList" = type { ptr, i32 }
 %class.anon.606 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.607 = type { ptr, ptr, ptr, ptr }
@@ -48145,87 +48144,83 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode17value_op_iteratorEEEZNKS_14TargetLowering20getNegatedExpressionENS_7SDValueERNS_12SelectionDAGEbbRNS_18TargetLoweringBase13NegatibleCostEjE3$_1EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nocapture noundef readonly byval(%class.anon.605) align 8 %0) unnamed_addr #0 {
-  %2 = alloca %"struct.__gnu_cxx::__ops::_Iter_negate.764", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %3 = ptrtoint ptr %.8.val to i64
-  %4 = ptrtoint ptr %.0.val to i64
-  %5 = sub i64 %3, %4
-  %6 = sdiv exact i64 %5, 40
-  %7 = ashr i64 %6, 2
-  %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %2 = ptrtoint ptr %.8.val to i64
+  %3 = ptrtoint ptr %.0.val to i64
+  %4 = sub i64 %2, %3
+  %5 = sdiv exact i64 %4, 40
+  %6 = ashr i64 %5, 2
+  %7 = icmp sgt i64 %6, 0
+  br i1 %7, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %1, %19
-  %.036.i.i.i.i = phi i64 [ %21, %19 ], [ %7, %1 ]
-  %.sroa.025.035.i.i.i.i = phi ptr [ %20, %19 ], [ %.0.val, %1 ]
-  %9 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr %.sroa.025.035.i.i.i.i)
-  br i1 %9, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %10
+.lr.ph.i.i.i.i:                                   ; preds = %1, %18
+  %.036.i.i.i.i = phi i64 [ %20, %18 ], [ %6, %1 ]
+  %.sroa.025.035.i.i.i.i = phi ptr [ %19, %18 ], [ %.0.val, %1 ]
+  %8 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %.sroa.025.035.i.i.i.i)
+  br i1 %8, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %9
 
-10:                                               ; preds = %.lr.ph.i.i.i.i
-  %11 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i, i64 40
-  %12 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nonnull %11)
-  br i1 %12, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %13
+9:                                                ; preds = %.lr.ph.i.i.i.i
+  %10 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i, i64 40
+  %11 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nonnull %10)
+  br i1 %11, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %12
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i, i64 80
-  %15 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nonnull %14)
-  br i1 %15, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %16
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i, i64 80
+  %14 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nonnull %13)
+  br i1 %14, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %15
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i, i64 120
-  %18 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nonnull %17)
-  br i1 %18, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %19
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i, i64 120
+  %17 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nonnull %16)
+  br i1 %17, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %18
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i, i64 160
-  %21 = add nsw i64 %.036.i.i.i.i, -1
-  %22 = icmp sgt i64 %.036.i.i.i.i, 1
-  br i1 %22, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !239
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i.i, i64 160
+  %20 = add nsw i64 %.036.i.i.i.i, -1
+  %21 = icmp sgt i64 %.036.i.i.i.i, 1
+  br i1 %21, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !239
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %19
-  %.pre.i.i.i.i = ptrtoint ptr %20 to i64
-  %.pre37.i.i.i.i = sub i64 %3, %.pre.i.i.i.i
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %18
+  %.pre.i.i.i.i = ptrtoint ptr %19 to i64
+  %.pre37.i.i.i.i = sub i64 %2, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %1
-  %.pre-phi38.i.i.i.i = phi i64 [ %.pre37.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %5, %1 ]
-  %.sroa.025.0.lcssa.i.i.i.i = phi ptr [ %20, %._crit_edge.loopexit.i.i.i.i ], [ %.0.val, %1 ]
-  %23 = sdiv exact i64 %.pre-phi38.i.i.i.i, 40
-  switch i64 %23, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit" [
-    i64 3, label %24
-    i64 2, label %28
-    i64 1, label %32
+  %.pre-phi38.i.i.i.i = phi i64 [ %.pre37.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %4, %1 ]
+  %.sroa.025.0.lcssa.i.i.i.i = phi ptr [ %19, %._crit_edge.loopexit.i.i.i.i ], [ %.0.val, %1 ]
+  %22 = sdiv exact i64 %.pre-phi38.i.i.i.i, 40
+  switch i64 %22, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit" [
+    i64 3, label %23
+    i64 2, label %27
+    i64 1, label %31
   ]
 
-24:                                               ; preds = %._crit_edge.i.i.i.i
-  %25 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr %.sroa.025.0.lcssa.i.i.i.i)
-  br i1 %25, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %26
+23:                                               ; preds = %._crit_edge.i.i.i.i
+  %24 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %.sroa.025.0.lcssa.i.i.i.i)
+  br i1 %24, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %25
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i.i, i64 40
-  br label %28
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i.i, i64 40
+  br label %27
 
-28:                                               ; preds = %26, %._crit_edge.i.i.i.i
-  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %27, %26 ]
-  %29 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr %.sroa.025.1.i.i.i.i)
-  br i1 %29, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %30
+27:                                               ; preds = %25, %._crit_edge.i.i.i.i
+  %.sroa.025.1.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %26, %25 ]
+  %28 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %.sroa.025.1.i.i.i.i)
+  br i1 %28, label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit", label %29
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i.i, i64 40
-  br label %32
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i.i, i64 40
+  br label %31
 
-32:                                               ; preds = %30, %._crit_edge.i.i.i.i
-  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %31, %30 ]
-  %33 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %2, ptr %.sroa.025.2.i.i.i.i)
-  %spec.select.i.i.i.i = select i1 %33, ptr %.sroa.025.2.i.i.i.i, ptr %.8.val
+31:                                               ; preds = %29, %._crit_edge.i.i.i.i
+  %.sroa.025.2.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %30, %29 ]
+  %32 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4llvm14TargetLowering20getNegatedExpressionENS2_7SDValueERNS2_12SelectionDAGEbbRNS2_18TargetLoweringBase13NegatibleCostEjE3$_1EclINS2_6SDNode17value_op_iteratorEEEbT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %.sroa.025.2.i.i.i.i)
+  %spec.select.i.i.i.i = select i1 %32, ptr %.sroa.025.2.i.i.i.i, ptr %.8.val
   br label %"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit"
 
-"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %10, %13, %16, %._crit_edge.i.i.i.i, %24, %28, %32
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %24 ], [ %.sroa.025.1.i.i.i.i, %28 ], [ %.8.val, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %32 ], [ %17, %16 ], [ %14, %13 ], [ %11, %10 ], [ %.sroa.025.035.i.i.i.i, %.lr.ph.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %34 = icmp eq ptr %.8.val, %.sroa.08.0.in.sroa.speculated.i.i.i.i
-  ret i1 %34
+"_ZSt6all_ofIN4llvm6SDNode17value_op_iteratorEZNKS0_14TargetLowering20getNegatedExpressionENS0_7SDValueERNS0_12SelectionDAGEbbRNS0_18TargetLoweringBase13NegatibleCostEjE3$_1EbT_SB_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %9, %12, %15, %._crit_edge.i.i.i.i, %23, %27, %31
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %23 ], [ %.sroa.025.1.i.i.i.i, %27 ], [ %.8.val, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %31 ], [ %16, %15 ], [ %13, %12 ], [ %10, %9 ], [ %.sroa.025.035.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %33 = icmp eq ptr %.8.val, %.sroa.08.0.in.sroa.speculated.i.i.i.i
+  ret i1 %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

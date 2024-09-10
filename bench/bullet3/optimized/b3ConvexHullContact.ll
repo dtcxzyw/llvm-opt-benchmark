@@ -2577,11 +2577,11 @@ if.end304:                                        ; preds = %if.end263.if.end304
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i303, ptr %DeltaC2, align 16
   %105 = getelementptr inbounds i8, ptr %DeltaC2, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i304, ptr %105, align 8
-  %call323 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %convexPolyhedronA, ptr noundef nonnull %arrayidx310, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2, ptr noundef nonnull %verticesA, ptr nonnull poison, ptr noundef nonnull %facesA, ptr nonnull poison, ptr noundef %vertices, ptr poison, ptr poison, ptr poison, ptr noundef nonnull %sepAxis, ptr noundef nonnull %dmin)
+  %call323 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %convexPolyhedronA, ptr noundef nonnull %arrayidx310, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %m_quat, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2, ptr noundef nonnull %verticesA, ptr nonnull poison, ptr noundef nonnull %facesA, ptr nonnull poison, ptr noundef %vertices, ptr poison, ptr poison, ptr poison, ptr noundef nonnull %sepAxis, ptr noundef nonnull %dmin)
   br i1 %call323, label %if.else, label %if.else365
 
 if.else:                                          ; preds = %if.end304
-  %call333 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx310, ptr noundef nonnull %convexPolyhedronA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2, ptr noundef %vertices, ptr poison, ptr noundef %faces, ptr poison, ptr noundef nonnull %verticesA, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis, ptr noundef nonnull %dmin)
+  %call333 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx310, ptr noundef nonnull %convexPolyhedronA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %m_quat, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2, ptr noundef %vertices, ptr poison, ptr noundef %faces, ptr poison, ptr noundef nonnull %verticesA, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis, ptr noundef nonnull %dmin)
   br i1 %call333, label %if.else337, label %if.else365
 
 if.else337:                                       ; preds = %if.else
@@ -6442,7 +6442,6 @@ entry:
   %trB = alloca %class.b3Transform, align 16
   %trAorn = alloca %class.b3Quaternion, align 16
   %trBorn = alloca %class.b3Quaternion, align 16
-  %normalOnSurfaceB = alloca %class.b3Vector3, align 16
   %contactIdx = alloca %struct.b3Int4, align 16
   %m_data.i = getelementptr inbounds i8, ptr %hostCollidablesA, i64 16
   %0 = load ptr, ptr %m_data.i, align 8
@@ -6627,7 +6626,6 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @b3EnterProfileZone(ptr noundef nonnull @.str.33)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %normalOnSurfaceB, ptr noundef nonnull align 16 dereferenceable(16) %hostNormal, i64 16, i1 false)
   store i32 0, ptr %contactIdx, align 16
   %y46 = getelementptr inbounds i8, ptr %contactIdx, i64 4
   store i32 1, ptr %y46, align 4
@@ -6635,7 +6633,7 @@ if.then:                                          ; preds = %entry
   store i32 2, ptr %z47, align 8
   %w48 = getelementptr inbounds i8, ptr %contactIdx, i64 12
   store i32 3, ptr %w48, align 4
-  %call50 = call noundef i32 @_Z15extractManifoldPK9b3Vector3iRS0_P6b3Int4(ptr noundef nonnull %contactsOut, i32 noundef %call44, ptr noundef nonnull align 16 dereferenceable(16) %normalOnSurfaceB, ptr noundef nonnull %contactIdx)
+  %call50 = call noundef i32 @_Z15extractManifoldPK9b3Vector3iRS0_P6b3Int4(ptr noundef nonnull %contactsOut, i32 noundef %call44, ptr noundef nonnull align 16 dereferenceable(16) %hostNormal, ptr noundef nonnull %contactIdx)
   %27 = load i32, ptr %nContacts, align 4
   %cmp51 = icmp slt i32 %27, %maxContactCapacity
   br i1 %cmp51, label %if.then52, label %do.body
@@ -15524,11 +15522,11 @@ invoke.cont554:                                   ; preds = %if.end525
   %440 = load ptr, ptr %m_data.i.i1262, align 8
   %441 = load ptr, ptr %m_data.i.i1288, align 8
   %442 = load ptr, ptr %m_data.i.i1292, align 8
-  %call575 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx.i1346, ptr noundef nonnull %arrayidx.i1349, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2, ptr noundef nonnull %440, ptr nonnull poison, ptr noundef nonnull %442, ptr nonnull poison, ptr noundef nonnull %440, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis, ptr noundef nonnull %dmin)
+  %call575 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx.i1346, ptr noundef nonnull %arrayidx.i1349, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %m_quat539, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2, ptr noundef nonnull %440, ptr nonnull poison, ptr noundef nonnull %442, ptr nonnull poison, ptr noundef nonnull %440, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis, ptr noundef nonnull %dmin)
   br i1 %call575, label %if.then577, label %if.end628
 
 if.then577:                                       ; preds = %invoke.cont554
-  %call595 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx.i1349, ptr noundef nonnull %arrayidx.i1346, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2, ptr noundef nonnull %440, ptr nonnull poison, ptr noundef nonnull %442, ptr nonnull poison, ptr noundef nonnull %440, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis, ptr noundef nonnull %dmin)
+  %call595 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx.i1349, ptr noundef nonnull %arrayidx.i1346, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %m_quat539, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2, ptr noundef nonnull %440, ptr nonnull poison, ptr noundef nonnull %442, ptr nonnull poison, ptr noundef nonnull %440, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis, ptr noundef nonnull %dmin)
   br i1 %call595, label %if.then598, label %if.end628
 
 if.then598:                                       ; preds = %if.then577
@@ -15922,11 +15920,11 @@ invoke.cont782:                                   ; preds = %if.end525
   %558 = load ptr, ptr %m_data.i.i1262, align 8
   %559 = load ptr, ptr %m_data.i.i1288, align 8
   %560 = load ptr, ptr %m_data.i.i1292, align 8
-  %call805 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx.i1346, ptr noundef nonnull %arrayidx.i1349, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2781, ptr noundef nonnull %558, ptr nonnull poison, ptr noundef nonnull %560, ptr nonnull poison, ptr noundef nonnull %558, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis786, ptr noundef nonnull %dmin)
+  %call805 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx.i1346, ptr noundef nonnull %arrayidx.i1349, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %m_quat539, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2781, ptr noundef nonnull %558, ptr nonnull poison, ptr noundef nonnull %560, ptr nonnull poison, ptr noundef nonnull %558, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis786, ptr noundef nonnull %dmin)
   br i1 %call805, label %if.then808, label %for.inc
 
 if.then808:                                       ; preds = %invoke.cont782
-  %call827 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx.i1349, ptr noundef nonnull %arrayidx.i1346, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2781, ptr noundef nonnull %558, ptr nonnull poison, ptr noundef nonnull %560, ptr nonnull poison, ptr noundef nonnull %558, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis786, ptr noundef nonnull %dmin)
+  %call827 = call noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef nonnull %arrayidx.i1349, ptr noundef nonnull %arrayidx.i1346, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %m_quat539, ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %ornA, ptr noundef nonnull align 16 dereferenceable(16) %DeltaC2781, ptr noundef nonnull %558, ptr nonnull poison, ptr noundef nonnull %560, ptr nonnull poison, ptr noundef nonnull %558, ptr nonnull poison, ptr nonnull poison, ptr nonnull poison, ptr noundef nonnull %sepAxis786, ptr noundef nonnull %dmin)
   br i1 %call827, label %if.then830, label %for.inc
 
 if.then830:                                       ; preds = %if.then808

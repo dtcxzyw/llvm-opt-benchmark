@@ -228,9 +228,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.rocksdb::FilePickerMultiGet::FilePickerContext" = type { i32, i32, i32, i32 }
 %"class.rocksdb::MultiGetContext::Range::Iterator" = type { ptr, ptr, i64 }
 %"struct.rocksdb::(anonymous namespace)::Fsize" = type { i64, ptr }
-%"struct.__gnu_cxx::__ops::_Iter_comp_val.1185" = type { %class.anon.1167 }
-%class.anon.1167 = type { ptr, ptr }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %class.anon.1167 }
+%class.anon.1167 = type { ptr, ptr }
 %"class.std::unordered_map.1153" = type { %"class.std::_Hashtable.1154" }
 %"class.std::_Hashtable.1154" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::pair.603" = type { i32, ptr }
@@ -19023,8 +19022,6 @@ entry:
   %__val.i21.i.i.i.i = alloca %"struct.rocksdb::(anonymous namespace)::Fsize", align 8
   %__val.i.i.i.i.i = alloca %"struct.rocksdb::(anonymous namespace)::Fsize", align 8
   %__value.i.i.i.i.i.i.i = alloca %"struct.rocksdb::(anonymous namespace)::Fsize", align 8
-  %__cmp.i.i.i.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val.1185", align 8
-  %agg.tmp715.i.i.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %__comp.i.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %__comp.i.i.i = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %ref.tmp.i.i71.i = alloca %"class.rocksdb::Slice", align 8
@@ -20446,9 +20443,6 @@ while.body.i.i.i.i.i172:                          ; preds = %"_ZSt13__adjust_hea
   %__value.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %phi.call.i.i.i.i.i, align 8
   %__value.sroa.2.0.call5.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %phi.call.i.i.i.i.i, i64 8
   %__value.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %__value.sroa.2.0.call5.sroa_idx.i.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp715.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp715.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__comp.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__cmp.i.i.i.i.i.i)
   %cmp27.i.i.i.i.i.i = icmp slt i64 %__parent.0.i.i.i.i.i, %div.i1920.i.i.i.i.i
   br i1 %cmp27.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i181, label %while.end.i.i.i.i.i.i
 
@@ -20459,7 +20453,7 @@ while.body.i.i.i.i.i.i181:                        ; preds = %while.body.i.i.i.i.
   %add.ptr.i.i.i.i.i.i.i183 = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %temp.sroa.0.1, i64 %mul.i.i.i.i.i.i182
   %sub3.i.i.i.i.i.i = or disjoint i64 %add.i.i.i.i.i.i, 1
   %add.ptr.i22.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %temp.sroa.0.1, i64 %sub3.i.i.i.i.i.i
-  %call4.i.i.i.i.i.i123.i = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp715.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i183, ptr noundef nonnull readonly align 8 dereferenceable(16) %add.ptr.i22.i.i.i.i.i.i)
+  %call4.i.i.i.i.i.i123.i = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %__comp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i183, ptr noundef nonnull readonly align 8 dereferenceable(16) %add.ptr.i22.i.i.i.i.i.i)
           to label %call4.i.i.i.i.i.i.noexc.i unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 call4.i.i.i.i.i.i.noexc.i:                        ; preds = %while.body.i.i.i.i.i.i181
@@ -20482,7 +20476,6 @@ if.then20.i.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
 
 if.end33.i.i.i.i.i.i:                             ; preds = %if.then20.i.i.i.i.i.i, %while.end.i.i.i.i.i.i
   %__holeIndex.addr.1.i.i.i.i.i.i = phi i64 [ %sub24.i.i.i.i.i.i, %if.then20.i.i.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i.i.i.i173, %while.end.i.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__comp.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i.i.i.i.i.i.i)
   store i64 %__value.sroa.0.0.copyload.i.i.i.i.i, ptr %__value.i.i.i.i.i.i.i, align 8
   store ptr %__value.sroa.2.0.copyload.i.i.i.i.i, ptr %12, align 8
@@ -20494,7 +20487,7 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %if.end33.i.i.i.i.i.
   %__parent.017.in.i.i.i.i.i.i.i = add nsw i64 %__holeIndex.addr.016.i.i.i.i.i.i.i, -1
   %__parent.017.i.i.i.i.i.i.i = sdiv i64 %__parent.017.in.i.i.i.i.i.i.i, 2
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %temp.sroa.0.1, i64 %__parent.017.i.i.i.i.i.i.i
-  %call2.i.i.i.i.i.i.i124.i = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %__cmp.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__value.i.i.i.i.i.i.i)
+  %call2.i.i.i.i.i.i.i124.i = invoke fastcc noundef zeroext i1 @"_ZZN7rocksdb12_GLOBAL__N_126SortFileByOverlappingRatioERKNS_21InternalKeyComparatorERKSt6vectorIPNS_12FileMetaDataESaIS6_EESA_PNS_11SystemClockEiimPS4_INS0_5FsizeESaISD_EEENK3$_0clERKSD_SJ_"(ptr noundef nonnull readonly align 8 dereferenceable(16) %__comp.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %add.ptr.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %__value.i.i.i.i.i.i.i)
           to label %call2.i.i.i.i.i.i.i.noexc.i unwind label %lpad1.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 call2.i.i.i.i.i.i.i.noexc.i:                      ; preds = %land.rhs.i.i.i.i.i.i.i
@@ -20511,8 +20504,6 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %call2.i.i.i.i.i.i.i
   %add.ptr.i12.i.i.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %temp.sroa.0.1, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i12.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp715.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__cmp.i.i.i.i.i.i)
   %cmp9.i.i.i.i.i = icmp eq i64 %__parent.0.i.i.i.i.i, 0
   %dec.i.i.i.i.i = add nsw i64 %__parent.0.i.i.i.i.i, -1
   br i1 %cmp9.i.i.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb12_GLOBAL__N_15FsizeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_26SortFileByOverlappingRatioERKNS2_21InternalKeyComparatorERKS6_IPNS2_12FileMetaDataESaISG_EESK_PNS2_11SystemClockEiimPS8_E3$_0EEEvT_SQ_RT0_.exit.i.i.i.i", label %while.body.i.i.i.i.i172, !llvm.loop !196
@@ -64279,6 +64270,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp73)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp73, ptr noundef nonnull align 8 dereferenceable(16) %__comp, i64 16, i1 false)
   %sub.i = add nsw i64 %sub.ptr.div.i, -1
   %div.i = sdiv i64 %sub.i, 2
@@ -64348,6 +64340,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %add.ptr.i12.i.i = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::Fsize", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i12.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__value.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__value.i.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp73)
   ret void
 }
 

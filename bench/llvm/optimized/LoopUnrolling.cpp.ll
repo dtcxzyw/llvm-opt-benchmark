@@ -7724,113 +7724,109 @@ _ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread49: ; preds = %_ZN5clang4ento
 define internal fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::LoopState") align 8 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
-  %6 = alloca %"struct.(anonymous namespace)::LoopState", align 8
-  %7 = alloca %"class.llvm::IntrusiveRefCntPtr.743", align 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8
+  %6 = alloca %"class.llvm::IntrusiveRefCntPtr.743", align 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %1) #17
-  %.val = load ptr, ptr %8, align 8
-  %10 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang4ento19ProgramStateManager14FindGDMContextEPvPFS2_RN4llvm20BumpPtrAllocatorImplINS3_15MallocAllocatorELm4096ELm4096ELm128EEEEPFvS2_E(ptr noundef nonnull align 8 dereferenceable(288) %.val, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index, ptr noundef nonnull @_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE13CreateContextERNS2_20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEE, ptr noundef nonnull @_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE13DeleteContextEPv) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr %1, ptr %7, align 8, !noalias !718
+  %.val = load ptr, ptr %7, align 8
+  %9 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang4ento19ProgramStateManager14FindGDMContextEPvPFS2_RN4llvm20BumpPtrAllocatorImplINS3_15MallocAllocatorELm4096ELm4096ELm128EEEEPFvS2_E(ptr noundef nonnull align 8 dereferenceable(288) %.val, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index, ptr noundef nonnull @_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE13CreateContextERNS2_20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEE, ptr noundef nonnull @_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE13DeleteContextEPv) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store ptr %1, ptr %6, align 8, !noalias !718
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %1) #17, !noalias !718
-  %11 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index) #17, !noalias !718
-  %.not.i.i3.i = icmp eq ptr %11, null
-  br i1 %.not.i.i3.i, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i, label %12
+  %10 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index) #17, !noalias !718
+  %.not.i.i3.i = icmp eq ptr %10, null
+  br i1 %.not.i.i3.i, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i, label %11
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %11, align 8, !noalias !718
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %10, align 8, !noalias !718
   br label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i
 
-_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i: ; preds = %12, %3
-  %.sroa.0.0.i.i.i = phi ptr [ %13, %12 ], [ null, %3 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !718
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i: ; preds = %11, %3
+  %.sroa.0.0.i.i.i = phi ptr [ %12, %11 ], [ null, %3 ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4), !noalias !718
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !718
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %14, i64 noundef 32) #17, !noalias !718
-  call fastcc void @_ZN4llvm17ImmutableListImplIN12_GLOBAL__N_19LoopStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_PKS3_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull readonly align 8 dereferenceable(28) %6, ptr noundef %.sroa.0.0.i.i.i), !noalias !718
-  %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEE17getFoldingSetInfoEvE4Info) #17, !noalias !718
-  %.not.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i, label %16, label %43
+  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %13, i64 noundef 32) #17, !noalias !718
+  call fastcc void @_ZN4llvm17ImmutableListImplIN12_GLOBAL__N_19LoopStateEE7ProfileERNS_16FoldingSetNodeIDERKS2_PKS3_(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull readonly align 8 dereferenceable(28) %2, ptr noundef %.sroa.0.0.i.i.i)
+  %14 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEE17getFoldingSetInfoEvE4Info) #17, !noalias !718
+  %.not.i.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i.i, label %15, label %42
 
-16:                                               ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
-  %.val11.i.i.i.i = load i64, ptr %17, align 8, !noalias !718
-  %18 = and i64 %.val11.i.i.i.i, -2
-  %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  %21 = load i64, ptr %20, align 8, !noalias !718
-  %22 = add i64 %21, 48
-  store i64 %22, ptr %20, align 8, !noalias !718
-  %23 = load ptr, ptr %19, align 8, !noalias !718
-  %24 = ptrtoint ptr %23 to i64
-  %25 = add i64 %24, 7
-  %26 = and i64 %25, -8
-  %27 = add i64 %26, 48
-  %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %29 = load ptr, ptr %28, align 8, !noalias !718
-  %30 = ptrtoint ptr %29 to i64
-  %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %27, %30
-  %.not14.i.i.i.i.i.i.i.i = icmp eq ptr %23, null
+15:                                               ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i
+  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %.val11.i.i.i.i = load i64, ptr %16, align 8, !noalias !718
+  %17 = and i64 %.val11.i.i.i.i, -2
+  %18 = inttoptr i64 %17 to ptr
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %20 = load i64, ptr %19, align 8, !noalias !718
+  %21 = add i64 %20, 48
+  store i64 %21, ptr %19, align 8, !noalias !718
+  %22 = load ptr, ptr %18, align 8, !noalias !718
+  %23 = ptrtoint ptr %22 to i64
+  %24 = add i64 %23, 7
+  %25 = and i64 %24, -8
+  %26 = add i64 %25, 48
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %28 = load ptr, ptr %27, align 8, !noalias !718
+  %29 = ptrtoint ptr %28 to i64
+  %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %26, %29
+  %.not14.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
   %or.cond.i.i.i.i.i.i.i.i = or i1 %.not14.i.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i, label %31
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %.critedge.i.i.i.i.i.i.i.i, label %30
 
-31:                                               ; preds = %16
-  %32 = inttoptr i64 %27 to ptr
-  %33 = inttoptr i64 %26 to ptr
+30:                                               ; preds = %15
+  %31 = inttoptr i64 %26 to ptr
+  %32 = inttoptr i64 %25 to ptr
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEEEPT_m.exit.i.i.i.i
 
-.critedge.i.i.i.i.i.i.i.i:                        ; preds = %16
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %19), !noalias !718
-  %34 = load ptr, ptr %19, align 8, !noalias !718
-  %35 = ptrtoint ptr %34 to i64
-  %36 = add i64 %35, 7
-  %37 = and i64 %36, -8
-  %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+.critedge.i.i.i.i.i.i.i.i:                        ; preds = %15
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %18), !noalias !718
+  %33 = load ptr, ptr %18, align 8, !noalias !718
+  %34 = ptrtoint ptr %33 to i64
+  %35 = add i64 %34, 7
+  %36 = and i64 %35, -8
+  %37 = inttoptr i64 %36 to ptr
+  %38 = getelementptr inbounds i8, ptr %37, i64 48
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEEEPT_m.exit.i.i.i.i
 
-_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEEEPT_m.exit.i.i.i.i: ; preds = %.critedge.i.i.i.i.i.i.i.i, %31
-  %.sink.i.i.i.i.i = phi ptr [ %39, %.critedge.i.i.i.i.i.i.i.i ], [ %32, %31 ]
-  %.0.i.i.i.i.i.i.i.i = phi ptr [ %38, %.critedge.i.i.i.i.i.i.i.i ], [ %33, %31 ]
-  store ptr %.sink.i.i.i.i.i, ptr %19, align 8, !noalias !718
+_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEEEPT_m.exit.i.i.i.i: ; preds = %.critedge.i.i.i.i.i.i.i.i, %30
+  %.sink.i.i.i.i.i = phi ptr [ %38, %.critedge.i.i.i.i.i.i.i.i ], [ %31, %30 ]
+  %.0.i.i.i.i.i.i.i.i = phi ptr [ %37, %.critedge.i.i.i.i.i.i.i.i ], [ %32, %30 ]
+  store ptr %.sink.i.i.i.i.i, ptr %18, align 8, !noalias !718
   store ptr null, ptr %.0.i.i.i.i.i.i.i.i, align 8, !noalias !718
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 40
-  store ptr %.sroa.0.0.i.i.i, ptr %41, align 8, !noalias !718
-  %42 = load ptr, ptr %5, align 8, !noalias !718
-  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %.0.i.i.i.i.i.i.i.i, ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEE17getFoldingSetInfoEvE4Info) #17, !noalias !718
-  br label %43
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 40
+  store ptr %.sroa.0.0.i.i.i, ptr %40, align 8, !noalias !718
+  %41 = load ptr, ptr %5, align 8, !noalias !718
+  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %.0.i.i.i.i.i.i.i.i, ptr noundef %41, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEE17getFoldingSetInfoEvE4Info) #17, !noalias !718
+  br label %42
 
-43:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEEEPT_m.exit.i.i.i.i, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i
-  %.0.i.i.i.i = phi ptr [ %15, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i ], [ %.0.i.i.i.i.i.i.i.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEEEPT_m.exit.i.i.i.i ]
-  %44 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17, !noalias !718
-  %45 = load ptr, ptr %4, align 8, !noalias !718
-  %46 = icmp eq ptr %45, %14
-  br i1 %46, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i, label %47
+42:                                               ; preds = %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEEEPT_m.exit.i.i.i.i, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i
+  %.0.i.i.i.i = phi ptr [ %14, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramStateTraitIT_E9data_typeEv.exit.i ], [ %.0.i.i.i.i.i.i.i.i, %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateINS_17ImmutableListImplIN12_GLOBAL__N_19LoopStateEEEEEPT_m.exit.i.i.i.i ]
+  %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17, !noalias !718
+  %44 = load ptr, ptr %4, align 8, !noalias !718
+  %45 = icmp eq ptr %44, %13
+  br i1 %45, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i, label %46
 
-47:                                               ; preds = %43
-  call void @free(ptr noundef %45) #17, !noalias !718
+46:                                               ; preds = %42
+  call void @free(ptr noundef %44) #17, !noalias !718
   br label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i
 
-_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i: ; preds = %47, %43
+_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i: ; preds = %46, %42
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4), !noalias !718
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !718
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !718
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.743") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %9, ptr noundef nonnull %7, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index, ptr noundef nonnull %.0.i.i.i.i) #17
-  %48 = load ptr, ptr %7, align 8, !noalias !718
-  %.not.i.i4.i = icmp eq ptr %48, null
-  br i1 %.not.i.i4.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %49
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.743") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %8, ptr noundef nonnull %6, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index, ptr noundef nonnull %.0.i.i.i.i) #17
+  %47 = load ptr, ptr %6, align 8, !noalias !718
+  %.not.i.i4.i = icmp eq ptr %47, null
+  br i1 %.not.i.i4.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %48
 
-49:                                               ; preds = %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %48) #17
+48:                                               ; preds = %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %47) #17
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %1) #17
   ret void
 }

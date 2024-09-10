@@ -49,10 +49,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::optional_detail::OptionalStorage.230" = type { %"struct.llvh::AlignedCharArrayUnion.231", i8, [7 x i8] }
 %"struct.llvh::AlignedCharArrayUnion.231" = type { %"struct.llvh::AlignedCharArray.232" }
 %"struct.llvh::AlignedCharArray.232" = type { [16 x i8] }
-%"struct.hermes::vm::IteratorRecord" = type { %"class.hermes::vm::Handle.162", %"class.hermes::vm::Handle.172" }
-%"class.hermes::vm::Handle.162" = type { %"class.hermes::vm::HandleBase" }
-%"class.hermes::vm::HandleBase" = type { ptr }
-%"class.hermes::vm::Handle.172" = type { %"class.hermes::vm::HandleBase" }
 %"class.hermes::vm::CallResult.268" = type { %"class.llvh::Optional.269" }
 %"class.llvh::Optional.269" = type { %"struct.llvh::optional_detail::OptionalStorage.270" }
 %"struct.llvh::optional_detail::OptionalStorage.270" = type { %"struct.llvh::AlignedCharArrayUnion.271", i8, [7 x i8] }
@@ -7153,7 +7149,6 @@ return:                                           ; preds = %entry, %cond.true.i
 define hidden ptr @_ZN6hermes2vm15iterableToArrayERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %items.coerce) local_unnamed_addr #0 {
 entry:
   %iteratorRecordRes = alloca %"class.hermes::vm::CallResult.228", align 8
-  %iteratorRecord = alloca %"struct.hermes::vm::IteratorRecord", align 8
   call void @_ZN6hermes2vm11getIteratorERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEEN4llvh8OptionalINS3_INS0_8CallableEEEEE(ptr nonnull sret(%"class.hermes::vm::CallResult.228") align 8 %iteratorRecordRes, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %items.coerce, i64 undef, i8 0)
   %hasVal.i.i.i = getelementptr inbounds i8, ptr %iteratorRecordRes, i64 16
   %0 = load i8, ptr %hasVal.i.i.i, align 8
@@ -7162,7 +7157,6 @@ entry:
   br i1 %cmp.i, label %cleanup54, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iteratorRecord, ptr noundef nonnull align 8 dereferenceable(16) %iteratorRecordRes, i64 16, i1 false)
   %call6 = tail call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 0, i32 noundef 0) #18
   %topGCScope_.i.i = getelementptr inbounds i8, ptr %runtime, i64 8
   %2 = load ptr, ptr %topGCScope_.i.i, align 8
@@ -7170,7 +7164,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %next_.i.i, align 8
   %curChunkIndex_.i.i = getelementptr inbounds i8, ptr %2, i64 208
   %4 = load i32, ptr %curChunkIndex_.i.i, align 8
-  %call1125 = call ptr @_ZN6hermes2vm12iteratorStepERNS0_7RuntimeERKNS0_14IteratorRecordE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(16) %iteratorRecord)
+  %call1125 = call ptr @_ZN6hermes2vm12iteratorStepERNS0_7RuntimeERKNS0_14IteratorRecordE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(16) %iteratorRecordRes)
   %cmp.i.i.not26 = icmp eq ptr %call1125, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not26, label %if.end.cleanup_crit_edge, label %if.end17.lr.ph
 
@@ -7232,7 +7226,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   store i32 %4, ptr %curChunkIndex_.i.i, align 8
   store ptr %add.ptr.i.i, ptr %curChunkEnd_.i.i, align 8
   store ptr %3, ptr %next_.i.i, align 8
-  %call11 = call ptr @_ZN6hermes2vm12iteratorStepERNS0_7RuntimeERKNS0_14IteratorRecordE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(16) %iteratorRecord)
+  %call11 = call ptr @_ZN6hermes2vm12iteratorStepERNS0_7RuntimeERKNS0_14IteratorRecordE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(16) %iteratorRecordRes)
   %cmp.i.i.not = icmp eq ptr %call11, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not, label %cleanup, label %if.end17, !llvm.loop !57
 
