@@ -933,7 +933,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %69 = zext nneg i32 %11 to i64
   %70 = zext nneg i32 %43 to i64
   %71 = zext nneg i32 %45 to i64
-  %72 = icmp ult i32 %45, 9
+  %72 = icmp ult i32 %28, 40
   br i1 %72, label %.loopexit, label %73
 
 73:                                               ; preds = %2
@@ -1411,7 +1411,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %69 = zext nneg i32 %11 to i64
   %70 = zext nneg i32 %43 to i64
   %71 = zext nneg i32 %45 to i64
-  %72 = icmp ult i32 %45, 9
+  %72 = icmp ult i32 %28, 40
   br i1 %72, label %.loopexit, label %73
 
 73:                                               ; preds = %2
@@ -1871,7 +1871,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator19interpolate_
   %69 = zext nneg i32 %11 to i64
   %70 = zext nneg i32 %43 to i64
   %71 = zext nneg i32 %45 to i64
-  %72 = icmp ult i32 %45, 9
+  %72 = icmp ult i32 %28, 40
   br i1 %72, label %.loopexit, label %73
 
 73:                                               ; preds = %2
