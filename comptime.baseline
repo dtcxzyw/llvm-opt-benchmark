@@ -20269,7 +20269,7 @@ nuttx/lib_log2ceil.c.ll 39053621
 nuttx/lib_logf.c.ll 44685892
 nuttx/lib_logl.c.ll 41758614
 nuttx/lib_mbrtowc.c.ll 56899762
-nuttx/lib_mbsinit.c.ll 36065734
+nuttx/lib_mbsinit.c.ll 36101864
 nuttx/lib_mbsnrtowcs.c.ll 49614534
 nuttx/lib_memccpy.c.ll 39695898
 nuttx/lib_memchr.c.ll 40727360
@@ -23641,7 +23641,7 @@ openjdk/RawNativeLibraries.ll 47956621
 openjdk/Reentrancy.ll 57375479
 openjdk/Reference.ll 39011966
 openjdk/ReferenceTypeImpl.ll 173506028
-openjdk/Reflection.ll 37291447
+openjdk/Reflection.ll 37328796
 openjdk/Region.ll 157263852
 openjdk/ResolverConfigurationImpl.ll 38536485
 openjdk/Runtime.ll 38278030
