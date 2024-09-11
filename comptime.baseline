@@ -10121,7 +10121,7 @@ hermes/CompactArray.cpp.ll 106294003
 hermes/CompileJS.cpp.ll 843078989
 hermes/CompilerDriver.cpp.ll 10543132102
 hermes/ConsecutiveStringStorage.cpp.ll 6275641226
-hermes/ConsoleHost.cpp.ll 1415756722
+hermes/ConsoleHost.cpp.ll 1414337958
 hermes/Conversions.cpp.ll 112167212
 hermes/ConvertUTF.cpp.ll 287096936
 hermes/ConvertUTFWrapper.cpp.ll 257622912
@@ -15353,7 +15353,7 @@ llvm/CommentBriefParser.cpp.ll 200057122
 llvm/CommentCommandTraits.cpp.ll 564946380
 llvm/CommentLexer.cpp.ll 1341833701
 llvm/CommentParser.cpp.ll 1164023926
-llvm/CommentSema.cpp.ll 2314836900
+llvm/CommentSema.cpp.ll 2312520821
 llvm/CommentToXML.cpp.ll 3010637273
 llvm/Commit.cpp.ll 520859232
 llvm/CommonArgs.cpp.ll 6155321697
@@ -15381,7 +15381,7 @@ llvm/ConstraintSystem.cpp.ll 906275258
 llvm/ConstructionContext.cpp.ll 557088246
 llvm/Consumed.cpp.ll 3919380929
 llvm/ContainerModeling.cpp.ll 6281856177
-llvm/Context.cpp.ll 1805755432
+llvm/Context.cpp.ll 1803946416
 llvm/ContinuationIndenter.cpp.ll 3862826335
 llvm/ContinuationRecordBuilder.cpp.ll 856565213
 llvm/ControlFlowUtils.cpp.ll 1789404286
@@ -16407,7 +16407,7 @@ llvm/OptParserEmitter.cpp.ll 2817459192
 llvm/OptRSTEmitter.cpp.ll 422619274
 llvm/OptTable.cpp.ll 1930708026
 llvm/OptimizationLevel.cpp.ll 35235184
-llvm/OptimizationRemarkEmitter.cpp.ll 1062108535
+llvm/OptimizationRemarkEmitter.cpp.ll 1061044613
 llvm/OptimizePHIs.cpp.ll 426032752
 llvm/OptimizedStructLayout.cpp.ll 274335363
 llvm/Option.cpp.ll 380670113
@@ -17063,7 +17063,7 @@ llvm/TransProtectedScope.cpp.ll 28457804687
 llvm/TransRetainReleaseDealloc.cpp.ll 23402074266
 llvm/TransUnbridgedCasts.cpp.ll 23611410264
 llvm/TransUnusedInitDelegate.cpp.ll 23077325372
-llvm/TransZeroOutPropsInDealloc.cpp.ll 17155387455
+llvm/TransZeroOutPropsInDealloc.cpp.ll 17138224726
 llvm/TransformActions.cpp.ll 1640914759
 llvm/Transforms.cpp.ll 48668923118
 llvm/TraversalChecker.cpp.ll 483630324
@@ -17587,7 +17587,7 @@ luau/BytecodeAnalysis.cpp.ll 1569004493
 luau/BytecodeBuilder.cpp.ll 3736940743
 luau/BytecodeSummary.cpp.ll 519754942
 luau/ClassFixture.cpp.ll 2365009607
-luau/Clone.cpp.ll 2288741630
+luau/Clone.cpp.ll 2286447287
 luau/CodeAllocator.cpp.ll 220509643
 luau/CodeAllocator.test.cpp.ll 1398848927
 luau/CodeBlockUnwind.cpp.ll 52939848
@@ -20631,7 +20631,7 @@ ocio/FixedFunctionOpCPU.cpp.ll 1368520650
 ocio/FixedFunctionOpData.cpp.ll 393665580
 ocio/FixedFunctionOpGPU.cpp.ll 794043530
 ocio/FixedFunctionTransform.cpp.ll 385270806
-ocio/FormatMetadata.cpp.ll 823995026
+ocio/FormatMetadata.cpp.ll 823169658
 ocio/GPUProcessor.cpp.ll 361522586
 ocio/GammaOp.cpp.ll 767791759
 ocio/GammaOpCPU.cpp.ll 1502609507
@@ -22487,7 +22487,7 @@ opencv/imgproc_segmentation.cpp.ll 117997931
 opencv/imgsource.cpp.ll 242298509
 opencv/imgwarp.cpp.ll 9733573339
 opencv/infer_ie_onnx_hybrid.cpp.ll 6261545427
-opencv/infer_single_roi.cpp.ll 4970298781
+opencv/infer_single_roi.cpp.ll 4965316863
 opencv/infer_ssd_onnx.cpp.ll 4688723766
 opencv/init.cpp.ll 1958239769
 opencv/inner_functions.cpp.ll 441180712
@@ -22877,7 +22877,7 @@ opencv/perf_matop.cpp.ll 55561803
 opencv/perf_mcc.cpp.ll 314657540
 opencv/perf_merge.cpp.ll 1567795205
 opencv/perf_minmaxloc.cpp.ll 1284391978
-opencv/perf_moments.cpp.ll 1810463701
+opencv/perf_moments.cpp.ll 1808645803
 opencv/perf_morph.cpp.ll 1736654010
 opencv/perf_motempl.cpp.ll 55556206
 opencv/perf_msd.cpp.ll 1409244928
@@ -22887,7 +22887,7 @@ opencv/perf_optflow_dualTVL1.cpp.ll 55570752
 opencv/perf_optflow_farneback.cpp.ll 55602283
 opencv/perf_optflow_pyrlk.cpp.ll 55574166
 opencv/perf_optflowpyrlk.cpp.ll 6387994638
-opencv/perf_output.cpp.ll 1409423989
+opencv/perf_output.cpp.ll 1408012551
 opencv/perf_phasecorr.cpp.ll 901071050
 opencv/perf_png.cpp.ll 357134764
 opencv/perf_pnp.cpp.ll 2673282438
@@ -29019,7 +29019,7 @@ openusd/TestTfRegistryFunctionPlugin.cpp.ll 45664559
 openusd/TestUsdProceduralExternalAssetsFileFormatPlugin.cpp.ll 1100936523
 openusd/TestUsdResolverChangedResolver.cpp.ll 869671249
 openusd/TestUsdUtilsDependenciesCustomResolver_plugin.cpp.ll 185558269
-openusd/abstractData.cpp.ll 1215845558
+openusd/abstractData.cpp.ll 1214626786
 openusd/adapterManager.cpp.ll 2178036236
 openusd/adapterRegistry.cpp.ll 2123463509
 openusd/aggregateNode.cpp.ll 2037520504
@@ -29063,7 +29063,7 @@ openusd/atomicRenameUtil.cpp.ll 82053459
 openusd/attachmentDesc.cpp.ll 70066007
 openusd/attribute.cpp.ll 2086980437
 openusd/attributeQuery.cpp.ll 2268142178
-openusd/attributeSpec.cpp.ll 1175590529
+openusd/attributeSpec.cpp.ll 1174412327
 openusd/authoring.cpp.ll 4215887082
 openusd/av1_dx_iface.c.ll 612557320
 openusd/av1_inv_txfm1d.c.ll 3899721155
@@ -32215,7 +32215,7 @@ proxygen/HTTPMessageFilters.cpp.ll 451202116
 proxygen/HTTPMethod.cpp.ll 205313589
 proxygen/HTTPParallelCodec.cpp.ll 120881868
 proxygen/HTTPPriorityFunctions.cpp.ll 768200423
-proxygen/HTTPServerAcceptor.cpp.ll 2419517700
+proxygen/HTTPServerAcceptor.cpp.ll 2417095561
 proxygen/HTTPSession.cpp.ll 8284790164
 proxygen/HTTPSessionAcceptor.cpp.ll 2115326483
 proxygen/HTTPSessionActivityTracker.cpp.ll 97131761
