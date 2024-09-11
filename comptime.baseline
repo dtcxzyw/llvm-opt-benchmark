@@ -2379,7 +2379,7 @@ casadi/cs_usolve.c.ll 53052212
 casadi/cs_util.c.ll 82808293
 casadi/cs_utsolve.c.ll 52655079
 casadi/csparse_cholesky_interface.cpp.ll 627387453
-casadi/csparse_cholesky_interface_meta.cpp.ll 58058229
+casadi/csparse_cholesky_interface_meta.cpp.ll 58116372
 casadi/csparse_interface.cpp.ll 698904787
 casadi/csparse_interface_meta.cpp.ll 58104294
 casadi/cvodea.c.ll 1099176530
