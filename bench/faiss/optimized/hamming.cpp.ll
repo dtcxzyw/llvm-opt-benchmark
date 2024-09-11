@@ -315,7 +315,7 @@ define internal void @_ZN5faiss13fvecs2bitvecsEPKfPhmm.omp_outlined(ptr noalias 
   %11 = alloca i32, align 4
   %12 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %48, label %13
+  br i1 %.not, label %47, label %13
 
 13:                                               ; preds = %7
   %14 = add i64 %12, -1
@@ -329,99 +329,89 @@ define internal void @_ZN5faiss13fvecs2bitvecsEPKfPhmm.omp_outlined(ptr noalias 
   %17 = call i64 @llvm.umin.i64(i64 %16, i64 %14)
   store i64 %17, ptr %9, align 8
   %18 = load i64, ptr %8, align 8
-  %.not19 = icmp ugt i64 %18, %17
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %13
-  %19 = load i64, ptr %4, align 8
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %_ZN5faiss11fvec2bitvecEPKfPhm.exit.us, label %.lr.ph.split
-
-_ZN5faiss11fvec2bitvecEPKfPhm.exit.us:            ; preds = %.lr.ph, %_ZN5faiss11fvec2bitvecEPKfPhm.exit.us
-  %.016.us = phi i64 [ %21, %_ZN5faiss11fvec2bitvecEPKfPhm.exit.us ], [ %18, %.lr.ph ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %21 = add nuw i64 %.016.us, 1
-  %22 = icmp ult i64 %.016.us, %17
-  br i1 %22, label %_ZN5faiss11fvec2bitvecEPKfPhm.exit.us, label %._crit_edge
+  %19 = icmp ugt i64 %18, %17
+  %20 = load i64, ptr %4, align 8
+  %21 = icmp eq i64 %20, 0
+  %or.cond = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZN5faiss11fvec2bitvecEPKfPhm.exit
   %.pr = load i64, ptr %4, align 8
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
-  %23 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %19, %.lr.ph ]
-  %24 = phi i64 [ %44, %.lr.ph.splitthread-pre-split ], [ %17, %.lr.ph ]
-  %.016 = phi i64 [ %45, %.lr.ph.splitthread-pre-split ], [ %18, %.lr.ph ]
-  %25 = load ptr, ptr %3, align 8
-  %26 = mul i64 %23, %.016
-  %27 = getelementptr inbounds float, ptr %25, i64 %26
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i64, ptr %6, align 8
+.lr.ph.split:                                     ; preds = %13, %.lr.ph.splitthread-pre-split
+  %22 = phi i64 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %20, %13 ]
+  %23 = phi i64 [ %43, %.lr.ph.splitthread-pre-split ], [ %17, %13 ]
+  %.016 = phi i64 [ %44, %.lr.ph.splitthread-pre-split ], [ %18, %13 ]
+  %24 = load ptr, ptr %3, align 8
+  %25 = mul i64 %22, %.016
+  %26 = getelementptr inbounds float, ptr %24, i64 %25
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i64, ptr %6, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %.not32.i = icmp eq i64 %23, 0
+  %.not32.i = icmp eq i64 %22, 0
   br i1 %.not32.i, label %_ZN5faiss11fvec2bitvecEPKfPhm.exit, label %.lr.ph30.i
 
 .lr.ph30.i:                                       ; preds = %.lr.ph.split
-  %30 = mul nsw i64 %29, %.016
-  %31 = getelementptr inbounds i8, ptr %28, i64 %30
-  %32 = trunc i64 %23 to i32
-  br label %33
+  %29 = mul nsw i64 %28, %.016
+  %30 = getelementptr inbounds i8, ptr %27, i64 %29
+  %31 = trunc i64 %22 to i32
+  br label %32
 
-33:                                               ; preds = %._crit_edge.i, %.lr.ph30.i
+32:                                               ; preds = %._crit_edge.i, %.lr.ph30.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next34.i, %._crit_edge.i ]
-  %.01828.i = phi ptr [ %31, %.lr.ph30.i ], [ %42, %._crit_edge.i ]
+  %.01828.i = phi ptr [ %30, %.lr.ph30.i ], [ %41, %._crit_edge.i ]
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 8
-  %.not.i = icmp ult i64 %23, %indvars.iv.next34.i
-  %34 = trunc nuw nsw i64 %indvars.iv33.i to i32
-  %35 = sub i32 %32, %34
-  %36 = select i1 %.not.i, i32 %35, i32 8
-  %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %.not.i = icmp ult i64 %22, %indvars.iv.next34.i
+  %33 = trunc nuw nsw i64 %indvars.iv33.i to i32
+  %34 = sub i32 %31, %33
+  %35 = select i1 %.not.i, i32 %34, i32 8
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %33
-  %wide.trip.count.i = zext nneg i32 %36 to i64
-  %invariant.gep.i = getelementptr inbounds float, ptr %27, i64 %indvars.iv33.i
+.lr.ph.preheader.i:                               ; preds = %32
+  %wide.trip.count.i = zext nneg i32 %35 to i64
+  %invariant.gep.i = getelementptr inbounds float, ptr %26, i64 %indvars.iv33.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01925.i = phi i8 [ 1, %.lr.ph.preheader.i ], [ %41, %.lr.ph.i ]
+  %.01925.i = phi i8 [ 1, %.lr.ph.preheader.i ], [ %40, %.lr.ph.i ]
   %.02024.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %gep.i = getelementptr inbounds float, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %38 = load float, ptr %gep.i, align 4, !alias.scope !11, !noalias !14
-  %39 = fcmp ult float %38, 0.000000e+00
-  %40 = select i1 %39, i8 0, i8 %.01925.i
-  %.1.i = or i8 %40, %.02024.i
-  %41 = shl i8 %.01925.i, 1
+  %37 = load float, ptr %gep.i, align 4, !alias.scope !11, !noalias !14
+  %38 = fcmp ult float %37, 0.000000e+00
+  %39 = select i1 %38, i8 0, i8 %.01925.i
+  %.1.i = or i8 %39, %.02024.i
+  %40 = shl i8 %.01925.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %33
-  %.020.lcssa.i = phi i8 [ 0, %33 ], [ %.1.i, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %32
+  %.020.lcssa.i = phi i8 [ 0, %32 ], [ %.1.i, %.lr.ph.i ]
   store i8 %.020.lcssa.i, ptr %.01828.i, align 1, !alias.scope !14, !noalias !11
-  %42 = getelementptr inbounds i8, ptr %.01828.i, i64 1
-  %43 = icmp ugt i64 %23, %indvars.iv.next34.i
-  br i1 %43, label %33, label %_ZN5faiss11fvec2bitvecEPKfPhm.exit.loopexit, !llvm.loop !10
+  %41 = getelementptr inbounds i8, ptr %.01828.i, i64 1
+  %42 = icmp ugt i64 %22, %indvars.iv.next34.i
+  br i1 %42, label %32, label %_ZN5faiss11fvec2bitvecEPKfPhm.exit.loopexit, !llvm.loop !10
 
 _ZN5faiss11fvec2bitvecEPKfPhm.exit.loopexit:      ; preds = %._crit_edge.i
   %.pre = load i64, ptr %9, align 8
   br label %_ZN5faiss11fvec2bitvecEPKfPhm.exit
 
 _ZN5faiss11fvec2bitvecEPKfPhm.exit:               ; preds = %_ZN5faiss11fvec2bitvecEPKfPhm.exit.loopexit, %.lr.ph.split
-  %44 = phi i64 [ %.pre, %_ZN5faiss11fvec2bitvecEPKfPhm.exit.loopexit ], [ %24, %.lr.ph.split ]
-  %45 = add nuw i64 %.016, 1
-  %46 = add i64 %44, 1
-  %47 = icmp ult i64 %45, %46
-  br i1 %47, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !16
+  %43 = phi i64 [ %.pre, %_ZN5faiss11fvec2bitvecEPKfPhm.exit.loopexit ], [ %23, %.lr.ph.split ]
+  %44 = add nuw i64 %.016, 1
+  %45 = add i64 %43, 1
+  %46 = icmp ult i64 %44, %45
+  br i1 %46, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %_ZN5faiss11fvec2bitvecEPKfPhm.exit, %_ZN5faiss11fvec2bitvecEPKfPhm.exit.us, %13
+._crit_edge:                                      ; preds = %_ZN5faiss11fvec2bitvecEPKfPhm.exit, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
-  br label %48
+  br label %47
 
-48:                                               ; preds = %._crit_edge, %7
+47:                                               ; preds = %._crit_edge, %7
   ret void
 }
 

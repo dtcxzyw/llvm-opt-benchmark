@@ -533,9 +533,9 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i116.i: ; pred
   store i64 2405181685785, ptr %149, align 4, !alias.scope !5, !noalias !8
   call void @_ZdlPv(ptr noundef nonnull %148) #16
   %152 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-          to label %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i unwind label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i
+          to label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit165.i unwind label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i
 
-_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i: ; preds = %150
+_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit165.i: ; preds = %150
   %153 = getelementptr inbounds i8, ptr %152, i64 16
   store i64 2491081031725, ptr %153, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %152, ptr noundef nonnull align 4 dereferenceable(16) %149, i64 16, i1 false), !alias.scope !10, !noalias !14
@@ -543,9 +543,9 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i: ; pr
   %.sroa.17.2.i = getelementptr inbounds i8, ptr %152, i64 24
   store i64 2576980377660, ptr %.sroa.17.2.i, align 4
   %154 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
-          to label %.lr.ph.i.i.i.i.i.i.i172.preheader.i unwind label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i
+          to label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit199.i unwind label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i
 
-.lr.ph.i.i.i.i.i.i.i172.preheader.i:              ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i
+_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit199.i: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit165.i
   %155 = getelementptr inbounds i8, ptr %154, i64 32
   store i64 2362232012860, ptr %155, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %154, ptr noundef nonnull align 4 dereferenceable(32) %152, i64 32, i1 false), !alias.scope !15, !noalias !14
@@ -555,7 +555,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i: ; pr
   invoke fastcc void @_ZL13makeRectangleN2cv6Point_IiEES1_(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 2362232012810, i64 2576980377650)
           to label %_ZNSt16allocator_traitsISaIN2cv6Point_IiEEEE8allocateERS3_m.exit.i.i.i.i.i unwind label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i
 
-_ZNSt16allocator_traitsISaIN2cv6Point_IiEEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i172.preheader.i
+_ZNSt16allocator_traitsISaIN2cv6Point_IiEEEE8allocateERS3_m.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit199.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   %156 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
           to label %.loopexit.i unwind label %294
@@ -1065,8 +1065,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit246.i: ; preds = %299, %296, %294
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #17
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread.i
 
-_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i: ; preds = %173, %.lr.ph.i.i.i.i.i.i.i172.preheader.i, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i, %150, %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i116.i
-  %.sroa.0320.0.ph.i = phi ptr [ %148, %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i116.i ], [ %149, %150 ], [ %152, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i ], [ %154, %.lr.ph.i.i.i.i.i.i.i172.preheader.i ], [ %154, %173 ]
+_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i: ; preds = %173, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit199.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit165.i, %150, %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i116.i
+  %.sroa.0320.0.ph.i = phi ptr [ %148, %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i116.i ], [ %149, %150 ], [ %152, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit165.i ], [ %154, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit199.i ], [ %154, %173 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread.i
