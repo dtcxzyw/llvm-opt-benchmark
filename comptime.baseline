@@ -14077,7 +14077,7 @@ linux/netlabel.ll 178036605
 linux/netlabel_addrlist.ll 121673594
 linux/netlabel_calipso.ll 107985091
 linux/netlabel_cipso_v4.ll 270368707
-linux/netlabel_domainhash.ll 327293501
+linux/netlabel_domainhash.ll 327620810
 linux/netlabel_kapi.ll 271478175
 linux/netlabel_mgmt.ll 196795156
 linux/netlabel_unlabeled.ll 320503602
@@ -27597,7 +27597,7 @@ openssl/libcrypto-lib-kdf_err.ll 34428259
 openssl/libcrypto-lib-kdf_lib.ll 74515635
 openssl/libcrypto-lib-kem.ll 208676317
 openssl/libcrypto-lib-keymgmt_lib.ll 158102960
-openssl/libcrypto-lib-keymgmt_meth.ll 316904334
+openssl/libcrypto-lib-keymgmt_meth.ll 317221357
 openssl/libcrypto-lib-legacy_blake2.ll 45726498
 openssl/libcrypto-lib-legacy_md4.ll 38588086
 openssl/libcrypto-lib-legacy_md5.ll 38587413
@@ -30420,7 +30420,7 @@ php/element.ll 739415077
 php/encode.ll 1207527823
 php/encoding.ll 287915858
 php/engine_combinedlcg.ll 64299343
-php/engine_mt19937.ll 215159491
+php/engine_mt19937.ll 215374844
 php/engine_pcgoneseq128xslrr64.ll 244713442
 php/engine_user.ll 47943916
 php/engine_xoshiro256starstar.ll 182708079
@@ -34774,7 +34774,7 @@ rust-analyzer-rs/5ac99zaxn7b9r9xv.ll 2436731680
 rust-analyzer-rs/5amh0jp09v3snpag.ll 583377056
 rust-analyzer-rs/5be8fiuszljnx3iq.ll 429404378
 rust-analyzer-rs/5c0inm6yc1127ij1.ll 169516988
-rust-analyzer-rs/5c13ae2xelsf4ggd.ll 802127814
+rust-analyzer-rs/5c13ae2xelsf4ggd.ll 802930180
 rust-analyzer-rs/5cfkke1ayuk92sd7.ll 48634097
 rust-analyzer-rs/5cuaio8coq8lvmol.ll 7430811507
 rust-analyzer-rs/5cv6fzh8luwt5r60.ll 6628364791
