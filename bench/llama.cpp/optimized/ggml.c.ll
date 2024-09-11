@@ -44035,7 +44035,7 @@ for.body147.us.us.i:                              ; preds = %for.inc225.us.us.i,
   %sub158.us.us.i.recomposed = srem i64 %sub152.us.us.i.recomposed, %116
   br i1 %cmp161134.us.us.i, label %for.body163.lr.ph.us.us.i, label %for.cond191.preheader.us.us.i
 
-for.inc225.us.us.i:                               ; preds = %ggml_vec_mad_f32.exit.loopexit.us165.us.i, %for.body194.us138.us.us.i, %ggml_vec_mad_f32.exit.us.us.us.i, %for.cond191.preheader.us.us.i
+for.inc225.us.us.i:                               ; preds = %ggml_vec_mad_f32.exit.loopexit.us165.us.i, %ggml_vec_mad_f32.exit.us.us.us.i, %for.body194.lr.ph.split.us169.us.i, %for.cond191.preheader.us.us.i
   %inc226.us.us.i = add nsw i64 %ir.0149.us.us.i, 1
   %cmp145.us.us.i = icmp slt i64 %inc226.us.us.i, %cond131.us.i
   br i1 %cmp145.us.us.i, label %for.body147.us.us.i, label %for.cond144.for.cond132.loopexit_crit_edge.us.us.i, !llvm.loop !499
@@ -44233,7 +44233,7 @@ for.body194.lr.ph.us.us.i:                        ; preds = %for.cond191.prehead
   br i1 %cmp1949.i.i, label %for.body194.us.us.us.i, label %for.body194.lr.ph.split.us169.us.i
 
 for.body194.lr.ph.split.us169.us.i:               ; preds = %for.body194.lr.ph.us.us.i
-  br i1 %cmp8051.not.i.i, label %for.body194.us138.us.us.i, label %for.body194.us152.us.i
+  br i1 %cmp8051.not.i.i, label %for.inc225.us.us.i, label %for.body194.us152.us.i
 
 for.body194.us.us.us.i:                           ; preds = %for.body194.lr.ph.us.us.i, %ggml_vec_mad_f32.exit.us.us.us.i
   %i01190.0137.us.us.us.i = phi i64 [ %inc.us.us.us.i61, %ggml_vec_mad_f32.exit.us.us.us.i ], [ %sub159.us.us.i, %for.body194.lr.ph.us.us.i ]
@@ -44302,14 +44302,6 @@ ggml_vec_mad_f32.exit.us.us.us.i:                 ; preds = %for.body34.i.us.us.
 
 for.cond32.preheader.i.loopexit.us.us.us.i:       ; preds = %for.inc29.i.us.us.us.i52
   br i1 %cmp8051.not.i.i, label %ggml_vec_mad_f32.exit.us.us.us.i, label %for.body34.i.us.us.us.i55
-
-for.body194.us138.us.us.i:                        ; preds = %for.body194.lr.ph.split.us169.us.i, %for.body194.us138.us.us.i
-  %i01190.0137.us139.us.us.i = phi i64 [ %inc.us146.us.us.i, %for.body194.us138.us.us.i ], [ %sub159.us.us.i, %for.body194.lr.ph.split.us169.us.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !500)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
-  %inc.us146.us.us.i = add nuw nsw i64 %i01190.0137.us139.us.us.i, 1
-  %cmp192.us147.us.us.i = icmp slt i64 %inc.us146.us.us.i, %cond143.us.us.i
-  br i1 %cmp192.us147.us.us.i, label %for.body194.us138.us.us.i, label %for.inc225.us.us.i, !llvm.loop !520
 
 for.cond144.for.cond132.loopexit_crit_edge.us.us.i: ; preds = %for.inc225.us.us.i
   %cmp133.us.us.i = icmp slt i64 %add136.us.us.i, %102

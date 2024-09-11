@@ -63158,7 +63158,7 @@ ma_decoder_init_flac_from_memory__internal.exit143: ; preds = %if.end.i.i127
 if.then42:                                        ; preds = %if.then38, %if.end.i.i127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %backendConfig.i.i124)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pBackend.i.i125)
-  %call43 = call fastcc i32 @ma_decoder_init_mp3_from_memory__internal(ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %config, ptr noundef %pDecoder)
+  %call43 = call fastcc i32 @ma_decoder_init_mp3_from_memory__internal(ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %tmp, ptr noundef %pDecoder)
   %42 = icmp eq i32 %call43, 0
   br i1 %42, label %if.then48, label %if.else
 
@@ -63187,12 +63187,12 @@ if.then56:                                        ; preds = %land.lhs.true53
   br label %return
 
 if.else:                                          ; preds = %if.then42
-  %call61 = call fastcc i32 @ma_decoder__preinit_memory_wrapper(ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %config, ptr noundef %pDecoder)
+  %call61 = call fastcc i32 @ma_decoder__preinit_memory_wrapper(ptr noundef %pData, i64 noundef %dataSize, ptr noundef nonnull %tmp, ptr noundef %pDecoder)
   %cmp62.not = icmp eq i32 %call61, 0
   br i1 %cmp62.not, label %if.end64, label %return
 
 if.end64:                                         ; preds = %if.else
-  %call65 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_memory, ptr noundef nonnull %config, ptr noundef %pDecoder)
+  %call65 = call fastcc i32 @ma_decoder_init__internal(ptr noundef nonnull @ma_decoder__on_seek_memory, ptr noundef nonnull %tmp, ptr noundef %pDecoder)
   %cmp66.not = icmp eq i32 %call65, 0
   br i1 %cmp66.not, label %if.end69, label %return
 

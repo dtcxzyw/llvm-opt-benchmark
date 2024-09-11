@@ -560,7 +560,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit.i:        ; preds = %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %25, i8 0, i64 20, i1 false)
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %26, ptr noundef nonnull dereferenceable(20) %25, i64 20)
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %9, ptr noundef nonnull dereferenceable(20) %25, i64 20)
   %.not7.i.i.i.i.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %25)
   br i1 %.not7.i.i.i.i.i.i.i.not.i, label %98, label %95
@@ -882,7 +882,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(20) %40, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %17, i8 0, i64 20, i1 false)
-  %bcmp.i.i.i.i.i.i.i.i90 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %18, ptr noundef nonnull dereferenceable(20) %17, i64 20)
+  %bcmp.i.i.i.i.i.i.i.i90 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %9, ptr noundef nonnull dereferenceable(20) %17, i64 20)
   %.not7.i.i.i.i.i.i.i.not.i91 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i90, 0
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17)
   br i1 %.not7.i.i.i.i.i.i.i.not.i91, label %_ZL14checkSignatureN5clang16ASTFileSignatureES0_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit97.thread, label %215

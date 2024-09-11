@@ -8199,113 +8199,102 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   %8 = alloca %struct.GdkRGBA, align 8
   %9 = alloca %struct.GdkRGBA, align 8
   %10 = alloca %struct.GdkRGBA, align 8
-  %11 = alloca %struct.GdkRGBA, align 8
-  %12 = alloca %struct.GdkRGBA, align 8
-  %13 = alloca %struct.GdkRGBA, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  store double 1.000000e+00, ptr %14, align 8
-  switch i32 %3, label %52 [
-    i32 0, label %15
-    i32 2, label %15
-    i32 1, label %17
-    i32 3, label %17
-    i32 5, label %19
-    i32 6, label %22
-    i32 7, label %25
-    i32 4, label %48
-    i32 8, label %48
-    i32 9, label %49
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  store double 1.000000e+00, ptr %11, align 8
+  switch i32 %3, label %49 [
+    i32 0, label %12
+    i32 2, label %12
+    i32 1, label %14
+    i32 3, label %14
+    i32 5, label %16
+    i32 6, label %19
+    i32 7, label %22
+    i32 4, label %45
+    i32 8, label %45
+    i32 9, label %46
   ]
 
-15:                                               ; preds = %4, %4
-  %16 = load ptr, ptr @fp_gtk_style_context_get_color, align 8
-  tail call void %16(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %0) #19
-  br label %52
+12:                                               ; preds = %4, %4
+  %13 = load ptr, ptr @fp_gtk_style_context_get_color, align 8
+  tail call void %13(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %0) #19
+  br label %49
 
-17:                                               ; preds = %4, %4
-  %18 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8
-  tail call void %18(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %0) #19
-  br label %52
+14:                                               ; preds = %4, %4
+  %15 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8
+  tail call void %15(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %0) #19
+  br label %49
+
+16:                                               ; preds = %4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  store double 1.000000e+00, ptr %17, align 8, !alias.scope !18
+  %18 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !18
+  call void %18(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7) #19
+  call fastcc void @gtk3_style_shade(ptr noundef nonnull %7, ptr noundef nonnull %0, double noundef 1.300000e+00)
+  br label %49
 
 19:                                               ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %20 = getelementptr inbounds i8, ptr %10, i64 24
-  store double 1.000000e+00, ptr %20, align 8, !alias.scope !18
-  %21 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !18
-  call void %21(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %10) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  call fastcc void @gtk3_style_shade(ptr noundef nonnull %9, ptr noundef nonnull %0, double noundef 1.300000e+00)
-  br label %52
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  %20 = getelementptr inbounds i8, ptr %8, i64 24
+  store double 1.000000e+00, ptr %20, align 8, !alias.scope !21
+  %21 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !21
+  call void %21(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8) #19
+  call fastcc void @gtk3_style_shade(ptr noundef nonnull %8, ptr noundef nonnull %0, double noundef 0x3FE6666666666666)
+  br label %49
 
 22:                                               ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %23 = getelementptr inbounds i8, ptr %11, i64 24
-  store double 1.000000e+00, ptr %23, align 8, !alias.scope !21
-  %24 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !21
-  call void %24(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %11) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
-  call fastcc void @gtk3_style_shade(ptr noundef nonnull %9, ptr noundef nonnull %0, double noundef 0x3FE6666666666666)
-  br label %52
-
-25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
-  store double 1.000000e+00, ptr %26, align 8, !alias.scope !24, !noalias !27
-  %27 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !30
-  call void %27(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8) #19, !noalias !27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !27
-  call fastcc void @gtk3_style_shade(ptr noundef nonnull %7, ptr noundef nonnull %12, double noundef 1.300000e+00)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
-  store double 1.000000e+00, ptr %28, align 8, !alias.scope !31, !noalias !34
-  %29 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !37
-  call void %29(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6) #19, !noalias !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !34
-  call fastcc void @gtk3_style_shade(ptr noundef nonnull %5, ptr noundef nonnull %13, double noundef 0x3FE6666666666666)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  %23 = getelementptr inbounds i8, ptr %6, i64 24
+  store double 1.000000e+00, ptr %23, align 8, !alias.scope !24, !noalias !27
+  %24 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !30
+  call void %24(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6) #19, !noalias !27
+  call fastcc void @gtk3_style_shade(ptr noundef nonnull %6, ptr noundef nonnull %9, double noundef 1.300000e+00)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %30 = load double, ptr %12, align 8
-  %31 = load double, ptr %13, align 8
-  %32 = fadd double %30, %31
-  %33 = fmul double %32, 5.000000e-01
-  store double %33, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %12, i64 8
-  %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %13, i64 8
-  %37 = load double, ptr %36, align 8
-  %38 = fadd double %35, %37
-  %39 = fmul double %38, 5.000000e-01
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %12, i64 16
-  %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %13, i64 16
-  %44 = load double, ptr %43, align 8
-  %45 = fadd double %42, %44
-  %46 = fmul double %45, 5.000000e-01
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
-  store double %46, ptr %47, align 8
-  br label %52
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  store double 1.000000e+00, ptr %25, align 8, !alias.scope !31, !noalias !34
+  %26 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !37
+  call void %26(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5) #19, !noalias !34
+  call fastcc void @gtk3_style_shade(ptr noundef nonnull %5, ptr noundef nonnull %10, double noundef 0x3FE6666666666666)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  %27 = load double, ptr %9, align 8
+  %28 = load double, ptr %10, align 8
+  %29 = fadd double %27, %28
+  %30 = fmul double %29, 5.000000e-01
+  store double %30, ptr %0, align 8
+  %31 = getelementptr inbounds i8, ptr %9, i64 8
+  %32 = load double, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %10, i64 8
+  %34 = load double, ptr %33, align 8
+  %35 = fadd double %32, %34
+  %36 = fmul double %35, 5.000000e-01
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %9, i64 16
+  %39 = load double, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %10, i64 16
+  %41 = load double, ptr %40, align 8
+  %42 = fadd double %39, %41
+  %43 = fmul double %42, 5.000000e-01
+  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %43, ptr %44, align 8
+  br label %49
 
-48:                                               ; preds = %4, %4
+45:                                               ; preds = %4, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %52
+  br label %49
 
-49:                                               ; preds = %4
+46:                                               ; preds = %4
   store double 1.000000e+00, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store double 1.000000e+00, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
-  store double 1.000000e+00, ptr %51, align 8
-  br label %52
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  store double 1.000000e+00, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  store double 1.000000e+00, ptr %48, align 8
+  br label %49
 
-52:                                               ; preds = %49, %48, %25, %22, %19, %17, %15, %4
+49:                                               ; preds = %46, %45, %22, %19, %16, %14, %12, %4
   ret void
 }
 

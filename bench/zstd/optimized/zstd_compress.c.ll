@@ -7671,7 +7671,7 @@ if.then6:                                         ; preds = %if.end
   br label %if.end9
 
 if.else:                                          ; preds = %if.end
-  call void @ZSTD_getCParamsFromCCtxParams(ptr nonnull sret(%struct.ZSTD_compressionParameters) align 4 %tmp8, ptr noundef nonnull %cctxParams, i64 noundef -1, i64 noundef %dictSize, i32 noundef 2)
+  call void @ZSTD_getCParamsFromCCtxParams(ptr nonnull sret(%struct.ZSTD_compressionParameters) align 4 %tmp8, ptr noundef nonnull %originalCctxParams, i64 noundef -1, i64 noundef %dictSize, i32 noundef 2)
   %cParams.sroa.0.0.copyload26 = load i32, ptr %tmp8, align 4
   %cParams.sroa.6.0.tmp8.sroa_idx = getelementptr inbounds i8, ptr %tmp8, i64 4
   %cParams.sroa.6.0.copyload29 = load i32, ptr %cParams.sroa.6.0.tmp8.sroa_idx, align 4

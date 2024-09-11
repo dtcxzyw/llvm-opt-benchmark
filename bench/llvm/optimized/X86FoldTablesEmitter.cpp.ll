@@ -77,7 +77,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.117" = type { ptr, %"class.llvm::SMRange" }
 %"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
 %"class.llvm::SMLoc" = type { ptr }
-%"struct.__gnu_cxx::__ops::_Iter_pred.150" = type { %"class.(anonymous namespace)::IsMatch" }
 %"struct.llvm::CGIOperandList::OperandInfo" = type { ptr, %"class.std::__cxx11::basic_string", %"class.std::vector.123", %"class.std::__cxx11::basic_string", %"class.std::vector.123", %"class.std::__cxx11::basic_string", i32, i32, %"class.llvm::BitVector", ptr, %"class.std::vector.133" }
 %"class.std::vector.123" = type { %"struct.std::_Vector_base.124" }
 %"struct.std::_Vector_base.124" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
@@ -2311,84 +2310,80 @@ declare noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc ptr @_ZN4llvm7find_ifIRSt6vectorIPKNS_18CodeGenInstructionESaIS4_EEN12_GLOBAL__N_17IsMatchEEEDaOT_T0_(ptr %.0.val, ptr %.8.val, ptr nocapture noundef readonly byval(%"class.(anonymous namespace)::IsMatch") align 8 %0) unnamed_addr #1 {
-  %2 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.150", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
-  %3 = ptrtoint ptr %.8.val to i64
-  %4 = ptrtoint ptr %.0.val to i64
-  %5 = sub i64 %3, %4
-  %6 = ashr i64 %5, 5
-  %7 = icmp sgt i64 %6, 0
-  br i1 %7, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %2 = ptrtoint ptr %.8.val to i64
+  %3 = ptrtoint ptr %.0.val to i64
+  %4 = sub i64 %2, %3
+  %5 = ashr i64 %4, 5
+  %6 = icmp sgt i64 %5, 0
+  br i1 %6, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %1, %18
-  %.036.i.i.i = phi i64 [ %20, %18 ], [ %6, %1 ]
-  %.sroa.025.035.i.i.i = phi ptr [ %19, %18 ], [ %.0.val, %1 ]
-  %8 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %2, ptr %.sroa.025.035.i.i.i)
-  br i1 %8, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %9
+.lr.ph.i.i.i:                                     ; preds = %1, %17
+  %.036.i.i.i = phi i64 [ %19, %17 ], [ %5, %1 ]
+  %.sroa.025.035.i.i.i = phi ptr [ %18, %17 ], [ %.0.val, %1 ]
+  %7 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr %.sroa.025.035.i.i.i)
+  br i1 %7, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %8
 
-9:                                                ; preds = %.lr.ph.i.i.i
-  %10 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 8
-  %11 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %2, ptr nonnull %10)
-  br i1 %11, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %12
+8:                                                ; preds = %.lr.ph.i.i.i
+  %9 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 8
+  %10 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nonnull %9)
+  br i1 %10, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %11
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 16
-  %14 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %2, ptr nonnull %13)
-  br i1 %14, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %15
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 16
+  %13 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nonnull %12)
+  br i1 %13, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %14
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 24
-  %17 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %2, ptr nonnull %16)
-  br i1 %17, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %18
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 24
+  %16 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nonnull %15)
+  br i1 %16, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %17
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 32
-  %20 = add nsw i64 %.036.i.i.i, -1
-  %21 = icmp sgt i64 %.036.i.i.i, 1
-  br i1 %21, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !18
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds i8, ptr %.sroa.025.035.i.i.i, i64 32
+  %19 = add nsw i64 %.036.i.i.i, -1
+  %20 = icmp sgt i64 %.036.i.i.i, 1
+  br i1 %20, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !18
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %18
-  %.pre.i.i.i = ptrtoint ptr %19 to i64
-  %.pre37.i.i.i = sub i64 %3, %.pre.i.i.i
+._crit_edge.loopexit.i.i.i:                       ; preds = %17
+  %.pre.i.i.i = ptrtoint ptr %18 to i64
+  %.pre37.i.i.i = sub i64 %2, %.pre.i.i.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %1
-  %.pre-phi38.i.i.i = phi i64 [ %.pre37.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %5, %1 ]
-  %.sroa.025.0.lcssa.i.i.i = phi ptr [ %19, %._crit_edge.loopexit.i.i.i ], [ %.0.val, %1 ]
-  %22 = ashr exact i64 %.pre-phi38.i.i.i, 3
-  switch i64 %22, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit [
-    i64 3, label %23
-    i64 2, label %27
-    i64 1, label %31
+  %.pre-phi38.i.i.i = phi i64 [ %.pre37.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %4, %1 ]
+  %.sroa.025.0.lcssa.i.i.i = phi ptr [ %18, %._crit_edge.loopexit.i.i.i ], [ %.0.val, %1 ]
+  %21 = ashr exact i64 %.pre-phi38.i.i.i, 3
+  switch i64 %21, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit [
+    i64 3, label %22
+    i64 2, label %26
+    i64 1, label %30
   ]
 
-23:                                               ; preds = %._crit_edge.i.i.i
-  %24 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %2, ptr %.sroa.025.0.lcssa.i.i.i)
-  br i1 %24, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %25
+22:                                               ; preds = %._crit_edge.i.i.i
+  %23 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr %.sroa.025.0.lcssa.i.i.i)
+  br i1 %23, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %24
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i, i64 8
-  br label %27
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i, i64 8
+  br label %26
 
-27:                                               ; preds = %25, %._crit_edge.i.i.i
-  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %26, %25 ]
-  %28 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %2, ptr %.sroa.025.1.i.i.i)
-  br i1 %28, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %29
+26:                                               ; preds = %24, %._crit_edge.i.i.i
+  %.sroa.025.1.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %25, %24 ]
+  %27 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr %.sroa.025.1.i.i.i)
+  br i1 %27, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit, label %28
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i, i64 8
-  br label %31
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i, i64 8
+  br label %30
 
-31:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %30, %29 ]
-  %32 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %2, ptr %.sroa.025.2.i.i.i)
-  %spec.select.i.i.i = select i1 %32, ptr %.sroa.025.2.i.i.i, ptr %.8.val
+30:                                               ; preds = %28, %._crit_edge.i.i.i
+  %.sroa.025.2.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %29, %28 ]
+  %31 = call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_17IsMatchEEclINS_17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorISA_SaISA_EEEEEEbT_(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr %.sroa.025.2.i.i.i)
+  %spec.select.i.i.i = select i1 %31, ptr %.sroa.025.2.i.i.i, ptr %.8.val
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit
 
-_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit: ; preds = %.lr.ph.i.i.i, %9, %12, %15, %._crit_edge.i.i.i, %23, %27, %31
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %23 ], [ %.sroa.025.1.i.i.i, %27 ], [ %.8.val, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %31 ], [ %.sroa.025.035.i.i.i, %.lr.ph.i.i.i ], [ %10, %9 ], [ %13, %12 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPPKN4llvm18CodeGenInstructionESt6vectorIS5_SaIS5_EEEEN12_GLOBAL__N_17IsMatchEET_SD_SD_T0_.exit: ; preds = %.lr.ph.i.i.i, %8, %11, %14, %._crit_edge.i.i.i, %22, %26, %30
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i, %22 ], [ %.sroa.025.1.i.i.i, %26 ], [ %.8.val, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %30 ], [ %.sroa.025.035.i.i.i, %.lr.ph.i.i.i ], [ %9, %8 ], [ %12, %11 ], [ %15, %14 ]
   ret ptr %.sroa.08.0.in.sroa.speculated.i.i.i
 }
 

@@ -5345,13 +5345,7 @@ entry:
   %gContact = alloca %class.b3AlignedObjectArray.39, align 8
   %gShapes = alloca %class.b3AlignedObjectArray.8, align 8
   %gConstraintOut = alloca %class.b3AlignedObjectArray.14, align 8
-  %posA = alloca %class.b3Vector3, align 16
-  %linVelA = alloca %class.b3Vector3, align 16
-  %angVelA = alloca %class.b3Vector3, align 16
   %invInertiaA = alloca %class.b3Matrix3x3, align 16
-  %posB = alloca %class.b3Vector3, align 16
-  %linVelB = alloca %class.b3Vector3, align 16
-  %angVelB = alloca %class.b3Vector3, align 16
   %invInertiaB = alloca %class.b3Matrix3x3, align 16
   %cs = alloca %struct.b3ContactConstraint4, align 16
   %bInfo = alloca [4 x %struct.b3BufferInfoCL], align 16
@@ -5541,11 +5535,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %19 = call i32 @llvm.abs.i32(i32 %18, i1 true)
   %idxprom.i52 = zext nneg i32 %17 to i64
   %arrayidx.i53 = getelementptr inbounds %struct.b3RigidBodyData, ptr %10, i64 %idxprom.i52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i53, i64 16, i1 false)
   %m_linVel = getelementptr inbounds i8, ptr %arrayidx.i53, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %linVelA, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel, i64 16, i1 false)
   %m_angVel = getelementptr inbounds i8, ptr %arrayidx.i53, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %angVelA, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel, i64 16, i1 false)
   %m_invMass = getelementptr inbounds i8, ptr %arrayidx.i53, i64 68
   %20 = load float, ptr %m_invMass, align 4
   %m_initInvInertia = getelementptr inbounds %struct.b3InertiaData, ptr %11, i64 %idxprom.i52, i32 1
@@ -5556,11 +5547,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i66, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx10.i, i64 16, i1 false)
   %idxprom.i68 = zext nneg i32 %19 to i64
   %arrayidx.i69 = getelementptr inbounds %struct.b3RigidBodyData, ptr %10, i64 %idxprom.i68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i69, i64 16, i1 false)
   %m_linVel36 = getelementptr inbounds i8, ptr %arrayidx.i69, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %linVelB, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel36, i64 16, i1 false)
   %m_angVel39 = getelementptr inbounds i8, ptr %arrayidx.i69, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %angVelB, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel39, i64 16, i1 false)
   %m_invMass42 = getelementptr inbounds i8, ptr %arrayidx.i69, i64 68
   %21 = load float, ptr %m_invMass42, align 4
   %m_initInvInertia45 = getelementptr inbounds %struct.b3InertiaData, ptr %11, i64 %idxprom.i68, i32 1
@@ -5569,7 +5557,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx8.i83, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx6.i82, i64 16, i1 false)
   %arrayidx10.i84 = getelementptr inbounds i8, ptr %m_initInvInertia45, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx12.i85, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx10.i84, i64 16, i1 false)
-  call void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1_S1_fS4_P14b3Contact4DatafffP20b3ContactConstraint4(ptr noundef nonnull align 16 dereferenceable(16) %posA, ptr noundef nonnull align 16 dereferenceable(16) %linVelA, ptr noundef nonnull align 16 dereferenceable(16) %angVelA, float noundef %20, ptr noundef nonnull align 16 dereferenceable(48) %invInertiaA, ptr noundef nonnull align 16 dereferenceable(16) %posB, ptr noundef nonnull align 16 dereferenceable(16) %linVelB, ptr noundef nonnull align 16 dereferenceable(16) %angVelB, float noundef %21, ptr noundef nonnull align 16 dereferenceable(48) %invInertiaB, ptr noundef nonnull %arrayidx.i, float noundef %12, float noundef %13, float noundef %14, ptr noundef nonnull %cs)
+  call void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1_S1_fS4_P14b3Contact4DatafffP20b3ContactConstraint4(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i53, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel, float noundef %20, ptr noundef nonnull align 16 dereferenceable(48) %invInertiaA, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i69, ptr noundef nonnull align 16 dereferenceable(16) %m_linVel36, ptr noundef nonnull align 16 dereferenceable(16) %m_angVel39, float noundef %21, ptr noundef nonnull align 16 dereferenceable(48) %invInertiaB, ptr noundef nonnull %arrayidx.i, float noundef %12, float noundef %13, float noundef %14, ptr noundef nonnull %cs)
   %m_batchIdx = getelementptr inbounds i8, ptr %arrayidx.i, i64 84
   %22 = load i32, ptr %m_batchIdx, align 4
   store i32 %22, ptr %m_batchIdx55, align 8

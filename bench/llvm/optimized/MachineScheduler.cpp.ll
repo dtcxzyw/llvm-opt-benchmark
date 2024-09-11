@@ -162,8 +162,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.678" = type { [384 x i8] }
 %"class.llvm::cl::parser<llvm::ScheduleDAGInstrs *(*)(llvm::MachineSchedContext *)>::OptionInfo" = type { %"class.llvm::cl::generic_parser_base::GenericOptionInfo", %"struct.llvm::cl::OptionValue.67" }
 %"struct.(anonymous namespace)::ILPOrder" = type <{ ptr, ptr, i8, [7 x i8] }>
-%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %"struct.(anonymous namespace)::ILPOrder" }
-%"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { %"struct.(anonymous namespace)::ILPOrder" }
 %"struct.llvm::cl::OptionEnumValue" = type { %"class.llvm::StringRef", i32, %"class.llvm::StringRef" }
 %"struct.(anonymous namespace)::BaseMemOpClusterMutation::MemOpInfo" = type <{ ptr, %"class.llvm::SmallVector.763", i64, %"class.llvm::LocationSize", i8, [7 x i8] }>
 %"class.llvm::SmallVector.763" = type { %"class.llvm::SmallVectorImpl.764", %"struct.llvm::SmallVectorStorage.767" }
@@ -18874,7 +18872,7 @@ define internal void @_ZN12_GLOBAL__N_112ILPScheduler13registerRootsEv(ptr nocap
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef ptr @_ZN12_GLOBAL__N_112ILPScheduler8pickNodeERb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
+  %3 = alloca %"struct.(anonymous namespace)::ILPOrder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -18883,30 +18881,30 @@ define internal noundef ptr @_ZN12_GLOBAL__N_112ILPScheduler8pickNodeERb(ptr noc
   br i1 %8, label %61, label %9
 
 9:                                                ; preds = %2
-  %10 = ptrtoint ptr %7 to i64
-  %11 = ptrtoint ptr %5 to i64
-  %12 = sub i64 %10, %11
-  %13 = icmp sgt i64 %12, 8
-  br i1 %13, label %14, label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm5SUnitESt6vectorIS4_SaIS4_EEEEN12_GLOBAL__N_18ILPOrderEEvT_SC_T0_.exit
-
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %5 to i64
+  %13 = sub i64 %11, %12
+  %14 = icmp sgt i64 %13, 8
+  br i1 %14, label %15, label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm5SUnitESt6vectorIS4_SaIS4_EEEEN12_GLOBAL__N_18ILPOrderEEvT_SC_T0_.exit
+
+15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %7, i64 -8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %5, align 8
   store ptr %18, ptr %16, align 8
   %19 = ptrtoint ptr %16 to i64
-  %20 = sub i64 %19, %11
+  %20 = sub i64 %19, %12
   %21 = ashr exact i64 %20, 3
   %22 = add nsw i64 %21, -1
   %23 = sdiv i64 %22, 2
   %24 = icmp sgt i64 %21, 2
   br i1 %24, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
-  %.033.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %14 ]
+.lr.ph.i.i.i:                                     ; preds = %15, %.lr.ph.i.i.i
+  %.033.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %15 ]
   %25 = shl i64 %.033.i.i.i, 1
   %26 = add i64 %25, 2
   %27 = getelementptr inbounds ptr, ptr %5, i64 %26
@@ -18923,8 +18921,8 @@ define internal noundef ptr @_ZN12_GLOBAL__N_112ILPScheduler8pickNodeERb(ptr noc
   %36 = icmp slt i64 %spec.select.i.i.i, %23
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !152
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %14
-  %.0.lcssa.i.i.i = phi i64 [ 0, %14 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %15
+  %.0.lcssa.i.i.i = phi i64 [ 0, %15 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %37 = and i64 %20, 8
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %39, label %49
@@ -18969,12 +18967,12 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm5SUnitESt6vectorIS4_SaIS
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %49 ], [ 0, %54 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ]
   %57 = getelementptr inbounds ptr, ptr %5, i64 %.0.lcssa.i.i.i.i
   store ptr %17, ptr %57, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %.pre = load ptr, ptr %6, align 8
   br label %_ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm5SUnitESt6vectorIS4_SaIS4_EEEEN12_GLOBAL__N_18ILPOrderEEvT_SC_T0_.exit
 
 _ZSt8pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm5SUnitESt6vectorIS4_SaIS4_EEEEN12_GLOBAL__N_18ILPOrderEEvT_SC_T0_.exit: ; preds = %9, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm5SUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_18ILPOrderEEEEvT_SF_SF_RT0_.exit.i
   %58 = phi ptr [ %7, %9 ], [ %.pre, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm5SUnitESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_18ILPOrderEEEEvT_SF_SF_RT0_.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %59 = getelementptr inbounds i8, ptr %58, i64 -8
   %60 = load ptr, ptr %59, align 8
   store ptr %59, ptr %6, align 8
@@ -19009,7 +19007,7 @@ define internal void @_ZN12_GLOBAL__N_112ILPScheduler14releaseTopNodeEPN4llvm5SU
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112ILPScheduler17releaseBottomNodeEPN4llvm5SUnitE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val", align 8
+  %3 = alloca %"struct.(anonymous namespace)::ILPOrder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -19172,11 +19170,11 @@ define internal fastcc void @_ZSt9make_heapIN9__gnu_cxx17__normal_iteratorIPPN4l
   %34 = icmp eq ptr %32, %33
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %30, i64 200
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
-  %.pre47.i = zext i32 %.pre.i to i64
+  %.pre46.i = zext i32 %.pre.i to i64
   br i1 %34, label %_ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.thread.i13.i, label %_ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.i9.i
 
 _ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.i9.i: ; preds = %.lr.ph.i.i
-  %35 = getelementptr inbounds %"struct.llvm::SchedDFSResult::NodeData", ptr %32, i64 %.pre47.i, i32 1
+  %35 = getelementptr inbounds %"struct.llvm::SchedDFSResult::NodeData", ptr %32, i64 %.pre46.i, i32 1
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 200
   %38 = load i32, ptr %37, align 8
@@ -19225,7 +19223,7 @@ _ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.i9.i: ; preds = %.lr
   br label %_ZNK12_GLOBAL__N_18ILPOrderclEPKN4llvm5SUnitES4_.exit31.i
 
 _ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.thread.i13.i: ; preds = %63, %_ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.i9.i, %.lr.ph.i.i
-  %73 = getelementptr inbounds %"struct.llvm::SchedDFSResult::NodeData", ptr %32, i64 %.pre47.i
+  %73 = getelementptr inbounds %"struct.llvm::SchedDFSResult::NodeData", ptr %32, i64 %.pre46.i
   %74 = load i32, ptr %73, align 4
   %75 = getelementptr inbounds nuw i8, ptr %30, i64 254
   %76 = load i8, ptr %75, align 2
@@ -19353,13 +19351,13 @@ _ZNK12_GLOBAL__N_18ILPOrderclEPKN4llvm5SUnitES4_.exit31.i: ; preds = %_ZNK4llvm1
   %135 = load ptr, ptr %18, align 8
   %136 = load ptr, ptr %19, align 8
   %137 = icmp eq ptr %135, %136
-  %.phi.trans.insert45.i = getelementptr inbounds nuw i8, ptr %134, i64 200
-  %.pre46.i = load i32, ptr %.phi.trans.insert45.i, align 8
-  %.pre48.i = zext i32 %.pre46.i to i64
+  %.phi.trans.insert44.i = getelementptr inbounds nuw i8, ptr %134, i64 200
+  %.pre45.i = load i32, ptr %.phi.trans.insert44.i, align 8
+  %.pre47.i = zext i32 %.pre45.i to i64
   br i1 %137, label %_ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.thread.i.i, label %_ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.i.i
 
 _ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.i.i: ; preds = %.lr.ph.i.i.i
-  %138 = getelementptr inbounds %"struct.llvm::SchedDFSResult::NodeData", ptr %135, i64 %.pre48.i, i32 1
+  %138 = getelementptr inbounds %"struct.llvm::SchedDFSResult::NodeData", ptr %135, i64 %.pre47.i, i32 1
   %139 = load i32, ptr %138, align 4
   %140 = load i32, ptr %130, align 8
   %141 = zext i32 %140 to i64
@@ -19407,7 +19405,7 @@ _ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.i.i: ; preds = %.lr.
   br i1 %174, label %217, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm5SUnitESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_18ILPOrderEEEEvT_T0_SG_T1_T2_.exit.i
 
 _ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.thread.i.i: ; preds = %165, %_ZNK4llvm14SchedDFSResult12getSubtreeIDEPKNS_5SUnitE.exit22.i.i, %.lr.ph.i.i.i
-  %175 = getelementptr inbounds %"struct.llvm::SchedDFSResult::NodeData", ptr %135, i64 %.pre48.i
+  %175 = getelementptr inbounds %"struct.llvm::SchedDFSResult::NodeData", ptr %135, i64 %.pre47.i
   %176 = load i32, ptr %175, align 4
   %177 = getelementptr inbounds nuw i8, ptr %134, i64 254
   %178 = load i8, ptr %177, align 2

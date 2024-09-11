@@ -74,11 +74,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.core_hashtable.105 = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %class.anon.127 = type { ptr, ptr, ptr, ptr }
 %"class.model::scoped_model_completion" = type { i8, ptr }
-%struct.pair_t = type { ptr, ptr }
 %class.hashtable = type { %class.core_hashtable.base.101, [4 x i8] }
 %class.core_hashtable.base.101 = type <{ ptr, i32, i32, i32 }>
 %class.svector.102 = type { %class.vector.103 }
 %class.vector.103 = type { ptr }
+%struct.pair_t = type { ptr, ptr }
 %class.anon.109 = type { ptr, ptr, ptr }
 %class.default_hash_entry.133 = type { i32, i32, %struct.pair_t }
 %"class.obj_map<expr, unsigned int>::obj_map_entry" = type { %"struct.obj_map<expr, unsigned int>::key_data" }
@@ -17639,7 +17639,6 @@ invoke.cont:
   %ref.tmp18.i509 = alloca %"class.std::allocator", align 1
   %ref.tmp.i498 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
-  %tmp.i = alloca %struct.pair_t, align 8
   %diseqs = alloca %class.hashtable, align 8
   %todo = alloca %class.svector.102, align 8
   %ref.tmp21 = alloca %struct.pair_t, align 8
@@ -18875,13 +18874,10 @@ if.then172:                                       ; preds = %for.inc169, %if.the
   %spec.select619688.lcssa = phi ptr [ %spec.select832, %if.then136 ], [ %spec.select619687, %for.inc169 ]
   store ptr %spec.select619688.lcssa, ptr %q, align 8
   store ptr %167, ptr %b.i235, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %q, i64 16, i1 false)
-  invoke fastcc void @_ZN14core_hashtableI18default_hash_entryIZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEE6pair_tEZNS2_5dcertES4_SA_ENSB_4hashEZNS2_5dcertES4_SA_ENSB_2eqEE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(20) %diseqs, ptr noundef nonnull align 8 dereferenceable(16) %tmp.i)
+  invoke fastcc void @_ZN14core_hashtableI18default_hash_entryIZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEE6pair_tEZNS2_5dcertES4_SA_ENSB_4hashEZNS2_5dcertES4_SA_ENSB_2eqEE6insertEOSB_(ptr noundef nonnull align 8 dereferenceable(20) %diseqs, ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %invoke.cont173 unwind label %lpad125.loopexit.split-lp
 
 invoke.cont173:                                   ; preds = %if.then172
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i)
   %call175 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorIZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerEE6pair_tLb0EjE9push_backERKSA_(ptr noundef nonnull align 8 dereferenceable(8) %todo, ptr noundef nonnull align 8 dereferenceable(16) %q)
           to label %invoke.cont174 unwind label %lpad125.loopexit.split-lp
 

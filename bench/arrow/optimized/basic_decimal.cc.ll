@@ -1649,7 +1649,6 @@ define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal128E
 entry:
   %remainder.i = alloca %"class.arrow::BasicDecimal128", align 8
   %ref.tmp.i = alloca %"class.arrow::GenericBasicDecimal", align 8
-  %multiplier = alloca %"class.arrow::BasicDecimal128", align 8
   %cmp = icmp eq i32 %original_scale, %new_scale
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1662,7 +1661,9 @@ if.end:                                           ; preds = %entry
   %0 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
   %idxprom.i = zext nneg i32 %0 to i64
   %arrayidx.i = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i, i64 16, i1 false)
+  %multiplier.sroa.0.0.copyload = load i64, ptr %arrayidx.i, align 16
+  %multiplier.sroa.2.0.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %multiplier.sroa.2.0.copyload = load i64, ptr %multiplier.sroa.2.0.arrayidx.i.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %remainder.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %cmp.i = icmp slt i32 %sub, 0
@@ -1670,22 +1671,20 @@ if.end:                                           ; preds = %entry
 
 while.end6.i:                                     ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder.i, i8 0, i64 16, i1 false)
-  %call.i = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull readonly align 8 dereferenceable(16) %multiplier, ptr noundef %out, ptr noundef nonnull %remainder.i)
+  %call.i = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull readonly align 8 dereferenceable(16) %arrayidx.i, ptr noundef %out, ptr noundef nonnull %remainder.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false)
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %remainder.i, ptr noundef nonnull dereferenceable(16) %ref.tmp.i, i64 16)
   %bcmp.i.i.i.i.i.i.i.i.fr = freeze i32 %bcmp.i.i.i.i.i.i.i.i
   %tobool1.not.i.i.i.i.i.i.i.i.not = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.fr, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  br i1 %tobool1.not.i.i.i.i.i.i.i.i.not, label %return, label %7
+  br i1 %tobool1.not.i.i.i.i.i.i.i.i.not, label %return, label %6
 
 if.end.i:                                         ; preds = %if.end
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %2 = load i64, ptr %value, align 8
-  %arrayidx.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %multiplier, i64 8
-  %3 = load i64, ptr %arrayidx.i.i.i5.i.i.i, align 8
-  %shr.i33.i.i.i = xor i64 %3, %1
+  %shr.i33.i.i.i = xor i64 %multiplier.sroa.2.0.copyload, %1
   %isneg.i.i.i = icmp sgt i64 %shr.i33.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp slt i64 %1, 0
   br i1 %cmp.i.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i
@@ -1701,21 +1700,20 @@ cond.true.i.i.i.i.i:                              ; preds = %if.end.i
 _ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i:  ; preds = %cond.true.i.i.i.i.i, %if.end.i
   %result.sroa.4.0.i.i.i.i = phi i64 [ %ref.tmp.sroa.3.0.i.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %1, %if.end.i ]
   %result.sroa.0.0.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %2, %if.end.i ]
-  %result.sroa.0.0.copyload.i8.i.i.i = load i64, ptr %multiplier, align 8
-  %cmp.i.i.i11.i.i.i = icmp slt i64 %3, 0
+  %cmp.i.i.i11.i.i.i = icmp slt i64 %multiplier.sroa.2.0.copyload, 0
   br i1 %cmp.i.i.i11.i.i.i, label %cond.true.i.i16.i.i.i, label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i.i
 
 cond.true.i.i16.i.i.i:                            ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i
-  %not3.i.i.i17.i.i.i = xor i64 %3, -1
-  %cmp.i2.i.i18.i.i.i = icmp eq i64 %result.sroa.0.0.copyload.i8.i.i.i, 0
-  %add.i.i.i.i19.i.i.i = sub i64 0, %3
-  %add.i.i.i20.i.i.i = sub i64 0, %result.sroa.0.0.copyload.i8.i.i.i
+  %not3.i.i.i17.i.i.i = xor i64 %multiplier.sroa.2.0.copyload, -1
+  %cmp.i2.i.i18.i.i.i = icmp eq i64 %multiplier.sroa.0.0.copyload, 0
+  %add.i.i.i.i19.i.i.i = sub i64 0, %multiplier.sroa.2.0.copyload
+  %add.i.i.i20.i.i.i = sub i64 0, %multiplier.sroa.0.0.copyload
   %ref.tmp.sroa.3.0.i.i.i21.i.i.i = select i1 %cmp.i2.i.i18.i.i.i, i64 %add.i.i.i.i19.i.i.i, i64 %not3.i.i.i17.i.i.i
   br label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i.i
 
 _ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i.i: ; preds = %cond.true.i.i16.i.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i
-  %result.sroa.4.0.i12.i.i.i = phi i64 [ %ref.tmp.sroa.3.0.i.i.i21.i.i.i, %cond.true.i.i16.i.i.i ], [ %3, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i ]
-  %result.sroa.0.0.i13.i.i.i = phi i64 [ %add.i.i.i20.i.i.i, %cond.true.i.i16.i.i.i ], [ %result.sroa.0.0.copyload.i8.i.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i ]
+  %result.sroa.4.0.i12.i.i.i = phi i64 [ %ref.tmp.sroa.3.0.i.i.i21.i.i.i, %cond.true.i.i16.i.i.i ], [ %multiplier.sroa.2.0.copyload, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i ]
+  %result.sroa.0.0.i13.i.i.i = phi i64 [ %add.i.i.i20.i.i.i, %cond.true.i.i16.i.i.i ], [ %multiplier.sroa.0.0.copyload, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i.i ]
   %conv.i.i.i.i = sext i64 %result.sroa.4.0.i.i.i.i to i128
   %shl.i.i.i.i = shl nsw i128 %conv.i.i.i.i, 64
   %conv3.i.i.i.i = zext i64 %result.sroa.0.0.i.i.i.i to i128
@@ -1744,38 +1742,38 @@ _ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i:    ; preds = %if.then.i.i.i, %_ZN
   store i64 %retval.sroa.0.0.i.i, ptr %out, align 8
   %ref.tmp18.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %retval.sroa.5.0.i.i, ptr %ref.tmp18.sroa.2.0..sroa_idx.i, align 8
-  %4 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
-  %cmp.i.i = icmp slt i64 %4, 0
+  %3 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
+  %cmp.i.i = icmp slt i64 %3, 0
   br i1 %cmp.i.i, label %cond.true.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i
-  %cmp.i13.i = icmp slt i64 %retval.sroa.5.0.i.i, %4
+  %cmp.i13.i = icmp slt i64 %retval.sroa.5.0.i.i, %3
   br i1 %cmp.i13.i, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, label %lor.rhs.i14.i
 
 cond.true.i:                                      ; preds = %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i
-  %cmp.i.i.i = icmp slt i64 %4, %retval.sroa.5.0.i.i
+  %cmp.i.i.i = icmp slt i64 %3, %retval.sroa.5.0.i.i
   br i1 %cmp.i.i.i, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %cond.true.i
-  %cmp4.i.i.i = icmp eq i64 %4, %retval.sroa.5.0.i.i
+  %cmp4.i.i.i = icmp eq i64 %3, %retval.sroa.5.0.i.i
   br i1 %cmp4.i.i.i, label %land.rhs.i.i.i, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread9
 
 land.rhs.i.i.i:                                   ; preds = %lor.rhs.i.i.i
-  %5 = load i64, ptr %value, align 8
-  %cmp7.i.i.i = icmp ult i64 %5, %retval.sroa.0.0.i.i
+  %4 = load i64, ptr %value, align 8
+  %cmp7.i.i.i = icmp ult i64 %4, %retval.sroa.0.0.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %cond.fr13 = freeze i1 %cmp7.i.i.i
-  br i1 %cond.fr13, label %7, label %return
+  br i1 %cond.fr13, label %6, label %return
 
 lor.rhs.i14.i:                                    ; preds = %lor.rhs.i.i
-  %cmp4.i15.i = icmp eq i64 %retval.sroa.5.0.i.i, %4
+  %cmp4.i15.i = icmp eq i64 %retval.sroa.5.0.i.i, %3
   br i1 %cmp4.i15.i, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread9
 
 _ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread: ; preds = %cond.true.i, %lor.rhs.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  br label %7
+  br label %6
 
 _ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread9: ; preds = %lor.rhs.i.i.i, %lor.rhs.i14.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i)
@@ -1783,29 +1781,27 @@ _ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.
   br label %return
 
 _ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit: ; preds = %lor.rhs.i14.i
-  %6 = load i64, ptr %value, align 8
-  %cmp7.i17.i = icmp ult i64 %retval.sroa.0.0.i.i, %6
+  %5 = load i64, ptr %value, align 8
+  %cmp7.i17.i = icmp ult i64 %retval.sroa.0.0.i.i, %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %cond.fr = freeze i1 %cmp7.i17.i
-  br i1 %cond.fr, label %7, label %return
+  br i1 %cond.fr, label %6, label %return
 
-7:                                                ; preds = %land.rhs.i.i.i, %while.end6.i, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit
+6:                                                ; preds = %land.rhs.i.i.i, %while.end6.i, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit
   br label %return
 
-return:                                           ; preds = %7, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread9, %while.end6.i, %land.rhs.i.i.i, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 3, %7 ], [ 0, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit ], [ 0, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread9 ], [ 0, %while.end6.i ], [ 0, %land.rhs.i.i.i ]
+return:                                           ; preds = %6, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread9, %while.end6.i, %land.rhs.i.i.i, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 3, %6 ], [ 0, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit ], [ 0, %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread9 ], [ 0, %while.end6.i ], [ 0, %land.rhs.i.i.i ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK5arrow15BasicDecimal12819GetWholeAndFractionEiPS0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %scale, ptr nocapture noundef %whole, ptr nocapture noundef %fraction) local_unnamed_addr #6 align 2 {
 entry:
-  %multiplier = alloca %"class.arrow::BasicDecimal128", align 8
   %idxprom = sext i32 %scale to i64
   %arrayidx = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
-  %call = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef %whole, ptr noundef %fraction)
+  %call = tail call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef %whole, ptr noundef %fraction)
   ret void
 }
 
@@ -1923,7 +1919,6 @@ _ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit:      ; preds = %_ZN5arrow15BasicDec
 define { i64, i64 } @_ZNK5arrow15BasicDecimal12813ReduceScaleByEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %reduce_by, i1 noundef zeroext %round) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.arrow::BasicDecimal128", align 8
-  %divisor = alloca %"class.arrow::BasicDecimal128", align 8
   %remainder = alloca %"class.arrow::BasicDecimal128", align 8
   %cmp = icmp eq i32 %reduce_by, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1935,10 +1930,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %idxprom = sext i32 %reduce_by to i64
   %arrayidx = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %divisor, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false)
-  %call = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %divisor, ptr noundef nonnull %retval, ptr noundef nonnull %remainder)
+  %call = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, ptr noundef nonnull %retval, ptr noundef nonnull %remainder)
   br i1 %round, label %if.then28, label %return
 
 if.then28:                                        ; preds = %if.end
@@ -3308,7 +3302,6 @@ entry:
   %remainder.i = alloca %"class.arrow::BasicDecimal256", align 8
   %ref.tmp.i = alloca %"class.arrow::GenericBasicDecimal.1", align 8
   %ref.tmp18.i = alloca %"class.arrow::BasicDecimal256", align 8
-  %multiplier = alloca %"class.arrow::BasicDecimal256", align 8
   %cmp = icmp eq i32 %original_scale, %new_scale
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3321,7 +3314,6 @@ if.end:                                           ; preds = %entry
   %0 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
   %idxprom.i = zext nneg i32 %0 to i64
   %arrayidx.i = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %multiplier, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %remainder.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp18.i)
@@ -3330,7 +3322,7 @@ if.end:                                           ; preds = %entry
 
 while.end6.i:                                     ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %remainder.i, i8 0, i64 32, i1 false)
-  %call.i = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 dereferenceable(32) %value, ptr noundef nonnull readonly align 8 dereferenceable(32) %multiplier, ptr noundef %out, ptr noundef nonnull %remainder.i)
+  %call.i = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 dereferenceable(32) %value, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx.i, ptr noundef %out, ptr noundef nonnull %remainder.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %remainder.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i.i.i, 0
@@ -3338,7 +3330,7 @@ while.end6.i:                                     ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %value, i64 32, i1 false)
-  %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %multiplier)
+  %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %arrayidx.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18.i, i64 32, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %1 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
@@ -3456,7 +3448,6 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %reduce_by, i1 noundef zeroext %round) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %divisor = alloca %"class.arrow::BasicDecimal256", align 8
   %remainder = alloca %"class.arrow::BasicDecimal256", align 8
   %ref.tmp = alloca %"class.arrow::BasicDecimal256", align 8
   %cmp = icmp eq i32 %reduce_by, 0
@@ -3469,10 +3460,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %idxprom = sext i32 %reduce_by to i64
   %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %divisor, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %remainder, i8 0, i64 32, i1 false)
-  %call = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %divisor, ptr noundef nonnull %agg.result, ptr noundef nonnull %remainder)
+  %call = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull %agg.result, ptr noundef nonnull %remainder)
   br i1 %round, label %if.then28, label %return
 
 if.then28:                                        ; preds = %if.end
@@ -3665,11 +3655,9 @@ _ZN5arrowltERKNS_15BasicDecimal256ES2_.exit:      ; preds = %cond.true.i, %cond.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK5arrow15BasicDecimal25619GetWholeAndFractionEiPS0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %scale, ptr nocapture noundef %whole, ptr nocapture noundef %fraction) local_unnamed_addr #6 align 2 {
 entry:
-  %multiplier = alloca %"class.arrow::BasicDecimal256", align 8
   %idxprom = sext i32 %scale to i64
   %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %multiplier, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx, i64 32, i1 false)
-  %call = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %multiplier, ptr noundef %whole, ptr noundef %fraction)
+  %call = tail call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef %whole, ptr noundef %fraction)
   ret void
 }
 

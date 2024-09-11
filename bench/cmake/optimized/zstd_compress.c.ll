@@ -7520,7 +7520,7 @@ ZSTD_dedicatedDictSearch_getCParams.exit:         ; preds = %15
   br label %ZSTD_overrideCParams.exit
 
 39:                                               ; preds = %15
-  call void @ZSTD_getCParamsFromCCtxParams(ptr dead_on_unwind nonnull writable sret(%struct.ZSTD_compressionParameters) align 4 %9, ptr noundef nonnull %7, i64 noundef -1, i64 noundef %1, i32 noundef 2)
+  call void @ZSTD_getCParamsFromCCtxParams(ptr dead_on_unwind nonnull writable sret(%struct.ZSTD_compressionParameters) align 4 %9, ptr noundef nonnull %4, i64 noundef -1, i64 noundef %1, i32 noundef 2)
   %.sroa.0.0.copyload23 = load i32, ptr %9, align 4
   %.sroa.6.0..sroa_idx26 = getelementptr inbounds i8, ptr %9, i64 4
   %.sroa.6.0.copyload27 = load i32, ptr %.sroa.6.0..sroa_idx26, align 4

@@ -45880,7 +45880,6 @@ nk_strlen.exit:                                   ; preds = %while.body.i, %land
 define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %ctx, ptr noundef %id, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img, <2 x float> %size.coerce) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
-  %img14 = alloca %struct.nk_image, align 8
   %header = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -45921,9 +45920,7 @@ cond.end:                                         ; preds = %lor.lhs.false11, %i
   %4 = load <2 x float>, ptr %header, align 8
   %5 = getelementptr inbounds i8, ptr %header, i64 8
   %6 = load <2 x float>, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %img14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bounds.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %img14, ptr noundef nonnull align 8 dereferenceable(24) %img, i64 24, i1 false)
   store <2 x float> %4, ptr %bounds.i, align 8
   %7 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   store <2 x float> %6, ptr %7, align 8
@@ -45999,7 +45996,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %cond.
   %29 = mul nuw nsw i32 %28, 65793
   %30 = or disjoint i32 %29, -16777216
   %retval.sroa.0.0.insert.insert.i.i.i = select i1 %cmp.i.i.i, i32 -1, i32 %30
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %content.sroa.0.4.vec.insert.i, <2 x float> %content.sroa.7.12.vec.insert.i, ptr noundef nonnull readonly %img14, i32 %retval.sroa.0.0.insert.insert.i.i.i)
+  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %content.sroa.0.4.vec.insert.i, <2 x float> %content.sroa.7.12.vec.insert.i, ptr noundef nonnull readonly %img, i32 %retval.sroa.0.0.insert.insert.i.i.i)
   %draw_end.i = getelementptr inbounds i8, ptr %ctx, i64 1104
   %31 = load ptr, ptr %draw_end.i, align 8
   %tobool16.not.i = icmp eq ptr %31, null
@@ -46012,7 +46009,6 @@ if.then17.i:                                      ; preds = %if.end15.i
   br label %nk_do_button_image.exit
 
 nk_do_button_image.exit:                          ; preds = %if.end15.i, %if.then17.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %img14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bounds.i)
   %tobool15.not = icmp ne i32 %call.i.i, 0
   %tobool.not3.i.i = icmp eq ptr %id, null
@@ -54511,7 +54507,6 @@ return:                                           ; preds = %entry, %nk_button_s
 define i32 @nk_button_image_styled(ptr noundef %ctx, ptr noundef %style, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #20 {
 entry:
   %bounds.i = alloca %struct.nk_rect, align 8
-  %img12 = alloca %struct.nk_image, align 8
   %bounds = alloca %struct.nk_rect, align 8
   %tobool.not = icmp eq ptr %ctx, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -54552,9 +54547,7 @@ cond.end:                                         ; preds = %lor.lhs.false13, %i
   %4 = load <2 x float>, ptr %bounds, align 8
   %5 = getelementptr inbounds i8, ptr %bounds, i64 8
   %6 = load <2 x float>, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %img12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bounds.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %img12, ptr noundef nonnull align 8 dereferenceable(24) %img, i64 24, i1 false)
   store <2 x float> %4, ptr %bounds.i, align 8
   %7 = getelementptr inbounds i8, ptr %bounds.i, i64 8
   store <2 x float> %6, ptr %7, align 8
@@ -54634,7 +54627,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %if.en
   %29 = mul nuw nsw i32 %28, 65793
   %30 = or disjoint i32 %29, -16777216
   %retval.sroa.0.0.insert.insert.i.i.i = select i1 %cmp.i.i.i, i32 -1, i32 %30
-  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %content.sroa.0.4.vec.insert.i, <2 x float> %content.sroa.7.12.vec.insert.i, ptr noundef nonnull readonly %img12, i32 %retval.sroa.0.0.insert.insert.i.i.i)
+  call void @nk_draw_image(ptr noundef nonnull %buffer, <2 x float> %content.sroa.0.4.vec.insert.i, <2 x float> %content.sroa.7.12.vec.insert.i, ptr noundef nonnull readonly %img, i32 %retval.sroa.0.0.insert.insert.i.i.i)
   %draw_end.i = getelementptr inbounds i8, ptr %style, i64 208
   %31 = load ptr, ptr %draw_end.i, align 8
   %tobool16.not.i = icmp eq ptr %31, null
@@ -54648,7 +54641,6 @@ if.then17.i:                                      ; preds = %if.end15.i
 
 nk_do_button_image.exit:                          ; preds = %cond.end, %if.end15.i, %if.then17.i
   %retval.0.i = phi i32 [ 0, %cond.end ], [ %call.i.i, %if.then17.i ], [ %call.i.i, %if.end15.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %img12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bounds.i)
   br label %return
 

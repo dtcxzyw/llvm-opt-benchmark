@@ -173995,77 +173995,73 @@ _ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv.exit54.i.i: ; preds = %_ZNK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::LoadedSlice") align 8 %3) unnamed_addr #0 {
-  %5 = alloca %"struct.(anonymous namespace)::LoadedSlice", align 8
-  %6 = add nsw i64 %2, -1
-  %7 = sdiv i64 %6, 2
-  %8 = icmp slt i64 %1, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  %5 = add nsw i64 %2, -1
+  %6 = sdiv i64 %5, 2
+  %7 = icmp slt i64 %1, %6
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.028 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
-  %9 = shl i64 %.028, 1
-  %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %12
-  %14 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %11)
-  %15 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %13)
-  %16 = icmp ult i64 %14, %15
-  %spec.select = select i1 %16, i64 %12, i64 %10
-  %17 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.028
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
-  %19 = icmp slt i64 %spec.select, %7
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !756
+  %8 = shl i64 %.028, 1
+  %9 = add i64 %8, 2
+  %10 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %9
+  %11 = or disjoint i64 %8, 1
+  %12 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %11
+  %13 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %10)
+  %14 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %12)
+  %15 = icmp ult i64 %13, %14
+  %spec.select = select i1 %15, i64 %11, i64 %9
+  %16 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.028
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
+  %18 = icmp slt i64 %spec.select, %6
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !756
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %.lr.ph ]
-  %20 = and i64 %2, 1
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %31
+  %19 = and i64 %2, 1
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %21, label %30
 
-22:                                               ; preds = %._crit_edge
-  %23 = add nsw i64 %2, -2
-  %24 = ashr exact i64 %23, 1
-  %25 = icmp eq i64 %.0.lcssa, %24
-  br i1 %25, label %26, label %31
+21:                                               ; preds = %._crit_edge
+  %22 = add nsw i64 %2, -2
+  %23 = ashr exact i64 %22, 1
+  %24 = icmp eq i64 %.0.lcssa, %23
+  br i1 %24, label %25, label %30
 
-26:                                               ; preds = %22
-  %27 = shl nsw i64 %.0.lcssa, 1
-  %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %28
-  %30 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)
-  br label %31
+25:                                               ; preds = %21
+  %26 = shl nsw i64 %.0.lcssa, 1
+  %27 = or disjoint i64 %26, 1
+  %28 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %27
+  %29 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
+  br label %30
 
-31:                                               ; preds = %26, %22, %._crit_edge
-  %.127 = phi i64 [ %28, %26 ], [ %.0.lcssa, %22 ], [ %.0.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %32 = icmp sgt i64 %.127, %1
-  br i1 %32, label %.lr.ph.i, label %"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
+30:                                               ; preds = %25, %21, %._crit_edge
+  %.127 = phi i64 [ %27, %25 ], [ %.0.lcssa, %21 ], [ %.0.lcssa, %._crit_edge ]
+  %31 = icmp sgt i64 %.127, %1
+  br i1 %31, label %.lr.ph.i, label %"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %31, %37
-  %.0133.i = phi i64 [ %.04.i, %37 ], [ %.127, %31 ]
+.lr.ph.i:                                         ; preds = %30, %36
+  %.0133.i = phi i64 [ %.04.i, %36 ], [ %.127, %30 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %33 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.04.i
-  %34 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %33)
-  %35 = call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %5)
-  %36 = icmp ult i64 %34, %35
-  br i1 %36, label %37, label %"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
+  %32 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.04.i
+  %33 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %32)
+  %34 = call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %3)
+  %35 = icmp ult i64 %33, %34
+  br i1 %35, label %36, label %"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
-37:                                               ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0133.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false)
-  %39 = icmp sgt i64 %.04.i, %1
-  br i1 %39, label %.lr.ph.i, label %"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !757
+36:                                               ; preds = %.lr.ph.i
+  %37 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0133.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
+  %38 = icmp sgt i64 %.04.i, %1
+  br i1 %38, label %.lr.ph.i, label %"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !757
 
-"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %.lr.ph.i, %37, %31
-  %.013.lcssa.i = phi i64 [ %.127, %31 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %37 ]
-  %40 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.013.lcssa.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %.lr.ph.i, %36, %30
+  %.013.lcssa.i = phi i64 [ %.127, %30 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %36 ]
+  %39 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.013.lcssa.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
 }
 
