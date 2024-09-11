@@ -1243,7 +1243,7 @@ abseil-cpp/proto.cc.ll 224017052
 abseil-cpp/pthread_waiter.cc.ll 86430674
 abseil-cpp/randen_engine_test.cc.ll 5639899990
 abseil-cpp/randen_hwaes.cc.ll 121040983
-abseil-cpp/randen_hwaes_test.cc.ll 191549865
+abseil-cpp/randen_hwaes_test.cc.ll 191741505
 abseil-cpp/randen_slow.cc.ll 215019823
 abseil-cpp/randen_slow_test.cc.ll 151593710
 abseil-cpp/randen_test.cc.ll 172032980
@@ -4539,7 +4539,7 @@ coreutils-rs/4ugarc5zazzw32yq.ll 97922526
 coreutils-rs/4v1hol2k7zyz1z8n.ll 54970437
 coreutils-rs/4v5uagu1uwzkiygu.ll 197116010
 coreutils-rs/4vnjkvhbdkwtama9.ll 74920528
-coreutils-rs/4wgjawmszqchd55g.ll 226189368
+coreutils-rs/4wgjawmszqchd55g.ll 226415695
 coreutils-rs/4ws6541n7p4pbb05.ll 1595027104
 coreutils-rs/4wt99fhvr6gcv1vg.ll 347045054
 coreutils-rs/4wx66ytsj6r522cv.ll 1994232885
@@ -5369,7 +5369,7 @@ cvc5/candidate_rewrite_database.cpp.ll 1674835979
 cvc5/candidate_rewrite_filter.cpp.ll 2123859437
 cvc5/card_solver.cpp.ll 2451837674
 cvc5/cardinality.cpp.ll 248977479
-cvc5/cardinality_class.cpp.ll 48122647
+cvc5/cardinality_class.cpp.ll 48170937
 cvc5/cardinality_constraint.cpp.ll 132103644
 cvc5/cardinality_extension.cpp.ll 6956965425
 cvc5/care_pair_argument_callback.cpp.ll 77911392
@@ -10859,7 +10859,7 @@ icu/number_multiplier.ll 157501779
 icu/number_output.ll 170146724
 icu/number_patternmodifier.ll 287472482
 icu/number_patternstring.ll 785934322
-icu/number_rounding.ll 279139599
+icu/number_rounding.ll 279418812
 icu/number_scientific.ll 149791562
 icu/number_simple.ll 197816153
 icu/number_skeletons.ll 1007922228
@@ -11034,7 +11034,7 @@ icu/ucol.ll 193089743
 icu/ucol_res.ll 403651678
 icu/ucol_sit.ll 370504908
 icu/ucol_swp.ll 179850842
-icu/ucoleitr.ll 204150024
+icu/ucoleitr.ll 204354417
 icu/uconv.ll 842767016
 icu/ucptrie.ll 303659946
 icu/ucsdet.ll 65658748
@@ -12494,7 +12494,7 @@ libzmq/own.cpp.ll 620811359
 libzmq/pair.cpp.ll 76044912
 libzmq/peer.cpp.ll 71784898
 libzmq/pipe.cpp.ll 435116069
-libzmq/plain_client.cpp.ll 87537240
+libzmq/plain_client.cpp.ll 87624833
 libzmq/plain_server.cpp.ll 121392990
 libzmq/poller_base.cpp.ll 189019795
 libzmq/polling_util.cpp.ll 38988918
@@ -15428,7 +15428,7 @@ llvm/DAGISelMatcherGen.cpp.ll 2038887965
 llvm/DAGISelMatcherOpt.cpp.ll 1017038728
 llvm/DCE.cpp.ll 1385521500
 llvm/DDG.cpp.ll 3056474962
-llvm/DDGPrinter.cpp.ll 930139378
+llvm/DDGPrinter.cpp.ll 931069680
 llvm/DFAEmitter.cpp.ll 4376960408
 llvm/DFAJumpThreading.cpp.ll 9876478650
 llvm/DFAPacketizer.cpp.ll 1933760621
@@ -24095,7 +24095,7 @@ openjdk/g1ConcurrentRefineThreadsNeeded.ll 52751332
 openjdk/g1DirtyCardQueue.ll 2814602803
 openjdk/g1EvacFailureRegions.ll 2508729279
 openjdk/g1EvacStats.ll 96032019
-openjdk/g1FreeIdSet.ll 73073686
+openjdk/g1FreeIdSet.ll 73146924
 openjdk/g1FromCardCache.ll 107138001
 openjdk/g1FullCollector.ll 4127200628
 openjdk/g1FullGCAdjustTask.ll 4585683192
@@ -24789,7 +24789,7 @@ openjdk/ps_core.ll 232024031
 openjdk/ps_core_common.ll 132342180
 openjdk/ps_proc.ll 185481240
 openjdk/ptrQueue.ll 70959785
-openjdk/rdtsc_x86.ll 122045978
+openjdk/rdtsc_x86.ll 122168179
 openjdk/recordComponent.ll 97351545
 openjdk/rect.ll 95986192
 openjdk/referencePolicy.ll 52383730
@@ -25951,7 +25951,7 @@ openmpi/libmpi_c_profile_la-testsome.ll 60640650
 openmpi/libmpi_c_profile_la-type_commit.ll 66119375
 openmpi/libmpi_c_profile_la-type_contiguous.ll 67929719
 openmpi/libmpi_c_profile_la-type_create_darray.ll 99782165
-openmpi/libmpi_c_profile_la-type_create_f90_complex.ll 78943851
+openmpi/libmpi_c_profile_la-type_create_f90_complex.ll 79022953
 openmpi/libmpi_c_profile_la-type_create_f90_integer.ll 74121407
 openmpi/libmpi_c_profile_la-type_create_f90_real.ll 78809213
 openmpi/libmpi_c_profile_la-type_create_hindexed.ll 77619913
@@ -25976,7 +25976,7 @@ openmpi/libmpi_c_profile_la-waitall.ll 58351815
 openmpi/libmpi_c_profile_la-waitany.ll 61178116
 openmpi/libmpi_c_profile_la-waitsome.ll 60802511
 openmpi/libmpi_c_profile_la-win_allocate_shared.ll 78051419
-openmpi/libmpi_c_profile_la-win_attach.ll 71693203
+openmpi/libmpi_c_profile_la-win_attach.ll 71765065
 openmpi/libmpi_c_profile_la-win_call_errhandler.ll 67950526
 openmpi/libmpi_c_profile_la-win_complete.ll 69372846
 openmpi/libmpi_c_profile_la-win_detach.ll 71688303
@@ -32230,7 +32230,7 @@ proxygen/HeaderIndexingStrategy.cpp.ll 127764379
 proxygen/HeaderTable.cpp.ll 1344763636
 proxygen/Huffman.cpp.ll 432717936
 proxygen/Logging.cpp.ll 856722798
-proxygen/NoPathIndexingStrategy.cpp.ll 56904544
+proxygen/NoPathIndexingStrategy.cpp.ll 56961577
 proxygen/ParseURL.cpp.ll 588685764
 proxygen/PersistentFizzPskCache.cpp.ll 598877833
 proxygen/PersistentQuicPskCache.cpp.ll 3501142537
@@ -37530,7 +37530,7 @@ velox/StringView.cpp.ll 236292814
 velox/StringViewBufferHolder.cpp.ll 207065158
 velox/Subscript.cpp.ll 2439973910
 velox/SubscriptUtil.cpp.ll 20739818884
-velox/SuccinctPrinter.cpp.ll 87628545
+velox/SuccinctPrinter.cpp.ll 87716219
 velox/SwitchExpr.cpp.ll 2073529478
 velox/TestValue.cpp.ll 97174756
 velox/ThreadDebugInfo.cpp.ll 53116781
