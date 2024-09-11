@@ -22279,7 +22279,7 @@ opencv/flatten_layer.cpp.ll 737744838
 opencv/fld_lines.cpp.ll 288229600
 opencv/floodfill.cpp.ll 6081890585
 opencv/flow_warp_layer.cpp.ll 484897114
-opencv/format_information.cpp.ll 143828017
+opencv/format_information.cpp.ll 143971984
 opencv/fourier_descriptors.cpp.ll 861090841
 opencv/fourier_descriptors_demo.cpp.ll 932120839
 opencv/fr_adience.cpp.ll 1155187631
@@ -24458,7 +24458,7 @@ openjdk/jvmFlagConstraintsCompiler.ll 150993958
 openjdk/jvmFlagConstraintsG1.ll 71866407
 openjdk/jvmFlagConstraintsGC.ll 119951477
 openjdk/jvmFlagConstraintsParallel.ll 40164560
-openjdk/jvmFlagConstraintsRuntime.ll 59392630
+openjdk/jvmFlagConstraintsRuntime.ll 59452359
 openjdk/jvmFlagLimit.ll 148341739
 openjdk/jvmFlagLookup.ll 77519811
 openjdk/jvm_posix.ll 113842778
@@ -38414,7 +38414,7 @@ wasmtime-rs/5f33iiyrp8xf4da3.ll 38942759
 wasmtime-rs/5fji02561jxr5ssb.ll 134550992
 wasmtime-rs/5g1sfst7nzqq22by.ll 337616842
 wasmtime-rs/5g8z17m862fjpza8.ll 102361092
-wasmtime-rs/5gctwgizz6tibxpl.ll 51538356
+wasmtime-rs/5gctwgizz6tibxpl.ll 51589942
 wasmtime-rs/5ge1llr953vs4ebr.ll 41565683
 wasmtime-rs/5gu7096kht2wa7jx.ll 35332223
 wasmtime-rs/5gufpe94f0578sme.ll 175445046
