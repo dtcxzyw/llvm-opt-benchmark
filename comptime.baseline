@@ -30376,7 +30376,7 @@ php/base64.ll 970166262
 php/basic_functions.ll 2008798616
 php/block_pass.ll 2439879876
 php/browscap.ll 742277110
-php/bst.ll 136964245
+php/bst.ll 137101242
 php/buffer.ll 82154101
 php/cast.ll 97847091
 php/cdatasection.ll 42336695
