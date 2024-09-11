@@ -3748,7 +3748,7 @@ cmake/rhash.c.ll 181147699
 cmake/select.c.ll 85065324
 cmake/sendf.c.ll 251762592
 cmake/session.cpp.ll 3214905583
-cmake/setopt.c.ll 954748159
+cmake/setopt.c.ll 955705481
 cmake/sha1.c.ll 885641229
 cmake/sha256.c.ll 1036876819
 cmake/sha3.c.ll 271981708
@@ -5197,7 +5197,7 @@ csmith/StatementAssign.cpp.ll 506341224
 csmith/StatementBreak.cpp.ll 308572538
 csmith/StatementContinue.cpp.ll 253555145
 csmith/StatementExpr.cpp.ll 458474081
-csmith/StatementFor.cpp.ll 1056490346
+csmith/StatementFor.cpp.ll 1057550315
 csmith/StatementGoto.cpp.ll 1458633341
 csmith/StatementIf.cpp.ll 534928530
 csmith/StatementReturn.cpp.ll 256897441
@@ -11017,7 +11017,7 @@ icu/ucnv_cnv.ll 93436142
 icu/ucnv_ct.ll 338575938
 icu/ucnv_err.ll 188076172
 icu/ucnv_ext.ll 368933383
-icu/ucnv_io.ll 450744110
+icu/ucnv_io.ll 451199520
 icu/ucnv_lmb.ll 385884172
 icu/ucnv_u16.ll 510914126
 icu/ucnv_u32.ll 353894648
