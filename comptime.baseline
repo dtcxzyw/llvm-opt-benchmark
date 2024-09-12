@@ -21907,7 +21907,7 @@ opencv/bindings_ie.cpp.ll 1137602425
 opencv/bindings_onnx.cpp.ll 1692131796
 opencv/bindings_ov.cpp.ll 1343386234
 opencv/bindings_utils.cpp.ll 247198672
-opencv/bitarray.cpp.ll 404481643
+opencv/bitarray.cpp.ll 404077107
 opencv/bitmatrix.cpp.ll 811509965
 opencv/bitmatrixparser.cpp.ll 390912982
 opencv/bitsource.cpp.ll 86914151
@@ -25010,7 +25010,7 @@ openjdk/templateInterpreterGenerator_x86_64.ll 450725247
 openjdk/templateTable.ll 1550347179
 openjdk/templateTable_x86.ll 2683035903
 openjdk/tenuredGeneration.ll 264487626
-openjdk/testHelpers.ll 81002130
+openjdk/testHelpers.ll 80921031
 openjdk/thread.ll 331903802
 openjdk/threadControl.ll 790745566
 openjdk/threadCrashProtection_posix.ll 46571598
