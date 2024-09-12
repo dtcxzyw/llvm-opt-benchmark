@@ -19172,8 +19172,8 @@ ncnn/clip_x86_avx512.cpp.ll 94316070
 ncnn/clip_x86_fma.cpp.ll 83668718
 ncnn/concat.cpp.ll 280413558
 ncnn/concat_x86.cpp.ll 458985068
-ncnn/concat_x86_avx.cpp.ll 679961756
-ncnn/concat_x86_avx512.cpp.ll 1176526959
+ncnn/concat_x86_avx.cpp.ll 680702667
+ncnn/concat_x86_avx512.cpp.ll 1178071722
 ncnn/concat_x86_fma.cpp.ll 679786780
 ncnn/convolution.cpp.ll 857698548
 ncnn/convolution1d.cpp.ll 300959533
@@ -19257,7 +19257,7 @@ ncnn/flatten.cpp.ll 61780856
 ncnn/flatten_x86.cpp.ll 329822875
 ncnn/flatten_x86_avx.cpp.ll 452431959
 ncnn/flatten_x86_avx512.cpp.ll 685305088
-ncnn/flatten_x86_fma.cpp.ll 452582328
+ncnn/flatten_x86_fma.cpp.ll 453241123
 ncnn/fold.cpp.ll 174854286
 ncnn/gelu.cpp.ll 83958317
 ncnn/gelu_x86.cpp.ll 102708199
@@ -19326,7 +19326,7 @@ ncnn/lstm_x86_avxvnni.cpp.ll 1728687722
 ncnn/lstm_x86_fma.cpp.ll 3318156598
 ncnn/lstm_x86_xop.cpp.ll 719138292
 ncnn/mat.cpp.ll 894908898
-ncnn/mat_pixel.cpp.ll 1427384005
+ncnn/mat_pixel.cpp.ll 1429096751
 ncnn/mat_pixel_affine.cpp.ll 1022111611
 ncnn/mat_pixel_drawing.cpp.ll 1276054714
 ncnn/mat_pixel_resize.cpp.ll 772027352
@@ -19355,9 +19355,9 @@ ncnn/normalize.cpp.ll 276633288
 ncnn/option.cpp.ll 41104878
 ncnn/packing.cpp.ll 340792490
 ncnn/packing_x86.cpp.ll 1966970260
-ncnn/packing_x86_avx.cpp.ll 2075525164
+ncnn/packing_x86_avx.cpp.ll 2078615171
 ncnn/packing_x86_avx512.cpp.ll 2318684164
-ncnn/packing_x86_fma.cpp.ll 2075825134
+ncnn/packing_x86_fma.cpp.ll 2078950953
 ncnn/padding.cpp.ll 1028572404
 ncnn/padding_x86.cpp.ll 1233571566
 ncnn/padding_x86_avx.cpp.ll 1792818280
@@ -19386,7 +19386,7 @@ ncnn/quantize.cpp.ll 153482988
 ncnn/quantize_x86.cpp.ll 586085809
 ncnn/quantize_x86_avx.cpp.ll 813248955
 ncnn/quantize_x86_avx512.cpp.ll 830330076
-ncnn/quantize_x86_fma.cpp.ll 813558016
+ncnn/quantize_x86_fma.cpp.ll 814419626
 ncnn/reduction.cpp.ll 16125765749
 ncnn/relu.cpp.ll 83252609
 ncnn/relu_x86.cpp.ll 175761271
@@ -21994,7 +21994,7 @@ opencv/color_hsv.dispatch.cpp.ll 668159198
 opencv/color_lab.cpp.ll 2096956337
 opencv/color_match_template.cpp.ll 127952447
 opencv/color_moment_hash.cpp.ll 327902057
-opencv/color_rgb.dispatch.cpp.ll 1106204397
+opencv/color_rgb.dispatch.cpp.ll 1107717201
 opencv/color_yuv.dispatch.cpp.ll 3548422634
 opencv/colored_kinfu.cpp.ll 1411444500
 opencv/colored_kinfu_demo.cpp.ll 1173628810
