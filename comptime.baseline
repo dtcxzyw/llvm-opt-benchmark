@@ -28788,7 +28788,7 @@ openssl/openssl-bin-list.ll 722196263
 openssl/openssl-bin-mac.ll 97721492
 openssl/openssl-bin-nseq.ll 64635261
 openssl/openssl-bin-ocsp.ll 973787895
-openssl/openssl-bin-openssl.ll 136202179
+openssl/openssl-bin-openssl.ll 136338463
 openssl/openssl-bin-passwd.ll 759236714
 openssl/openssl-bin-pkcs12.ll 629397264
 openssl/openssl-bin-pkcs7.ll 110173679
