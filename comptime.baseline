@@ -3964,7 +3964,7 @@ coreutils-rs/1qykyi5gxjyfg44s.ll 115881356
 coreutils-rs/1r86m0s536asr1i8.ll 56170742
 coreutils-rs/1rbyfrcls7o9si8f.ll 134969321
 coreutils-rs/1rc3oz70a7y5cjew.ll 1745046019
-coreutils-rs/1rcidqes8gd7e6wh.ll 169545862
+coreutils-rs/1rcidqes8gd7e6wh.ll 169376120
 coreutils-rs/1rdobp60b3xxy0g7.ll 76641159
 coreutils-rs/1rdzyrwoqpoc0twx.ll 41792002
 coreutils-rs/1rgvgulc49uxow1y.ll 868483276
@@ -11605,7 +11605,7 @@ libevent/http.c.ll 1694760243
 libevent/listener.c.ll 129675225
 libevent/log.c.ll 73069590
 libevent/poll.c.ll 95594633
-libevent/select.c.ll 101380413
+libevent/select.c.ll 101279011
 libevent/signal.c.ll 121570520
 libevent/signalfd.c.ll 62437009
 libevent/strlcpy.c.ll 46004747
@@ -26905,7 +26905,7 @@ openspiel/maedn_test.cc.ll 1376753314
 openspiel/mancala.cc.ll 1605467990
 openspiel/mancala_test.cc.ll 499517681
 openspiel/markov_soccer.cc.ll 2540537834
-openspiel/markov_soccer_test.cc.ll 427695282
+openspiel/markov_soccer_test.cc.ll 427267353
 openspiel/matching_pennies_3p.cc.ll 1554110635
 openspiel/matching_pennies_3p_test.cc.ll 158849881
 openspiel/matrix_game.cc.ll 2304216445
