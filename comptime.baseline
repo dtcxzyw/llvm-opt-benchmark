@@ -21774,7 +21774,7 @@ opencv/AKAZEFeatures.cpp.ll 2702051539
 opencv/AKAZE_match.cpp.ll 520463936
 opencv/AddingImages.cpp.ll 70617403
 opencv/AddingImagesTrackbar.cpp.ll 71299184
-opencv/BasicLinearTransforms.cpp.ll 110894387
+opencv/BasicLinearTransforms.cpp.ll 111005306
 opencv/BasicLinearTransformsTrackbar.cpp.ll 104782560
 opencv/CannyDetector_Demo.cpp.ll 99244970
 opencv/CmFile.cpp.ll 43975257
@@ -28572,7 +28572,7 @@ openssl/liblegacy-lib-md5_one.ll 37751200
 openssl/liblegacy-lib-md5_sha1.ll 54520835
 openssl/liblegacy-lib-mdc2_prov.ll 54654201
 openssl/liblegacy-lib-pbkdf1.ll 98808318
-openssl/liblegacy-lib-prov_running.ll 35415855
+openssl/liblegacy-lib-prov_running.ll 35451312
 openssl/liblegacy-lib-provider_util.ll 114200136
 openssl/liblegacy-lib-pvkkdf.ll 85616598
 openssl/liblegacy-lib-ripemd_prov.ll 46923005
@@ -29253,7 +29253,7 @@ openusd/decodetxb.c.ll 647739522
 openusd/defaultResolver.cpp.ll 715221118
 openusd/defaultResolverContext.cpp.ll 284698707
 openusd/definePackageResolver.cpp.ll 36692478
-openusd/defineResolver.cpp.ll 36639919
+openusd/defineResolver.cpp.ll 36676669
 openusd/delegate.cpp.ll 19769695479
 openusd/delegatedCountPtr.cpp.ll 258502845
 openusd/demangle.cpp.ll 121229314
