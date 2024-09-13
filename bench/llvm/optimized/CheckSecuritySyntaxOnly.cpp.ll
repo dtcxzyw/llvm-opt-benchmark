@@ -3726,10 +3726,10 @@ _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12Fun
   %.sroa.2.0..sroa_idx.i478486631643.ph = phi ptr [ %.sroa.2.0..sroa_idx.i, %47 ], [ %.sroa.2.0..sroa_idx.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %.sroa.2.0..sroa_idx.i473, %.thread ]
   %.ph655 = phi ptr [ %48, %47 ], [ %48, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %43, %.thread ]
   %.ph656 = phi ptr [ %49, %47 ], [ %49, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %44, %.thread ]
-  %.ph657 = phi i1 [ false, %47 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ false, %.thread ]
+  %.val.i122632642.ph = phi i1 [ false, %47 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ false, %.thread ]
   %.sroa.4.0477487498510.ph = phi i64 [ %.sroa.4.0, %47 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ %41, %.thread ]
   %.not.i.i156 = icmp ne i64 %.sroa.4.0477487498510.ph, 6
-  %or.cond420.not = or i1 %.ph657, %.not.i.i156
+  %or.cond420.not = or i1 %.val.i122632642.ph, %.not.i.i156
   br i1 %or.cond420.not, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit161, label %_ZN4llvmeqENS_9StringRefES0_.exit.i157
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i157:           ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit151
@@ -3743,7 +3743,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i159:    ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit161: ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit151
   %.not.i.i166 = icmp ne i64 %.sroa.4.0477487498510.ph, 7
-  %or.cond422.not = or i1 %.ph657, %.not.i.i166
+  %or.cond422.not = or i1 %.val.i122632642.ph, %.not.i.i166
   br i1 %or.cond422.not, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit171, label %_ZN4llvmeqENS_9StringRefES0_.exit.i167
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i167:           ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit161
@@ -3756,11 +3756,11 @@ _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12Fun
   br label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E5CasesENS_13StringLiteralESD_SB_.exit209.sink.split769
 
 _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit181.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i157
-  br i1 %.ph657, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E5CasesENS_13StringLiteralESD_SB_.exit209, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit191.thread
+  br i1 %.val.i122632642.ph, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E5CasesENS_13StringLiteralESD_SB_.exit209, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit191.thread
 
 _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit171: ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit161, %_ZN4llvmeqENS_9StringRefES0_.exit.i167
   %.not.i.i166546 = phi i1 [ %.not.i.i166, %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit161 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i167 ]
-  %or.cond424.not = or i1 %.not.i.i166546, %.ph657
+  %or.cond424.not = or i1 %.not.i.i166546, %.val.i122632642.ph
   br i1 %or.cond424.not, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit181, label %_ZN4llvmeqENS_9StringRefES0_.exit.i177
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i177:           ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit171
@@ -3774,7 +3774,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i179:    ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit181: ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit171, %_ZN4llvmeqENS_9StringRefES0_.exit.i177
   %.not.i.i186 = icmp ne i64 %.sroa.4.0477487498510.ph, 8
-  %or.cond426.not = or i1 %.not.i.i186, %.ph657
+  %or.cond426.not = or i1 %.not.i.i186, %.val.i122632642.ph
   br i1 %or.cond426.not, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit191, label %_ZN4llvmeqENS_9StringRefES0_.exit.i187
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i187:           ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit181
@@ -3788,7 +3788,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i189:    ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit191: ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit181, %_ZN4llvmeqENS_9StringRefES0_.exit.i187
   %.sroa.4.0477487498510522533544749757 = phi i64 [ %.sroa.4.0477487498510.ph, %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit181 ], [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit.i187 ]
-  br i1 %.ph657, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E5CasesENS_13StringLiteralESD_SB_.exit209, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit191.thread
+  br i1 %.val.i122632642.ph, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E5CasesENS_13StringLiteralESD_SB_.exit209, label %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit191.thread
 
 _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit191.thread: ; preds = %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit181.thread, %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit191
   %.sroa.4.0477487498510522533544554565727 = phi i64 [ %.sroa.4.0477487498510522533544749757, %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit191 ], [ 6, %_ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang8CallExprEPKNS3_12FunctionDeclEESB_E4CaseENS_13StringLiteralESB_.exit181.thread ]

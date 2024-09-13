@@ -1201,8 +1201,8 @@ if.end84.i:                                       ; preds = %for.body.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %if.end84.i, %if.end71.thread.i
-  %i.0.lcssa.i = phi i64 [ 2, %if.end71.thread.i ], [ %count.0.i, %if.end84.i ]
-  %arrayidx88.i = getelementptr i8, ptr %fill, i64 %i.0.lcssa.i
+  %count.04548.i = phi i64 [ 2, %if.end71.thread.i ], [ %count.0.i, %if.end84.i ]
+  %arrayidx88.i = getelementptr i8, ptr %fill, i64 %count.04548.i
   br label %if.end
 
 _mpd_copy_utf8.exit.thread:                       ; preds = %for.body.i, %if.end60.thread.i, %if.end60.i, %if.else46.i
@@ -1211,7 +1211,7 @@ _mpd_copy_utf8.exit.thread:                       ; preds = %for.body.i, %if.end
 
 if.end:                                           ; preds = %for.end.i, %if.then5.i, %entry
   %dest.sink.i = phi ptr [ %arrayidx88.i, %for.end.i ], [ %arrayidx7.i, %if.then5.i ], [ %fill, %entry ]
-  %retval.0.i = phi i64 [ %i.0.lcssa.i, %for.end.i ], [ 1, %if.then5.i ], [ 0, %entry ]
+  %retval.0.i = phi i64 [ %count.04548.i, %for.end.i ], [ 1, %if.then5.i ], [ 0, %entry ]
   store i8 0, ptr %dest.sink.i, align 1
   %5 = load i8, ptr %fmt, align 1
   %tobool3.not = icmp eq i8 %5, 0

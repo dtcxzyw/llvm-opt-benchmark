@@ -21116,86 +21116,72 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens17hfefd6
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i"
-  %17 = phi i64 [ %30, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ], [ undef, %.lr.ph.i.i.i.i.preheader ]
-  %18 = phi i64 [ %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader ]
+  %17 = phi i64 [ %28, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ], [ undef, %.lr.ph.i.i.i.i.preheader ]
+  %18 = phi i64 [ %29, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ], [ undef, %.lr.ph.i.i.i.i.preheader ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader ]
-  %19 = phi i64 [ %.pre-phi, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader ]
+  %19 = phi i64 [ %30, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader ]
   %20 = phi ptr [ %21, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ], [ %16, %.lr.ph.i.i.i.i.preheader ]
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %.val.i.i.i.i = load i32, ptr %20, align 4, !range !42, !alias.scope !4533, !noalias !4536, !noundef !9
   %22 = getelementptr i8, ptr %20, i64 4
   %.val4.i.i.i.i = load i32, ptr %22, align 4, !noalias !4550
   %trunc.i.i.i.i.i.i.i.i = trunc nuw i32 %.val.i.i.i.i to i1
-  br i1 %trunc.i.i.i.i.i.i.i.i, label %24, label %23
+  br i1 %trunc.i.i.i.i.i.i.i.i, label %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i"
 
-23:                                               ; preds = %.lr.ph.i.i.i.i
-  %.04.i.i.i.i.i.i.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %.val.i.i.i.i, i32 1)
-  br label %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i"
+"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp ugt i32 %.val4.i.i.i.i, %2
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit", label %23
 
-24:                                               ; preds = %.lr.ph.i.i.i.i
-  %.0.i.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.val4.i.i.i.i, i32 %2)
-  br label %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i"
+23:                                               ; preds = %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i"
+  %24 = icmp eq i32 %.val4.i.i.i.i, %2
+  br i1 %24, label %25, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i"
 
-"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i": ; preds = %24, %23
-  %.0.i.i.i.i.i.i.i.i = phi i8 [ %.04.i.i.i.i.i.i.i.i, %23 ], [ %.0.i.i.i.i.i.i.i.i.i, %24 ]
-  %switch.i.not.i.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %switch.i.not.i.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit", label %25
-
-25:                                               ; preds = %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i"
-  %26 = icmp eq i32 %.val4.i.i.i.i, %2
-  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i.i, i1 %26, i1 false
-  br i1 %.0.i.i.i.i.i.i.i.i.i.i, label %27, label %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge"
-
-"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge": ; preds = %25
-  %.pre = add nuw nsw i64 %19, 1
-  br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i"
-
-27:                                               ; preds = %25
+25:                                               ; preds = %23
   %trunc.i.i6.i.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.0.0 to i1
-  %28 = icmp uge i64 %19, %.sroa.7.0
-  %or.cond.not = select i1 %trunc.i.i6.i.i.i.i.i.i.i.i, i1 %28, i1 false
+  %26 = icmp uge i64 %19, %.sroa.7.0
+  %or.cond.not = select i1 %trunc.i.i6.i.i.i.i.i.i.i.i, i1 %26, i1 false
   %.sroa.7.2 = select i1 %or.cond.not, i64 %.sroa.7.0, i64 %19
   %.sroa.0.2 = select i1 %or.cond.not, i64 %.sroa.0.0, i64 1
   %trunc7.i.i.i.i.i.i.i.i.i.i = trunc nuw i64 %18 to i1
   %switch10.not.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %19, %17
   %or.cond32 = select i1 %trunc7.i.i.i.i.i.i.i.i.i.i, i1 %switch10.not.i.i.i.i.i.i.i.i.i.i, i1 false
-  %29 = add nuw nsw i64 %19, 1
-  %spec.select = select i1 %or.cond32, i64 %17, i64 %29
+  %27 = add nuw nsw i64 %19, 1
+  %spec.select = select i1 %or.cond32, i64 %17, i64 %27
   %spec.select34 = select i1 %or.cond32, i64 %18, i64 1
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i": ; preds = %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge", %27
-  %.pre-phi = phi i64 [ %.pre, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge" ], [ %29, %27 ]
-  %30 = phi i64 [ %17, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge" ], [ %spec.select, %27 ]
-  %31 = phi i64 [ %18, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge" ], [ %spec.select34, %27 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.7.0, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge" ], [ %.sroa.7.2, %27 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge" ], [ %.sroa.0.2, %27 ]
-  %.not12.i.i.i.i = icmp eq ptr %21, %15
-  br i1 %.not12.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit", label %.lr.ph.i.i.i.i
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i": ; preds = %25, %23, %.lr.ph.i.i.i.i
+  %28 = phi i64 [ %17, %23 ], [ %17, %.lr.ph.i.i.i.i ], [ %spec.select, %25 ]
+  %29 = phi i64 [ %18, %23 ], [ %18, %.lr.ph.i.i.i.i ], [ %spec.select34, %25 ]
+  %.sroa.7.1 = phi i64 [ %.sroa.7.0, %23 ], [ %.sroa.7.0, %.lr.ph.i.i.i.i ], [ %.sroa.7.2, %25 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %23 ], [ %.sroa.0.0, %.lr.ph.i.i.i.i ], [ %.sroa.0.2, %25 ]
+  %30 = add nuw nsw i64 %19, 1
+  %.not13.i.i.i.i = icmp eq ptr %21, %15
+  br i1 %.not13.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit", label %.lr.ph.i.i.i.i
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit": ; preds = %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i"
-  %32 = phi i64 [ %17, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i" ], [ %30, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ]
-  %33 = phi i64 [ %18, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i" ], [ %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ]
+  %31 = phi i64 [ %17, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i" ], [ %28, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ]
+  %32 = phi i64 [ %18, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i" ], [ %29, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ]
   %.sroa.7.3.ph = phi i64 [ %.sroa.7.0, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i" ], [ %.sroa.7.1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ]
   %.sroa.0.3.ph = phi i64 [ %.sroa.0.0, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i" ], [ %.sroa.0.1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i" ]
-  %34 = trunc nuw i64 %.sroa.0.3.ph to i1
-  %35 = trunc nuw i64 %33 to i1
-  %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %37, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.thread"
+  %33 = trunc nuw i64 %.sroa.0.3.ph to i1
+  %34 = trunc nuw i64 %32 to i1
+  %35 = select i1 %33, i1 %34, i1 false
+  br i1 %35, label %36, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.thread"
 
-"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.thread": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit", %12, %37, %4
-  %storemerge39 = phi i64 [ 0, %4 ], [ 1, %37 ], [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit" ], [ 0, %12 ]
+"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.thread": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit", %12, %36, %4
+  %storemerge39 = phi i64 [ 0, %4 ], [ 1, %36 ], [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit" ], [ 0, %12 ]
   store i64 %storemerge39, ptr %0, align 8
   ret void
 
-37:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit"
-  %38 = add i64 %.sroa.7.3.ph, %6
-  %39 = add i64 %32, %6
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+36:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit"
+  %37 = add i64 %.sroa.7.3.ph, %6
+  %38 = add i64 %31, %6
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %37, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %38, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %39, ptr %41, align 8
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.thread"
 }
 
@@ -21224,115 +21210,101 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars17hf177de
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.preheader.i
-  %17 = phi i64 [ %30, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ], [ undef, %.lr.ph.i.i.i.i.preheader.i ]
-  %18 = phi i64 [ %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader.i ]
+  %17 = phi i64 [ %28, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ], [ undef, %.lr.ph.i.i.i.i.preheader.i ]
+  %18 = phi i64 [ %29, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader.i ]
   %.sroa.7.0.i = phi i64 [ %.sroa.7.1.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ], [ undef, %.lr.ph.i.i.i.i.preheader.i ]
   %.sroa.0.0.i = phi i64 [ %.sroa.0.1.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader.i ]
-  %19 = phi i64 [ %.pre-phi.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader.i ]
+  %19 = phi i64 [ %30, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ], [ 0, %.lr.ph.i.i.i.i.preheader.i ]
   %20 = phi ptr [ %21, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ], [ %16, %.lr.ph.i.i.i.i.preheader.i ]
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %.val.i.i.i.i.i = load i32, ptr %20, align 4, !range !42, !alias.scope !4559, !noalias !4562, !noundef !9
   %22 = getelementptr i8, ptr %20, i64 4
   %.val4.i.i.i.i.i = load i32, ptr %22, align 4, !noalias !4576
   %trunc.i.i.i.i.i.i.i.i.i = trunc nuw i32 %.val.i.i.i.i.i to i1
-  br i1 %trunc.i.i.i.i.i.i.i.i.i, label %24, label %23
+  br i1 %trunc.i.i.i.i.i.i.i.i.i, label %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i"
 
-23:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %.04.i.i.i.i.i.i.i.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %.val.i.i.i.i.i, i32 1)
-  br label %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i"
+"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i
+  %.not.i.i.i.i.i.i.i = icmp ugt i32 %.val4.i.i.i.i.i, %2
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i", label %23
 
-24:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %.0.i.i.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.val4.i.i.i.i.i, i32 %2)
-  br label %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i"
+23:                                               ; preds = %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i"
+  %24 = icmp eq i32 %.val4.i.i.i.i.i, %2
+  br i1 %24, label %25, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i"
 
-"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i": ; preds = %24, %23
-  %.0.i.i.i.i.i.i.i.i.i = phi i8 [ %.04.i.i.i.i.i.i.i.i.i, %23 ], [ %.0.i.i.i.i.i.i.i.i.i.i, %24 ]
-  %switch.i.not.i.i.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %switch.i.not.i.i.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i", label %25
-
-25:                                               ; preds = %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i"
-  %26 = icmp eq i32 %.val4.i.i.i.i.i, %2
-  %.0.i.i.i.i.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i.i.i, i1 %26, i1 false
-  br i1 %.0.i.i.i.i.i.i.i.i.i.i.i, label %27, label %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i"
-
-"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i": ; preds = %25
-  %.pre.i = add nuw nsw i64 %19, 1
-  br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i"
-
-27:                                               ; preds = %25
+25:                                               ; preds = %23
   %trunc.i.i6.i.i.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.0.0.i to i1
-  %28 = icmp uge i64 %19, %.sroa.7.0.i
-  %or.cond.not.i = select i1 %trunc.i.i6.i.i.i.i.i.i.i.i.i, i1 %28, i1 false
+  %26 = icmp uge i64 %19, %.sroa.7.0.i
+  %or.cond.not.i = select i1 %trunc.i.i6.i.i.i.i.i.i.i.i.i, i1 %26, i1 false
   %.sroa.7.2.i = select i1 %or.cond.not.i, i64 %.sroa.7.0.i, i64 %19
   %.sroa.0.2.i = select i1 %or.cond.not.i, i64 %.sroa.0.0.i, i64 1
   %trunc7.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i64 %18 to i1
   %switch10.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %19, %17
   %or.cond32.i = select i1 %trunc7.i.i.i.i.i.i.i.i.i.i.i, i1 %switch10.not.i.i.i.i.i.i.i.i.i.i.i, i1 false
-  %29 = add nuw nsw i64 %19, 1
-  %spec.select.i = select i1 %or.cond32.i, i64 %17, i64 %29
+  %27 = add nuw nsw i64 %19, 1
+  %spec.select.i = select i1 %or.cond32.i, i64 %17, i64 %27
   %spec.select34.i = select i1 %or.cond32.i, i64 %18, i64 1
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i": ; preds = %27, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i"
-  %.pre-phi.i = phi i64 [ %.pre.i, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i" ], [ %29, %27 ]
-  %30 = phi i64 [ %17, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i" ], [ %spec.select.i, %27 ]
-  %31 = phi i64 [ %18, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i" ], [ %spec.select34.i, %27 ]
-  %.sroa.7.1.i = phi i64 [ %.sroa.7.0.i, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i" ], [ %.sroa.7.2.i, %27 ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.i, %"._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i_crit_edge.i" ], [ %.sroa.0.2.i, %27 ]
-  %.not12.i.i.i.i.i = icmp eq ptr %21, %15
-  br i1 %.not12.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i", label %.lr.ph.i.i.i.i.i
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i": ; preds = %25, %23, %.lr.ph.i.i.i.i.i
+  %28 = phi i64 [ %17, %23 ], [ %17, %.lr.ph.i.i.i.i.i ], [ %spec.select.i, %25 ]
+  %29 = phi i64 [ %18, %23 ], [ %18, %.lr.ph.i.i.i.i.i ], [ %spec.select34.i, %25 ]
+  %.sroa.7.1.i = phi i64 [ %.sroa.7.0.i, %23 ], [ %.sroa.7.0.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.7.2.i, %25 ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.i, %23 ], [ %.sroa.0.0.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.2.i, %25 ]
+  %30 = add nuw nsw i64 %19, 1
+  %.not13.i.i.i.i.i = icmp eq ptr %21, %15
+  br i1 %.not13.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i", label %.lr.ph.i.i.i.i.i
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i", %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i"
-  %32 = phi i64 [ %17, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i" ], [ %30, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ]
-  %33 = phi i64 [ %18, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i" ], [ %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ]
+  %31 = phi i64 [ %17, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i" ], [ %28, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ]
+  %32 = phi i64 [ %18, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i" ], [ %29, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ]
   %.sroa.7.3.ph.i = phi i64 [ %.sroa.7.0.i, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i" ], [ %.sroa.7.1.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ]
   %.sroa.0.3.ph.i = phi i64 [ %.sroa.0.0.i, %"_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens28_$u7b$$u7b$closure$u7d$$u7d$17hba4f439be02b24e5E.exit.i.i.i.i.i.i.i" ], [ %.sroa.0.1.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h15773f32fa3342c0E.exit.i.i.i.i.i" ]
-  %34 = trunc nuw i64 %.sroa.0.3.ph.i to i1
-  %35 = trunc nuw i64 %33 to i1
-  %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %37, label %"_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars28_$u7b$$u7b$closure$u7d$$u7d$17h334cea7cbdc4b10aE.exit"
+  %33 = trunc nuw i64 %.sroa.0.3.ph.i to i1
+  %34 = trunc nuw i64 %32 to i1
+  %35 = select i1 %33, i1 %34, i1 false
+  br i1 %35, label %36, label %"_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars28_$u7b$$u7b$closure$u7d$$u7d$17h334cea7cbdc4b10aE.exit"
 
-37:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i"
-  %38 = add i64 %.sroa.7.3.ph.i, %6
-  %39 = add i64 %32, %6
+36:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i"
+  %37 = add i64 %.sroa.7.3.ph.i, %6
+  %38 = add i64 %31, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4577)
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %"_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars28_$u7b$$u7b$closure$u7d$$u7d$17h334cea7cbdc4b10aE.exit", label %41
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %"_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars28_$u7b$$u7b$closure$u7d$$u7d$17h334cea7cbdc4b10aE.exit", label %40
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %1, i64 104
-  %.val2.i = load ptr, ptr %42, align 8, !alias.scope !4580, !noalias !4577, !nonnull !9, !noundef !9
-  %43 = getelementptr inbounds i8, ptr %1, i64 112
-  %.val3.i = load i64, ptr %43, align 8, !alias.scope !4580, !noalias !4577, !noundef !9
-  %44 = icmp ult i64 %38, %.val3.i
-  br i1 %44, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit.i", label %45, !prof !1015
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds i8, ptr %1, i64 104
+  %.val2.i = load ptr, ptr %41, align 8, !alias.scope !4580, !noalias !4577, !nonnull !9, !noundef !9
+  %42 = getelementptr inbounds i8, ptr %1, i64 112
+  %.val3.i = load i64, ptr %42, align 8, !alias.scope !4580, !noalias !4577, !noundef !9
+  %43 = icmp ult i64 %37, %.val3.i
+  br i1 %43, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit.i", label %44, !prof !1015
 
-45:                                               ; preds = %41
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef %38, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.82274a64a50163a9f6a7c2c109c19d14.285) #42, !noalias !4583
+44:                                               ; preds = %40
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef %37, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.82274a64a50163a9f6a7c2c109c19d14.285) #42, !noalias !4583
   unreachable
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit.i": ; preds = %41
-  %46 = add i64 %39, -1
-  %47 = icmp ult i64 %46, %.val3.i
-  br i1 %47, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit4.i", label %48, !prof !1015
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit.i": ; preds = %40
+  %45 = add i64 %38, -1
+  %46 = icmp ult i64 %45, %.val3.i
+  br i1 %46, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit4.i", label %47, !prof !1015
 
-48:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit.i"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef %46, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.82274a64a50163a9f6a7c2c109c19d14.286) #42, !noalias !4586
+47:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit.i"
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9bb22f08a42e1ac8E(i64 noundef %45, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.82274a64a50163a9f6a7c2c109c19d14.286) #42, !noalias !4586
   unreachable
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit4.i": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit.i"
-  %49 = getelementptr inbounds [0 x { i64, i64 }], ptr %.val2.i, i64 0, i64 %38
-  %50 = load i64, ptr %49, align 8, !noalias !4577, !noundef !9
-  %51 = getelementptr inbounds [0 x { i64, i64 }], ptr %.val2.i, i64 0, i64 %46, i32 1
-  %52 = load i64, ptr %51, align 8, !noalias !4577, !noundef !9
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %50, ptr %53, align 8, !alias.scope !4577
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %52, ptr %54, align 8, !alias.scope !4577
+  %48 = getelementptr inbounds [0 x { i64, i64 }], ptr %.val2.i, i64 0, i64 %37
+  %49 = load i64, ptr %48, align 8, !noalias !4577, !noundef !9
+  %50 = getelementptr inbounds [0 x { i64, i64 }], ptr %.val2.i, i64 0, i64 %45, i32 1
+  %51 = load i64, ptr %50, align 8, !noalias !4577, !noundef !9
+  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %49, ptr %52, align 8, !alias.scope !4577
+  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %51, ptr %53, align 8, !alias.scope !4577
   br label %"_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars28_$u7b$$u7b$closure$u7d$$u7d$17h334cea7cbdc4b10aE.exit"
 
-"_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars28_$u7b$$u7b$closure$u7d$$u7d$17h334cea7cbdc4b10aE.exit": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit4.i", %37, %12, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i", %4
-  %storemerge = phi i64 [ 0, %4 ], [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i" ], [ 0, %12 ], [ 1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit4.i" ], [ 0, %37 ]
+"_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars28_$u7b$$u7b$closure$u7d$$u7d$17h334cea7cbdc4b10aE.exit": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit4.i", %36, %12, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i", %4
+  %storemerge = phi i64 [ 0, %4 ], [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i" ], [ 0, %12 ], [ 1, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h12ba8484731cb449E.exit4.i" ], [ 0, %36 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -26455,9 +26427,6 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #39
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #39
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

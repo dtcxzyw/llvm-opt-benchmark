@@ -17528,19 +17528,19 @@ define hidden void @_ZN2pb6solver11flush_rootsERNS_10constraintE(ptr noundef non
 entry:
   %m_lit.i = getelementptr inbounds i8, ptr %c, i64 16
   %retval.sroa.0.0.copyload.i = load i32, ptr %m_lit.i, align 8
-  %.b132 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %0 = select i1 %.b132, i32 -2, i32 0
+  %.b130 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
+  %0 = select i1 %.b130, i32 -2, i32 0
   %cmp.i.not = icmp eq i32 %retval.sroa.0.0.copyload.i, %0
   br i1 %cmp.i.not, label %if.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 80
   %call6 = tail call noundef zeroext i1 @_ZNK2pb10constraint10is_watchedERKNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %c, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 %retval.sroa.0.0.copyload.i)
-  %retval.sroa.0.0.copyload.i53.pre120 = load i32, ptr %m_lit.i, align 8
+  %retval.sroa.0.0.copyload.i53.pre119 = load i32, ptr %m_lit.i, align 8
   br i1 %call6, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  tail call void @_ZN2pb10constraint13watch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %c, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 %retval.sroa.0.0.copyload.i53.pre120)
+  tail call void @_ZN2pb10constraint13watch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %c, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 %retval.sroa.0.0.copyload.i53.pre119)
   %retval.sroa.0.0.copyload.i51 = load i32, ptr %m_lit.i, align 8
   %xor.i = xor i32 %retval.sroa.0.0.copyload.i51, 1
   tail call void @_ZN2pb10constraint13watch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %c, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 %xor.i)
@@ -17548,13 +17548,13 @@ if.then:                                          ; preds = %land.rhs
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %land.rhs
-  %retval.sroa.0.0.copyload.i53 = phi i32 [ %retval.sroa.0.0.copyload.i, %entry ], [ %retval.sroa.0.0.copyload.i53.pre, %if.then ], [ %retval.sroa.0.0.copyload.i53.pre120, %land.rhs ]
-  %.b131 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %1 = select i1 %.b131, i32 -2, i32 0
+  %retval.sroa.0.0.copyload.i53 = phi i32 [ %retval.sroa.0.0.copyload.i, %entry ], [ %retval.sroa.0.0.copyload.i53.pre, %if.then ], [ %retval.sroa.0.0.copyload.i53.pre119, %land.rhs ]
+  %.b129 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
+  %1 = select i1 %.b129, i32 -2, i32 0
   %cmp.i54.not = icmp eq i32 %retval.sroa.0.0.copyload.i53, %1
-  br i1 %cmp.i54.not, label %land.rhs33.lr.ph, label %land.end31
+  br i1 %cmp.i54.not, label %land.rhs33.lr.ph, label %land.rhs25
 
-land.end31:                                       ; preds = %if.end
+land.rhs25:                                       ; preds = %if.end
   %m_root_vars = getelementptr inbounds i8, ptr %this, i64 968
   %shr.i = lshr i32 %retval.sroa.0.0.copyload.i53, 1
   %2 = load ptr, ptr %m_root_vars, align 8
@@ -17564,32 +17564,32 @@ land.end31:                                       ; preds = %if.end
   %4 = trunc i8 %3 to i1
   br i1 %4, label %if.end46, label %land.rhs33.lr.ph
 
-land.rhs33.lr.ph:                                 ; preds = %if.end, %land.end31
+land.rhs33.lr.ph:                                 ; preds = %if.end, %land.rhs25
   %m_size.i = getelementptr inbounds i8, ptr %c, i64 32
   %m_root_vars36 = getelementptr inbounds i8, ptr %this, i64 968
   br label %land.rhs33
 
 land.rhs33:                                       ; preds = %land.rhs33.lr.ph, %for.body
-  %i.0109 = phi i32 [ 0, %land.rhs33.lr.ph ], [ %inc, %for.body ]
+  %i.0108 = phi i32 [ 0, %land.rhs33.lr.ph ], [ %inc, %for.body ]
   %5 = load i32, ptr %m_size.i, align 8
-  %cmp = icmp ult i32 %i.0109, %5
+  %cmp = icmp ult i32 %i.0108, %5
   br i1 %cmp, label %for.body, label %if.end160
 
 for.body:                                         ; preds = %land.rhs33
   %vtable = load ptr, ptr %c, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %6 = load ptr, ptr %vfn, align 8
-  %call38 = tail call i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i.0109)
+  %call38 = tail call i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i.0108)
   %shr.i57 = lshr i32 %call38, 1
   %7 = load ptr, ptr %m_root_vars36, align 8
   %idxprom.i58 = zext nneg i32 %shr.i57 to i64
   %arrayidx.i59 = getelementptr inbounds i8, ptr %7, i64 %idxprom.i58
   %8 = load i8, ptr %arrayidx.i59, align 1
-  %inc = add nuw i32 %i.0109, 1
-  %found.0 = trunc i8 %8 to i1
-  br i1 %found.0, label %if.end46, label %land.rhs33, !llvm.loop !148
+  %tobool42 = trunc i8 %8 to i1
+  %inc = add nuw i32 %i.0108, 1
+  br i1 %tobool42, label %if.end46, label %land.rhs33, !llvm.loop !148
 
-if.end46:                                         ; preds = %for.body, %land.end31
+if.end46:                                         ; preds = %for.body, %land.rhs25
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
   %vtable.i = load ptr, ptr %c, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -17597,19 +17597,19 @@ if.end46:                                         ; preds = %for.body, %land.end
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %c, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
   %m_size.i60 = getelementptr inbounds i8, ptr %c, i64 32
   %10 = load i32, ptr %m_size.i60, align 8
-  %cmp50110.not = icmp eq i32 %10, 0
-  br i1 %cmp50110.not, label %for.end65, label %for.body51.lr.ph
+  %cmp50109.not = icmp eq i32 %10, 0
+  br i1 %cmp50109.not, label %for.end65, label %for.body51.lr.ph
 
 for.body51.lr.ph:                                 ; preds = %if.end46
   %m_roots = getelementptr inbounds i8, ptr %this, i64 960
   br label %for.body51
 
 for.body51:                                       ; preds = %for.body51.lr.ph, %for.body51
-  %i47.0111 = phi i32 [ 0, %for.body51.lr.ph ], [ %inc64, %for.body51 ]
+  %i47.0110 = phi i32 [ 0, %for.body51.lr.ph ], [ %inc64, %for.body51 ]
   %vtable53 = load ptr, ptr %c, align 8
   %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 88
   %11 = load ptr, ptr %vfn54, align 8
-  %call55 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i47.0111)
+  %call55 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i47.0110)
   %12 = load ptr, ptr %m_roots, align 8
   %idxprom.i61 = zext i32 %call55 to i64
   %arrayidx.i62 = getelementptr inbounds %"class.sat::literal", ptr %12, i64 %idxprom.i61
@@ -17617,16 +17617,16 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %vtable61 = load ptr, ptr %c, align 8
   %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 96
   %13 = load ptr, ptr %vfn62, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i47.0111, i32 %lit.sroa.0.0.copyload)
-  %inc64 = add nuw i32 %i47.0111, 1
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i47.0110, i32 %lit.sroa.0.0.copyload)
+  %inc64 = add nuw i32 %i47.0110, 1
   %14 = load i32, ptr %m_size.i60, align 8
   %cmp50 = icmp ult i32 %inc64, %14
   br i1 %cmp50, label %for.body51, label %for.end65, !llvm.loop !149
 
 for.end65:                                        ; preds = %for.body51, %if.end46
   %retval.sroa.0.0.copyload.i64 = load i32, ptr %m_lit.i, align 8
-  %.b130 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %15 = select i1 %.b130, i32 -2, i32 0
+  %.b128 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
+  %15 = select i1 %.b128, i32 -2, i32 0
   %cmp.i65.not = icmp eq i32 %retval.sroa.0.0.copyload.i64, %15
   br i1 %cmp.i65.not, label %if.end90, label %land.lhs.true
 
@@ -17732,15 +17732,15 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit.i.i.i:       ; preds = %if.then.i7.i.i.i, %
 
 _ZN2pb6solver12init_visitedEv.exit:               ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i.i, %if.end.i.i.i
   %31 = load i32, ptr %m_size.i60, align 8
-  %cmp94112.not = icmp eq i32 %31, 0
-  br i1 %cmp94112.not, label %if.else143, label %for.body95
+  %cmp94111.not = icmp eq i32 %31, 0
+  br i1 %cmp94111.not, label %if.else143, label %for.body95
 
 for.body95:                                       ; preds = %_ZN2pb6solver12init_visitedEv.exit, %if.else
-  %i91.0113 = phi i32 [ %inc114, %if.else ], [ 0, %_ZN2pb6solver12init_visitedEv.exit ]
+  %i91.0112 = phi i32 [ %inc114, %if.else ], [ 0, %_ZN2pb6solver12init_visitedEv.exit ]
   %vtable96 = load ptr, ptr %c, align 8
   %vfn97 = getelementptr inbounds i8, ptr %vtable96, i64 88
   %32 = load ptr, ptr %vfn97, align 8
-  %call98 = tail call i32 %32(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i91.0113)
+  %call98 = tail call i32 %32(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i91.0112)
   %33 = load ptr, ptr %m_solver.i.i, align 8
   %m_visited.i.i75 = getelementptr inbounds i8, ptr %33, i64 3984
   %34 = load ptr, ptr %m_visited.i.i75, align 8
@@ -17769,7 +17769,7 @@ if.else:                                          ; preds = %for.body95
   %idxprom.i.i.i.i88 = zext i32 %xor.i83 to i64
   %arrayidx.i.i.i.i89 = getelementptr inbounds i32, ptr %39, i64 %idxprom.i.i.i.i88
   store i32 %add.i.i.i87, ptr %arrayidx.i.i.i.i89, align 4
-  %inc114 = add nuw i32 %i91.0113, 1
+  %inc114 = add nuw i32 %i91.0112, 1
   %40 = load i32, ptr %m_size.i60, align 8
   %cmp94 = icmp ult i32 %inc114, %40
   br i1 %cmp94, label %for.body95, label %for.end115, !llvm.loop !150
@@ -17780,16 +17780,16 @@ for.end115:                                       ; preds = %if.else, %for.body9
   br i1 %41, label %if.else140, label %for.body120
 
 for.body120:                                      ; preds = %for.end115, %for.body120
-  %i116.0118 = phi i32 [ %inc134, %for.body120 ], [ 0, %for.end115 ]
-  %found_root.0117 = phi i1 [ %or45, %for.body120 ], [ false, %for.end115 ]
+  %i116.0117 = phi i32 [ %inc134, %for.body120 ], [ 0, %for.end115 ]
+  %found_root.0116 = phi i1 [ %or45, %for.body120 ], [ false, %for.end115 ]
   %vtable122 = load ptr, ptr %c, align 8
   %vfn123 = getelementptr inbounds i8, ptr %vtable122, i64 88
   %42 = load ptr, ptr %vfn123, align 8
-  %call124 = tail call i32 %42(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i116.0118)
+  %call124 = tail call i32 %42(ptr noundef nonnull align 8 dereferenceable(64) %c, i32 noundef %i116.0117)
   %cmp128.unshifted = xor i32 %call124, %root.sroa.0.0
   %cmp128 = icmp ult i32 %cmp128.unshifted, 2
-  %or45 = or i1 %found_root.0117, %cmp128
-  %inc134 = add nuw i32 %i116.0118, 1
+  %or45 = or i1 %found_root.0116, %cmp128
+  %inc134 = add nuw i32 %i116.0117, 1
   %43 = load i32, ptr %m_size.i60, align 8
   %cmp119 = icmp ult i32 %inc134, %43
   br i1 %cmp119, label %for.body120, label %for.end135, !llvm.loop !151

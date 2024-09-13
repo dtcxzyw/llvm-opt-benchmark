@@ -4103,8 +4103,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h845ea240e2ed1ee0E.llvm.10157987788164207885.exit"
 
 15:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i", %7
-  %.015.i.i = phi i64 [ %.sroa.5.0.copyload, %7 ], [ %25, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i" ]
-  %.0.i.i = phi i64 [ 0, %7 ], [ %26, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i" ]
+  %.015.i.i = phi i64 [ %.sroa.5.0.copyload, %7 ], [ %28, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i" ]
+  %.0.i.i = phi i64 [ 0, %7 ], [ %29, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !1135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !1145
   %16 = getelementptr inbounds { { { { { i64, ptr }, i64 } }, i8, [7 x i8] }, i64 }, ptr %.sroa.0.0.copyload, i64 %.0.i.i
@@ -4128,32 +4128,36 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1183)
   %20 = load i64, ptr %19, align 8, !alias.scope !1180, !noalias !1185, !noundef !4
   %21 = load i64, ptr %17, align 8, !alias.scope !1186, !noalias !1187, !noundef !4
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %20, i64 %21)
   %22 = icmp eq i64 %20, %21
-  br i1 %22, label %23, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i"
+  br i1 %22, label %23, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i.i"
 
 23:                                               ; preds = %15
   %24 = load i64, ptr %13, align 8, !alias.scope !1188, !noalias !1191, !noundef !4
-  %.0.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.scmp.i8.i64(i64 %24, i64 %18)
+  %25 = icmp sgt i64 %24, %18
+  br i1 %25, label %27, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i"
+
+"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i.i": ; preds = %15
+  %26 = icmp ugt i64 %20, %21
+  br i1 %26, label %27, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i"
+
+27:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i.i", %23
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i": ; preds = %23, %15
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i.i.i.i.i.i, %23 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i, %15 ]
-  %switch.i.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  %..i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, ptr %4, ptr %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %..i.i.i.i.i.i, i64 32, i1 false), !noalias !1145
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i": ; preds = %27, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i.i", %23
+  %.sink.i.i.i.i.i.i = phi ptr [ %4, %27 ], [ %12, %23 ], [ %12, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i.i" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i.i.i.i.i, i64 32, i1 false), !noalias !1145
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1135
-  %25 = add i64 %.015.i.i, 1
-  %26 = add nuw i64 %.0.i.i, 1
-  %27 = icmp eq i64 %26, %11
-  br i1 %27, label %28, label %15
+  %28 = add i64 %.015.i.i, 1
+  %29 = add nuw i64 %.0.i.i, 1
+  %30 = icmp eq i64 %29, %11
+  br i1 %30, label %31, label %15
 
-28:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i"
+31:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !1193
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h845ea240e2ed1ee0E.llvm.10157987788164207885.exit"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h845ea240e2ed1ee0E.llvm.10157987788164207885.exit": ; preds = %14, %28
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h845ea240e2ed1ee0E.llvm.10157987788164207885.exit": ; preds = %14, %31
   ret void
 }
 
@@ -5870,8 +5874,8 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4d2ced91e15f1117E.llvm.10157987788164207885.exit"
 
 20:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i", %12
-  %.015.i = phi i64 [ %10, %12 ], [ %30, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i" ]
-  %.0.i = phi i64 [ 0, %12 ], [ %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i" ]
+  %.015.i = phi i64 [ %10, %12 ], [ %33, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i" ]
+  %.0.i = phi i64 [ 0, %12 ], [ %34, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !1663
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !1662
   %21 = getelementptr inbounds { { { { { i64, ptr }, i64 } }, i8, [7 x i8] }, i64 }, ptr %6, i64 %.0.i
@@ -5895,32 +5899,36 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1710)
   %25 = load i64, ptr %24, align 8, !alias.scope !1707, !noalias !1712, !noundef !4
   %26 = load i64, ptr %22, align 8, !alias.scope !1713, !noalias !1714, !noundef !4
-  %.0.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %25, i64 %26)
   %27 = icmp eq i64 %25, %26
-  br i1 %27, label %28, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i"
+  br i1 %27, label %28, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i"
 
 28:                                               ; preds = %20
   %29 = load i64, ptr %18, align 8, !alias.scope !1715, !noalias !1718, !noundef !4
-  %.0.i.i.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.scmp.i8.i64(i64 %29, i64 %23)
+  %30 = icmp sgt i64 %29, %23
+  br i1 %30, label %32, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i"
+
+"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i": ; preds = %20
+  %31 = icmp ugt i64 %25, %26
+  br i1 %31, label %32, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i"
+
+32:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i", %28
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i": ; preds = %28, %20
-  %.0.i.i.i.i.i.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i.i.i.i.i, %28 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i, %20 ]
-  %switch.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i.i, 1
-  %..i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %4, ptr %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %..i.i.i.i.i, i64 32, i1 false), !noalias !1662
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i": ; preds = %32, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i", %28
+  %.sink.i.i.i.i.i = phi ptr [ %4, %32 ], [ %17, %28 ], [ %17, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i.i" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i.i.i.i, i64 32, i1 false), !noalias !1662
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1663
-  %30 = add i64 %.015.i, 1
-  %31 = add nuw i64 %.0.i, 1
-  %32 = icmp eq i64 %31, %16
-  br i1 %32, label %33, label %20
+  %33 = add i64 %.015.i, 1
+  %34 = add nuw i64 %.0.i, 1
+  %35 = icmp eq i64 %34, %16
+  br i1 %35, label %36, label %20
 
-33:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i"
+36:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !1660
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4d2ced91e15f1117E.llvm.10157987788164207885.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4d2ced91e15f1117E.llvm.10157987788164207885.exit": ; preds = %19, %33
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4d2ced91e15f1117E.llvm.10157987788164207885.exit": ; preds = %19, %36
   ret void
 }
 
@@ -23508,11 +23516,11 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 17:                                               ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  br label %32
+  br label %35
 
 18:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit", %10
-  %.015 = phi i64 [ %4, %10 ], [ %28, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit" ]
-  %.0 = phi i64 [ 0, %10 ], [ %29, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit" ]
+  %.015 = phi i64 [ %4, %10 ], [ %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit" ]
+  %.0 = phi i64 [ 0, %10 ], [ %32, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit" ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !6683
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %19 = getelementptr inbounds { { { { { i64, ptr }, i64 } }, i8, [7 x i8] }, i64 }, ptr %1, i64 %.0
@@ -23536,32 +23544,36 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6730)
   %23 = load i64, ptr %22, align 8, !alias.scope !6727, !noalias !6732, !noundef !4
   %24 = load i64, ptr %20, align 8, !alias.scope !6733, !noalias !6734, !noundef !4
-  %.0.i.i.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %23, i64 %24)
   %25 = icmp eq i64 %23, %24
-  br i1 %25, label %26, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit"
+  br i1 %25, label %26, label %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i"
 
 26:                                               ; preds = %18
   %27 = load i64, ptr %16, align 8, !alias.scope !6735, !noalias !6738, !noundef !4
-  %.0.i.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.scmp.i8.i64(i64 %27, i64 %21)
+  %28 = icmp sgt i64 %27, %21
+  br i1 %28, label %30, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit"
+
+"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i": ; preds = %18
+  %29 = icmp ugt i64 %23, %24
+  br i1 %29, label %30, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit"
+
+30:                                               ; preds = %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i", %26
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit": ; preds = %18, %26
-  %.0.i.i.i.i.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i.i.i.i, %26 ], [ %.0.i.i.i.i.i.i.i.i.i.i, %18 ]
-  %switch.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i, 1
-  %..i.i.i.i = select i1 %switch.i.i.i.i, ptr %6, ptr %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %..i.i.i.i, i64 32, i1 false)
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit": ; preds = %26, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i", %30
+  %.sink.i.i.i.i = phi ptr [ %6, %30 ], [ %15, %26 ], [ %15, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h7ed8a5096388632eE.exit.i.i.i.i" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !6683
-  %28 = add i64 %.015, 1
-  %29 = add nuw i64 %.0, 1
-  %30 = icmp eq i64 %29, %14
-  br i1 %30, label %31, label %18
+  %31 = add i64 %.015, 1
+  %32 = add nuw i64 %.0, 1
+  %33 = icmp eq i64 %32, %14
+  br i1 %33, label %34, label %18
 
-31:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit"
+34:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2d8ad78920a9b506E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %32
+  br label %35
 
-32:                                               ; preds = %31, %17
+35:                                               ; preds = %34, %17
   ret void
 }
 
@@ -35737,9 +35749,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #47
 declare void @llvm.experimental.noalias.scope.decl(metadata) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #46
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -35756,9 +35765,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #46
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #46

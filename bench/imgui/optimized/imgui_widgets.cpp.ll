@@ -11423,8 +11423,8 @@ if.end73:                                         ; preds = %lor.end, %lor.lhs.f
   %28 = load i8, ptr %ConfigDragClickToInputText, align 1
   %tobool75 = trunc i8 %28 to i1
   %brmerge88.not = and i1 %cmp14, %tobool75
-  %brmerge146.not = and i1 %temp_input_is_active.1.not, %brmerge88.not
-  br i1 %brmerge146.not, label %if.then80, label %if.end95
+  %brmerge153.not = and i1 %temp_input_is_active.1.not, %brmerge88.not
+  br i1 %brmerge153.not, label %if.then80, label %if.end95
 
 if.then80:                                        ; preds = %if.end73
   %ActiveId = getelementptr inbounds i8, ptr %0, i64 16492
@@ -11483,7 +11483,7 @@ land.rhs106:                                      ; preds = %if.then103
 
 lor.rhs110:                                       ; preds = %land.rhs106
   switch i32 %data_type, label %.thread123 [
-    i32 0, label %sw.bb.i
+    i32 0, label %land.end114
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb3.i
     i32 3, label %sw.bb5.i
@@ -11495,53 +11495,54 @@ lor.rhs110:                                       ; preds = %land.rhs106
     i32 9, label %sw.bb17.i
   ]
 
-sw.bb.i:                                          ; preds = %lor.rhs110
-  %arg_1.val.i = load i8, ptr %p_min, align 1
-  %arg_2.val.i = load i8, ptr %p_max, align 1
-  %retval.0.i.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i8(i8 %arg_1.val.i, i8 %arg_2.val.i)
-  br label %land.end114
-
 sw.bb1.i:                                         ; preds = %lor.rhs110
   %arg_1.val19.i = load i8, ptr %p_min, align 1
   %arg_2.val20.i = load i8, ptr %p_max, align 1
-  %retval.0.i37.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i8(i8 %arg_1.val19.i, i8 %arg_2.val20.i)
-  br label %land.end114
+  %32 = icmp ult i8 %arg_1.val19.i, %arg_2.val20.i
+  %cond.fr107152 = freeze i1 %32
+  br i1 %cond.fr107152, label %.thread, label %.thread123
 
 sw.bb3.i:                                         ; preds = %lor.rhs110
   %arg_1.val21.i = load i16, ptr %p_min, align 2
   %arg_2.val22.i = load i16, ptr %p_max, align 2
-  %retval.0.i38.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16 %arg_1.val21.i, i16 %arg_2.val22.i)
-  br label %land.end114
+  %33 = icmp slt i16 %arg_1.val21.i, %arg_2.val22.i
+  %cond.fr107151 = freeze i1 %33
+  br i1 %cond.fr107151, label %.thread, label %.thread123
 
 sw.bb5.i:                                         ; preds = %lor.rhs110
   %arg_1.val23.i = load i16, ptr %p_min, align 2
   %arg_2.val24.i = load i16, ptr %p_max, align 2
-  %retval.0.i39.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16 %arg_1.val23.i, i16 %arg_2.val24.i)
-  br label %land.end114
+  %34 = icmp ult i16 %arg_1.val23.i, %arg_2.val24.i
+  %cond.fr107150 = freeze i1 %34
+  br i1 %cond.fr107150, label %.thread, label %.thread123
 
 sw.bb7.i:                                         ; preds = %lor.rhs110
   %arg_1.val25.i = load i32, ptr %p_min, align 4
   %arg_2.val26.i = load i32, ptr %p_max, align 4
-  %retval.0.i40.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %arg_1.val25.i, i32 %arg_2.val26.i)
-  br label %land.end114
+  %35 = icmp slt i32 %arg_1.val25.i, %arg_2.val26.i
+  %cond.fr107149 = freeze i1 %35
+  br i1 %cond.fr107149, label %.thread, label %.thread123
 
 sw.bb9.i:                                         ; preds = %lor.rhs110
   %arg_1.val27.i = load i32, ptr %p_min, align 4
   %arg_2.val28.i = load i32, ptr %p_max, align 4
-  %retval.0.i41.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %arg_1.val27.i, i32 %arg_2.val28.i)
-  br label %land.end114
+  %36 = icmp ult i32 %arg_1.val27.i, %arg_2.val28.i
+  %cond.fr107148 = freeze i1 %36
+  br i1 %cond.fr107148, label %.thread, label %.thread123
 
 sw.bb11.i:                                        ; preds = %lor.rhs110
   %arg_1.val29.i = load i64, ptr %p_min, align 8
   %arg_2.val30.i = load i64, ptr %p_max, align 8
-  %retval.0.i42.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %arg_1.val29.i, i64 %arg_2.val30.i)
-  br label %land.end114
+  %37 = icmp slt i64 %arg_1.val29.i, %arg_2.val30.i
+  %cond.fr107147 = freeze i1 %37
+  br i1 %cond.fr107147, label %.thread, label %.thread123
 
 sw.bb13.i:                                        ; preds = %lor.rhs110
   %arg_1.val31.i = load i64, ptr %p_min, align 8
   %arg_2.val32.i = load i64, ptr %p_max, align 8
-  %retval.0.i43.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %arg_1.val31.i, i64 %arg_2.val32.i)
-  br label %land.end114
+  %38 = icmp ult i64 %arg_1.val31.i, %arg_2.val32.i
+  %cond.fr107146 = freeze i1 %38
+  br i1 %cond.fr107146, label %.thread, label %.thread123
 
 sw.bb15.i:                                        ; preds = %lor.rhs110
   %arg_1.val33.i = load float, ptr %p_min, align 4
@@ -11555,24 +11556,26 @@ sw.bb17.i:                                        ; preds = %lor.rhs110
   %cmp.i45.i = fcmp olt double %arg_1.val35.i, %arg_2.val36.i
   br i1 %cmp.i45.i, label %.thread, label %.thread123
 
-land.end114:                                      ; preds = %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
-  %retval.0.i = phi i32 [ %retval.0.i43.i, %sw.bb13.i ], [ %retval.0.i42.i, %sw.bb11.i ], [ %retval.0.i41.i, %sw.bb9.i ], [ %retval.0.i40.i, %sw.bb7.i ], [ %retval.0.i39.i, %sw.bb5.i ], [ %retval.0.i38.i, %sw.bb3.i ], [ %retval.0.i37.i, %sw.bb1.i ], [ %retval.0.i.i, %sw.bb.i ]
-  %cmp112 = icmp slt i32 %retval.0.i, 0
-  br i1 %cmp112, label %.thread, label %.thread123
+land.end114:                                      ; preds = %lor.rhs110
+  %arg_1.val.i = load i8, ptr %p_min, align 1
+  %arg_2.val.i = load i8, ptr %p_max, align 1
+  %39 = icmp slt i8 %arg_1.val.i, %arg_2.val.i
+  %cond.fr107 = freeze i1 %39
+  br i1 %cond.fr107, label %.thread, label %.thread123
 
-.thread:                                          ; preds = %land.end114, %sw.bb15.i, %sw.bb17.i, %land.rhs106
+.thread:                                          ; preds = %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i, %land.end114, %sw.bb15.i, %sw.bb17.i, %land.rhs106
   br label %.thread123
 
-.thread123:                                       ; preds = %land.end114, %lor.rhs110, %sw.bb15.i, %sw.bb17.i, %if.then103, %.thread
-  %32 = phi ptr [ %p_min, %.thread ], [ null, %if.then103 ], [ null, %sw.bb17.i ], [ null, %sw.bb15.i ], [ null, %lor.rhs110 ], [ null, %land.end114 ]
-  %33 = phi ptr [ %p_max, %.thread ], [ null, %if.then103 ], [ null, %sw.bb17.i ], [ null, %sw.bb15.i ], [ null, %lor.rhs110 ], [ null, %land.end114 ]
-  %call126 = call noundef zeroext i1 @_ZN5ImGui15TempInputScalarERK6ImRectjPKciPvS4_PKvS7_(ptr noundef nonnull align 4 dereferenceable(16) %frame_bb, i32 noundef %call1, ptr noundef %label, i32 noundef %data_type, ptr noundef %p_data, ptr noundef %format.addr.0, ptr noundef %32, ptr noundef %33)
+.thread123:                                       ; preds = %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i, %land.end114, %lor.rhs110, %sw.bb15.i, %sw.bb17.i, %if.then103, %.thread
+  %40 = phi ptr [ %p_min, %.thread ], [ null, %if.then103 ], [ null, %sw.bb17.i ], [ null, %sw.bb15.i ], [ null, %lor.rhs110 ], [ null, %land.end114 ], [ null, %sw.bb13.i ], [ null, %sw.bb11.i ], [ null, %sw.bb9.i ], [ null, %sw.bb7.i ], [ null, %sw.bb5.i ], [ null, %sw.bb3.i ], [ null, %sw.bb1.i ]
+  %41 = phi ptr [ %p_max, %.thread ], [ null, %if.then103 ], [ null, %sw.bb17.i ], [ null, %sw.bb15.i ], [ null, %lor.rhs110 ], [ null, %land.end114 ], [ null, %sw.bb13.i ], [ null, %sw.bb11.i ], [ null, %sw.bb9.i ], [ null, %sw.bb7.i ], [ null, %sw.bb5.i ], [ null, %sw.bb3.i ], [ null, %sw.bb1.i ]
+  %call126 = call noundef zeroext i1 @_ZN5ImGui15TempInputScalarERK6ImRectjPKciPvS4_PKvS7_(ptr noundef nonnull align 4 dereferenceable(16) %frame_bb, i32 noundef %call1, ptr noundef %label, i32 noundef %data_type, ptr noundef %p_data, ptr noundef %format.addr.0, ptr noundef %40, ptr noundef %41)
   br label %return
 
 if.end127:                                        ; preds = %if.end101.thread141, %if.end101
   %ActiveId128 = getelementptr inbounds i8, ptr %0, i64 16492
-  %34 = load i32, ptr %ActiveId128, align 4
-  %cmp129 = icmp eq i32 %34, %call1
+  %42 = load i32, ptr %ActiveId128, align 4
+  %cmp129 = icmp eq i32 %42, %call1
   %cond133 = select i1 %call26, i32 8, i32 7
   %cond135 = select i1 %cmp129, i32 9, i32 %cond133
   %call136 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %cond135, float noundef 1.000000e+00)
@@ -11580,8 +11583,8 @@ if.end127:                                        ; preds = %if.end101.thread141
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %frame_bb, align 8
   %agg.tmp138.sroa.0.0.copyload = load <2 x float>, ptr %Max.i, align 8
   %FrameRounding = getelementptr inbounds i8, ptr %0, i64 14644
-  %35 = load float, ptr %FrameRounding, align 4
-  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %agg.tmp138.sroa.0.0.copyload, i32 noundef %call136, i1 noundef zeroext true, float noundef %35)
+  %43 = load float, ptr %FrameRounding, align 4
+  call void @_ZN5ImGui11RenderFrameE6ImVec2S0_jbf(<2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %agg.tmp138.sroa.0.0.copyload, i32 noundef %call136, i1 noundef zeroext true, float noundef %43)
   %call140 = call noundef zeroext i1 @_ZN5ImGui12DragBehaviorEjiPvfPKvS2_PKci(i32 noundef %call1, i32 noundef %data_type, ptr noundef %p_data, float noundef %v_speed, ptr noundef %p_min, ptr noundef %p_max, ptr noundef %format.addr.0, i32 noundef %flags)
   br i1 %call140, label %if.then143, label %if.end144
 
@@ -11594,8 +11597,8 @@ if.end144:                                        ; preds = %if.then143, %if.end
   %idx.ext = sext i32 %call146 to i64
   %add.ptr = getelementptr inbounds i8, ptr %value_buf, i64 %idx.ext
   %LogEnabled = getelementptr inbounds i8, ptr %0, i64 24488
-  %36 = load i8, ptr %LogEnabled, align 8
-  %tobool147 = trunc i8 %36 to i1
+  %44 = load i8, ptr %LogEnabled, align 8
+  %tobool147 = trunc i8 %44 to i1
   br i1 %tobool147, label %if.then148, label %if.end149
 
 if.then148:                                       ; preds = %if.end144
@@ -11610,14 +11613,14 @@ if.end149:                                        ; preds = %if.then148, %if.end
   br i1 %cmp, label %if.then156, label %return
 
 if.then156:                                       ; preds = %if.end149
-  %37 = load float, ptr %Max.i, align 8
+  %45 = load float, ptr %Max.i, align 8
   %ItemInnerSpacing160 = getelementptr inbounds i8, ptr %0, i64 14660
-  %38 = load float, ptr %ItemInnerSpacing160, align 4
-  %add162 = fadd float %37, %38
+  %46 = load float, ptr %ItemInnerSpacing160, align 4
+  %add162 = fadd float %45, %46
   %y164 = getelementptr inbounds i8, ptr %frame_bb, i64 4
-  %39 = load float, ptr %y164, align 4
-  %40 = load float, ptr %y7, align 4
-  %add167 = fadd float %39, %40
+  %47 = load float, ptr %y164, align 4
+  %48 = load float, ptr %y7, align 4
+  %add167 = fadd float %47, %48
   %agg.tmp157.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add162, i64 0
   %agg.tmp157.sroa.0.4.vec.insert = insertelement <2 x float> %agg.tmp157.sroa.0.0.vec.insert, float %add167, i64 1
   call void @_ZN5ImGui10RenderTextE6ImVec2PKcS2_b(<2 x float> %agg.tmp157.sroa.0.4.vec.insert, ptr noundef %label, ptr noundef null, i1 noundef zeroext true)
@@ -11820,49 +11823,49 @@ land.lhs.true15:                                  ; preds = %if.then12
 sw.bb.i:                                          ; preds = %land.lhs.true15
   %arg_1.val.i = load i8, ptr %p_clamp_min, align 1
   %arg_2.val.i = load i8, ptr %p_clamp_max, align 1
-  %retval.0.i.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i8(i8 %arg_1.val.i, i8 %arg_2.val.i)
+  %25 = icmp sgt i8 %arg_1.val.i, %arg_2.val.i
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb1.i:                                         ; preds = %land.lhs.true15
   %arg_1.val19.i = load i8, ptr %p_clamp_min, align 1
   %arg_2.val20.i = load i8, ptr %p_clamp_max, align 1
-  %retval.0.i37.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i8(i8 %arg_1.val19.i, i8 %arg_2.val20.i)
+  %26 = icmp ugt i8 %arg_1.val19.i, %arg_2.val20.i
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb3.i:                                         ; preds = %land.lhs.true15
   %arg_1.val21.i = load i16, ptr %p_clamp_min, align 2
   %arg_2.val22.i = load i16, ptr %p_clamp_max, align 2
-  %retval.0.i38.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16 %arg_1.val21.i, i16 %arg_2.val22.i)
+  %27 = icmp sgt i16 %arg_1.val21.i, %arg_2.val22.i
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb5.i:                                         ; preds = %land.lhs.true15
   %arg_1.val23.i = load i16, ptr %p_clamp_min, align 2
   %arg_2.val24.i = load i16, ptr %p_clamp_max, align 2
-  %retval.0.i39.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16 %arg_1.val23.i, i16 %arg_2.val24.i)
+  %28 = icmp ugt i16 %arg_1.val23.i, %arg_2.val24.i
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb7.i:                                         ; preds = %land.lhs.true15
   %arg_1.val25.i = load i32, ptr %p_clamp_min, align 4
   %arg_2.val26.i = load i32, ptr %p_clamp_max, align 4
-  %retval.0.i40.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %arg_1.val25.i, i32 %arg_2.val26.i)
+  %29 = icmp sgt i32 %arg_1.val25.i, %arg_2.val26.i
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb9.i:                                         ; preds = %land.lhs.true15
   %arg_1.val27.i = load i32, ptr %p_clamp_min, align 4
   %arg_2.val28.i = load i32, ptr %p_clamp_max, align 4
-  %retval.0.i41.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %arg_1.val27.i, i32 %arg_2.val28.i)
+  %30 = icmp ugt i32 %arg_1.val27.i, %arg_2.val28.i
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb11.i:                                        ; preds = %land.lhs.true15
   %arg_1.val29.i = load i64, ptr %p_clamp_min, align 8
   %arg_2.val30.i = load i64, ptr %p_clamp_max, align 8
-  %retval.0.i42.i = call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %arg_1.val29.i, i64 %arg_2.val30.i)
+  %31 = icmp sgt i64 %arg_1.val29.i, %arg_2.val30.i
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb13.i:                                        ; preds = %land.lhs.true15
   %arg_1.val31.i = load i64, ptr %p_clamp_min, align 8
   %arg_2.val32.i = load i64, ptr %p_clamp_max, align 8
-  %retval.0.i43.i = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %arg_1.val31.i, i64 %arg_2.val32.i)
+  %32 = icmp ugt i64 %arg_1.val31.i, %arg_2.val32.i
   br label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb15.i:                                        ; preds = %land.lhs.true15
@@ -11870,7 +11873,6 @@ sw.bb15.i:                                        ; preds = %land.lhs.true15
   %arg_2.val34.i = load float, ptr %p_clamp_max, align 4
   %cmp.i.i26 = fcmp olt float %arg_1.val33.i, %arg_2.val34.i
   %cmp1.i.i = fcmp ogt float %arg_1.val33.i, %arg_2.val34.i
-  %..i.i = zext i1 %cmp1.i.i to i32
   br i1 %cmp.i.i26, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 sw.bb17.i:                                        ; preds = %land.lhs.true15
@@ -11878,14 +11880,12 @@ sw.bb17.i:                                        ; preds = %land.lhs.true15
   %arg_2.val36.i = load double, ptr %p_clamp_max, align 8
   %cmp.i45.i = fcmp olt double %arg_1.val35.i, %arg_2.val36.i
   %cmp1.i46.i = fcmp ogt double %arg_1.val35.i, %arg_2.val36.i
-  %..i47.i = zext i1 %cmp1.i46.i to i32
   br i1 %cmp.i45.i, label %if.end19, label %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit
 
 _ZN5ImGui15DataTypeCompareEiPKvS1_.exit:          ; preds = %sw.bb15.i, %sw.bb17.i, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i
-  %retval.0.i25 = phi i32 [ %..i47.i, %sw.bb17.i ], [ %..i.i, %sw.bb15.i ], [ %retval.0.i43.i, %sw.bb13.i ], [ %retval.0.i42.i, %sw.bb11.i ], [ %retval.0.i41.i, %sw.bb9.i ], [ %retval.0.i40.i, %sw.bb7.i ], [ %retval.0.i39.i, %sw.bb5.i ], [ %retval.0.i38.i, %sw.bb3.i ], [ %retval.0.i37.i, %sw.bb1.i ], [ %retval.0.i.i, %sw.bb.i ]
-  %cmp17 = icmp sgt i32 %retval.0.i25, 0
-  %spec.select = select i1 %cmp17, ptr %p_clamp_max, ptr %p_clamp_min
-  %spec.select34 = select i1 %cmp17, ptr %p_clamp_min, ptr %p_clamp_max
+  %retval.0.i25 = phi i1 [ %cmp1.i46.i, %sw.bb17.i ], [ %cmp1.i.i, %sw.bb15.i ], [ %32, %sw.bb13.i ], [ %31, %sw.bb11.i ], [ %30, %sw.bb9.i ], [ %29, %sw.bb7.i ], [ %28, %sw.bb5.i ], [ %27, %sw.bb3.i ], [ %26, %sw.bb1.i ], [ %25, %sw.bb.i ]
+  %spec.select = select i1 %retval.0.i25, ptr %p_clamp_max, ptr %p_clamp_min
+  %spec.select34 = select i1 %retval.0.i25, ptr %p_clamp_min, ptr %p_clamp_max
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZN5ImGui15DataTypeCompareEiPKvS1_.exit, %sw.bb15.i, %sw.bb17.i, %land.lhs.true15, %if.then12

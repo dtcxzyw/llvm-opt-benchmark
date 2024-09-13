@@ -4752,17 +4752,17 @@ if.then14.i:                                      ; preds = %if.end6.i
   br label %if.end27.i
 
 if.else25.i:                                      ; preds = %if.end19
-  %rbe_parent34.i = getelementptr inbounds i8, ptr %call16, i64 16
-  %rbe_color36.i = getelementptr inbounds i8, ptr %call16, i64 24
+  %rbe_parent33.i = getelementptr inbounds i8, ptr %call16, i64 16
+  %rbe_color35.i = getelementptr inbounds i8, ptr %call16, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call16, i8 0, i64 24, i1 false)
-  store i32 1, ptr %rbe_color36.i, align 8
+  store i32 1, ptr %rbe_color35.i, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.else25.i, %if.then14.i
   %tmp.026.sink.i = phi ptr [ %6, %if.else25.i ], [ %spec.select.i, %if.then14.i ]
-  %rbe_parent38.i = phi ptr [ %rbe_parent34.i, %if.else25.i ], [ %rbe_parent.i, %if.then14.i ]
+  %rbe_parent37.i = phi ptr [ %rbe_parent33.i, %if.else25.i ], [ %rbe_parent.i, %if.then14.i ]
   store ptr %call16, ptr %tmp.026.sink.i, align 8
-  %9 = load ptr, ptr %rbe_parent38.i, align 8
+  %9 = load ptr, ptr %rbe_parent37.i, align 8
   %cmp.not115.i.i = icmp eq ptr %9, null
   br i1 %cmp.not115.i.i, label %watcher_root_RB_INSERT_COLOR.exit.i, label %land.rhs.i.i
 
@@ -4822,7 +4822,7 @@ do.body23.i.i:                                    ; preds = %if.end.i.i
 do.end38.thread.i.i:                              ; preds = %do.body23.i.i
   %rbe_parent42118.i.i = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %12, ptr %rbe_parent42118.i.i, align 8
-  %.pre31.i = load ptr, ptr %rbe_parent5.i.i, align 8
+  %.pre30.i = load ptr, ptr %rbe_parent5.i.i, align 8
   br label %if.then44.i.i
 
 do.end38.i.i:                                     ; preds = %do.body23.i.i
@@ -4835,7 +4835,7 @@ do.end38.i.i:                                     ; preds = %do.body23.i.i
   br i1 %cmp43.not.i.i, label %if.end61.i.i, label %if.then44.i.i
 
 if.then44.i.i:                                    ; preds = %do.end38.i.i, %do.end38.thread.i.i
-  %19 = phi ptr [ %.pre117.i.i, %do.end38.i.i ], [ %.pre31.i, %do.end38.thread.i.i ]
+  %19 = phi ptr [ %.pre117.i.i, %do.end38.i.i ], [ %.pre30.i, %do.end38.thread.i.i ]
   %20 = load ptr, ptr %19, align 8
   %cmp49.i.i = icmp eq ptr %10, %20
   %spec.select.idx.i.i = select i1 %cmp49.i.i, i64 0, i64 8

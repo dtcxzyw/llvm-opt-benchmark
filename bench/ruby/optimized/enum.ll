@@ -8822,25 +8822,25 @@ add_int.exit:                                     ; preds = %rb_integer_type_p.e
   br i1 %49, label %50, label %RB_FLOAT_TYPE_P.exit.thread69
 
 50:                                               ; preds = %46
-  %51 = call i32 @llvm.scmp.i32.i64(i64 %.0.i61, i64 1)
-  br label %55
+  %51 = icmp slt i64 %.0.i61, 1
+  br label %56
 
 RB_FLOAT_TYPE_P.exit.thread69:                    ; preds = %46, %add_int.exit
   %52 = call i64 @rb_funcallv(i64 noundef %.0.i61, i64 noundef 135, i32 noundef 1, ptr noundef nonnull %5) #13
   %53 = load i64, ptr %5, align 8
   %54 = call i32 @rb_cmpint(i64 noundef %52, i64 noundef %.0.i61, i64 noundef %53) #13
   %.pre = load i64, ptr %5, align 8
-  br label %55
+  %55 = icmp eq i32 %54, -1
+  br label %56
 
-55:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread69, %50
-  %56 = phi i64 [ 1, %50 ], [ %.pre, %RB_FLOAT_TYPE_P.exit.thread69 ]
-  %57 = phi i32 [ %51, %50 ], [ %54, %RB_FLOAT_TYPE_P.exit.thread69 ]
-  %58 = icmp eq i32 %57, -1
-  %59 = select i1 %58, i64 %56, i64 %.0.i61
+56:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread69, %50
+  %57 = phi i64 [ 1, %50 ], [ %.pre, %RB_FLOAT_TYPE_P.exit.thread69 ]
+  %58 = phi i1 [ %51, %50 ], [ %55, %RB_FLOAT_TYPE_P.exit.thread69 ]
+  %59 = select i1 %58, i64 %57, i64 %.0.i61
   br label %60
 
-60:                                               ; preds = %23, %55
-  %.054 = phi i64 [ %59, %55 ], [ 4, %23 ]
+60:                                               ; preds = %23, %56
+  %.054 = phi i64 [ %59, %56 ], [ 4, %23 ]
   ret i64 %.054
 }
 

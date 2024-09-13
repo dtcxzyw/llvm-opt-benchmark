@@ -6027,36 +6027,30 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2lt17h14085efd59a486e5
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2lt17hb73996d876155defE.llvm.14580040072198541846(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #9 {
+"_ZN74_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5ec8be4947f7cf6bE.exit":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
-  %3 = load ptr, ptr %0, align 8, !alias.scope !363, !noalias !361, !nonnull !4, !align !366, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !363, !noalias !361, !noundef !4
-  %6 = load ptr, ptr %1, align 8, !alias.scope !367, !noalias !358, !nonnull !4, !align !366, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !367, !noalias !358, !noundef !4
-  %9 = sub i64 %5, %8
-  %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %8)
-  %10 = tail call i32 @memcmp(ptr nonnull readonly %3, ptr nonnull readonly %6, i64 %..i.i.i.i.i.i), !alias.scope !370, !noalias !380
-  %11 = sext i32 %10 to i64
-  %12 = icmp eq i32 %10, 0
-  %spec.store.select.i.i.i.i.i.i = select i1 %12, i64 %9, i64 %11
-  %.0.i.i.i.i.i.i = tail call noundef i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
-  %13 = icmp eq i64 %spec.store.select.i.i.i.i.i.i, 0
-  br i1 %13, label %14, label %"_ZN74_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5ec8be4947f7cf6bE.exit"
-
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = load i64, ptr %15, align 8, !alias.scope !361, !noalias !358, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load i64, ptr %17, align 8, !alias.scope !358, !noalias !361, !noundef !4
-  %.0.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %16, i64 %18)
-  br label %"_ZN74_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5ec8be4947f7cf6bE.exit"
-
-"_ZN74_$LT$mini_lsm_mvcc..key..Key$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5ec8be4947f7cf6bE.exit": ; preds = %2, %14
-  %.0.i.i = phi i8 [ %.0.i.i.i.i, %14 ], [ %.0.i.i.i.i.i.i, %2 ]
-  %19 = icmp eq i8 %.0.i.i, -1
-  ret i1 %19
+  %2 = load ptr, ptr %0, align 8, !alias.scope !363, !noalias !361, !nonnull !4, !align !366, !noundef !4
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !alias.scope !363, !noalias !361, !noundef !4
+  %5 = load ptr, ptr %1, align 8, !alias.scope !367, !noalias !358, !nonnull !4, !align !366, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load i64, ptr %6, align 8, !alias.scope !367, !noalias !358, !noundef !4
+  %8 = sub i64 %4, %7
+  %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %7)
+  %9 = tail call i32 @memcmp(ptr nonnull readonly %2, ptr nonnull readonly %5, i64 %..i.i.i.i.i.i), !alias.scope !370, !noalias !380
+  %10 = sext i32 %9 to i64
+  %11 = icmp eq i32 %9, 0
+  %spec.store.select.i.i.i.i.i.i = select i1 %11, i64 %8, i64 %10
+  %12 = icmp eq i64 %spec.store.select.i.i.i.i.i.i, 0
+  %13 = icmp slt i64 %spec.store.select.i.i.i.i.i.i, 0
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp ult i64 %15, %17
+  %.0.i.i = select i1 %12, i1 %18, i1 %13
+  ret i1 %.0.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -7748,7 +7742,7 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   br i1 %.not8, label %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.thread", label %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit"
 
 "_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.thread": ; preds = %8, %2, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit"
-  %.0 = phi i1 [ %29, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit" ], [ false, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit" ], [ true, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit" ], [ false, %2 ], [ true, %8 ]
+  %.0 = phi i1 [ %.0.i.i.i, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit" ], [ false, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit" ], [ true, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit" ], [ false, %2 ], [ true, %8 ]
   ret i1 %.0
 
 "_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit": ; preds = %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit"
@@ -7767,9 +7761,9 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
   %26 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  %27 = icmp ult i64 %21, %17
-  %28 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  %29 = select i1 %26, i1 %27, i1 %28
+  %27 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
+  %28 = icmp ult i64 %21, %17
+  %.0.i.i.i = select i1 %26, i1 %28, i1 %27
   br label %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.thread"
 }
 
@@ -7804,7 +7798,7 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   br i1 %.not.i, label %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit", label %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.thread"
 
 "_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.thread": ; preds = %2, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit"
-  %.0 = phi i1 [ %29, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit" ], [ false, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit" ], [ true, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit" ], [ false, %2 ]
+  %.0 = phi i1 [ %.0.i.i.i, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit" ], [ false, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit" ], [ true, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit" ], [ false, %2 ]
   ret i1 %.0
 
 "_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit": ; preds = %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit"
@@ -7823,9 +7817,9 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
   %26 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  %27 = icmp ult i64 %21, %17
-  %28 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  %29 = select i1 %26, i1 %27, i1 %28
+  %27 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
+  %28 = icmp ult i64 %21, %17
+  %.0.i.i.i = select i1 %26, i1 %28, i1 %27
   br label %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.thread"
 }
 
@@ -7865,7 +7859,7 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   br i1 %.not.i2, label %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6", label %14
 
 14:                                               ; preds = %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6"
-  %.0 = phi i1 [ %30, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6" ], [ false, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit" ], [ true, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5" ]
+  %.0 = phi i1 [ %.0.i.i.i, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6" ], [ false, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit" ], [ true, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5" ]
   ret i1 %.0
 
 "_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6": ; preds = %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5"
@@ -7884,9 +7878,9 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   %26 = icmp eq i32 %24, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %26, i64 %23, i64 %25
   %27 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  %28 = icmp ult i64 %22, %18
-  %29 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  %30 = select i1 %27, i1 %28, i1 %29
+  %28 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
+  %29 = icmp ult i64 %22, %18
+  %.0.i.i.i = select i1 %27, i1 %29, i1 %28
   br label %14
 }
 
@@ -7948,7 +7942,7 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   br i1 %.not.i.i, label %29, label %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h5450b55813cec663E.llvm.14580040072198541846.exit.thread"
 
 "_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h5450b55813cec663E.llvm.14580040072198541846.exit.thread": ; preds = %19, %12, %6, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h658302e9b9f4857cE.exit", %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h5450b55813cec663E.llvm.14580040072198541846.exit", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h7c91fe32e1000235E.exit"
-  %.0 = phi i1 [ %58, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h7c91fe32e1000235E.exit" ], [ false, %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h5450b55813cec663E.llvm.14580040072198541846.exit" ], [ true, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h658302e9b9f4857cE.exit" ], [ false, %6 ], [ false, %12 ], [ true, %19 ]
+  %.0 = phi i1 [ %.0.i.i.i, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h7c91fe32e1000235E.exit" ], [ false, %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h5450b55813cec663E.llvm.14580040072198541846.exit" ], [ true, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h658302e9b9f4857cE.exit" ], [ false, %6 ], [ false, %12 ], [ true, %19 ]
   ret i1 %.0
 
 29:                                               ; preds = %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h658302e9b9f4857cE.exit"
@@ -8007,9 +8001,9 @@ define hidden noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_itera
   %54 = icmp eq i32 %52, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %54, i64 %51, i64 %53
   %55 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  %56 = icmp ult i64 %50, %46
-  %57 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
-  %58 = select i1 %55, i1 %56, i1 %57
+  %56 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i, 0
+  %57 = icmp ult i64 %50, %46
+  %.0.i.i.i = select i1 %55, i1 %57, i1 %56
   br label %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h5450b55813cec663E.llvm.14580040072198541846.exit.thread"
 }
 
@@ -8596,11 +8590,11 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeI
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr214drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hc649364c7284a447E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %4) #35
-          to label %common.resume unwind label %46
+          to label %common.resume unwind label %45
 
 10:                                               ; preds = %3
   %11 = icmp eq ptr %7, null
-  br i1 %11, label %12, label %39
+  br i1 %11, label %12, label %38
 
 12:                                               ; preds = %10
   call void @llvm.experimental.noalias.scope.decl(metadata !1112)
@@ -8653,51 +8647,51 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeI
   %33 = icmp eq i32 %31, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %33, i64 %30, i64 %32
   %34 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %35 = icmp ult i64 %29, %25
-  %36 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %37 = select i1 %34, i1 %35, i1 %36
-  %38 = zext i1 %37 to i8
+  %35 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
+  %36 = icmp ult i64 %29, %25
+  %.0.i.i.i.i = select i1 %34, i1 %36, i1 %35
+  %37 = zext i1 %.0.i.i.i.i to i8
   br label %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hc2446968efe33319E.llvm.14580040072198541846.exit"
 
-39:                                               ; preds = %10
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %40, align 8
+38:                                               ; preds = %10
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %39, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr81drop_in_place$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$17h10972b619d1bb9d9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %4)
-          to label %"_ZN4core3ptr214drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hc649364c7284a447E.exit" unwind label %41
+          to label %"_ZN4core3ptr214drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hc649364c7284a447E.exit" unwind label %40
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %38
+  %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr81drop_in_place$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$17h10972b619d1bb9d9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %5) #35
-          to label %common.resume unwind label %43
+          to label %common.resume unwind label %42
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
 
-common.resume:                                    ; preds = %8, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %9, %8 ]
+common.resume:                                    ; preds = %8, %40
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %9, %8 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr214drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hc649364c7284a447E.exit": ; preds = %39
+"_ZN4core3ptr214drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hc649364c7284a447E.exit": ; preds = %38
   call void @"_ZN4core3ptr81drop_in_place$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$17h10972b619d1bb9d9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %5)
-  br label %45
+  br label %44
 
 "_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hc2446968efe33319E.llvm.14580040072198541846.exit": ; preds = %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6.i", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5.i", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i"
-  %.0.i = phi i8 [ %38, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6.i" ], [ 0, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i" ], [ 1, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5.i" ]
+  %.0.i = phi i8 [ %37, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6.i" ], [ 0, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i" ], [ 1, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5.i" ]
   store i8 %.0.i, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(296) %4, i64 296, i1 false)
-  br label %45
+  br label %44
 
-45:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hc2446968efe33319E.llvm.14580040072198541846.exit", %"_ZN4core3ptr214drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hc649364c7284a447E.exit"
+44:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hc2446968efe33319E.llvm.14580040072198541846.exit", %"_ZN4core3ptr214drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17hc649364c7284a447E.exit"
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %4)
   ret void
 
-46:                                               ; preds = %8
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %8
+  %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
@@ -8759,11 +8753,11 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeI
   %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr344drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$C$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h7b877b2dc0b15744E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4) #35
-          to label %common.resume unwind label %66
+          to label %common.resume unwind label %65
 
 "_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit": ; preds = %28
   %32 = icmp eq ptr %29, null
-  br i1 %32, label %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.thread", label %59
+  br i1 %32, label %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.thread", label %58
 
 "_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.thread": ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit"
   %.pr.pre = load ptr, ptr %7, align 8, !alias.scope !1201, !noalias !1204
@@ -8807,51 +8801,51 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeI
   %53 = icmp eq i32 %51, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %53, i64 %50, i64 %52
   %54 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %55 = icmp ult i64 %49, %45
-  %56 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %57 = select i1 %54, i1 %55, i1 %56
-  %58 = zext i1 %57 to i8
+  %55 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
+  %56 = icmp ult i64 %49, %45
+  %.0.i.i.i.i = select i1 %54, i1 %56, i1 %55
+  %57 = zext i1 %.0.i.i.i.i to i8
   br label %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h4c317d006cf37f3bE.llvm.14580040072198541846.exit"
 
-59:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit"
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %29, ptr %60, align 8
+58:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit"
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %29, ptr %59, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr161drop_in_place$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$17h92efe11545a08bbdE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
-          to label %"_ZN4core3ptr344drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$C$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h7b877b2dc0b15744E.exit" unwind label %61
+          to label %"_ZN4core3ptr344drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$C$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h7b877b2dc0b15744E.exit" unwind label %60
 
-61:                                               ; preds = %59
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %58
+  %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr131drop_in_place$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$17h943a100732c54afbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #35
-          to label %common.resume unwind label %63
+          to label %common.resume unwind label %62
 
-63:                                               ; preds = %61
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %60
+  %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
 
-common.resume:                                    ; preds = %30, %61
-  %common.resume.op = phi { ptr, i32 } [ %62, %61 ], [ %31, %30 ]
+common.resume:                                    ; preds = %30, %60
+  %common.resume.op = phi { ptr, i32 } [ %61, %60 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr344drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$C$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h7b877b2dc0b15744E.exit": ; preds = %59
+"_ZN4core3ptr344drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$C$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h7b877b2dc0b15744E.exit": ; preds = %58
   call void @"_ZN4core3ptr131drop_in_place$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$17h943a100732c54afbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
-  br label %65
+  br label %64
 
 "_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h4c317d006cf37f3bE.llvm.14580040072198541846.exit": ; preds = %3, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit.i", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i8", %36, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i6", %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.thread"
-  %.0.i9 = phi i8 [ %58, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit.i" ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i6" ], [ 1, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i8" ], [ 0, %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.thread" ], [ 1, %36 ], [ 0, %3 ]
+  %.0.i9 = phi i8 [ %57, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit.i" ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i6" ], [ 1, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i8" ], [ 0, %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.thread" ], [ 1, %36 ], [ 0, %3 ]
   store i8 %.0.i9, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
-  br label %65
+  br label %64
 
-65:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h4c317d006cf37f3bE.llvm.14580040072198541846.exit", %"_ZN4core3ptr344drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$C$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h7b877b2dc0b15744E.exit"
+64:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17h4c317d006cf37f3bE.llvm.14580040072198541846.exit", %"_ZN4core3ptr344drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$C$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h7b877b2dc0b15744E.exit"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   ret void
 
-66:                                               ; preds = %30
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %30
+  %66 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
@@ -8965,11 +8959,11 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeI
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr264drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17h1998db4d684d4738E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %4) #35
-          to label %common.resume unwind label %48
+          to label %common.resume unwind label %47
 
 10:                                               ; preds = %3
   %11 = icmp eq ptr %7, null
-  br i1 %11, label %12, label %41
+  br i1 %11, label %12, label %40
 
 12:                                               ; preds = %10
   call void @llvm.experimental.noalias.scope.decl(metadata !1252)
@@ -9021,51 +9015,51 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeI
   %35 = icmp eq i32 %33, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %35, i64 %32, i64 %34
   %36 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %37 = icmp ult i64 %31, %27
-  %38 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %39 = select i1 %36, i1 %37, i1 %38
-  %40 = zext i1 %39 to i8
+  %37 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
+  %38 = icmp ult i64 %31, %27
+  %.0.i.i.i.i = select i1 %36, i1 %38, i1 %37
+  %39 = zext i1 %.0.i.i.i.i to i8
   br label %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hb97fb57d0ec2edd6E.llvm.14580040072198541846.exit"
 
-41:                                               ; preds = %10
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %42, align 8
+40:                                               ; preds = %10
+  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %41, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr131drop_in_place$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$17h943a100732c54afbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
-          to label %"_ZN4core3ptr264drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17h1998db4d684d4738E.exit" unwind label %43
+          to label %"_ZN4core3ptr264drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17h1998db4d684d4738E.exit" unwind label %42
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr81drop_in_place$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$17h10972b619d1bb9d9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %5) #35
-          to label %common.resume unwind label %45
+          to label %common.resume unwind label %44
 
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
 
-common.resume:                                    ; preds = %8, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %9, %8 ]
+common.resume:                                    ; preds = %8, %42
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %9, %8 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr264drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17h1998db4d684d4738E.exit": ; preds = %41
+"_ZN4core3ptr264drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17h1998db4d684d4738E.exit": ; preds = %40
   call void @"_ZN4core3ptr81drop_in_place$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$17h10972b619d1bb9d9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %5)
-  br label %47
+  br label %46
 
 "_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hb97fb57d0ec2edd6E.llvm.14580040072198541846.exit": ; preds = %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit.i", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i", %12
-  %.0.i = phi i8 [ %40, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit.i" ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i" ], [ 1, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i" ], [ 0, %12 ]
+  %.0.i = phi i8 [ %39, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit.i" ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i" ], [ 1, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i" ], [ 0, %12 ]
   store i8 %.0.i, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false)
-  br label %47
+  br label %46
 
-47:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hb97fb57d0ec2edd6E.llvm.14580040072198541846.exit", %"_ZN4core3ptr264drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17h1998db4d684d4738E.exit"
+46:                                               ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hb97fb57d0ec2edd6E.llvm.14580040072198541846.exit", %"_ZN4core3ptr264drop_in_place$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$C$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$17h1998db4d684d4738E.exit"
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4)
   ret void
 
-48:                                               ; preds = %8
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %8
+  %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
@@ -9911,7 +9905,7 @@ define hidden noundef ptr @"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_itera
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = tail call noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17head0a1039cc7d403E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %69, label %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit.thread"
+  br i1 %8, label %68, label %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit.thread"
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 80
@@ -10019,31 +10013,31 @@ define hidden noundef ptr @"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_itera
   %63 = icmp eq i32 %61, 0
   %spec.store.select.i.i.i.i.i.i.i.i.i = select i1 %63, i64 %60, i64 %62
   %64 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 0
-  %65 = icmp ult i64 %59, %55
-  %66 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 0
-  %67 = select i1 %64, i1 %65, i1 %66
-  %68 = zext i1 %67 to i8
+  %65 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 0
+  %66 = icmp ult i64 %59, %55
+  %.0.i.i.i.i.i = select i1 %64, i1 %66, i1 %65
+  %67 = zext i1 %.0.i.i.i.i.i to i8
   br label %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit"
 
 "_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit": ; preds = %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i.i", %20, %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.thread.i", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i24.i", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i24.i.thread", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i26.i", %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit.i.i"
-  %.0.i27.i = phi i8 [ %68, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit.i.i" ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i24.i" ], [ 1, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i26.i" ], [ 0, %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.thread.i" ], [ 1, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i24.i.thread" ], [ 0, %20 ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i.i" ]
+  %.0.i27.i = phi i8 [ %67, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h6b39ac98df3fa68aE.exit.i.i" ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i24.i" ], [ 1, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i26.i" ], [ 0, %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.thread.i" ], [ 1, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i24.i.thread" ], [ 0, %20 ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h53c7bfba610591c5E.exit.i.i" ]
   store i8 %.0.i27.i, ptr %10, align 8, !alias.scope !1490
-  br label %69
+  br label %68
 
-69:                                               ; preds = %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit", %5
-  %70 = tail call noundef ptr @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h1e616445bfad1039E.llvm.14580040072198541846"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0)
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit.thread"
+68:                                               ; preds = %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit", %5
+  %69 = tail call noundef ptr @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h1e616445bfad1039E.llvm.14580040072198541846"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0)
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit.thread"
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %0, i64 88
-  %74 = tail call noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hcc8d02d9aaa22b1eE.llvm.14580040072198541846"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %73)
-  %75 = zext i1 %74 to i8
-  store i8 %75, ptr %2, align 8
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %0, i64 88
+  %73 = tail call noundef zeroext i1 @"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hcc8d02d9aaa22b1eE.llvm.14580040072198541846"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %72)
+  %74 = zext i1 %73 to i8
+  store i8 %74, ptr %2, align 8
   br label %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit.thread"
 
-"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit.thread": ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.i", %17, %13, %69, %5, %72
-  %.0 = phi ptr [ null, %72 ], [ %7, %5 ], [ %70, %69 ], [ %43, %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.i" ], [ %18, %17 ], [ %15, %13 ]
+"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17he640783ad8fb157eE.exit.thread": ; preds = %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.i", %17, %13, %68, %5, %71
+  %.0 = phi ptr [ null, %71 ], [ %7, %5 ], [ %69, %68 ], [ %43, %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$6skip_b17h100159bdd2dc1fddE.llvm.14580040072198541846.exit.i" ], [ %18, %17 ], [ %15, %13 ]
   ret ptr %.0
 }
 
@@ -10133,14 +10127,14 @@ define hidden noundef ptr @"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_itera
   %45 = icmp eq i32 %43, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %45, i64 %42, i64 %44
   %46 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %47 = icmp ult i64 %41, %37
-  %48 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %49 = select i1 %46, i1 %47, i1 %48
-  %50 = zext i1 %49 to i8
+  %47 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
+  %48 = icmp ult i64 %41, %37
+  %.0.i.i.i.i = select i1 %46, i1 %48, i1 %47
+  %49 = zext i1 %.0.i.i.i.i to i8
   br label %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hb97fb57d0ec2edd6E.llvm.14580040072198541846.exit"
 
 "_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hb97fb57d0ec2edd6E.llvm.14580040072198541846.exit": ; preds = %22, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit.i"
-  %.0.i24 = phi i8 [ %50, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit.i" ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i" ], [ 1, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i" ], [ 0, %22 ]
+  %.0.i24 = phi i8 [ %49, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit.i" ], [ 0, %"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17he94b80dbb0db02c3E.exit.i" ], [ 1, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i" ], [ 0, %22 ]
   store i8 %.0.i24, ptr %2, align 8
   br label %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17h889123c13d2c8ff2E.exit.thread"
 
@@ -10256,14 +10250,14 @@ define hidden noundef ptr @"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_itera
   %52 = icmp eq i32 %50, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %52, i64 %49, i64 %51
   %53 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %54 = icmp ult i64 %48, %44
-  %55 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %56 = select i1 %53, i1 %54, i1 %55
-  %57 = zext i1 %56 to i8
+  %54 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
+  %55 = icmp ult i64 %48, %44
+  %.0.i.i.i.i = select i1 %53, i1 %55, i1 %54
+  %56 = zext i1 %.0.i.i.i.i to i8
   br label %"_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hc2446968efe33319E.llvm.14580040072198541846.exit"
 
 "_ZN13mini_lsm_mvcc9iterators18two_merge_iterator29TwoMergeIterator$LT$A$C$B$GT$8choose_a17hc2446968efe33319E.llvm.14580040072198541846.exit": ; preds = %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5.i", %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6.i"
-  %.0.i26 = phi i8 [ %57, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6.i" ], [ 0, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i" ], [ 1, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5.i" ]
+  %.0.i26 = phi i8 [ %56, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$3key17h100fcc5ac322dcf1E.exit6.i" ], [ 0, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit.i" ], [ 1, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit5.i" ]
   store i8 %.0.i26, ptr %2, align 8
   br label %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17h889123c13d2c8ff2E.exit.thread"
 

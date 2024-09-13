@@ -85846,15 +85846,15 @@ default.unreachable:                              ; preds = %70
   %.sroa.11.0332.i.i = phi i8 [ %.sroa.11.0.lcssa.i.i, %"_ZN85_$LT$unicode_segmentation..word..UWordBoundsState$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2f6bb623317263d0E.exit143.i.i" ], [ %.sroa.11.0435.i.i, %79 ], [ %.sroa.11.0435.i.i, %117 ], [ %.sroa.11.0435.i.i, %118 ], [ %.sroa.11.0435.i.i, %120 ], [ %.sroa.11.0435.i.i, %121 ], [ %.sroa.11.0435.i.i, %.thread181.i.i.loopexit ]
   %.1189.i.i = phi i8 [ %.0.lcssa.i.i, %"_ZN85_$LT$unicode_segmentation..word..UWordBoundsState$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2f6bb623317263d0E.exit143.i.i" ], [ %.0117.i.i, %79 ], [ %.0117.i.i, %117 ], [ %.0117.i.i, %118 ], [ %.0117.i.i, %120 ], [ %.0117.i.i, %121 ], [ %.0117.i.i, %.thread181.i.i.loopexit ]
   %.1102188.i.i = phi i64 [ %.0101.lcssa.i.i, %"_ZN85_$LT$unicode_segmentation..word..UWordBoundsState$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2f6bb623317263d0E.exit143.i.i" ], [ %.sroa.10.0433.i.i, %79 ], [ %.sroa.10.0433.i.i, %117 ], [ %.sroa.10.0433.i.i, %118 ], [ %.sroa.10.0433.i.i, %120 ], [ %.sroa.10.0433.i.i, %121 ], [ %.sroa.10.0433.i.i, %.thread181.i.i.loopexit ]
-  %.1106187.not893.i.i = phi i1 [ false, %"_ZN85_$LT$unicode_segmentation..word..UWordBoundsState$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2f6bb623317263d0E.exit143.i.i" ], [ true, %79 ], [ false, %121 ], [ true, %120 ], [ false, %118 ], [ false, %117 ], [ false, %.thread181.i.i.loopexit ]
+  %.0111186.not893.i.i = phi i1 [ false, %"_ZN85_$LT$unicode_segmentation..word..UWordBoundsState$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2f6bb623317263d0E.exit143.i.i" ], [ true, %79 ], [ false, %121 ], [ true, %120 ], [ false, %118 ], [ false, %117 ], [ false, %.thread181.i.i.loopexit ]
   %124 = and i8 %.sroa.11.0332.i.i, 6
   %or.cond8.i.i = icmp eq i8 %124, 2
   %125 = icmp eq i8 %.sroa.11.0332.i.i, 5
   %or.cond11.not.not896.i.i = or i1 %125, %or.cond8.i.i
   %.4.i.i = select i1 %or.cond11.not.not896.i.i, i64 %.0121.ph431.i.i, i64 %.1102188.i.i
   %.3.i.i = select i1 %or.cond11.not.not896.i.i, i8 %.0118.ph422.i.i, i8 %.1189.i.i
-  %brmerge892.i.i = select i1 %.1106187.not893.i.i, i1 true, i1 %or.cond11.not.not896.i.i
-  %spec.select = select i1 %.1106187.not893.i.i, i8 19, i8 %.3.i.i
+  %brmerge892.i.i = select i1 %.0111186.not893.i.i, i1 true, i1 %or.cond11.not.not896.i.i
+  %spec.select = select i1 %.0111186.not893.i.i, i8 19, i8 %.3.i.i
   br i1 %brmerge892.i.i, label %.thread224.i.i, label %.thread.thread218.i.i
 
 .thread.thread218.i.i:                            ; preds = %89, %86, %73, %73, %.thread181.i.i, %82, %"_ZN85_$LT$unicode_segmentation..word..UWordBoundsState$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2f6bb623317263d0E.exit143.i.i"
