@@ -8723,7 +8723,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %44, %.noexc239, %_Z
   %indvars.iv394 = phi i64 [ %indvars.iv.next395, %.lr.ph311 ], [ 0, %80 ]
   %93 = getelementptr inbounds i8, ptr %.sroa.0255.0, i64 %indvars.iv394
   %94 = load i8, ptr %93, align 1
-  %95 = getelementptr nusw i8, ptr %91, i64 %indvars.iv394
+  %95 = getelementptr i8, ptr %91, i64 %indvars.iv394
   store i8 %94, ptr %95, align 1
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %exitcond398.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count397

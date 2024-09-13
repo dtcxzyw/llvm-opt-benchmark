@@ -24173,7 +24173,7 @@ select.unfold:                                    ; preds = %49, %46, %40
   br i1 %exitcond270.not, label %.preheader237.us, label %237, !llvm.loop !324
 
 247:                                              ; preds = %255
-  %248 = getelementptr nusw i8, ptr %.0179252.us, i64 1
+  %248 = getelementptr i8, ptr %.0179252.us, i64 1
   %249 = add nsw i32 %317, 16384
   %250 = ashr i32 %249, 15
   %251 = tail call i32 @llvm.smax.i32(i32 %250, i32 0)
@@ -26595,7 +26595,7 @@ define internal void @_ZN2cvL13remapLanczos4INS_11FixedPtCastIihLi15EEEsLi32768E
   br i1 %exitcond272.not, label %.preheader239.us, label %239, !llvm.loop !364
 
 249:                                              ; preds = %257
-  %250 = getelementptr nusw i8, ptr %.0185254.us, i64 1
+  %250 = getelementptr i8, ptr %.0185254.us, i64 1
   %251 = add nsw i32 %319, 16384
   %252 = ashr i32 %251, 15
   %253 = tail call i32 @llvm.smax.i32(i32 %252, i32 0)

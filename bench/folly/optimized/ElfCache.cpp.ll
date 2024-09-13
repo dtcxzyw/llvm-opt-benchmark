@@ -2188,7 +2188,7 @@ _ZNSt12_Vector_baseIcN5folly19reentrant_allocatorIcEEE13_M_deallocateEPcm.exit: 
   br label %if.end103
 
 if.end103.critedge:                               ; preds = %_ZSt22__uninitialized_copy_aIPKcPcN5folly19reentrant_allocatorIcEEET0_T_S7_S6_RT1_.exit
-  %add.ptr55.c = getelementptr nusw i8, ptr %27, i64 %sub.ptr.sub.i.i
+  %add.ptr55.c = getelementptr i8, ptr %27, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr55.c, ptr %_M_finish, align 8, !tbaa !24
   br label %if.end103
 

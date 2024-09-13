@@ -564,7 +564,7 @@ define void @_Z9rm_gropbcPK7t_atomsPA3_fPA3_Kf(ptr nocapture noundef readonly %0
   %indvars.iv56 = phi i64 [ 3, %.preheader38 ], [ %indvars.iv.next57, %.loopexit ]
   %7 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv63, i64 %indvars.iv58
   %8 = load float, ptr %7, align 4
-  %9 = getelementptr nusw [3 x float], ptr %invariant.gep, i64 %indvars.iv63, i64 %indvars.iv58
+  %9 = getelementptr [3 x float], ptr %invariant.gep, i64 %indvars.iv63, i64 %indvars.iv58
   %10 = load float, ptr %9, align 4
   %11 = fsub float %8, %10
   %12 = tail call noundef float @llvm.fabs.f32(float %11)
