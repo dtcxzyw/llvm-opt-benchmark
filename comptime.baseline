@@ -174,7 +174,7 @@ abc/aigScl.c.ll 711758052
 abc/aigShow.c.ll 186279687
 abc/aigSplit.c.ll 226732121
 abc/aigTable.c.ll 164550626
-abc/aigTiming.c.ll 477862422
+abc/aigTiming.c.ll 477374895
 abc/aigTsim.c.ll 380478978
 abc/aigUtil.c.ll 1094327412
 abc/aigWin.c.ll 149909716
@@ -477,7 +477,7 @@ abc/fxuCreate.c.ll 234364041
 abc/fxuHeapD.c.ll 144508036
 abc/fxuHeapS.c.ll 144027514
 abc/fxuMatrix.c.ll 93719381
-abc/fxuPair.c.ll 151468617
+abc/fxuPair.c.ll 151307849
 abc/fxuPrint.c.ll 112670944
 abc/fxuReduce.c.ll 129786339
 abc/fxuSelect.c.ll 206135080
@@ -644,7 +644,7 @@ abc/io.c.ll 940226265
 abc/ioJson.c.ll 287785833
 abc/ioReadAiger.c.ll 428406349
 abc/ioReadBaf.c.ll 163520604
-abc/ioReadBblif.c.ll 201936546
+abc/ioReadBblif.c.ll 201734307
 abc/ioReadBench.c.ll 357016153
 abc/ioReadBlif.c.ll 1069686723
 abc/ioReadBlifAig.c.ll 1045403606
@@ -3620,7 +3620,7 @@ cmake/fld_newftyp.c.ll 46681402
 cmake/fld_opts.c.ll 43256526
 cmake/fld_page.c.ll 41054024
 cmake/fopen.c.ll 69177556
-cmake/formdata.c.ll 480167039
+cmake/formdata.c.ll 479683327
 cmake/frm_data.c.ll 73319121
 cmake/frm_def.c.ll 135689156
 cmake/frm_driver.c.ll 1046691699
@@ -7097,7 +7097,7 @@ flac/stream_encoder_intrin_ssse3.c.ll 123897676
 flac/usage.c.ll 136312402
 flac/utf8.c.ll 64401827
 flac/util.c.ll 70954814
-flac/utils.c.ll 252767285
+flac/utils.c.ll 252507845
 flac/vorbiscomment.c.ll 103841843
 flac/window.c.ll 339953772
 flatbuffers/annotated_binary_text_gen.cpp.ll 952854273
@@ -24609,7 +24609,7 @@ openjdk/mlib_ImageAffine_NN_Bit.ll 150726432
 openjdk/mlib_ImageClipping.ll 66078367
 openjdk/mlib_ImageConvClearEdge_Bit.ll 202315309
 openjdk/mlib_ImageConvClearEdge_Fp.ll 198979268
-openjdk/mlib_ImageConvCopyEdge_Bit.ll 408818927
+openjdk/mlib_ImageConvCopyEdge_Bit.ll 408406352
 openjdk/mlib_ImageConvKernelConvert.ll 117130963
 openjdk/mlib_ImageConvMxN.ll 75817039
 openjdk/mlib_ImageConvMxN_Fp.ll 380816054
@@ -25934,7 +25934,7 @@ openmpi/libmpi_c_profile_la-session_get_num_psets.ll 69174443
 openmpi/libmpi_c_profile_la-session_get_pset_info.ll 71025011
 openmpi/libmpi_c_profile_la-session_init.ll 79536641
 openmpi/libmpi_c_profile_la-ssend.ll 102759318
-openmpi/libmpi_c_profile_la-ssend_init.ll 90215761
+openmpi/libmpi_c_profile_la-ssend_init.ll 90114127
 openmpi/libmpi_c_profile_la-start.ll 69045386
 openmpi/libmpi_c_profile_la-startall.ll 66089838
 openmpi/libmpi_c_profile_la-status_c2f08.ll 49510195
@@ -26280,7 +26280,7 @@ openmpi/pcomm_set_name_f.ll 65417336
 openmpi/pcomm_shrink.ll 71538901
 openmpi/pcompress_base_frame.ll 47116283
 openmpi/pcompress_base_select.ll 40612538
-openmpi/pctrl.ll 251199716
+openmpi/pctrl.ll 250939451
 openmpi/pdist_graph_create_adjacent_f.ll 42138375
 openmpi/pdist_graph_create_f.ll 42964956
 openmpi/pdl_base_select.ll 37482268
@@ -31087,7 +31087,7 @@ postgres/ginlogic.ll 97440681
 postgres/ginpostinglist.ll 170966050
 postgres/ginscan.ll 166231833
 postgres/ginutil.ll 200683031
-postgres/ginvacuum.ll 333183839
+postgres/ginvacuum.ll 332849823
 postgres/ginvalidate.ll 125477109
 postgres/ginxlog.ll 309931722
 postgres/gist.ll 560513112
@@ -33104,7 +33104,7 @@ qemu/source_s_roundToUI32.c.ll 46355628
 qemu/source_s_shiftRightJam256M.c.ll 72895737
 qemu/source_s_shiftRightJam32.c.ll 38328285
 qemu/source_s_subMagsF16.c.ll 97012336
-qemu/stats_stats-hmp-cmds.c.ll 161875778
+qemu/stats_stats-hmp-cmds.c.ll 161712859
 qemu/stats_stats-qmp-cmds.c.ll 92039746
 qemu/stubs_bdrv-next-monitor-owned.c.ll 34862786
 qemu/stubs_blk-commit-all.c.ll 34666797
@@ -37746,7 +37746,7 @@ wasmedge/import_export.cpp.ll 5702021410
 wasmedge/inode-linux.cpp.ll 2178708615
 wasmedge/instance.cpp.ll 6685259439
 wasmedge/instruction.cpp.ll 6771557600
-wasmedge/int128.cpp.ll 65474734
+wasmedge/int128.cpp.ll 65402829
 wasmedge/jit.cpp.ll 5855630988
 wasmedge/loader.cpp.ll 8972821210
 wasmedge/memory.cpp.ll 5413177448
@@ -39455,7 +39455,7 @@ wireshark/packet-lldp.c.ll 894365962
 wireshark/packet-llrp.c.ll 570305504
 wireshark/packet-lls-slt.c.ll 105349499
 wireshark/packet-lmp.c.ll 440054963
-wireshark/packet-lnet.c.ll 169813580
+wireshark/packet-lnet.c.ll 169643344
 wireshark/packet-locamation-im.c.ll 252141390
 wireshark/packet-log3gpp.c.ll 157476988
 wireshark/packet-logcat-text.c.ll 118928249
@@ -40092,7 +40092,7 @@ wireshark/radius_dict.c.ll 671621875
 wireshark/randpkt.c.ll 90445542
 wireshark/randpkt_core.c.ll 106675461
 wireshark/randpktdump.c.ll 99154712
-wireshark/range.c.ll 154009274
+wireshark/range.c.ll 153854423
 wireshark/range_syntax_lineedit.cpp.ll 111111383
 wireshark/reassemble.c.ll 1054686908
 wireshark/recent.c.ll 391221310
