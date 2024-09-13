@@ -222,16 +222,27 @@ if.then2.i:                                       ; preds = %if.else.i
   br label %cond.end
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call.i5.i = tail call noundef float @powf(float noundef %.sroa.speculated, float noundef 5.000000e-01) #19
+  %sqrtf.i2 = invoke float @sqrtf(float %.sroa.speculated)
+          to label %sqrtf.i.noexc unwind label %terminate.lpad
+
+sqrtf.i.noexc:                                    ; preds = %if.else4.i
+  %abs.i = tail call float @llvm.fabs.f32(float %sqrtf.i2)
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   %5 = load float, ptr %m_sliderMinEdge5, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else4.i, %if.then2.i, %if.then.i, %cond.false
-  %cond = phi float [ %5, %cond.false ], [ %mul.i, %if.then.i ], [ %4, %if.then2.i ], [ %call.i5.i, %if.else4.i ]
+cond.end:                                         ; preds = %sqrtf.i.noexc, %if.then2.i, %if.then.i, %cond.false
+  %cond = phi float [ %5, %cond.false ], [ %mul.i, %if.then.i ], [ %4, %if.then2.i ], [ %abs.i, %sqrtf.i.noexc ]
   ret float %cond
+
+terminate.lpad:                                   ; preds = %if.else4.i
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #20
+  unreachable
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -292,16 +303,27 @@ if.then2.i:                                       ; preds = %if.else.i
   br label %cond.end
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call.i5.i = tail call noundef float @powf(float noundef %.sroa.speculated, float noundef 5.000000e-01) #19
+  %sqrtf.i2 = invoke float @sqrtf(float %.sroa.speculated)
+          to label %sqrtf.i.noexc unwind label %terminate.lpad
+
+sqrtf.i.noexc:                                    ; preds = %if.else4.i
+  %abs.i = tail call float @llvm.fabs.f32(float %sqrtf.i2)
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
   %5 = load float, ptr %m_sliderMaxEdge5, align 4
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else4.i, %if.then2.i, %if.then.i, %cond.false
-  %cond = phi float [ %5, %cond.false ], [ %mul.i, %if.then.i ], [ %4, %if.then2.i ], [ %call.i5.i, %if.else4.i ]
+cond.end:                                         ; preds = %sqrtf.i.noexc, %if.then2.i, %if.then.i, %cond.false
+  %cond = phi float [ %5, %cond.false ], [ %mul.i, %if.then.i ], [ %4, %if.then2.i ], [ %abs.i, %sqrtf.i.noexc ]
   ret float %cond
+
+terminate.lpad:                                   ; preds = %if.else4.i
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #20
+  unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -396,11 +418,15 @@ if.then2.i:                                       ; preds = %if.else.i
   br label %cond.end
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call.i5.i = tail call noundef float @powf(float noundef %mixingUnits, float noundef 5.000000e-01) #19
+  %sqrtf.i2 = invoke float @sqrtf(float %mixingUnits)
+          to label %sqrtf.i.noexc unwind label %terminate.lpad
+
+sqrtf.i.noexc:                                    ; preds = %if.else4.i
+  %abs.i = tail call float @llvm.fabs.f32(float %sqrtf.i2)
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else4.i, %if.then2.i, %if.then.i, %entry
-  %cond = phi float [ %mixingUnits, %entry ], [ %mul.i, %if.then.i ], [ %2, %if.then2.i ], [ %call.i5.i, %if.else4.i ]
+cond.end:                                         ; preds = %sqrtf.i.noexc, %if.then2.i, %if.then.i, %entry
+  %cond = phi float [ %mixingUnits, %entry ], [ %mul.i, %if.then.i ], [ %2, %if.then2.i ], [ %abs.i, %sqrtf.i.noexc ]
   %vtable3 = load ptr, ptr %this, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 8
   %3 = load ptr, ptr %vfn4, align 8
@@ -417,6 +443,13 @@ cond.end:                                         ; preds = %if.else4.i, %if.the
   %sub12 = fsub float %call8, %call11
   %div = fdiv float %sub, %sub12
   ret float %div
+
+terminate.lpad:                                   ; preds = %if.else4.i
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  tail call void @__clang_call_terminate(ptr %7) #20
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4196,6 +4229,11 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #10
+
+declare float @sqrtf(float) local_unnamed_addr
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
