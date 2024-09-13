@@ -8505,7 +8505,7 @@ gromacs/dorgl2.cpp.ll 91809728
 gromacs/dorglq.cpp.ll 118798962
 gromacs/dorgqr.cpp.ll 116531475
 gromacs/dorm2l.cpp.ll 65716234
-gromacs/dorm2r.cpp.ll 65227914
+gromacs/dorm2r.cpp.ll 65293273
 gromacs/dormbr.cpp.ll 57378860
 gromacs/dorml2.cpp.ll 64270643
 gromacs/dormlq.cpp.ll 80753492
@@ -25068,7 +25068,7 @@ openjdk/vmOperations.ll 493789323
 openjdk/vmStructs.ll 8941048154
 openjdk/vmStructs_jvmci.ll 6254019552
 openjdk/vmStructs_x.ll 49408468
-openjdk/vmStructs_z.ll 49349729
+openjdk/vmStructs_z.ll 49399151
 openjdk/vmSymbols.ll 165787029
 openjdk/vmThread.ll 881498807
 openjdk/vm_version.ll 82591170
@@ -27586,7 +27586,7 @@ openssl/libcrypto-lib-hmac.ll 107309055
 openssl/libcrypto-lib-hpke.ll 376852225
 openssl/libcrypto-lib-hpke_util.ll 160596362
 openssl/libcrypto-lib-http_client.ll 501009846
-openssl/libcrypto-lib-http_err.ll 37656597
+openssl/libcrypto-lib-http_err.ll 37694281
 openssl/libcrypto-lib-http_lib.ll 146946981
 openssl/libcrypto-lib-i_cbc.ll 369890447
 openssl/libcrypto-lib-info.ll 45457556
@@ -27616,7 +27616,7 @@ openssl/libcrypto-lib-md4_one.ll 37790283
 openssl/libcrypto-lib-md5_dgst.ll 68106168
 openssl/libcrypto-lib-md5_one.ll 37790786
 openssl/libcrypto-lib-md5_sha1.ll 54578829
-openssl/libcrypto-lib-mdc2_one.ll 37795118
+openssl/libcrypto-lib-mdc2_one.ll 37832955
 openssl/libcrypto-lib-mdc2dgst.ll 84462224
 openssl/libcrypto-lib-mem.ll 80231709
 openssl/libcrypto-lib-mem_sec.ll 455954492
@@ -30659,7 +30659,7 @@ php/streamsfuncs.ll 976816477
 php/string.ll 7518058406
 php/strlcat.ll 49328884
 php/strlcpy.ll 44533061
-php/strnatcmp.ll 136540744
+php/strnatcmp.ll 136677673
 php/strtod.ll 215036936
 php/syslog.ll 73242949
 php/tar.ll 723875850
