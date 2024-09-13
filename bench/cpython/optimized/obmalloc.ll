@@ -8135,7 +8135,8 @@ _mi_align_up.exit.i:                              ; preds = %if.else.i.i19, %if.
 
 if.end12.i21:                                     ; preds = %_mi_align_up.exit.i
   %8 = ptrtoint ptr %call9.i to i64
-  %rem.i = urem i64 %8, %retval.0.i13
+  %9 = add i64 %retval.0.i13, -1
+  %rem.i = and i64 %9, %8
   %cmp13.i = icmp eq i64 %rem.i, 0
   br i1 %cmp13.i, label %if.then7, label %if.else.i22
 
@@ -8150,12 +8151,12 @@ if.end.i.i:                                       ; preds = %if.else.i22
 
 _mi_prim_free.exit.i.i:                           ; preds = %if.end.i.i
   %call1.i.i.i = tail call ptr @__errno_location() #55
-  %9 = load i32, ptr %call1.i.i.i, align 4
-  %cmp2.not.i.i = icmp eq i32 %9, 0
+  %10 = load i32, ptr %call1.i.i.i, align 4
+  %cmp2.not.i.i = icmp eq i32 %10, 0
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %_mi_prim_free.exit.i.i
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.89, i32 noundef %9, i32 noundef %9, i64 noundef %retval.0.i.i, ptr noundef nonnull %call9.i)
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.89, i32 noundef %10, i32 noundef %10, i64 noundef %retval.0.i.i, ptr noundef nonnull %call9.i)
   br label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then3.i.i, %_mi_prim_free.exit.i.i, %if.end.i.i
@@ -8163,61 +8164,61 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %_mi_
   br i1 %commit, label %if.end.i.i.i.i, label %if.end.i.i12.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end4.i.i
-  %10 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i.i monotonic, align 8
-  %add.i.i.i.i = sub i64 %10, %retval.0.i.i
-  %11 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
+  %11 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120), i64 %sub.i.i.i monotonic, align 8
+  %add.i.i.i.i = sub i64 %11, %retval.0.i.i
+  %12 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   br label %while.cond.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i, %if.end.i.i.i.i
-  %current.0.i.i.i.i.i = phi i64 [ %11, %if.end.i.i.i.i ], [ %14, %land.rhs.i.i.i.i.i ]
+  %current.0.i.i.i.i.i = phi i64 [ %12, %if.end.i.i.i.i ], [ %15, %land.rhs.i.i.i.i.i ]
   %cmp.i21.i.i.i.i = icmp slt i64 %current.0.i.i.i.i.i, %add.i.i.i.i
   br i1 %cmp.i21.i.i.i.i, label %land.rhs.i.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %while.cond.i.i.i.i.i
-  %12 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
-  %13 = extractvalue { i64, i1 } %12, 1
-  %14 = extractvalue { i64, i1 } %12, 0
-  br i1 %13, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
+  %13 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112), i64 %current.0.i.i.i.i.i, i64 %add.i.i.i.i release monotonic, align 8
+  %14 = extractvalue { i64, i1 } %13, 1
+  %15 = extractvalue { i64, i1 } %13, 0
+  br i1 %14, label %mi_atomic_maxi64_relaxed.exit.i.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !5
 
 mi_atomic_maxi64_relaxed.exit.i.i.i.i:            ; preds = %land.rhs.i.i.i.i.i, %while.cond.i.i.i.i.i
   %cmp4.i.i.i.i = icmp sgt i64 %sub.i.i.i, 0
   br i1 %cmp4.i.i.i.i, label %if.then5.i.i.i.i, label %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i.i
-  %15 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i.i monotonic, align 8
+  %16 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 %sub.i.i.i monotonic, align 8
   br label %if.end.i.i12.i.i
 
 if.else.i.i.i.i:                                  ; preds = %mi_atomic_maxi64_relaxed.exit.i.i.i.i
-  %16 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %retval.0.i.i monotonic, align 8
+  %17 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 104), i64 %retval.0.i.i monotonic, align 8
   br label %if.end.i.i12.i.i
 
 if.end.i.i12.i.i:                                 ; preds = %if.else.i.i.i.i, %if.then5.i.i.i.i, %if.end4.i.i
-  %17 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 %sub.i.i.i monotonic, align 8
-  %add.i.i13.i.i = sub i64 %17, %retval.0.i.i
-  %18 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
+  %18 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 88), i64 %sub.i.i.i monotonic, align 8
+  %add.i.i13.i.i = sub i64 %18, %retval.0.i.i
+  %19 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80) monotonic, align 16
   br label %while.cond.i.i.i14.i.i
 
 while.cond.i.i.i14.i.i:                           ; preds = %land.rhs.i.i.i21.i.i, %if.end.i.i12.i.i
-  %current.0.i.i.i15.i.i = phi i64 [ %18, %if.end.i.i12.i.i ], [ %21, %land.rhs.i.i.i21.i.i ]
+  %current.0.i.i.i15.i.i = phi i64 [ %19, %if.end.i.i12.i.i ], [ %22, %land.rhs.i.i.i21.i.i ]
   %cmp.i21.i.i16.i.i = icmp slt i64 %current.0.i.i.i15.i.i, %add.i.i13.i.i
   br i1 %cmp.i21.i.i16.i.i, label %land.rhs.i.i.i21.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i17.i.i
 
 land.rhs.i.i.i21.i.i:                             ; preds = %while.cond.i.i.i14.i.i
-  %19 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i.i, i64 %add.i.i13.i.i release monotonic, align 8
-  %20 = extractvalue { i64, i1 } %19, 1
-  %21 = extractvalue { i64, i1 } %19, 0
-  br i1 %20, label %mi_atomic_maxi64_relaxed.exit.i.i17.i.i, label %while.cond.i.i.i14.i.i, !llvm.loop !5
+  %20 = cmpxchg weak ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 80), i64 %current.0.i.i.i15.i.i, i64 %add.i.i13.i.i release monotonic, align 8
+  %21 = extractvalue { i64, i1 } %20, 1
+  %22 = extractvalue { i64, i1 } %20, 0
+  br i1 %21, label %mi_atomic_maxi64_relaxed.exit.i.i17.i.i, label %while.cond.i.i.i14.i.i, !llvm.loop !5
 
 mi_atomic_maxi64_relaxed.exit.i.i17.i.i:          ; preds = %land.rhs.i.i.i21.i.i, %while.cond.i.i.i14.i.i
   %cmp4.i.i18.i.i = icmp sgt i64 %sub.i.i.i, 0
   br i1 %cmp4.i.i18.i.i, label %if.then5.i.i20.i.i, label %if.else.i.i19.i.i
 
 if.then5.i.i20.i.i:                               ; preds = %mi_atomic_maxi64_relaxed.exit.i.i17.i.i
-  %22 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 %sub.i.i.i monotonic, align 8
+  %23 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 %sub.i.i.i monotonic, align 8
   br label %mi_os_prim_free.exit.i
 
 if.else.i.i19.i.i:                                ; preds = %mi_atomic_maxi64_relaxed.exit.i.i17.i.i
-  %23 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 %retval.0.i.i monotonic, align 8
+  %24 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 72), i64 %retval.0.i.i monotonic, align 8
   br label %mi_os_prim_free.exit.i
 
 mi_os_prim_free.exit.i:                           ; preds = %if.else.i.i19.i.i, %if.then5.i.i20.i.i, %if.else.i22
@@ -8232,35 +8233,34 @@ if.end19.i:                                       ; preds = %mi_os_prim_free.exi
   br i1 %cmp34.i, label %return, label %mi_align_up_ptr.exit79.i
 
 mi_align_up_ptr.exit79.i:                         ; preds = %if.end19.i
-  %24 = ptrtoint ptr %call33.i to i64
-  %sub.i.i70.i = add i64 %retval.0.i13, -1
-  %add.i.i72.i = add i64 %sub.i.i70.i, %24
+  %25 = ptrtoint ptr %call33.i to i64
+  %add.i.i72.i = add i64 %9, %25
   %not.i.i77.i = sub i64 0, %retval.0.i13
   %and1.i.i78.i = and i64 %add.i.i72.i, %not.i.i77.i
-  %25 = inttoptr i64 %and1.i.i78.i to ptr
-  %sub.ptr.sub.i = sub i64 %and1.i.i78.i, %24
-  %26 = load i64, ptr @mi_os_mem_config.0, align 8
-  %27 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
-  %cmp.i81.i = icmp ult i64 %27, 2
+  %26 = inttoptr i64 %and1.i.i78.i to ptr
+  %sub.ptr.sub.i = sub i64 %and1.i.i78.i, %25
+  %27 = load i64, ptr @mi_os_mem_config.0, align 8
+  %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
+  %cmp.i81.i = icmp ult i64 %28, 2
   %sub.i80.i = add i64 %retval.0.i.i, -1
-  %add.i82.i = add i64 %sub.i80.i, %26
+  %add.i82.i = add i64 %sub.i80.i, %27
   br i1 %cmp.i81.i, label %if.then.i86.i, label %if.else.i83.i
 
 if.then.i86.i:                                    ; preds = %mi_align_up_ptr.exit79.i
-  %not.i87.i = sub i64 0, %26
+  %not.i87.i = sub i64 0, %27
   %and1.i88.i = and i64 %add.i82.i, %not.i87.i
   br label %_mi_align_up.exit89.i
 
 if.else.i83.i:                                    ; preds = %mi_align_up_ptr.exit79.i
-  %28 = urem i64 %add.i82.i, %26
-  %mul.i84.i = sub nuw i64 %add.i82.i, %28
+  %29 = urem i64 %add.i82.i, %27
+  %mul.i84.i = sub nuw i64 %add.i82.i, %29
   br label %_mi_align_up.exit89.i
 
 _mi_align_up.exit89.i:                            ; preds = %if.else.i83.i, %if.then.i86.i
   %retval.0.i85.i = phi i64 [ %and1.i88.i, %if.then.i86.i ], [ %mul.i84.i, %if.else.i83.i ]
-  %29 = add i64 %retval.0.i85.i, %sub.ptr.sub.i
-  %sub41.i = sub i64 %add.i23, %29
-  %cmp42.not.i = icmp eq ptr %call33.i, %25
+  %30 = add i64 %retval.0.i85.i, %sub.ptr.sub.i
+  %sub41.i = sub i64 %add.i23, %30
+  %cmp42.not.i = icmp eq ptr %call33.i, %26
   br i1 %cmp42.not.i, label %if.end45.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %_mi_align_up.exit89.i
@@ -8268,11 +8268,11 @@ if.then43.i:                                      ; preds = %_mi_align_up.exit89
   br label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then43.i, %_mi_align_up.exit89.i
-  %cmp46.not.i = icmp eq i64 %add.i23, %29
+  %cmp46.not.i = icmp eq i64 %add.i23, %30
   br i1 %cmp46.not.i, label %mi_os_prim_alloc_aligned.exit, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.end45.i
-  %add.ptr.i = getelementptr i8, ptr %25, i64 %retval.0.i85.i
+  %add.ptr.i = getelementptr i8, ptr %26, i64 %retval.0.i85.i
   tail call fastcc void @mi_os_prim_free(ptr noundef %add.ptr.i, i64 noundef %sub41.i, i1 noundef zeroext %commit)
   br label %mi_os_prim_alloc_aligned.exit
 
@@ -8281,12 +8281,12 @@ mi_os_prim_alloc_aligned.exit:                    ; preds = %if.end45.i, %if.the
   br i1 %cmp6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end12.i21, %mi_os_prim_alloc_aligned.exit
-  %os_base.035 = phi ptr [ %25, %mi_os_prim_alloc_aligned.exit ], [ %call9.i, %if.end12.i21 ]
-  %30 = load i8, ptr %os_is_zero, align 1
-  %31 = load i8, ptr %os_is_large, align 1
+  %os_base.035 = phi ptr [ %26, %mi_os_prim_alloc_aligned.exit ], [ %call9.i, %if.end12.i21 ]
+  %31 = load i8, ptr %os_is_zero, align 1
+  %32 = load i8, ptr %os_is_large, align 1
   %frombool.i = zext i1 %commit to i8
-  %frombool1.i = and i8 %30, 1
-  %frombool2.i = and i8 %31, 1
+  %frombool1.i = and i8 %31, 1
+  %frombool2.i = and i8 %32, 1
   %tmp8.sroa.2.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 16
   store i8 %frombool2.i, ptr %tmp8.sroa.2.0.memid.sroa_idx, align 8
   %tmp8.sroa.3.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 17
